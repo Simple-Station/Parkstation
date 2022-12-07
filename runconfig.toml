@@ -1,6 +1,7 @@
 [game]
 hostname = "[US West][NRP] SimpleStation14 [Sandbox]"
 maxplayers = 16
+soft_max_players = 8
 type = 1
 welcomemsg = "Welcome to the server!"
 lobbyenabled = true
@@ -11,7 +12,7 @@ role_timers = false
 min_players = 8
 
 [rules]
-rules.time = 30
+rules.time = 45
 rules.exempt_local = false
 
 

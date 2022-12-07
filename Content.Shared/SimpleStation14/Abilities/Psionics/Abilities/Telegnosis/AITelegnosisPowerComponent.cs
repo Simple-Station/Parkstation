@@ -1,6 +1,6 @@
 using Content.Shared.Actions.ActionTypes;
 
-namespace Content.Shared.Abilities.Psionics
+namespace Content.Shared.Simplestation14.Abilities.Psionics
 {
     [RegisterComponent]
     public sealed class AITelegnosisPowerComponent : Component

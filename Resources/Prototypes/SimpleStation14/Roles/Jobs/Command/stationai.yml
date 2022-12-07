@@ -7,6 +7,13 @@
       time: 24000
   icon: "Unknown"
   supervisors: "all crew"
+  accessGroup:
+    - AllAccess
   canBeAntag: false
   jobEntity: AI
   startingGear: CyborgGear # for char preview only
+
+- type: startingGear
+  id: AIGear
+  equipment:
+    id: AIPDA

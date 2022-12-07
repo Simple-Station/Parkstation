@@ -2,15 +2,17 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.StatusEffect;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.SimpleStation14.Abilities.Psionics;
 using Content.Server.Mind.Components;
 using Content.Server.Visible;
 using Robust.Shared.Prototypes;
 using Robust.Server.GameObjects;
 using Content.Shared.MobState;
 using Content.Shared.MobState.EntitySystems;
+using Content.Server.Abilities.Psionics;
+using Content.Shared.Simplestation14.Abilities.Psionics;
 
-
-namespace Content.Server.Abilities.Psionics
+namespace Content.Server.SimpleStation14.Abilities.Psionics
 {
     public sealed class AITelegnosisPowerSystem : EntitySystem
     {
