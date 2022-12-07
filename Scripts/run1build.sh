@@ -1,0 +1,3 @@
+cd ../
+dotnet build
+pause
