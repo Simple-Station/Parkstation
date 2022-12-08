@@ -113,6 +113,15 @@
     - RegalRatNameKingdom
     - RegalRatNameTitle
   - type: PotentialPsionic
+  - type: IntrinsicRadioReceiver
+    channels:
+      - RatHive
+  - type: IntrinsicRadioTransmitter
+    channels:
+      - RatHive
+  - type: ActiveRadio
+    channels:
+      - RatHive
 
 - type: entity
   id: MobRatKingBuff
@@ -253,3 +262,12 @@
     price: 500 # rat wealth
   - type: MobsterAccent
     isBoss: false
+  - type: IntrinsicRadioReceiver
+    channels:
+      - RatHive
+  - type: IntrinsicRadioTransmitter
+    channels:
+      - RatHive
+  - type: ActiveRadio
+    channels:
+      - RatHive

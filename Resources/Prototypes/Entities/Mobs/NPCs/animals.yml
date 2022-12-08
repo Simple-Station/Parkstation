@@ -880,6 +880,15 @@
   - type: MobPrice
     price: 50
   - type: FelinidFood
+  - type: IntrinsicRadioReceiver
+    channels:
+      - RatHive
+  - type: IntrinsicRadioTransmitter
+    channels:
+      - RatHive
+  - type: ActiveRadio
+    channels:
+      - RatHive
 
 - type: entity
   parent: MobMouse

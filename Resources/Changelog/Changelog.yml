@@ -3501,6 +3501,8 @@ Entries:
     - { message: 'Disable a few species for roundstart, arachne, oni, dwarf, skeleton, vox.', type: Tweak }
     - { message: 'Add back the scream cooldown. "Why the fuck are the rats screaming so much??" -Centcomm', type: Fix }
     - { message: 'Add Urist McNars (SuperPsi).', type: Add }
+    - { message: 'RegalRats and mice have a rat hivemind radio channel (:r)', type: Add }
+    - { message: 'Xenos (spacemobs) have a Xeno hivemind radio channel (:x)', type: Add }
   id: 440000
   time: "2022-12-8T12:36:09.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }
