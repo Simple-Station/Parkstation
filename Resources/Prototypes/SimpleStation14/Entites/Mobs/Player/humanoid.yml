@@ -43,7 +43,6 @@
 - type: entity
   name: Urist McLing
   id: UristMcLing
-  suffix: admeme
   parent: MobHuman
   components:
     - type: GhostTakeoverAvailable
@@ -216,7 +215,7 @@
     - type: MassSleepPower
     - type: MetapsionicPower
     - type: MindSwapPower
-    - type: NoosphereZapPower
+    - type: NoosphericZapPower
     - type: PsionicInvisibilityPower
     - type: PsionicRegenerationPower
     - type: PyrokinesisPower
