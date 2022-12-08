@@ -4,16 +4,8 @@
   markingCategory: Tail
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
-      Vox,
-      Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Nyanotrasen/Mobs/Species/arachne.rsi

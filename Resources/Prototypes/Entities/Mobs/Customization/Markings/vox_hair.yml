@@ -4,16 +4,8 @@
   markingCategory: Hair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
@@ -24,16 +16,8 @@
   markingCategory: Hair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
@@ -44,16 +28,8 @@
   markingCategory: Hair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
@@ -64,16 +40,8 @@
   markingCategory: Hair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
@@ -84,16 +52,8 @@
   markingCategory: Hair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
@@ -104,16 +64,8 @@
   markingCategory: Hair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
@@ -124,16 +76,8 @@
   markingCategory: Hair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
@@ -144,16 +88,8 @@
   markingCategory: Hair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
@@ -164,16 +100,8 @@
   markingCategory: Hair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
@@ -184,16 +112,8 @@
   markingCategory: Hair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
@@ -204,16 +124,8 @@
   markingCategory: Hair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
@@ -224,16 +136,8 @@
   markingCategory: Hair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
@@ -244,16 +148,8 @@
   markingCategory: Hair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi

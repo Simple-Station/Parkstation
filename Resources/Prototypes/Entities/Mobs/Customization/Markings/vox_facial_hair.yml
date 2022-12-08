@@ -4,16 +4,8 @@
   markingCategory: FacialHair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_facial_hair.rsi
@@ -24,16 +16,8 @@
   markingCategory: FacialHair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_facial_hair.rsi
@@ -44,16 +28,8 @@
   markingCategory: FacialHair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_facial_hair.rsi
@@ -64,16 +40,8 @@
   markingCategory: FacialHair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_facial_hair.rsi
@@ -84,16 +52,8 @@
   markingCategory: FacialHair
   speciesRestriction:
     [
-      Human,
-      Felinid,
-      Reptilian,
-      SlimePerson,
       Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
+      SlimePerson,
     ]
   sprites:
     - sprite: Mobs/Customization/vox_facial_hair.rsi

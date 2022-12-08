@@ -3488,11 +3488,18 @@ Entries:
   time: "2022-12-6T20:48:00.0000000+00:00"
 - author: "Pspritechologist"
   changes:
-  - { message: 'Added the Chief Service Staff as a role, though no maps implement it yet.', type: Add }
-  - { message: 'Added Peacekeeper as a role! Pick up that can, citizen.', type: Add }
-  - { message: 'Made ALL of Sec blue! No longer are the good guys dressed like terrorists!', type: Tweak }
-  - { message: 'Fixed some colour inconsistencies within Service.', type: Tweak }
-  - { message: 'Modified the temperature coefficients of all outfits, including winter coats. Better start bundling up!', type: Tweak }
+    - { message: 'Added the Chief Service Staff as a role, though no maps implement it yet.', type: Add }
+    - { message: 'Added Peacekeeper as a role! Pick up that can, citizen.', type: Add }
+    - { message: 'Made ALL of Sec blue! No longer are the good guys dressed like terrorists!', type: Tweak }
+    - { message: 'Fixed some colour inconsistencies within Service.', type: Tweak }
+    - { message: 'Modified the temperature coefficients of all outfits, including winter coats. Better start bundling up!', type: Tweak }
   id: 450000
   time: "2022-12-6T20:49:00.0000000+00:00"
-#- { message: 'Something', type: Add/Remove/Tweak/Fix }
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Tweak species marking whitelist a bit to make more sense.', type: Tweak }
+    - { message: 'Disable a few species for roundstart, arachne, oni, dwarf, skeleton, vox.', type: Tweak }
+    - { message: 'Add back the scream cooldown. "Why the fuck are the rats screaming so much??" -Centcomm', type: Fix }
+  id: 440000
+  time: "2022-12-8T12:36:09.0000000+00:00"
+#  - { message: 'Something', type: Add/Remove/Tweak/Fix }

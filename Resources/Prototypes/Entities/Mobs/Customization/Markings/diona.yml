@@ -4,16 +4,11 @@
   markingCategory: Head
   speciesRestriction:
     [
-      Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Vox,
       Oni,
-      Lamia,
-      Arachne,
       Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/diona.rsi
@@ -25,16 +20,11 @@
   markingCategory: Chest
   speciesRestriction:
     [
-      Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Vox,
       Oni,
-      Lamia,
-      Arachne,
       Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/diona.rsi
@@ -46,16 +36,11 @@
   markingCategory: Head
   speciesRestriction:
     [
-      Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Vox,
       Oni,
-      Lamia,
-      Arachne,
       Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/diona.rsi
@@ -67,16 +52,11 @@
   markingCategory: Chest
   speciesRestriction:
     [
-      Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Vox,
       Oni,
-      Lamia,
-      Arachne,
       Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/diona.rsi
@@ -88,16 +68,11 @@
   markingCategory: Chest
   speciesRestriction:
     [
-      Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Vox,
       Oni,
-      Lamia,
-      Arachne,
       Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/diona.rsi
