@@ -4,16 +4,7 @@
   markingCategory: HeadSide
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
-      SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -25,16 +16,7 @@
   markingCategory: HeadSide
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
-      SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -46,16 +28,7 @@
   markingCategory: HeadSide
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
-      SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -67,16 +40,7 @@
   markingCategory: HeadSide
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
-      SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -88,16 +52,7 @@
   markingCategory: HeadSide
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
-      SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -109,16 +64,7 @@
   markingCategory: HeadSide
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
-      SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -130,16 +76,7 @@
   markingCategory: HeadSide
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
-      SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -364,16 +301,7 @@
   followSkinColor: true
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
-      SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -386,16 +314,7 @@
   followSkinColor: true
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
-      SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi

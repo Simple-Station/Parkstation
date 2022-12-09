@@ -6,14 +6,11 @@
   speciesRestriction:
     [
       Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
       Moth,
     ]
   sprites:
@@ -28,14 +25,11 @@
   speciesRestriction:
     [
       Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
       Moth,
     ]
   sprites:
@@ -50,14 +44,11 @@
   speciesRestriction:
     [
       Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
       Moth,
     ]
   sprites:
@@ -72,14 +63,11 @@
   speciesRestriction:
     [
       Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
       Moth,
     ]
   sprites:
@@ -94,14 +82,11 @@
   speciesRestriction:
     [
       Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
       Moth,
     ]
   sprites:
@@ -116,14 +101,11 @@
   speciesRestriction:
     [
       Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
       Moth,
     ]
   sprites:
@@ -138,14 +120,11 @@
   speciesRestriction:
     [
       Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
       Moth,
     ]
   sprites:

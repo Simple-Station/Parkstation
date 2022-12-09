@@ -22,7 +22,74 @@
       sprite: Markers/jobs.rsi
       state: centcom
     - type: Loadout
-      prototypes: [ CentcomGear ]
+      prototypes: [CentcomGear]
+
+# Oldstation
+- type: entity
+  parent: MobHuman
+  id: MobHumanOldstationCrewScientist
+  name: Oldstation Scientist
+  components:
+    - type: Loadout
+      prototype: OldstationCrewScientistGear
+      prototypes: [OldstationCrewScientistGear]
+    - type: RandomMetadata
+      nameSegments:
+        - names_first
+        - names_last
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanOldstationCrewEngineer
+  name: Oldstation Engineer
+  components:
+    - type: Loadout
+      prototype: OldstationCrewEngineerGear
+      prototypes: [OldstationCrewEngineerGear]
+    - type: RandomMetadata
+      nameSegments:
+        - names_first
+        - names_last
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanOldstationCrewSecurity
+  name: Oldstation Security
+  components:
+    - type: Loadout
+      prototype: OldstationCrewSecurityGear
+      prototypes: [OldstationCrewSecurityGear]
+    - type: RandomMetadata
+      nameSegments:
+        - names_first
+        - names_last
+
+# Misc ghost roles
+- type: entity
+  parent: MobHuman
+  id: MobHumanSpaceBartender
+  name: Space Bartender
+  components:
+    - type: Loadout
+      prototype: BartenderGear
+      prototypes: [BartenderGear]
+    - type: RandomMetadata
+      nameSegments:
+        - names_first
+        - names_last
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanSpaceCultist
+  name: Space Cultist
+  components:
+    - type: Loadout
+      prototype: CultistGear
+      prototypes: [CultistGear]
+    - type: RandomMetadata
+      nameSegments:
+        - names_wizard_first
+        - names_wizard_last
 
 # Syndicate
 - type: entity
@@ -32,7 +99,7 @@
   components:
     - type: Faction
       factions:
-      - Syndicate
+        - Syndicate
     - type: Loadout
       prototype: SyndicateOperativeGearExtremelyBasic
       prototypes: [SyndicateOperativeGearExtremelyBasic]
@@ -43,7 +110,6 @@
 - type: entity
   name: Urist McLing
   id: UristMcLing
-  suffix: admeme
   parent: MobHuman
   components:
     - type: GhostTakeoverAvailable
@@ -71,13 +137,13 @@
         300: Dead
     - type: StatusEffects
       allowed:
-      - Stun
-      - SlowedDown
-      - Stutter
-      - Electrocution
+        - Stun
+        - SlowedDown
+        - Stutter
+        - Electrocution
     - type: Access
       groups:
-      - AllAccess
+        - AllAccess
     # - type: AutoRegenReagent
     #   solution: chemicals
     #   reagents:
@@ -85,17 +151,16 @@
     #   unitsPerSecond: 0.1
     - type: Faction
       factions:
-      - SimpleHostile
-      - Xeno
+        - SimpleHostile
+        - Xeno
     # - type: RandomHumanoidAppearance # Removes random names :(
-
 
 # Wizard
 - type: entity
   name: Urist McWizard
   id: UristMcWizardBase
   suffix: base
-  noSpawn: true
+  abstract: true
   parent: MobHuman
   components:
     - type: GhostTakeoverAvailable
@@ -104,10 +169,11 @@
         You have been sent to the station via bluespace and wizard magic. Your goal is to kill as many people as possible and destroy the station.
         You can gain more "BS" (Bluespace) for your uplink by completing Oracle quests.
         You are considered KOS (Kill On Sight) so be careful wandering the station for the Oracle's items.
+        If you encounter an Urist McNars (SuperPsi), you may team up with them or kill them. The SuperPsi is able to steal and use your spellbooks, be very careful.
     - type: RandomMetadata
       nameSegments:
-      - names_wizard_first
-      - names_wizard_last
+        - names_wizard_first
+        - names_wizard_last
     - type: SlowOnDamage
       speedModifierThresholds:
         60: 0.8
@@ -120,15 +186,16 @@
         300: Dead
     - type: StatusEffects
       allowed:
-      - Stun
-      - KnockedDown
-      - SlowedDown
-      - Stutter
-      - Electrocution
+        - Stun
+        - KnockedDown
+        - SlowedDown
+        - Stutter
+        - Electrocution
     - type: Faction
       factions:
-      - SimpleHostile
+        - SimpleHostile
     - type: SpellbookUser
+    - type: BibleUser
     # - type: RandomHumanoidAppearance # Removes random names :(
 
 - type: entity
@@ -170,3 +237,53 @@
     - type: Loadout
       prototype: WizardHardsuitGear
       prototypes: [WizardHardsuitGear]
+
+# SuperPsi - Urist McNars
+- type: entity
+  name: Urist McNars
+  id: UristMcNars
+  parent: MobHuman
+  components:
+    - type: GhostTakeoverAvailable
+      name: Urist McNars
+      description: |
+        You have been sent to the station via the Noosphere. Your goal is to kill as many people as possible and destroy the station.
+        You have been given every Psionic power via the Noosphere, you should be theoretically unstoppable if you time everything right.
+        If you encounter a Wizard, you can team up with them or kill and steal their spells, you ARE a SpellBookUser.
+    - type: RandomMetadata
+      nameSegments:
+        - names_wizard_first
+        - names_wizard_last
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        60: 0.8
+        120: 0.6
+        180: 0.4
+        240: 0.2
+    - type: MobState
+      thresholds:
+        0: Alive
+        300: Dead
+    - type: StatusEffects
+      allowed:
+        - Stun
+        - KnockedDown
+        - SlowedDown
+        - Electrocution
+    - type: Faction
+      factions:
+        - SimpleHostile
+    - type: SpellbookUser
+    - type: BibleUser
+    # - type: RandomHumanoidAppearance # Removes random names :(
+
+    - type: DispelPower
+    - type: MassSleepPower
+    - type: MetapsionicPower
+    - type: MindSwapPower
+    - type: NoosphericZapPower
+    - type: PsionicInvisibilityPower
+    - type: PsionicRegenerationPower
+    - type: PyrokinesisPower
+    - type: RFSensitivityPower
+    - type: TelegnosisPower

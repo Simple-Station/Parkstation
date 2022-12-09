@@ -67,3 +67,17 @@
   keycode: 'b'
   frequency: 0101
   color: "#cfe2f3" #sadly can't jojoke because black colors are too hard to read in this ui
+
+- type: radioChannel
+  id: XenoHive
+  name: Xeno Hivemind
+  keycode: 'x'
+  frequency: 0000
+  color: "#2e672c"
+
+- type: radioChannel
+  id: RatHive
+  name: Rat Hivemind
+  keycode: 'r'
+  frequency: 0001
+  color: "#69644d"
