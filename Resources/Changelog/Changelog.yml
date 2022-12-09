@@ -3505,4 +3505,10 @@ Entries:
     - { message: 'Xenos (spacemobs) have a Xeno hivemind radio channel (:x)', type: Add }
   id: 440000
   time: "2022-12-8T12:36:09.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Add trait categories and sorting.', type: Add }
+    - { message: 'Add unused trait point values. (soon™)', type: Add }
+  id: 450000
+  time: "2022-12-9T13:19:09.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }

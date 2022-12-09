@@ -139,8 +139,20 @@
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical" Margin="10">
                     <!-- Traits -->
+                    <Label Text="Available Points (unused)" />
+                    <Label Text="0" Name="TraitPoints" />
+                    <Label Text="" />
+                    <Label Text="Positive" />
                     <ScrollContainer VerticalExpand="True">
-                        <BoxContainer Name="CTraitsList" Orientation="Vertical" />
+                        <BoxContainer Name="CPTraitsList" Orientation="Vertical" />
+                    </ScrollContainer>
+                    <Label Text="Equal" />
+                    <ScrollContainer VerticalExpand="True">
+                        <BoxContainer Name="CETraitsList" Orientation="Vertical" />
+                    </ScrollContainer>
+                    <Label Text="Negative" />
+                    <ScrollContainer VerticalExpand="True">
+                        <BoxContainer Name="CNTraitsList" Orientation="Vertical" />
                     </ScrollContainer>
                 </BoxContainer>
                 <BoxContainer Name="CMarkingsTab" Orientation="Vertical" Margin="10">

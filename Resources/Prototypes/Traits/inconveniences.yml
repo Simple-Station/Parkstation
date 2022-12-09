@@ -2,6 +2,8 @@
   id: UncontrollableSneezing
   name: trait-sneezing-name
   description: trait-sneezing-desc
+  cost: 0
+  category: Equal
   whitelist:
     components:
       - DiseaseCarrier
