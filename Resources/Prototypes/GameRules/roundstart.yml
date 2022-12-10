@@ -72,6 +72,18 @@
 #     !type:GenericGameRuleConfiguration
 #     id: XenoOutbreak
 
+- type: gameRule
+  id: Wizard
+  config:
+    !type:GenericGameRuleConfiguration
+    id: Wizard
+
+- type: gameRule
+  id: Minor
+  config:
+    !type:GenericGameRuleConfiguration
+    id: Minor
+
 # event schedulers
 - type: gameRule
   id: BasicStationEventScheduler

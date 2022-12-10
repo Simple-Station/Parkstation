@@ -174,7 +174,7 @@ public sealed class SuspicionRuleSystem : GameRuleSystem
             traitors.Add(traitorRole);
 
             // try to place uplink
-            if (!_uplink.AddUplink(mind.OwnedEntity!.Value, traitorStartingBalance))
+            if (!_uplink.AddUplink(mind.OwnedEntity!.Value, traitorStartingBalance, "StorePresetUplink"))
                 continue;
         }
 

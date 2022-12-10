@@ -3,7 +3,7 @@
   alias:
     - survival
   name: survival-title
-  showInVote: true # secret
+  showInVote: false # secret
   description: survival-description
   rules:
     - RampingStationEventScheduler
@@ -14,7 +14,7 @@
   - extended
   - shittersafari
   name: extended-title
-  showInVote: true
+  showInVote: false
   description: extended-description
   rules:
   - BasicStationEventScheduler
@@ -36,7 +36,7 @@
     - sandbox
   name: sandbox-title
   description: sandbox-description
-  showInVote: true
+  showInVote: false
   rules:
     - Sandbox
 
@@ -46,7 +46,7 @@
     - traitor
   name: traitor-title
   description: traitor-description
-  showInVote: true
+  showInVote: false
   rules:
     - Traitor
     - BasicStationEventScheduler
@@ -58,7 +58,7 @@
     - sus
   name: suspicion-title
   description: suspicion-description
-  showInVote: true
+  showInVote: false
   rules:
     - Suspicion
 
@@ -69,7 +69,7 @@
     - dm
   name: death-match-title
   description: death-match-description
-  showInVote: true
+  showInVote: false
   rules:
     - DeathMatch
 
@@ -80,7 +80,7 @@
     - traitordeathmatch
   name: traitor-death-match-title
   description: traitor-death-match-description
-  showInVote: true
+  showInVote: false
   rules:
     - TraitorDeathMatch
     # - MaxTimeRestart
@@ -91,7 +91,7 @@
     - nukeops
   name: nukeops-title
   description: nukeops-description
-  showInVote: true
+  showInVote: false
   rules:
     - Nukeops
     - BasicStationEventScheduler
@@ -106,7 +106,7 @@
     - zomber
   name: zombie-title
   description: zombie-description
-  showInVote: true
+  showInVote: false
   rules:
     - Zombie
     - BasicStationEventScheduler
@@ -117,7 +117,7 @@
     - pirates
   name: pirates-title
   description: pirates-description
-  showInVote: true
+  showInVote: false
   rules:
     - Pirates
     - BasicStationEventScheduler
@@ -126,7 +126,29 @@
 #   id: XenoOutbreak
 #   name: Xeno outbreak
 #   description: A few people have been infected with XenoVirus, one becomes a queen, the others a drone, serving the queen. Kill the Xenos before they kill you.
-#   showInVote: true
+#   showInVote: false
 #   rules:
 #     - XenoOutbreak
 #     - RampingStationEventScheduler
+
+- type: gamePreset
+  id: Wizard
+  name: Wizard
+  alias:
+    - wizard
+  description: Wizard
+  showInVote: false
+  rules:
+    - Wizard
+    - BasicStationEventScheduler
+
+- type: gamePreset
+  id: Minor
+  name: Minor (TEST)
+  alias:
+    - minor
+  description: ADD MINOR TO OTHER GAMMEODES AAAA
+  showInVote: false
+  rules:
+    - Minor
+    - BasicStationEventScheduler
