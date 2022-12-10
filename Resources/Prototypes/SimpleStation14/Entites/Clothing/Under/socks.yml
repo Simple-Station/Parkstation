@@ -4,8 +4,13 @@
   id: ClothingUnderSocksBase
   components:
     - type: Clothing
+      quickEquip: true
       slots:
         - SOCKS
+    - type: Sprite
+      netsync: false
+      noRot: true
+      state: icon
 
 - type: entity
   parent: ClothingUnderSocksBase

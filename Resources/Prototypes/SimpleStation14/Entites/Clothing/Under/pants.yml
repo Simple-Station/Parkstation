@@ -4,16 +4,18 @@
   id: ClothingUnderPantsBase
   components:
     - type: Clothing
+      quickEquip: true
       slots:
         - UNDERPANTS
     - type: Sprite
+      netsync: false
+      noRot: true
       state: icon
 
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderbee_shorts
   name: bee_shorts
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -27,7 +29,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxer_briefs
   name: boxer_briefs
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -41,7 +42,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_assblastusa
   name: boxers_assblastusa
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -55,7 +55,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_commie
   name: boxers_commie
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -69,7 +68,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_heart
   name: boxers_heart
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -83,7 +81,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_striped
   name: boxers_striped
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -97,7 +94,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_uk
   name: boxers_uk
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -111,7 +107,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers
   name: boxers
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -125,7 +120,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderbriefs
   name: briefs
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -139,7 +133,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderfishnet_lower
   name: fishnet_lower
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -153,7 +146,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderjockstrap
   name: jockstrap
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -167,7 +159,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderljonb
   name: ljonb
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -181,7 +172,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_alt
   name: panties_alt
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -195,7 +185,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_assblastusa
   name: panties_assblastusa
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -209,7 +198,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_bee-kini
   name: panties_bee-kini
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -223,7 +211,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_commie
   name: panties_commie
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -237,7 +224,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_kinky
   name: panties_kinky
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -251,7 +237,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_neko
   name: panties_neko
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -265,7 +250,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_slim
   name: panties_slim
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -279,7 +263,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_swimming
   name: panties_swimming
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -293,7 +276,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_thin
   name: panties_thin
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -307,7 +289,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_uk
   name: panties_uk
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -321,7 +302,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties
   name: panties
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -335,7 +315,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpantyhose_ripped
   name: pantyhose_ripped
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -349,7 +328,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpantyhose
   name: pantyhose
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -363,7 +341,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderstriped_panties
   name: striped_panties
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -377,7 +354,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderthong_babydoll
   name: thong_babydoll
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -391,7 +367,6 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderthong
   name: thong
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
