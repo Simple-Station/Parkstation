@@ -458,8 +458,8 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsNotNull(jobDepartment,
                     "MailSystem was unable to match the assistant job title to a department.");
 
-                Assert.That(jobDepartment, Is.EqualTo("Civilian"),
-                    "MailSystem was unable to match the assistant job title to the Civilian department.");
+                Assert.That(jobDepartment, Is.EqualTo("Service"),
+                    "MailSystem was unable to match the assistant job title to the Service department.");
             });
 
             await pairTracker.CleanReturnAsync();

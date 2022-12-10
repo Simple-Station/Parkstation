@@ -1,6 +1,6 @@
 - type: job
   id: ChiefServiceStaff
-  name: "CSS"
+  name: "chief service staff"
   playTimeTracker: JobHeadOfPersonnel
   requirements:
     - !type:DepartmentTimeRequirement

@@ -1,5 +1,5 @@
 department-Cargo = cargo
-department-Civilian = civilian
+department-Service = service
 department-Command = command
 department-Engineering = engineering
 department-Medical = medical

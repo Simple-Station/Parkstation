@@ -1081,7 +1081,7 @@ namespace Content.Shared.CCVar
         ///     specific order.
         /// </summary>
         public static readonly CVarDef<string> CrewManifestOrdering =
-            CVarDef.Create("crewmanifest.ordering", "Command,Security,Science,Medical,Engineering,Cargo,Civilian,Unknown",
+            CVarDef.Create("crewmanifest.ordering", "Command,Security,Science,Medical,Engineering,Cargo,Service,Unknown",
                 CVar.REPLICATED);
 
         /*
