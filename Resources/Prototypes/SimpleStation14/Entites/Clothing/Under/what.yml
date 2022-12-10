@@ -4,11 +4,14 @@
   id: ClothingUnderWhatBase
   components:
     - type: Clothing
+      quickEquip: true
       slots:
         - SOCKS
         - UNDERPANTS
         - UNDERSHIRT
     - type: Sprite
+      netsync: false
+      noRot: true
       state: icon
 
 - type: entity

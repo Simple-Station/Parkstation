@@ -111,4 +111,4 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
-      - state: security
+      - state: security_officer

@@ -3511,4 +3511,14 @@ Entries:
     - { message: 'Add unused trait point values. (soon™)', type: Add }
   id: 450000
   time: "2022-12-9T13:19:09.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Socks and feet render underneath the jumpsuit, meaning thigh highs and skirts will look cool.', type: Fix }
+    - { message: "Adminghost has SpellbookUser and BibleUser components again. (why'd they disappear?)", type: Fix }
+    - { message: 'Flamethrower. Fire. Everything is on fire. Death is imminent. Run.', type: Add }
+    - { message: 'Underwear can be quick equipped.', type: Tweak }
+    - { message: 'Underwear have a blank description instead of DESCRIPTION.', type: Remove }
+    - { message: "Underwear do not rotate when on the ground. (they're still off-center...)", type: Tweak }
+  id: 460000
+  time: "2022-12-10T01:07:39.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }
