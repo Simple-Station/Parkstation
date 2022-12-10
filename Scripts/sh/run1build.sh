@@ -1,3 +1,3 @@
-cd ../
+cd ../../
 dotnet build
 pause

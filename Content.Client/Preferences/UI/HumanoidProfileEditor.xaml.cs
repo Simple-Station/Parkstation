@@ -73,7 +73,9 @@ namespace Content.Client.Preferences.UI
         private TabContainer _tabContainer => CTabContainer;
         private BoxContainer _jobList => CJobList;
         private BoxContainer _antagList => CAntagList;
-        private BoxContainer _traitsList => CTraitsList;
+        private BoxContainer _ptraitsList => CPTraitsList;
+        private BoxContainer _etraitsList => CETraitsList;
+        private BoxContainer _ntraitsList => CNTraitsList;
         private readonly List<JobPrioritySelector> _jobPriorities;
         private OptionButton _preferenceUnavailableButton => CPreferenceUnavailableButton;
         private readonly Dictionary<string, BoxContainer> _jobCategories;
@@ -266,7 +268,7 @@ namespace Content.Client.Preferences.UI
                 IsDirty = true;
             };
 
-            _hairPicker.OnSlotAdd += delegate()
+            _hairPicker.OnSlotAdd += delegate ()
             {
                 if (Profile is null)
                     return;
@@ -286,7 +288,7 @@ namespace Content.Client.Preferences.UI
                 IsDirty = true;
             };
 
-            _facialHairPicker.OnSlotAdd += delegate()
+            _facialHairPicker.OnSlotAdd += delegate ()
             {
                 if (Profile is null)
                     return;
@@ -359,7 +361,7 @@ namespace Content.Client.Preferences.UI
                 (int) PreferenceUnavailableMode.StayInLobby);
             _preferenceUnavailableButton.AddItem(
                 Loc.GetString("humanoid-profile-editor-preference-unavailable-spawn-as-overflow-button",
-                              ("overflowJob", Loc.GetString(SharedGameTicker.FallbackOverflowJobName))),
+                                ("overflowJob", Loc.GetString(SharedGameTicker.FallbackOverflowJobName))),
                 (int) PreferenceUnavailableMode.SpawnAsOverflow);
 
             _preferenceUnavailableButton.OnItemSelected += args =>
@@ -404,7 +406,7 @@ namespace Content.Client.Preferences.UI
 
                     category.AddChild(new PanelContainer
                     {
-                        PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#464966")},
+                        PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#464966") },
                         Children =
                         {
                             new Label
@@ -500,20 +502,48 @@ namespace Content.Client.Preferences.UI
             {
                 foreach (var trait in traits)
                 {
-                    var selector = new TraitPreferenceSelector(trait);
-                    _traitsList.AddChild(selector);
-                    _traitPreferences.Add(selector);
-
-                    selector.PreferenceChanged += preference =>
+                    if (trait.Category == "Positive")
                     {
-                        Profile = Profile?.WithTraitPreference(trait.ID, preference);
-                        IsDirty = true;
-                    };
+                        var selector = new TraitPreferenceSelector(trait);
+                        _ptraitsList.AddChild(selector);
+                        _traitPreferences.Add(selector);
+
+                        selector.PreferenceChanged += preference =>
+                        {
+                            Profile = Profile?.WithTraitPreference(trait.ID, preference);
+                            IsDirty = true;
+                        };
+                    }
+                    else if (trait.Category == "Equal")
+                    {
+                        var selector = new TraitPreferenceSelector(trait);
+                        _etraitsList.AddChild(selector);
+                        _traitPreferences.Add(selector);
+
+                        selector.PreferenceChanged += preference =>
+                        {
+                            Profile = Profile?.WithTraitPreference(trait.ID, preference);
+                            IsDirty = true;
+                        };
+                    }
+                    else if (trait.Category == "Negative")
+                    {
+                        var selector = new TraitPreferenceSelector(trait);
+                        _ntraitsList.AddChild(selector);
+                        _traitPreferences.Add(selector);
+
+                        selector.PreferenceChanged += preference =>
+                        {
+                            Profile = Profile?.WithTraitPreference(trait.ID, preference);
+                            IsDirty = true;
+                        };
+                    }
+                    else continue;
                 }
             }
             else
             {
-                _traitsList.AddChild(new Label
+                _ptraitsList.AddChild(new Label
                 {
                     Text = "No traits available :(",
                     FontColorOverride = Color.Gray,
@@ -635,45 +665,45 @@ namespace Content.Client.Preferences.UI
             switch (skin)
             {
                 case HumanoidSkinColor.HumanToned:
-                {
-                    if (!_skinColor.Visible)
                     {
-                        _skinColor.Visible = true;
-                        _rgbSkinColorContainer.Visible = false;
+                        if (!_skinColor.Visible)
+                        {
+                            _skinColor.Visible = true;
+                            _rgbSkinColorContainer.Visible = false;
+                        }
+
+                        var color = SkinColor.HumanSkinTone((int) _skinColor.Value);
+
+                        CMarkings.CurrentSkinColor = color;
+                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+                        break;
                     }
-
-                    var color = SkinColor.HumanSkinTone((int) _skinColor.Value);
-
-                    CMarkings.CurrentSkinColor = color;
-                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-                    break;
-                }
                 case HumanoidSkinColor.Hues:
-                {
-                    if (!_rgbSkinColorContainer.Visible)
                     {
-                        _skinColor.Visible = false;
-                        _rgbSkinColorContainer.Visible = true;
-                    }
+                        if (!_rgbSkinColorContainer.Visible)
+                        {
+                            _skinColor.Visible = false;
+                            _rgbSkinColorContainer.Visible = true;
+                        }
 
-                    CMarkings.CurrentSkinColor = _rgbSkinColorSelector.Color;
-                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(_rgbSkinColorSelector.Color));
-                    break;
-                }
+                        CMarkings.CurrentSkinColor = _rgbSkinColorSelector.Color;
+                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(_rgbSkinColorSelector.Color));
+                        break;
+                    }
                 case HumanoidSkinColor.TintedHues:
-                {
-                    if (!_rgbSkinColorContainer.Visible)
                     {
-                        _skinColor.Visible = false;
-                        _rgbSkinColorContainer.Visible = true;
+                        if (!_rgbSkinColorContainer.Visible)
+                        {
+                            _skinColor.Visible = false;
+                            _rgbSkinColorContainer.Visible = true;
+                        }
+
+                        var color = SkinColor.TintedHues(_rgbSkinColorSelector.Color);
+
+                        CMarkings.CurrentSkinColor = color;
+                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+                        break;
                     }
-
-                    var color = SkinColor.TintedHues(_rgbSkinColorSelector.Color);
-
-                    CMarkings.CurrentSkinColor = color;
-                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-                    break;
-                }
             }
 
             IsDirty = true;
@@ -840,7 +870,7 @@ namespace Content.Client.Preferences.UI
 
         private void UpdateFlavorTextEdit()
         {
-            if(_flavorTextEdit != null)
+            if (_flavorTextEdit != null)
             {
                 _flavorTextEdit.Text = Profile?.FlavorText ?? "";
             }
@@ -867,7 +897,8 @@ namespace Content.Client.Preferences.UI
                 {
                     sexes.Add(sex);
                 }
-            } else
+            }
+            else
             {
                 sexes.Add(Sex.Unsexed);
             }
@@ -894,41 +925,41 @@ namespace Content.Client.Preferences.UI
             switch (skin)
             {
                 case HumanoidSkinColor.HumanToned:
-                {
-                    if (!_skinColor.Visible)
                     {
-                        _skinColor.Visible = true;
-                        _rgbSkinColorContainer.Visible = false;
+                        if (!_skinColor.Visible)
+                        {
+                            _skinColor.Visible = true;
+                            _rgbSkinColorContainer.Visible = false;
+                        }
+
+                        _skinColor.Value = SkinColor.HumanSkinToneFromColor(Profile.Appearance.SkinColor);
+
+                        break;
                     }
-
-                    _skinColor.Value = SkinColor.HumanSkinToneFromColor(Profile.Appearance.SkinColor);
-
-                    break;
-                }
                 case HumanoidSkinColor.Hues:
-                {
-                    if (!_rgbSkinColorContainer.Visible)
                     {
-                        _skinColor.Visible = false;
-                        _rgbSkinColorContainer.Visible = true;
-                    }
+                        if (!_rgbSkinColorContainer.Visible)
+                        {
+                            _skinColor.Visible = false;
+                            _rgbSkinColorContainer.Visible = true;
+                        }
 
-                    // set the RGB values to the direct values otherwise
-                    _rgbSkinColorSelector.Color = Profile.Appearance.SkinColor;
-                    break;
-                }
+                        // set the RGB values to the direct values otherwise
+                        _rgbSkinColorSelector.Color = Profile.Appearance.SkinColor;
+                        break;
+                    }
                 case HumanoidSkinColor.TintedHues:
-                {
-                    if (!_rgbSkinColorContainer.Visible)
                     {
-                        _skinColor.Visible = false;
-                        _rgbSkinColorContainer.Visible = true;
-                    }
+                        if (!_rgbSkinColorContainer.Visible)
+                        {
+                            _skinColor.Visible = false;
+                            _rgbSkinColorContainer.Visible = true;
+                        }
 
-                    // set the RGB values to the direct values otherwise
-                    _rgbSkinColorSelector.Color = Profile.Appearance.SkinColor;
-                    break;
-                }
+                        // set the RGB values to the direct values otherwise
+                        _rgbSkinColorSelector.Color = Profile.Appearance.SkinColor;
+                        break;
+                    }
             }
 
         }
@@ -1142,7 +1173,7 @@ namespace Content.Client.Preferences.UI
                     Text = Loc.GetString("role-timer-locked"),
                     Visible = true,
                     HorizontalAlignment = HAlignment.Center,
-                    StyleClasses = {StyleBase.StyleClassLabelSubText},
+                    StyleClasses = { StyleBase.StyleClassLabelSubText },
                 };
 
                 _lockStripe = new StripeBack()
@@ -1238,7 +1269,7 @@ namespace Content.Client.Preferences.UI
             {
                 Antag = antag;
 
-                _checkBox = new CheckBox {Text = $"{antag.Name}"};
+                _checkBox = new CheckBox { Text = $"{antag.Name}" };
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
                 if (antag.Description != null)
@@ -1280,7 +1311,7 @@ namespace Content.Client.Preferences.UI
             {
                 Trait = trait;
 
-                _checkBox = new CheckBox {Text = $"{trait.Name}"};
+                _checkBox = new CheckBox { Text = $"[{trait.Cost}] {trait.Name}" };
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
                 if (trait.Description != null)

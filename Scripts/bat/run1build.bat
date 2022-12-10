@@ -1,4 +1,4 @@
 @echo off
-cd ../
+cd ../../
 call dotnet build
 pause
