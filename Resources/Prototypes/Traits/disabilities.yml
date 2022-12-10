@@ -2,6 +2,8 @@
   id: Blindness
   name: trait-blindness-name
   description: trait-blindness-desc
+  cost: 7
+  category: Negative
   whitelist:
     components:
       - Blindable
@@ -12,6 +14,8 @@
   id: Narcolepsy
   name: trait-narcolepsy-name
   description: trait-narcolepsy-decs
+  cost: 3
+  category: Negative
   components:
     - type: Narcolepsy
       timeBetweenIncidents: 300, 600
@@ -20,6 +24,8 @@
 - type: trait
   id: Pacifist
   name: trait-pacifist-name
+  cost: 4
+  category: Negative
   components:
     - type: Pacifist
 
@@ -27,5 +33,7 @@
   id: Colorblindness
   name: Colorblindness
   description: You are only able to see certain colors, similarly to a dog's vision.
+  cost: 3
+  category: Negative
   components:
     - type: DogVision

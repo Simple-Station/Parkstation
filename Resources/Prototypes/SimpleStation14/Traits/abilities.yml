@@ -1,7 +1,9 @@
 # - type: trait
 #   id: Religious
 #   name: Religious
-#   description: Allows you to use Bibles and Spellbooks (only spellbooks for now, bible is buggy, this is also probably a temporary name).
+#   description: Allows you to use Bibles and Spellbooks.
+#   cost: -3
+#   category: Positive
 #   components:
 #     - type: BibleUser # Need to fix addComponentSpecial to check if component already exists, else it causes a fatal error
 #     - type: SpellbookUser # This works for now though since nobody except wizards (which are ghost role, and can't get traits) have this component
@@ -10,6 +12,8 @@
   id: DragonsBlood
   name: Draconic Bloodstream
   description: You have some of the great Space Dragon's healing abilities, and have Ichor in your blood.
+  cost: -6
+  category: Positive
   components:
     - type: AutoRegenReagent
       solution: chemicals
@@ -21,5 +25,7 @@
 #   id: Arachnid
 #   name: Arachnid
 #   description: Allows you to spin webs, like the Arachne.
+#   cost: -2
+#   category: Positive
 #   components:
 #     - type: Arachne
