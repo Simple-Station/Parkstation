@@ -39,6 +39,7 @@
   - ServiceWorker
   - TechnicalAssistant
   - Quartermaster
+  - Prisoner
 
 - type: department
   id: Engineering
