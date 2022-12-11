@@ -17,9 +17,8 @@ namespace Content.Server.SimpleStation14.Nanites
         {
             base.Initialize();
 
-            // SubscribeLocalEvent<NaniteHostComponent, NaniteTrigger>(OnTrigger);
             SubscribeLocalEvent<NaniteHostComponent, NaniteButtonTrigger>(OnButtonTrigger);
-            SubscribeLocalEvent<NaniteHostComponent, NaniteProgramDeleted>(OnProgramDeleted);
+            SubscribeLocalEvent<NaniteHostComponent, NaniteButtonProgramDeleted>(OnProgramDeleted);
         }
 
         public override void Update(float frameTime)
@@ -68,17 +67,12 @@ namespace Content.Server.SimpleStation14.Nanites
             }
         }
 
-        // private void OnTrigger(EntityUid uid, NaniteHostComponent Nanites, NaniteTrigger args)
-        // {
-
-        // }
-
-        private void OnButtonTrigger(EntityUid uid, NaniteHostComponent Nanites, NaniteButtonTrigger args)
+        public void OnButtonTrigger(EntityUid uid, NaniteHostComponent Nanites, NaniteButtonTrigger args)
         {
             Console.WriteLine(args);
         }
 
-        private void OnProgramDeleted(EntityUid uid, NaniteHostComponent Nanites, NaniteProgramDeleted args)
+        public void OnProgramDeleted(EntityUid uid, NaniteHostComponent Nanites, NaniteButtonProgramDeleted args)
         {
             var Program = args.Program;
             if (Program.Type != "Button") return;
@@ -95,4 +89,7 @@ namespace Content.Server.SimpleStation14.Nanites
     }
 
     public sealed class NaniteButtonTrigger : InstantActionEvent { }
+    public sealed class NaniteButtonProgramDeleted : EntityEventArgs {
+        public NaniteProgram Program = new();
+    }
 }

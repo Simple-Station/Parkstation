@@ -2,3 +2,4 @@
   id: Button
   program: Button
   showInHub: true
+  onDeleteEvent: NaniteButtonProgramDeleted

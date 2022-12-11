@@ -14,7 +14,7 @@ namespace Content.Server.SimpleStation14.Nanites
 
             // (comment if not wanted)
             SubscribeLocalEvent<NaniteHostComponent, NaniteTrigger>(OnTrigger);
-            SubscribeLocalEvent<NaniteHostComponent, NaniteProgramDeleted>(OnProgramDeleted);
+            SubscribeLocalEvent<NaniteHostComponent, NaniteTemplateProgramDeleted>(OnProgramDeleted);
         }
 
         // PASSIVE nanite functions (comment if not wanted, else shit will break)
@@ -34,12 +34,12 @@ namespace Content.Server.SimpleStation14.Nanites
         }
 
         // TRIGGERED nanite functions (comment if not wanted)
-        private void OnTrigger(EntityUid uid, NaniteHostComponent Nanites, NaniteTrigger args)
+        public void OnTrigger(EntityUid uid, NaniteHostComponent Nanites, NaniteTrigger args)
         {
             // Do something
         }
 
-        private void OnProgramDeleted(EntityUid uid, NaniteHostComponent Nanites, NaniteProgramDeleted args)
+        public void OnProgramDeleted(EntityUid uid, NaniteHostComponent Nanites, NaniteTemplateProgramDeleted args)
         {
             var Program = args.Program;
             // Replace Program with your program Type
@@ -47,5 +47,10 @@ namespace Content.Server.SimpleStation14.Nanites
 
             // Do something
         }
+    }
+
+    // Replace Template with program Type
+    public sealed class NaniteTemplateProgramDeleted : EntityEventArgs {
+        public NaniteProgram Program = new();
     }
 }

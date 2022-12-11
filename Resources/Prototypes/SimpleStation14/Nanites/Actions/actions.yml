@@ -5,6 +5,6 @@
   useDelay: 3
   itemIconStyle: BigAction
   icon:
-    sprite: Objects/Magic/magicactions.rsi
-    state: shield
+    sprite: SimpleStation14/Nanites/action.rsi
+    state: bci_blank
   serverEvent: !type:NaniteButtonTrigger

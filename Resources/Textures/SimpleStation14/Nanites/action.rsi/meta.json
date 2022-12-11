@@ -1,0 +1,105 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bci_blank"
+        },
+        {
+            "name": "bci_one"
+        },
+        {
+            "name": "bci_two"
+        },
+        {
+            "name": "bci_three"
+        },
+        {
+            "name": "bci_four"
+        },
+        {
+            "name": "bci_fiv"
+        },
+        {
+            "name": "bci_plus"
+        },
+        {
+            "name": "bci_minus"
+        },
+        {
+            "name": "bci_power"
+        },
+        {
+            "name": "bci_heart"
+        },
+        {
+            "name": "bci_skull"
+        },
+        {
+            "name": "bci_radioactive"
+        },
+        {
+            "name": "bci_scan"
+        },
+        {
+            "name": "bci_info"
+        },
+        {
+            "name": "bci_cross"
+        },
+        {
+            "name": "bci_repair"
+        },
+        {
+            "name": "bci_exclamation"
+        },
+        {
+            "name": "bci_question"
+        },
+        {
+            "name": "bci_id"
+        },
+        {
+            "name": "bci_wireless"
+        },
+        {
+            "name": "bci_say"
+        },
+        {
+            "name": "bci_brain"
+        },
+        {
+            "name": "bci_brain_damage"
+        },
+        {
+            "name": "bci_injection"
+        },
+        {
+            "name": "bci_electricity"
+        },
+        {
+            "name": "bci_magnetism"
+        },
+        {
+            "name": "bci_sleep"
+        },
+        {
+            "name": "bci_bomb"
+        },
+        {
+            "name": "bci_reaction"
+        },
+        {
+            "name": "bci_shield"
+        },
+        {
+            "name": "bci_network"
+        },
+        {
+            "name": "bci_blood"
+        }
+    ]
+}
