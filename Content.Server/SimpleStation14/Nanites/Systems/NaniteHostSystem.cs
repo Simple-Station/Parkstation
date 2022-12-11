@@ -46,15 +46,24 @@ namespace Content.Server.SimpleStation14.Nanites
             NaniteProgram program1 = new() {
                 EName = "Nanite Clot 1",
                 EDescription = "Does something when tapped 1",
+                ETrigger = 0,
                 Type = "Button",
             };
             Nanite.Programs.Add(program1);
             NaniteProgram program2 = new() {
                 EName = "Nanite Clot 2",
                 EDescription = "Does something when tapped 2",
+                ETrigger = 1,
                 Type = "Button",
             };
             Nanite.Programs.Add(program2);
+            NaniteProgram program3 = new() {
+                EName = "Nanite Clot 3",
+                EDescription = "Does something when tapped 3",
+                ETrigger = 1,
+                Type = "Dissolve",
+            };
+            Nanite.Programs.Add(program3);
         }
     }
 

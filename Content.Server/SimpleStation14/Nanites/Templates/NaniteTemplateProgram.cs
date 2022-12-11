@@ -14,7 +14,7 @@ namespace Content.Server.SimpleStation14.Nanites
             base.Initialize();
 
             // (comment if not wanted)
-            SubscribeLocalEvent<NaniteHostComponent, NaniteTrigger>(OnTrigger);
+            SubscribeLocalEvent<NaniteHostComponent, NaniteTemplateTrigger>(OnTrigger);
             SubscribeLocalEvent<NaniteHostComponent, NaniteTemplateProgramDeleted>(OnProgramDeleted);
         }
 
@@ -35,7 +35,7 @@ namespace Content.Server.SimpleStation14.Nanites
         }
 
         // TRIGGERED nanite functions (comment if not wanted)
-        public void OnTrigger(EntityUid uid, NaniteHostComponent Nanites, NaniteTrigger args)
+        public void OnTrigger(EntityUid uid, NaniteHostComponent Nanites, NaniteTemplateTrigger args)
         {
             // Do something
         }

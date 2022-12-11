@@ -2,4 +2,12 @@
   id: Button
   program: Button
   showInHub: true
+  onTriggerEvent: NaniteButtonTrigger
   onDeleteEvent: NaniteButtonProgramDeleted
+
+- type: naniteProgram
+  id: Dissolve
+  program: Dissolve
+  showInHub: false # Test program
+  onTriggerEvent: NaniteDissolveTrigger
+  onDeleteEvent: NaniteDissolveProgramDeleted

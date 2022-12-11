@@ -69,7 +69,15 @@ namespace Content.Server.SimpleStation14.Nanites
 
         public void OnButtonTrigger(EntityUid uid, NaniteHostComponent Nanites, NaniteButtonTrigger args)
         {
-            Console.WriteLine(args);
+            foreach (var Program in Nanites.Programs)
+            {
+                Console.WriteLine(1);
+                if (Program.Type == "Dissolve")
+                {
+                    Console.WriteLine(2);
+                    RaiseLocalEvent<NaniteDissolveTrigger>(new NaniteDissolveTrigger() { ETrigger = Program.ETrigger });
+                }
+            }
         }
 
         public void OnProgramDeleted(EntityUid uid, NaniteHostComponent Nanites, NaniteButtonProgramDeleted args)
@@ -88,8 +96,12 @@ namespace Content.Server.SimpleStation14.Nanites
         }
     }
 
-    public sealed class NaniteButtonTrigger : InstantActionEvent { }
-    public sealed class NaniteButtonProgramDeleted : EntityEventArgs {
+    public sealed class NaniteButtonTrigger : InstantActionEvent
+    {
+        public int ETrigger = 0;
+    }
+    public sealed class NaniteButtonProgramDeleted : EntityEventArgs
+    {
         public NaniteProgram Program = new();
     }
 }

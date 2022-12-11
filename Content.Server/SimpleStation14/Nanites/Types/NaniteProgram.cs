@@ -46,5 +46,17 @@ namespace Content.Shared.Simplestation14.Nanites
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         public string Type = "Program";
+
+        /// <summary>
+        /// Event to trigger when triggered
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public string OnTriggerEvent = "NaniteTrigger";
+
+        /// <summary>
+        /// Event to activate when the program is being deleted
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public string OnDeleteEvent = "NaniteProgramDeleted";
     }
 }
