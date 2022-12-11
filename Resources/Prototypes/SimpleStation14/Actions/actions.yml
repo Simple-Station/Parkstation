@@ -1,0 +1,10 @@
+- type: instantAction
+  id: NaniteButtonTrigger
+  name: something went wrong
+  description: something went wrong
+  useDelay: 3
+  itemIconStyle: BigAction
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: shield
+  serverEvent: !type:NaniteButtonTrigger
