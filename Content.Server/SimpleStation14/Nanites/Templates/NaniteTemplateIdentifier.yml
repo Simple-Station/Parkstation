@@ -5,5 +5,7 @@
   program: Program
   # Should this show up in the program hub when its research is unlocked (if any)?
   showInHub: true
+  # Event to trigger on code trigger
+  onTriggerEvent: NaniteTrigger
   # Event to trigger on program deletion
   onDeleteEvent: NaniteProgramDeleted

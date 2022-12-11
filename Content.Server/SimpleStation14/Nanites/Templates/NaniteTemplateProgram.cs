@@ -1,5 +1,6 @@
 using Content.Shared.Simplestation14.Nanites;
 using Robust.Shared.Prototypes;
+using Content.Shared.Actions;
 
 namespace Content.Server.SimpleStation14.Nanites
 {
@@ -49,6 +50,11 @@ namespace Content.Server.SimpleStation14.Nanites
         }
     }
 
+    // Replace Template with program Type
+    public sealed class NaniteTemplateTrigger : InstantActionEvent
+    {
+        public int ETrigger = 0;
+    }
     // Replace Template with program Type
     public sealed class NaniteTemplateProgramDeleted : EntityEventArgs {
         public NaniteProgram Program = new();

@@ -21,5 +21,18 @@ namespace Content.Shared.SimpleStation14.Nanites
         /// </summary>
         [DataField("showInHub", required: true), ViewVariables]
         public bool ShowInHub = true;
+
+
+        /// <summary>
+        /// What event to trigger when trigger is activated
+        /// </summary>
+        [DataField("onTriggerEvent", required: false), ViewVariables]
+        public string OnTriggerEvent = "NaniteTrigger";
+
+        /// <summary>
+        /// What event to trigger when the program is deleted
+        /// </summary>
+        [DataField("onDeleteEvent", required: true), ViewVariables]
+        public string OnDeleteEvent = "NaniteProgramDeleted";
     }
 }
