@@ -7,6 +7,7 @@ using Content.Server.Players;
 using Content.Server.Roles;
 using Content.Server.Traitor;
 using Content.Server.Traitor.Uplink;
+using Content.Server.SimpleStation14.Wizard;
 using Content.Server.MobState;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
@@ -21,7 +22,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class TraitorRuleSystem : GameRuleSystem
+public sealed class WizardRuleSystem : GameRuleSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -36,19 +37,19 @@ public sealed class TraitorRuleSystem : GameRuleSystem
 
 
 
-    public override string Prototype => "Traitor";
+    public override string Prototype => "Wizard";
 
     private readonly SoundSpecifier _addedSound = new SoundPathSpecifier("/Audio/Misc/tatoralert.ogg");
-    public List<TraitorRole> Traitors = new();
+    public List<WizardRole> Wizards = new();
 
-    private const string TraitorPrototypeID = "Traitor";
-    private const string TraitorUplinkPresetId = "StorePresetUplink";
+    private const string WizardPrototypeID = "Wizard";
+    private const string WizardUplinkPresetId = "WizardStorePresetUplink";
 
-    public int TotalTraitors => Traitors.Count;
+    public int TotalWizards => Wizards.Count;
     public string[] Codewords = new string[3];
 
-    private int _playersPerTraitor => _cfg.GetCVar(CCVars.TraitorPlayersPerTraitor);
-    private int _maxTraitors => _cfg.GetCVar(CCVars.TraitorMaxTraitors);
+    private int _playersPerWizard => _cfg.GetCVar(CCVars.TraitorPlayersPerTraitor);
+    private int _maxWizards => _cfg.GetCVar(CCVars.TraitorMaxTraitors);
 
     public override void Initialize()
     {
@@ -64,7 +65,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem
 
     public override void Ended()
     {
-        Traitors.Clear();
+        Wizards.Clear();
     }
 
     private void OnStartAttempt(RoundStartAttemptEvent ev)
@@ -76,14 +77,14 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         var minPlayers = _cfg.GetCVar(CCVars.TraitorMinPlayers);
         if (!ev.Forced && ev.Players.Length < minPlayers)
         {
-            _chatManager.DispatchServerAnnouncement(Loc.GetString("traitor-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
+            _chatManager.DispatchServerAnnouncement(Loc.GetString("wizard-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
             ev.Cancel();
             return;
         }
 
         if (ev.Players.Length == 0)
         {
-            _chatManager.DispatchServerAnnouncement(Loc.GetString("traitor-no-one-ready"));
+            _chatManager.DispatchServerAnnouncement(Loc.GetString("wizard-no-one-ready"));
             ev.Cancel();
             return;
         }
@@ -109,17 +110,17 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         if (!RuleAdded)
             return;
 
-        var numTraitors = MathHelper.Clamp(ev.Players.Length / _playersPerTraitor, 1, _maxTraitors);
+        var numWizards = MathHelper.Clamp(ev.Players.Length / _playersPerWizard, 1, _maxWizards);
         var codewordCount = _cfg.GetCVar(CCVars.TraitorCodewordCount);
 
-        var traitorPool = FindPotentialTraitors(ev);
-        var selectedTraitors = PickTraitors(numTraitors, traitorPool);
+        var wizardPool = FindPotentialWizards(ev);
+        var selectedWizards = PickWizards(numWizards, wizardPool);
 
-        foreach (var traitor in selectedTraitors)
-            MakeTraitor(traitor);
+        foreach (var wizard in selectedWizards)
+            MakeWizard(wizard);
     }
 
-    public List<IPlayerSession> FindPotentialTraitors(RulePlayerJobsAssignedEvent ev)
+    public List<IPlayerSession> FindPotentialWizards(RulePlayerJobsAssignedEvent ev)
     {
         var list = new List<IPlayerSession>(ev.Players).Where(x =>
             x.Data.ContentData()?.Mind?.AllRoles.All(role => role is not Content.Server.Roles.Job { CanBeAntag: false }) ?? false
@@ -134,83 +135,82 @@ public sealed class TraitorRuleSystem : GameRuleSystem
                 continue;
             }
             var profile = ev.Profiles[player.UserId];
-            if (profile.AntagPreferences.Contains(TraitorPrototypeID))
+            if (profile.AntagPreferences.Contains(WizardPrototypeID))
             {
                 prefList.Add(player);
             }
         }
         if (prefList.Count == 0)
         {
-            Logger.InfoS("preset", "Insufficient preferred traitors, picking at random.");
+            Logger.InfoS("preset", "Insufficient preferred wizards, picking at random.");
             prefList = list;
         }
         return prefList;
     }
 
-    public List<IPlayerSession> PickTraitors(int traitorCount, List<IPlayerSession> prefList)
+    public List<IPlayerSession> PickWizards(int wizardCount, List<IPlayerSession> prefList)
     {
-        var results = new List<IPlayerSession>(traitorCount);
+        var results = new List<IPlayerSession>(wizardCount);
         if (prefList.Count == 0)
         {
-            Logger.InfoS("preset", "Insufficient ready players to fill up with traitors, stopping the selection.");
+            Logger.InfoS("preset", "Insufficient ready players to fill up with wizards, stopping the selection.");
             return results;
         }
 
-        for (var i = 0; i < traitorCount; i++)
+        for (var i = 0; i < wizardCount; i++)
         {
             results.Add(_random.PickAndTake(prefList));
-            Logger.InfoS("preset", "Selected a preferred traitor.");
+            Logger.InfoS("preset", "Selected a preferred wizard.");
         }
         return results;
     }
 
-    public async void MakeTraitor(IPlayerSession traitor)
+    public async void MakeWizard(IPlayerSession wizard)
     {
-        var mind = traitor.Data.ContentData()?.Mind;
+        var mind = wizard.Data.ContentData()?.Mind;
         if (mind == null)
         {
-            Logger.ErrorS("preset", "Failed getting mind for picked traitor.");
+            Logger.ErrorS("preset", "Failed getting mind for picked wizard.");
             return;
         }
 
-        if (!await _db.GetWhitelistStatusAsync(traitor.UserId))
+        if (!await _db.GetWhitelistStatusAsync(wizard.UserId))
             return;
 
         // creadth: we need to create uplink for the antag.
         // PDA should be in place already
-        DebugTools.AssertNotNull(mind.OwnedEntity);
+        // DebugTools.AssertNotNull(mind.OwnedEntity); // uh this wont cause an issue definitely
 
         var startingBalance = _cfg.GetCVar(CCVars.TraitorStartingBalance);
 
-        if (mind.CurrentJob != null)
-            startingBalance = Math.Max(startingBalance - mind.CurrentJob.Prototype.AntagAdvantage, 0);
+        if (mind.CurrentJob != null) startingBalance = Math.Max(startingBalance - mind.CurrentJob.Prototype.AntagAdvantage, 0);
 
-        if (!_uplink.AddUplink(mind.OwnedEntity!.Value, startingBalance, TraitorUplinkPresetId))
+        if (!_uplink.AddUplink(mind.OwnedEntity!.Value, startingBalance, WizardUplinkPresetId))
             return;
 
-        var antagPrototype = _prototypeManager.Index<AntagPrototype>(TraitorPrototypeID);
-        var traitorRole = new TraitorRole(mind, antagPrototype);
-        mind.AddRole(traitorRole);
-        Traitors.Add(traitorRole);
-        traitorRole.GreetTraitor(Codewords);
+        var antagPrototype = _prototypeManager.Index<AntagPrototype>(WizardPrototypeID);
+        var wizardRole = new WizardRole(mind, antagPrototype);
+        mind.AddRole(wizardRole);
+        Wizards.Add(wizardRole);
+        wizardRole.GreetWizard(Codewords);
 
         var maxDifficulty = _cfg.GetCVar(CCVars.TraitorMaxDifficulty);
         var maxPicks = _cfg.GetCVar(CCVars.TraitorMaxPicks);
 
-        //give traitors their objectives
+        //give wizards their objectives
         var difficulty = 0f;
         for (var pick = 0; pick < maxPicks && maxDifficulty > difficulty; pick++)
         {
-            var objective = _objectivesManager.GetRandomObjective(traitorRole.Mind, "TraitorObjectiveGroups");
+            var objective = _objectivesManager.GetRandomObjective(wizardRole.Mind, "TraitorObjectiveGroups");
             if (objective == null) continue;
-            if (traitorRole.Mind.TryAddObjective(objective))
+            if (wizardRole.Mind.TryAddObjective(objective))
                 difficulty += objective.Difficulty;
         }
 
-        //give traitors their codewords to keep in their character info menu
-        traitorRole.Mind.Briefing = Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", Codewords)));
+        //give wizards their codewords to keep in their character info menu
+        wizardRole.Mind.Briefing = Loc.GetString("wizard-role-codewords", ("codewords", string.Join(", ", Codewords)));
 
-        SoundSystem.Play(_addedSound.GetSound(), Filter.Empty().AddPlayer(traitor), AudioParams.Default);
+        SoundSystem.Play(_addedSound.GetSound(), Filter.Empty().AddPlayer(wizard), AudioParams.Default);
         return;
     }
 
@@ -218,11 +218,11 @@ public sealed class TraitorRuleSystem : GameRuleSystem
     {
         if (!RuleAdded)
             return;
-        if (TotalTraitors >= _maxTraitors)
+        if (TotalWizards >= _maxWizards)
             return;
         if (!ev.LateJoin)
             return;
-        if (!ev.Profile.AntagPreferences.Contains(TraitorPrototypeID))
+        if (!ev.Profile.AntagPreferences.Contains(WizardPrototypeID))
             return;
 
 
@@ -233,11 +233,11 @@ public sealed class TraitorRuleSystem : GameRuleSystem
             return;
 
         // the nth player we adjust our probabilities around
-        int target = ((_playersPerTraitor * TotalTraitors) + 1);
+        int target = ((_playersPerWizard * TotalWizards) + 1);
 
-        float chance = (1f / _playersPerTraitor);
+        float chance = (1f / _playersPerWizard);
 
-        /// If we have too many traitors, divide by how many players below target for next traitor we are.
+        /// If we have too many wizards, divide by how many players below target for next wizard we are.
         if (ev.JoinOrder < target)
         {
             chance /= (target - ev.JoinOrder);
@@ -248,11 +248,11 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         if (chance > 1)
             chance = 1;
 
-        // Now that we've calculated our chance, roll and make them a traitor if we roll under.
+        // Now that we've calculated our chance, roll and make them a wizard if we roll under.
         // You get one shot.
         if (_random.Prob((float) chance))
         {
-            MakeTraitor(ev.Player);
+            MakeWizard(ev.Player);
         }
     }
 
@@ -261,26 +261,26 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         if (!RuleAdded)
             return;
 
-        var result = Loc.GetString("traitor-round-end-result", ("traitorCount", Traitors.Count));
+        var result = Loc.GetString("wizard-round-end-result", ("wizardCount", Wizards.Count));
 
-        foreach (var traitor in Traitors)
+        foreach (var wizard in Wizards)
         {
-            var name = traitor.Mind.CharacterName;
-            traitor.Mind.TryGetSession(out var session);
+            var name = wizard.Mind.CharacterName;
+            wizard.Mind.TryGetSession(out var session);
             var username = session?.Name;
 
-            var objectives = traitor.Mind.AllObjectives.ToArray();
+            var objectives = wizard.Mind.AllObjectives.ToArray();
             if (objectives.Length == 0)
             {
                 if (username != null)
                 {
                     if (name == null)
-                        result += "\n" + Loc.GetString("traitor-user-was-a-traitor", ("user", username));
+                        result += "\n" + Loc.GetString("wizard-user-was-a-wizard", ("user", username));
                     else
-                        result += "\n" + Loc.GetString("traitor-user-was-a-traitor-named", ("user", username), ("name", name));
+                        result += "\n" + Loc.GetString("wizard-user-was-a-wizard-named", ("user", username), ("name", name));
                 }
                 else if (name != null)
-                    result += "\n" + Loc.GetString("traitor-was-a-traitor-named", ("name", name));
+                    result += "\n" + Loc.GetString("wizard-was-a-wizard-named", ("name", name));
 
                 continue;
             }
@@ -288,16 +288,16 @@ public sealed class TraitorRuleSystem : GameRuleSystem
             if (username != null)
             {
                 if (name == null)
-                    result += "\n" + Loc.GetString("traitor-user-was-a-traitor-with-objectives", ("user", username));
+                    result += "\n" + Loc.GetString("wizard-user-was-a-wizard-with-objectives", ("user", username));
                 else
-                    result += "\n" + Loc.GetString("traitor-user-was-a-traitor-with-objectives-named", ("user", username), ("name", name));
+                    result += "\n" + Loc.GetString("wizard-user-was-a-wizard-with-objectives-named", ("user", username), ("name", name));
             }
             else if (name != null)
-                result += "\n" + Loc.GetString("traitor-was-a-traitor-with-objectives-named", ("name", name));
+                result += "\n" + Loc.GetString("wizard-was-a-wizard-with-objectives-named", ("name", name));
 
             foreach (var objectiveGroup in objectives.GroupBy(o => o.Prototype.Issuer))
             {
-                result += "\n" + Loc.GetString($"preset-traitor-objective-issuer-{objectiveGroup.Key}");
+                result += "\n" + Loc.GetString($"preset-wizard-objective-issuer-{objectiveGroup.Key}");
 
                 foreach (var objective in objectiveGroup)
                 {
@@ -307,7 +307,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem
                         if (progress > 0.99f)
                         {
                             result += "\n- " + Loc.GetString(
-                                "traitor-objective-condition-success",
+                                "wizard-objective-condition-success",
                                 ("condition", condition.Title),
                                 ("markupColor", "green")
                             );
@@ -315,7 +315,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem
                         else
                         {
                             result += "\n- " + Loc.GetString(
-                                "traitor-objective-condition-fail",
+                                "wizard-objective-condition-fail",
                                 ("condition", condition.Title),
                                 ("progress", (int) (progress * 100)),
                                 ("markupColor", "red")
@@ -328,12 +328,12 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         ev.AddLine(result);
     }
 
-    public IEnumerable<Traitor.TraitorRole> GetOtherTraitorsAliveAndConnected(Mind.Mind ourMind)
+    public IEnumerable<WizardRole> GetOtherWizardsAliveAndConnected(Mind.Mind ourMind)
     {
-        var traitors = Traitors;
-        List<Traitor.TraitorRole> removeList = new();
+        var wizards = Wizards;
+        List<WizardRole> removeList = new();
 
-        return Traitors // don't want
+        return Wizards // don't want
             .Where(t => t.Mind is not null) // no mind
             .Where(t => t.Mind.OwnedEntity is not null) // no entity
             .Where(t => t.Mind.Session is not null) // player disconnected

@@ -108,7 +108,7 @@ public sealed class TraitorDeathMatchRuleSystem : GameRuleSystem
             newTmp = Spawn(BackpackPrototypeName, ownedCoords);
             _inventory.TryEquip(owned, newTmp, "back", true);
 
-            if (!_uplink.AddUplink(owned, startingBalance))
+            if (!_uplink.AddUplink(owned, startingBalance, "StorePresetUplink"))
                 return;
 
             _allOriginalNames[owned] = Name(owned);

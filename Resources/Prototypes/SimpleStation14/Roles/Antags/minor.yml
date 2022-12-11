@@ -1,0 +1,6 @@
+- type: antag
+  id: Minor
+  name: Minor
+  antagonist: true
+  setPreference: false
+  objective: things

@@ -3521,4 +3521,11 @@ Entries:
     - { message: "Underwear do not rotate when on the ground. (they're still off-center...)", type: Tweak }
   id: 460000
   time: "2022-12-10T01:07:39.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Wizard gamemode, finally! (buggy, so admin only)', type: Add }
+    - { message: 'Remove all gamemodes from vote except for secret.', type: Remove }
+    - { message: 'Modified secret gamemode weights.', type: Tweak }
+  id: 470000
+  time: "2022-12-10T05:08:51.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }
