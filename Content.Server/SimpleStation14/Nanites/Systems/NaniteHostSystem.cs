@@ -63,5 +63,7 @@ namespace Content.Server.SimpleStation14.Nanites
         public int ETrigger = 0;
     }
 
-    public sealed class NaniteProgramDeleted : EntityEventArgs { }
+    public sealed class NaniteProgramDeleted : EntityEventArgs {
+        public NaniteProgram Program = new();
+    }
 }
