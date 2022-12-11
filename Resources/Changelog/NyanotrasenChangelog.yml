@@ -1362,3 +1362,181 @@ Entries:
     type: Fix
   id: 145
   time: '2022-12-05T18:24:25.0000000+00:00'
+- author: fallingmonkey
+  changes:
+  - message: Added new medium salvage map!
+    type: Add
+  id: 146
+  time: '2022-12-06T20:25:05.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Salvage tech has an antag penalty equal to engineer.
+    type: Tweak
+  - message: Removed unused uniforms from uniform printer.
+    type: Remove
+  id: 147
+  time: '2022-12-06T20:24:11.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Rat servants now follow the rat king around.
+    type: Add
+  - message: Rat servants are neutral by default.
+    type: Tweak
+  - message: The rat king can toggle his servants are neutral or hostile.
+    type: Tweak
+  id: 148
+  time: '2022-12-06T20:23:25.0000000+00:00'
+- author: Leander-0
+  changes:
+  - message: Kudzu will grow a lot more slowly.
+    type: Tweak
+  id: 149
+  time: '2022-12-06T23:56:54.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added vampire spiders.
+    type: Add
+  id: 150
+  time: '2022-12-07T04:10:38.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed oneirophage spawners being visible.
+    type: Fix
+  - message: Tweaked a few other things with them.
+    type: Fix
+  - message: Reduced metapsionic pulse range to 6 so it's slightly easier to tell
+      if it's nearby.
+    type: Tweak
+  id: 151
+  time: '2022-12-07T16:24:06.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: You will no longer stun yourself with melee attacks.
+    type: Tweak
+  id: 152
+  time: '2022-12-07T18:30:00.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Noospheric storm scales with intensity in survival mode.
+    type: Tweak
+  - message: Tortuga min players bumped up to 50.
+    type: Tweak
+  - message: Arachne webs are now world target actions.
+    type: Tweak
+  - message: Rat servant pathfinding seems slightly better.
+    type: Fix
+  id: 153
+  time: '2022-12-07T20:01:32.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added prisoner role.
+    type: Add
+  - message: 'Gladiators are a type of prisoner and will spawn in their cell. Announcement
+      system SOON:tm:'
+    type: Tweak
+  id: 154
+  time: '2022-12-07T20:33:25.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Oneirophage injects more venom, but has a lower reserve it will burn
+      through faster.
+    type: Tweak
+  - message: Webs have an uglier but better for gameplay drawdepth.
+    type: Fix
+  id: 155
+  time: '2022-12-08T01:27:22.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added cocoons.
+    type: Add
+  id: 156
+  time: '2022-12-09T00:14:18.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Carrying checks are much more robust now.
+    type: Fix
+  id: 157
+  time: '2022-12-09T19:28:42.0000000+00:00'
+- author: Leander
+  changes:
+  - message: Blunt damage will do 1:1 stamina damage now
+    type: Tweak
+  - message: Most objects/weapons will cost less stamina to swing
+    type: Tweak
+  id: 158
+  time: '2022-12-09T21:47:33.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Prisoners and gladiators spawn with a PDA (without access) and headset.
+    type: Add
+  id: 159
+  time: '2022-12-09T22:22:02.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a bug with cocooning items
+    type: Fix
+  - message: Metapsionic pulse no longer spams messages.
+    type: Fix
+  - message: Minimum cocoon size turned up a little bit for visuals.
+    type: Tweak
+  - message: Metapsionic pulse range reduced to 5 (this is a buff.)
+    type: Tweak
+  - message: All antags require whitelist now. Character preferences UI has been updated
+      to reflect this.
+    type: Tweak
+  id: 160
+  time: '2022-12-09T22:47:49.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a bug with the cocoon doafter.
+    type: Fix
+  id: 161
+  time: '2022-12-10T00:12:31.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Your identity will now display if you are trying to use someone else's
+      identity and failing. Simple PDA theft is now much easier to catch.
+    type: Add
+  id: 162
+  time: '2022-12-10T02:17:27.0000000+00:00'
+- author: Leander
+  changes:
+  - message: Flaregun Nerfed
+    type: Tweak
+  id: 163
+  time: '2022-12-10T04:00:04.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added new security outpost.
+    type: Add
+  - message: Added new maintenance shaft and external access by the medical outpost.
+    type: Add
+  - message: Added more room to Perma.
+    type: Add
+  - message: Made northwest external access into essentially an engineer outpost.
+    type: Tweak
+  - message: Changed a few APCs around Arrivals.
+    type: Tweak
+  - message: Removed a few Banditos.
+    type: Remove
+  id: 164
+  time: '2022-12-10T21:37:45.0000000+00:00'
+- author: ODJ
+  changes:
+  - message: Various improvements to Lighthouse
+    type: Add
+  id: 165
+  time: '2022-12-10T21:37:51.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Possibly fixed maps getting yeeted to nullspace...
+    type: Fix
+  id: 166
+  time: '2022-12-11T01:44:30.0000000+00:00'
+- author: Rane
+  changes:
+  - message: For balance concerns and a serious bug found, nuke ops no longer require
+      whitelist.
+    type: Remove
+  id: 167
+  time: '2022-12-11T03:29:32.0000000+00:00'

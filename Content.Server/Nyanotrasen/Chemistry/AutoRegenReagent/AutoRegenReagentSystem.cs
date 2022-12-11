@@ -31,6 +31,10 @@ namespace Content.Server.Chemistry.AutoRegenReagent
             if (component.Reagents.Count <= 1) return;
             if (!args.CanInteract || !args.CanAccess)
                 return;
+
+            if (component.Reagents.Count <= 1)
+                return;
+
             AlternativeVerb verb = new()
             {
                 Act = () =>
