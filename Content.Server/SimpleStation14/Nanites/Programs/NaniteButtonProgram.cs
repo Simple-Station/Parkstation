@@ -2,7 +2,6 @@ using Content.Shared.Simplestation14.Nanites;
 using Content.Shared.Actions;
 using Content.Server.Popups;
 using Content.Shared.Actions.ActionTypes;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.SimpleStation14.Nanites

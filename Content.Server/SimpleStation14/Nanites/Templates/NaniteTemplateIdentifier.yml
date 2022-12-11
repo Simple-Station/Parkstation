@@ -1,0 +1,7 @@
+- type: naniteProgram
+  # Shouldn't matter what this is set to, make it unique to avoid errors
+  id: Anything_yOu_waNt
+  # Actual program ID
+  program: Program
+  # Should this show up in the program hub when its research is unlocked (if any)?
+  showInHub: true
