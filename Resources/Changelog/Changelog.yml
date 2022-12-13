@@ -3530,4 +3530,9 @@ Entries:
     - { message: 'AI no longer spawns in arrivals if latejoining.', type: Fix }
   id: 480000
   time: "2022-12-12T23:46:44.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Nerf magic medipen, 0.1 Ichor per second with a max capacity of 15u', type: Tweak }
+  id: 490000
+  time: "2022-12-13T14:48:28.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }
