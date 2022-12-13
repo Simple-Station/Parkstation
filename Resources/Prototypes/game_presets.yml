@@ -14,7 +14,7 @@
   - extended
   - shittersafari
   name: extended-title
-  showInVote: false
+  showInVote: true
   description: extended-description
   rules:
   - BasicStationEventScheduler
@@ -136,7 +136,7 @@
   name: Wizard
   alias:
     - wizard
-  description: Wizard
+  description: A Wizard is hiding among the station crew, find them and deal with them before they become too powerful.
   showInVote: false
   rules:
     - Wizard

@@ -201,7 +201,7 @@ public sealed class WizardRuleSystem : GameRuleSystem
         var difficulty = 0f;
         for (var pick = 0; pick < maxPicks && maxDifficulty > difficulty; pick++)
         {
-            var objective = _objectivesManager.GetRandomObjective(wizardRole.Mind, "TraitorObjectiveGroups");
+            var objective = _objectivesManager.GetRandomObjective(wizardRole.Mind, "WizardObjectiveGroups");
             if (objective == null) continue;
             if (wizardRole.Mind.TryAddObjective(objective))
                 difficulty += objective.Difficulty;
