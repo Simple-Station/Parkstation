@@ -1,16 +1,10 @@
 - type: job
-  id: ChiefServiceStaff
-  name: "chief service staff"
-  playTimeTracker: JobHeadOfPersonnel
+  id: ChiefServiceSupervisor
+  name: "chief service supervisor"
+  playTimeTracker: JobChiefServiceSupervisor
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 3600
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 3600
-    - !type:DepartmentTimeRequirement
-      department: Security
+      department: Service
       time: 3600
     - !type:OverallPlaytimeRequirement
       time: 54000
@@ -18,12 +12,12 @@
   startingGear: CSSGear
   icon: "HeadOfPersonnel"
   requireAdminNotify: true
-  supervisors: job-supervisors-captain
+  supervisors: job-supervisors-cc
   canBeAntag: true
   antagAdvantage: 6
   access:
   - Command
-  - HeadOfPersonnel
+  - ChiefServiceSupervisor
   - Bar
   - Service
   - Mail

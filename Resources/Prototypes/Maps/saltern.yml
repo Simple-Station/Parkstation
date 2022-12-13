@@ -39,7 +39,7 @@
         Musician: [ 1, 1 ]
         Lawyer: [ 1, 1 ]
         SalvageTechnician: [ 1, 2 ]
-        ChiefServiceStaff: [ 1, 1]
+        ChiefServiceSupervisor: [ 1, 1]
         Quartermaster: [ 2, 3 ]
         ServiceWorker: [ 2, 2 ]
         ForensicMantis: [ 1, 1 ]

@@ -7,8 +7,9 @@
   supervisors: job-supervisors-cmo
   access:
   - Medical
-  - Maintenance
   - Chemistry
+  extendedAccess:
+  - Maintenance
 
 - type: startingGear
   id: DoctorGear

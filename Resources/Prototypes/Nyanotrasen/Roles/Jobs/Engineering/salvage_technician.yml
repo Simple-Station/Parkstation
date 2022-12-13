@@ -14,8 +14,9 @@
   access:
   - Salvage
   - Engineering
-  - Maintenance
   - External
+  extendedAccess:
+  - Maintenance
 
 - type: startingGear
   id: SalvageTechnicianGear

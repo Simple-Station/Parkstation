@@ -26,10 +26,14 @@
   id: Chapel
   name: id-card-access-level-chapel
 
+- type: accessLevel
+  id: ChiefServiceSupervisor
+  name: id-card-access-level-cief-service-supervisor
+
 - type: accessGroup
   id: Service
   tags:
-  - HeadOfPersonnel
+  - ChiefServiceSupervisor
   - Bar
   - Kitchen
   - Hydroponics

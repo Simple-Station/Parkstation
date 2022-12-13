@@ -8,6 +8,7 @@
   setPreference: true
   access:
   - Service
+  - Theatre
   extendedAccess:
   - Maintenance
   special:

@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCSS
-  name: chief service staff's jumpskirt
-  description: A nice and tidy uniform. Shame about the bar though.
+  name: chief service supervisor's jumpskirt
+  description: A sharp, green waistcoat. Smart, but flashy.
   components:
   - type: Sprite
     sprite: SimpleStation14/Clothing/Uniforms/Jumpskirt/css.rsi

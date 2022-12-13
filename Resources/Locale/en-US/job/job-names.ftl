@@ -68,6 +68,7 @@ JobChef = chef
 JobChemist = chemist
 JobChiefEngineer = chief engineer
 JobChiefMedicalOfficer = chief medical officer
+JobChiefServiceSupervisor = chief service supervisor
 JobClown = clown
 JobDetective = detective
 JobERTEngineer = ERT engineer
