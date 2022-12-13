@@ -1,9 +1,19 @@
 - type: entity
-  parent: StatueVenusBlue
+  parent: BaseStructure
   id: Oracle
   name: Oracle
   description: It asks for items to continue research on. Works through some crazy space science. Placeholder sprite.
   components:
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+    sprite: Nyanotrasen/Structures/Decoration/statues.rsi
+    layers:
+      - state: oracle-0
+      - map: ["enum.SolutionContainerLayers.Fill"]
+        state: oracle-1
   - type: Oracle
   - type: Speech
     speechSounds: Tenor
