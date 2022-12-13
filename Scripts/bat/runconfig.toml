@@ -10,6 +10,9 @@ role_timers = false
 fallbackpreset = "survival"
 map_pool = "ParkMapPool"
 
+[server]
+rules_file = "Park_Rules.txt"
+
 [whitelist]
 min_players = 8
 
@@ -18,8 +21,8 @@ rules.time = 45
 rules.exempt_local = false
 
 [events]
-ramping_average_end_time = 120
-ramping_average_chaos = 8
+ramping_average_end_time = 120.0
+ramping_average_chaos = 8.0
 
 [traitor]
 min_players = 2
@@ -32,17 +35,17 @@ players_per_infected = 5
 
 
 [mapping]
-autosave_interval = 180
+autosave_interval = 180.0
 
 [atmos]
 space_wind = true
-space_wind_max_velocity = 22f
+space_wind_max_velocity = 22.0
 
 [shuttle]
 emergency_early_launch_allowed = true
-emergency_dock_time = 260
-emergency_transit_time = 180
-recall_turning_point = 0.75f
+emergency_dock_time = 260.0
+emergency_transit_time = 180.0
+recall_turning_point = 0.75
 auto_call_time = 0
 
 [biomass]

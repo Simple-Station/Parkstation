@@ -98,7 +98,7 @@ Security/Command will be expected to answer for use of lethal force. Security/Co
 
 [color=#ff0000]Command Rules[/color]
 
-[color=#a4885c]26.[/color] The following jobs: HOP, HOS, CE, RD, CMO, and AI should ahelp when they need to stop playing. Do not play these roles if you do not expect to be able to finish the round.
+[color=#a4885c]26.[/color] The following jobs: HOP, HOS, CE, RD, CMO, CSS, and AI should ahelp when they need to stop playing. Do not play these roles if you do not expect to be able to finish the round.
     - These roles must exhibit some competency. Incompetence can result in a job ban. Command roles are designed to lead and manage departments first and do second. They are not intended to become do-it-all members of their departments.
     - Crew promoted to acting heads of staff must step down when an official head of staff arrives at the station. This is to prevent confusion with the chain of command when the new player arrives.
 
