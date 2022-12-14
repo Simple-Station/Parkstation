@@ -18,6 +18,7 @@
   supervisors: job-supervisors-captain
   canBeAntag: true
   antagAdvantage: 8
+  whitelistRequired: true
   access:
   - Maintenance
   - Engineering

@@ -1,7 +1,7 @@
 <Control xmlns="https://spacestation14.io"
-         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         xmlns:prefUi="clr-namespace:Content.Client.Preferences.UI"
-         xmlns:humanoid="clr-namespace:Content.Client.Humanoid">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prefUi="clr-namespace:Content.Client.Preferences.UI"
+    xmlns:humanoid="clr-namespace:Content.Client.Humanoid">
     <BoxContainer Orientation="Horizontal">
         <!-- Left side -->
         <BoxContainer Orientation="Vertical" Margin="10 10 10 10">
@@ -18,12 +18,8 @@
                                         <LineEdit Name="CNameEdit" MinSize="270 0" VerticalAlignment="Center" />
                                         <Button Name="CNameRandomize" Text="{Loc 'humanoid-profile-editor-name-random-button'}" />
                                     </BoxContainer>
-                                    <Button Name="CRandomizeEverything" HorizontalAlignment="Center"
-                                            HorizontalExpand="False" MaxWidth="256"
-                                            Text="{Loc 'humanoid-profile-editor-randomize-everything-button'}" />
-                                    <RichTextLabel Name="CWarningLabel" HorizontalExpand="False"
-                                                   VerticalExpand="True" MaxWidth="425"
-                                                   HorizontalAlignment="Left" />
+                                    <Button Name="CRandomizeEverything" HorizontalAlignment="Center" HorizontalExpand="False" MaxWidth="256" Text="{Loc 'humanoid-profile-editor-randomize-everything-button'}" />
+                                    <RichTextLabel Name="CWarningLabel" HorizontalExpand="False" VerticalExpand="True" MaxWidth="425" HorizontalAlignment="Left" />
                                 </BoxContainer>
                             </prefUi:HighlightedContainer>
                         </BoxContainer>
@@ -33,10 +29,8 @@
                 <BoxContainer Orientation="Vertical">
                     <prefUi:HighlightedContainer>
                         <BoxContainer Orientation="Horizontal">
-                            <Button Text="{Loc 'humanoid-profile-editor-import-button'}" Disabled="True"
-                                    ToolTip="{Loc 'generic-not-yet-implemented'}" />
-                            <Button Text="{Loc 'humanoid-profile-editor-export-button'}" Disabled="True"
-                                    ToolTip="{Loc 'generic-not-yet-implemented'}" />
+                            <Button Text="{Loc 'humanoid-profile-editor-import-button'}" Disabled="True" ToolTip="{Loc 'generic-not-yet-implemented'}" />
+                            <Button Text="{Loc 'humanoid-profile-editor-export-button'}" Disabled="True" ToolTip="{Loc 'generic-not-yet-implemented'}" />
                         </BoxContainer>
                     </prefUi:HighlightedContainer>
                     <!-- Save -->
@@ -139,8 +133,10 @@
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical" Margin="10">
                     <!-- Traits -->
-                    <Label Text="Available Points (unused)" />
-                    <Label Text="0" Name="TraitPoints" />
+                    <BoxContainer>
+                        <Label Text="Available Points (unused) - " />
+                        <Label Text="0" Name="TraitPoints" />
+                    </BoxContainer>
                     <Label Text="" />
                     <Label Text="Positive" />
                     <ScrollContainer VerticalExpand="True">

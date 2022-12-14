@@ -21,6 +21,7 @@
   supervisors: job-supervisors-captain
   canBeAntag: true
   antagAdvantage: 12
+  whitelistRequired: true
   access:
   - Command
   - HeadOfPersonnel

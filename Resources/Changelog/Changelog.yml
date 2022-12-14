@@ -3524,4 +3524,15 @@ Entries:
     - { message: 'Modified secret gamemode weights.', type: Tweak }
   id: 470000
   time: "2022-12-10T05:08:51.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Wizard gamemode was fixed, somewhat, you dont get proper objectives but youre a wizard! (available in secret gamemode pool)', type: Add }
+    - { message: 'AI no longer spawns in arrivals if latejoining.', type: Fix }
+  id: 480000
+  time: "2022-12-12T23:46:44.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Nerf magic medipen, 0.1 Ichor per second with a max capacity of 15u', type: Tweak }
+  id: 490000
+  time: "2022-12-13T14:48:28.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }

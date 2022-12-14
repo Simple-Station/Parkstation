@@ -21,11 +21,11 @@
         - Ichor
       unitsPerSecond: 0.02 # 0.55
 
-# - type: trait
-#   id: Arachnid
-#   name: Arachnid
-#   description: Allows you to spin webs, like the Arachne.
-#   cost: -2
-#   category: Positive
-#   components:
-#     - type: Arachne
+- type: trait # Probably fine for now, right? Arachne are disabled...
+  id: Arachnid
+  name: Arachnid
+  description: Allows you to spin webs, like the Arachne.
+  cost: -2
+  category: Positive
+  components:
+    - type: Arachne
