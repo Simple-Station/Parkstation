@@ -72,6 +72,7 @@ namespace Content.Client.Preferences.UI
         private TabContainer _tabContainer => CTabContainer;
         private BoxContainer _jobList => CJobList;
         private BoxContainer _antagList => CAntagList;
+        private Label _traitPoints => TraitPoints;
         private BoxContainer _ptraitsList => CPTraitsList;
         private BoxContainer _etraitsList => CETraitsList;
         private BoxContainer _ntraitsList => CNTraitsList;
@@ -106,8 +107,7 @@ namespace Content.Client.Preferences.UI
 
         public event Action<HumanoidCharacterProfile, int>? OnProfileChanged;
 
-        public HumanoidProfileEditor(IClientPreferencesManager preferencesManager, IPrototypeManager prototypeManager,
-            IEntityManager entityManager, IConfigurationManager configurationManager)
+        public HumanoidProfileEditor(IClientPreferencesManager preferencesManager, IPrototypeManager prototypeManager, IEntityManager entityManager, IConfigurationManager configurationManager)
         {
             RobustXamlLoader.Load(this);
             _random = IoCManager.Resolve<IRobustRandom>();
@@ -519,6 +519,9 @@ namespace Content.Client.Preferences.UI
 
             if (traits.Count > 0)
             {
+                if (_traitPoints.Text == null) return;
+                int points = int.Parse(_traitPoints.Text);
+
                 foreach (var trait in traits)
                 {
                     if (trait.Category == "Positive")
@@ -529,6 +532,16 @@ namespace Content.Client.Preferences.UI
 
                         selector.PreferenceChanged += preference =>
                         {
+                            if (preference == true)
+                            {
+                                points += trait.Cost;
+                                _traitPoints.Text = points.ToString();
+                            }
+                            else if (preference == false)
+                            {
+                                points -= trait.Cost;
+                                _traitPoints.Text = points.ToString();
+                            }
                             Profile = Profile?.WithTraitPreference(trait.ID, preference);
                             IsDirty = true;
                         };
@@ -541,6 +554,16 @@ namespace Content.Client.Preferences.UI
 
                         selector.PreferenceChanged += preference =>
                         {
+                            if (preference == true)
+                            {
+                                points += trait.Cost;
+                                _traitPoints.Text = points.ToString();
+                            }
+                            else if (preference == false)
+                            {
+                                points -= trait.Cost;
+                                _traitPoints.Text = points.ToString();
+                            }
                             Profile = Profile?.WithTraitPreference(trait.ID, preference);
                             IsDirty = true;
                         };
@@ -553,6 +576,16 @@ namespace Content.Client.Preferences.UI
 
                         selector.PreferenceChanged += preference =>
                         {
+                            if (preference == true)
+                            {
+                                points += trait.Cost;
+                                _traitPoints.Text = points.ToString();
+                            }
+                            else if (preference == false)
+                            {
+                                points -= trait.Cost;
+                                _traitPoints.Text = points.ToString();
+                            }
                             Profile = Profile?.WithTraitPreference(trait.ID, preference);
                             IsDirty = true;
                         };
@@ -1260,12 +1293,21 @@ namespace Content.Client.Preferences.UI
 
         private void UpdateTraitPreferences()
         {
+            if (_traitPoints.Text == null) return;
+            int points = int.Parse(_traitPoints.Text);
+
             foreach (var preferenceSelector in _traitPreferences)
             {
                 var traitId = preferenceSelector.Trait.ID;
                 var preference = Profile?.TraitPreferences.Contains(traitId) ?? false;
 
                 preferenceSelector.Preference = preference;
+
+                if (preference == true)
+                {
+                    points += preferenceSelector.Trait.Cost;
+                    _traitPoints.Text = points.ToString();
+                }
             }
         }
 
