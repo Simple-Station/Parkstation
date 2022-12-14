@@ -29,15 +29,28 @@ public sealed class SpawnPointSystem : EntitySystem
             if (args.Station != null && _stationSystem.GetOwningStation(spawnPoint.Owner, xform) != args.Station)
                 continue;
 
-            if (args.LateJoin && spawnPoint.SpawnType == SpawnPointType.LateJoin)
+            if (args.LateJoin)
             {
-                args.SpawnResult = _stationSpawning.SpawnPlayerMob(
-                    xform.Coordinates,
-                    args.Job,
-                    args.HumanoidCharacterProfile,
-                    args.Station);
+                if (spawnPoint.SpawnType == SpawnPointType.Job && (args.Job == null || spawnPoint.Job?.ID == args.Job.Prototype.ID && spawnPoint.Job.ID == "SAI"))
+                {
+                    args.SpawnResult = _stationSpawning.SpawnPlayerMob(
+                        xform.Coordinates,
+                        args.Job,
+                        args.HumanoidCharacterProfile,
+                        args.Station);
 
-                return;
+                    return;
+                }
+                else if (spawnPoint.SpawnType == SpawnPointType.LateJoin && args.Job?.Prototype.ID != "SAI")
+                {
+                    args.SpawnResult = _stationSpawning.SpawnPlayerMob(
+                        xform.Coordinates,
+                        args.Job,
+                        args.HumanoidCharacterProfile,
+                        args.Station);
+
+                    return;
+                }
             }
             else if (!args.LateJoin && spawnPoint.SpawnType == SpawnPointType.Job && (args.Job == null || spawnPoint.Job?.ID == args.Job.Prototype.ID))
             {
