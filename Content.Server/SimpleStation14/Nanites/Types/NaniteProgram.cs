@@ -1,4 +1,4 @@
-namespace Content.Shared.Simplestation14.Nanites
+namespace Content.Shared.SimpleStation14.Nanites
 {
     public sealed class NaniteProgram
     {

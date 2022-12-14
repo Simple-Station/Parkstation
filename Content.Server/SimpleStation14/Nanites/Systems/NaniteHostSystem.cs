@@ -1,4 +1,4 @@
-using Content.Shared.Simplestation14.Nanites;
+using Content.Shared.SimpleStation14.Nanites;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 
@@ -43,21 +43,24 @@ namespace Content.Server.SimpleStation14.Nanites
         {
             if (Nanite.Nanites < Nanite.DefaultNanites) Nanite.Nanites = Nanite.DefaultNanites;
 
-            NaniteProgram program1 = new() {
+            NaniteProgram program1 = new()
+            {
                 EName = "Nanite Clot 1",
                 EDescription = "Does something when tapped 1",
                 ETrigger = 0,
                 Type = "Button",
             };
             Nanite.Programs.Add(program1);
-            NaniteProgram program2 = new() {
+            NaniteProgram program2 = new()
+            {
                 EName = "Nanite Clot 2",
                 EDescription = "Does something when tapped 2",
                 ETrigger = 1,
                 Type = "Button",
             };
             Nanite.Programs.Add(program2);
-            NaniteProgram program3 = new() {
+            NaniteProgram program3 = new()
+            {
                 EName = "Nanite Clot 3",
                 EDescription = "Does something when tapped 3",
                 ETrigger = 1,
@@ -72,7 +75,8 @@ namespace Content.Server.SimpleStation14.Nanites
         public int ETrigger = 0;
     }
 
-    public sealed class NaniteProgramDeleted : EntityEventArgs {
+    public sealed class NaniteProgramDeleted : EntityEventArgs
+    {
         public NaniteProgram Program = new();
     }
 }

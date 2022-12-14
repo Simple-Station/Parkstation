@@ -1,4 +1,5 @@
-using Content.Shared.Simplestation14.Nanites;
+using Content.Server.SimpleStation14.Nanites;
+using Content.Shared.SimpleStation14.Nanites;
 using Content.Server.Popups;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
@@ -75,7 +76,7 @@ namespace Content.Server.SimpleStation14.Nanites
                 if (Program.Type == "Dissolve")
                 {
                     Console.WriteLine(2);
-                    RaiseLocalEvent<NaniteDissolveTrigger>(new NaniteDissolveTrigger() { ETrigger = Program.ETrigger });
+                    RaiseNetworkEvent(new NaniteDissolveTrigger() { ETrigger = Program.ETrigger });
                 }
             }
         }

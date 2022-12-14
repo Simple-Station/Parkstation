@@ -1,4 +1,4 @@
-using Content.Shared.Simplestation14.Nanites;
+using Content.Shared.SimpleStation14.Nanites;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions;
 
@@ -56,7 +56,8 @@ namespace Content.Server.SimpleStation14.Nanites
         public int ETrigger = 0;
     }
     // Replace Template with program Type
-    public sealed class NaniteTemplateProgramDeleted : EntityEventArgs {
+    public sealed class NaniteTemplateProgramDeleted : EntityEventArgs
+    {
         public NaniteProgram Program = new();
     }
 }

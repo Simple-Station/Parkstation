@@ -1,6 +1,6 @@
 // This is just for testing the events actually work until I get a proper program
-
-using Content.Shared.Simplestation14.Nanites;
+using Content.Server.SimpleStation14.Nanites;
+using Content.Shared.SimpleStation14.Nanites;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions;
 

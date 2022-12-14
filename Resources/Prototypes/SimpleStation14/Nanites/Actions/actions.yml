@@ -8,3 +8,14 @@
     sprite: SimpleStation14/Nanites/action.rsi
     state: bci_blank
   serverEvent: !type:NaniteButtonTrigger
+
+- type: instantAction
+  id: NaniteDissolveTrigger
+  name: something went wrong
+  description: something went wrong
+  useDelay: 3
+  itemIconStyle: BigAction
+  icon:
+    sprite: SimpleStation14/Nanites/action.rsi
+    state: bci_blank
+  serverEvent: !type:NaniteDissolveTrigger
