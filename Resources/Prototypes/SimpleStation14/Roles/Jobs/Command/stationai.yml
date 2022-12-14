@@ -1,7 +1,7 @@
 - type: job
   id: SAI
   name: "station AI"
-  playTimeTracker: JobSAI
+  playTimeTracker: SAI
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 24000

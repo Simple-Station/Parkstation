@@ -163,15 +163,15 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 30
+        maxVol: 15
         reagents:
           - ReagentId: Ichor
-            Quantity: 30
+            Quantity: 10
   - type: AutoRegenReagent
     solution: pen
     reagents:
       - Ichor
-    unitsPerSecond: 1
+    unitsPerSecond: 0.1
 
 - type: entity
   name: pen
