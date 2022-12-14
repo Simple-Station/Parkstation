@@ -62,7 +62,6 @@ namespace Content.Client.Preferences.UI
         private Button _saveButton => CSaveButton;
         private OptionButton _sexButton => CSexButton;
         private OptionButton _genderButton => CPronounsButton;
-        // private Slider _charScale => CScale;
         private Slider _skinColor => CSkin;
         private OptionButton _clothingButton => CClothingButton;
         private OptionButton _backpackButton => CBackpackButton;
@@ -96,8 +95,6 @@ namespace Content.Client.Preferences.UI
         private SpriteView? _previewSprite;
         private SpriteView? _previewSpriteSide;
 
-        // private BoxContainer _charScaleContainer => CScaleContainer;
-        // private ColorSelectorSliders _charScaleSelector;
         private BoxContainer _rgbSkinColorContainer => CRgbSkinColorContainer;
         private ColorSelectorSliders _rgbSkinColorSelector;
 
@@ -144,7 +141,7 @@ namespace Content.Client.Preferences.UI
             _sexButton.OnItemSelected += args =>
             {
                 _sexButton.SelectId(args.Id);
-                SetSex((Sex)args.Id);
+                SetSex((Sex) args.Id);
             };
 
             #endregion Sex
@@ -162,15 +159,15 @@ namespace Content.Client.Preferences.UI
 
             #region Gender
 
-            _genderButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-male-text"), (int)Gender.Male);
-            _genderButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-female-text"), (int)Gender.Female);
-            _genderButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-epicene-text"), (int)Gender.Epicene);
-            _genderButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-neuter-text"), (int)Gender.Neuter);
+            _genderButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-male-text"), (int) Gender.Male);
+            _genderButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-female-text"), (int) Gender.Female);
+            _genderButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-epicene-text"), (int) Gender.Epicene);
+            _genderButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-neuter-text"), (int) Gender.Neuter);
 
             _genderButton.OnItemSelected += args =>
             {
                 _genderButton.SelectId(args.Id);
-                SetGender((Gender)args.Id);
+                SetGender((Gender) args.Id);
             };
 
             #endregion Gender
@@ -194,21 +191,6 @@ namespace Content.Client.Preferences.UI
 
             #endregion Species
 
-            // #region Scale
-
-            // _charScale.OnValueChanged += _ =>
-            // {
-            //     OnCharScaleOnValueChanged();
-            // };
-
-            // _charScaleContainer.AddChild(_rgbSkinColorSelector = new ColorSelectorSliders());
-            // _charScaleSelector.OnColorChanged += _ =>
-            // {
-            //     OnCharScaleOnValueChanged();
-            // };
-
-            // #endregion Scale
-
             #region Skin
 
 
@@ -217,7 +199,7 @@ namespace Content.Client.Preferences.UI
                 OnSkinColorOnValueChanged();
             };
 
-            _charScaleContainer.AddChild(_rgbSkinColorSelector = new ColorSelectorSliders());
+            _rgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new ColorSelectorSliders());
             _rgbSkinColorSelector.OnColorChanged += _ =>
             {
                 OnSkinColorOnValueChanged();
@@ -329,27 +311,27 @@ namespace Content.Client.Preferences.UI
 
             #region Clothing
 
-            _clothingButton.AddItem(Loc.GetString("humanoid-profile-editor-preference-jumpsuit"), (int)ClothingPreference.Jumpsuit);
-            _clothingButton.AddItem(Loc.GetString("humanoid-profile-editor-preference-jumpskirt"), (int)ClothingPreference.Jumpskirt);
+            _clothingButton.AddItem(Loc.GetString("humanoid-profile-editor-preference-jumpsuit"), (int) ClothingPreference.Jumpsuit);
+            _clothingButton.AddItem(Loc.GetString("humanoid-profile-editor-preference-jumpskirt"), (int) ClothingPreference.Jumpskirt);
 
             _clothingButton.OnItemSelected += args =>
             {
                 _clothingButton.SelectId(args.Id);
-                SetClothing((ClothingPreference)args.Id);
+                SetClothing((ClothingPreference) args.Id);
             };
 
             #endregion Clothing
 
             #region Backpack
 
-            _backpackButton.AddItem(Loc.GetString("humanoid-profile-editor-preference-backpack"), (int)BackpackPreference.Backpack);
-            _backpackButton.AddItem(Loc.GetString("humanoid-profile-editor-preference-satchel"), (int)BackpackPreference.Satchel);
-            _backpackButton.AddItem(Loc.GetString("humanoid-profile-editor-preference-duffelbag"), (int)BackpackPreference.Duffelbag);
+            _backpackButton.AddItem(Loc.GetString("humanoid-profile-editor-preference-backpack"), (int) BackpackPreference.Backpack);
+            _backpackButton.AddItem(Loc.GetString("humanoid-profile-editor-preference-satchel"), (int) BackpackPreference.Satchel);
+            _backpackButton.AddItem(Loc.GetString("humanoid-profile-editor-preference-duffelbag"), (int) BackpackPreference.Duffelbag);
 
             _backpackButton.OnItemSelected += args =>
             {
                 _backpackButton.SelectId(args.Id);
-                SetBackpack((BackpackPreference)args.Id);
+                SetBackpack((BackpackPreference) args.Id);
             };
 
             #endregion Backpack
@@ -375,17 +357,17 @@ namespace Content.Client.Preferences.UI
 
             _preferenceUnavailableButton.AddItem(
                 Loc.GetString("humanoid-profile-editor-preference-unavailable-stay-in-lobby-button"),
-                (int)PreferenceUnavailableMode.StayInLobby);
+                (int) PreferenceUnavailableMode.StayInLobby);
             _preferenceUnavailableButton.AddItem(
                 Loc.GetString("humanoid-profile-editor-preference-unavailable-spawn-as-overflow-button",
                                 ("overflowJob", Loc.GetString(SharedGameTicker.FallbackOverflowJobName))),
-                (int)PreferenceUnavailableMode.SpawnAsOverflow);
+                (int) PreferenceUnavailableMode.SpawnAsOverflow);
 
             _preferenceUnavailableButton.OnItemSelected += args =>
             {
                 _preferenceUnavailableButton.SelectId(args.Id);
 
-                Profile = Profile?.WithPreferenceUnavailable((PreferenceUnavailableMode)args.Id);
+                Profile = Profile?.WithPreferenceUnavailable((PreferenceUnavailableMode) args.Id);
                 IsDirty = true;
             };
 
@@ -692,7 +674,6 @@ namespace Content.Client.Preferences.UI
             IsDirty = true;
         }
 
-
         private void OnSkinColorOnValueChanged()
         {
             if (Profile is null) return;
@@ -709,7 +690,7 @@ namespace Content.Client.Preferences.UI
                             _rgbSkinColorContainer.Visible = false;
                         }
 
-                        var color = SkinColor.HumanSkinTone((int)_skinColor.Value);
+                        var color = SkinColor.HumanSkinTone((int) _skinColor.Value);
 
                         CMarkings.CurrentSkinColor = color;
                         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
@@ -809,7 +790,7 @@ namespace Content.Client.Preferences.UI
 
         private void LoadServerData()
         {
-            Profile = (HumanoidCharacterProfile)_preferencesManager.Preferences!.SelectedCharacter;
+            Profile = (HumanoidCharacterProfile) _preferencesManager.Preferences!.SelectedCharacter;
             CharacterSlot = _preferencesManager.Preferences.SelectedCharacterIndex;
 
             _needUpdatePreview = true;
@@ -943,19 +924,18 @@ namespace Content.Client.Preferences.UI
             // add button for each sex
             foreach (var sex in sexes)
             {
-                _sexButton.AddItem(Loc.GetString($"humanoid-profile-editor-sex-{sex.ToString().ToLower()}-text"), (int)sex);
+                _sexButton.AddItem(Loc.GetString($"humanoid-profile-editor-sex-{sex.ToString().ToLower()}-text"), (int) sex);
             }
 
             if (sexes.Contains(Profile.Sex))
-                _sexButton.SelectId((int)Profile.Sex);
+                _sexButton.SelectId((int) Profile.Sex);
             else
-                _sexButton.SelectId((int)sexes[0]);
+                _sexButton.SelectId((int) sexes[0]);
         }
 
         private void UpdateSkinColor()
         {
-            if (Profile == null)
-                return;
+            if (Profile == null) return;
 
             var skin = _prototypeManager.Index<SpeciesPrototype>(Profile.Species).SkinColoration;
 
@@ -1028,7 +1008,7 @@ namespace Content.Client.Preferences.UI
                 return;
             }
 
-            _genderButton.SelectId((int)Profile.Gender);
+            _genderButton.SelectId((int) Profile.Gender);
         }
 
         private void UpdateClothingControls()
@@ -1038,7 +1018,7 @@ namespace Content.Client.Preferences.UI
                 return;
             }
 
-            _clothingButton.SelectId((int)Profile.Clothing);
+            _clothingButton.SelectId((int) Profile.Clothing);
         }
 
         private void UpdateBackpackControls()
@@ -1048,7 +1028,7 @@ namespace Content.Client.Preferences.UI
                 return;
             }
 
-            _backpackButton.SelectId((int)Profile.Backpack);
+            _backpackButton.SelectId((int) Profile.Backpack);
         }
 
         private void UpdateHairPickers()
@@ -1125,7 +1105,7 @@ namespace Content.Client.Preferences.UI
             UpdateMarkings();
             RebuildSpriteView();
 
-            _preferenceUnavailableButton.SelectId((int)Profile.PreferenceUnavailable);
+            _preferenceUnavailableButton.SelectId((int) Profile.PreferenceUnavailable);
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
@@ -1159,8 +1139,8 @@ namespace Content.Client.Preferences.UI
 
             public JobPriority Priority
             {
-                get => (JobPriority)_optionButton.SelectedValue;
-                set => _optionButton.SelectByValue((int)value);
+                get => (JobPriority) _optionButton.SelectedValue;
+                set => _optionButton.SelectByValue((int) value);
             }
 
             public event Action<JobPriority>? PriorityChanged;
@@ -1181,10 +1161,10 @@ namespace Content.Client.Preferences.UI
                 };
 
                 // Text, Value
-                _optionButton.AddItem(Loc.GetString("humanoid-profile-editor-job-priority-high-button"), (int)JobPriority.High);
-                _optionButton.AddItem(Loc.GetString("humanoid-profile-editor-job-priority-medium-button"), (int)JobPriority.Medium);
-                _optionButton.AddItem(Loc.GetString("humanoid-profile-editor-job-priority-low-button"), (int)JobPriority.Low);
-                _optionButton.AddItem(Loc.GetString("humanoid-profile-editor-job-priority-never-button"), (int)JobPriority.Never);
+                _optionButton.AddItem(Loc.GetString("humanoid-profile-editor-job-priority-high-button"), (int) JobPriority.High);
+                _optionButton.AddItem(Loc.GetString("humanoid-profile-editor-job-priority-medium-button"), (int) JobPriority.Medium);
+                _optionButton.AddItem(Loc.GetString("humanoid-profile-editor-job-priority-low-button"), (int) JobPriority.Low);
+                _optionButton.AddItem(Loc.GetString("humanoid-profile-editor-job-priority-never-button"), (int) JobPriority.Never);
 
                 _optionButton.OnItemSelected += args =>
                 {
