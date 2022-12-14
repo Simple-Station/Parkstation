@@ -3530,16 +3530,4 @@ Entries:
     - { message: 'AI no longer spawns in arrivals if latejoining.', type: Fix }
   id: 480000
   time: "2022-12-12T23:46:44.0000000+00:00"
-  - author: "Pspritechologist"
-  changes:
-    - { message: 'Redid Blue Sec to blend better.', type: Tweak }
-    - { message: 'Modified a whack ton of access and job stuff to accommodate CSS and AI.', type: Add }
-    - { message: 'Added Saltern to the server as our first map!', type: Add }
-  id: 490000
-  time: "2022-12-13T02:15:40.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Nerf magic medipen, 0.1 Ichor per second with a max capacity of 15u', type: Tweak }
-  id: 500000
-  time: "2022-12-13T14:48:28.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }
