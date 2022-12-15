@@ -3,8 +3,6 @@ using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Content.Shared.Abilities;
-using Robust.Client.GameObjects;
-using Content.Shared.Eye.Blinding;
 
 namespace Content.Client.SimpleStation14.Overlays
 {

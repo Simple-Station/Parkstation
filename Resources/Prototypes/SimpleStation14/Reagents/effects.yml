@@ -1,0 +1,15 @@
+- type: reagent
+  id: Smonk
+  name: reagent-name-smonk
+  parent: BaseDrink
+  desc: reagent-desc-smonk
+  physicalDesc: reagent-physical-desc-smokey
+  flavor: smokey
+  color: "#75b1f0"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Airloss: 1

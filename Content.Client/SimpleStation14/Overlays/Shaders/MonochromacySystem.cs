@@ -55,7 +55,7 @@ public sealed class MonochromacySystem : EntitySystem
 
     private void OnExamined(EntityUid uid, MonochromacyComponent component, ExaminedEvent args)
     {
-        if (args.IsInDetailsRange && !_net.IsClient)
+        if (args.IsInDetailsRange)
         {
             args.PushMarkup(Loc.GetString("monochromatic-blindness-trait-examined", ("target", Identity.Entity(uid, EntityManager))));
         }

@@ -3530,4 +3530,27 @@ Entries:
     - { message: 'AI no longer spawns in arrivals if latejoining.', type: Fix }
   id: 480000
   time: "2022-12-12T23:46:44.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Nerf magic medipen, 0.1 Ichor per second with a max capacity of 15u', type: Tweak }
+  id: 490000
+  time: "2022-12-13T14:48:28.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Brief is now in the adminbus with aghost.', type: Add }
+    - { message: 'Nearsighted trait.', type: Add }
+    - { message: 'Mostly working Nearsight system.', type: Add }
+    - { message: 'GlassesNearsight Tag, for "prescription" eyewear.', type: Add }
+    - { message: 'Prescription HUDs. (unused)', type: Add }
+    - { message: 'Prescription glasses.', type: Tweak }
+    - { message: 'Remove heal spell knockback.', type: Fix }
+    - { message: 'Fix inconsistent naming, some Simplestation14, some SimpleStation14, now all the latter.', type: Fix }
+    - { message: 'Give Ichor a physical description.', type: Fix }
+    - { message: 'Smonk reagent, instantly makes a ton of fast smoke. (for wizard spell soon™)', type: Add }
+    - { message: 'Add Doormat name to AI and borg possibilites.', type: Add }
+    - { message: 'Add Fakethanol reagent.', type: Add }
+    - { message: 'Fix EasyDrunk trait, uses Fakethanol instead of Ethanol.', type: Fix }
+    - { message: 'Fix narcolepsy Loc "decs", now spelled "desc".', type: Fix }
+  id: 500000
+  time: "2022-12-15T00:10:37.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }
