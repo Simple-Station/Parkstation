@@ -1,6 +1,6 @@
 - type: antag
   id: Minor
-  name: Minor
+  name: roles-antag-minor-antag-name
   antagonist: true
-  setPreference: false
-  objective: things
+  setPreference: true
+  objective: roles-antag-minor-antag-name

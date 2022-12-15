@@ -10,7 +10,7 @@
   - type: Projectile
     damage:
       groups:
-        Burn: 0.3
+        Burn: 1.0
   - type: PointLight
     enabled: true
     color: "#ff4300"

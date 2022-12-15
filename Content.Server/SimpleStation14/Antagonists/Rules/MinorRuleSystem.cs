@@ -17,6 +17,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Server.Objectives.Interfaces;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -25,6 +26,7 @@ public sealed class MinorRuleSystem : GameRuleSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IObjectivesManager _objectivesManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
@@ -164,7 +166,15 @@ public sealed class MinorRuleSystem : GameRuleSystem
         var maxDifficulty = _cfg.GetCVar(CCVars.TraitorMaxDifficulty);
         var maxPicks = _cfg.GetCVar(CCVars.TraitorMaxPicks);
 
-        minorRole.Mind.Briefing = $"objectivehere";
+        //give minor antag their objective
+        var difficulty = 0f;
+        for (var pick = 0; pick < maxPicks && maxDifficulty > difficulty; pick++)
+        {
+            var objective = _objectivesManager.GetRandomObjective(minorRole.Mind, "MinorantagObjectiveGroup");
+            if (objective == null) continue;
+            if (minorRole.Mind.TryAddObjective(objective))
+                difficulty += objective.Difficulty;
+        }
 
         SoundSystem.Play(_addedSound.GetSound(), Filter.Empty().AddPlayer(minor), AudioParams.Default);
         return;

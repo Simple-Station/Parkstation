@@ -1,0 +1,56 @@
+- type: entity
+  name: pv3 compact
+  parent: BaseWeaponBattery
+  id: WeaponLaserPv3Compact
+  description: Standard issue Nyanotrasen laser SMG. Pew! Pew pew! Now we're talkin' scifi!
+  components:
+  - type: Item
+    size: 28
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Weapons/Guns/SMGs/pv3compact.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: SimpleStation14/Objects/Weapons/Guns/SMGs/pv3compact.rsi
+  - type: Gun
+    minAngle: 1.5
+    maxAngle: 5
+    fireRate: 4.5
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: HitscanBatteryAmmoProvider
+    proto: RedSmallLaser
+    fireCost: 26
+  - type: MagazineVisuals
+    magState: mag
+    steps: 10
+    zeroVisible: true
+
+- type: entity
+  name: Pv3 Mini
+  parent: BaseWeaponBatterySmall
+  id: WeaponLaserPv3Mini
+  description: Standard issue Nyanotrasen laser sidearm. This thing can bullseye a two metre target, it's not impossible!
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Weapons/Guns/Pistols/pv3mini.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: HitscanBatteryAmmoProvider
+    proto: RedSmallLaser
+    fireCost: 32
+  - type: MagazineVisuals
+    magState: mag
+    steps: 10
+    zeroVisible: true
+  - type: Appearance

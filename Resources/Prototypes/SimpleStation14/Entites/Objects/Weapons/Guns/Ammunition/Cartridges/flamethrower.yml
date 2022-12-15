@@ -8,7 +8,7 @@
   #     - Fill
   - type: CartridgeAmmo
     proto: PelletFlamethrowerIncendiary
-    count: 25
+    count: 6
     spread: 45
     deleteOnSpawn: true
   - type: Sprite
