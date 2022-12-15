@@ -9,6 +9,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
 using Content.Shared.Inventory;
 using Content.Client.Inventory;
+using Content.Client.SimpleStation14.Overlays;
 
 namespace Content.Client.SimpleStation14.Overlays;
 public sealed class NearsightedSystem : EntitySystem
@@ -81,12 +82,10 @@ public sealed class NearsightedSystem : EntitySystem
 
     private void DidUnequip(EntityUid uid, NearsightedComponent component, DidUnequipEvent args)
     {
-        var comp = EnsureComp<TagComponent>(args.Equipment);
         var cinv = EnsureComp<ClientInventoryComponent>(args.Equipee);
-        // cinv.SlotData.TryGetValue("eyes", out var eyes);
+        cinv.SlotData.TryGetValue("eyes", out var eyes);
 
-        // if (eyes?.Container?.ContainedEntity == null)
-            UpdateShader(component);
+        if (eyes?.Container?.ContainedEntity == null) UpdateShader(component);
     }
 
 
