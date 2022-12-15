@@ -1,0 +1,16 @@
+- type: reagent
+  id: Fakethanol
+  name: reagent-name-ethanol
+  parent: BaseAlcohol
+  desc: reagent-desc-ethanol
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#b05b3c"
+  boilingPoint: 78.2
+  meltingPoint: -114.1
+  metabolisms:
+    Drink:
+      effects:
+      - !type:Drunk
+        boozePower: 4
+        slurSpeech: false

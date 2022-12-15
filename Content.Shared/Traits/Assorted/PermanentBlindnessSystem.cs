@@ -23,7 +23,7 @@ public sealed class PermanentBlindnessSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, PermanentBlindnessComponent component, ExaminedEvent args)
     {
-        if (args.IsInDetailsRange && !_net.IsClient)
+        if (args.IsInDetailsRange)
         {
             args.PushMarkup(Loc.GetString("permanent-blindness-trait-examined", ("target", Identity.Entity(uid, EntityManager))));
         }

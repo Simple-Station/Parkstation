@@ -271,6 +271,9 @@
   id: GlassBeaker
 
 - type: Tag
+  id: GlassesNearsight
+
+- type: Tag
   id: GlassShard
 
 - type: Tag
