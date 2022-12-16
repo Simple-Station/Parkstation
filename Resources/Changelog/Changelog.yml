@@ -3553,4 +3553,11 @@ Entries:
     - { message: 'Fix narcolepsy Loc "decs", now spelled "desc".', type: Fix }
   id: 500000
   time: "2022-12-15T00:10:37.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Nearsight doesnt apply the shader to others around you.', type: Fix }
+    - { message: 'Nearsight doesnt apply your shader settings to others around you with nearsight (effectively blinding others).', type: Add/Remove/Tweak/Fix }
+    - { message: 'Woops, another trait that has issues with adding components! No more draconic bloodstream until I make a solution to this.', type: Remove }
+  id: 510000
+  time: "2022-12-15T22:59:59.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }

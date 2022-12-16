@@ -8,18 +8,18 @@
 #     - type: BibleUser # Need to fix addComponentSpecial to check if component already exists, else it causes a fatal error
 #     - type: SpellbookUser # This works for now though since nobody except wizards (which are ghost role, and can't get traits) have this component
 
-- type: trait
-  id: DragonsBlood
-  name: Draconic Bloodstream
-  description: You have some of the great Space Dragon's healing abilities, and have Ichor in your blood.
-  cost: -6
-  category: Positive
-  components:
-    - type: AutoRegenReagent
-      solution: chemicals
-      reagents:
-        - Ichor
-      unitsPerSecond: 0.02 # 0.55
+# - type: trait
+#   id: DragonsBlood
+#   name: Draconic Bloodstream
+#   description: You have some of the great Space Dragon's healing abilities, and have Ichor in your blood.
+#   cost: -6
+#   category: Positive
+#   components:
+#     - type: AutoRegenReagent
+#       solution: chemicals
+#       reagents:
+#         - Ichor
+#       unitsPerSecond: 0.02 # 0.55
 
 - type: trait # Probably fine for now, right? Arachne are disabled...
   id: Arachnid

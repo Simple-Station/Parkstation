@@ -18,5 +18,8 @@ namespace Content.Shared.Abilities
 
         [DataField("galpha"), ViewVariables(VVAccess.ReadWrite)]
         public float gAlpha = 0.95f;
+
+        [DataField("glasses"), ViewVariables(VVAccess.ReadWrite)]
+        public bool Glasses = false;
     }
 }

@@ -4,6 +4,8 @@ using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Abilities;
+
 
 namespace Content.Client.SimpleStation14.Overlays;
 
@@ -33,11 +35,22 @@ public sealed class NearsightedOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (!_entityManager.TryGetComponent(_playerManager.LocalPlayer?.ControlledEntity, out EyeComponent? eyeComp))
-            return;
+        if (!_entityManager.TryGetComponent(_playerManager.LocalPlayer?.ControlledEntity, out NearsightedComponent? nearComp)) return;
+        if (_playerManager.LocalPlayer?.ControlledEntity != nearComp.Owner) return;
 
-        if (args.Viewport.Eye != eyeComp.Eye)
-            return;
+        if (nearComp.Glasses == true)
+        {
+            OxygenLevel = nearComp.gRadius;
+            outerDarkness = nearComp.gAlpha;
+        }
+        else
+        {
+            OxygenLevel = nearComp.Radius;
+            outerDarkness = nearComp.Alpha;
+        }
+
+        if (!_entityManager.TryGetComponent(_playerManager.LocalPlayer?.ControlledEntity, out EyeComponent? eyeComp)) return;
+        if (args.Viewport.Eye != eyeComp.Eye) return;
 
         var viewport = args.WorldAABB;
         var handle = args.WorldHandle;
@@ -55,17 +68,6 @@ public sealed class NearsightedOverlay : Overlay
         {
             _oldOxygenLevel = OxygenLevel;
         }
-
-        /*
-         * darknessAlphaOuter is the maximum alpha for anything outside of the larger circle
-         * darknessAlphaInner (on the shader) is the alpha for anything inside the smallest circle
-         *
-         * outerCircleRadius is what we end at for max level for the outer circle
-         * outerCircleMaxRadius is what we start at for 0 level for the outer circle
-         *
-         * innerCircleRadius is what we end at for max level for the inner circle
-         * innerCircleMaxRadius is what we start at for 0 level for the inner circle
-         */
 
         float outerMaxLevel = 0.6f * distance;
         float outerMinLevel = 0.06f * distance;
