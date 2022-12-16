@@ -26,14 +26,17 @@
     - FullAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedSmallLaser
-    fireCost: 26
+    fireCost: 20
+  - type: Battery
+    maxCharge: 700
+    startingCharge: 700
   - type: MagazineVisuals
     magState: mag
     steps: 10
     zeroVisible: true
 
 - type: entity
-  name: Pv3 Mini
+  name: pv3 mini
   parent: BaseWeaponBatterySmall
   id: WeaponLaserPv3Mini
   description: Standard issue Nyanotrasen laser sidearm. This thing can bullseye a two metre target, it's not impossible!
@@ -46,9 +49,14 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Clothing
+    sprite: SimpleStation14/Objects/Weapons/Guns/Pistols/pv3mini.rsi
   - type: HitscanBatteryAmmoProvider
     proto: RedSmallLaser
-    fireCost: 32
+    fireCost: 22.5
+  - type: Battery
+    maxCharge: 450
+    startingCharge: 450
   - type: MagazineVisuals
     magState: mag
     steps: 10
