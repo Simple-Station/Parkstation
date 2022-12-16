@@ -7,8 +7,9 @@
   - type: Sprite
     sprite: SimpleStation14/Objects/Misc/bureaucracy.rsi
     state: pen_css
+
 - type: entity
-  name: chief service staff's rubber stamp
+  name: chief service supervisor's rubber stamp
   parent: RubberStampMime
   id: RubberStampCSS
   components:

@@ -3484,7 +3484,7 @@ Entries:
   time: "2022-12-6T20:48:00.0000000+00:00"
 - author: "Pspritechologist"
   changes:
-    - { message: 'Added the Chief Service Staff as a role, though no maps implement it yet.', type: Add }
+    - { message: 'Added the Chief Service Supervisor as a role, though no maps implement it yet.', type: Add }
     - { message: 'Added Peacekeeper as a role! Pick up that can, citizen.', type: Add }
     - { message: 'Made ALL of Sec blue! No longer are the good guys dressed like terrorists!', type: Tweak }
     - { message: 'Fixed some colour inconsistencies within Service.', type: Tweak }

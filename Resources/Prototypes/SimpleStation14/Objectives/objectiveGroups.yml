@@ -1,0 +1,5 @@
+# Minor Antags
+- type: weightedRandom
+  id: MinorantagObjectiveGroup
+  weights:
+    MinorPickpocketObjective: 1

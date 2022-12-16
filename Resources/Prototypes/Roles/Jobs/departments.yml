@@ -3,7 +3,7 @@
   roles:
   - SAI
   - CentralCommandOfficial
-  - ChiefServiceStaff
+  - ChiefServiceSupervisor
   - ChiefEngineer
   - ChiefMedicalOfficer
   - ERTEngineer
@@ -25,7 +25,7 @@
   - Chef
   - Clown
   - Gladiator
-  - ChiefServiceStaff
+  - ChiefServiceSupervisor
   - Janitor
   - Lawyer
   - Librarian
@@ -39,7 +39,6 @@
   - ServiceWorker
   - TechnicalAssistant
   - Quartermaster
-  - Prisoner
 
 - type: department
   id: Engineering
@@ -69,6 +68,7 @@
   - SecurityOfficer
   - Detective
   - Warden
+  - Prisoner
 
 - type: department
   id: Epistemics

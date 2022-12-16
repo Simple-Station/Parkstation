@@ -308,7 +308,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> SuspicionMinPlayers =
-            CVarDef.Create("suspicion.min_players", 3);
+            CVarDef.Create("suspicion.min_players", 5);
 
         public static readonly CVarDef<int> SuspicionMinTraitors =
             CVarDef.Create("suspicion.min_traitors", 2);
@@ -327,7 +327,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> TraitorMinPlayers =
-            CVarDef.Create("traitor.min_players", 2);
+            CVarDef.Create("traitor.min_players", 5);
 
         public static readonly CVarDef<int> TraitorMaxTraitors =
             CVarDef.Create("traitor.max_traitors", 12); // Assuming average server maxes somewhere from like 50-80 people
@@ -359,7 +359,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> ZombieMinPlayers =
-            CVarDef.Create("zombie.min_players", 2);
+            CVarDef.Create("zombie.min_players", 20);
 
         public static readonly CVarDef<int> ZombieMaxInitialInfected =
             CVarDef.Create("zombie.max_initial_infected", 6);
@@ -372,7 +372,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> PiratesMinPlayers =
-            CVarDef.Create("pirates.min_players", 1);
+            CVarDef.Create("pirates.min_players", 25);
 
         public static readonly CVarDef<int> PiratesMaxOps =
             CVarDef.Create("pirates.max_pirates", 6);
@@ -854,7 +854,7 @@ namespace Content.Shared.CCVar
         /// Whether or not OOC chat should be enabled during a round.
         /// </summary>
         public static readonly CVarDef<bool> OocEnableDuringRound =
-            CVarDef.Create("ooc.enable_during_round", false, CVar.NOTIFY | CVar.REPLICATED |CVar.SERVER);
+            CVarDef.Create("ooc.enable_during_round", true, CVar.NOTIFY | CVar.REPLICATED |CVar.SERVER);
 
         /*
          * LOOC
@@ -931,13 +931,13 @@ namespace Content.Shared.CCVar
         ///     The required ratio of the server that must agree for a restart round vote to go through.
         /// </summary>
         public static readonly CVarDef<float> VoteRestartRequiredRatio =
-            CVarDef.Create("vote.restart_required_ratio", 0.75f, CVar.SERVERONLY);
+            CVarDef.Create("vote.restart_required_ratio", 0.85f, CVar.SERVERONLY);
 
         /// <summary>
         /// Whether or not to restrict the restart vote when there's online admins.
         /// </summary>
         public static readonly CVarDef<bool> VoteRestartNotAllowedWhenAdminOnline =
-            CVarDef.Create("vote.restart_not_allowed_when_admin_online", false, CVar.SERVERONLY);
+            CVarDef.Create("vote.restart_not_allowed_when_admin_online", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     The delay which two votes of the same type are allowed to be made by separate people, in seconds.
@@ -950,7 +950,7 @@ namespace Content.Shared.CCVar
         ///     Sets the duration of the map vote timer.
         /// </summary>
         public static readonly CVarDef<int>
-            VoteTimerMap = CVarDef.Create("vote.timermap", 30, CVar.SERVERONLY);
+            VoteTimerMap = CVarDef.Create("vote.timermap", 90, CVar.SERVERONLY);
 
         /// <summary>
         ///     Sets the duration of the restart vote timer.
@@ -1086,7 +1086,7 @@ namespace Content.Shared.CCVar
         ///     specific order.
         /// </summary>
         public static readonly CVarDef<string> CrewManifestOrdering =
-            CVarDef.Create("crewmanifest.ordering", "Command,Security,Science,Medical,Engineering,Cargo,Service,Unknown",
+            CVarDef.Create("crewmanifest.ordering", "Command,Engineering,Medical,Science,Security,Service,Unknown",
                 CVar.REPLICATED);
 
         /*
@@ -1121,10 +1121,10 @@ namespace Content.Shared.CCVar
             CVarDef.Create("viewport.scale_render", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
         public static readonly CVarDef<int> ViewportMinimumWidth =
-            CVarDef.Create("viewport.minimum_width", 1, CVar.REPLICATED);
+            CVarDef.Create("viewport.minimum_width", 15, CVar.REPLICATED);
 
         public static readonly CVarDef<int> ViewportMaximumWidth =
-            CVarDef.Create("viewport.maximum_width", 50, CVar.REPLICATED);
+            CVarDef.Create("viewport.maximum_width", 21, CVar.REPLICATED);
 
         public static readonly CVarDef<int> ViewportWidth =
             CVarDef.Create("viewport.width", 21, CVar.CLIENTONLY | CVar.ARCHIVE);
@@ -1143,7 +1143,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> ChatMaxMessageLength =
-            CVarDef.Create("chat.max_message_length", 1000, CVar.SERVER | CVar.REPLICATED);
+            CVarDef.Create("chat.max_message_length", 2000, CVar.SERVER | CVar.REPLICATED);
 
         public static readonly CVarDef<bool> ChatSanitizerEnabled =
             CVarDef.Create("chat.chat_sanitizer_enabled", true, CVar.SERVERONLY);
@@ -1159,7 +1159,7 @@ namespace Content.Shared.CCVar
         /// How long a client can go without any input before being considered AFK.
         /// </summary>
         public static readonly CVarDef<float> AfkTime =
-            CVarDef.Create("afk.time", 60f, CVar.SERVERONLY);
+            CVarDef.Create("afk.time", 120f, CVar.SERVERONLY);
 
         /*
          * IC

@@ -55,6 +55,9 @@
     {
       "name": "chef"
     },
+	{
+	  "name": "css"
+	},
     {
       "name": "curator"
     },

@@ -15,8 +15,7 @@
   icon: "ChiefMedicalOfficer"
   antagAdvantage: 6
   requireAdminNotify: true
-  whitelistRequired: true
-  supervisors: job-supervisors-captain
+  supervisors: job-supervisors-cc
   access:
   - Medical
   - Command

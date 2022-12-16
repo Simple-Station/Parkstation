@@ -1,0 +1,23 @@
+- type: entity
+  name: k12 compact
+  parent: BaseWeaponSubMachineGun
+  id: WeaponSubMachineGunK12Compact
+  description: Standard issue Nyanotrasen branded submachine gun. Only slightly better than a pistol.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Weapons/Guns/SMGs/k12compact.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    fireRate: 6
+  - type: Clothing
+    sprite: SimpleStation14/Objects/Weapons/Guns/SMGs/k12compact.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+  - type: Appearance
+  

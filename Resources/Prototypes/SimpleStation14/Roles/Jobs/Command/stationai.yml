@@ -4,7 +4,7 @@
   playTimeTracker: SAI
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 24000
+      time: 60000
   icon: "Unknown"
   supervisors: "all crew"
   accessGroup:

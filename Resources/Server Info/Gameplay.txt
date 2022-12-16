@@ -13,9 +13,7 @@ Traitors, antagonists, RDM and “self antag”
 
 If in your character customisation settings you selected the chance to become an antagonist (antag) or other traitor role, it is not guaranteed that you will be one. When a traitor gamemode round starts there is a random roll of all the players who selected the chance to become a traitor and only some get selected. They will be notified they are a traitor in chat and will have a set of objectives they can view by pressing C.
 
-Being an antagonist is not an excuse to go on a murder spree and your job is to complete your objectives which on occasion will include escaping alive or dying a glorious death. How you complete your objectives is up to you so murder is valid but try to have fun (ideally not at everyones expense but that’s up to you).
-
-If you suspect an antagonist such as a traitor or cultist etc report them to security as fast as possible and if necessary do what you can to protect yourself. Remember traitors are people too so ideally they should be arrested and prosecuted under space law and not just murdered (but do what you need to do to survive).
+Being an antagonist is not an excuse to go on a murder spree and your job is to bring a second perspective to rounds. Being an antag is a responsibility, as you should idealy be the second part of a two sided story. Your actual goal is the same as everyone else's in the game; tell a good story. As such, the only way to "lose" as an antag, is to be boring.
 
 RDM or random deathmatch is the act of killing someone for no reason or attempting to. If you are being attacked it is likely the other person could be an antag but if you’re unsure, ask the admins for help (ahelp) to check this when convenient.
 

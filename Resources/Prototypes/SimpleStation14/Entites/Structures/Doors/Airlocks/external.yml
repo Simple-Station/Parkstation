@@ -1,0 +1,7 @@
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalAtmospherics
+  suffix: Atmospherics, External
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Doors/Airlocks/External/atmospherics.rsi

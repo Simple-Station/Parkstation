@@ -52,11 +52,11 @@ namespace Content.Server.Research.Oracle
 
         public readonly IReadOnlyList<String> RejectMessages = new[]
         {
-            "ἄγνοια",
-            "υλικό",
-            "ἀγνωσία",
-            "γήινος",
-            "σάκλας"
+            "Incorrect sample provided.",
+            "This is not the required data.",
+            "ERROR",
+            "Uneeded object registered.",
+            "Unexpected item in scanning area."
         };
 
         public readonly IReadOnlyList<String> BlacklistedProtos = new[]

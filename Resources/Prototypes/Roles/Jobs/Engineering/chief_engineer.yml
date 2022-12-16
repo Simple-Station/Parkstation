@@ -15,7 +15,7 @@
   startingGear: ChiefEngineerGear
   icon: "ChiefEngineer"
   requireAdminNotify: true
-  supervisors: job-supervisors-captain
+  supervisors: job-supervisors-cc
   canBeAntag: true
   antagAdvantage: 8
   whitelistRequired: true

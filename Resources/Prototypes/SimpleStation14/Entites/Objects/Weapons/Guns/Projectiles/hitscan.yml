@@ -1,0 +1,14 @@
+- type: hitscan
+  id: RedSmallLaser
+  damage:
+    types:
+      Heat: 11
+  muzzleFlash:
+    sprite: SimpleStation14/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_laser
+  travelFlash:
+    sprite: SimpleStation14/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam
+  impactFlash:
+    sprite: SimpleStation14/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_laser

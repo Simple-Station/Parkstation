@@ -15,8 +15,7 @@
   antagAdvantage: 6
   requireAdminNotify: true
   canBeAntag: false
-  whitelistRequired: true
-  supervisors: "the captain"
+  supervisors: job-supervisors-cc
   access:
   - Research
   - Command

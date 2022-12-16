@@ -18,6 +18,7 @@ id-card-access-level-chief-medical-officer = Chief Medical Officer
 id-card-access-level-medical = Medical
 id-card-access-level-chemistry = Chemistry
 
+id-card-access-level-chief-service-supervisor = Chief Service Supervisor
 id-card-access-level-quartermaster = Quartermaster
 id-card-access-level-cargo = Cargo
 id-card-access-level-salvage = Salvage

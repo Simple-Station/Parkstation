@@ -12,3 +12,5 @@ job-supervisors-medicine = medical doctors, chemists, and the chief medical offi
 job-supervisors-security = security officers, the warden, and the head of security
 job-supervisors-hire = whoever hires you
 job-supervisors-everyone = absolutely everyone
+job-supervisors-css = the chief service supervisor
+job-supervisors-cc = Central Command, and discussion among the board of Heads

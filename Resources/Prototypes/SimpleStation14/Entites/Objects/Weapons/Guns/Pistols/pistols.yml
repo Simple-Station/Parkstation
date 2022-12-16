@@ -1,0 +1,24 @@
+- type: entity
+  name: k12 mini
+  parent: BaseWeaponPistol
+  id: WeaponPistolK12Mini
+  description: Standard issue Nyanotrasen branded sidearm. If this is all you're given, then good luck. Uses .35 auto ammo.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Weapons/Guns/Pistols/k12mini.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: SimpleStation14/Objects/Weapons/Guns/Pistols/k12mini.rsi
+  - type: Gun
+    fireRate: 5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
