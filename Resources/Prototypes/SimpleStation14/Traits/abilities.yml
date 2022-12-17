@@ -1,27 +1,28 @@
-# - type: trait
-#   id: Religious
-#   name: Religious
-#   description: Allows you to use Bibles and Spellbooks.
-#   cost: -3
-#   category: Positive
-#   components:
-#     - type: BibleUser # Need to fix addComponentSpecial to check if component already exists, else it causes a fatal error
-#     - type: SpellbookUser # This works for now though since nobody except wizards (which are ghost role, and can't get traits) have this component
+- type: trait
+  id: Religious
+  name: Religious
+  description: Allows you to use Bibles and Spellbooks.
+  cost: -3
+  category: Positive
+  components:
+    - type: ReligiousTrait
 
-# - type: trait
-#   id: DragonsBlood
-#   name: Draconic Bloodstream
-#   description: You have some of the great Space Dragon's healing abilities, and have Ichor in your blood.
-#   cost: -6
-#   category: Positive
-#   components:
-#     - type: AutoRegenReagent
-#       solution: chemicals
-#       reagents:
-#         - Ichor
-#       unitsPerSecond: 0.02 # 0.55
+- type: trait
+  id: DragonsBlood
+  name: Draconic Bloodstream
+  description: You have some of the great Space Dragon's healing abilities, and have Ichor in your blood. (Will be rethemed)
+  cost: -6
+  category: Positive
+  components:
+    - type: TraitRegenReagent
+    - type: DraconicBloodstream
+      reagent:
+        solutionName: chemicals
+        reagent: Ichor
+        unitsPerUpdate: 0.02
+        accumulatorTime: 1
 
-- type: trait # Probably fine for now, right? Arachne are disabled...
+- type: trait # Probably fine for now, right? Arachne are disabled... Please don't enable them again..
   id: Arachnid
   name: Arachnid
   description: Allows you to spin webs, like the Arachne.

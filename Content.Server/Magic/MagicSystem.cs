@@ -26,6 +26,7 @@ using Robust.Shared.Random;
 using Content.Shared.Damage;
 using Content.Server.Magic.Components;
 using Content.Server.Popups;
+using Content.Server.SimpleStation14.Traits;
 
 namespace Content.Server.Magic;
 
@@ -125,7 +126,7 @@ public sealed class MagicSystem : EntitySystem
     {
         component.CancelToken = null;
 
-        if (!HasComp<SpellbookUserComponent>(ev.User))
+        if (!HasComp<SpellbookUserComponent>(ev.User) && !HasComp<ReligiousTraitComponent>(ev.User))
         {
             _popupSystem.PopupEntity(Loc.GetString("spellbook-sizzle"), ev.User, Filter.Entities(ev.User));
 

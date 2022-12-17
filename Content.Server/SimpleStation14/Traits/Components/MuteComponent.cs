@@ -1,4 +1,4 @@
-namespace Content.Server.SimpleStation14.Traits.Mute
+namespace Content.Server.SimpleStation14.Traits
 {
     /// <summary>
     /// Owner entity cannot speak.

@@ -22,6 +22,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Player;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
+using Content.Server.SimpleStation14.Traits;
 
 namespace Content.Server.Chapel
 {
@@ -161,7 +162,7 @@ namespace Content.Server.Chapel
             }
 
             // you need psionic OR bible user
-            if (!HasComp<PsionicComponent>(agent) && !HasComp<BibleUserComponent>(agent))
+            if (!HasComp<PsionicComponent>(agent) && !HasComp<BibleUserComponent>(agent) && !HasComp<ReligiousTraitComponent>(agent))
             {
                 _popups.PopupEntity(Loc.GetString("altar-failure-reason-user"), altar, Filter.Entities(agent), Shared.Popups.PopupType.SmallCaution);
                 return;
@@ -192,7 +193,7 @@ namespace Content.Server.Chapel
                 return;
             }
 
-            if (HasComp<BibleUserComponent>(agent))
+            if (HasComp<BibleUserComponent>(agent) || HasComp<ReligiousTraitComponent>(agent))
             {
                 if (component.StunTime == null || _timing.CurTime > component.StunTime)
                 {

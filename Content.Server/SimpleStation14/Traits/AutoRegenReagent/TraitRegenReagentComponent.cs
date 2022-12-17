@@ -5,26 +5,29 @@ namespace Content.Server.SimpleStation14.Traits
     [RegisterComponent]
     public sealed class TraitRegenReagentComponent : Component
     {
-        [DataField("reagents", required: true)]
-        public List<TraitRegenReagentObject> Reagents = default!;
+        [DataField("reagents")]
+        public List<TraitRegenReagentObject> Reagents = new();
     }
 
     [DataDefinition]
     public sealed class TraitRegenReagentObject : Object
     {
-        [DataField("reagent", required: true), ViewVariables(VVAccess.ReadWrite)]
-        public string reagent = "";
+        [DataField("reagent"), ViewVariables(VVAccess.ReadWrite)]
+        public string reagent = "Lexorin";
 
-        [DataField("solution", required: true), ViewVariables(VVAccess.ReadOnly)]
-        public Solution solution = default!;
+        [DataField("solutionName"), ViewVariables(VVAccess.ReadOnly)]
+        public string solutionName = "chemicals";
+
+        [DataField("solution"), ViewVariables(VVAccess.ReadOnly)]
+        public Solution solution = new();
 
         [DataField("unitsPerUpdate"), ViewVariables(VVAccess.ReadWrite)]
-        public float unitsPerUpdate = 0.2f;
+        public float unitsPerUpdate = 1f;
 
         [DataField("accumulator"), ViewVariables(VVAccess.ReadOnly)]
         public float Accumulator = 0f;
 
         [DataField("accumulatorTime"), ViewVariables(VVAccess.ReadWrite)]
-        public float AccumulatorTime = 0f;
+        public float AccumulatorTime = 1f;
     }
 }
