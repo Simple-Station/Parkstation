@@ -3556,7 +3556,7 @@ Entries:
 - author: "DEATHB4DEFEAT"
   changes:
     - { message: 'Nearsight doesnt apply the shader to others around you.', type: Fix }
-    - { message: 'Nearsight doesnt apply your shader settings to others around you with nearsight (effectively blinding others).', type: Add/Remove/Tweak/Fix }
+    - { message: 'Nearsight doesnt apply your shader settings to others around you with nearsight (effectively blinding others).', type: Fix }
     - { message: 'Woops, another trait that has issues with adding components! No more draconic bloodstream until I make a solution to this.', type: Remove }
     - { message: 'Make prescription glasses more accessible, add to clothesmate, mediven, and repdrobe', type: Tweak }
   id: 510000
