@@ -6,7 +6,6 @@ using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Server.Clothing.Components;
 using Content.Server.Damage.Systems;
 using Content.Server.Disease;
 using Content.Server.Disease.Components;
@@ -44,6 +43,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tabletop.Components;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -52,6 +52,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
+using System.Threading.Tasks;
 
 namespace Content.Server.Administration.Systems;
 
@@ -820,5 +821,50 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-smite-super-speed-description"),
         };
         args.Verbs.Add(superSpeed);
+
+        Verb bookify = new()
+        {
+            Text = "Bookify",
+            Category = VerbCategory.Smite,
+            IconTexture = "/Textures/Objects/Misc/books.rsi/book_boneworking.png",
+            Act = () =>
+            {
+                SoundSystem.Play("/Audio/SimpleStation14/Admin/Smites/bookify.ogg", Filter.Pvs(args.Target), args.Target);
+                _polymorphableSystem.PolymorphEntity(args.Target, "BookifyMorph");
+            },
+            Impact = LogImpact.Extreme,
+            Message = Loc.GetString("admin-smite-bookify-description"),
+        };
+        args.Verbs.Add(bookify);
+
+        Verb smite = new()
+        {
+            Text = "Smite",
+            Category = VerbCategory.Smite,
+            IconTexture = "/Textures/Effects/lightning.rsi/lightning_2.png",
+            Act = async () =>
+            {
+                SoundSystem.Play("/Audio/SimpleStation14/Admin/Smites/smite.ogg", Filter.Pvs(args.Target), args.Target);
+                await Task.WhenAll(Timer.Delay(4000));
+                _electrocutionSystem.TryDoElectrocution(args.Target, args.Target, 95, TimeSpan.FromSeconds(5), true, 1, null, true);
+            },
+            Impact = LogImpact.Extreme,
+            Message = Loc.GetString("admin-smite-smite-description"),
+        };
+        args.Verbs.Add(smite);
+
+        Verb roleplay = new()
+        {
+            Text = "Roleplay",
+            Category = VerbCategory.Smite,
+            IconTexture = "/Textures/Markers/jobs.rsi/centcom.png",
+            Act = () =>
+            {
+                SoundSystem.Play("/Audio/SimpleStation14/Admin/Smites/pleaseroleplay.ogg", Filter.Entities(args.Target), args.Target);
+            },
+            Impact = LogImpact.Extreme,
+            Message = Loc.GetString("admin-smite-roleplay-description"),
+        };
+        args.Verbs.Add(roleplay);
     }
 }

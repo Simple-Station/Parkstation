@@ -55,6 +55,9 @@ admin-smite-lung-removal-description = Removes their lungs, drowning them.
 admin-smite-remove-hand-description = Removes only one of their hands instead of all of them.
 admin-smite-disarm-prone-description = Makes them get disarmed 100% of the time and cuffed instantly.
 admin-smite-garbage-can-description = Turn them into a garbage bin to emphasize what they remind you of.
+admin-smite-bookify-description = Turn them into a spacelaw book.
+admin-smite-smite-description = Play a lightning sound across the grid and zap them.
+admin-smite-roleplay-description = Please roleplay appropriately.
 
 
 ## Tricks descriptions
