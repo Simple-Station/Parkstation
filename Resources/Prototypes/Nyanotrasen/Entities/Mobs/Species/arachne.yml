@@ -96,6 +96,7 @@
       - MobLayer
   - type: Body
     prototype: Arachne
+    requiredLegs: 8
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Arachne
