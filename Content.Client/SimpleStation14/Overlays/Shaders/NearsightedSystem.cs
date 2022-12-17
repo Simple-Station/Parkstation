@@ -9,7 +9,6 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
 using Content.Shared.Inventory;
 using Content.Client.Inventory;
-using Content.Client.SimpleStation14.Overlays;
 
 namespace Content.Client.SimpleStation14.Overlays;
 public sealed class NearsightedSystem : EntitySystem
@@ -19,89 +18,61 @@ public sealed class NearsightedSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
 
     private NearsightedOverlay _overlay = default!;
+    private NearsightedComponent nearsight = new();
 
     public override void Initialize()
     {
         base.Initialize();
 
         _overlay = new Overlays.NearsightedOverlay();
-        _overlayMan.AddOverlay(_overlay);
 
-        SubscribeLocalEvent<NearsightedComponent, ComponentStartup>(OnNearsightedStartup);
-        SubscribeLocalEvent<NearsightedComponent, ComponentShutdown>(OnNearsightedShutdown);
         SubscribeLocalEvent<NearsightedComponent, ExaminedEvent>(OnExamined);
-
-        SubscribeLocalEvent<NearsightedComponent, PlayerAttachedEvent>(OnPlayerAttached);
-        SubscribeLocalEvent<NearsightedComponent, PlayerDetachedEvent>(OnPlayerDetached);
-
-        SubscribeLocalEvent<NearsightedComponent, DidEquipEvent>(DidEquip);
-        SubscribeLocalEvent<NearsightedComponent, DidUnequipEvent>(DidUnequip);
-    }
-
-    private void OnPlayerAttached(EntityUid uid, NearsightedComponent component, PlayerAttachedEvent args)
-    {
-        UpdateShader(component);
-    }
-
-    private void OnPlayerDetached(EntityUid uid, NearsightedComponent component, PlayerDetachedEvent args)
-    {
-        _overlayMan.RemoveOverlay(_overlay);
-    }
-
-    private void OnNearsightedStartup(EntityUid uid, NearsightedComponent component, ComponentStartup args)
-    {
-        if (_player.LocalPlayer?.ControlledEntity == uid)
-        {
-            UpdateShader(component);
-        }
-    }
-
-    private void OnNearsightedShutdown(EntityUid uid, NearsightedComponent component, ComponentShutdown args)
-    {
-        if (_player.LocalPlayer?.ControlledEntity == uid)
-        {
-            _overlayMan.RemoveOverlay(_overlay);
-        }
     }
 
     private void OnExamined(EntityUid uid, NearsightedComponent component, ExaminedEvent args)
     {
         if (args.IsInDetailsRange)
         {
-            args.PushMarkup(Loc.GetString("monochromatic-blindness-trait-examined", ("target", Identity.Entity(uid, EntityManager))));
+            args.PushMarkup(Loc.GetString("permanent-nearsighted-trait-examined", ("target", Identity.Entity(uid, EntityManager))));
         }
     }
 
-    private void DidEquip(EntityUid uid, NearsightedComponent component, DidEquipEvent args)
+    public override void Update(float frameTime)
     {
-        var comp = EnsureComp<TagComponent>(args.Equipment);
+        base.Update(frameTime);
 
-        if (comp.Tags.Contains("GlassesNearsight") && args.SlotFlags == SlotFlags.EYES) UpdateShaderGlasses(component);
-        else if (args.SlotFlags is not SlotFlags.EYES) UpdateShader(component);
-    }
+        foreach (var nearsight in EntityQuery<NearsightedComponent>())
+        {
+            var sighted = nearsight.Owner;
 
-    private void DidUnequip(EntityUid uid, NearsightedComponent component, DidUnequipEvent args)
-    {
-        var cinv = EnsureComp<ClientInventoryComponent>(args.Equipee);
-        cinv.SlotData.TryGetValue("eyes", out var eyes);
+            var cinv = EnsureComp<ClientInventoryComponent>(sighted);
+            cinv.SlotData.TryGetValue("eyes", out var eyes);
+            var eyeslot = eyes?.Container?.ContainedEntity;
 
-        if (eyes?.Container?.ContainedEntity == null) UpdateShader(component);
+            if (eyeslot == null) UpdateShader(nearsight);
+            else
+            {
+                EntityUid eyeslo = new();
+                eyeslo = (EntityUid) eyeslot;
+
+                var comp = EnsureComp<TagComponent>(eyeslo);
+                if (comp.Tags.Contains("GlassesNearsight")) UpdateShaderGlasses(nearsight);
+            }
+        }
     }
 
 
     private void UpdateShader(NearsightedComponent component)
     {
-        _overlayMan.RemoveOverlay(_overlay);
-        _overlay.OxygenLevel = component.Radius;
-        _overlay.outerDarkness = component.Alpha;
+        while (_overlayMan.HasOverlay<NearsightedOverlay>()) _overlayMan.RemoveOverlay(_overlay);
+        component.Glasses = false;
         _overlayMan.AddOverlay(_overlay);
     }
 
     private void UpdateShaderGlasses(NearsightedComponent component)
     {
-        _overlayMan.RemoveOverlay(_overlay);
-        _overlay.OxygenLevel = component.gRadius;
-        _overlay.outerDarkness = component.gAlpha;
+        while (_overlayMan.HasOverlay<NearsightedOverlay>()) _overlayMan.RemoveOverlay(_overlay);
+        component.Glasses = true;
         _overlayMan.AddOverlay(_overlay);
     }
 }

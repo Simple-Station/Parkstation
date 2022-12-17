@@ -3553,4 +3553,21 @@ Entries:
     - { message: 'Fix narcolepsy Loc "decs", now spelled "desc".', type: Fix }
   id: 500000
   time: "2022-12-15T00:10:37.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Nearsight doesnt apply the shader to others around you.', type: Fix }
+    - { message: 'Nearsight doesnt apply your shader settings to others around you with nearsight (effectively blinding others).', type: Fix }
+    - { message: 'Woops, another trait that has issues with adding components! No more draconic bloodstream until I make a solution to this.', type: Remove }
+    - { message: 'Make prescription glasses more accessible, add to clothesmate, mediven, and repdrobe', type: Tweak }
+  id: 510000
+  time: "2022-12-15T22:59:59.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Religious trait, allows usage of spellbooks and bibles.', type: Fix }
+    - { message: 'New regenReagent system.', type: Add }
+    - { message: 'Multiple traits using regenReagent can now be used without crashing something.', type: Fix }
+    - { message: 'Adding a component another trait adds will not crash, but instead replace it. (other things that add the same component will break still)', type: Fix }
+    - { message: 'Remake Draconic and "EasyDrunk" to use traitRegenReagent', type: Tweak }
+  id: 520000
+  time: "2022-12-16T22:30:55.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }

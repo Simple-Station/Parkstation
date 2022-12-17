@@ -20,9 +20,10 @@
     shoes: ClothingShoesBootsLaceup
     id: LawyerPDA
     ears: ClothingHeadsetSecurity
-    # TODO add copy of space law
   inhand:
     right hand: BriefcaseBrownFilled
+    left hand: HyperlinkBookSpaceLaw
   innerclothingskirt: ClothingUniformJumpskirtLawyerBlack
+  backpack: ClothingBackpackFilled
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
