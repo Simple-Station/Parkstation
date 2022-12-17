@@ -1,11 +1,11 @@
 - type: gameMap
-  id: Dart
-  mapName: 'Dart ERT'
-  mapPath: /Maps/Shuttles/dart.yml
+  id: Arrow
+  mapName: 'Arrow'
+  mapPath: /Maps/Shuttles/arrow.yml
   minPlayers: 0
   stations:
     Dart:
-      mapNameTemplate: '{0} Dart ERT {1}'
+      mapNameTemplate: '{0} Arrow ERT {1}'
       nameGenerator:
         !type:NanotrasenNameGenerator
         prefixCreator: '14'
