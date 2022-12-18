@@ -5,13 +5,11 @@
   followSkinColor: false
   speciesRestriction:
     [
-      Human,
       Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Moth,
     ]
   sprites:
     - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
@@ -24,13 +22,11 @@
   followSkinColor: false
   speciesRestriction:
     [
-      Human,
       Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Moth,
     ]
   sprites:
     - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
@@ -43,13 +39,11 @@
   followSkinColor: false
   speciesRestriction:
     [
-      Human,
       Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Moth,
     ]
   sprites:
     - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
@@ -62,13 +56,11 @@
   followSkinColor: false
   speciesRestriction:
     [
-      Human,
       Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Moth,
     ]
   sprites:
     - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
@@ -81,13 +73,11 @@
   followSkinColor: false
   speciesRestriction:
     [
-      Human,
       Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Moth,
     ]
   sprites:
     - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
@@ -100,13 +90,11 @@
   followSkinColor: false
   speciesRestriction:
     [
-      Human,
       Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Moth,
     ]
   sprites:
     - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
@@ -119,13 +107,11 @@
   followSkinColor: false
   speciesRestriction:
     [
-      Human,
       Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Moth,
     ]
   sprites:
     - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi

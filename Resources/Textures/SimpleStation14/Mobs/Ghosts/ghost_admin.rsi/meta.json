@@ -1,1 +1,8 @@
-{"version": 1, "size": {"x": 32, "y": 32}, "states": [{"name": "animated", "directions": 4, "delays": [[], [], [], []]}, {"name": "icon", "directions": 4, "delays": [[], [], [], []]}]}
+{
+    "version": 1,
+    "size": { "x": 32, "y": 32 },
+    "states": [
+        { "name": "animated", "directions": 4, "delays": [[], [], [], []] },
+        { "name": "icon", "directions": 4, "delays": [[], [], [], []] }
+    ]
+}

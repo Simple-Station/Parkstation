@@ -3578,4 +3578,15 @@ Entries:
     - { message: 'Basketball and Book polymorphs.', type: Add }
   id: 530000
   time: "2022-12-17T03:52:40.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Markings whitelist is more strict.', type: Tweak }
+    - { message: 'Un nerf the nuclear option.', type: Fix }
+    - { message: 'Add a wings marking layer.', type: Add}
+    - { message: 'Move moth wings to wing layer.', type: Tweak }
+    - { message: 'Add 11 large wings available for various species.', type: Add }
+    - { message: 'Add 10 Reptilian spines.', type: Add }
+    - { message: 'Add 5 Reptilian tails that wag.', type: Add }
+  id: 540000
+  time: "2022-12-17T03:52:40.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }

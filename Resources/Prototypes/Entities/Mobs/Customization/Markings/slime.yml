@@ -4,16 +4,8 @@
   markingCategory: Arms
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/slime_parts.rsi
@@ -25,16 +17,8 @@
   markingCategory: Arms
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/slime_parts.rsi
@@ -46,16 +30,8 @@
   markingCategory: Legs
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/slime_parts.rsi
@@ -67,16 +43,8 @@
   markingCategory: Legs
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/slime_parts.rsi
@@ -88,16 +56,8 @@
   markingCategory: Arms
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/slime_parts.rsi
@@ -109,16 +69,8 @@
   markingCategory: Arms
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
-      Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/slime_parts.rsi

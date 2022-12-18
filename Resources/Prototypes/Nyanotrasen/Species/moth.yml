@@ -20,6 +20,7 @@
     Chest: MobMothTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
+    Wings: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Eyes: MobMothEyes
     LArm: MobMothLArm
@@ -47,6 +48,9 @@
       points: 10
       required: false
     Tail:
+      points: 10
+      required: false
+    Wings:
       points: 10
       required: false
     HeadTop:

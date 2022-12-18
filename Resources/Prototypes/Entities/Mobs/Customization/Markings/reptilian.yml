@@ -90,16 +90,11 @@
   markingCategory: HeadTop
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -111,16 +106,11 @@
   markingCategory: HeadTop
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -132,16 +122,11 @@
   markingCategory: HeadTop
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -153,16 +138,11 @@
   markingCategory: HeadTop
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -174,16 +154,11 @@
   markingCategory: HeadTop
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -195,16 +170,11 @@
   markingCategory: HeadTop
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -216,16 +186,11 @@
   markingCategory: Tail
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -237,16 +202,11 @@
   markingCategory: Tail
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -258,16 +218,11 @@
   markingCategory: Tail
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -279,16 +234,11 @@
   markingCategory: Tail
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -327,16 +277,11 @@
   followSkinColor: false
   speciesRestriction:
     [
-      Human,
-      Felinid,
       Reptilian,
       SlimePerson,
-      Vox,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
