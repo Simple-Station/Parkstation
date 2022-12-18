@@ -8,8 +8,8 @@
   description: Some cultures find them terrifying, others crunchy on the teeth.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 6
+    baseWalkSpeed : 6
+    baseSprintSpeed : 3
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -610,8 +610,8 @@
   description: A large marsupial herbivore. It has powerful hind legs, with nails that resemble long claws.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4
-    baseSprintSpeed: 6
+    baseWalkSpeed: 6
+    baseSprintSpeed: 4
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -949,8 +949,8 @@
   description: A harmless dragon.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2
-    baseSprintSpeed : 3
+    baseWalkSpeed : 3
+    baseSprintSpeed : 2
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -1000,8 +1000,8 @@
   description: And they called this a lizard?
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2
-    baseSprintSpeed : 3
+    baseWalkSpeed : 3
+    baseSprintSpeed : 2
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -1046,8 +1046,8 @@
   description: Hop hop hop. Lookin' moist.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4
-    baseSprintSpeed : 6
+    baseWalkSpeed : 6
+    baseSprintSpeed : 4
   - type: Sprite
     drawdepth: Mobs
     layers:

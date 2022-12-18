@@ -159,7 +159,7 @@ namespace Content.Shared.Chemistry.Reagent
         /// </summary>
         [JsonPropertyName("rate")]
         [DataField("metabolismRate")]
-        public FixedPoint2 MetabolismRate = FixedPoint2.New(0.5f);
+        public FixedPoint2 MetabolismRate = FixedPoint2.New(0.2f);
 
         /// <summary>
         ///     A list of effects to apply when these reagents are metabolized.

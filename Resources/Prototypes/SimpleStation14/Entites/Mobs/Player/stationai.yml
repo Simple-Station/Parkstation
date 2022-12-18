@@ -162,8 +162,8 @@
     - type: MobMover
     - type: InputMover
     - type: MovementSpeedModifier
-      baseWalkSpeed: 8
-      baseSprintSpeed: 12
+      baseWalkSpeed: 12
+      baseSprintSpeed: 8
     - type: Sprite
       drawdepth: Ghosts
       sprite: SimpleStation14/Mobs/Silicon/aieye.rsi

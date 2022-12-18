@@ -20,8 +20,8 @@
     acceleration: 2
     friction: 2
     frictionNoInput: 6
-    baseWalkSpeed: 4.5
-    baseSprintSpeed: 6
+    baseWalkSpeed: 6
+    baseSprintSpeed: 4.5
   - type: Tag
   - type: Pullable
   - type: Physics
@@ -182,8 +182,8 @@
   - type: MovementSpeedModifier
     acceleration: 1
     friction: 1
-    baseWalkSpeed: 4.5
-    baseSprintSpeed: 6
+    baseWalkSpeed: 6
+    baseSprintSpeed: 4.5
   - type: Armor
     modifiers:
       coeffecients:
@@ -225,8 +225,8 @@
   - type: MovementSpeedModifier
     acceleration: 1
     friction: 1
-    baseWalkSpeed: 4.5
-    baseSprintSpeed: 7
+    baseWalkSpeed: 7
+    baseSprintSpeed: 4.5
   - type: Strap
     buckleOffset: "0.1, -0.05"
     maxBuckleDistance: 1
@@ -321,8 +321,8 @@
     - type: MovementSpeedModifier
       acceleration: 2
       friction: 1.5
-      baseWalkSpeed: 4.5
-      baseSprintSpeed: 7
+      baseWalkSpeed: 7
+      baseSprintSpeed: 4.5
     - type: UnpoweredFlashlight
       toggleAction:
         name: action-name-toggle-light

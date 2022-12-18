@@ -3588,5 +3588,13 @@ Entries:
     - { message: 'Add 10 Reptilian spines.', type: Add }
     - { message: 'Add 5 Reptilian tails that wag.', type: Add }
   id: 540000
-  time: "2022-12-17T03:52:40.0000000+00:00"
+  time: "2022-12-17T03:52:40.0000000+00:00" # forgot to set a time
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'You will now hunger almost as fast as you thirst.', type: Tweak }
+    - { message: 'Psprite only converted the human sprint/walk speeds, now EVERYTHING has swapped movement. (nerf hostile AI)', type: Fix }
+    - { message: 'Reagent processing is ~1-4x slower.', type: Tweak }
+    - { message: 'Only very small puddles will evaporate, more for the janitor to do!', type: Tweak }
+  id: 550000
+  time: "2022-12-18T03:31:20.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }
