@@ -30,7 +30,7 @@ namespace Content.Server.Administration.Commands
 
             foreach (var comp in _entities.EntityQuery<MindComponent>())
             {
-                SoundSystem.Play("/Audio/SimpleStation14/Admin/slamofthenorthstar.ogg", Filter.Entities(comp.Owner), comp.Owner);
+                SoundSystem.Play("/Audio/SimpleStation14/Admin/Commands/slamofthenorthstar.ogg", Filter.Entities(comp.Owner), comp.Owner);
                 _polymorphableSystem.PolymorphEntity(comp.Owner, "LMAObball");
 
                 // var physics = _entities.GetComponent<PhysicsComponent>(comp.Owner);

@@ -3597,4 +3597,17 @@ Entries:
     - { message: 'Only very small puddles will evaporate, more for the janitor to do!', type: Tweak }
   id: 550000
   time: "2022-12-18T03:31:20.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'voxTest command.', type: Add }
+    - { message: '"Man up" smite.', type: Add }
+    - { message: 'Centcomm officials spawn without an outfit.', type: Tweak }
+    - { message: 'Brief now supports using any outfit prototype instead of just centcomm.', type: Tweak }
+    - { message: 'Brief outfit prototype autocompletion.', type: Add }
+    - { message: 'Tall/Short size change traits.', type: Add }
+    - { message: 'Add back original roundstart sound.', type: Tweak }
+    - { message: 'AI makes a sound on death if it has a mind.', type: Add }
+    - { message: 'Added purple coat with toggleable hood.', type: Add }
+  id: 560000
+  time: "2022-12-18T21:02:58.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }

@@ -866,5 +866,19 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-smite-roleplay-description"),
         };
         args.Verbs.Add(roleplay);
+
+        Verb manup = new()
+        {
+            Text = "Man up",
+            Category = VerbCategory.Smite,
+            IconTexture = "/Textures/Markers/jobs.rsi/centcom.png",
+            Act = () =>
+            {
+                SoundSystem.Play("/Audio/SimpleStation14/Admin/Smites/manup.ogg", Filter.Entities(args.Target), args.Target);
+            },
+            Impact = LogImpact.Extreme,
+            Message = Loc.GetString("admin-smite-manup-description"),
+        };
+        args.Verbs.Add(manup);
     }
 }

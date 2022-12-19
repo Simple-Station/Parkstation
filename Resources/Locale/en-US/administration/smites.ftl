@@ -58,6 +58,7 @@ admin-smite-garbage-can-description = Turn them into a garbage bin to emphasize 
 admin-smite-bookify-description = Turn them into a spacelaw book.
 admin-smite-smite-description = Play a lightning sound across the grid and zap them.
 admin-smite-roleplay-description = Please roleplay appropriately.
+admin-smite-manup-description = Man up, move on.
 
 
 ## Tricks descriptions
