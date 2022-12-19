@@ -164,12 +164,46 @@
     state: right
     
 - type: entity
+  name: sofa
   id: BenchSofaCorner
   suffix: Corner
-  parent: BenchSofaMiddle
+#  parent: BenchSofaMiddle
+  placement:
+    mode: SnapgridCenter
   components:
+  - type: Transform
+    anchored: true
+  - type: Rotatable
   - type: Sprite
+    sprite: SimpleStation14/Structures/Furniture/Benches/sofa.rsi
     state: corner
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.2
+      density: 100
+      mask:
+      - TableMask
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metalbreak.ogg
 
 # Corp sofa
 - type: entity
@@ -197,9 +231,43 @@
     state: right
 
 - type: entity
+  name: grey sofa
   id: BenchSofaCorpCorner
   suffix: Corner
-  parent: BenchSofaCorpMiddle
+#  parent: BenchSofaCorpMiddle
+  placement:
+    mode: SnapgridCenter
   components:
+  - type: Transform
+    anchored: true
+  - type: Rotatable
   - type: Sprite
+    sprite: SimpleStation14/Structures/Furniture/Benches/sofa_corp.rsi
     state: corner
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.2
+      density: 100
+      mask:
+      - TableMask
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metalbreak.ogg
