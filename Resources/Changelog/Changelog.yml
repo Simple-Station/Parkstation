@@ -3610,4 +3610,13 @@ Entries:
     - { message: 'Added purple coat with toggleable hood.', type: Add }
   id: 560000
   time: "2022-12-18T21:02:58.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Made localization for new markings.', type: Add }
+    - { message: 'Removed Wizard from secret pool (my antags broke).', type: Tweak }
+    - { message: 'Hardsuits barely fit in dufflebags now.', type: Tweak }
+    - { message: 'Added proper names to socks.', type: Add }
+    - { message: 'Edited some marking whitelists.', type: Tweak }
+  id: 570000
+  time: "2022-12-19T21:09:20.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }

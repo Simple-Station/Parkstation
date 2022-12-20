@@ -14,9 +14,8 @@
 
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderassblastusa_knee
-  name: assblastusa_knee
-  description: DESCRIPTION
+  id: ClothingUnderAssBlastUSA_knee
+  name: ass blast usa knee-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -28,9 +27,8 @@
           - state: assblastusa_knee
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderassblastusa_thigh
-  name: assblastusa_thigh
-  description: DESCRIPTION
+  id: ClothingUnderAssBlastUSA_thigh
+  name: ass blast usa thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -42,9 +40,8 @@
           - state: assblastusa_thigh
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderbee_knee
-  name: bee_knee
-  description: DESCRIPTION
+  id: ClothingUnderBee_knee
+  name: bee knee-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -56,9 +53,8 @@
           - state: bee_knee
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderbee_norm
-  name: bee_norm
-  description: DESCRIPTION
+  id: ClothingUnderBee_norm
+  name: bee socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -70,9 +66,8 @@
           - state: bee_norm
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderbee_thigh
-  name: bee_thigh
-  description: DESCRIPTION
+  id: ClothingUnderBee_thigh
+  name: bee thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -84,9 +79,8 @@
           - state: bee_thigh
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUndercandycaneg_knee
-  name: candycaneg_knee
-  description: DESCRIPTION
+  id: ClothingUnderCandyCaneg_knee
+  name: green striped knee-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -98,9 +92,8 @@
           - state: candycaneg_knee
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUndercandycaneg_norm
-  name: candycaneg_norm
-  description: DESCRIPTION
+  id: ClothingUnderCandyCaneg_norm
+  name: green striped socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -112,9 +105,8 @@
           - state: candycaneg_norm
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUndercandycaneg_thigh
-  name: candycaneg_thigh
-  description: DESCRIPTION
+  id: ClothingUnderCandyCaneg_thigh
+  name: green striped thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -126,9 +118,8 @@
           - state: candycaneg_thigh
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUndercandycaner_knee
-  name: candycaner_knee
-  description: DESCRIPTION
+  id: ClothingUnderCandyCaner_knee
+  name: red striped knee-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -140,9 +131,8 @@
           - state: candycaner_knee
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUndercandycaner_norm
-  name: candycaner_norm
-  description: DESCRIPTION
+  id: ClothingUnderCandyCaner_norm
+  name: red striped socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -154,9 +144,8 @@
           - state: candycaner_norm
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUndercandycaner_thigh
-  name: candycaner_thigh
-  description: DESCRIPTION
+  id: ClothingUnderCandyCaner_thigh
+  name: red striped thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -168,9 +157,8 @@
           - state: candycaner_thigh
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderchristmas_knee
-  name: christmas_knee
-  description: DESCRIPTION
+  id: ClothingUnderChristmas_knee
+  name: christmas knee-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -182,9 +170,8 @@
           - state: christmas_knee
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderchristmas_norm
-  name: christmas_norm
-  description: DESCRIPTION
+  id: ClothingUnderChristmas_norm
+  name: christmas socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -196,9 +183,8 @@
           - state: christmas_norm
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderchristmas_thigh
-  name: christmas_thigh
-  description: DESCRIPTION
+  id: ClothingUnderChristmas_thigh
+  name: christmas thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -210,9 +196,8 @@
           - state: christmas_thigh
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUndercommie_knee
-  name: commie_knee
-  description: DESCRIPTION
+  id: ClothingUnderCommie_knee
+  name: communist knee-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -224,9 +209,8 @@
           - state: commie_knee
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUndercommie_thigh
-  name: commie_thigh
-  description: DESCRIPTION
+  id: ClothingUnderCommie_thigh
+  name: communist thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -238,9 +222,8 @@
           - state: commie_thigh
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderfishnet
+  id: ClothingUnderFishnet
   name: fishnet
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -252,9 +235,8 @@
           - state: fishnet
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUndergarter
+  id: ClothingUnderGarter
   name: garter
-  description: DESCRIPTION
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -266,9 +248,8 @@
           - state: garter
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderrainbow_knee
-  name: rainbow_knee
-  description: DESCRIPTION
+  id: ClothingUnderRainbow_knee
+  name: rainbow knee-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -280,9 +261,8 @@
           - state: rainbow_knee
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderrainbow_thigh
-  name: rainbow_thigh
-  description: DESCRIPTION
+  id: ClothingUnderRainbow_thigh
+  name: rainbow thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -294,9 +274,9 @@
           - state: rainbow_thigh
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUndersocks_knee
-  name: socks_knee
-  description: DESCRIPTION
+  id: ClothingUnderSocks_knee
+  name: knee-high socks
+  suffix: uncolored
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -308,9 +288,9 @@
           - state: socks_knee
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUndersocks_norm
-  name: socks_norm
-  description: DESCRIPTION
+  id: ClothingUnderSocks_norm
+  name: socks
+  suffix: uncolored
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -322,9 +302,9 @@
           - state: socks_norm
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUndersocks_short
-  name: socks_short
-  description: DESCRIPTION
+  id: ClothingUnderSocks_short
+  name: socks
+  suffix: uncolored
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -336,9 +316,9 @@
           - state: socks_short
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUndersocks_thigh
-  name: socks_thigh
-  description: DESCRIPTION
+  id: ClothingUnderSocks_thigh
+  name: thigh-high socks
+  suffix: uncolored
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -350,9 +330,8 @@
           - state: socks_thigh
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderstockings_blue
-  name: stockings_blue
-  description: DESCRIPTION
+  id: ClothingUnderStockings_blue
+  name: blue thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -364,9 +343,8 @@
           - state: stockings_blue
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderstockings_cyan
-  name: stockings_cyan
-  description: DESCRIPTION
+  id: ClothingUnderStockings_cyan
+  name: cyan thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -378,9 +356,8 @@
           - state: stockings_cyan
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderstockings_dpink
-  name: stockings_dpink
-  description: DESCRIPTION
+  id: ClothingUnderStockings_dpink
+  name: dark pink thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -392,9 +369,8 @@
           - state: stockings_dpink
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderstockings_green
-  name: stockings_green
-  description: DESCRIPTION
+  id: ClothingUnderStockings_green
+  name: green thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -406,9 +382,8 @@
           - state: stockings_green
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderstockings_lpink
-  name: stockings_lpink
-  description: DESCRIPTION
+  id: ClothingUnderStockings_lpink
+  name: light pink thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -420,9 +395,8 @@
           - state: stockings_lpink
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderstockings_orange
-  name: stockings_orange
-  description: DESCRIPTION
+  id: ClothingUnderStockings_orange
+  name: orange thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -434,9 +408,8 @@
           - state: stockings_orange
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderstockings_purple
-  name: stockings_purple
-  description: DESCRIPTION
+  id: ClothingUnderStockings_purple
+  name: purple thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -448,9 +421,8 @@
           - state: stockings_purple
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderstockings_yellow
-  name: stockings_yellow
-  description: DESCRIPTION
+  id: ClothingUnderStockings_yellow
+  name: yellow thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -462,9 +434,9 @@
           - state: stockings_yellow
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderstriped_knee
-  name: striped_knee
-  description: DESCRIPTION
+  id: ClothingUnderStriped_knee
+  name: striped knee-high socks
+  suffix: uncolored
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -476,9 +448,9 @@
           - state: striped_knee
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderstriped_thigh
-  name: striped_thigh
-  description: DESCRIPTION
+  id: ClothingUnderStriped_thigh
+  name: striped thigh-high socks
+  suffix: uncolored
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -490,9 +462,8 @@
           - state: striped_thigh
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderthin_knee
-  name: thin_knee
-  description: DESCRIPTION
+  id: ClothingUnderThin_knee
+  name: thin knee-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -504,9 +475,8 @@
           - state: thin_knee
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderthin_thigh
-  name: thin_thigh
-  description: DESCRIPTION
+  id: ClothingUnderThin_thigh
+  name: thin thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -518,9 +488,8 @@
           - state: thin_thigh
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderuk_knee
-  name: uk_knee
-  description: DESCRIPTION
+  id: ClothingUnderUK_knee
+  name: uk knee-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi
@@ -532,9 +501,8 @@
           - state: uk_knee
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderuk_thigh
-  name: uk_thigh
-  description: DESCRIPTION
+  id: ClothingUnderUK_thigh
+  name: uk thigh-high socks
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/socks.rsi

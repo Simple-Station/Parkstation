@@ -16,7 +16,7 @@
 
 - type: entity
   parent: ClothingUnderWhatBase
-  id: ClothingUnderWhatmankini
+  id: ClothingUnderWhatMankini
   name: mankini
   description: Who thought this was a good idea?
   components:

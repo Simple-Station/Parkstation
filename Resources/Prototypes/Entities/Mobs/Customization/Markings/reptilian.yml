@@ -91,10 +91,6 @@
   speciesRestriction:
     [
       Reptilian,
-      SlimePerson,
-      Oni,
-      Lamia,
-      Arachne,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -107,10 +103,6 @@
   speciesRestriction:
     [
       Reptilian,
-      SlimePerson,
-      Oni,
-      Lamia,
-      Arachne,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -123,10 +115,6 @@
   speciesRestriction:
     [
       Reptilian,
-      SlimePerson,
-      Oni,
-      Lamia,
-      Arachne,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -139,10 +127,6 @@
   speciesRestriction:
     [
       Reptilian,
-      SlimePerson,
-      Oni,
-      Lamia,
-      Arachne,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -155,10 +139,6 @@
   speciesRestriction:
     [
       Reptilian,
-      SlimePerson,
-      Oni,
-      Lamia,
-      Arachne,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -171,10 +151,6 @@
   speciesRestriction:
     [
       Reptilian,
-      SlimePerson,
-      Oni,
-      Lamia,
-      Arachne,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -187,10 +163,6 @@
   speciesRestriction:
     [
       Reptilian,
-      SlimePerson,
-      Oni,
-      Lamia,
-      Arachne,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -203,10 +175,6 @@
   speciesRestriction:
     [
       Reptilian,
-      SlimePerson,
-      Oni,
-      Lamia,
-      Arachne,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -219,10 +187,6 @@
   speciesRestriction:
     [
       Reptilian,
-      SlimePerson,
-      Oni,
-      Lamia,
-      Arachne,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -235,10 +199,6 @@
   speciesRestriction:
     [
       Reptilian,
-      SlimePerson,
-      Oni,
-      Lamia,
-      Arachne,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -278,10 +238,6 @@
   speciesRestriction:
     [
       Reptilian,
-      SlimePerson,
-      Oni,
-      Lamia,
-      Arachne,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
