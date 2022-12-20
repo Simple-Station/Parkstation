@@ -92,8 +92,7 @@ public sealed class MinorRuleSystem : GameRuleSystem
         var minorPool = FindPotentialMinors(ev);
         var selectedMinors = PickMinors(numMinors, minorPool);
 
-        foreach (var minor in selectedMinors)
-            MakeMinor(minor);
+        foreach (var minor in selectedMinors) MakeMinor(minor);
     }
 
     public List<IPlayerSession> FindPotentialMinors(RulePlayerJobsAssignedEvent ev)
@@ -136,14 +135,16 @@ public sealed class MinorRuleSystem : GameRuleSystem
 
         for (var i = 0; i < minorCount; i++)
         {
-            results.Add(_random.PickAndTake(prefList));
-            Logger.InfoS("preset", "Selected a preferred minor.");
+            var minor = _random.PickAndTake(prefList);
+            results.Add(minor);
+            Logger.InfoS("preset", $"Selected {minor.ConnectedClient.UserName} as a minor.");
         }
         return results;
     }
 
     public async void MakeMinor(IPlayerSession minor)
     {
+        Logger.InfoS("preset", $"Making {minor.ConnectedClient.UserName} a minor.");
         var mind = minor.Data.ContentData()?.Mind;
         if (mind == null)
         {
@@ -152,8 +153,6 @@ public sealed class MinorRuleSystem : GameRuleSystem
         }
 
         if (!await _db.GetWhitelistStatusAsync(minor.UserId)) return;
-
-        DebugTools.AssertNotNull(mind.OwnedEntity);
 
         if (mind.HasRole<TraitorRole>()) return;
 
@@ -166,7 +165,7 @@ public sealed class MinorRuleSystem : GameRuleSystem
         var maxDifficulty = _cfg.GetCVar(CCVars.TraitorMaxDifficulty);
         var maxPicks = _cfg.GetCVar(CCVars.TraitorMaxPicks);
 
-        //give minor antag their objective
+        // give minor antag their objective
         var difficulty = 0f;
         for (var pick = 0; pick < maxPicks && maxDifficulty > difficulty; pick++)
         {
@@ -177,6 +176,7 @@ public sealed class MinorRuleSystem : GameRuleSystem
         }
 
         SoundSystem.Play(_addedSound.GetSound(), Filter.Empty().AddPlayer(minor), AudioParams.Default);
+        Logger.InfoS("preset", $"Made {minor.ConnectedClient.UserName} a minor.");
         return;
     }
 

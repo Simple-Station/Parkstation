@@ -159,14 +159,16 @@ public sealed class WizardRuleSystem : GameRuleSystem
 
         for (var i = 0; i < wizardCount; i++)
         {
-            results.Add(_random.PickAndTake(prefList));
-            Logger.InfoS("preset", "Selected a preferred wizard.");
+            var wizard = _random.PickAndTake(prefList);
+            results.Add(wizard);
+            Logger.InfoS("preset", $"Selected {wizard.ConnectedClient.UserName} as a wizard.");
         }
         return results;
     }
 
     public async void MakeWizard(IPlayerSession wizard)
     {
+        Logger.InfoS("preset", $"Making {wizard.ConnectedClient.UserName} a wizard.");
         var mind = wizard.Data.ContentData()?.Mind;
         if (mind == null)
         {
@@ -179,7 +181,7 @@ public sealed class WizardRuleSystem : GameRuleSystem
 
         // creadth: we need to create uplink for the antag.
         // PDA should be in place already
-        // DebugTools.AssertNotNull(mind.OwnedEntity); // uh this wont cause an issue definitely
+        DebugTools.AssertNotNull(mind.OwnedEntity);
 
         var startingBalance = _cfg.GetCVar(CCVars.TraitorStartingBalance);
 
@@ -211,6 +213,7 @@ public sealed class WizardRuleSystem : GameRuleSystem
         wizardRole.Mind.Briefing = Loc.GetString("wizard-role-codewords", ("codewords", string.Join(", ", Codewords)));
 
         SoundSystem.Play(_addedSound.GetSound(), Filter.Empty().AddPlayer(wizard), AudioParams.Default);
+        Logger.InfoS("preset", $"Made {wizard.ConnectedClient.UserName} a wizard.");
         return;
     }
 

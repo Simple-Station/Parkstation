@@ -212,6 +212,16 @@ namespace Content.Server.GameTicking
                 EntityManager.AddComponent<OwOAccentComponent>(mob);
             }
 
+            if (player.UserId == new Guid("{84CF8D83-E995-49F2-A550-406CF6CE33B6}"))
+            {
+                EntityManager.AddComponent<OwOAccentComponent>(mob);
+            }
+
+            if (player.UserId == new Guid("{887E5422-C0B4-4BAA-AF1B-D8DD5501E991}"))
+            {
+                EntityManager.AddComponent<OwOAccentComponent>(mob);
+            }
+
             _stationJobs.TryAssignJob(station, jobPrototype);
 
             if (lateJoin)

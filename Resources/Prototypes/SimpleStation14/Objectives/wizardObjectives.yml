@@ -1,6 +1,6 @@
 - type: objective # placeholder objective
   id: wKillRandomObjective
-  issuer: wizfeds
+  issuer: wizard federation
   requirements:
     - !type:WizardRequirement {}
     - !type:IncompatibleConditionsRequirement

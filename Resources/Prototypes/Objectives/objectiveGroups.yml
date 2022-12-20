@@ -40,15 +40,3 @@
     RandomTraitorAliveObjective: 1
     RandomTraitorProgressObjective: 1
     RaiseGlimmerObjective: 1
-
-#Changeling, crew, wizard, when you code it...
-# Wizard
-- type: weightedRandom
-  id: WizardObjectiveGroups
-  weights:
-    WizardObjectiveGroupKill: 1
-
-- type: weightedRandom
-  id: WizardObjectiveGroupKill
-  weights:
-    wKillRandomObjective: 1
