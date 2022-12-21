@@ -1,0 +1,17 @@
+- type: entity
+  parent: BasePlushie
+  id: ToyMcgriff
+  name: mcgriff toy
+  description: The bearer of the law, now 10x more portable!
+  components:
+  - type: Sprite
+    state: mcgriff
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/ian.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/ian.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Items/Toys/ian.ogg
