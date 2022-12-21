@@ -6943,7 +6943,7 @@ entities:
       14,9: 0
       14,10: 0
       14,11: 0
-      14,12: 3
+      14,12: 4
       14,13: 0
       14,14: 0
       14,15: 0
@@ -8304,7 +8304,7 @@ entities:
       -13,18: 0
       -13,19: 0
       -13,20: 0
-      -13,21: 4
+      -13,21: 3
       -13,22: 0
       -13,23: 0
       -13,24: 0
@@ -9103,7 +9103,7 @@ entities:
       -8,-27: 0
       -8,-26: 0
       -8,-25: 0
-      -8,-24: 4
+      -8,-24: 3
       -8,-23: 0
       -8,-22: 0
       -8,-21: 0
@@ -9132,7 +9132,7 @@ entities:
       -6,-26: 0
       -6,-25: 1
       -6,-24: 0
-      -6,-23: 5
+      -6,-23: 6
       -6,-22: 0
       -6,-21: 0
       -6,-20: 0
@@ -10044,8 +10044,8 @@ entities:
       -23,19: 0
       -23,20: 0
       -23,21: 0
-      -22,16: 4
-      -22,17: 4
+      -22,16: 3
+      -22,17: 3
       -22,18: 0
       -22,19: 0
       -22,20: 0
@@ -10295,9 +10295,9 @@ entities:
       32,18: 0
       32,19: 0
       32,20: 0
-      32,21: 6
-      32,22: 6
-      32,23: 6
+      32,21: 7
+      32,22: 7
+      32,23: 7
       32,24: 0
       33,16: 0
       33,17: 0
@@ -10313,9 +10313,9 @@ entities:
       34,18: 0
       34,19: 0
       34,20: 0
-      34,21: 7
-      34,22: 7
-      34,23: 7
+      34,21: 8
+      34,22: 8
+      34,23: 8
       34,24: 0
       35,16: 0
       35,17: 0
@@ -10331,9 +10331,9 @@ entities:
       36,18: 0
       36,19: 0
       36,20: 0
-      36,21: 8
-      36,22: 8
-      36,23: 8
+      36,21: 9
+      36,22: 9
+      36,23: 9
       36,24: 0
       36,25: 0
       36,26: 0
@@ -10350,9 +10350,9 @@ entities:
       38,18: 0
       38,19: 0
       38,20: 0
-      38,21: 8
-      38,22: 8
-      38,23: 8
+      38,21: 9
+      38,22: 9
+      38,23: 9
       39,16: 0
       39,17: 0
       39,18: 0
@@ -10366,9 +10366,9 @@ entities:
       40,18: 0
       40,19: 0
       40,20: 0
-      40,21: 9
-      40,22: 9
-      40,23: 9
+      40,21: 10
+      40,22: 10
+      40,23: 10
       41,16: 0
       41,17: 0
       41,18: 0
@@ -10382,9 +10382,9 @@ entities:
       42,18: 0
       42,19: 0
       42,20: 0
-      42,21: 8
-      42,22: 8
-      42,23: 8
+      42,21: 9
+      42,22: 9
+      42,23: 9
       43,16: 0
       43,17: 0
       43,18: 0
@@ -10398,9 +10398,9 @@ entities:
       44,18: 0
       44,19: 0
       44,20: 0
-      44,21: 8
-      44,22: 8
-      44,23: 8
+      44,21: 9
+      44,22: 9
+      44,23: 9
       45,16: 0
       45,17: 0
       45,18: 0
@@ -10414,9 +10414,9 @@ entities:
       46,18: 0
       46,19: 0
       46,20: 0
-      46,21: 8
-      46,22: 8
-      46,23: 8
+      46,21: 9
+      46,22: 9
+      46,23: 9
       47,16: 0
       47,17: 0
       47,18: 0
@@ -10453,8 +10453,8 @@ entities:
       52,18: 0
       52,19: 0
       52,20: 0
-      53,16: 8
-      53,17: 8
+      53,16: 9
+      53,17: 9
       53,18: 0
       53,19: 0
       53,20: 0
@@ -12472,29 +12472,14 @@ entities:
       65,15: 0
       64,16: 0
       65,16: 0
-      -15,-30: 8
-      -14,-30: 8
+      -15,-30: 9
+      -14,-30: 9
     uniqueMixes:
     - volume: 2500
       temperature: 293.15
       moles:
       - 21.824879
       - 82.10312
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 293.15
-      moles:
-      - 19.481253
-      - 73.28662
       - 0
       - 0
       - 0
@@ -12523,8 +12508,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 21.213781
-      - 79.80423
+      - 18.405577
+      - 69.24003
       - 0
       - 0
       - 0
@@ -12540,6 +12525,36 @@ entities:
       moles:
       - 20.619795
       - 77.56971
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.213781
+      - 79.80423
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 19.481253
+      - 73.28662
       - 0
       - 0
       - 0
@@ -80212,6 +80227,426 @@ entities:
   type: LockerChiefServiceSupervisorFilled
   components:
   - pos: 12.5,12.5
+    parent: 852
+    type: Transform
+- uid: 10039
+  type: PresentRandom
+  components:
+  - pos: -0.10297108,0.74652314
+    parent: 852
+    type: Transform
+- uid: 10040
+  type: PresentRandom
+  components:
+  - pos: -0.1655016,-6.3835835
+    parent: 852
+    type: Transform
+- uid: 10041
+  type: PresentRandom
+  components:
+  - pos: -6.615465,7.436231
+    parent: 852
+    type: Transform
+- uid: 10042
+  type: PresentRandom
+  components:
+  - pos: -9.652937,7.4987745
+    parent: 852
+    type: Transform
+- uid: 10043
+  type: PresentRandom
+  components:
+  - pos: -12.622999,7.4987745
+    parent: 852
+    type: Transform
+- uid: 10044
+  type: PresentRandom
+  components:
+  - pos: -13.584054,11.752983
+    parent: 852
+    type: Transform
+- uid: 10045
+  type: PresentRandom
+  components:
+  - pos: -17.671532,10.595929
+    parent: 852
+    type: Transform
+- uid: 10046
+  type: PresentRandom
+  components:
+  - pos: -16.702301,9.407605
+    parent: 852
+    type: Transform
+- uid: 10047
+  type: PresentRandom
+  components:
+  - pos: -30.47933,1.6977355
+    parent: 852
+    type: Transform
+- uid: 10048
+  type: PresentRandom
+  components:
+  - pos: -30.54186,-1.3147724
+    parent: 852
+    type: Transform
+- uid: 10049
+  type: PresentRandom
+  components:
+  - pos: -28.385685,-4.4435544
+    parent: 852
+    type: Transform
+- uid: 10050
+  type: PresentRandom
+  components:
+  - pos: -1.6495016,-12.468857
+    parent: 852
+    type: Transform
+- uid: 10051
+  type: PresentRandom
+  components:
+  - pos: -0.5968957,-14.063714
+    parent: 852
+    type: Transform
+- uid: 10052
+  type: PresentRandom
+  components:
+  - pos: -1.6495016,-18.57728
+    parent: 852
+    type: Transform
+- uid: 10053
+  type: PresentRandom
+  components:
+  - pos: -1.6599233,-20.161713
+    parent: 852
+    type: Transform
+- uid: 10054
+  type: PresentRandom
+  components:
+  - pos: -0.64900446,-19.181866
+    parent: 852
+    type: Transform
+- uid: 10055
+  type: PresentRandom
+  components:
+  - pos: 2.6805246,3.8627443
+    parent: 852
+    type: Transform
+- uid: 10056
+  type: PresentRandom
+  components:
+  - pos: 4.483502,3.7793531
+    parent: 852
+    type: Transform
+- uid: 10057
+  type: FloraTreeChristmas02
+  components:
+  - pos: 3.5782528,5.143386
+    parent: 852
+    type: Transform
+- uid: 10058
+  type: PresentRandom
+  components:
+  - pos: 2.8264303,5.2074285
+    parent: 852
+    type: Transform
+- uid: 10059
+  type: PresentRandom
+  components:
+  - pos: 4.389706,5.040646
+    parent: 852
+    type: Transform
+- uid: 10060
+  type: PresentRandom
+  components:
+  - pos: 2.659681,4.5402985
+    parent: 852
+    type: Transform
+- uid: 10061
+  type: PresentRandom
+  components:
+  - pos: 3.9207234,3.5500276
+    parent: 852
+    type: Transform
+- uid: 10062
+  type: FoodEgg
+  components:
+  - pos: 2.6760945,3.0271392
+    parent: 852
+    type: Transform
+- uid: 10063
+  type: FoodEgg
+  components:
+  - pos: 4.2289486,2.5893352
+    parent: 852
+    type: Transform
+- uid: 10064
+  type: FoodEgg
+  components:
+  - pos: 4.166417,1.922205
+    parent: 852
+    type: Transform
+- uid: 10065
+  type: FoodEgg
+  components:
+  - pos: 6.773045,4.7663345
+    parent: 852
+    type: Transform
+- uid: 10066
+  type: FoodEgg
+  components:
+  - pos: 3.7402906,7.522189
+    parent: 852
+    type: Transform
+- uid: 10067
+  type: FoodEgg
+  components:
+  - pos: 2.8544354,7.84533
+    parent: 852
+    type: Transform
+- uid: 10068
+  type: FoodEgg
+  components:
+  - pos: 0.0863806,4.7911263
+    parent: 852
+    type: Transform
+- uid: 10069
+  type: DrinkCreamCarton
+  components:
+  - pos: 6.950968,4.588149
+    parent: 852
+    type: Transform
+- uid: 10070
+  type: DrinkCreamCarton
+  components:
+  - pos: 3.970323,7.494404
+    parent: 852
+    type: Transform
+- uid: 10071
+  type: DrinkCreamCarton
+  components:
+  - pos: 2.8760302,2.9665642
+    parent: 852
+    type: Transform
+- uid: 10072
+  type: DrinkCreamCarton
+  components:
+  - pos: 2.6884375,8.046871
+    parent: 852
+    type: Transform
+- uid: 10073
+  type: DrinkCreamCarton
+  components:
+  - pos: 4.4393044,2.570456
+    parent: 852
+    type: Transform
+- uid: 10074
+  type: DrinkCreamCarton
+  components:
+  - pos: 4.022432,2.1639237
+    parent: 852
+    type: Transform
+- uid: 10075
+  type: DrinkCreamCarton
+  components:
+  - pos: -0.058050632,5.0022106
+    parent: 852
+    type: Transform
+- uid: 10076
+  type: FoodBakedCookie
+  components:
+  - pos: 7.3715973,5.1409616
+    parent: 852
+    type: Transform
+- uid: 10077
+  type: FoodBakedCookie
+  components:
+  - pos: 4.4478025,5.8602114
+    parent: 852
+    type: Transform
+- uid: 10078
+  type: FoodBakedCookie
+  components:
+  - pos: 2.4572327,6.0269938
+    parent: 852
+    type: Transform
+- uid: 10079
+  type: FoodBakedCookie
+  components:
+  - pos: 3.0929646,2.0633707
+    parent: 852
+    type: Transform
+- uid: 10080
+  type: FoodBakedCookie
+  components:
+  - pos: 0.054684162,4.012641
+    parent: 852
+    type: Transform
+- uid: 10081
+  type: FoodCakeChristmasSlice
+  components:
+  - pos: -6.099824,13.833374
+    parent: 852
+    type: Transform
+- uid: 10082
+  type: FoodPlate
+  components:
+  - pos: 6.5135775,20.687664
+    parent: 852
+    type: Transform
+- uid: 10083
+  type: FoodBakedCookie
+  components:
+  - pos: 6.7220135,20.520882
+    parent: 852
+    type: Transform
+- uid: 10084
+  type: FoodBakedCookie
+  components:
+  - pos: 6.6490602,20.395794
+    parent: 852
+    type: Transform
+- uid: 10085
+  type: FoodBakedCookie
+  components:
+  - pos: 6.2634525,20.322826
+    parent: 852
+    type: Transform
+- uid: 10086
+  type: FoodBakedCookie
+  components:
+  - pos: 6.3572497,20.510458
+    parent: 852
+    type: Transform
+- uid: 10087
+  type: FoodBakedCookie
+  components:
+  - pos: 6.2634525,20.468761
+    parent: 852
+    type: Transform
+- uid: 10088
+  type: FoodCakeChristmasSlice
+  components:
+  - pos: 15.408834,-6.385598
+    parent: 852
+    type: Transform
+- uid: 10089
+  type: FoodCakeChristmasSlice
+  components:
+  - pos: 6.5199003,-10.2998905
+    parent: 852
+    type: Transform
+- uid: 10090
+  type: ClothingUnderChristmas_thigh
+  components:
+  - pos: 3.1880746,3.7292743
+    parent: 852
+    type: Transform
+- uid: 10091
+  type: ClothingUnderChristmas_thigh
+  components:
+  - pos: 4.0947747,3.3748615
+    parent: 852
+    type: Transform
+- uid: 10092
+  type: ClothingUnderChristmas_thigh
+  components:
+  - pos: 4.8243027,4.67785
+    parent: 852
+    type: Transform
+- uid: 10093
+  type: ClothingUnderChristmas_thigh
+  components:
+  - pos: 2.2907076,4.757909
+    parent: 852
+    type: Transform
+- uid: 10094
+  type: ClothingUnderChristmas_norm
+  components:
+  - pos: 4.718995,3.713663
+    parent: 852
+    type: Transform
+- uid: 10095
+  type: ClothingUnderChristmas_norm
+  components:
+  - pos: 3.6038587,3.5156088
+    parent: 852
+    type: Transform
+- uid: 10096
+  type: ClothingUnderChristmas_norm
+  components:
+  - pos: 2.3011293,4.2452817
+    parent: 852
+    type: Transform
+- uid: 10097
+  type: ClothingUnderChristmas_knee
+  components:
+  - pos: 4.593933,3.4009454
+    parent: 852
+    type: Transform
+- uid: 10098
+  type: ClothingUnderChristmas_knee
+  components:
+  - pos: 4.96912,4.193162
+    parent: 852
+    type: Transform
+- uid: 10099
+  type: ClothingUnderCandyCaner_thigh
+  components:
+  - pos: 5.187978,3.7553582
+    parent: 852
+    type: Transform
+- uid: 10100
+  type: ClothingUnderCandyCaner_thigh
+  components:
+  - pos: 2.8430643,3.6511192
+    parent: 852
+    type: Transform
+- uid: 10101
+  type: ClothingUnderCandyCaner_knee
+  components:
+  - pos: 4.927431,4.9228354
+    parent: 852
+    type: Transform
+- uid: 10102
+  type: ClothingUnderCandyCaner_knee
+  components:
+  - pos: 2.2594423,5.3814874
+    parent: 852
+    type: Transform
+- uid: 10103
+  type: ClothingUnderCandyCaneg_norm
+  components:
+  - pos: 4.427183,3.7553582
+    parent: 852
+    type: Transform
+- uid: 10104
+  type: ClothingUnderCandyCaneg_norm
+  components:
+  - pos: 3.4787962,3.8595972
+    parent: 852
+    type: Transform
+- uid: 10105
+  type: ClothingUnderCandyCaneg_norm
+  components:
+  - pos: 2.3845034,3.807478
+    parent: 852
+    type: Transform
+- uid: 10106
+  type: ClothingUnderCandyCaneg_knee
+  components:
+  - pos: 4.6564646,4.849869
+    parent: 852
+    type: Transform
+- uid: 10107
+  type: ClothingUnderCandyCaneg_knee
+  components:
+  - pos: 2.4053469,5.7046285
+    parent: 852
+    type: Transform
+- uid: 10108
+  type: ClothingUnderCandyCaneg_knee
+  components:
+  - pos: 3.1557195,4.0263796
     parent: 852
     type: Transform
 ...
