@@ -1,0 +1,94 @@
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderPolychromicSocksBase
+  name: polychromic socks
+  abstract: true
+  suffic: polychromic
+  components:
+    - type: Polychromic
+
+- type: entity
+  parent: ClothingUnderPolychromicSocksBase
+  id: ClothingUnderSocks_knee
+  name: knee-high socks
+  suffix: polychromic
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: socks_knee
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: socks_knee
+            # color: "#FF0000FF" #WOOOOO
+- type: entity
+  parent: ClothingUnderPolychromicSocksBase
+  id: ClothingUnderSocks_norm
+  name: socks
+  suffix: polychromic
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: socks_norm
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: socks_norm
+- type: entity
+  parent: ClothingUnderPolychromicSocksBase
+  id: ClothingUnderSocks_short
+  name: socks
+  suffix: polychromic
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: socks_short
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: socks_short
+- type: entity
+  parent: ClothingUnderPolychromicSocksBase
+  id: ClothingUnderSocks_thigh
+  name: thigh-high socks
+  suffix: polychromic
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: socks_thigh
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: socks_thigh
+- type: entity
+  parent: ClothingUnderPolychromicSocksBase
+  id: ClothingUnderStriped_knee
+  name: striped knee-high socks
+  suffix: polychromic
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: striped_knee
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: striped_knee
+- type: entity
+  parent: ClothingUnderPolychromicSocksBase
+  id: ClothingUnderStriped_thigh
+  name: striped thigh-high socks
+  suffix: polychromic
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: striped_thigh
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: striped_thigh

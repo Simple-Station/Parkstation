@@ -274,63 +274,6 @@
           - state: rainbow_thigh
 - type: entity
   parent: ClothingUnderSocksBase
-  id: ClothingUnderSocks_knee
-  name: knee-high socks
-  suffix: uncolored
-  components:
-    - type: Sprite
-      sprite: SimpleStation14/Clothing/Under/socks.rsi
-      state: socks_knee
-    - type: Clothing
-      sprite: SimpleStation14/Clothing/Under/socks.rsi
-      clothingVisuals:
-        socks:
-          - state: socks_knee
-            # color: "#FF0000FF" #WOOOOO
-- type: entity
-  parent: ClothingUnderSocksBase
-  id: ClothingUnderSocks_norm
-  name: socks
-  suffix: uncolored
-  components:
-    - type: Sprite
-      sprite: SimpleStation14/Clothing/Under/socks.rsi
-      state: socks_norm
-    - type: Clothing
-      sprite: SimpleStation14/Clothing/Under/socks.rsi
-      clothingVisuals:
-        socks:
-          - state: socks_norm
-- type: entity
-  parent: ClothingUnderSocksBase
-  id: ClothingUnderSocks_short
-  name: socks
-  suffix: uncolored
-  components:
-    - type: Sprite
-      sprite: SimpleStation14/Clothing/Under/socks.rsi
-      state: socks_short
-    - type: Clothing
-      sprite: SimpleStation14/Clothing/Under/socks.rsi
-      clothingVisuals:
-        socks:
-          - state: socks_short
-- type: entity
-  parent: ClothingUnderSocksBase
-  id: ClothingUnderSocks_thigh
-  name: thigh-high socks
-  suffix: uncolored
-  components:
-    - type: Sprite
-      sprite: SimpleStation14/Clothing/Under/socks.rsi
-      state: socks_thigh
-    - type: Clothing
-      sprite: SimpleStation14/Clothing/Under/socks.rsi
-      clothingVisuals:
-        socks:
-          - state: socks_thigh
-- type: entity
-  parent: ClothingUnderSocksBase
   id: ClothingUnderStockings_blue
   name: blue thigh-high socks
   components:
@@ -433,34 +376,6 @@
       clothingVisuals:
         socks:
           - state: stockings_yellow
-- type: entity
-  parent: ClothingUnderSocksBase
-  id: ClothingUnderStriped_knee
-  name: striped knee-high socks
-  suffix: uncolored
-  components:
-    - type: Sprite
-      sprite: SimpleStation14/Clothing/Under/socks.rsi
-      state: striped_knee
-    - type: Clothing
-      sprite: SimpleStation14/Clothing/Under/socks.rsi
-      clothingVisuals:
-        socks:
-          - state: striped_knee
-- type: entity
-  parent: ClothingUnderSocksBase
-  id: ClothingUnderStriped_thigh
-  name: striped thigh-high socks
-  suffix: uncolored
-  components:
-    - type: Sprite
-      sprite: SimpleStation14/Clothing/Under/socks.rsi
-      state: striped_thigh
-    - type: Clothing
-      sprite: SimpleStation14/Clothing/Under/socks.rsi
-      clothingVisuals:
-        socks:
-          - state: striped_thigh
 - type: entity
   parent: ClothingUnderSocksBase
   id: ClothingUnderThin_knee
