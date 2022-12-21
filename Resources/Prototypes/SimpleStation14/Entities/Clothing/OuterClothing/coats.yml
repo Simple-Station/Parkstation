@@ -2,7 +2,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatCSS
   name: css's suit jacket
-  description: A jensen coat.
+  description: A snazzy pinstripe jacket, fit for only the classiest of Heads.
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/OuterClothing/Coats/css_jacket.rsi

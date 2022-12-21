@@ -9,12 +9,6 @@
   "states": [
     {
       "name": "pen_css"
-    },
-	{
-	  "name": "stamp-css"
-	},
-	{
-	  "name": "paper_stamp-css"
-	}
+    }
   ]
 }
