@@ -3,7 +3,7 @@
   mapName: 'Saltern'
   mapPath: /Maps/saltern.yml
   minPlayers: 0
-  maxPlayers: 35
+  maxPlayers: 45
   fallback: true
   stations:
     Saltern:
@@ -28,7 +28,7 @@
         StationEngineer: [ 2, 3 ]
         AtmosphericTechnician: [ 1, 2 ]
         ChiefMedicalOfficer: [ 1, 1 ]
-        MedicalDoctor: [ 2, 4 ]
+        MedicalDoctor: [ 3, 6 ]
         Mystagogue: [ 1, 1 ]
         Epistemologist: [ 2, 3 ]
         HeadOfSecurity: [ 1, 1 ]

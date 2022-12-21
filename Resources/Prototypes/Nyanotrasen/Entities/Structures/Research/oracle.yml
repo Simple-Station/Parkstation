@@ -16,4 +16,4 @@
         state: oracle-1
   - type: Oracle
   - type: Speech
-    speechSounds: Tenor
+    speechSounds: Pai

@@ -1,0 +1,23 @@
+- type: entity
+  parent: AirlockCommand
+  id: AirlockChiefServiceSupervisorLocked
+  suffix: ChiefServiceSupervisor, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefServiceSupervisor"]]
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: AirlockChiefServiceSupervisorGlassLocked
+  suffix: ChiefServiceSupervisor, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefServiceSupervisor"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintCSSLocked
+  suffix: ChiefServiceSupervisor, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefServiceSupervisor"]]

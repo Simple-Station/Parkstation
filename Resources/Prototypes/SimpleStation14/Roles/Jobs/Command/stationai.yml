@@ -5,7 +5,7 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 60000
-  icon: "Unknown"
+  icon: "StationAI"
   supervisors: "all crew"
   accessGroup:
     - AllAccess
