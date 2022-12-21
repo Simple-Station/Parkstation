@@ -1,0 +1,23 @@
+- type: entity
+  id: LockerChiefServiceSupervisor
+  parent: LockerBase
+  name: chief service supervisor's locker
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Structures/Storage/closet.rsi
+    noRot: true
+  - type: Appearance
+    visuals:
+    - type: StorageVisualizer
+      state: css_cabinet
+      state_open: css_cabinet_open
+      state_closed: css_cabinet_door
+
+  - type: AccessReader
+    access: [["ChiefServiceSupervisor"]]
+  - type: EntityStorage
+    closeSound:
+      path: /Audio/Effects/woodenclosetclose.ogg
+    openSound:
+      path: /Audio/Effects/woodenclosetopen.ogg
