@@ -67,7 +67,7 @@
   physicalDesc: reagent-physical-desc-overpowering
   metabolisms:
     Narcotic:
-      metabolismRate: 0.2
+      metabolismRate: 0.05
       effects:
       - !type:GenericStatusEffect
         key: SeeingRainbows

@@ -59,7 +59,7 @@
   name: reagent-name-ichor
   group: Biological
   desc: reagent-desc-ichor
-  physicalDesc: reagent-physical-desc-enigmatic
+  physicalDesc: reagent-physical-desc-roaring
   flavor: metallic
   color: "#f4692e"
   metabolisms:

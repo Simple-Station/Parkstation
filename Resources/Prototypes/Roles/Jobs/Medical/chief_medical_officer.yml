@@ -16,6 +16,7 @@
   antagAdvantage: 6
   requireAdminNotify: true
   supervisors: job-supervisors-cc
+  canBeAntag: false
   access:
   - Medical
   - Command

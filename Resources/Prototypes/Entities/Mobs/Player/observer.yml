@@ -53,6 +53,6 @@
       - state: animated
         shader: unshaded
   - type: MovementSpeedModifier
-    baseSprintSpeed: 8
-    baseWalkSpeed: 5
+    baseWalkSpeed: 8
+    baseSprintSpeed: 5
   - type: MovementIgnoreGravity

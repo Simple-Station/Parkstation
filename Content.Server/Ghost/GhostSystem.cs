@@ -116,12 +116,8 @@ namespace Content.Server.Ghost
                 eye.VisibilityMask |= (uint) VisibilityFlags.Ghost;
             }
 
-            var time = _gameTiming.CurTime;
-            component.TimeOfDeath = time;
+            component.TimeOfDeath = _gameTiming.RealTime;
 
-            // TODO ghost: remove once ghosts are persistent and aren't deleted when returning to body
-            if (component.Action.UseDelay != null)
-                component.Action.Cooldown = (time, time + component.Action.UseDelay.Value);
             _actions.AddAction(uid, component.Action, null);
         }
 

@@ -16,7 +16,7 @@
   icon: "ChiefEngineer"
   requireAdminNotify: true
   supervisors: job-supervisors-cc
-  canBeAntag: true
+  canBeAntag: false
   antagAdvantage: 8
   whitelistRequired: true
   access:

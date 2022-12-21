@@ -20,6 +20,7 @@
     Chest: MobReptilianTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
+    Wings: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Eyes: MobHumanoidEyes
     LArm: MobReptilianLArm
@@ -38,6 +39,9 @@
       points: 10
       required: false
     FacialHair:
+      points: 10
+      required: false
+    Wings:
       points: 10
       required: false
     Tail:

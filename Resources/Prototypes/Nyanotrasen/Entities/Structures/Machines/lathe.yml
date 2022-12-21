@@ -44,11 +44,11 @@
       - LightTube
       - LightBulb
       - SheetSteel
-      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetRGlass
       - SheetGlass1
+      - SheetRGlass
+      - SheetPlastic
       - BluespaceCrystal
       - CableStack
       - CableMVStack
@@ -177,8 +177,6 @@
       - APCElectronics
       - AirAlarmElectronics
       - FireAlarmElectronics
-      - MailingUnitElectronics
-      - IntercomElectronics
       - HolofanProjector
       - Drone
       - ConveyorBeltAssembly

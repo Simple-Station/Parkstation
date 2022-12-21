@@ -1,0 +1,11 @@
+- type: entity
+  parent: WeaponShotgunDoubleBarreled
+  id: WeaponShotgunDoubleBarreledBeanbag
+  suffix: Beanbag
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - ShellShotgun
+    proto: ShellShotgunBeanbag
+  

@@ -1,12 +1,11 @@
-using Content.Server.CombatMode;
 using Content.Server.Destructible;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Pathfinding;
 using Content.Shared.Doors.Components;
 using Content.Shared.NPC;
+using Content.Shared.Weapons.Melee;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Utility;
 
 namespace Content.Server.NPC.Systems;
 
@@ -34,7 +33,9 @@ public sealed partial class NPCSteeringSystem
 
     private SteeringObstacleStatus TryHandleFlags(NPCSteeringComponent component, PathPoly poly, EntityQuery<PhysicsComponent> bodyQuery)
     {
-        DebugTools.Assert(!poly.Data.IsFreeSpace);
+        if (poly.Data.IsFreeSpace)
+            return SteeringObstacleStatus.Completed;
+
         // TODO: Store PathFlags on the steering comp
         // and be able to re-check it.
 
@@ -110,35 +111,26 @@ public sealed partial class NPCSteeringSystem
                     return SteeringObstacleStatus.Completed;
             }
             // Try smashing obstacles.
-            else if ((component.Flags & PathFlags.Smashing) != 0x0)
+            else if ((component.Flags & PathFlags.Smashing) != 0x0 && TryComp<NPCMeleeCombatComponent>(component.Owner, out var melee) &&
+                     TryComp<MeleeWeaponComponent>(melee.Weapon, out var meleeWeapon))
             {
-                var meleeWeapon = _melee.GetWeapon(component.Owner);
+                var destructibleQuery = GetEntityQuery<DestructibleComponent>();
 
-                if (meleeWeapon != null && meleeWeapon.NextAttack <= _timing.CurTime && TryComp<CombatModeComponent>(component.Owner, out var combatMode))
+                // TODO: This is a hack around grilles and windows.
+                _random.Shuffle(obstacleEnts);
+
+                foreach (var ent in obstacleEnts)
                 {
-                    combatMode.IsInCombatMode = true;
-                    var destructibleQuery = GetEntityQuery<DestructibleComponent>();
-
-                    // TODO: This is a hack around grilles and windows.
-                    _random.Shuffle(obstacleEnts);
-
-                    foreach (var ent in obstacleEnts)
+                    // TODO: Validate we can damage it
+                    if (destructibleQuery.HasComponent(ent))
                     {
-                        // TODO: Validate we can damage it
-                        if (destructibleQuery.HasComponent(ent))
-                        {
-                            _melee.AttemptLightAttack(component.Owner, meleeWeapon, ent);
-                            break;
-                        }
+                        _melee.AttemptLightAttack(component.Owner, meleeWeapon, ent);
+                        return SteeringObstacleStatus.Continuing;
                     }
-
-                    combatMode.IsInCombatMode = false;
-
-                    if (obstacleEnts.Count == 0)
-                        return SteeringObstacleStatus.Completed;
-
-                    return SteeringObstacleStatus.Continuing;
                 }
+
+                if (obstacleEnts.Count == 0)
+                    return SteeringObstacleStatus.Completed;
             }
 
             return SteeringObstacleStatus.Failed;

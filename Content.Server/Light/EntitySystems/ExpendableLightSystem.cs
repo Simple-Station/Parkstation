@@ -19,7 +19,6 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly SharedItemSystem _item = default!;
         [Dependency] private readonly ClothingSystem _clothing = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
 
         public override void Initialize()
         {
@@ -131,7 +130,9 @@ namespace Content.Server.Light.EntitySystems
                 switch (component.CurrentState)
                 {
                     case ExpendableLightState.Lit:
-                        _audio.PlayPvs(component.LitSound, component.Owner);
+                    {
+                        SoundSystem.Play(component.LitSound.GetSound(), Filter.Pvs(component.Owner), component.Owner);
+
                         if (component.IconStateLit != string.Empty)
                         {
                             sprite.LayerSetState(2, component.IconStateLit);
@@ -140,21 +141,22 @@ namespace Content.Server.Light.EntitySystems
 
                         sprite.LayerSetVisible(1, true);
                         break;
+                    }
                     case ExpendableLightState.Fading:
                     {
                         break;
                     }
                     default:
                     case ExpendableLightState.Dead:
-                        _audio.PlayPvs(component.DieSound, component.Owner);
-                        if (!string.IsNullOrEmpty(component.IconStateSpent))
-                        {
-                            sprite.LayerSetState(0, component.IconStateSpent);
-                            sprite.LayerSetShader(0, "shaded");
-                        }
+                    {
+                        if (component.DieSound != null)
+                            SoundSystem.Play(component.DieSound.GetSound(), Filter.Pvs(component.Owner), component.Owner);
 
+                        sprite.LayerSetState(0, component.IconStateSpent);
+                        sprite.LayerSetShader(0, "shaded");
                         sprite.LayerSetVisible(1, false);
                         break;
+                    }
                 }
             }
 

@@ -52,11 +52,11 @@ namespace Content.Shared.Light.Component
         [DataField("iconStateOn")]
         public string IconStateLit { get; set; } = string.Empty;
 
-        [DataField("litSound")]
-        public SoundSpecifier? LitSound { get; set; }
+        [DataField("litSound", required: true)]
+        public SoundSpecifier LitSound { get; set; } = default!;
 
         [DataField("loopedSound")]
-        public SoundSpecifier? LoopedSound { get; set; }
+        public string? LoopedSound { get; set; } = null;
 
         [DataField("dieSound")]
         public SoundSpecifier? DieSound { get; set; } = null;

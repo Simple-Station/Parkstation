@@ -47,6 +47,9 @@
             "name": "ChiefMedicalOfficer"
         },
         {
+            "name": "ChiefServiceSupervisor"
+        },
+        {
             "name": "Roboticist"
         },
         {
@@ -84,6 +87,9 @@
         },
         {
             "name": "ShaftMiner"
+        },
+        {
+            "name": "StationAI"
         },
         {
             "name": "Passenger"

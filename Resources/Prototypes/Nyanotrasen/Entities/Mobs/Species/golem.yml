@@ -97,8 +97,8 @@
   - type: Identity
   - type: Hands
   - type: MovementSpeedModifier
-    baseWalkSpeed: 1.8
-    baseSprintSpeed: 3
+    baseWalkSpeed: 3
+    baseSprintSpeed: 1.8
   - type: MovedByPressure
   - type: DamageOnHighSpeedImpact
     damage:
@@ -253,6 +253,7 @@
           keywords: [ "AI", "console", "interface", "laws", "borg" ]
           priority: -3
           event: !type:ToggleIntrinsicUIEvent
+
 
 - type: entity
   parent: MobGolemBase

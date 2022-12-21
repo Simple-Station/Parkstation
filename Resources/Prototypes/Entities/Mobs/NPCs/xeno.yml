@@ -175,8 +175,8 @@
   - type: Stamina
     excess: 200
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3.0
-    baseSprintSpeed : 5.5
+    baseWalkSpeed : 5.5
+    baseSprintSpeed : 3
   - type: SlowOnDamage
     speedModifierThresholds:
       150: 0.7
@@ -210,8 +210,8 @@
   - type: Stamina
     excess: 1500
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.8
-    baseSprintSpeed : 3.8
+    baseWalkSpeed : 3.8
+    baseSprintSpeed : 2.8
   - type: MeleeWeapon
     hidden: true
     damage:
@@ -250,8 +250,8 @@
   - type: Stamina
     excess: 550
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.3
-    baseSprintSpeed : 4.2
+    baseWalkSpeed : 4.2
+    baseSprintSpeed : 2.3
   - type: MeleeWeapon
     hidden: true
     damage:
@@ -290,8 +290,8 @@
   - type: Stamina
     excess: 250
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.7
-    baseSprintSpeed : 6.0
+    baseWalkSpeed : 6
+    baseSprintSpeed : 2.7
   - type: MeleeWeapon
     hidden: true
     damage:

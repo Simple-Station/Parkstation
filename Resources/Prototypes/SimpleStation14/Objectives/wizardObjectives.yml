@@ -1,0 +1,11 @@
+- type: objective # placeholder objective
+  id: wKillRandomObjective
+  issuer: wizard federation
+  requirements:
+    - !type:WizardRequirement {}
+    - !type:IncompatibleConditionsRequirement
+        conditions:
+          - RandomTraitorAliveCondition
+  conditions:
+    - !type:KillRandomPersonCondition {}
+  canBeDuplicate: true

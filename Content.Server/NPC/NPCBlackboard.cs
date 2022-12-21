@@ -42,11 +42,6 @@ public sealed class NPCBlackboard : IEnumerable<KeyValuePair<string, object>>
     /// </summary>
     public bool ReadOnly = false;
 
-    public void Clear()
-    {
-        _blackboard.Clear();
-    }
-
     public NPCBlackboard ShallowClone()
     {
         var dict = new NPCBlackboard();

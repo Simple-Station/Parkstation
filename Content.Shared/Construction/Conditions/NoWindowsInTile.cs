@@ -13,7 +13,7 @@ namespace Content.Shared.Construction.Conditions
         {
             var tagSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<TagSystem>();
 
-            foreach (var entity in location.GetEntitiesInTile(LookupFlags.Approximate | LookupFlags.Static))
+            foreach (var entity in location.GetEntitiesInTile(LookupFlags.Approximate | LookupFlags.Anchored))
             {
                 if (tagSystem.HasTag(entity, "Window"))
                     return false;

@@ -3,14 +3,12 @@ using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Timing;
 
 namespace Content.Server.Psionics
 {
     public sealed class PsionicInvisibleContactsSystem : EntitySystem
     {
         [Dependency] private readonly SharedStealthSystem _stealth = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -44,16 +42,9 @@ namespace Content.Server.Psionics
                 if (contact.Key.Body.Owner == uid)
                     continue;
 
-                // yes the tick checks are kind of shitty and tickrate dependent
-                // what's even shittier is that you can apparently still be colliding with an entity for multiple ticks
-                // after EndCollideEvent is raised
                 if (TryComp<PsionicInvisibleContactsComponent>(contact.Key.Body.Owner, out var psiontacts)
-                    && psiontacts.Whitelist.IsValid(otherUid)
-                    && psiontacts.LastFailedTick !<= (_gameTiming.CurTick - 5))
-                {
-                    component.LastFailedTick = _gameTiming.CurTick;
+                    && psiontacts.Whitelist.IsValid(otherUid))
                     return;
-                }
             }
 
             if (!component.Whitelist.IsValid(otherUid))
