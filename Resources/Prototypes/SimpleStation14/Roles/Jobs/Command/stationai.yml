@@ -12,6 +12,7 @@
   canBeAntag: false
   jobEntity: AI
   startingGear: CyborgGear # for char preview only
+  alwaysUseSpawner: true
 
 - type: startingGear
   id: AIGear
