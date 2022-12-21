@@ -286,6 +286,7 @@
       clothingVisuals:
         socks:
           - state: socks_knee
+            # color: "#FF0000FF" #WOOOOO
 - type: entity
   parent: ClothingUnderSocksBase
   id: ClothingUnderSocks_norm

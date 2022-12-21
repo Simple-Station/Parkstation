@@ -3619,4 +3619,9 @@ Entries:
     - { message: 'Edited some marking whitelists.', type: Tweak }
   id: 570000
   time: "2022-12-19T21:09:20.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Fix AI render layer.', type: Fix }
+  id: 580000
+  time: "2022-12-20T21:24:21.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }

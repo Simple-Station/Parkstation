@@ -46,6 +46,7 @@
   id: AIbase
   name: Error
   components:
+    - type: Visibility
     - type: Psionic
     - type: UserInterface
       interfaces:
@@ -154,8 +155,10 @@
 - type: entity
   id: AIeye
   parent: AIbase
-  name: AI
+  name: AI eye
   components:
+    - type: Visibility
+      layer: 2
     - type: AITelegnosticProjection
     - type: Input
       context: "human"
@@ -165,7 +168,7 @@
       baseWalkSpeed: 12
       baseSprintSpeed: 8
     - type: Sprite
-      drawdepth: Ghosts
+      drawdepth: Mobs
       sprite: SimpleStation14/Mobs/Silicon/aieye.rsi
       state: icon
       noRot: true
@@ -177,7 +180,7 @@
       fixtures:
         - shape: !type:PhysShapeCircle
             radius: 0.35
-          mass: 5
+          mass: 1000
           mask:
             - GhostImpassable
     - type: PointLight
@@ -198,6 +201,8 @@
   name: AI
   description: Host for an AI. Likely more A than I.
   components:
+    - type: Eye
+      drawFov: true
     - type: AITelegnosisPower
     - type: Input
       context: "human"
