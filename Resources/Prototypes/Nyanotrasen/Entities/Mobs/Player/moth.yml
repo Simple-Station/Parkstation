@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  name: Player moth
+  name: Urist M- oooh lights
   parent: BaseMobMoth
   id: MobMoth
   components:

@@ -17,7 +17,7 @@ namespace Content.Shared.Abilities
         public float gRadius = 0.6f;
 
         [DataField("galpha"), ViewVariables(VVAccess.ReadWrite)]
-        public float gAlpha = 0.95f;
+        public float gAlpha = 0.93f;
 
         [DataField("glasses"), ViewVariables(VVAccess.ReadWrite)]
         public bool Glasses = false;

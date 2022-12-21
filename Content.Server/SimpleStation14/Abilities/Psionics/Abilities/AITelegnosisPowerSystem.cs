@@ -4,13 +4,11 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.SimpleStation14.Abilities.Psionics;
 using Content.Server.Mind.Components;
-using Content.Server.Visible;
 using Robust.Shared.Prototypes;
-using Robust.Server.GameObjects;
 using Content.Shared.MobState;
-using Content.Shared.MobState.EntitySystems;
 using Content.Server.Abilities.Psionics;
-using Content.Shared.SimpleStation14.Abilities.Psionics;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
 
 namespace Content.Server.SimpleStation14.Abilities.Psionics
 {
@@ -70,6 +68,7 @@ namespace Content.Server.SimpleStation14.Abilities.Psionics
             foreach (var projection in _entityManager.EntityQuery<AITelegnosticProjectionComponent>(true))
             {
                 if (args.CurrentMobState is not DamageState.Dead) continue;
+                SoundSystem.Play("/Audio/SimpleStation14/Machines/AI/borg_death.ogg", Filter.Pvs(projection.Owner), projection.Owner);
 
                 TryComp<MindSwappedComponent>(projection.Owner, out var mindSwapped);
                 if (mindSwapped == null) continue;

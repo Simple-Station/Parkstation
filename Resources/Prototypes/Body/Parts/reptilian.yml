@@ -134,9 +134,6 @@
   - type: BodyPart
     partType: Leg
     symmetry: Left
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.7
-    baseSprintSpeed : 4.5
 
 - type: entity
   id: RightLegReptilian
@@ -153,9 +150,6 @@
   - type: BodyPart
     partType: Leg
     symmetry: Right
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.7
-    baseSprintSpeed : 4.5
 
 - type: entity
   id: LeftFootReptilian

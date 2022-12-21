@@ -114,12 +114,12 @@
           visible: false
         - map: ["underpants"]
         - map: ["undershirt"]
-        - map: ["jumpsuit"]
         - map: ["enum.HumanoidVisualLayers.LHand"]
         - map: ["enum.HumanoidVisualLayers.RHand"]
         - map: ["enum.HumanoidVisualLayers.LFoot"]
         - map: ["enum.HumanoidVisualLayers.RFoot"]
         - map: ["socks"]
+        - map: ["jumpsuit"]
         - map: ["enum.HumanoidVisualLayers.Handcuffs"]
           color: "#ffffff"
           sprite: Objects/Misc/handcuffs.rsi
@@ -133,12 +133,13 @@
         - map: ["eyes"]
         - map: ["belt"]
         - map: ["neck"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]
+        - map: ["enum.HumanoidVisualLayers.Wings"]
         - map: ["back"]
         - map: ["enum.HumanoidVisualLayers.FacialHair"]
         - map: ["enum.HumanoidVisualLayers.Hair"]
         - map: ["enum.HumanoidVisualLayers.HeadSide"]
         - map: ["enum.HumanoidVisualLayers.HeadTop"]
-        - map: ["enum.HumanoidVisualLayers.Tail"]
         - map: ["mask"]
         - map: ["head"]
         - map: ["pocket1"]
@@ -349,6 +350,7 @@
         - map: ["enum.HumanoidVisualLayers.HeadSide"]
         - map: ["enum.HumanoidVisualLayers.HeadTop"]
         - map: ["enum.HumanoidVisualLayers.Tail"]
+        - map: ["enum.HumanoidVisualLayers.Wings"]
         - map: ["mask"]
         - map: ["head"]
         - map: ["pocket1"]
@@ -369,7 +371,6 @@
       species: Human
     - type: Body
       prototype: Human
-      requiredLegs: 2
     - type: Damageable
       damageContainer: Biological
     - type: MobState

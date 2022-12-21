@@ -1,0 +1,19 @@
+- type: trait
+  id: Tall
+  name: Taller
+  description:
+  cost: 0
+  category: Equal
+  components:
+    - type: HeightAdjusted
+      height: 1.1
+
+- type: trait
+  id: Small
+  name: Smaller
+  description:
+  cost: 0
+  category: Equal
+  components:
+    - type: HeightAdjusted
+      height: 0.9

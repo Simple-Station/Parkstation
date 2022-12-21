@@ -31,7 +31,7 @@
     back: ClothingBackpackChaplainFilled
     shoes: ClothingShoesColorBlack
     id: ChaplainPDA
-    ears: ClothingHeadsetEpistemics
+    ears: ClothingHeadsetScience
   innerclothingskirt: ClothingUniformJumpskirtChaplain
   satchel: ClothingBackpackSatchelChaplainFilled
   duffelbag: ClothingBackpackDuffelChaplainFilled

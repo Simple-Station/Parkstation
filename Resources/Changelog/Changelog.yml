@@ -3570,4 +3570,58 @@ Entries:
     - { message: 'Remake Draconic and "EasyDrunk" to use traitRegenReagent', type: Tweak }
   id: 520000
   time: "2022-12-16T22:30:55.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Bookify smite, turns something into a book.', type: Add }
+    - { message: 'Smite smite, plays a sound and shocks someone.', type: Add }
+    - { message: 'Please Roleplay smite, tells the person to roleplay correctly.', type: Add }
+    - { message: 'Basketball and Book polymorphs.', type: Add }
+  id: 530000
+  time: "2022-12-17T03:52:40.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Markings whitelist is more strict.', type: Tweak }
+    - { message: 'Un nerf the nuclear option.', type: Fix }
+    - { message: 'Add a wings marking layer.', type: Add}
+    - { message: 'Move moth wings to wing layer.', type: Tweak }
+    - { message: 'Add 11 large wings available for various species.', type: Add }
+    - { message: 'Add 10 Reptilian spines.', type: Add }
+    - { message: 'Add 5 Reptilian tails that wag.', type: Add }
+  id: 540000
+  time: "2022-12-17T03:52:40.0000000+00:00" # forgot to set a time
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'You will now hunger almost as fast as you thirst.', type: Tweak }
+    - { message: 'Psprite only converted the human sprint/walk speeds, now EVERYTHING has swapped movement. (nerf hostile AI)', type: Fix }
+    - { message: 'Reagent processing is ~1-4x slower.', type: Tweak }
+    - { message: 'Only very small puddles will evaporate, more for the janitor to do!', type: Tweak }
+  id: 550000
+  time: "2022-12-18T03:31:20.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'voxTest command.', type: Add }
+    - { message: '"Man up" smite.', type: Add }
+    - { message: 'Centcomm officials spawn without an outfit.', type: Tweak }
+    - { message: 'Brief now supports using any outfit prototype instead of just centcomm.', type: Tweak }
+    - { message: 'Brief outfit prototype autocompletion.', type: Add }
+    - { message: 'Tall/Short size change traits.', type: Add }
+    - { message: 'Add back original roundstart sound.', type: Tweak }
+    - { message: 'AI makes a sound on death if it has a mind.', type: Add }
+    - { message: 'Added purple coat with toggleable hood.', type: Add }
+  id: 560000
+  time: "2022-12-18T21:02:58.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Made localization for new markings.', type: Add }
+    - { message: 'Removed Wizard from secret pool (my antags broke).', type: Tweak }
+    - { message: 'Hardsuits barely fit in dufflebags now.', type: Tweak }
+    - { message: 'Added proper names to socks.', type: Add }
+    - { message: 'Edited some marking whitelists.', type: Tweak }
+  id: 570000
+  time: "2022-12-19T21:09:20.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Fix AI render layer.', type: Fix }
+  id: 580000
+  time: "2022-12-20T21:24:21.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }

@@ -160,13 +160,12 @@
     dynamicRecipes:
       - LightTube
       - LightBulb
-      - SheetSteel
-      - SheetPlastic
+      - SheetSteel #these sheet recipe costs don't scale with upgrades
       - SheetPlasteel
       - SheetPlasma
-      - SheetRGlass
       - SheetGlass1
-      - BluespaceCrystal
+      - SheetRGlass
+      - SheetPlastic
       - CableStack
       - CableMVStack
       - CableHVStack
@@ -203,7 +202,6 @@
       - APCElectronics
       - AirAlarmElectronics
       - FireAlarmElectronics
-      - IntercomElectronics
       - MailingUnitElectronics
       - Bucket
       - MopItem
@@ -248,7 +246,6 @@
       - AirAlarmElectronics
       - FireAlarmElectronics
       - MailingUnitElectronics
-      - IntercomElectronics
       - SMESMachineCircuitboard
       - SubstationMachineCircuitboard
       - ThermomachineFreezerMachineCircuitBoard
@@ -395,12 +392,11 @@
       - LightTube
       - LightBulb
       - SheetSteel
-      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetRGlass
       - SheetGlass1
-      - BluespaceCrystal
+      - SheetRGlass
+      - SheetPlastic
       - CableStack
       - CableMVStack
       - CableHVStack
@@ -468,12 +464,11 @@
       - LightTube
       - LightBulb
       - SheetSteel
-      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetRGlass
       - SheetGlass1
-      - BluespaceCrystal
+      - SheetRGlass
+      - SheetPlastic
       - CableStack
       - CableMVStack
       - CableHVStack

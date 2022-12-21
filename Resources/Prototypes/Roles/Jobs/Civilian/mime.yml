@@ -13,7 +13,6 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: Psionic
     - type: MimePowers
 
 - type: startingGear

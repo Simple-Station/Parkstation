@@ -881,7 +881,7 @@
 
 - type: entity
   id: WallForce
-  name: force wall
+  name: Force Wall
   components:
     - type: TimedDespawn
       lifetime: 20
@@ -907,4 +907,3 @@
       sprite: Structures/Magic/forcewall.rsi
       state: forcewall
     - type: Dispellable
-    - type: Clickable

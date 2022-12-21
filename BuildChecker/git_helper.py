@@ -107,4 +107,4 @@ def reset_solution():
 
 if __name__ == '__main__':
     install_hooks()
-    update_submodules()
+ #   update_submodules()

@@ -7,7 +7,6 @@ using Content.Shared.Physics;
 using Content.Shared.Doors.Components;
 using Content.Shared.Maps;
 using Content.Shared.MobState.Components;
-using Content.Shared.Abilities.Psionics;
 using Robust.Shared.Player;
 using Robust.Shared.Physics;
 using Robust.Shared.Timing;
@@ -19,7 +18,7 @@ namespace Content.Server.Abilities.Mime
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+
         [Dependency] private readonly IGameTiming _timing = default!;
 
         public override void Initialize()
@@ -49,13 +48,8 @@ namespace Content.Server.Abilities.Mime
         private void OnComponentInit(EntityUid uid, MimePowersComponent component, ComponentInit args)
         {
             _actionsSystem.AddAction(uid, component.InvisibleWallAction, uid);
-
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.InvisibleWallAction;
-
             _alertsSystem.ShowAlert(uid, AlertType.VowOfSilence);
         }
-
         private void OnSpeakAttempt(EntityUid uid, MimePowersComponent component, SpeakAttemptEvent args)
         {
             if (!component.Enabled)
@@ -92,10 +86,6 @@ namespace Content.Server.Abilities.Mime
             _popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-popup", ("mime", uid)), uid, Filter.Pvs(uid));
             // Make sure we set the invisible wall to despawn properly
             Spawn(component.WallPrototype, coords);
-
-            // log
-            _psionics.LogPowerUsed(uid, "invisible wall");
-
             // Handle args so cooldown works
             args.Handled = true;
         }

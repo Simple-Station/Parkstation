@@ -1,0 +1,125 @@
+- type: marking
+  id: SpinesAqua
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: spines_aqua
+
+- type: marking
+  id: SpinesLong
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: spines_long
+
+- type: marking
+  id: SpinesLongmeme
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: spines_longmeme
+
+- type: marking
+  id: SpinesShort
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: spines_short
+
+- type: marking
+  id: SpinesShortmeme
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: spines_shortmeme
+
+- type: marking
+  id: SpinesWagAqua
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: spineswag_aqua
+
+- type: marking
+  id: SpinesWagShort
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: spineswag_short
+
+- type: marking
+  id: SpinesWagShortmeme
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: spineswag_shortmeme
+
+- type: marking
+  id: SpinesWagLongmeme
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: spineswag_longmeme
+
+- type: marking
+  id: SpinesWagLong
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: spineswag_long
+
+- type: marking
+  id: TailWagdTiger
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: tailwag_dtiger
+
+- type: marking
+  id: TailWaglTiger
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: tailwag_ltiger
+
+- type: marking
+  id: TailWagSmooth
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: tailwag_smooth
+
+- type: marking
+  id: TailWagSpike
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/reptilian.rsi
+      state: tailwag_spikes

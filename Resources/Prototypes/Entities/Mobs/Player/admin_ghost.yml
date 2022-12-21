@@ -33,8 +33,8 @@
     - type: Actions
     - type: InputMover
     - type: MovementSpeedModifier
-      baseSprintSpeed: 12
-      baseWalkSpeed: 8
+      baseWalkSpeed: 12
+      baseSprintSpeed: 8
     - type: Physics
       ignorePaused: true
       bodyType: Kinematic
