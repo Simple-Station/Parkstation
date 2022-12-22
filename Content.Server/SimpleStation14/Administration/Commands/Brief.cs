@@ -16,8 +16,8 @@ namespace Content.Server.Administration.Commands
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         public string Command => "brief";
-        public string Description => "Makes you a human with an outfit of choice.";
-        public string Help => $"Usage: {Command} <outfitID>";
+        public string Description => "Makes you a human until the command is rerun.";
+        public string Help => $"Usage: {Command} <outfit> <name> <entity>";
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
@@ -51,14 +51,17 @@ namespace Content.Server.Administration.Commands
             var coordinates = player.AttachedEntity != null
                 ? _entities.GetComponent<TransformComponent>(player.AttachedEntity.Value).Coordinates
                 : EntitySystem.Get<GameTicker>().GetObserverSpawnPoint();
-            var brief = _entities.SpawnEntity("HumanoidSpawnerCentcomOfficial", coordinates);
+
+            var entname = args[2];
+            if (entname == "") entname = "MobHuman";
+
+            var brief = _entities.SpawnEntity(entname, coordinates);
+            _entities.EnsureComponent<BriefOfficerComponent>(brief);
             _entities.GetComponent<TransformComponent>(brief).AttachToGridOrMap();
 
-
-            if (!string.IsNullOrWhiteSpace(mind.CharacterName))
-                _entities.GetComponent<MetaDataComponent>(brief).EntityName = mind.CharacterName;
-            else if (!string.IsNullOrWhiteSpace(mind.Session?.Name))
-                _entities.GetComponent<MetaDataComponent>(brief).EntityName = mind.Session.Name;
+            if (args[1] != "") _entities.GetComponent<MetaDataComponent>(brief).EntityName = args[1];
+            else if(!string.IsNullOrWhiteSpace(mind.Session?.Name)) _entities.GetComponent<MetaDataComponent>(brief).EntityName = mind.Session.Name;
+            else _entities.GetComponent<MetaDataComponent>(brief).EntityName = "Brief Agent";
 
             mind.Visit(brief);
 
@@ -83,6 +86,22 @@ namespace Content.Server.Administration.Commands
                     .OrderBy(p => p.Value);
 
                 return CompletionResult.FromHintOptions(options, Loc.GetString("brief-command-arg-outfit"));
+            }
+            if (args.Length == 2)
+            {
+                List<string> list = new(); // what a great solution
+                list.Add("");
+                return CompletionResult.FromHintOptions(list, Loc.GetString("brief-command-arg-name"));
+            }
+            if (args.Length == 3)
+            {
+                var options = IoCManager.Resolve<IPrototypeManager>()
+                    .EnumeratePrototypes<EntityPrototype>()
+                    .Where(p => p.ID.StartsWith("Mob"))
+                    .Select(p => new CompletionOption(p.ID))
+                    .OrderBy(p => p.Value);
+
+                return CompletionResult.FromHintOptions(options, Loc.GetString("brief-command-arg-species"));
             }
 
             return CompletionResult.Empty;
