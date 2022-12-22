@@ -22,7 +22,6 @@ public sealed class MonochromacySystem : EntitySystem
 
         SubscribeLocalEvent<MonochromacyComponent, ComponentStartup>(OnMonochromacyStartup);
         SubscribeLocalEvent<MonochromacyComponent, ComponentShutdown>(OnMonochromacyShutdown);
-        SubscribeLocalEvent<MonochromacyComponent, ExaminedEvent>(OnExamined);
 
         SubscribeLocalEvent<MonochromacyComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<MonochromacyComponent, PlayerDetachedEvent>(OnPlayerDetached);
@@ -52,10 +51,5 @@ public sealed class MonochromacySystem : EntitySystem
         {
             _overlayMan.RemoveOverlay(_overlay);
         }
-    }
-
-    private void OnExamined(EntityUid uid, MonochromacyComponent component, ExaminedEvent args)
-    {
-        if (args.IsInDetailsRange) args.PushMarkup(Loc.GetString("monochromatic-blindness-trait-examined", ("target", Identity.Entity(uid, _entityManager))));
     }
 }

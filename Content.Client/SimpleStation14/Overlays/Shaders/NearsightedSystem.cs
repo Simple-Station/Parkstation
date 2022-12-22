@@ -26,13 +26,6 @@ public sealed class NearsightedSystem : EntitySystem
         base.Initialize();
 
         _overlay = new Overlays.NearsightedOverlay();
-
-        SubscribeLocalEvent<NearsightedComponent, ExaminedEvent>(OnExamined);
-    }
-
-    private void OnExamined(EntityUid uid, NearsightedComponent component, ExaminedEvent args)
-    {
-        if (args.IsInDetailsRange) args.PushMarkup(Loc.GetString("permanent-nearsighted-trait-examined", ("target", Identity.Entity(uid, _entityManager))));
     }
 
     public override void Update(float frameTime)
