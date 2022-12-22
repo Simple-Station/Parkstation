@@ -1,4 +1,7 @@
 - type: trait
+  blacklist:
+    components:
+      - AITelegnosisPower
   id: Tall
   name: Taller
   description:
@@ -9,6 +12,9 @@
       height: 1.1
 
 - type: trait
+  blacklist:
+    components:
+      - AITelegnosisPower
   id: Small
   name: Smaller
   description:

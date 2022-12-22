@@ -16,6 +16,7 @@ public sealed class NearsightedSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private NearsightedOverlay _overlay = default!;
     private NearsightedComponent nearsight = new();
@@ -31,10 +32,7 @@ public sealed class NearsightedSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, NearsightedComponent component, ExaminedEvent args)
     {
-        if (args.IsInDetailsRange)
-        {
-            args.PushMarkup(Loc.GetString("permanent-nearsighted-trait-examined", ("target", Identity.Entity(uid, EntityManager))));
-        }
+        if (args.IsInDetailsRange) args.PushMarkup(Loc.GetString("permanent-nearsighted-trait-examined", ("target", Identity.Entity(uid, _entityManager))));
     }
 
     public override void Update(float frameTime)

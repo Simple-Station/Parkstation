@@ -12,5 +12,5 @@
     Drink:
       effects:
       - !type:Drunk
-        boozePower: 4
+        boozePower: 3
         slurSpeech: false

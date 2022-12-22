@@ -44,7 +44,6 @@
 - type: entity
   abstract: true
   id: AIbase
-  name: Error
   components:
     - type: Visibility
     - type: Psionic
@@ -79,12 +78,8 @@
       color: "#93e2ff"
       delay: 5
       global: true
-    - type: InnateTool
-      tools:
-        - id: AIPDA
-        - id: DoorRemoteAI
-    # - type: Loadout
-    #   prototypes: [ AIGear ]
+    - type: Loadout
+      prototypes: [ AIGearUnremoveable ]
     - type: Hands
       showInHands: false
     - type: Mind
@@ -155,7 +150,7 @@
 - type: entity
   id: AIeye
   parent: AIbase
-  name: AI eye
+  name: Invalid AI name
   components:
     - type: Visibility
       layer: 2
@@ -183,6 +178,8 @@
           mass: 1000
           mask:
             - GhostImpassable
+          layers:
+            - GhostImpassable
     - type: PointLight
       radius: 3
       energy: 1
@@ -206,13 +203,17 @@
     - type: AITelegnosisPower
     - type: Input
       context: "human"
+    - type: Physics
+      bodyType: Dynamic
     - type: Fixtures
       fixtures:
-        - shape: !type:PhysShapeAabb
-            bounds: "-0.45,-0.45,0.45,0.45"
+        - shape: !type:PhysShapeCircle
+            radius: 0.35
           density: 1000
           mask:
             - MachineMask
+          layer:
+            - MachineLayer
     - type: Anchorable
       delay: 5
     - type: Transform

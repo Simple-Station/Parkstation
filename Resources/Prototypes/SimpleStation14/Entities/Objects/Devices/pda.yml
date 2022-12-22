@@ -18,7 +18,12 @@
   - type: Icon
     sprite: SimpleStation14/Objects/Devices/pda.rsi
     state: pda-ai
-    
+- type: entity
+  parent: AIPDA
+  id: AIPDAur
+  components:
+    - type: Unremoveable
+
 - type: entity
   parent: BasePDA
   id: CSSPDA

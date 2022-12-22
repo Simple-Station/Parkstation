@@ -9,6 +9,10 @@ using Content.Shared.MobState;
 using Content.Server.Abilities.Psionics;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using Content.Shared.Throwing;
+using Content.Shared.Item;
+using Content.Shared.DragDrop;
+using Content.Shared.Strip.Components;
 
 namespace Content.Server.SimpleStation14.Abilities.Psionics
 {
@@ -26,9 +30,16 @@ namespace Content.Server.SimpleStation14.Abilities.Psionics
             base.Initialize();
             SubscribeLocalEvent<AITelegnosisPowerComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<AITelegnosisPowerComponent, ComponentShutdown>(OnShutdown);
-            SubscribeLocalEvent<AITelegnosisPowerComponent, AITelegnosisPowerActionEvent>(OnPowerUsed);
             SubscribeLocalEvent<AITelegnosticProjectionComponent, MindRemovedMessage>(OnMindRemoved);
+
+            SubscribeLocalEvent<AITelegnosisPowerComponent, AITelegnosisPowerActionEvent>(OnPowerUsed);
+
             SubscribeLocalEvent<AITelegnosisPowerComponent, MobStateChangedEvent>(OnMobStateChanged);
+
+            SubscribeLocalEvent<AITelegnosisPowerComponent, ThrowAttemptEvent>(OnDisallowedEvent);
+            SubscribeLocalEvent<AITelegnosisPowerComponent, PickupAttemptEvent>(OnDisallowedEvent);
+            SubscribeLocalEvent<AITelegnosisPowerComponent, DropAttemptEvent>(OnDisallowedEvent);
+            SubscribeLocalEvent<AITelegnosisPowerComponent, StrippingSlotButtonPressed>(OnStripEvent);
         }
 
         private void OnInit(EntityUid uid, AITelegnosisPowerComponent component, ComponentInit args)
@@ -52,6 +63,11 @@ namespace Content.Server.SimpleStation14.Abilities.Psionics
         private void OnPowerUsed(EntityUid uid, AITelegnosisPowerComponent component, AITelegnosisPowerActionEvent args)
         {
             var projection = Spawn(component.Prototype, Transform(uid).Coordinates);
+            var core = _entityManager.GetComponent<MetaDataComponent>(uid);
+
+            if (core.EntityName != "") _entityManager.GetComponent<MetaDataComponent>(projection).EntityName = core.EntityName;
+            else _entityManager.GetComponent<MetaDataComponent>(projection).EntityName = "Invalid AI";
+
             Transform(projection).AttachToGridOrMap();
             _mindSwap.Swap(uid, projection);
 
@@ -65,17 +81,24 @@ namespace Content.Server.SimpleStation14.Abilities.Psionics
 
         private void OnMobStateChanged(EntityUid uid, AITelegnosisPowerComponent component, MobStateChangedEvent args)
         {
-            foreach (var projection in _entityManager.EntityQuery<AITelegnosticProjectionComponent>(true))
-            {
-                if (args.CurrentMobState is not DamageState.Dead) continue;
-                SoundSystem.Play("/Audio/SimpleStation14/Machines/AI/borg_death.ogg", Filter.Pvs(projection.Owner), projection.Owner);
+            if (args.CurrentMobState is not DamageState.Dead) return;
 
-                TryComp<MindSwappedComponent>(projection.Owner, out var mindSwapped);
-                if (mindSwapped == null) continue;
+            TryComp<MindSwappedComponent>(component.Owner, out var mindSwapped);
+            if (mindSwapped == null) return;
 
-                _mindSwap.Swap(projection.Owner, mindSwapped.OriginalEntity);
-                // QueueDel(projection.Owner);
-            }
+            _mindSwap.Swap(component.Owner, mindSwapped.OriginalEntity);
+            // SoundSystem.Play("/Audio/SimpleStation14/Machines/AI/borg_death.ogg", Filter.Pvs(component.Owner), component.Owner); // Eye shouldn't emit the sound
+            SoundSystem.Play("/Audio/SimpleStation14/Machines/AI/borg_death.ogg", Filter.Pvs(mindSwapped.OriginalEntity), mindSwapped.OriginalEntity);
+        }
+
+        private void OnDisallowedEvent(EntityUid uid, AITelegnosisPowerComponent drone, CancellableEntityEventArgs args)
+        {
+            args.Cancel();
+        }
+
+        private void OnStripEvent(EntityUid uid, AITelegnosisPowerComponent component, StrippingSlotButtonPressed args)
+        {
+            return;
         }
     }
 

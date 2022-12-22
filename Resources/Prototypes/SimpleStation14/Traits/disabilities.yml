@@ -1,4 +1,7 @@
 - type: trait
+  blacklist:
+    components:
+      - AITelegnosisPower
   id: ColorBlindnessMonochrome
   name: Monochromatic Colorblindness
   description: Your eyes have permanent damage, causing you to only see along a greyscale of color.
@@ -8,6 +11,9 @@
     - type: Monochromacy
 
 - type: trait
+  blacklist:
+    components:
+      - AITelegnosisPower
   id: BlindnessNearsighted
   name: Nearsighted
   description: Your eyes have permanent damage, you are only able to see nearby you unless wearing glasses.
@@ -17,6 +23,9 @@
     - type: Nearsighted
 
 - type: trait
+  blacklist:
+    components:
+      - AITelegnosisPower
   id: EasyDrunk
   name: Weak Stomach
   description: You take longer to metabolise, get drunk easier, and feel dizzy often.
@@ -29,9 +38,12 @@
         solutionName: chemicals
         reagent: Fakethanol
         unitsPerUpdate: 0.1
-        accumulatorTime: 1
+        accumulatorTime: 2
 
 - type: trait
+  blacklist:
+    components:
+      - AITelegnosisPower
   id: FakeMime
   name: Mute
   description: For one reason or another you will not speak, ever, and communicate through miming or writing.
@@ -41,6 +53,9 @@
     - type: MuteTrait
 
 # - type: trait
+#    blacklist:
+#      components:
+#        - AITelegnosisPower
 #   id: Deaf
 #   name: Deaf
 #   description: You are unable to hear anyone speak, others have to communicate through writing or miming. # Reverse mime

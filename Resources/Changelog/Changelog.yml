@@ -3624,4 +3624,17 @@ Entries:
     - { message: 'Fix AI render layer.', type: Fix }
   id: 580000
   time: "2022-12-20T21:24:21.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Nearsight can see a bit more.', type: Tweak }
+    - { message: 'Brief now allows you to change entity name.', type: Add }
+    - { message: 'Brief allows you to spawn as any Mob.', type: Add }
+    - { message: 'AI core always plays death sound, instead of the eye when it has a mind.', type: Fix }
+    - { message: 'AI cannot throw, drop, pick up, or strip.', type: Fix }
+    - { message: 'AI core has a hitbox again.', type: Fix }
+    - { message: 'EasyDrunk trait should be how I intended now.', type: Fix }
+    - { message: 'AI cannot spawn with traits.', type: Tweak }
+    - { message: 'AI eye inherits the name from its core.', type: Tweak }
+  id: 590000
+  time: "2022-12-21T22:56:28.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }

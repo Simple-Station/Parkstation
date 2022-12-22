@@ -12,6 +12,7 @@ public sealed class MonochromacySystem : EntitySystem
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private MonochromacyOverlay _overlay = default!;
 
@@ -55,9 +56,6 @@ public sealed class MonochromacySystem : EntitySystem
 
     private void OnExamined(EntityUid uid, MonochromacyComponent component, ExaminedEvent args)
     {
-        if (args.IsInDetailsRange)
-        {
-            args.PushMarkup(Loc.GetString("monochromatic-blindness-trait-examined", ("target", Identity.Entity(uid, EntityManager))));
-        }
+        if (args.IsInDetailsRange) args.PushMarkup(Loc.GetString("monochromatic-blindness-trait-examined", ("target", Identity.Entity(uid, _entityManager))));
     }
 }

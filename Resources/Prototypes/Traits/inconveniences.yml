@@ -1,4 +1,7 @@
 ﻿- type: trait
+  blacklist:
+    components:
+      - AITelegnosisPower
   id: UncontrollableSneezing
   name: trait-sneezing-name
   description: trait-sneezing-desc
