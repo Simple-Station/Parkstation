@@ -16,7 +16,6 @@ namespace Content.Shared.Body.Part
         Hand,
         Leg,
         Foot,
-        Wings,
         Tail
     }
 }

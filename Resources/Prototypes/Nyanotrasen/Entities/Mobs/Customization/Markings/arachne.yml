@@ -2,11 +2,7 @@
   id: ArachneBodyColor
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction:
-    [
-      Lamia,
-      Arachne,
-    ]
+  speciesRestriction: [Arachne]
   sprites:
-    - sprite: Nyanotrasen/Mobs/Species/arachne.rsi
-      state: spider_body
+  - sprite: Nyanotrasen/Mobs/Species/arachne.rsi
+    state: spider_body

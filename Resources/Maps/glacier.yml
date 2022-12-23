@@ -14968,71 +14968,71 @@ entities:
           id: Rust
           coordinates: -20,17
         1845:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -12,20
         1846:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -12,21
         1847:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -11,20
         1848:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -13,21
         1849:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -13,20
         1850:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -14,21
         1851:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -14,20
         1852:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -15,20
         1853:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -15,21
         1854:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -16,21
         1855:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -16,20
         1856:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -17,20
         1857:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -17,21
         1858:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -18,21
         1859:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -18,20
         1860:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -18,22
         1861:
-          color: '#3a3ade0C'
+          color: '#DE3A3A0C'
           id: FullTileOverlayGreyscale
           coordinates: -17,22
         1874:
@@ -15961,59 +15961,59 @@ entities:
           id: HalfTileOverlayGreyscale180
           coordinates: 21,-9
         278:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: ThreeQuarterTileOverlayGreyscale
           coordinates: 15,-5
         279:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: ThreeQuarterTileOverlayGreyscale90
           coordinates: 18,-5
         280:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: ThreeQuarterTileOverlayGreyscale180
           coordinates: 18,-9
         281:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: ThreeQuarterTileOverlayGreyscale270
           coordinates: 15,-9
         282:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale90
           coordinates: 18,-7
         283:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale90
           coordinates: 18,-6
         284:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale270
           coordinates: 15,-8
         285:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale270
           coordinates: 15,-7
         286:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale270
           coordinates: 15,-6
         287:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale
           coordinates: 16,-5
         288:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale
           coordinates: 17,-5
         289:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale180
           coordinates: 16,-9
         290:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale180
           coordinates: 17,-9
         291:
-          color: '#3a3ade96'
+          color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale90
           coordinates: 18,-8
         292:

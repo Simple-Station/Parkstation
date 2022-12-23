@@ -182,7 +182,7 @@
   parent: ClothingHeadset
   id: ClothingHeadsetScience
   name: science headset
-  description: A sciency headset. Like usual.
+  description: Faithfully recreates the true essence of remote sound waves.
   components:
   - type: Headset
     channels:

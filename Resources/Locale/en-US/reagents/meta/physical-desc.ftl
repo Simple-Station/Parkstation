@@ -84,3 +84,4 @@ reagent-physical-desc-inky = inky
 reagent-physical-desc-enigmatic = enigmatic
 reagent-physical-desc-roaring = roaring and bubbling furiously
 reagent-physical-desc-smokey = smokey
+reagent-physical-desc-porous = porous

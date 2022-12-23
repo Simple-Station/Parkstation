@@ -74,8 +74,7 @@
           groups:
             Burn: -5
             Brute: -5
-            Toxin: -3
-            Airloss: -3
+            Toxin: -2
           types:
             Bloodloss: -3
   # Just in case you REALLY want to water your plants

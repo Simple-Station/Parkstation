@@ -104,12 +104,11 @@ namespace Content.Server.Pointing.EntitySystems
                 return false;
             }
 
-            // no more point cooldown
-            // if (_pointers.TryGetValue(session!, out var lastTime) &&
-            //     _gameTiming.CurTime < lastTime + PointDelay)
-            // {
-            //     return false;
-            // }
+            if (_pointers.TryGetValue(session!, out var lastTime) &&
+                _gameTiming.CurTime < lastTime + PointDelay)
+            {
+                return false;
+            }
 
             if (HasComp<PointingArrowComponent>(pointed))
             {

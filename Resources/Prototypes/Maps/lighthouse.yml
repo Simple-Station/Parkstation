@@ -2,7 +2,7 @@
   id: Lighthouse
   mapName: 'lighthouse'
   mapPath: /Maps/lighthouse.yml
-  minPlayers: 0
+  minPlayers: 30
   stations:
     Lighthouse:
       mapNameTemplate: '{0} Lighthouse {1}'
@@ -46,4 +46,4 @@
         AtmosphericTechnician: [ 1, 2 ]
         ServiceWorker: [ 2, 2 ]
         Reporter: [ 1, 2 ]
-        Prisoner: [ 2, 3 ]
+        Prisoner: [ 2, 2 ]

@@ -107,7 +107,8 @@ website = "https://nyanotrasen.moe"
 wiki = "https://wiki.nyanotrasen.moe"
 
 [discord]
-ahelp_webhook = "https://discord.com/api/webhooks/1051593982121099264/CjN6HiXYP_6AZTGnki-RbCag64n2A1GaZ3m_RDkHwk4c1RqAJwYCaA_WnqH9zNUJVwzn"
+#DO NOT PUT WEBHOOK URL IN THIS FILE, unless you don't intend to push it. This file can be viewed by anyone on GitHub, only put the URL on the actual server.
+ahelp_webhook = ""
 ahelp_avatar = "https://imgur.com/a/xyjaogg.png"
 
 [database]

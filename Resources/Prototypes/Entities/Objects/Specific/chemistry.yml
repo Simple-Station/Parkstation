@@ -133,7 +133,7 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 100
+        maxVol: 40
         canReact: false
   - type: Damageable
     damageContainer: Inorganic
@@ -168,7 +168,7 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 1000
+        maxVol: 300
 
 - type: entity
   name: dropper
@@ -279,7 +279,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 75
+        maxVol: 50
   - type: SolutionSpiker
     sourceSolution: food
   - type: DeleteOnTrigger

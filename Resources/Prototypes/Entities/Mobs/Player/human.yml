@@ -42,9 +42,6 @@
   id: MobHumanSyndicateAgent
   name: Syndicate Agent
   components:
-    - type: Faction
-      factions:
-      - Syndicate
     - type: Loadout
       prototype: SyndicateOperativeGearExtremelyBasic
       prototypes: [SyndicateOperativeGearExtremelyBasic]
@@ -58,9 +55,6 @@
   parent: MobHuman
   id: MobHumanNukeOp
   components:
-    - type: Faction
-      factions:
-      - Syndicate
     - type: NukeOperative
     - type: RandomHumanoidAppearance
     - type: PsionicBonusChance
