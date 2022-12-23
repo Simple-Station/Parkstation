@@ -4,8 +4,6 @@ using Content.Server.Database;
 using Content.Server.Chat.Managers;
 using Content.Server.Objectives.Interfaces;
 using Content.Server.Players;
-using Content.Server.Roles;
-using Content.Server.Traitor;
 using Content.Server.Traitor.Uplink;
 using Content.Server.SimpleStation14.Wizard;
 using Content.Server.MobState;
@@ -19,6 +17,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Server.Magic.Components;
+using Content.Server.SimpleStation14.Minor;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -172,23 +172,31 @@ public sealed class WizardRuleSystem : GameRuleSystem
         var mind = wizard.Data.ContentData()?.Mind;
         if (mind == null)
         {
-            Logger.ErrorS("preset", "Failed getting mind for picked wizard.");
+            Logger.ErrorS("preset", $"Failed getting mind for {wizard.ConnectedClient.UserName}.");
             return;
         }
 
         if (!await _db.GetWhitelistStatusAsync(wizard.UserId))
+        {
+            Logger.ErrorS("preset", $"{wizard.ConnectedClient.UserName} is not whitelisted, preventing their selection.");
             return;
+        }
 
         // creadth: we need to create uplink for the antag.
         // PDA should be in place already
         DebugTools.AssertNotNull(mind.OwnedEntity);
 
+        if (mind.AllRoles.Count() > 1)
+        {
+            Logger.InfoS("preset", $"{wizard.ConnectedClient.UserName} is already another antagonist.");
+            return;
+        }
+
         var startingBalance = _cfg.GetCVar(CCVars.TraitorStartingBalance);
 
         if (mind.CurrentJob != null) startingBalance = Math.Max(startingBalance - mind.CurrentJob.Prototype.AntagAdvantage, 0);
 
-        if (!_uplink.AddUplink(mind.OwnedEntity!.Value, startingBalance, WizardUplinkPresetId))
-            return;
+        if (!_uplink.AddUplink(mind.OwnedEntity!.Value, startingBalance, WizardUplinkPresetId)) return;
 
         var antagPrototype = _prototypeManager.Index<AntagPrototype>(WizardPrototypeID);
         var wizardRole = new WizardRole(mind, antagPrototype);
@@ -211,6 +219,8 @@ public sealed class WizardRuleSystem : GameRuleSystem
 
         //give wizards their codewords to keep in their character info menu
         wizardRole.Mind.Briefing = Loc.GetString("wizard-role-codewords", ("codewords", string.Join(", ", Codewords)));
+
+        if (wizard.AttachedEntity != null) EnsureComp<SpellbookUserComponent>((EntityUid) wizard.AttachedEntity);
 
         SoundSystem.Play(_addedSound.GetSound(), Filter.Empty().AddPlayer(wizard), AudioParams.Default);
         Logger.InfoS("preset", $"Made {wizard.ConnectedClient.UserName} a wizard.");

@@ -689,5 +689,11 @@ Entries:
     - { message: 'AI eye inherits the name from its core.', type: Tweak }
   id: 59
   time: "2022-12-21T22:56:28.0000000+00:00"
-
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Wizards work once again, added to secret mode.', type: Fix }
+    - { message: 'Minor antag works, only one objective currently.', type: Fix }
+    - { message: 'Minor antag is in most gamemodes now.', type: Add }
+  id: 60
+  time: "2022-12-22T23:26:27.0000000+00:00"
 #  - { message: 'Something', type: Add/Remove/Tweak/Fix }

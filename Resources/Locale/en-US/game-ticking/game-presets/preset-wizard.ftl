@@ -1,4 +1,3 @@
-
 ## wizard
 
 # Shown at the end of a round of wizard
@@ -18,14 +17,11 @@ wizard-was-a-wizard-with-objectives-named = [color=White]{$name}[/color] was a w
 
 preset-wizard-objective-issuer-wizfeds = [color=#87cefa]The Wizard Federation[/color]
 
-# Shown at the end of a round of wizard
 wizard-objective-condition-success = {$condition} | [color={$markupColor}]Success![/color]
-
-# Shown at the end of a round of wizard
 wizard-objective-condition-fail = {$condition} | [color={$markupColor}]Failure![/color] ({$progress}%)
 
 wizard-title = wizard
-wizard-description = There are wizards among us...
+wizard-description = Wizards are hiding among the station crew, find and deal with them before they become too powerful.
 wizard-not-enough-ready-players = Not enough players readied up for the game! There were {$readyPlayersCount} players readied up out of {$minimumPlayers} needed.
 wizard-no-one-ready = No players readied up! Can't start wizard.
 

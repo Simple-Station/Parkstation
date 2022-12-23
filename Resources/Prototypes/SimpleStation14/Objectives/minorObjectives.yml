@@ -1,6 +1,6 @@
 - type: objective
   id: MinorPickpocketObjective
-  issuer: free will
+  issuer: freewill
   difficultyOverride: 2.75
   conditions:
     - !type:PickpocketCondition {}

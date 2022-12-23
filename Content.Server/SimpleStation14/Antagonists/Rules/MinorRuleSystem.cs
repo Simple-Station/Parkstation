@@ -18,6 +18,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Server.Objectives.Interfaces;
+using Content.Server.SimpleStation14.Wizard;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -152,9 +153,18 @@ public sealed class MinorRuleSystem : GameRuleSystem
             return;
         }
 
-        if (!await _db.GetWhitelistStatusAsync(minor.UserId)) return;
+        if (!await _db.GetWhitelistStatusAsync(minor.UserId))
+        {
+            Logger.ErrorS("preset", "Selected minor is not whitelisted, preventing their selection.");
+            return;
+        }
 
-        if (mind.HasRole<TraitorRole>()) return;
+        // if (mind.HasRole<TraitorRole>() || mind.HasRole<WizardRole>()) return;
+        if (mind.AllRoles.Count() > 1)
+        {
+            Logger.InfoS("preset", $"{minor.ConnectedClient.UserName} is already another antagonist.");
+            return;
+        }
 
         var antagPrototype = _prototypeManager.Index<AntagPrototype>(MinorPrototypeID);
         var minorRole = new MinorRole(mind, antagPrototype);
@@ -171,8 +181,7 @@ public sealed class MinorRuleSystem : GameRuleSystem
         {
             var objective = _objectivesManager.GetRandomObjective(minorRole.Mind, "MinorantagObjectiveGroup");
             if (objective == null) continue;
-            if (minorRole.Mind.TryAddObjective(objective))
-                difficulty += objective.Difficulty;
+            if (minorRole.Mind.TryAddObjective(objective)) difficulty += objective.Difficulty;
         }
 
         SoundSystem.Play(_addedSound.GetSound(), Filter.Empty().AddPlayer(minor), AudioParams.Default);
@@ -232,11 +241,58 @@ public sealed class MinorRuleSystem : GameRuleSystem
 
         foreach (var minor in Minors)
         {
+            // var name = minor.Mind.CharacterName;
+            // minor.Mind.TryGetSession(out var session);
+            // var username = session?.Name;
+
+            // result += $"\n- {name}, {username} was a minor antagonist, their objective was; '{minor.Mind.Briefing}'";
+
             var name = minor.Mind.CharacterName;
             minor.Mind.TryGetSession(out var session);
             var username = session?.Name;
 
-            result += $"\n- {name}, {username} was a minor antagonist, their objective was; '{minor.Mind.Briefing}'";
+            var objectives = minor.Mind.AllObjectives.ToArray();
+            if (objectives.Length == 0)
+            {
+                if (username != null)
+                {
+                    if (name == null)
+                        result += "\n" + Loc.GetString("minor-user-was-a-minor", ("user", username));
+                    else
+                        result += "\n" + Loc.GetString("minor-user-was-a-minor-named", ("user", username), ("name", name));
+                }
+                else if (name != null)
+                    result += "\n" + Loc.GetString("minor-was-a-minor-named", ("name", name));
+
+                continue;
+            }
+
+            if (username != null)
+            {
+                if (name == null)
+                    result += "\n" + Loc.GetString("minor-user-was-a-minor-with-objectives", ("user", username));
+                else
+                    result += "\n" + Loc.GetString("minor-user-was-a-minor-with-objectives-named", ("user", username), ("name", name));
+            }
+            else if (name != null)
+                result += "\n" + Loc.GetString("minor-was-a-minor-with-objectives-named", ("name", name));
+
+            foreach (var objectiveGroup in objectives.GroupBy(o => o.Prototype.Issuer))
+            {
+                result += "\n" + Loc.GetString($"preset-minor-objective-issuer-{objectiveGroup.Key}");
+
+                foreach (var objective in objectiveGroup)
+                {
+                    foreach (var condition in objective.Conditions)
+                    {
+                        result += "\n- " + Loc.GetString(
+                            "minor-objective-condition-success",
+                            ("condition", condition.Title),
+                            ("markupColor", "green")
+                        );
+                    }
+                }
+            }
         }
         ev.AddLine(result);
     }
