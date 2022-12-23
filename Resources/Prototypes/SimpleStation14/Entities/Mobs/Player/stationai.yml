@@ -160,8 +160,8 @@
     - type: MobMover
     - type: InputMover
     - type: MovementSpeedModifier
-      baseWalkSpeed: 12
-      baseSprintSpeed: 8
+      baseWalkSpeed: 8
+      baseSprintSpeed: 12
     - type: Sprite
       drawdepth: Mobs
       sprite: SimpleStation14/Mobs/Silicon/aieye.rsi
