@@ -21,18 +21,14 @@ namespace Content.Server.SimpleStation14.Nanites
 
         public void OnTrigger(EntityUid uid, NaniteHostComponent Nanites, NaniteDissolveTrigger args)
         {
-            Console.WriteLine(3);
             foreach (var Program in Nanites.Programs)
             {
-                Console.WriteLine(4);
                 if (Program.Type == "Dissolve")
                 {
-                    Console.WriteLine(5);
                     Console.WriteLine(args.ETrigger);
                     Console.WriteLine(Program.ETrigger);
                     if (args.ETrigger == Program.ETrigger)
                     {
-                        Console.WriteLine(6);
                         if (Nanites.Nanites - 5 >= Nanites.SafetyLevel) Nanites.Nanites -= 5;
                     }
                 }

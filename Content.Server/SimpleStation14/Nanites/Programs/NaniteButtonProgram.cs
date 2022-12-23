@@ -72,11 +72,11 @@ namespace Content.Server.SimpleStation14.Nanites
         {
             foreach (var Program in Nanites.Programs)
             {
-                Console.WriteLine(1);
                 if (Program.Type == "Dissolve")
                 {
-                    Console.WriteLine(2);
-                    RaiseNetworkEvent(new NaniteDissolveTrigger() { ETrigger = Program.ETrigger });
+                    Console.WriteLine(args.ETrigger);
+                    Console.WriteLine(Program.ETrigger);
+                    RaiseLocalEvent(uid, new NaniteDissolveTrigger() { ETrigger = args.ETrigger });
                 }
             }
         }

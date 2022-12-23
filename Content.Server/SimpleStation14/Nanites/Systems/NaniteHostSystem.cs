@@ -50,7 +50,6 @@ namespace Content.Server.SimpleStation14.Nanites
                 ETrigger = 0,
                 Type = "Button",
             };
-            Nanite.Programs.Add(program1);
             NaniteProgram program2 = new()
             {
                 EName = "Nanite Clot 2",
@@ -58,7 +57,6 @@ namespace Content.Server.SimpleStation14.Nanites
                 ETrigger = 1,
                 Type = "Button",
             };
-            Nanite.Programs.Add(program2);
             NaniteProgram program3 = new()
             {
                 EName = "Nanite Clot 3",
@@ -66,6 +64,9 @@ namespace Content.Server.SimpleStation14.Nanites
                 ETrigger = 1,
                 Type = "Dissolve",
             };
+
+            Nanite.Programs.Add(program1);
+            Nanite.Programs.Add(program2);
             Nanite.Programs.Add(program3);
         }
     }
