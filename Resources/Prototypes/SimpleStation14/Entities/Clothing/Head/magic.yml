@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingHeadHatVioletwizard
+  id: ClothingHeadHatVioletwizardReal
+  suffix: magical
+  components:
+    - type: ClothingGrantComponent
+      component: SpellbookUser2
+
+- type: entity
+  parent: ClothingHeadHatWizard
+  id: ClothingHeadHatWizardReal
+  suffix: magical
+  components:
+    - type: ClothingGrantComponent
+      component: SpellbookUser2
+
+- type: entity
+  parent: ClothingHeadHatRedwizard
+  id: ClothingHeadHatRedwizardReal
+  suffix: magical
+  components:
+    - type: ClothingGrantComponent
+      component: SpellbookUser2

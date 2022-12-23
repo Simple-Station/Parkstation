@@ -96,19 +96,19 @@ namespace Content.Shared.Interaction
         {
             if (ev.Sender.AttachedEntity is not { } user || !_actionBlockerSystem.CanInteract(user, ev.Target))
             {
-                ev.Cancel();
+                            ev.Cancel();
                 return;
             }
 
             if (!_containerSystem.IsInSameOrParentContainer(user, ev.Target) && !CanAccessViaStorage(user, ev.Target))
             {
-                ev.Cancel();
+                            ev.Cancel();
                 return;
             }
 
             if (!InRangeUnobstructed(user, ev.Target))
             {
-                ev.Cancel();
+                            ev.Cancel();
             }
         }
 

@@ -46,7 +46,7 @@ namespace Content.Server.UserInterface
                 return;
 
             if (!TryComp(ev.Sender.AttachedEntity, out SharedHandsComponent? hands) || hands.Hands.Count == 0)
-                ev.Cancel();
+                            ev.Cancel();
         }
 
         private void OnActionPerform(EntityUid uid, ServerUserInterfaceComponent component, OpenUiActionEvent args)

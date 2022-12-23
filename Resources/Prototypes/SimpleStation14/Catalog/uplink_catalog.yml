@@ -72,8 +72,8 @@
 
 - type: listing
   id: WizardHealingBook
-  name: Healing bullet
-  description: Shoot out a bullet that instantly heals and revives anyone
+  name: Healing book
+  description: Target a being and heal them of all their wounds instantly! (WARNING - May be considered necromany if used on the dead)
   productEntity: HealingSpellbook
   cost:
     Bluespace: 8
@@ -107,12 +107,22 @@
 
 # Bundles
 - type: listing
-  id: WizardSurplusCrate30BC
-  name: 30 to 50 BC surplus crate
-  description: A crate filled with random wizard items, overall worth 50BC.
+  id: WizardSurplusCrate30BS
+  name: 30 to 50 BS surplus crate
+  description: A crate filled with random wizard items, overall worth 50BS.
   productEntity: CrateWizardSurplus
   cost:
     Bluespace: 30
+  categories:
+  - WizardBundles
+
+- type: listing
+  id: WizardOutfitBag
+  name: Wizard outfit bag
+  description: A nice set few sets of magical wizard clothing to use spells.
+  productEntity: ClothingBackpackDuffelWizard
+  cost:
+    Bluespace: 4
   categories:
   - WizardBundles
 
@@ -126,15 +136,5 @@
   productEntity: FoodBurgerSpell
   cost:
     Bluespace: 1
-  categories:
-  - WizardPointless
-
-- type: listing
-  id: WizardOutfitBag
-  name: Wizard outfit bag
-  description: A nice set few sets of wizard clothing.
-  productEntity: ClothingBackpackDuffelWizard
-  cost:
-    Bluespace: 2
   categories:
   - WizardPointless

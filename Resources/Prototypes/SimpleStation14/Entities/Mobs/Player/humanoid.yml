@@ -180,7 +180,6 @@
     - type: Faction
       factions:
         - SimpleHostile
-    - type: SpellbookUser
     - type: BibleUser
     # - type: RandomHumanoidAppearance # Removes random names :(
 
@@ -235,7 +234,6 @@
       description: |
         You have been sent to the station via the Noosphere. Your goal is to kill as many people as possible and destroy the station.
         You have been given every Psionic power via the Noosphere, you should be theoretically unstoppable if you time everything right.
-        If you encounter a Wizard, you can team up with them or kill and steal their spells, you ARE a SpellBookUser.
     - type: RandomMetadata
       nameSegments:
         - names_wizard_first
@@ -259,7 +257,6 @@
     - type: Faction
       factions:
         - SimpleHostile
-    - type: SpellbookUser
     - type: BibleUser
     # - type: RandomHumanoidAppearance # Removes random names :(
 

@@ -696,4 +696,14 @@ Entries:
     - { message: 'Minor antag is in most gamemodes now.', type: Add }
   id: 60
   time: "2022-12-22T23:26:27.0000000+00:00"
-#  - { message: 'Something', type: Add/Remove/Tweak/Fix }
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Removed Religious trait.', type: Remove }
+    - { message: 'ClothingGrantComponent Component.', type: Add }
+    - { message: 'Magic wizard robes.', type: Add }
+    - { message: 'Wizard store provides magical robes instead of costumes.', type: Tweak }
+    - { message: 'Spellbooks require wearing both magical robes and hat to be learned.', type: Tweak }
+    - { message: 'Minor gamemode killed server if theres too few players.', type: Fix }
+    - { message: 'Rename BC things to BS.', type: Fix }
+  id: 61
+  time: "2022-12-23T00:55:39.0000000+00:00"

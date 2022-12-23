@@ -2,7 +2,7 @@
 - type: entity
   parent: MaterialBluespace
   id: Bluespace1
-  suffix: 1 BC
+  suffix: 1 BS
   components:
   - type: Stack
     stackType: Bluespace
@@ -11,7 +11,7 @@
 - type: entity
   parent: MaterialBluespace
   id: Bluespace5
-  suffix: 5 BC
+  suffix: 5 BS
   components:
   - type: Stack
     stackType: Bluespace
@@ -20,7 +20,7 @@
 - type: entity
   parent: MaterialBluespace
   id: Bluespace10
-  suffix: 10 BC
+  suffix: 10 BS
   components:
   - type: Stack
     stackType: Bluespace
@@ -29,7 +29,7 @@
 - type: entity
   parent: MaterialBluespace
   id: Bluespace25
-  suffix: 25 BC
+  suffix: 25 BS
   components:
   - type: Stack
     stackType: Bluespace
@@ -38,7 +38,7 @@
 - type: entity
   parent: MaterialBluespace
   id: Bluespace50
-  suffix: 50 BC
+  suffix: 50 BS
   components:
   - type: Stack
     stackType: Bluespace
@@ -73,7 +73,7 @@
 
 - type: entity
   parent: BaseWizardUplinkRadio
-  id: BaseWizardUplinkRadio8BC
+  id: BaseWizardUplinkRadio8BS
   suffix: 8 Bluespace
   components:
   - type: Store
@@ -83,7 +83,7 @@
 
 - type: entity
   parent: BaseWizardUplinkRadio
-  id: BaseWizardUplinkRadio30BC
+  id: BaseWizardUplinkRadio30BS
   suffix: 30 Bluespace
   components:
   - type: Store

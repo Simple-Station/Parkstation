@@ -121,4 +121,5 @@
       stealthy: true
     - type: Stripping
     - type: BibleUser
-    - type: SpellbookUser
+    - type: SpellbookUser1
+    - type: SpellbookUser2

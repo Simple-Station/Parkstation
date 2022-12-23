@@ -17,8 +17,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Server.Magic.Components;
-using Content.Server.SimpleStation14.Minor;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -35,8 +33,6 @@ public sealed class WizardRuleSystem : GameRuleSystem
     [Dependency] private readonly IServerDbManager _db = default!;
 
 
-
-
     public override string Prototype => "Wizard";
 
     private readonly SoundSpecifier _addedSound = new SoundPathSpecifier("/Audio/Misc/tatoralert.ogg");
@@ -48,8 +44,8 @@ public sealed class WizardRuleSystem : GameRuleSystem
     public int TotalWizards => Wizards.Count;
     public string[] Codewords = new string[3];
 
-    private int _playersPerWizard => _cfg.GetCVar(CCVars.TraitorPlayersPerTraitor);
-    private int _maxWizards => _cfg.GetCVar(CCVars.TraitorMaxTraitors);
+    private int _playersPerWizard => _cfg.GetCVar(CCVars.WizardPlayersPerWizard);
+    private int _maxWizards => _cfg.GetCVar(CCVars.WizardMaxWizards);
 
     public override void Initialize()
     {
@@ -71,10 +67,9 @@ public sealed class WizardRuleSystem : GameRuleSystem
     private void OnStartAttempt(RoundStartAttemptEvent ev)
     {
         MakeCodewords();
-        if (!RuleAdded)
-            return;
+        if (!RuleAdded) return;
 
-        var minPlayers = _cfg.GetCVar(CCVars.TraitorMinPlayers);
+        var minPlayers = _cfg.GetCVar(CCVars.WizardMinPlayers);
         if (!ev.Forced && ev.Players.Length < minPlayers)
         {
             _chatManager.DispatchServerAnnouncement(Loc.GetString("wizard-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
@@ -93,7 +88,7 @@ public sealed class WizardRuleSystem : GameRuleSystem
     private void MakeCodewords()
     {
 
-        var codewordCount = _cfg.GetCVar(CCVars.TraitorCodewordCount);
+        var codewordCount = _cfg.GetCVar(CCVars.WizardCodewordCount);
         var adjectives = _prototypeManager.Index<DatasetPrototype>("adjectives").Values;
         var verbs = _prototypeManager.Index<DatasetPrototype>("verbs").Values;
         var codewordPool = adjectives.Concat(verbs).ToList();
@@ -111,7 +106,7 @@ public sealed class WizardRuleSystem : GameRuleSystem
             return;
 
         var numWizards = MathHelper.Clamp(ev.Players.Length / _playersPerWizard, 1, _maxWizards);
-        var codewordCount = _cfg.GetCVar(CCVars.TraitorCodewordCount);
+        var codewordCount = _cfg.GetCVar(CCVars.WizardCodewordCount);
 
         var wizardPool = FindPotentialWizards(ev);
         var selectedWizards = PickWizards(numWizards, wizardPool);
@@ -192,7 +187,7 @@ public sealed class WizardRuleSystem : GameRuleSystem
             return;
         }
 
-        var startingBalance = _cfg.GetCVar(CCVars.TraitorStartingBalance);
+        var startingBalance = _cfg.GetCVar(CCVars.WizardStartingBalance);
 
         if (mind.CurrentJob != null) startingBalance = Math.Max(startingBalance - mind.CurrentJob.Prototype.AntagAdvantage, 0);
 
@@ -204,8 +199,8 @@ public sealed class WizardRuleSystem : GameRuleSystem
         Wizards.Add(wizardRole);
         wizardRole.GreetWizard(Codewords);
 
-        var maxDifficulty = _cfg.GetCVar(CCVars.TraitorMaxDifficulty);
-        var maxPicks = _cfg.GetCVar(CCVars.TraitorMaxPicks);
+        var maxDifficulty = _cfg.GetCVar(CCVars.WizardMaxDifficulty);
+        var maxPicks = _cfg.GetCVar(CCVars.WizardMaxPicks);
 
         //give wizards their objectives
         var difficulty = 0f;
@@ -219,8 +214,6 @@ public sealed class WizardRuleSystem : GameRuleSystem
 
         //give wizards their codewords to keep in their character info menu
         wizardRole.Mind.Briefing = Loc.GetString("wizard-role-codewords", ("codewords", string.Join(", ", Codewords)));
-
-        if (wizard.AttachedEntity != null) EnsureComp<SpellbookUserComponent>((EntityUid) wizard.AttachedEntity);
 
         SoundSystem.Play(_addedSound.GetSound(), Filter.Empty().AddPlayer(wizard), AudioParams.Default);
         Logger.InfoS("preset", $"Made {wizard.ConnectedClient.UserName} a wizard.");

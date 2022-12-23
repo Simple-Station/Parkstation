@@ -2,18 +2,6 @@
   blacklist:
     components:
       - AITelegnosisPower
-  id: Religious
-  name: Religious
-  description: Allows you to use Bibles and Spellbooks.
-  cost: -3
-  category: Positive
-  components:
-    - type: ReligiousTrait
-
-- type: trait
-  blacklist:
-    components:
-      - AITelegnosisPower
   id: DragonsBlood
   name: Draconic Bloodstream
   description: You have some of the great Space Dragon's healing abilities, and have Ichor in your blood. (Will be rethemed)

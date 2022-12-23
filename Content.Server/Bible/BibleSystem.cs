@@ -103,7 +103,7 @@ namespace Content.Server.Bible
                 return;
             }
 
-            if (!HasComp<BibleUserComponent>(args.User) && !HasComp<ReligiousTraitComponent>(args.User))
+            if (!HasComp<BibleUserComponent>(args.User))
             {
                 _popupSystem.PopupEntity(Loc.GetString("bible-sizzle"), args.User, Filter.Entities(args.User));
 
@@ -159,7 +159,7 @@ namespace Content.Server.Bible
             if (!args.CanInteract || !args.CanAccess || component.AlreadySummoned || component.SpecialItemPrototype == null)
                 return;
 
-            if (component.RequiresBibleUser && !HasComp<BibleUserComponent>(args.User) && !HasComp<ReligiousTraitComponent>(args.User))
+            if (component.RequiresBibleUser && !HasComp<BibleUserComponent>(args.User))
                 return;
 
             AlternativeVerb verb = new()
@@ -220,7 +220,7 @@ namespace Content.Server.Bible
         {
             if (component.AlreadySummoned || component.SpecialItemPrototype == null)
                 return;
-            if (component.RequiresBibleUser && !HasComp<BibleUserComponent>(user) && !HasComp<ReligiousTraitComponent>(user))
+            if (component.RequiresBibleUser && !HasComp<BibleUserComponent>(user))
                 return;
             if (!Resolve(user, ref position))
                 return;

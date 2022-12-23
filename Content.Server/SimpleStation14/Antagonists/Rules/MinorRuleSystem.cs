@@ -3,12 +3,9 @@ using System.Linq;
 using Content.Server.Database;
 using Content.Server.Chat.Managers;
 using Content.Server.Players;
-using Content.Server.Roles;
-using Content.Server.Traitor;
 using Content.Server.SimpleStation14.Minor;
 using Content.Server.MobState;
 using Content.Shared.CCVar;
-using Content.Shared.Dataset;
 using Content.Shared.Roles;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -18,7 +15,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Server.Objectives.Interfaces;
-using Content.Server.SimpleStation14.Wizard;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -42,8 +38,10 @@ public sealed class MinorRuleSystem : GameRuleSystem
 
     public int TotalMinors => Minors.Count;
 
-    private int _playersPerMinor => _cfg.GetCVar(CCVars.TraitorPlayersPerTraitor);
-    private int _maxMinors => _cfg.GetCVar(CCVars.TraitorMaxTraitors);
+    private int _playersPerMinor => _cfg.GetCVar(CCVars.MinorPlayersPerMinor);
+    private int _maxMinors => _cfg.GetCVar(CCVars.MinorMaxMinors);
+
+    private bool cont = true;
 
     public override void Initialize()
     {
@@ -64,29 +62,28 @@ public sealed class MinorRuleSystem : GameRuleSystem
 
     private void OnStartAttempt(RoundStartAttemptEvent ev)
     {
-        if (!RuleAdded)
-            return;
+        if (!RuleAdded) return;
 
-        var minPlayers = _cfg.GetCVar(CCVars.TraitorMinPlayers);
+        var minPlayers = _cfg.GetCVar(CCVars.MinorMinPlayers);
         if (!ev.Forced && ev.Players.Length < minPlayers)
         {
             _chatManager.DispatchServerAnnouncement(Loc.GetString("minor-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
-            ev.Cancel();
+            cont = false;
             return;
         }
 
         if (ev.Players.Length == 0)
         {
             _chatManager.DispatchServerAnnouncement(Loc.GetString("minor-no-one-ready"));
-            ev.Cancel();
+            cont = false;
             return;
         }
     }
 
     private void OnPlayersSpawned(RulePlayerJobsAssignedEvent ev)
     {
-        if (!RuleAdded)
-            return;
+        if (!RuleAdded) return;
+        if (cont == false) return;
 
         var numMinors = MathHelper.Clamp(ev.Players.Length / _playersPerMinor, 1, _maxMinors);
 
@@ -159,7 +156,6 @@ public sealed class MinorRuleSystem : GameRuleSystem
             return;
         }
 
-        // if (mind.HasRole<TraitorRole>() || mind.HasRole<WizardRole>()) return;
         if (mind.AllRoles.Count() > 1)
         {
             Logger.InfoS("preset", $"{minor.ConnectedClient.UserName} is already another antagonist.");
@@ -172,8 +168,8 @@ public sealed class MinorRuleSystem : GameRuleSystem
         Minors.Add(minorRole);
         minorRole.GreetMinor();
 
-        var maxDifficulty = _cfg.GetCVar(CCVars.TraitorMaxDifficulty);
-        var maxPicks = _cfg.GetCVar(CCVars.TraitorMaxPicks);
+        var maxDifficulty = _cfg.GetCVar(CCVars.MinorMaxDifficulty);
+        var maxPicks = _cfg.GetCVar(CCVars.MinorMaxPicks);
 
         // give minor antag their objective
         var difficulty = 0f;

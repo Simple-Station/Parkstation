@@ -162,7 +162,7 @@ namespace Content.Server.Chapel
             }
 
             // you need psionic OR bible user
-            if (!HasComp<PsionicComponent>(agent) && !HasComp<BibleUserComponent>(agent) && !HasComp<ReligiousTraitComponent>(agent))
+            if (!HasComp<PsionicComponent>(agent) && !HasComp<BibleUserComponent>(agent))
             {
                 _popups.PopupEntity(Loc.GetString("altar-failure-reason-user"), altar, Filter.Entities(agent), Shared.Popups.PopupType.SmallCaution);
                 return;
@@ -193,7 +193,7 @@ namespace Content.Server.Chapel
                 return;
             }
 
-            if (HasComp<BibleUserComponent>(agent) || HasComp<ReligiousTraitComponent>(agent))
+            if (HasComp<BibleUserComponent>(agent))
             {
                 if (component.StunTime == null || _timing.CurTime > component.StunTime)
                 {

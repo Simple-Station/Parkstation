@@ -381,6 +381,50 @@ namespace Content.Shared.CCVar
             CVarDef.Create("pirates.players_per_pirate", 5);
 
         /*
+         * Minor
+         */
+
+        public static readonly CVarDef<int> MinorMinPlayers =
+            CVarDef.Create("minor.min_players", 3);
+
+        public static readonly CVarDef<int> MinorMaxMinors =
+            CVarDef.Create("minor.max_minors", 50);
+
+        public static readonly CVarDef<int> MinorPlayersPerMinor =
+            CVarDef.Create("minor.players_per_minor", 6);
+
+        public static readonly CVarDef<int> MinorMaxDifficulty =
+            CVarDef.Create("minor.max_difficulty", 5);
+
+        public static readonly CVarDef<int> MinorMaxPicks =
+            CVarDef.Create("minor.max_picks", 1);
+
+        /*
+         * Wizard
+         */
+
+        public static readonly CVarDef<int> WizardMinPlayers =
+            CVarDef.Create("wizard.min_players", 5);
+
+        public static readonly CVarDef<int> WizardMaxWizards =
+            CVarDef.Create("wizard.max_wizards", 3);
+
+        public static readonly CVarDef<int> WizardPlayersPerWizard =
+            CVarDef.Create("wizard.players_per_wizard", 8);
+
+        public static readonly CVarDef<int> WizardCodewordCount =
+            CVarDef.Create("wizard.codeword_count", 3);
+
+        public static readonly CVarDef<int> WizardStartingBalance =
+            CVarDef.Create("wizard.starting_balance", 8);
+
+        public static readonly CVarDef<int> WizardMaxDifficulty =
+            CVarDef.Create("wizard.max_difficulty", 5);
+
+        public static readonly CVarDef<int> WizardMaxPicks =
+            CVarDef.Create("wizard.max_picks", 2);
+
+        /*
          * Console
          */
 
