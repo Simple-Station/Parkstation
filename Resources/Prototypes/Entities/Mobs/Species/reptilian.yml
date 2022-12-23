@@ -14,6 +14,7 @@
     state: full
   - type: Body
     prototype: Reptilian
+    requiredLegs: 2
   - type: LizardAccent
   - type: Speech
     speechSounds: Lizard
@@ -43,8 +44,8 @@
       types:
         Heat : 0.1 #per second, scales with temperature & other constants
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.7
-    baseSprintSpeed : 4.5
+    baseWalkSpeed : 5
+    baseSprintSpeed : 3.2
   - type: Perishable
 
 - type: entity
@@ -57,5 +58,8 @@
   components:
   - type: Humanoid
     species: Reptilian
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5
+    baseSprintSpeed : 3.2
 
 #Weh

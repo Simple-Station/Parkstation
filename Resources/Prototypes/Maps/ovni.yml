@@ -3,6 +3,7 @@
   mapName: 'Ovni Station'
   mapPath: /Maps/ovni.yml
   minPlayers: 0
+  maxPlayers: 30
   stations:
     Ovni:
       mapNameTemplate: '{0} NSS Platillo {1}'

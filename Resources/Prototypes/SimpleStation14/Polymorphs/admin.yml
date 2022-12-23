@@ -1,0 +1,17 @@
+- type: polymorph
+  id: BookifyMorph
+  entity: HyperlinkBookSpaceLaw
+  forced: true
+  inventory: Drop
+  transferName: true
+  revertOnCrit: true
+  revertOnDeath: true
+
+- type: polymorph
+  id: LMAObball
+  entity: Basketball
+  forced: true
+  inventory: Drop
+  transferName: true
+  revertOnCrit: true
+  revertOnDeath: true

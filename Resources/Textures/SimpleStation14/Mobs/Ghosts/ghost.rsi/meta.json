@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "catghost"
+    },
+    {
+      "name": "ghost"
+    },
+    {
+      "name": "ghost_black"
+    },
+    {
+      "name": "ghost_blazeit"
+    },
+    {
+      "name": "ghost_blue"
+    },
+    {
+      "name": "ghost_camo"
+    },
+    {
+      "name": "ghost_cyan"
+    },
+    {
+      "name": "ghost_dblue"
+    },
+    {
+      "name": "ghost_dcyan"
+    },
+    {
+      "name": "ghost_dgreen"
+    },
+    {
+      "name": "ghost_dpink"
+    },
+    {
+      "name": "ghost_dred"
+    },
+    {
+      "name": "ghost_dyellow"
+    },
+    {
+      "name": "ghost_fire"
+    },
+    {
+      "name": "ghost_funkypurp"
+    },
+    {
+      "name": "ghost_green"
+    },
+    {
+      "name": "ghost_grey"
+    },
+    {
+      "name": "ghost_mellow"
+    },
+    {
+      "name": "ghost_pink"
+    },
+    {
+      "name": "ghost_pinksherbert"
+    },
+    {
+      "name": "ghost_purpleswirl"
+    },
+    {
+      "name": "ghost_rainbow"
+    },
+    {
+      "name": "ghost_red"
+    },
+    {
+      "name": "ghost_yellow"
+    },
+    {
+      "name": "ghostian"
+    },
+    {
+      "name": "ghostian2"
+    },
+    {
+      "name": "ghostking"
+    },
+    {
+      "name": "skeleghost"
+    }
+  ]
+}

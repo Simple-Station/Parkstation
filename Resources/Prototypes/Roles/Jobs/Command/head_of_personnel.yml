@@ -18,25 +18,14 @@
   startingGear: HoPGear
   icon: "HeadOfPersonnel"
   requireAdminNotify: true
-  supervisors: job-supervisors-captain
-  canBeAntag: true
+  supervisors: job-supervisors-cc
+  canBeAntag: false
   antagAdvantage: 12
   whitelistRequired: true
   access:
   - Command
   - HeadOfPersonnel
-  - Bar
-  - Service
-  - Mail
-  - Salvage
-  - Cargo
   - Maintenance
-  - Janitor
-  - Theatre
-  - Kitchen
-  - Chapel
-  - Hydroponics
-  - Detective
   # I mean they'll give themselves the rest of the access levels *anyways*.
   special:
   - !type:AddComponentSpecial

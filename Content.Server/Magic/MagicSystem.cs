@@ -24,8 +24,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Damage;
-using Content.Server.Magic.Components;
 using Content.Server.Popups;
+using Content.Shared.Magic;
 
 namespace Content.Server.Magic;
 
@@ -125,7 +125,7 @@ public sealed class MagicSystem : EntitySystem
     {
         component.CancelToken = null;
 
-        if (!HasComp<SpellbookUserComponent>(ev.User))
+        if (!HasComp<SpellbookUser1Component>(ev.User) || !HasComp<SpellbookUser2Component>(ev.User))
         {
             _popupSystem.PopupEntity(Loc.GetString("spellbook-sizzle"), ev.User, Filter.Entities(ev.User));
 
@@ -327,12 +327,12 @@ public sealed class MagicSystem : EntitySystem
         if (ev.Handled)
             return;
 
-        var direction = Transform(ev.Target).MapPosition.Position - Transform(ev.Performer).MapPosition.Position;
-        var impulseVector = direction * 10000;
-        Comp<PhysicsComponent>(ev.Target).ApplyLinearImpulse(impulseVector);
+        // Funny but shouldn't be there
+        // var direction = Transform(ev.Target).MapPosition.Position - Transform(ev.Performer).MapPosition.Position;
+        // var impulseVector = direction * 10000;
+        // Comp<PhysicsComponent>(ev.Target).ApplyLinearImpulse(impulseVector);
 
-        if (!TryComp<BodyComponent>(ev.Target, out var body))
-            return;
+        if (!TryComp<BodyComponent>(ev.Target, out var body)) return;
 
         _damageableSystem.TryChangeDamage(ev.Target, ev.HealAmount, true, origin: ev.Target);
     }

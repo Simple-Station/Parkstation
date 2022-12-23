@@ -26,4 +26,7 @@ roles-antag-xeno-objective = Infect as many people as possible and overtake the 
 roles-antag-fugitive-name = Fugitive
 roles-antag-fugitive-description = Survive. Escape.
 
+roles-antag-minor-antag-name = Minor Antag
+roles-antag-minor-antag-objective = Make your way through a normal shift, considering your ulterior motives.
+
 roles-antag-not-whitelisted = You need to be whitelisted to play antagonists.

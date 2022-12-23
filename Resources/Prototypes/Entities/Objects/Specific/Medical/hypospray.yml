@@ -45,7 +45,7 @@
 - type: entity
   name: chemical medipen
   parent: BaseItem
-  description: A sterile injector for rapid administration of drugs to patients. This can be refilled!
+  description: A sterile injector for rapid administration of drugs to patients. This one can't be refilled.
   id: ChemicalMedipen
   components:
   - type: Sprite
@@ -61,8 +61,6 @@
     solutions:
       pen:
         maxVol: 15
-  - type: RefillableSolution
-    solution: pen
   - type: ExaminableSolution
     solution: pen
   - type: Hypospray

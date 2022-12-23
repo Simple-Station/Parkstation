@@ -1,0 +1,272 @@
+- type: entity
+  name: Urist McBelt
+  id: UristMcBelt
+  noSpawn: true
+  parent: MobHuman
+  components:
+    - type: Item
+    - type: GhostTakeoverAvailable
+      name: Urist McBelt
+      description: |
+        You (probably) came from a belt, you are now a human that can be picked up, do things.
+
+# Oldstation
+- type: entity
+  parent: MobHuman
+  id: MobHumanOldstationCrewScientist
+  name: Oldstation Scientist
+  components:
+    - type: Loadout
+      prototype: OldstationCrewScientistGear
+      prototypes: [OldstationCrewScientistGear]
+    - type: RandomMetadata
+      nameSegments:
+        - names_first
+        - names_last
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanOldstationCrewEngineer
+  name: Oldstation Engineer
+  components:
+    - type: Loadout
+      prototype: OldstationCrewEngineerGear
+      prototypes: [OldstationCrewEngineerGear]
+    - type: RandomMetadata
+      nameSegments:
+        - names_first
+        - names_last
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanOldstationCrewSecurity
+  name: Oldstation Security
+  components:
+    - type: Loadout
+      prototype: OldstationCrewSecurityGear
+      prototypes: [OldstationCrewSecurityGear]
+    - type: RandomMetadata
+      nameSegments:
+        - names_first
+        - names_last
+
+# Misc ghost roles
+- type: entity
+  parent: MobHuman
+  id: MobHumanSpaceBartender
+  name: Space Bartender
+  components:
+    - type: Loadout
+      prototype: BartenderGear
+      prototypes: [BartenderGear]
+    - type: RandomMetadata
+      nameSegments:
+        - names_first
+        - names_last
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanSpaceCultist
+  name: Space Cultist
+  components:
+    - type: Loadout
+      prototype: CultistGear
+      prototypes: [CultistGear]
+    - type: RandomMetadata
+      nameSegments:
+        - names_wizard_first
+        - names_wizard_last
+
+# Syndicate
+- type: entity
+  parent: MobHuman
+  id: MobHumanSyndicateCommsAgent
+  name: Syndicate Comms Agent
+  components:
+    - type: Faction
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototype: SyndicateOperativeGearExtremelyBasic
+      prototypes: [SyndicateOperativeGearExtremelyBasic]
+    - type: RandomMetadata
+      nameSegments: [names_death_commando]
+
+# Changeling
+- type: entity
+  name: Urist McLing
+  id: UristMcLing
+  parent: MobHuman
+  components:
+    - type: GhostTakeoverAvailable
+      name: Urist McLing
+      description: |
+        You're a Changeling! Kill as many people as possible before dying.
+        Theres not much a changeling can do yet.
+    - type: Loadout
+      prototype: UristChangelingOutfit
+      prototypes: [UristChangelingOutfit]
+    - type: InnateTool
+      tools:
+        - id: ArmBlade
+    - type: RandomMetadata
+      nameSegments: [names_urist_changeling]
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        60: 0.8
+        120: 0.6
+        180: 0.4
+        240: 0.2
+    - type: MobState
+      thresholds:
+        0: Alive
+        300: Dead
+    - type: StatusEffects
+      allowed:
+        - Stun
+        - SlowedDown
+        - Stutter
+        - Electrocution
+    - type: Access
+      groups:
+        - AllAccess
+    # - type: AutoRegenReagent
+    #   solution: chemicals
+    #   reagents:
+    #     - Ichor
+    #   unitsPerSecond: 0.1
+    - type: Faction
+      factions:
+        - SimpleHostile
+        - Xeno
+    # - type: RandomHumanoidAppearance # Removes random names :(
+
+# Wizard
+- type: entity
+  name: Urist McWizard
+  id: UristMcWizardBase
+  suffix: base
+  abstract: true
+  parent: MobHuman
+  components:
+    - type: GhostTakeoverAvailable
+      name: Urist McWizard
+      description: |
+        You have been sent to the station via bluespace and wizard magic. Your goal is to kill as many people as possible and destroy the station.
+        You can gain more "BS" (Bluespace) for your uplink by completing Oracle quests.
+        You are considered KOS (Kill On Sight) so be careful wandering the station for the Oracle's items.
+        If you encounter an Urist McNars (SuperPsi), you may team up with them or kill them. The SuperPsi is able to steal and use your spellbooks, be very careful.
+    - type: RandomMetadata
+      nameSegments:
+        - names_wizard_first
+        - names_wizard_last
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        60: 0.8
+        120: 0.6
+        180: 0.4
+        240: 0.2
+    - type: MobState
+      thresholds:
+        0: Alive
+        300: Dead
+    - type: StatusEffects
+      allowed:
+        - Stun
+        - KnockedDown
+        - SlowedDown
+        - Stutter
+        - Electrocution
+    - type: Faction
+      factions:
+        - SimpleHostile
+    - type: BibleUser
+    # - type: RandomHumanoidAppearance # Removes random names :(
+
+- type: entity
+  name: Urist McWizard
+  id: UristMcWizardViolet
+  suffix: violet
+  parent: UristMcWizardBase
+  components:
+    - type: Loadout
+      prototype: WizardVioletGear
+      prototypes: [WizardVioletGear]
+
+- type: entity
+  name: Urist McWizard
+  id: UristMcWizardRed
+  suffix: red
+  parent: UristMcWizardBase
+  components:
+    - type: Loadout
+      prototype: WizardRedGear
+      prototypes: [WizardRedGear]
+
+- type: entity
+  name: Urist McWizard
+  id: UristMcWizardBlue
+  suffix: blue
+  parent: UristMcWizardBase
+  components:
+    - type: Loadout
+      prototype: WizardBlueGear
+      prototypes: [WizardBlueGear]
+
+- type: entity
+  name: Urist McWizard
+  id: UristMcWizardHardsuit
+  suffix: hardsuit
+  parent: UristMcWizardBase
+  components:
+    - type: Loadout
+      prototype: WizardHardsuitGear
+      prototypes: [WizardHardsuitGear]
+
+# SuperPsi - Urist McNars
+- type: entity
+  name: Urist McNars
+  id: UristMcNars
+  parent: MobHuman
+  components:
+    - type: GhostTakeoverAvailable
+      name: Urist McNars
+      description: |
+        You have been sent to the station via the Noosphere. Your goal is to kill as many people as possible and destroy the station.
+        You have been given every Psionic power via the Noosphere, you should be theoretically unstoppable if you time everything right.
+    - type: RandomMetadata
+      nameSegments:
+        - names_wizard_first
+        - names_wizard_last
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        60: 0.8
+        120: 0.6
+        180: 0.4
+        240: 0.2
+    - type: MobState
+      thresholds:
+        0: Alive
+        300: Dead
+    - type: StatusEffects
+      allowed:
+        - Stun
+        - KnockedDown
+        - SlowedDown
+        - Electrocution
+    - type: Faction
+      factions:
+        - SimpleHostile
+    - type: BibleUser
+    # - type: RandomHumanoidAppearance # Removes random names :(
+
+    - type: DispelPower
+    - type: MassSleepPower
+    - type: MetapsionicPower
+    - type: MindSwapPower
+    - type: NoosphericZapPower
+    - type: PsionicInvisibilityPower
+    - type: PsionicRegenerationPower
+    - type: PyrokinesisPower
+    - type: RFSensitivityPower
+    - type: TelegnosisPower

@@ -22,6 +22,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Player;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
+using Content.Server.SimpleStation14.Traits;
 
 namespace Content.Server.Chapel
 {

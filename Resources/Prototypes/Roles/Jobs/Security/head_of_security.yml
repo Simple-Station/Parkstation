@@ -15,7 +15,7 @@
   startingGear: HoSGear
   icon: "HeadOfSecurity"
   requireAdminNotify: true
-  supervisors: job-supervisors-captain
+  supervisors: job-supervisors-cc
   canBeAntag: false
   whitelistRequired: true
   access:
@@ -25,7 +25,6 @@
   - Security
   - Armory
   - Maintenance
-  - Service
   - Detective
   - External
   special:

@@ -1,0 +1,21 @@
+# Minor Antags
+- type: weightedRandom
+  id: MinorantagObjectiveGroup
+  weights:
+    MinorantagObjectiveGroupTheft: 1
+
+- type: weightedRandom
+  id: MinorantagObjectiveGroupTheft
+  weights:
+    MinorPickpocketObjective: 1
+
+# Wizard
+- type: weightedRandom
+  id: WizardObjectiveGroups
+  weights:
+    WizardObjectiveGroupKill: 1
+
+- type: weightedRandom
+  id: WizardObjectiveGroupKill
+  weights:
+    wKillRandomObjective: 1

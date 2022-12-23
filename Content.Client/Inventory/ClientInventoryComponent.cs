@@ -10,9 +10,13 @@ namespace Content.Client.Inventory
     [Access(typeof(ClientInventorySystem))]
     public sealed class ClientInventoryComponent : InventoryComponent
     {
-        [DataField("speciesId")] public string? SpeciesId { get; set; }
+        [DataField("speciesId")]
+        public string? SpeciesId { get; set; }
+
         [ViewVariables]
+        [Access(typeof(ClientInventorySystem), Other = AccessPermissions.ReadWriteExecute)] // FIXME Friends
         public readonly Dictionary<string, ClientInventorySystem.SlotData> SlotData = new ();
+
         /// <summary>
         ///     Data about the current layers that have been added to the players sprite due to the items in each equipment slot.
         /// </summary>

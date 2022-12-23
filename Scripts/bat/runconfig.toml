@@ -1,12 +1,17 @@
 [game]
-hostname = "[US West][NRP] SimpleStation14 [Sandbox]"
-maxplayers = 16
-soft_max_players = 8
+hostname = "[CAN East][MRP] Parkstation"
+maxplayers = 48
+soft_max_players = 32
 type = 1
 welcomemsg = "Welcome to the server!"
 lobbyenabled = true
-lobbyduration = 140
+lobbyduration = 180
 role_timers = false
+fallbackpreset = "survival"
+map_pool = "ParkMapPool"
+
+[server]
+rules_file = "Park_Rules.txt"
 
 [whitelist]
 min_players = 8
@@ -15,29 +20,42 @@ min_players = 8
 rules.time = 45
 rules.exempt_local = false
 
+[events]
+ramping_average_end_time = 120.0
+ramping_average_chaos = 8.0
 
-[suspicion]
-min_players = 3
 [traitor]
 min_players = 2
-[zombie]
-min_players = 2
-[pirates]
-min_players = 1
+players_per_traitor = 8
+starting_balance = 16
 
-[vote]
-map_enabled = true
+[zombie]
+min_players = 15
+players_per_infected = 5
 
 
 [mapping]
-autosave_interval = 60
+autosave_interval = 180.0
 
 [atmos]
 space_wind = true
+space_wind_max_velocity = 22.0
 
 [shuttle]
 emergency_early_launch_allowed = true
+emergency_dock_time = 260.0
+emergency_transit_time = 180.0
+recall_turning_point = 0.75
+auto_call_time = 0
 
+[biomass]
+easy_mode = false
+
+[ambience]
+restart_sounds_enabled = false
+
+[explosion]
+tiles_per_tick = 70
 
 [ic]
 restricted_names = false
@@ -45,6 +63,13 @@ flavor_text = true
 
 [ooc]
 enable_during_round = true
+
+[vote]
+map_enabled = true
+restart_enabled = true
+restart_required_ratio = 0.75
+restart_not_allowed_when_admin_online = false
+timermap = 45
 
 
 [console]
@@ -81,6 +106,10 @@ github = "https://github.com/Park-Station/Parkstation"
 website = "https://nyanotrasen.moe"
 wiki = "https://wiki.nyanotrasen.moe"
 
+[discord]
+#DO NOT PUT WEBHOOK URL IN THIS FILE, unless you don't intend to push it. This file can be viewed by anyone on GitHub, only put the URL on the actual server.
+ahelp_webhook = ""
+ahelp_avatar = "https://imgur.com/a/xyjaogg.png"
 
 [database]
 # Database type to use. Can be "sqlite" or "postgres" currently.

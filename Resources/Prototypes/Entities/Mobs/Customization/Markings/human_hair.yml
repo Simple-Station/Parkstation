@@ -3,13 +3,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairAfro
   bodyPart: Hair
@@ -22,13 +19,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairAfro2
   bodyPart: Hair
@@ -41,13 +35,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBigafro
   bodyPart: Hair
@@ -60,13 +51,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairAntenna
   bodyPart: Hair
@@ -79,13 +67,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBalding
   bodyPart: Hair
@@ -98,13 +83,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBedhead
   bodyPart: Hair
@@ -117,13 +99,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBedheadv2
   bodyPart: Hair
@@ -136,13 +115,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBedheadv3
   bodyPart: Hair
@@ -155,13 +131,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLongBedhead
   bodyPart: Hair
@@ -174,13 +147,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairFloorlengthBedhead
   bodyPart: Hair
@@ -193,13 +163,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBeehive
   bodyPart: Hair
@@ -212,13 +179,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBeehivev2
   bodyPart: Hair
@@ -231,13 +195,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBob
   bodyPart: Hair
@@ -250,13 +211,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBob2
   bodyPart: Hair
@@ -269,13 +227,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBobcut
   bodyPart: Hair
@@ -288,13 +243,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBob4
   bodyPart: Hair
@@ -307,13 +259,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBobcurl
   bodyPart: Hair
@@ -326,13 +275,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBoddicker
   bodyPart: Hair
@@ -345,13 +291,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBowlcut
   bodyPart: Hair
@@ -364,13 +307,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBowlcut2
   bodyPart: Hair
@@ -383,13 +323,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBraid
   bodyPart: Hair
@@ -402,13 +339,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBraided
   bodyPart: Hair
@@ -421,13 +355,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBraidfront
   bodyPart: Hair
@@ -440,13 +371,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBraid2
   bodyPart: Hair
@@ -459,13 +387,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairHbraid
   bodyPart: Hair
@@ -478,13 +403,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairShortbraid
   bodyPart: Hair
@@ -497,13 +419,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBraidtail
   bodyPart: Hair
@@ -516,13 +435,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBun
   bodyPart: Hair
@@ -535,13 +451,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBunhead2
   bodyPart: Hair
@@ -554,13 +467,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBun3
   bodyPart: Hair
@@ -573,13 +483,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLargebun
   bodyPart: Hair
@@ -592,13 +499,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairManbun
   bodyPart: Hair
@@ -611,13 +515,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairTightbun
   bodyPart: Hair
@@ -630,13 +531,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBusiness
   bodyPart: Hair
@@ -649,13 +547,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBusiness2
   bodyPart: Hair
@@ -668,13 +563,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBusiness3
   bodyPart: Hair
@@ -687,13 +579,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBusiness4
   bodyPart: Hair
@@ -706,13 +595,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBuzzcut
   bodyPart: Hair
@@ -725,13 +611,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairCia
   bodyPart: Hair
@@ -744,13 +627,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairCoffeehouse
   bodyPart: Hair
@@ -763,13 +643,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairCombover
   bodyPart: Hair
@@ -782,13 +659,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairCornrows
   bodyPart: Hair
@@ -801,13 +675,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairCornrows2
   bodyPart: Hair
@@ -820,13 +691,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairCornrowbun
   bodyPart: Hair
@@ -839,13 +707,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairCornrowbraid
   bodyPart: Hair
@@ -858,13 +723,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairCornrowtail
   bodyPart: Hair
@@ -877,13 +739,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairCrewcut
   bodyPart: Hair
@@ -896,13 +755,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairCurls
   bodyPart: Hair
@@ -915,13 +771,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairC
   bodyPart: Hair
@@ -934,13 +787,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairDandypompadour
   bodyPart: Hair
@@ -953,13 +803,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairDevilock
   bodyPart: Hair
@@ -972,13 +819,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairDoublebun
   bodyPart: Hair
@@ -991,13 +835,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairDreads
   bodyPart: Hair
@@ -1010,13 +851,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairDrillruru
   bodyPart: Hair
@@ -1029,13 +867,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairDrillhairextended
   bodyPart: Hair
@@ -1048,13 +883,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairEmo
   bodyPart: Hair
@@ -1067,13 +899,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairEmofringe
   bodyPart: Hair
@@ -1086,13 +915,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairNofade
   bodyPart: Hair
@@ -1105,13 +931,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairHighfade
   bodyPart: Hair
@@ -1124,13 +947,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairMedfade
   bodyPart: Hair
@@ -1143,13 +963,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLowfade
   bodyPart: Hair
@@ -1162,13 +979,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBaldfade
   bodyPart: Hair
@@ -1181,13 +995,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairFeather
   bodyPart: Hair
@@ -1200,13 +1011,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairFather
   bodyPart: Hair
@@ -1219,13 +1027,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairSargeant
   bodyPart: Hair
@@ -1238,13 +1043,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairFlair
   bodyPart: Hair
@@ -1257,13 +1059,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBigflattop
   bodyPart: Hair
@@ -1276,13 +1075,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairFlow
   bodyPart: Hair
@@ -1295,13 +1091,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairGelled
   bodyPart: Hair
@@ -1314,13 +1107,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairGentle
   bodyPart: Hair
@@ -1333,13 +1123,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairHalfbang
   bodyPart: Hair
@@ -1352,13 +1139,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairHalfbang2
   bodyPart: Hair
@@ -1371,13 +1155,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairHalfshaved
   bodyPart: Hair
@@ -1390,13 +1171,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairHedgehog
   bodyPart: Hair
@@ -1409,13 +1187,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairHimecut
   bodyPart: Hair
@@ -1428,13 +1203,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairHimecut2
   bodyPart: Hair
@@ -1447,13 +1219,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairShorthime
   bodyPart: Hair
@@ -1466,13 +1235,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairHimeup
   bodyPart: Hair
@@ -1485,13 +1251,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairHitop
   bodyPart: Hair
@@ -1504,13 +1267,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairJade
   bodyPart: Hair
@@ -1523,13 +1283,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairJensen
   bodyPart: Hair
@@ -1542,13 +1299,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairJoestar
   bodyPart: Hair
@@ -1561,13 +1315,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairKeanu
   bodyPart: Hair
@@ -1580,13 +1331,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairKusanagi
   bodyPart: Hair
@@ -1599,13 +1347,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLong
   bodyPart: Hair
@@ -1618,13 +1363,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLong2
   bodyPart: Hair
@@ -1637,13 +1379,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLong3
   bodyPart: Hair
@@ -1656,13 +1395,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLongovereye
   bodyPart: Hair
@@ -1675,13 +1411,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLbangs
   bodyPart: Hair
@@ -1694,13 +1427,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLongemo
   bodyPart: Hair
@@ -1713,13 +1443,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLongfringe
   bodyPart: Hair
@@ -1732,13 +1459,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLongsidepart
   bodyPart: Hair
@@ -1751,13 +1475,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairMegaeyebrows
   bodyPart: Hair
@@ -1770,13 +1491,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairMessy
   bodyPart: Hair
@@ -1789,13 +1507,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairModern
   bodyPart: Hair
@@ -1808,13 +1523,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairMohawk
   bodyPart: Hair
@@ -1827,13 +1539,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairNitori
   bodyPart: Hair
@@ -1846,13 +1555,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairReversemohawk
   bodyPart: Hair
@@ -1865,13 +1571,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairUnshavenMohawk
   bodyPart: Hair
@@ -1884,13 +1587,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairMulder
   bodyPart: Hair
@@ -1903,13 +1603,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairOdango
   bodyPart: Hair
@@ -1922,13 +1619,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairOmbre
   bodyPart: Hair
@@ -1941,13 +1635,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairOneshoulder
   bodyPart: Hair
@@ -1960,13 +1651,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairShortovereye
   bodyPart: Hair
@@ -1979,13 +1667,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairOxton
   bodyPart: Hair
@@ -1998,13 +1683,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairParted
   bodyPart: Hair
@@ -2017,13 +1699,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairPart
   bodyPart: Hair
@@ -2036,13 +1715,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairKagami
   bodyPart: Hair
@@ -2055,13 +1731,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairPigtails
   bodyPart: Hair
@@ -2074,13 +1747,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairPigtails2
   bodyPart: Hair
@@ -2093,13 +1763,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairPixie
   bodyPart: Hair
@@ -2112,13 +1779,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairPompadour
   bodyPart: Hair
@@ -2131,13 +1795,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairBigpompadour
   bodyPart: Hair
@@ -2150,13 +1811,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairPonytail
   bodyPart: Hair
@@ -2169,13 +1827,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairPonytail2
   bodyPart: Hair
@@ -2188,13 +1843,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairPonytail3
   bodyPart: Hair
@@ -2207,13 +1859,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairPonytail4
   bodyPart: Hair
@@ -2226,13 +1875,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairPonytail5
   bodyPart: Hair
@@ -2245,13 +1891,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairPonytail6
   bodyPart: Hair
@@ -2264,13 +1907,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairPonytail7
   bodyPart: Hair
@@ -2283,13 +1923,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairHighponytail
   bodyPart: Hair
@@ -2302,13 +1939,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairStail
   bodyPart: Hair
@@ -2321,13 +1955,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLongstraightponytail
   bodyPart: Hair
@@ -2340,13 +1971,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairCountry
   bodyPart: Hair
@@ -2359,13 +1987,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairFringetail
   bodyPart: Hair
@@ -2378,13 +2003,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairSidetail
   bodyPart: Hair
@@ -2397,13 +2019,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairSidetail2
   bodyPart: Hair
@@ -2416,13 +2035,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairSidetail3
   bodyPart: Hair
@@ -2435,13 +2051,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairSidetail4
   bodyPart: Hair
@@ -2454,13 +2067,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairSpikyponytail
   bodyPart: Hair
@@ -2473,13 +2083,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairPoofy
   bodyPart: Hair
@@ -2492,13 +2099,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairQuiff
   bodyPart: Hair
@@ -2511,13 +2115,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairRonin
   bodyPart: Hair
@@ -2530,13 +2131,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairShaved
   bodyPart: Hair
@@ -2549,13 +2147,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairShavedpart
   bodyPart: Hair
@@ -2568,13 +2163,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairShortbangs
   bodyPart: Hair
@@ -2587,13 +2179,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairA
   bodyPart: Hair
@@ -2606,13 +2195,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairShorthair2
   bodyPart: Hair
@@ -2625,13 +2211,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairShorthair3
   bodyPart: Hair
@@ -2644,13 +2227,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairD
   bodyPart: Hair
@@ -2663,13 +2243,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairE
   bodyPart: Hair
@@ -2682,13 +2259,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairF
   bodyPart: Hair
@@ -2701,13 +2275,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairShorthairg
   bodyPart: Hair
@@ -2720,13 +2291,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHair80s
   bodyPart: Hair
@@ -2739,13 +2307,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairRosa
   bodyPart: Hair
@@ -2758,13 +2323,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairB
   bodyPart: Hair
@@ -2777,13 +2339,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairSidecut
   bodyPart: Hair
@@ -2796,13 +2355,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairSkinhead
   bodyPart: Hair
@@ -2815,13 +2371,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairProtagonist
   bodyPart: Hair
@@ -2834,13 +2387,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairSpikey
   bodyPart: Hair
@@ -2853,13 +2403,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairSpiky
   bodyPart: Hair
@@ -2872,13 +2419,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairSpiky2
   bodyPart: Hair
@@ -2891,13 +2435,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairSwept
   bodyPart: Hair
@@ -2910,13 +2451,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairSwept2
   bodyPart: Hair
@@ -2929,13 +2467,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairThinning
   bodyPart: Hair
@@ -2948,13 +2483,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairThinningfront
   bodyPart: Hair
@@ -2967,13 +2499,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairThinningrear
   bodyPart: Hair
@@ -2986,13 +2515,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairTopknot
   bodyPart: Hair
@@ -3005,13 +2531,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairTressshoulder
   bodyPart: Hair
@@ -3024,13 +2547,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairTrimmed
   bodyPart: Hair
@@ -3043,13 +2563,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairTrimflat
   bodyPart: Hair
@@ -3062,13 +2579,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairTwintail
   bodyPart: Hair
@@ -3081,13 +2595,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairUndercut
   bodyPart: Hair
@@ -3100,13 +2611,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairUndercutleft
   bodyPart: Hair
@@ -3119,13 +2627,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairUndercutright
   bodyPart: Hair
@@ -3138,13 +2643,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairUnkept
   bodyPart: Hair
@@ -3157,13 +2659,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairUpdo
   bodyPart: Hair
@@ -3176,13 +2675,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairVlong
   bodyPart: Hair
@@ -3195,13 +2691,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLongest
   bodyPart: Hair
@@ -3214,13 +2707,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairLongest2
   bodyPart: Hair
@@ -3233,13 +2723,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairVeryshortovereyealternate
   bodyPart: Hair
@@ -3252,13 +2739,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairVlongfringe
   bodyPart: Hair
@@ -3271,13 +2755,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairVolaju
   bodyPart: Hair
@@ -3290,13 +2771,10 @@
     [
       Human,
       Felinid,
-      Reptilian,
       SlimePerson,
       Oni,
       Lamia,
       Arachne,
-      Diona,
-      Moth,
     ]
   id: HumanHairWisp
   bodyPart: Hair

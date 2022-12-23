@@ -33,9 +33,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
 
-
-
-
     public override string Prototype => "Traitor";
 
     private readonly SoundSpecifier _addedSound = new SoundPathSpecifier("/Audio/Misc/tatoralert.ogg");
@@ -182,6 +179,12 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         // creadth: we need to create uplink for the antag.
         // PDA should be in place already
         DebugTools.AssertNotNull(mind.OwnedEntity);
+
+        if (mind.AllRoles.Count() > 1)
+        {
+            Logger.InfoS("preset", $"{traitor.ConnectedClient.UserName} is already another antagonist.");
+            return;
+        }
 
         var startingBalance = _cfg.GetCVar(CCVars.TraitorStartingBalance);
 

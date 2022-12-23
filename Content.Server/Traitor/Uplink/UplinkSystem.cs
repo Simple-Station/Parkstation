@@ -35,7 +35,7 @@ namespace Content.Server.Traitor.Uplink
         /// <param name="uplinkPresetId">The id of the storepreset</param>
         /// <param name="uplinkEntity">The entity that will actually have the uplink functionality. Defaults to the PDA if null.</param>
         /// <returns>Whether or not the uplink was added successfully</returns>
-        public bool AddUplink(EntityUid user, FixedPoint2? balance, string uplinkPresetId, EntityUid? uplinkEntity = null)
+        public bool AddUplink(EntityUid user, FixedPoint2? balance, string uplinkPresetId = "StorePresetUplink", EntityUid? uplinkEntity = null)
         {
             // Try to find target item
             if (uplinkEntity == null)

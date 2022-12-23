@@ -3,8 +3,6 @@ using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Content.Shared.Abilities;
-using Robust.Client.GameObjects;
-using Content.Shared.Eye.Blinding;
 
 namespace Content.Client.SimpleStation14.Overlays
 {
@@ -27,12 +25,9 @@ namespace Content.Client.SimpleStation14.Overlays
 
         protected override void Draw(in OverlayDrawArgs args)
         {
-            if (ScreenTexture == null)
-                return;
-            if (_playerManager.LocalPlayer?.ControlledEntity is not { Valid: true } player)
-                return;
-            if (!_entityManager.HasComponent<MonochromacyComponent>(player))
-                return;
+            if (ScreenTexture == null) return;
+            if (_playerManager.LocalPlayer?.ControlledEntity is not { Valid: true } player) return;
+            if (!_entityManager.HasComponent<MonochromacyComponent>(player)) return;
 
             _greyscaleShader?.SetParameter("SCREEN_TEXTURE", ScreenTexture);
 

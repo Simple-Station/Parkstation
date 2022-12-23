@@ -79,7 +79,7 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlasses
-  name: glasses
+  name: prescription glasses
   description: A pair of spectacular spectacles with prescription lenses.
   components:
   - type: Sprite
@@ -87,6 +87,9 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/glasses.rsi
   - type: VisionCorrection
+  - type: Tag
+    tags:
+    - GlassesNearsight
 
 - type: entity
   parent: ClothingEyesBase

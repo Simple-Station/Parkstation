@@ -1,0 +1,19 @@
+- type: reaction
+  id: Smonk
+  priority: 10
+  impact: High
+  reactants:
+    Smonk:
+      amount: 0.1
+  effects:
+    - !type:SmokeAreaReactionEffect
+      rangeConstant: 0
+      rangeMultiplier: 1.1 #Range formula: rangeConstant + rangeMultiplier*sqrt(ReactionUnits)
+      maxRange: 15
+      duration: 7.5
+      spreadDelay: 0.25
+      removeDelay: 0.25
+      diluteReagents: true
+      prototypeId: Smoke
+      sound:
+        path: /Audio/Effects/smoke.ogg

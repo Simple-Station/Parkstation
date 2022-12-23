@@ -16,6 +16,7 @@ using Content.Shared.Timing;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using Content.Server.SimpleStation14.Traits;
 
 namespace Content.Server.Bible
 {

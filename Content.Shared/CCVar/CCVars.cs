@@ -140,7 +140,7 @@ namespace Content.Shared.CCVar
         ///     Controls if the lobby is enabled. If it is not, and there are no available jobs, you may get stuck on a black screen.
         /// </summary>
         public static readonly CVarDef<bool>
-            GameLobbyEnabled = CVarDef.Create("game.lobbyenabled", false, CVar.ARCHIVE);
+            GameLobbyEnabled = CVarDef.Create("game.lobbyenabled", true, CVar.ARCHIVE);
 
         /// <summary>
         ///     Controls the duration of the lobby timer in seconds. Defaults to 2 minutes and 30 seconds.
@@ -308,7 +308,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> SuspicionMinPlayers =
-            CVarDef.Create("suspicion.min_players", 3);
+            CVarDef.Create("suspicion.min_players", 5);
 
         public static readonly CVarDef<int> SuspicionMinTraitors =
             CVarDef.Create("suspicion.min_traitors", 2);
@@ -327,7 +327,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> TraitorMinPlayers =
-            CVarDef.Create("traitor.min_players", 2);
+            CVarDef.Create("traitor.min_players", 5);
 
         public static readonly CVarDef<int> TraitorMaxTraitors =
             CVarDef.Create("traitor.max_traitors", 12); // Assuming average server maxes somewhere from like 50-80 people
@@ -359,7 +359,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> ZombieMinPlayers =
-            CVarDef.Create("zombie.min_players", 2);
+            CVarDef.Create("zombie.min_players", 20);
 
         public static readonly CVarDef<int> ZombieMaxInitialInfected =
             CVarDef.Create("zombie.max_initial_infected", 6);
@@ -372,13 +372,57 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> PiratesMinPlayers =
-            CVarDef.Create("pirates.min_players", 1);
+            CVarDef.Create("pirates.min_players", 25);
 
         public static readonly CVarDef<int> PiratesMaxOps =
             CVarDef.Create("pirates.max_pirates", 6);
 
         public static readonly CVarDef<int> PiratesPlayersPerOp =
             CVarDef.Create("pirates.players_per_pirate", 5);
+
+        /*
+         * Minor
+         */
+
+        public static readonly CVarDef<int> MinorMinPlayers =
+            CVarDef.Create("minor.min_players", 3);
+
+        public static readonly CVarDef<int> MinorMaxMinors =
+            CVarDef.Create("minor.max_minors", 50);
+
+        public static readonly CVarDef<int> MinorPlayersPerMinor =
+            CVarDef.Create("minor.players_per_minor", 6);
+
+        public static readonly CVarDef<int> MinorMaxDifficulty =
+            CVarDef.Create("minor.max_difficulty", 5);
+
+        public static readonly CVarDef<int> MinorMaxPicks =
+            CVarDef.Create("minor.max_picks", 1);
+
+        /*
+         * Wizard
+         */
+
+        public static readonly CVarDef<int> WizardMinPlayers =
+            CVarDef.Create("wizard.min_players", 5);
+
+        public static readonly CVarDef<int> WizardMaxWizards =
+            CVarDef.Create("wizard.max_wizards", 3);
+
+        public static readonly CVarDef<int> WizardPlayersPerWizard =
+            CVarDef.Create("wizard.players_per_wizard", 8);
+
+        public static readonly CVarDef<int> WizardCodewordCount =
+            CVarDef.Create("wizard.codeword_count", 3);
+
+        public static readonly CVarDef<int> WizardStartingBalance =
+            CVarDef.Create("wizard.starting_balance", 8);
+
+        public static readonly CVarDef<int> WizardMaxDifficulty =
+            CVarDef.Create("wizard.max_difficulty", 5);
+
+        public static readonly CVarDef<int> WizardMaxPicks =
+            CVarDef.Create("wizard.max_picks", 2);
 
         /*
          * Console
@@ -536,8 +580,6 @@ namespace Content.Shared.CCVar
         /// Should NPCs pathfind when steering. For debug purposes.
         /// </summary>
         public static readonly CVarDef<bool> NPCPathfinding = CVarDef.Create("npc.pathfinding", true);
-
-        public static readonly CVarDef<bool> NPCCollisionAvoidance = CVarDef.Create("npc.collision_avoidance", true);
 
         /*
          * Net
@@ -854,7 +896,7 @@ namespace Content.Shared.CCVar
         /// Whether or not OOC chat should be enabled during a round.
         /// </summary>
         public static readonly CVarDef<bool> OocEnableDuringRound =
-            CVarDef.Create("ooc.enable_during_round", false, CVar.NOTIFY | CVar.REPLICATED |CVar.SERVER);
+            CVarDef.Create("ooc.enable_during_round", true, CVar.NOTIFY | CVar.REPLICATED |CVar.SERVER);
 
         /*
          * LOOC
@@ -908,12 +950,11 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> VoteEnabled =
             CVarDef.Create("vote.enabled", true, CVar.SERVERONLY);
 
-        // TODO HUD REFACTOR REENABLE
         /// <summary>
         ///     See vote.enabled, but specific to restart votes
         /// </summary>
         public static readonly CVarDef<bool> VoteRestartEnabled =
-            CVarDef.Create("vote.restart_enabled", false, CVar.SERVERONLY);
+            CVarDef.Create("vote.restart_enabled", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     See vote.enabled, but specific to preset votes
@@ -931,13 +972,13 @@ namespace Content.Shared.CCVar
         ///     The required ratio of the server that must agree for a restart round vote to go through.
         /// </summary>
         public static readonly CVarDef<float> VoteRestartRequiredRatio =
-            CVarDef.Create("vote.restart_required_ratio", 0.75f, CVar.SERVERONLY);
+            CVarDef.Create("vote.restart_required_ratio", 0.85f, CVar.SERVERONLY);
 
         /// <summary>
         /// Whether or not to restrict the restart vote when there's online admins.
         /// </summary>
         public static readonly CVarDef<bool> VoteRestartNotAllowedWhenAdminOnline =
-            CVarDef.Create("vote.restart_not_allowed_when_admin_online", false, CVar.SERVERONLY);
+            CVarDef.Create("vote.restart_not_allowed_when_admin_online", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     The delay which two votes of the same type are allowed to be made by separate people, in seconds.
@@ -950,7 +991,7 @@ namespace Content.Shared.CCVar
         ///     Sets the duration of the map vote timer.
         /// </summary>
         public static readonly CVarDef<int>
-            VoteTimerMap = CVarDef.Create("vote.timermap", 30, CVar.SERVERONLY);
+            VoteTimerMap = CVarDef.Create("vote.timermap", 90, CVar.SERVERONLY);
 
         /// <summary>
         ///     Sets the duration of the restart vote timer.
@@ -1086,7 +1127,7 @@ namespace Content.Shared.CCVar
         ///     specific order.
         /// </summary>
         public static readonly CVarDef<string> CrewManifestOrdering =
-            CVarDef.Create("crewmanifest.ordering", "Command,Security,Science,Medical,Engineering,Cargo,Service,Unknown",
+            CVarDef.Create("crewmanifest.ordering", "Command,Engineering,Medical,Science,Security,Service,Unknown",
                 CVar.REPLICATED);
 
         /*
@@ -1121,10 +1162,10 @@ namespace Content.Shared.CCVar
             CVarDef.Create("viewport.scale_render", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
         public static readonly CVarDef<int> ViewportMinimumWidth =
-            CVarDef.Create("viewport.minimum_width", 1, CVar.REPLICATED);
+            CVarDef.Create("viewport.minimum_width", 15, CVar.REPLICATED);
 
         public static readonly CVarDef<int> ViewportMaximumWidth =
-            CVarDef.Create("viewport.maximum_width", 50, CVar.REPLICATED);
+            CVarDef.Create("viewport.maximum_width", 21, CVar.REPLICATED);
 
         public static readonly CVarDef<int> ViewportWidth =
             CVarDef.Create("viewport.width", 21, CVar.CLIENTONLY | CVar.ARCHIVE);
@@ -1143,7 +1184,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> ChatMaxMessageLength =
-            CVarDef.Create("chat.max_message_length", 1000, CVar.SERVER | CVar.REPLICATED);
+            CVarDef.Create("chat.max_message_length", 2000, CVar.SERVER | CVar.REPLICATED);
 
         public static readonly CVarDef<bool> ChatSanitizerEnabled =
             CVarDef.Create("chat.chat_sanitizer_enabled", true, CVar.SERVERONLY);
@@ -1159,7 +1200,7 @@ namespace Content.Shared.CCVar
         /// How long a client can go without any input before being considered AFK.
         /// </summary>
         public static readonly CVarDef<float> AfkTime =
-            CVarDef.Create("afk.time", 60f, CVar.SERVERONLY);
+            CVarDef.Create("afk.time", 120f, CVar.SERVERONLY);
 
         /*
          * IC
@@ -1336,7 +1377,6 @@ namespace Content.Shared.CCVar
          * PLAYTIME
          */
 
-
         /// <summary>
         /// Time between play time autosaves, in seconds.
         /// </summary>
@@ -1388,5 +1428,38 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<string> InfoLinksBugReport =
             CVarDef.Create("infolinks.bug_report", "", CVar.SERVER | CVar.REPLICATED);
+
+        /*
+         * CONFIG
+         */
+
+        // These are server-only for now since I don't foresee a client use yet,
+        // and I don't wanna have to start coming up with like .client suffixes and stuff like that.
+
+        /// <summary>
+        /// Configuration presets to load during startup.
+        /// Multiple presets can be separated by comma and are loaded in order.
+        /// </summary>
+        /// <remarks>
+        /// Loaded presets must be located under the <c>ConfigPresets/</c> resource directory and end with the <c>.toml</c> extension.
+        /// Only the file name (without extension) must be given for this variable.
+        /// </remarks>
+        public static readonly CVarDef<string> ConfigPresets =
+            CVarDef.Create("config.presets", "", CVar.SERVERONLY);
+
+        /// <summary>
+        /// Whether to load the preset development CVars.
+        /// This disables some things like lobby to make development easier.
+        /// Even when true, these are only loaded if the game is compiled with <c>DEVELOPMENT</c> set.
+        /// </summary>
+        public static readonly CVarDef<bool> ConfigPresetDevelopment =
+            CVarDef.Create("config.preset_development", true, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Whether to load the preset debug CVars.
+        /// Even when true, these are only loaded if the game is compiled with <c>DEBUG</c> set.
+        /// </summary>
+        public static readonly CVarDef<bool> ConfigPresetDebug =
+            CVarDef.Create("config.preset_debug", true, CVar.SERVERONLY);
     }
 }

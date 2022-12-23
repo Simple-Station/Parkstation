@@ -1,0 +1,22 @@
+- type: entity
+  id: PelletFlamethrowerIncendiary
+  name: pellet (.50 incendiary)
+  noSpawn: true
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot-flare
+  - type: Projectile
+    damage:
+      groups:
+        Burn: 1.0
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.0
+    energy: 12.0
+  - type: IgniteOnCollide
+    fireStacks: 1
+  - type: TimedDespawn
+    lifetime: 0.14

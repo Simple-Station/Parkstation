@@ -37,7 +37,7 @@ namespace Content.Server.Fluids.Components
         ///     remain forever. Defaults to 100.
         /// </summary>
         [DataField("upperLimit")]
-        public FixedPoint2 UpperLimit = FixedPoint2.New(100); //TODO: Consider setting this back to PuddleComponent.DefaultOverflowVolume once that behaviour is fixed.
+        public FixedPoint2 UpperLimit = FixedPoint2.New(9); //TODO: Consider setting this back to PuddleComponent.DefaultOverflowVolume once that behaviour is fixed.
 
         /// <summary>
         ///     The time accumulated since the start.

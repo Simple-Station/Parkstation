@@ -1,27 +1,49 @@
 - type: trait
+  blacklist:
+    components:
+      - AITelegnosisPower
   id: ColorBlindnessMonochrome
   name: Monochromatic Colorblindness
-  description: Your eyes have permanent incurable damage, causing you to only see along a greyscale of color.
+  description: Your eyes have permanent damage, causing you to only see along a greyscale of color.
   cost: 5
   category: Negative
   components:
     - type: Monochromacy
 
-# - type: trait # Would be better to just get a constant weak drunk shader
-#   id: EasyDrunk
-#   name: Low Alcohol Tolerance
-#   description: You get drunk really easy, often ending up vomiting.
-#   cost: 3
-#   category: Negative
-#   components:
-#     # - type: Drunk
-#     - type: AutoRegenReagent
-#       solution: chemicals
-#       reagents:
-#         - Ethanol
-#       unitsPerSecond: 0.01 # 0.55
+- type: trait
+  blacklist:
+    components:
+      - AITelegnosisPower
+  id: BlindnessNearsighted
+  name: Nearsighted
+  description: Your eyes have permanent damage, you are only able to see nearby you unless wearing glasses.
+  cost: 5
+  category: Negative
+  components:
+    - type: Nearsighted
 
 - type: trait
+  blacklist:
+    components:
+      - AITelegnosisPower
+  id: EasyDrunk
+  name: Weak Stomach
+  description: You take longer to metabolise, get drunk easier, and feel dizzy often.
+  cost: 3
+  category: Negative
+  components:
+    - type: TraitRegenReagent
+    - type: EasyDrunk
+      reagent:
+        solutionName: chemicals
+        reagent: Fakethanol
+        unitsPerUpdate: 0.1
+        accumulatorTime: 2
+
+- type: trait
+  blacklist:
+    components:
+      - AITelegnosisPower
   id: FakeMime
   name: Mute
   description: For one reason or another you will not speak, ever, and communicate through miming or writing.
@@ -31,6 +53,9 @@
     - type: MuteTrait
 
 # - type: trait
+#    blacklist:
+#      components:
+#        - AITelegnosisPower
 #   id: Deaf
 #   name: Deaf
 #   description: You are unable to hear anyone speak, others have to communicate through writing or miming. # Reverse mime

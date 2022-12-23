@@ -1,17 +1,14 @@
 - type: soundCollection
   id: LobbyMusic
   files:
-    - /Audio/Lobby/thunderdome.ogg
-    - /Audio/Lobby/space_asshole.ogg
-    - /Audio/Lobby/endless_space.ogg
-    - /Audio/Lobby/atomicamnesiammx.ogg
-    - /Audio/Lobby/singuloose.ogg
-    - /Audio/Lobby/comet_haley.ogg
-    - /Audio/Lobby/marhaba.ogg
-    - /Audio/Lobby/title3.ogg
-    - /Audio/Lobby/mod.flip-flap.ogg
-    - /Audio/Lobby/violentdeath.ogg
-    - /Audio/Lobby/sneedsfeedandseed.ogg
-    - /Audio/Lobby/myunmyun.ogg
-    - /Audio/Lobby/squids.ogg
-    - /Audio/Lobby/thesnow.ogg
+    - /Audio/SimpleStation14/Lobby/01 The Gamble.ogg
+    - /Audio/SimpleStation14/Lobby/02 Guilty Pleasures.ogg
+    - /Audio/SimpleStation14/Lobby/03 Jazzcuzzi.ogg
+    - /Audio/SimpleStation14/Lobby/04 The Walk.ogg
+    - /Audio/SimpleStation14/Lobby/05 Velvet Bossa.ogg
+    - /Audio/SimpleStation14/Lobby/06 Colors.ogg
+    - /Audio/SimpleStation14/Lobby/07 Midnight Jam.ogg
+    - /Audio/SimpleStation14/Lobby/08 Miles Ahead.ogg
+    - /Audio/SimpleStation14/Lobby/09 Moody.ogg
+    - /Audio/SimpleStation14/Lobby/10 Flying Away.ogg
+    - /Audio/SimpleStation14/Lobby/11 Take It Easy.ogg

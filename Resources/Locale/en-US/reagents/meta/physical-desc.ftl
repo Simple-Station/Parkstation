@@ -82,3 +82,6 @@ reagent-physical-desc-chewy = chewy
 reagent-physical-desc-volatile = volatile
 reagent-physical-desc-inky = inky
 reagent-physical-desc-enigmatic = enigmatic
+reagent-physical-desc-roaring = roaring and bubbling furiously
+reagent-physical-desc-smokey = smokey
+reagent-physical-desc-porous = porous

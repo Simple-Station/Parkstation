@@ -3,12 +3,9 @@ using System.Linq;
 using Content.Server.Database;
 using Content.Server.Chat.Managers;
 using Content.Server.Players;
-using Content.Server.Roles;
-using Content.Server.Traitor;
 using Content.Server.SimpleStation14.Minor;
 using Content.Server.MobState;
 using Content.Shared.CCVar;
-using Content.Shared.Dataset;
 using Content.Shared.Roles;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -17,6 +14,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Server.Objectives.Interfaces;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -25,6 +23,7 @@ public sealed class MinorRuleSystem : GameRuleSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IObjectivesManager _objectivesManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
@@ -39,8 +38,10 @@ public sealed class MinorRuleSystem : GameRuleSystem
 
     public int TotalMinors => Minors.Count;
 
-    private int _playersPerMinor => _cfg.GetCVar(CCVars.TraitorPlayersPerTraitor);
-    private int _maxMinors => _cfg.GetCVar(CCVars.TraitorMaxTraitors);
+    private int _playersPerMinor => _cfg.GetCVar(CCVars.MinorPlayersPerMinor);
+    private int _maxMinors => _cfg.GetCVar(CCVars.MinorMaxMinors);
+
+    private bool cont = true;
 
     public override void Initialize()
     {
@@ -61,37 +62,35 @@ public sealed class MinorRuleSystem : GameRuleSystem
 
     private void OnStartAttempt(RoundStartAttemptEvent ev)
     {
-        if (!RuleAdded)
-            return;
+        if (!RuleAdded) return;
 
-        var minPlayers = _cfg.GetCVar(CCVars.TraitorMinPlayers);
+        var minPlayers = _cfg.GetCVar(CCVars.MinorMinPlayers);
         if (!ev.Forced && ev.Players.Length < minPlayers)
         {
             _chatManager.DispatchServerAnnouncement(Loc.GetString("minor-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
-            ev.Cancel();
+            cont = false;
             return;
         }
 
         if (ev.Players.Length == 0)
         {
             _chatManager.DispatchServerAnnouncement(Loc.GetString("minor-no-one-ready"));
-            ev.Cancel();
+            cont = false;
             return;
         }
     }
 
     private void OnPlayersSpawned(RulePlayerJobsAssignedEvent ev)
     {
-        if (!RuleAdded)
-            return;
+        if (!RuleAdded) return;
+        if (cont == false) return;
 
         var numMinors = MathHelper.Clamp(ev.Players.Length / _playersPerMinor, 1, _maxMinors);
 
         var minorPool = FindPotentialMinors(ev);
         var selectedMinors = PickMinors(numMinors, minorPool);
 
-        foreach (var minor in selectedMinors)
-            MakeMinor(minor);
+        foreach (var minor in selectedMinors) MakeMinor(minor);
     }
 
     public List<IPlayerSession> FindPotentialMinors(RulePlayerJobsAssignedEvent ev)
@@ -134,14 +133,16 @@ public sealed class MinorRuleSystem : GameRuleSystem
 
         for (var i = 0; i < minorCount; i++)
         {
-            results.Add(_random.PickAndTake(prefList));
-            Logger.InfoS("preset", "Selected a preferred minor.");
+            var minor = _random.PickAndTake(prefList);
+            results.Add(minor);
+            Logger.InfoS("preset", $"Selected {minor.ConnectedClient.UserName} as a minor.");
         }
         return results;
     }
 
     public async void MakeMinor(IPlayerSession minor)
     {
+        Logger.InfoS("preset", $"Making {minor.ConnectedClient.UserName} a minor.");
         var mind = minor.Data.ContentData()?.Mind;
         if (mind == null)
         {
@@ -149,11 +150,17 @@ public sealed class MinorRuleSystem : GameRuleSystem
             return;
         }
 
-        if (!await _db.GetWhitelistStatusAsync(minor.UserId)) return;
+        if (!await _db.GetWhitelistStatusAsync(minor.UserId))
+        {
+            Logger.ErrorS("preset", "Selected minor is not whitelisted, preventing their selection.");
+            return;
+        }
 
-        DebugTools.AssertNotNull(mind.OwnedEntity);
-
-        if (mind.HasRole<TraitorRole>()) return;
+        if (mind.AllRoles.Count() > 1)
+        {
+            Logger.InfoS("preset", $"{minor.ConnectedClient.UserName} is already another antagonist.");
+            return;
+        }
 
         var antagPrototype = _prototypeManager.Index<AntagPrototype>(MinorPrototypeID);
         var minorRole = new MinorRole(mind, antagPrototype);
@@ -161,12 +168,20 @@ public sealed class MinorRuleSystem : GameRuleSystem
         Minors.Add(minorRole);
         minorRole.GreetMinor();
 
-        var maxDifficulty = _cfg.GetCVar(CCVars.TraitorMaxDifficulty);
-        var maxPicks = _cfg.GetCVar(CCVars.TraitorMaxPicks);
+        var maxDifficulty = _cfg.GetCVar(CCVars.MinorMaxDifficulty);
+        var maxPicks = _cfg.GetCVar(CCVars.MinorMaxPicks);
 
-        minorRole.Mind.Briefing = $"objectivehere";
+        // give minor antag their objective
+        var difficulty = 0f;
+        for (var pick = 0; pick < maxPicks && maxDifficulty > difficulty; pick++)
+        {
+            var objective = _objectivesManager.GetRandomObjective(minorRole.Mind, "MinorantagObjectiveGroup");
+            if (objective == null) continue;
+            if (minorRole.Mind.TryAddObjective(objective)) difficulty += objective.Difficulty;
+        }
 
         SoundSystem.Play(_addedSound.GetSound(), Filter.Empty().AddPlayer(minor), AudioParams.Default);
+        Logger.InfoS("preset", $"Made {minor.ConnectedClient.UserName} a minor.");
         return;
     }
 
@@ -222,11 +237,58 @@ public sealed class MinorRuleSystem : GameRuleSystem
 
         foreach (var minor in Minors)
         {
+            // var name = minor.Mind.CharacterName;
+            // minor.Mind.TryGetSession(out var session);
+            // var username = session?.Name;
+
+            // result += $"\n- {name}, {username} was a minor antagonist, their objective was; '{minor.Mind.Briefing}'";
+
             var name = minor.Mind.CharacterName;
             minor.Mind.TryGetSession(out var session);
             var username = session?.Name;
 
-            result += $"\n- {name}, {username} was a minor antagonist, their objective was; '{minor.Mind.Briefing}'";
+            var objectives = minor.Mind.AllObjectives.ToArray();
+            if (objectives.Length == 0)
+            {
+                if (username != null)
+                {
+                    if (name == null)
+                        result += "\n" + Loc.GetString("minor-user-was-a-minor", ("user", username));
+                    else
+                        result += "\n" + Loc.GetString("minor-user-was-a-minor-named", ("user", username), ("name", name));
+                }
+                else if (name != null)
+                    result += "\n" + Loc.GetString("minor-was-a-minor-named", ("name", name));
+
+                continue;
+            }
+
+            if (username != null)
+            {
+                if (name == null)
+                    result += "\n" + Loc.GetString("minor-user-was-a-minor-with-objectives", ("user", username));
+                else
+                    result += "\n" + Loc.GetString("minor-user-was-a-minor-with-objectives-named", ("user", username), ("name", name));
+            }
+            else if (name != null)
+                result += "\n" + Loc.GetString("minor-was-a-minor-with-objectives-named", ("name", name));
+
+            foreach (var objectiveGroup in objectives.GroupBy(o => o.Prototype.Issuer))
+            {
+                result += "\n" + Loc.GetString($"preset-minor-objective-issuer-{objectiveGroup.Key}");
+
+                foreach (var objective in objectiveGroup)
+                {
+                    foreach (var condition in objective.Conditions)
+                    {
+                        result += "\n- " + Loc.GetString(
+                            "minor-objective-condition-success",
+                            ("condition", condition.Title),
+                            ("markupColor", "green")
+                        );
+                    }
+                }
+            }
         }
         ev.AddLine(result);
     }

@@ -1,0 +1,14 @@
+- type: entity
+  id: LockerChiefServiceSupervisorFilled
+  suffix: Filled
+  parent: LockerChiefServiceSupervisor
+  components:
+  - type: StorageFill
+    contents:
+      - id: DoorRemoteService
+      - id: ClothingHandsGlovesColorWhite
+      - id: RubberStampCSS
+      - id: CigarGoldCase
+        prob: 0.35
+      - id: PenCSS
+        prob: 0.4

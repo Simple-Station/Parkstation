@@ -2,8 +2,7 @@
   id: CentComm
   mapName: 'Central Command'
   mapPath: /Maps/centcomm.yml
-  minPlayers: 0
-  votable: false
+  minPlayers: 10
   stations:
     centcomm:
       mapNameTemplate: '{0} Central Command {1}'

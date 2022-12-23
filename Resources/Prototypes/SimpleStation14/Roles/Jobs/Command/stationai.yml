@@ -1,19 +1,30 @@
 - type: job
   id: SAI
   name: "station AI"
-  playTimeTracker: SAI
+  playTimeTracker: JobSAI
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 24000
-  icon: "Unknown"
+      time: 60000
+  icon: "StationAI"
   supervisors: "all crew"
   accessGroup:
     - AllAccess
   canBeAntag: false
   jobEntity: AI
   startingGear: CyborgGear # for char preview only
+  alwaysUseSpawner: true
 
 - type: startingGear
   id: AIGear
   equipment:
     id: AIPDA
+  inhand:
+    hand 1: AIPDA
+    hand 2: DoorRemoteAI
+- type: startingGear
+  id: AIGearUnremoveable
+  equipment:
+    id: AIPDAur
+  inhand:
+    hand 1: AIPDAur
+    hand 2: DoorRemoteAIur

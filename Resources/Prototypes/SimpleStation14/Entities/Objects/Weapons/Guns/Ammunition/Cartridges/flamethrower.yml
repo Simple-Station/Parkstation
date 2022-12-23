@@ -1,0 +1,52 @@
+﻿- type: entity
+  id: BaseFillFlamethrower
+  name: flamethrower fill
+  parent: BaseCartridge
+  components:
+  # - type: Tag
+  #   tags:
+  #     - Fill
+  - type: CartridgeAmmo
+    proto: PelletFlamethrowerIncendiary
+    count: 6
+    spread: 45
+    deleteOnSpawn: true
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+# Empty mags
+- type: entity
+  id: BaseTankFlamethrower
+  name: flamethrower tank
+  parent: BaseItem
+  components:
+  - type: Item
+    size: 6
+  - type: BallisticAmmoProvider
+    proto: BaseFillFlamethrower
+    # whitelist:
+    #   tags:
+    #     - Fill
+    capacity: 200
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
