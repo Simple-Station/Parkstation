@@ -10,13 +10,13 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Administration.Commands
 {
     [AdminCommand(AdminFlags.Admin)]
-    public sealed class Brief : IConsoleCommand
+    public sealed class BriefCommand : IConsoleCommand
     {
         [Dependency] private readonly IEntityManager _entities = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         public string Command => "brief";
-        public string Description => "Makes you a human until the command is rerun.";
+        public string Description => "Makes you a mob of choice until the command is rerun.";
         public string Help => $"Usage: {Command} <outfit> <name> <entity>";
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
@@ -60,8 +60,6 @@ namespace Content.Server.Administration.Commands
             _entities.GetComponent<TransformComponent>(brief).AttachToGridOrMap();
 
             if (args[1] != "") _entities.GetComponent<MetaDataComponent>(brief).EntityName = args[1];
-            else if(!string.IsNullOrWhiteSpace(mind.Session?.Name)) _entities.GetComponent<MetaDataComponent>(brief).EntityName = mind.Session.Name;
-            else _entities.GetComponent<MetaDataComponent>(brief).EntityName = "Brief Agent";
 
             mind.Visit(brief);
 

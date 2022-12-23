@@ -10,20 +10,6 @@
       description: |
         You (probably) came from a belt, you are now a human that can be picked up, do things.
 
-# Centcomm
-- type: entity
-  noSpawn: true
-  name: CentComm official
-  id: HumanoidSpawnerCentcomOfficial
-  parent: MobHuman
-  components:
-    - type: BriefOfficer
-    - type: Icon
-      sprite: Markers/jobs.rsi
-      state: centcom
-    # - type: Loadout
-    #   prototypes: [CentcomGear]
-
 # Oldstation
 - type: entity
   parent: MobHuman
