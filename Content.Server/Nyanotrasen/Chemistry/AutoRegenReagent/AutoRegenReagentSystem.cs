@@ -28,7 +28,6 @@ namespace Content.Server.Chemistry.AutoRegenReagent
 
         private void AddSwitchVerb(EntityUid uid, AutoRegenReagentComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
-            if (component.Reagents.Count <= 1) return;
             if (!args.CanInteract || !args.CanAccess)
                 return;
 

@@ -8,7 +8,7 @@
   color: "#081a80"
   metabolisms:
     Medicine:
-      metabolismRate: 0.05
+      metabolismRate: 0.1
       effects:
       - !type:GenericStatusEffect
         key: PsionicallyInsulated

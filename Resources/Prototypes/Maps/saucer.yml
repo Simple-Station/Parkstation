@@ -3,6 +3,7 @@
   mapName: 'Saucer'
   mapPath: /Maps/saucer.yml
   minPlayers: 0
+  maxPlayers: 25
   stations:
     saucer:
       mapNameTemplate: '{0} Saucer {1}'

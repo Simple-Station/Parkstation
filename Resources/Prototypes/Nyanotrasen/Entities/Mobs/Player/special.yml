@@ -32,8 +32,8 @@
       mask:
       - GhostImpassable
   - type: MovementSpeedModifier
-    baseSprintSpeed: 5
-    baseWalkSpeed: 8
+    baseSprintSpeed: 8
+    baseWalkSpeed: 5
   - type: MovementIgnoreGravity
   - type: PsionicallyInvisible
   - type: InputMover

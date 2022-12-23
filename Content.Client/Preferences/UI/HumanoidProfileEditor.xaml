@@ -18,8 +18,12 @@
                                         <LineEdit Name="CNameEdit" MinSize="270 0" VerticalAlignment="Center" />
                                         <Button Name="CNameRandomize" Text="{Loc 'humanoid-profile-editor-name-random-button'}" />
                                     </BoxContainer>
-                                    <Button Name="CRandomizeEverything" HorizontalAlignment="Center" HorizontalExpand="False" MaxWidth="256" Text="{Loc 'humanoid-profile-editor-randomize-everything-button'}" />
-                                    <RichTextLabel Name="CWarningLabel" HorizontalExpand="False" VerticalExpand="True" MaxWidth="425" HorizontalAlignment="Left" />
+                                    <Button Name="CRandomizeEverything" HorizontalAlignment="Center"
+                                            HorizontalExpand="False" MaxWidth="256"
+                                            Text="{Loc 'humanoid-profile-editor-randomize-everything-button'}" />
+                                    <RichTextLabel Name="CWarningLabel" HorizontalExpand="False"
+                                                   VerticalExpand="True" MaxWidth="425"
+                                                   HorizontalAlignment="Left" />
                                 </BoxContainer>
                             </prefUi:HighlightedContainer>
                         </BoxContainer>
@@ -29,8 +33,10 @@
                 <BoxContainer Orientation="Vertical">
                     <prefUi:HighlightedContainer>
                         <BoxContainer Orientation="Horizontal">
-                            <Button Text="{Loc 'humanoid-profile-editor-import-button'}" Disabled="True" ToolTip="{Loc 'generic-not-yet-implemented'}" />
-                            <Button Text="{Loc 'humanoid-profile-editor-export-button'}" Disabled="True" ToolTip="{Loc 'generic-not-yet-implemented'}" />
+                            <Button Text="{Loc 'humanoid-profile-editor-import-button'}" Disabled="True"
+                                    ToolTip="{Loc 'generic-not-yet-implemented'}" />
+                            <Button Text="{Loc 'humanoid-profile-editor-export-button'}" Disabled="True"
+                                    ToolTip="{Loc 'generic-not-yet-implemented'}" />
                         </BoxContainer>
                     </prefUi:HighlightedContainer>
                     <!-- Save -->

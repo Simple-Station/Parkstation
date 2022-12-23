@@ -44,9 +44,6 @@
       sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
       state: female_full
       visible: true
-    - map: [ "underpants" ]
-    - map: [ "undershirt" ]
-    - map: [ "socks" ]
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
       color: "#e8b59b"
@@ -96,6 +93,7 @@
       - MobLayer
   - type: Body
     prototype: Arachne
+    requiredLegs: 8
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Arachne
@@ -133,8 +131,8 @@
     pressureResistance: 4
   - type: MovementAlwaysTouching
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 2.7
+    baseWalkSpeed : 2.7
+    baseSprintSpeed : 4.5
   - type: Perishable
   - type: ThermalRegulator
     metabolismHeat: 800

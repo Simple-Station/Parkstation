@@ -15,8 +15,8 @@
       visible: false
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4
-    baseSprintSpeed : 2.5
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4
   - type: Puller
     needsHands: false
   - type: Speech
@@ -200,6 +200,9 @@
         name: TrashBag
         startingItem: TrashBag
         locked: true
+  - type: Faction
+    factions:
+    - NanoTrasen
 
 - type: entity
   parent: PlayerCyborgBase

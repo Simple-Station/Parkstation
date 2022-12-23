@@ -68,28 +68,3 @@
   completetime: 2
   materials:
     Glass: 200
-
-- type: latheRecipe
-  id: MagicMedipen
-  icon:
-    sprite: Objects/Specific/Medical/medipen.rsi
-    state: stimpen
-  result: MagicMedipen
-  completetime: 5
-  materials:
-    Plastic: 100
-    Steel: 50
-    Glass: 50
-    Bluespace: 250
-
-- type: latheRecipe
-  id: ChemicalMedipen
-  icon:
-    sprite: Objects/Specific/Medical/medipen.rsi
-    state: hypovolemic_empty
-  result: ChemicalMedipen
-  completetime: 2
-  materials:
-    Plastic: 100
-    Steel: 50
-    Glass: 50

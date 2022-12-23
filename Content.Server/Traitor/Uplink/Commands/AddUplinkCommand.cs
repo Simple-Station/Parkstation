@@ -84,7 +84,7 @@ namespace Content.Server.Traitor.Uplink.Commands
             Logger.Debug(entityManager.ToPrettyString(user));
             // Finally add uplink
             var uplinkSys = entityManager.EntitySysManager.GetEntitySystem<UplinkSystem>();
-            if (!uplinkSys.AddUplink(user, FixedPoint2.New(tcCount), "StorePresetUplink", uplinkEntity: uplinkEntity))
+            if (!uplinkSys.AddUplink(user, FixedPoint2.New(tcCount), uplinkEntity: uplinkEntity))
             {
                 shell.WriteLine(Loc.GetString("add-uplink-command-error-2"));
                 return;

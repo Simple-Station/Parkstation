@@ -32,6 +32,7 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<MindSwapPowerActionEvent>(OnPowerUsed);
             SubscribeLocalEvent<MindSwappedComponent, MindSwapPowerReturnActionEvent>(OnPowerReturned);
             SubscribeLocalEvent<MindSwappedComponent, DispelledEvent>(OnDispelled);
+            //
             SubscribeLocalEvent<MindSwappedComponent, ComponentInit>(OnSwapInit);
         }
 
@@ -98,7 +99,7 @@ namespace Content.Server.Abilities.Psionics
             // 3. Target is dead
             if (_mobStateSystem.IsDead(component.OriginalEntity))
             {
-                GetDeleted(uid);
+                GetTrapped(uid);
                 return;
             }
 
@@ -168,17 +169,10 @@ namespace Content.Server.Abilities.Psionics
                 RemComp<PsionicallyInvisibleComponent>(uid);
                 RemComp<StealthComponent>(uid);
                 EnsureComp<SharedSpeechComponent>(uid);
+                EnsureComp<DispellableComponent>(uid);
                 MetaData(uid).EntityName = Loc.GetString("telegnostic-trapped-entity-name");
                 MetaData(uid).EntityDescription = Loc.GetString("telegnostic-trapped-entity-desc");
             }
-        }
-
-        private void GetDeleted(EntityUid uid)
-        {
-            if (!_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var action))
-                return;
-
-            QueueDel(uid);
         }
     }
 

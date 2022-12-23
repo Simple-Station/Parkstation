@@ -58,6 +58,16 @@
 
 - type: entity
   parent: DrinkBase
+  id: DrinkLithiumFlask
+  name: lithium flask
+  description: A flask with a Lithium Atom symbol on it.
+  components:
+  - type: Drink
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/lithiumflask.rsi
+
+- type: entity
+  parent: DrinkBase
   id: DrinkVacuumFlask
   name: vacuum flask
   description: Keeping your drinks at the perfect temperature since 1892.

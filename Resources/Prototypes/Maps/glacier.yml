@@ -2,7 +2,8 @@
   id: Glacier
   mapName: 'Glacier'
   mapPath: /Maps/glacier.yml
-  minPlayers: 0
+  minPlayers: 10
+  maxPlayers: 35
   stations:
     Glacierstation:
       mapNameTemplate: '{0} Glacier Station {1}'
@@ -45,4 +46,3 @@
         Reporter: [ 1, 1 ]
         ServiceWorker: [ 2, 2 ]
         Psychologist: [ 1, 1 ]
-
