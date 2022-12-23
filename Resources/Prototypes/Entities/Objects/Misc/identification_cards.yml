@@ -7,6 +7,7 @@
   components:
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
+    scale: 0.8, 0.8
   - type: Clothing
     slots:
     - idcard
@@ -536,7 +537,7 @@
     - state: idzookeeper
   - type: PresetIdCard
     job: Zookeeper
-    
+
 - type: entity
   parent: IDCardStandard
   id: DetectiveIDCard
@@ -560,4 +561,4 @@
     - state: idcentcom
   - type: Item
     heldPrefix: gold
-    
+

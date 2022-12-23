@@ -41,6 +41,7 @@
   - type: Sprite
     netsync: false
     sprite: Structures/Machines/microwave.rsi
+    offset: 0, 0.1
     drawdepth: SmallObjects
     snapCardinals: true
     layers:
