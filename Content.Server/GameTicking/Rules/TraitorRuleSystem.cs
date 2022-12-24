@@ -35,6 +35,9 @@ public sealed class TraitorRuleSystem : GameRuleSystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+
+    private ISawmill _sawmill = default!;
 
     public override string Prototype => "Traitor";
 
