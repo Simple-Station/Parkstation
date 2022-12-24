@@ -14,3 +14,9 @@
     tags:
       - BluespaceCrystal
       - RawMaterial
+  - type: Stack
+    stackType: Bluespace
+    count: 1
+  - type: Currency
+    price:
+      Bluespace: 1
