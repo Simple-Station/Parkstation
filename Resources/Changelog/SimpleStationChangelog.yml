@@ -708,3 +708,8 @@ Entries:
     - { message: 'There is no more air friction in an environment without gravity.', type: Tweak }
   id: 61
   time: "2022-12-23T00:55:39.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Borgs can not have traits.', type: Fix }
+  id: 62
+  time: "2022-12-23T22:44:10.0000000+00:00"

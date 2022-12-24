@@ -2,6 +2,7 @@
   blacklist:
     components:
       - AITelegnosisPower
+      - Repairable
   id: UncontrollableSneezing
   name: trait-sneezing-name
   description: trait-sneezing-desc
