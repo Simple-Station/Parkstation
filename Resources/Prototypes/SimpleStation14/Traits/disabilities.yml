@@ -61,7 +61,7 @@
 #    blacklist:
 #      components:
 #        - AITelegnosisPower
-      - Repairable
+#        - Repairable
 #   id: Deaf
 #   name: Deaf
 #   description: You are unable to hear anyone speak, others have to communicate through writing or miming. # Reverse mime
