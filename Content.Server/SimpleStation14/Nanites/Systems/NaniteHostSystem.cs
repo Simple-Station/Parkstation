@@ -47,6 +47,7 @@ namespace Content.Server.SimpleStation14.Nanites
             {
                 EName = "Nanite Clot 1",
                 EDescription = "Does something when tapped 1",
+                Euid = 2,
                 ETrigger = 0,
                 Type = "Button",
             };
@@ -54,6 +55,7 @@ namespace Content.Server.SimpleStation14.Nanites
             {
                 EName = "Nanite Clot 2",
                 EDescription = "Does something when tapped 2",
+                Euid = 83,
                 ETrigger = 1,
                 Type = "Button",
             };
@@ -61,6 +63,7 @@ namespace Content.Server.SimpleStation14.Nanites
             {
                 EName = "Nanite Clot 3",
                 EDescription = "Does something when tapped 3",
+                Euid = 9213,
                 ETrigger = 1,
                 Type = "Dissolve",
             };
@@ -71,12 +74,14 @@ namespace Content.Server.SimpleStation14.Nanites
         }
     }
 
-    public sealed class NaniteTrigger : InstantActionEvent
+    public abstract class NaniteTrigger : InstantActionEvent
     {
+        public string Type = "Program";
         public int ETrigger = 0;
+        public int Euid = 0;
     }
 
-    public sealed class NaniteProgramDeleted : EntityEventArgs
+    public abstract class NaniteProgramDeleted : EntityEventArgs
     {
         public NaniteProgram Program = new();
     }

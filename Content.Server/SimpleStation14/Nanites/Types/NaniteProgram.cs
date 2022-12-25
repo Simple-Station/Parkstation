@@ -21,6 +21,12 @@ namespace Content.Shared.SimpleStation14.Nanites
         [ViewVariables(VVAccess.ReadWrite)]
         public string EDescription = "Description";
 
+        /// <summary>
+        /// Program unique ID
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public int Euid = 0;
+
 
         /// <summary>
         /// Trigger ID

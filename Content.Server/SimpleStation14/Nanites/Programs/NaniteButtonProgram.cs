@@ -57,7 +57,7 @@ namespace Content.Server.SimpleStation14.Nanites
                         var button = new InstantAction(prototype)
                         {
                             DisplayName = Program.EName,
-                            Description = Program.EDescription,
+                            Description = Program.EDescription, // add something here for the triggers
                         };
 
                         _actionsSystem.RemoveAction(Nanites.Owner, button);
@@ -72,11 +72,11 @@ namespace Content.Server.SimpleStation14.Nanites
         {
             foreach (var Program in Nanites.Programs)
             {
-                if (Program.Type == "Dissolve")
+                if (Program.ETrigger == args.ETrigger)
                 {
-                    Console.WriteLine(args.ETrigger);
-                    Console.WriteLine(Program.ETrigger);
-                    RaiseLocalEvent(uid, new NaniteDissolveTrigger() { ETrigger = args.ETrigger });
+                    Console.WriteLine("baETrigger", args.ETrigger);
+                    Console.WriteLine("bpETrigger", Program.ETrigger);
+                    RaiseLocalEvent(uid, new NaniteDissolveTrigger() { ETrigger = args.ETrigger, Euid = args.Euid, Type = args.Type });
                 }
             }
         }
@@ -97,12 +97,6 @@ namespace Content.Server.SimpleStation14.Nanites
         }
     }
 
-    public sealed class NaniteButtonTrigger : InstantActionEvent
-    {
-        public int ETrigger = 0;
-    }
-    public sealed class NaniteButtonProgramDeleted : EntityEventArgs
-    {
-        public NaniteProgram Program = new();
-    }
+    public sealed class NaniteButtonTrigger : NaniteTrigger { }
+    public sealed class NaniteButtonProgramDeleted : NaniteProgramDeleted { }
 }

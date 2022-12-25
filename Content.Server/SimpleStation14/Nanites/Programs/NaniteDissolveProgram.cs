@@ -23,15 +23,15 @@ namespace Content.Server.SimpleStation14.Nanites
         {
             foreach (var Program in Nanites.Programs)
             {
-                if (Program.Type == "Dissolve")
-                {
-                    Console.WriteLine(args.ETrigger);
-                    Console.WriteLine(Program.ETrigger);
-                    if (args.ETrigger == Program.ETrigger)
-                    {
-                        if (Nanites.Nanites - 5 >= Nanites.SafetyLevel) Nanites.Nanites -= 5;
-                    }
-                }
+                Console.WriteLine("aETrigger", args.ETrigger);
+                Console.WriteLine("aType", args.Type);
+                Console.WriteLine("pETrigger", Program.ETrigger);
+                Console.WriteLine("pType", Program.Type);
+
+                if (Program.Type != args.Type) continue;
+                if (args.ETrigger != Program.ETrigger) continue;
+
+                if (Nanites.Nanites - 5 >= Nanites.SafetyLevel) Nanites.Nanites -= 5;
             }
         }
 
@@ -44,12 +44,6 @@ namespace Content.Server.SimpleStation14.Nanites
         }
     }
 
-    public sealed class NaniteDissolveTrigger : InstantActionEvent
-    {
-        public int ETrigger = 0;
-    }
-    public sealed class NaniteDissolveProgramDeleted : EntityEventArgs
-    {
-        public NaniteProgram Program = new();
-    }
+    public sealed class NaniteDissolveTrigger : NaniteTrigger { }
+    public sealed class NaniteDissolveProgramDeleted : NaniteProgramDeleted { }
 }
