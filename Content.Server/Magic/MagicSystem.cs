@@ -127,7 +127,7 @@ public sealed class MagicSystem : EntitySystem
 
         if (!HasComp<SpellbookUser1Component>(ev.User) || !HasComp<SpellbookUser2Component>(ev.User))
         {
-            _popupSystem.PopupEntity(Loc.GetString("spellbook-sizzle"), ev.User, Filter.Entities(ev.User));
+            _popupSystem.PopupEntity(Loc.GetString("spellbook-sizzle"), ev.User);
 
             SoundSystem.Play(component.SizzleSoundPath.GetSound(), Filter.Pvs(ev.User), ev.User);
             _damageableSystem.TryChangeDamage(ev.User, component.DamageOnUntrainedUse, true, origin: uid);

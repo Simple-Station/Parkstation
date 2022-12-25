@@ -347,6 +347,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<int> TraitorMaxPicks =
             CVarDef.Create("traitor.max_picks", 20);
 
+        public static readonly CVarDef<float> TraitorStartDelay =
+            CVarDef.Create("traitor.start_delay", 4f * 60f);
+
+        public static readonly CVarDef<float> TraitorStartDelayVariance =
+            CVarDef.Create("traitor.start_delay_variance", 3f * 60f);
+
         /*
          * TraitorDeathMatch
          */
@@ -550,6 +556,10 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<bool> AdminSoundsEnabled =
             CVarDef.Create("audio.admin_sounds_enabled", true, CVar.ARCHIVE | CVar.CLIENTONLY);
+        public static readonly CVarDef<string> AdminChatSoundPath =
+            CVarDef.Create("audio.admin_chat_sound_path", "/Audio/Items/pop.ogg", CVar.ARCHIVE | CVar.CLIENT | CVar.REPLICATED);
+        public static readonly CVarDef<float> AdminChatSoundVolume =
+            CVarDef.Create("audio.admin_chat_sound_volume", -5f, CVar.ARCHIVE | CVar.CLIENT | CVar.REPLICATED);
 
         /*
          * HUD

@@ -5,7 +5,6 @@
   suffix: 1 BS
   components:
   - type: Stack
-    stackType: Bluespace
     count: 1
 
 - type: entity
@@ -14,7 +13,6 @@
   suffix: 5 BS
   components:
   - type: Stack
-    stackType: Bluespace
     count: 5
 
 - type: entity
@@ -23,7 +21,6 @@
   suffix: 10 BS
   components:
   - type: Stack
-    stackType: Bluespace
     count: 10
 
 - type: entity
@@ -32,7 +29,6 @@
   suffix: 25 BS
   components:
   - type: Stack
-    stackType: Bluespace
     count: 25
 
 - type: entity
@@ -41,7 +37,6 @@
   suffix: 50 BS
   components:
   - type: Stack
-    stackType: Bluespace
     count: 50
 
 # Uplinks

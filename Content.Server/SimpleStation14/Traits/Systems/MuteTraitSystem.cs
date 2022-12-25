@@ -26,10 +26,9 @@ namespace Content.Server.SimpleStation14.Traits
         }
         private void OnSpeakAttempt(EntityUid uid, MuteTraitComponent component, SpeakAttemptEvent args)
         {
-            if (!component.Enabled)
-                return;
+            if (!component.Enabled) return;
 
-            _popupSystem.PopupEntity(Loc.GetString("mute-cant-speak"), uid, Filter.Entities(uid));
+            _popupSystem.PopupEntity(Loc.GetString("mute-cant-speak"), uid);
             args.Cancel();
         }
     }

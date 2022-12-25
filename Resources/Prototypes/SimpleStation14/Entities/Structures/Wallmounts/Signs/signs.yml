@@ -1,0 +1,72 @@
+- type: entity
+  id: SignParkstation
+  name: parkstation floor sign
+  description: A more scenic path.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Decorations/flooricon.rsi
+    state: tileicon
+    scale: 0.333333, 0.333333
+    drawdepth: FloorObjects
+    netsync: false
+    snapCardinals: false
+
+- type: entity
+  id: SignParkstationLarge
+  name: large parkstation floor sign
+  description: A REALLY scenic path.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Decorations/flooricon.rsi
+    state: tileicon
+    scale: 0.666666, 0.666666
+    drawdepth: FloorObjects
+    netsync: false
+    snapCardinals: false
+
+- type: entity
+  id: SignParkstationOffset
+  parent: SignParkstation
+  suffix: "offset"
+  components:
+  - type: Sprite
+    offset: 0.0, -0.5
+
+- type: entity
+  id: SignParkstationLargeOffset
+  parent: SignParkstationLarge
+  suffix: "offset"
+  components:
+  - type: Sprite
+    offset: 0.0, -0.5
+
+- type: entity
+  id: SignParkstationWall
+  parent: SignParkstation
+  name: parkstation wall sign
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+  - type: WallMount
+    arc: 360
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Rotatable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb {}
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]

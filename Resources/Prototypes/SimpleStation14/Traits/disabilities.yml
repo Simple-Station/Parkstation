@@ -2,6 +2,7 @@
   blacklist:
     components:
       - AITelegnosisPower
+      - Repairable
   id: ColorBlindnessMonochrome
   name: Monochromatic Colorblindness
   description: Your eyes have permanent damage, causing you to only see along a greyscale of color.
@@ -14,6 +15,7 @@
   blacklist:
     components:
       - AITelegnosisPower
+      - Repairable
   id: BlindnessNearsighted
   name: Nearsighted
   description: Your eyes have permanent damage, you are only able to see nearby you unless wearing glasses.
@@ -26,6 +28,8 @@
   blacklist:
     components:
       - AITelegnosisPower
+      - Repairable
+      - Repairable
   id: EasyDrunk
   name: Weak Stomach
   description: You take longer to metabolise, get drunk easier, and feel dizzy often.
@@ -44,6 +48,7 @@
   blacklist:
     components:
       - AITelegnosisPower
+      - Repairable
   id: FakeMime
   name: Mute
   description: For one reason or another you will not speak, ever, and communicate through miming or writing.
@@ -56,6 +61,7 @@
 #    blacklist:
 #      components:
 #        - AITelegnosisPower
+#        - Repairable
 #   id: Deaf
 #   name: Deaf
 #   description: You are unable to hear anyone speak, others have to communicate through writing or miming. # Reverse mime

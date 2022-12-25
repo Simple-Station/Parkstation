@@ -2,6 +2,7 @@
   blacklist:
     components:
       - AITelegnosisPower
+      - Repairable
   id: Blindness
   name: trait-blindness-name
   description: trait-blindness-desc
@@ -17,6 +18,7 @@
   blacklist:
     components:
       - AITelegnosisPower
+      - Repairable
   id: Narcolepsy
   name: trait-narcolepsy-name
   description: trait-narcolepsy-desc
@@ -31,6 +33,7 @@
   blacklist:
     components:
       - AITelegnosisPower
+      - Repairable
   id: Pacifist
   name: trait-pacifist-name
   cost: 4
@@ -42,6 +45,7 @@
   blacklist:
     components:
       - AITelegnosisPower
+      - Repairable
   id: Colorblindness
   name: Colorblindness
   description: You are only able to see certain colors, similarly to a dog's vision.
