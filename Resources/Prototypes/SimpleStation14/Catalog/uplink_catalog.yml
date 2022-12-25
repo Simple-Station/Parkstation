@@ -87,7 +87,7 @@
 - type: listing
   id: WizardHardsuit
   name: Hardsuit
-  description: A someone damage resistant, but heavy hardsuit that allows eva and protection in fights.
+  description: A someone damage resistant, but heavy hardsuit that allows eva and protection in fights. Also acts as wizard robes, allowing you to use spells.
   productEntity: ClothingOuterHardsuitWizard
   cost:
     Bluespace: 6

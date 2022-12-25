@@ -398,6 +398,8 @@
     damageCoefficient: 0.5
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWizard
+  - type: ClothingGrantComponent
+    component: SpellbookUser1
 
 - type: entity
   parent: ClothingOuterHardsuitBase

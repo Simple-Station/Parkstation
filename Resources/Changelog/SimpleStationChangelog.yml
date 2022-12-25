@@ -717,5 +717,6 @@ Entries:
   changes:
     - { message: 'Wizard uplinks can have bluespace inserted into them.', type: Fix }
     - { message: 'Bluespace now stacks.', type: Fix }
+    - { message: 'Wizard hardsuit allows usage of spells.', type: Fix }
   id: 63
   time: "2022-12-24T15:32:30.0000000+00:00"
