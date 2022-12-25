@@ -36,30 +36,21 @@ namespace Content.Server.SimpleStation14.Nanites
                 {
                     if (Program.Type != "Button") continue;
 
+                    if (!_prototype.TryIndex<InstantActionPrototype>("NaniteButtonTrigger", out var prototype)) continue;
+                    var button = new InstantAction(prototype)
+                    {
+                        DisplayName = Program.EName,
+                        Description = Program.EDescription, // add something here for the triggers
+                    };
+
                     if (Program.EEnabled == true)
                     {
-                        if (!_prototype.TryIndex<InstantActionPrototype>("NaniteButtonTrigger", out var prototype)) continue;
-                        var button = new InstantAction(prototype)
-                        {
-                            DisplayName = Program.EName,
-                            Description = Program.EDescription,
-                        };
-
                         _actionsSystem.AddAction(Nanites.Owner, button, Nanites.Owner);
                         // TODO: Only have this appear once
                         // _popupSystem.PopupEntity(Loc.GetString("nanite-button-appear"), Nanites.Owner, Filter.Entities(Nanites.Owner));
                     }
-
-                    // TODO: This seems to not work, actions stay while the program is disabled
-                    if (Program.EEnabled == false)
+                    else
                     {
-                        if (!_prototype.TryIndex<InstantActionPrototype>("NaniteButtonTrigger", out var prototype)) continue;
-                        var button = new InstantAction(prototype)
-                        {
-                            DisplayName = Program.EName,
-                            Description = Program.EDescription, // add something here for the triggers
-                        };
-
                         _actionsSystem.RemoveAction(Nanites.Owner, button);
                         // TODO: Only have this appear once
                         // _popupSystem.PopupEntity(Loc.GetString("nanite-button-disappear"), Nanites.Owner, Filter.Entities(Nanites.Owner));
@@ -72,11 +63,11 @@ namespace Content.Server.SimpleStation14.Nanites
         {
             foreach (var Program in Nanites.Programs)
             {
-                if (Program.ETrigger == args.ETrigger)
+                if (Program.ETrigger == args.Program.ETrigger)
                 {
-                    Console.WriteLine("baETrigger", args.ETrigger);
+                    Console.WriteLine("baETrigger", args.Program.ETrigger);
                     Console.WriteLine("bpETrigger", Program.ETrigger);
-                    RaiseLocalEvent(uid, new NaniteDissolveTrigger() { ETrigger = args.ETrigger, Euid = args.Euid, Type = args.Type });
+                    RaiseLocalEvent(uid, new NaniteDissolveTrigger() { Program = Program });
                 }
             }
         }

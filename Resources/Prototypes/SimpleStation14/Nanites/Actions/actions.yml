@@ -3,7 +3,7 @@
   name: something went wrong
   description: something went wrong
   useDelay: 3
-  itemIconStyle: BigAction
+  itemIconStyle: NoItem
   icon:
     sprite: SimpleStation14/Nanites/action.rsi
     state: bci_blank
@@ -14,7 +14,7 @@
   name: something went wrong
   description: something went wrong
   useDelay: 3
-  itemIconStyle: BigAction
+  itemIconStyle: NoItem
   icon:
     sprite: SimpleStation14/Nanites/action.rsi
     state: bci_blank

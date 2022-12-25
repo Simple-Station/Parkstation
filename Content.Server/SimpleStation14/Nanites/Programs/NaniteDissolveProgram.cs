@@ -23,13 +23,13 @@ namespace Content.Server.SimpleStation14.Nanites
         {
             foreach (var Program in Nanites.Programs)
             {
-                Console.WriteLine("aETrigger", args.ETrigger);
-                Console.WriteLine("aType", args.Type);
+                Console.WriteLine("aETrigger", args.Program.ETrigger);
+                Console.WriteLine("aType", args.Program.Type);
                 Console.WriteLine("pETrigger", Program.ETrigger);
                 Console.WriteLine("pType", Program.Type);
 
-                if (Program.Type != args.Type) continue;
-                if (args.ETrigger != Program.ETrigger) continue;
+                if (Program.Type != args.Program.Type) continue;
+                if (args.Program.ETrigger != Program.ETrigger) continue;
 
                 if (Nanites.Nanites - 5 >= Nanites.SafetyLevel) Nanites.Nanites -= 5;
             }

@@ -10,7 +10,7 @@ namespace Content.Shared.SimpleStation14.Nanites
 
 
         /// <summary>
-        /// Name (ID) of the program
+        /// Name of the program
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         public string EName = "Program";
@@ -50,7 +50,7 @@ namespace Content.Shared.SimpleStation14.Nanites
         /// <summary>
         /// Identifier used for figuring out a type of program since Name is E(ditable)
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("program"), ViewVariables(VVAccess.ReadWrite)]
         public string Type = "Program";
 
         /// <summary>

@@ -76,9 +76,10 @@ namespace Content.Server.SimpleStation14.Nanites
 
     public abstract class NaniteTrigger : InstantActionEvent
     {
-        public string Type = "Program";
-        public int ETrigger = 0;
-        public int Euid = 0;
+        public NaniteProgram Program = new();
+        // public string Type = "Program";
+        // public int ETrigger = 0;
+        // public int Euid = 0;
     }
 
     public abstract class NaniteProgramDeleted : EntityEventArgs
