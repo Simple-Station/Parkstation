@@ -720,3 +720,8 @@ Entries:
     - { message: 'Wizard hardsuit allows usage of spells.', type: Fix }
   id: 63
   time: "2022-12-24T15:32:30.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'AI and silicon have the robot speech bubble.', type: Tweak }
+  id: 64
+  time: "2022-12-25T23:30:30.0000000+00:00"
