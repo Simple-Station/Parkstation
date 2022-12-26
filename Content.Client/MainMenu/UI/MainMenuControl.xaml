@@ -18,7 +18,7 @@
             </BoxContainer>
             <LineEdit Name="AddressBox"
                       Access="Public"
-                      Text="localhost:1213"
+                      Text="localhost:1212"
                       PlaceHolder="server address:port"
                       HorizontalExpand="True" />
             <Button Name="DirectConnectButton"

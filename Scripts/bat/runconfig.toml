@@ -93,7 +93,7 @@ enabled = false
 
 [net]
 tickrate = 30
-port = 1213
+port = 1212
 bindto = "::,0.0.0.0"
 
 [status]
