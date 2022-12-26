@@ -74,6 +74,7 @@
     name: space bear
     description: |
       You're a bear! Do bear things.
+  - type: RandomBark
 
 - type: entity
   id: MobBearSpaceSalvage
