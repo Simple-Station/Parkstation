@@ -4,7 +4,7 @@
   playTimeTracker: JobBotanist
   startingGear: BotanistGear
   icon: "Botanist"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-css
   access:
   - Service
   - Hydroponics
