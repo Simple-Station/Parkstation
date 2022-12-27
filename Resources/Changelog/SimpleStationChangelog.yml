@@ -723,6 +723,7 @@ Entries:
 - author: "DEATHB4DEFEAT"
   changes:
     - { message: 'AI and silicon have the robot speech bubble.', type: Tweak }
+    - { message: 'Observers can view hivemind channels now.', type: Tweak }
   id: 64
   time: "2022-12-25T23:30:30.0000000+00:00"
 - author: "Pspritechologist"

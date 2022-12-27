@@ -104,7 +104,7 @@ entities:
   components:
   - type: MetaData
   - pos: 0.55555725,0.5
-    parent: invalid
+    parent: 205
     type: Transform
   - chunks:
       0,-3:
@@ -127,7 +127,6 @@ entities:
   - type: GridPathfinding
   - gravityShakeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/alert.ogg
-    enabled: True
     type: Gravity
   - chunkCollection: {}
     type: DecalGrid
@@ -806,8 +805,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 20.619795
-      - 77.56971
+      - 19.481253
+      - 73.28662
       - 0
       - 0
       - 0
@@ -837,6 +836,10 @@ entities:
   - id: Dart
     type: BecomesStation
   - type: RadiationGridResistance
+  - nextShake: 0
+    shakeTimes: 10
+    type: GravityShake
+  - type: GasTileOverlay
 - uid: 2
   type: AirlockEngineering
   components:
@@ -844,7 +847,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 3
-  type: ShuttleWindow
+  type: PlasmaWindow
   components:
   - pos: 7.5,-20.5
     parent: 1
@@ -1628,7 +1631,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 121
-  type: PlasmaWindow
+  type: ShuttleWindow
   components:
   - pos: 7.5,-20.5
     parent: 1
@@ -1696,6 +1699,9 @@ entities:
   - pos: 5.5,-25.5
     parent: 1
     type: Transform
+  - inletTwoConcentration: 0.75
+    inletOneConcentration: 0.25
+    type: GasMixer
 - uid: 131
   type: GasPipeFourway
   components:
@@ -2172,4 +2178,13 @@ entities:
   - pos: 8.5,-26.5
     parent: 1
     type: Transform
+- uid: 205
+  components:
+  - type: MetaData
+  - type: Transform
+  - index: 10
+    type: Map
+  - type: PhysicsMap
+  - type: Broadphase
+  - type: OccluderTree
 ...
