@@ -5,9 +5,9 @@
   description: A tight-fitting suit made for keeping oxygen or the vacuum of space away from the plasmamen.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/envirosuit.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/envirosuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000

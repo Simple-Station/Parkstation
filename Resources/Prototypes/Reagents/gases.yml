@@ -11,7 +11,7 @@
     Gas:
       effects:
       - !type:FlammableReaction
-        multiplier: 0.1
+        multiplier: 0.175
         conditions:
         - !type:OrganType
           type: Plasmaman

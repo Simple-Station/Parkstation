@@ -5,9 +5,9 @@
   name: envirosuit helmet
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/lingspacehelmet.rsi
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/envirosuit.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/lingspacehelmet.rsi
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/envirosuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 10000
