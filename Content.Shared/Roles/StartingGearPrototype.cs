@@ -43,6 +43,8 @@ namespace Content.Shared.Roles
                     return _satchel;
                 if (slot == "back" && profile.Backpack == BackpackPreference.Duffelbag && !string.IsNullOrEmpty(_duffelbag))
                     return _duffelbag;
+                if (slot == "outerClothing" && profile.Species == "Plasmaman")
+                    return "ClothingOuterHardsuitEnvirosuit";
             }
 
             return _equipment.TryGetValue(slot, out var equipment) ? equipment : string.Empty;
