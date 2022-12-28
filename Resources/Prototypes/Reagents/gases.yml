@@ -10,6 +10,21 @@
   metabolisms:
     Gas:
       effects:
+      - !type:FlammableReaction
+        multiplier: 0.2
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+        - !type:HasTag
+          tag: PlasmamanFlammable
+          invert: true
+      - !type:Ignite
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+        - !type:HasTag
+          tag: PlasmamanFlammable
+          invert: true
       - !type:Oxygenate
         conditions:
         - !type:OrganType

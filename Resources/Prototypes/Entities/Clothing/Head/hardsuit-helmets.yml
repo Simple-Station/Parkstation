@@ -266,6 +266,7 @@
     lowPressureMultiplier: 1000
   - type: ClothingGrantComponent
     component: SpellbookUser2
+    # tag: PlasmamanFlammable
 
 - type: entity
   parent: ClothingHeadHardsuitBase

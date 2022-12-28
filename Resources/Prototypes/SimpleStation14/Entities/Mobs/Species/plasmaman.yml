@@ -35,12 +35,17 @@
       specificHeat: 46
       coldDamage:
         types:
-          Cold: 0.05 #per second, scales with temperature & other constants
+          Cold: 0.05 # per second, scales with temperature & other constants
       heatDamage:
         types:
-          Heat: 0.25 #per second, scales with temperature & other constants
+          Heat: 0.25 # per second, scales with temperature & other constants
     - type: Bloodstream
+      bleedAmount: 0
+      bleedReductionAmount: 0
+      maxBleedAmount: 0
+      bloodlossThreshold: 0
       bloodMaxVolume: 0
+      updateInterval: -1
     - type: Fixtures
       fixtures:
         - shape: !type:PhysShapeCircle
