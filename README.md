@@ -6,16 +6,23 @@
 
 We are happy to accept contributions from anybody. Get in Discord if you want to help. We've got a [list of issues](https://github.com/orgs/Park-Station/projects/1/views/1) that need to be done and anybody can pick them up. Don't be afraid to ask for help either!
 
-We are not currently accepting translations of the game on our main repository. If you would like to translate the game into another language consider creating a fork or contributing to a fork.
-
 ## Building
 
-1. Clone this repository.
-2. Run `RUN_THIS.py` to init submodules and download the engine.
-3. Run the `scripts/bat/run1build.bat`
-4. Run the `scripts/bat/run2config.bat`
-5. Run both the `scripts/bat/run3server.bat` and `scripts/bat/run4client.bat`
-6. Connect to the localhost (default settings should work, if not use `localhost:1212`) and play.
+### Windows
+> 1. Clone this repository.
+> 2. Run `RUN_THIS.py` to init submodules and download the engine, or run `git submodule update --init --recursive` in a terminal.
+> 3. Run the `scripts/bat/run1build.bat`
+> 4. Run the `scripts/bat/run2config.bat`
+> 5. Run both the `scripts/bat/run3server.bat` and `scripts/bat/run4client.bat`
+> 6. Connect to the localhost and play.
+
+### Linux
+> 1. Clone this repository.
+> 2. Run `RUN_THIS.py` to init submodules and download the engine, or run `git submodule update --init --recursive` in a terminal.
+> 3. Run the `scripts/sh/run1build.sh`
+> 4. Run the `scripts/sh/run2config.sh`
+> 5. Run both the `scripts/sh/run3server.bat` and `scripts/sh/run4client.sh`
+> 6. Connect to the localhost and play.
 
 ## License
 
