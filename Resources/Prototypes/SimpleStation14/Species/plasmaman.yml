@@ -4,10 +4,12 @@
   roundStart: true
   prototype: MobPlasmaman
   sprites: MobPlasmamanSprites
-  defaultSkinTone: "#ffffff"
+  maleFirstNames: skeletonNamesFirst
+  femaleFirstNames: skeletonNamesFirst
   markingLimits: MobPlasmamanMarkingLimits
   dollPrototype: MobPlasmamanDummy
   skinColoration: Hues
+  defaultSkinTone: "#ffffff"
   sexes:
     - Male
     - Female
