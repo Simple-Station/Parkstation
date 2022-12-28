@@ -60,6 +60,10 @@
         amount: -2.0
     Gas:
       effects:
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: true
@@ -67,6 +71,10 @@
           types:
             Poison:
               1
+        conditions:
+          - !type:OrganType
+            type: Plasmaman
+            shouldHave: false
       # Cant be added until I add metabolism effects on reagent removal
       #- !type:AdjustAlert
       #  alertType: Toxins

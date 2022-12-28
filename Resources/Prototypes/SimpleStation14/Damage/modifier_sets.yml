@@ -1,0 +1,8 @@
+- type: damageModifierSet
+  id: Plasmaman
+  coefficients:
+    Blunt: 1.5
+    Slash: 1.25
+    Cold: 0.25
+    Heat: 1.5
+    Poison: 0.75

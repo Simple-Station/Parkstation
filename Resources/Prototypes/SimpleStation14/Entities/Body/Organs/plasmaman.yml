@@ -1,0 +1,7 @@
+- type: entity
+  id: OrganPlasmamanLungs
+  parent: OrganHumanLungs
+  suffix: "plasmaman"
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Plasmaman ]
