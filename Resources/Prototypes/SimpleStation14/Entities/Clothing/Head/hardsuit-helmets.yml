@@ -4,12 +4,20 @@
   noSpawn: true
   name: envirosuit helmet
   components:
-  - type: Sprite
-    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/envirosuit.rsi
-  - type: Clothing
-    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/envirosuit.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.3
-    lowPressureMultiplier: 10000
-  - type: ClothingGrantComponent
-    tag: PlasmamanFlammable
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/envirosuit.rsi
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/envirosuit.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 10000
+    - type: ClothingGrantComponent
+      tag: PlasmamanFlammable
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitEnvirosuit
+  id: ClothingHeadHelmetHardsuitEnvirosuitDelete
+  noSpawn: true
+  components:
+    - type: DeleteOnEquip
+      onEquip: false

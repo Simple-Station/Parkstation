@@ -48,7 +48,7 @@ namespace Content.Shared.Roles
                 if (slot == "outerClothing" && profile.Species == "Plasmaman")
                     return "ClothingOuterHardsuitEnvirosuit";
                 if (slot == "head" && profile.Species == "Plasmaman")
-                    return "ClothingHeadHelmetHardsuitEnvirosuit";
+                    return "ClothingHeadHelmetHardsuitEnvirosuitDelete";
                 if (slot == "suitstorage" && profile.Species == "Plasmaman")
                     return "PlasmaTankFilled";
                 if (slot == "mask" && profile.Species == "Plasmaman")
