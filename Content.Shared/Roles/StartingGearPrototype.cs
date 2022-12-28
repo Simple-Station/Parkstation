@@ -44,9 +44,19 @@ namespace Content.Shared.Roles
                 if (slot == "back" && profile.Backpack == BackpackPreference.Duffelbag && !string.IsNullOrEmpty(_duffelbag))
                     return _duffelbag;
 
+                // Plasmaman things, high priority
                 if (slot == "outerClothing" && profile.Species == "Plasmaman")
                     return "ClothingOuterHardsuitEnvirosuit";
+                if (slot == "head" && profile.Species == "Plasmaman")
+                    return "ClothingHeadHelmetHardsuitEnvirosuit";
+                if (slot == "suitstorage" && profile.Species == "Plasmaman")
+                    return "PlasmaTankFilled";
+                if (slot == "mask" && profile.Species == "Plasmaman")
+                    return "ClothingMaskBreath";
+
+                // Trait things, very low priority (for now)
                 if (slot == "eyes") {
+                    // Awful solution, do something shorter if possible :)
                     var booleanthing = false;
 
                     foreach (var trait in profile.TraitPreferences)

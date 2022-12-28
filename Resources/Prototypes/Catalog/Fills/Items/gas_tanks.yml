@@ -112,7 +112,7 @@
   parent: PlasmaTank
   name: plasma tank
   suffix: Filled
-  description: "Contains dangerous plasma. Do not inhale. Warning: extremely flammable."
+  description: "Contains dangerous plasma. Do not inhale (unless plasmaman). Warning: extremely flammable."
   components:
     - type: GasTank
       outputPressure: 101.325
