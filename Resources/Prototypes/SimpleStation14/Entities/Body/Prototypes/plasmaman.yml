@@ -20,7 +20,7 @@
       organs: # placeholders
         heart: OrganHumanHeart
         lungs: OrganPlasmamanLungs
-        stomach: OrganHumanStomach
+        stomach: OrganPlasmamanStomach
         liver:  OrganHumanLiver
         kidneys: OrganHumanKidneys
     right arm:

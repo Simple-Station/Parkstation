@@ -39,6 +39,8 @@
       heatDamage:
         types:
           Heat: 0.25 #per second, scales with temperature & other constants
+    - type: Bloodstream
+      bloodMaxVolume: 0
     - type: Fixtures
       fixtures:
         - shape: !type:PhysShapeCircle
