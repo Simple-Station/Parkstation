@@ -29,14 +29,20 @@ namespace Content.Server.SimpleStation14.Speech.RandomBark
             "Bark",
             "Boof",
             "Woofums",
-            "Howling",
-            "Screeeeeeeeeeee",
+            "Rawrl",
+            "Eeeeeee",
             "Barkums",
-            "OH MY GOD THE FIRE IT BURNS IT BURNS SO BAD!!",
-            "Death was here ;)",
-            "Ha ha not really lol",
+            "Awooooooooooooooooooo awoo awoooo",
+            "Grrrrrrrrrrrrrrrrrr",
+            "Rarrwrarrwr",
             "Goddamn I love gold fish crackers",
-            "This is going to be the really long default text, so I'm just going to keep typing and rambling on. You ever tried a churro? They're actually really good. I wasn't expecting much from them, thought they'd be like, dry and crunchy, but no, they're like a cakey thing. Yeah, right, you'd expect something drier, but no, it's actually soft and tasty, sugary, they're really nice."
+            "Bork bork boof boof bork bork boof boof boof bork"
+            "Bark",
+            "Boof",
+            "Woofums",
+            "Rawrl",
+            "Eeeeeee",
+            "Barkums",
         };
     }
 }
