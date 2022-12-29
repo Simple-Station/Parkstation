@@ -16,7 +16,7 @@
     components:
       - AITelegnosisPower
       - Repairable
-  id: BlindnessNearsighted
+  id: Nearsighted
   name: Nearsighted
   description: Your eyes have permanent damage, you are only able to see nearby you unless wearing glasses.
   cost: 5
