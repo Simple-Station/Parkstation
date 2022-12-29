@@ -28,7 +28,7 @@
 
 - type: accessLevel
   id: ChiefServiceSupervisor
-  name: id-card-access-level-cief-service-supervisor
+  name: id-card-access-level-chief-service-supervisor
 
 - type: accessGroup
   id: Service
