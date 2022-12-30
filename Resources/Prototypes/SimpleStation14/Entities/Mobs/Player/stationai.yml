@@ -200,6 +200,9 @@
   name: AI
   description: Host for an AI. Likely more A than I.
   components:
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 0
+      baseSprintSpeed: 0
     - type: Eye
       drawFov: true
     - type: AITelegnosisPower
