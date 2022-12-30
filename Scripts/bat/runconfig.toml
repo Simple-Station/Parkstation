@@ -1,5 +1,6 @@
 [game]
 hostname = "[CAN East][MRP] Parkstation"
+desc = "A server focused on RP expectations and calmer rounds, looking to build player base at the moment."
 maxplayers = 48
 soft_max_players = 32
 type = 1
@@ -93,7 +94,7 @@ enabled = false
 
 [net]
 tickrate = 30
-port = 1213
+port = 1212
 bindto = "::,0.0.0.0"
 
 [status]

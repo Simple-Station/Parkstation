@@ -22,6 +22,10 @@ public sealed class TraitSystem : EntitySystem
     {
         foreach (var traitId in args.Profile.TraitPreferences)
         {
+            if (args.JobId == "SAI") return;
+            if (args.JobId == "Cyborg") return;
+            if (args.JobId == "MedicalCyborg") return;
+
             if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
             {
                 Logger.Warning($"No trait found with ID {traitId}!");

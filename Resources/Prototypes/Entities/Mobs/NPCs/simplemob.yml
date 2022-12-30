@@ -223,3 +223,4 @@
     price: 150
   - type: SentienceTarget
     flavorKind: animal
+  - type: Speech

@@ -5,7 +5,7 @@
   playTimeTracker: JobLibrarian
   startingGear: LibrarianGear
   icon: "Librarian"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-css
   access:
   - Service
   extendedAccess:

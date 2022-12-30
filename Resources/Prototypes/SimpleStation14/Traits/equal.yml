@@ -1,8 +1,4 @@
 - type: trait
-  blacklist:
-    components:
-      - AITelegnosisPower
-      - Repairable
   id: Tall
   name: Taller
   description:
@@ -13,10 +9,6 @@
       height: 1.1
 
 - type: trait
-  blacklist:
-    components:
-      - AITelegnosisPower
-      - Repairable
   id: Small
   name: Smaller
   description:

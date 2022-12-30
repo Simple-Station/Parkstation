@@ -1,8 +1,4 @@
 - type: trait
-  blacklist:
-    components:
-      - AITelegnosisPower
-      - Repairable
   id: DragonsBlood
   name: Draconic Bloodstream
   description: You have some of the great Space Dragon's healing abilities, and have Ichor in your blood. (Will be rethemed)
@@ -18,11 +14,6 @@
         accumulatorTime: 1
 
 - type: trait
-  blacklist:
-    components:
-      - AITelegnosisPower
-      - Repairable
-      - Repairable
   id: Arachnid
   name: Arachnid
   description: Allows you to spin webs, like the Arachne.
