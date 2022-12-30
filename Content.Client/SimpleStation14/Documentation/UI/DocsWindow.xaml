@@ -1,3 +1,19 @@
-<Control xmlns="https://spacestation14.io">
-    <Button Name="PressButton" Text="Click me!" />
-</Control>
+<DefaultWindow xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="{Loc docs-menu-title}" MinWidth="900" MinHeight="600" Resizable="False">
+
+    <BoxContainer Orientation="Horizontal">
+        <BoxContainer Orientation="Vertical">
+            <ScrollContainer MinWidth="100" MinHeight="585">
+                <Label Text="Test"/>
+                <!-- Set by code soon™ -->
+            </ScrollContainer>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Vertical">
+            <ScrollContainer MinWidth="490" MinHeight="585" HorizontalExpand="True">
+                <Label Text="Tests"/>
+                <!-- Set by code soon™ -->
+            </ScrollContainer>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

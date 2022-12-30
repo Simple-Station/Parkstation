@@ -1,4 +1,4 @@
-using Content.Client.SimpleStation14.Documentation;
+using Content.Client.SimpleStation14.Documentation.UI;
 using Content.Shared.Administration;
 using Robust.Client.UserInterface;
 using Robust.Shared.Console;
@@ -14,7 +14,7 @@ namespace Content.Client.Commands
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            // open the ui or something, i dont know
+            
         }
     }
 }
