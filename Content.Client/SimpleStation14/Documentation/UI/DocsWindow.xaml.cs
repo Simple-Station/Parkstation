@@ -34,7 +34,9 @@ namespace Content.Client.SimpleStation14.Documentation.UI
 
         public void SetPage(BaseButton page)
         {
-            // TODO: clear page content THEN add page content
+            // Clear page content
+            Contens.RemoveAllChildren();
+            Contens.AddChild(new Label() { Text="Failed to fetch page content." });
 
             var Page = new WikiPages();
             var contents = Page.contents;
@@ -47,9 +49,13 @@ namespace Content.Client.SimpleStation14.Documentation.UI
                 // See if the button matches a content ID
                 if (child.Name == $"{page.Name}Contents")
                 {
+                    // Clear empty page message (and anything left behind somehow)
+                    Contens.RemoveAllChildren();
+
                     // Add the content to the visible UI
                     child.Orphan();
                     Contens.AddChild(child);
+
                     // Stop looking for matches
                     return;
                 }

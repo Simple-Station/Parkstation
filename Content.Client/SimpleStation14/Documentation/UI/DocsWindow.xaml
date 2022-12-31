@@ -32,6 +32,7 @@
                     <!-- If you make actual content please remove these base items -->
                     <Button Text="page 1" MinWidth="25" Name="one"/>
                     <Button Text="2 page" MinWidth="25" Name="two"/>
+                    <Button Text="This doesnt lead to anywhere" MinWidth="25" Name="gibberish"/>
                     <!-- If you make actual content please remove these base items -->
                 </BoxContainer>
                 <!--
@@ -51,9 +52,9 @@
             <!-- Right -->
             <ScrollContainer MinSize="300 0" Margin="5 5 0 0">
                 <BoxContainer Name="Contens" Orientation="Vertical">
-                    <Label Text="test"/>
+                    <!-- Placeholder, only shows when first opened -->
+                    <Label Text="Click a button on the left to view documentation."/>
                 </BoxContainer>
-                <Label Text="test"/>
             </ScrollContainer>
         </BoxContainer>
     </BoxContainer>
