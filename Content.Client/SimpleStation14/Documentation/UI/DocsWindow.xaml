@@ -23,7 +23,10 @@
         <BoxContainer Orientation="Horizontal" VerticalExpand="True" SeparationOverride="0">
             <!-- Left -->
             <ScrollContainer MinSize="300 0" Margin="5 5 0 0">
-                <BoxContainer Name="Categories" Orientation="Vertical" />
+                <BoxContainer Name="Categories" Orientation="Vertical">
+                    <Button Text="page 1" MinWidth="25" Name="one"/>
+                    <Button Text="2 page" MinWidth="25" Name="two"/>
+                </BoxContainer>
             </ScrollContainer>
 
             <!-- Divider -->
@@ -35,7 +38,10 @@
 
             <!-- Right -->
             <ScrollContainer MinSize="300 0" Margin="5 5 0 0">
-                <BoxContainer Name="Contents" Orientation="Vertical" />
+                <BoxContainer Name="Contens" Orientation="Vertical">
+                    <Label Text="test"/>
+                </BoxContainer>
+                <Label Text="test"/>
             </ScrollContainer>
         </BoxContainer>
     </BoxContainer>

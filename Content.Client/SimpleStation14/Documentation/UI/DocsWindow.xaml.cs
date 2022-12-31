@@ -16,29 +16,37 @@ namespace Content.Client.SimpleStation14.Documentation.UI
 
             UICloseButton.OnPressed += _ => Close();
 
+            foreach (Button? button in Categories.Children)
+            {
+                if (button != null)
+                {
+                    button.OnPressed += ev =>
+                    {
+                        if (ev.Button != null)
+                        {
+                            SetPage(ev.Button);
+                        }
+                    };
+                }
+            }
+        }
+
+        public void SetPage(BaseButton page)
+        {
             var Page = new WikiPages();
-            List<Control> category = new();
-            // List<Control> content = new();
+            var contents = Page.contents;
 
-            foreach (var child in Page.categories.Children)
+            foreach (var child in contents.Children)
             {
-                category.Add(child);
-            }
-            // foreach (var child in Page.contents.Children)
-            // {
-            //     content.Add(child);
-            // }
+                if (child.Name == null || page.Name == null) return;
 
-            foreach (var child in category)
-            {
-                child.Orphan();
-                Categories.AddChild(child);
+                if (child.Name == $"{page.Name}Contents")
+                {
+                    child.Orphan();
+                    Contens.AddChild(child);
+                    return;
+                }
             }
-            // foreach (var child in content)
-            // {
-            //     child.Orphan();
-            //     Contents.AddChild(child);
-            // }
         }
     }
 }

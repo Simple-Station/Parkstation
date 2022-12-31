@@ -1,9 +1,5 @@
 <Control xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <BoxContainer Name="Categories">
-        <Button Text="1" MinWidth="25" Name="one"/>
-        <Button Text="2" MinWidth="25" Name="two"/>
-    </BoxContainer>
     <BoxContainer Name="Contents">
         <BoxContainer Name="oneContents">
             <Label Text="1"/>
