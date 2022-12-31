@@ -23,10 +23,22 @@
         <BoxContainer Orientation="Horizontal" VerticalExpand="True" SeparationOverride="0">
             <!-- Left -->
             <ScrollContainer MinSize="300 0" Margin="5 5 0 0">
+                <!--
+                This contains the buttons used for navigation.
+                More detailed guidelines can be found in the WikiPages.xaml
+                Only put a Button here.
+                -->
                 <BoxContainer Name="Categories" Orientation="Vertical">
+                    <!-- If you make actual content please remove these base items -->
                     <Button Text="page 1" MinWidth="25" Name="one"/>
                     <Button Text="2 page" MinWidth="25" Name="two"/>
+                    <!-- If you make actual content please remove these base items -->
                 </BoxContainer>
+                <!--
+                This contains the buttons used for navigation.
+                More detailed guidelines can be found in the WikiPages.xaml
+                Only put a Button here.
+                -->
             </ScrollContainer>
 
             <!-- Divider -->

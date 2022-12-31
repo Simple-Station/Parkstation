@@ -1,6 +1,20 @@
 <Control xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--
+    This contains all wiki page UI contents inside of nested BoxContainers.
+    Each root-level BoxContainer inside of the "Contents" BoxContainer must be named something relating to their contents
+        and end in "Contents".
+    The wiki contents Name must be the exact same as the button Name (with the added "Contents" only to the contents)
+        if the names do not match, the UI will fail to find the page.
+    I recommend avoiding adding Names to things other than the root container unless you know what you are doing,
+        and plan on doing something code-wise with it.
+
+    If you wish to do something code-wise with the content, make a new xaml element somewhere and put the code with it.
+        I do not want there to be a bunch of random xaml and cs within the main files of this wiki.
+        You can probably find examples somewhere in the humanoid editor, lots of this was taken from there.
+    -->
     <BoxContainer Name="Contents">
+        <!-- If you make actual content please remove these base items -->
         <BoxContainer Name="oneContents">
             <Label Text="1"/>
             <Label Text="11"/>
@@ -9,5 +23,19 @@
             <Label Text="2"/>
             <Label Text="22"/>
         </BoxContainer>
+        <!-- If you make actual content please remove these base items -->
     </BoxContainer>
+    <!--
+    This contains all wiki page UI contents inside of nested BoxContainers.
+    Each root-level BoxContainer inside of the "Contents" BoxContainer must be named something relating to their contents
+        and end in "Contents".
+    The wiki contents Name must be the exact same as the button Name (with the added "Contents" only to the contents)
+        if the names do not match, the UI will fail to find the page.
+    I recommend avoiding adding Names to things other than the root container unless you know what you are doing,
+        and plan on doing something code-wise with it.
+
+    If you wish to do something code-wise with the content, make a new xaml element somewhere and put the code with it.
+        I do not want there to be a bunch of random xaml and cs within the main files of this wiki.
+        You can probably find examples somewhere in the humanoid editor, lots of this was taken from there.
+    -->
 </Control>
