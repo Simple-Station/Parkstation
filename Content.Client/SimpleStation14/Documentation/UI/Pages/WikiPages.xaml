@@ -1,5 +1,6 @@
 <Control xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:style="clr-namespace:Content.Client.Stylesheets">
     <!--
     This contains all wiki page UI contents inside of nested BoxContainers.
@@ -20,6 +21,11 @@
         <BoxContainer Name="GettingStartedContents" Orientation="Vertical">
             <BoxContainer Orientation="Vertical">
                 <Label Text="Getting Started" StyleClasses="LabelHeadingBigger" />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
             </BoxContainer>
             <BoxContainer Orientation="Vertical">
                 <BoxContainer Orientation="Vertical">
@@ -42,6 +48,12 @@
                 <Label Text=" " />
                 <BoxContainer Orientation="Vertical">
                     <Label Text="Gameplay" StyleClasses="LabelHeadingBigger" />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text="SS14 is a role playing game at its core -- you play as a member of the station crew, which you can customize from the lobby prior to joining the game." />
                     <Label Text="From there, you can select the jobs your character preforms, what they look like, how people are expected to refer to them, etc." />
                     <Label Text=" " />
@@ -73,6 +85,12 @@
                 <Label Text=" " />
                 <BoxContainer Orientation="Vertical">
                     <Label Text="Antagonists" StyleClasses="LabelHeadingBigger" />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text="To give the game a bit of excitement, some players are selected to work against the crew in some way by acting as an Antagonist, or Antag." />
                     <Label Text="There are various types of antags, like Traitors, Wizards, Nuclear Operatives, etc" />
                     <Label Text="You can volunteer to play as an antag through the character editor if you are whitelisted." />
@@ -99,6 +117,12 @@
                 <Label Text=" " />
                 <BoxContainer Orientation="Vertical">
                     <Label Text="Responding to Antagonists" StyleClasses="LabelHeadingBigger" />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text="If you suspect someone is an antagonist, report them to Security as fast as possible, and do what you can to protect yourself." />
                     <Label Text="Remember, antagonists are legally people too, so they must be arrested and prosecuted if at all possible." />
                 </BoxContainer>
@@ -106,6 +130,12 @@
                 <Label Text=" " />
                 <BoxContainer Orientation="Vertical">
                     <Label Text="Self-Antag" StyleClasses="LabelHeadingBigger" />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text="Self-Antagonizing (self-antag) is when you are NOT an antagonist, yet you go out of your way to break the law, damage the station, or murder." />
                     <Label Text="Breaking the law is not inherently self-antagonizing, but attacking your crewmates, attempting to break into high security areas, and hoarding items you don't need ARE." />
                     <Label Text="Self-Antagonizing can and will get you banned." StyleClasses="LabelBig" />
@@ -114,6 +144,12 @@
                 <Label Text=" " />
                 <BoxContainer Orientation="Vertical">
                     <Label Text="RDM" StyleClasses="LabelHeadingBigger" />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text="Random DeathMatch (RDM) is the act of attempting to kill someone for no reason." />
                     <Label Text="If you are being attacked, the other person is likely an Antagonist." />
                     <Label Text="If you are unsure, ask the admins." StyleClasses="LabelBig" />
@@ -127,10 +163,21 @@
                 <Label Text="Standard Operating Procedures" StyleClasses="LabelHeadingBigger" />
                 <Label Text="Note these are not laws, and the group vote of the Heads may alter them as they see fit." />
                 <Label Text="Make sure to read Alert Procedure." />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
             </BoxContainer>
             <BoxContainer Orientation="Vertical">
                 <BoxContainer Orientation="Vertical">
                     <Label Text="High Security Areas" StyleClasses="LabelHeadingBigger" />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text="What High Security Areas are, and who should access them." />
                     <Label Text="- Nonlethal Armory: Any security officer or above." />
                     <Label Text="- Lethal Armory: Any security officer or above, but only on a code red." />
@@ -141,6 +188,12 @@
                 <Label Text=" " />
                 <BoxContainer Orientation="Vertical">
                     <Label Text="Medical Evalutaion" StyleClasses="LabelHeadingBigger" />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text="Given good medical reason and with documentation, the Chief Medical Officer may declare any on-duty personnel unfit for duty and remove them from their position." />
                     <Label Text="   This includes other Heads and Centcom personnel." />
                     <Label Text="   This cannot be overruled by anyone." />
@@ -153,6 +206,12 @@
                 <BoxContainer Orientation="Vertical">
                     <BoxContainer Orientation="Vertical">
                         <Label Text="Controlled Substances/Items" StyleClasses="LabelHeadingBigger" />
+                        <PanelContainer>
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                            </PanelContainer.PanelOverride>
+                        </PanelContainer>
+
                         <Label Text="Controlled substances are any substance that have been restriced or made illegal under Space Law. The current list of controlled substances is as follows:" />
                         <Label Text="- Space Drugs." />
                         <Label Text="- Pure Lysergic Acid Diethylamide, (LSD) sometimes referred to as 'MindBreaker'." />
@@ -168,7 +227,11 @@
                         <Label Text="   Giving lethal Diseases to crew and polymorphing them will get you executed." />
                         <Label Text="- Nocturine." />
                     </BoxContainer>
-                    <Label Text=" " />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
                     <BoxContainer Orientation="Vertical">
                         <Label Text="Controlled Items are items that have been restricted or made illegal under Space Law. The current list of controlled items is as follows:" />
                         <Label Text="- Biological or Chemical Weaponry, such as neurotoxin grenades." />
@@ -189,6 +252,12 @@
                 <Label Text=" " />
                 <BoxContainer Orientation="Vertical">
                     <Label Text="Research Operations" StyleClasses="LabelHeadingBigger" />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text="Science employees are permitted to use their lab spaces as they see fit with the following exceptions:" />
                     <Label Text="- Any human experimentation must be done with the full consent of the test subject, and must not have an undue risk of life." />
                     <Label Text="   The HoS or RD may terminate any experiment for safety or ethical purposes at their discretion." />
@@ -204,13 +273,25 @@
         <BoxContainer Name="AlertProcedureContents" Orientation="Vertical">
             <BoxContainer Orientation="Vertical">
                 <Label Text="Alert Procedure" StyleClasses="LabelHeadingBigger" />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
             </BoxContainer>
             <BoxContainer Orientation="Vertical">
                 <Label Text="Common Security Codes" StyleClasses="LabelHeadingBigger" />
+                <Label Text=" " />
                 <BoxContainer Orientation="Vertical">
                     <Label Text="Code Green" StyleClasses="LabelHeadingBigger" />
                     <Label Text="The normal operating procedure." />
                     <Label Text="There is no known threat to the ship or crew." />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text=" " />
                     <Label Text="Chain of command" StyleClasses="LabelBig" />
                     <Label Text="Centcom -> Group vote among Heads -> Ranking Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew " />
@@ -238,6 +319,12 @@
                     <Label Text="Code Blue" StyleClasses="LabelHeadingBigger" />
                     <Label Text="Elevated alert status." />
                     <Label Text="Ongoing, known, or suspected security threat to vessel or crew, or another security emergency." />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text=" " />
                     <Label Text="Chain of command" StyleClasses="LabelBig" />
                     <Label Text="Centcom -> Group vote among Heads -> Head of Security -> Ranking Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew" />
@@ -266,6 +353,12 @@
                     <Label Text="Code Red" StyleClasses="LabelHeadingBigger" />
                     <Label Text="Emergency alert status." />
                     <Label Text="There are multiple major emergency situations ongoing, or a severe security emergency." />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text=" " />
                     <Label Text="Chain of command" StyleClasses="LabelBig" />
                     <Label Text="Centcom -> Group vote among Heads -> Appropriate Departmental Head -> Other Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew" />
@@ -299,6 +392,12 @@
                     <Label Text="Code Violet" StyleClasses="LabelHeadingBigger" />
                     <Label Text="Elevated alert status." />
                     <Label Text="There is a serious viral outbreak, many personnel are injured or (will be) dead, or another major medical emergency." />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text=" " />
                     <Label Text="Chain of command" StyleClasses="LabelBig" />
                     <Label Text="Centcom -> Group vote among Heads -> Chief medical officer -> Ranking Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew" />
@@ -318,6 +417,12 @@
                     <Label Text="Code Yellow" StyleClasses="LabelHeadingBigger" />
                     <Label Text="Elevated alert status." />
                     <Label Text="The ship has suffered severe damage, the power source can't function, the singularity is loose, there is a major fire, an incoming meteor storm, or another major engineering emergency." />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text=" " />
                     <Label Text="Chain of command" StyleClasses="LabelBig" />
                     <Label Text="Centcom -> Group vote among Heads -> Chief engineer -> Ranking Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew" />
@@ -340,7 +445,13 @@
                 <BoxContainer Orientation="Vertical">
                     <Label Text="Code White" StyleClasses="LabelHeadingBigger" />
                     <Label Text="Elevated alert status." />
-                    <Label Text="There is a psionic emergency." />
+                    <Label Text="There is a major psionic emergency." />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text=" " />
                     <Label Text="Chain of command" StyleClasses="LabelBig" />
                     <Label Text="Centcom -> Group vote among Heads -> Head of Security -> Mystagogue -> Ranking Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew" />
@@ -382,6 +493,12 @@
                     <Label Text="Code Gamma" StyleClasses="LabelHeadingBigger" />
                     <Label Text="Maximum alert status." />
                     <Label Text="The crew has multiple powerful threats among them, and are all in immediate danger." />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text=" " />
                     <Label Text="Chain of command" StyleClasses="LabelBig" />
                     <Label Text="Centcom -> Group vote among Heads -> Head of Security -> Supervisory roles (e.g. Warden) -> Ranking Department Head -> Standard Crew" />
@@ -408,6 +525,12 @@
                     <Label Text="Station self destruct activated or destruction imminent." />
                     <Label Text="Evacuation procedures strongly advised." />
                     <Label Text="All crew and passengers must be evacuated." />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text=" " />
                     <Label Text="Chain of command" StyleClasses="LabelBig" />
                     <Label Text="Centcom -> Group vote among Heads -> Ranking Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew" />
@@ -433,6 +556,12 @@
                     <Label Text="Code Epsilon" StyleClasses="LabelHeadingBigger" />
                     <Label Text="True Maximum alert status." />
                     <Label Text="The station is completely irrecoverable, Centcom will give no chance of escape and neither should the crew." />
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <Label Text=" " />
                     <Label Text="Chain of command" StyleClasses="LabelBig" />
                     <Label Text="All contracts are terminated." />
