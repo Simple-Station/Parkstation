@@ -19,7 +19,7 @@
   icon: "HeadOfPersonnel"
   requireAdminNotify: true
   supervisors: job-supervisors-cc
-  canBeAntag: true
+  canBeAntag: false
   antagAdvantage: 12
   whitelistRequired: true
   access:

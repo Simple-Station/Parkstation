@@ -108,7 +108,7 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesSecurity
-  name: prescription security sunglasses
+  name: security sunglasses
   description: Strangely ancient technology used to help provide rudimentary eye cover. Enhanced shielding blocks many flashes. Often worn by budget security officers.
   components:
   - type: Sprite
@@ -118,9 +118,6 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
-  - type: Tag
-    tags:
-    - GlassesNearsight
 
 #Make a scanner category when these actually function and we get the trayson
 - type: entity
@@ -137,3 +134,4 @@
     modifiers:
       coefficients:
         Heat: 0.95
+  - type: GroupExamine

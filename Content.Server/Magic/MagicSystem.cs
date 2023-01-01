@@ -24,9 +24,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Damage;
-using Content.Server.Magic.Components;
 using Content.Server.Popups;
-using Content.Server.SimpleStation14.Traits;
+using Content.Shared.Magic;
 
 namespace Content.Server.Magic;
 
@@ -126,9 +125,9 @@ public sealed class MagicSystem : EntitySystem
     {
         component.CancelToken = null;
 
-        if (!HasComp<SpellbookUserComponent>(ev.User) && !HasComp<ReligiousTraitComponent>(ev.User))
+        if (!HasComp<SpellbookUser1Component>(ev.User) || !HasComp<SpellbookUser2Component>(ev.User))
         {
-            _popupSystem.PopupEntity(Loc.GetString("spellbook-sizzle"), ev.User, Filter.Entities(ev.User));
+            _popupSystem.PopupEntity(Loc.GetString("spellbook-sizzle"), ev.User);
 
             SoundSystem.Play(component.SizzleSoundPath.GetSound(), Filter.Pvs(ev.User), ev.User);
             _damageableSystem.TryChangeDamage(ev.User, component.DamageOnUntrainedUse, true, origin: uid);
@@ -333,8 +332,7 @@ public sealed class MagicSystem : EntitySystem
         // var impulseVector = direction * 10000;
         // Comp<PhysicsComponent>(ev.Target).ApplyLinearImpulse(impulseVector);
 
-        if (!TryComp<BodyComponent>(ev.Target, out var body))
-            return;
+        if (!TryComp<BodyComponent>(ev.Target, out var body)) return;
 
         _damageableSystem.TryChangeDamage(ev.Target, ev.HealAmount, true, origin: ev.Target);
     }

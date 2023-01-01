@@ -4,7 +4,7 @@
   playTimeTracker: JobChef
   startingGear: ChefGear
   icon: "Chef"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-css
   access:
   - Service
   - Kitchen
@@ -12,6 +12,10 @@
   - Hydroponics
   - Bar
   - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: ProfessionalChef
 
 - type: startingGear
   id: ChefGear

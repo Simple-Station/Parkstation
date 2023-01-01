@@ -24,9 +24,7 @@ using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -48,6 +46,7 @@ namespace Content.Server.Disposal.Unit.EntitySystems
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _ui = default!;
+        [Dependency] private readonly PowerReceiverSystem _power = default!;
 
         public override void Initialize()
         {
@@ -213,9 +212,7 @@ namespace Content.Server.Disposal.Unit.EntitySystems
                     ToggleEngage(component);
                     break;
                 case SharedDisposalUnitComponent.UiButton.Power:
-                    TogglePower(component);
-                    _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg"), component.Owner,
-                        AudioParams.Default.WithVolume(-2f));
+                    _power.TogglePower(uid);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -234,17 +231,6 @@ namespace Content.Server.Disposal.Unit.EntitySystems
             {
                 Disengage(component);
             }
-        }
-
-        public void TogglePower(DisposalUnitComponent component)
-        {
-            if (!EntityManager.TryGetComponent(component.Owner, out ApcPowerReceiverComponent? receiver))
-            {
-                return;
-            }
-
-            receiver.PowerDisabled = !receiver.PowerDisabled;
-            UpdateInterface(component, receiver.Powered);
         }
         #endregion
 
@@ -288,7 +274,7 @@ namespace Content.Server.Disposal.Unit.EntitySystems
                 _robustRandom.NextDouble() > 0.75 ||
                 !component.Container.Insert(args.Thrown))
             {
-                _popupSystem.PopupEntity(Loc.GetString("disposal-unit-thrown-missed"), uid, Filter.Pvs(uid));
+                _popupSystem.PopupEntity(Loc.GetString("disposal-unit-thrown-missed"), uid);
                 return;
             }
 
@@ -462,7 +448,7 @@ namespace Content.Server.Disposal.Unit.EntitySystems
 
             if (userId.HasValue && !HasComp<SharedHandsComponent>(userId) && toInsertId != userId) // Mobs like mouse can Jump inside even with no hands
             {
-                _popupSystem.PopupEntity(Loc.GetString("disposal-unit-no-hands"), userId.Value, Filter.Entities(userId.Value), PopupType.SmallCaution);
+                _popupSystem.PopupEntity(Loc.GetString("disposal-unit-no-hands"), userId.Value, userId.Value, PopupType.SmallCaution);
                 return false;
             }
 

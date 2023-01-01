@@ -4,7 +4,7 @@
   playTimeTracker: JobBartender
   startingGear: BartenderGear
   icon: "Bartender"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-css
   access:
   - Service
   - Bar

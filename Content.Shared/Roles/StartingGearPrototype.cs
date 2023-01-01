@@ -43,6 +43,20 @@ namespace Content.Shared.Roles
                     return _satchel;
                 if (slot == "back" && profile.Backpack == BackpackPreference.Duffelbag && !string.IsNullOrEmpty(_duffelbag))
                     return _duffelbag;
+
+                // Trait things, very low priority (for now)
+                if (slot == "eyes")
+                {
+                    // Awful solution, do something shorter if possible :)
+                    var booleanthing = false;
+
+                    foreach (var trait in profile.TraitPreferences)
+                    {
+                        if (trait == "Nearsighted") booleanthing = true;
+                    }
+
+                    if (booleanthing == true) return "ClothingEyesGlasses";
+                }
             }
 
             return _equipment.TryGetValue(slot, out var equipment) ? equipment : string.Empty;

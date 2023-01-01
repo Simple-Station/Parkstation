@@ -8,7 +8,7 @@
     - type: Monochromacy
 
 - type: trait
-  id: BlindnessNearsighted
+  id: Nearsighted
   name: Nearsighted
   description: Your eyes have permanent damage, you are only able to see nearby you unless wearing glasses.
   cost: 5
@@ -29,7 +29,7 @@
         solutionName: chemicals
         reagent: Fakethanol
         unitsPerUpdate: 0.1
-        accumulatorTime: 1
+        accumulatorTime: 2
 
 - type: trait
   id: FakeMime

@@ -8,13 +8,13 @@ namespace Content.Shared.Abilities
     public sealed class NearsightedComponent : Component
     {
         [DataField("radius"), ViewVariables(VVAccess.ReadWrite)]
-        public float Radius = 0.85f;
+        public float Radius = 0.8f;
 
         [DataField("alpha"), ViewVariables(VVAccess.ReadWrite)]
         public float Alpha = 0.995f;
 
         [DataField("gradius"), ViewVariables(VVAccess.ReadWrite)]
-        public float gRadius = 0.6f;
+        public float gRadius = 0.45f;
 
         [DataField("galpha"), ViewVariables(VVAccess.ReadWrite)]
         public float gAlpha = 0.93f;

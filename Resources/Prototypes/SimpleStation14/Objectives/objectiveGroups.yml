@@ -2,6 +2,11 @@
 - type: weightedRandom
   id: MinorantagObjectiveGroup
   weights:
+    MinorantagObjectiveGroupTheft: 1
+
+- type: weightedRandom
+  id: MinorantagObjectiveGroupTheft
+  weights:
     MinorPickpocketObjective: 1
 
 # Wizard

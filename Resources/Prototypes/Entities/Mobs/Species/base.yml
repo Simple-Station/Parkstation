@@ -5,95 +5,99 @@
   id: BaseMobOrganic
   noSpawn: true
   components:
-    - type: LagCompensation
-    - type: RangedDamageSound
-      soundGroups:
-        Brute:
-          collection: MeatBulletImpact
-      soundTypes:
-        Heat:
-          collection: MeatLaserImpact
-    - type: Tag
-      tags:
-        - CanPilot
-        - FootstepSound
-        - DoorBumpOpener
-    - type: Reactive
-      groups:
-        Flammable: [Touch]
-        Extinguish: [Touch]
-        Acidic: [Touch, Ingestion]
-      reactions:
-        - reagents: [Water, SpaceCleaner]
-          methods: [Touch]
-          effects:
-            - !type:WashCreamPieReaction
-    - type: Flashable
-    - type: Polymorphable
-    - type: Identity
-    - type: Hands
-    - type: MovementSpeedModifier
-    - type: MovedByPressure
-    - type: Barotrauma
-      damage:
-        types:
-          Blunt: 0.15 #per second, scales with pressure and other constants.
-    - type: DamageOnHighSpeedImpact
-      damage:
-        types:
-          Blunt: 5
-      soundHit:
-        path: /Audio/Effects/hit_kick.ogg
-    # Organs
-    - type: InjectableSolution
-      solution: chemicals
-    - type: IdExaminable
-    - type: HealthExaminable
-      examinableTypes:
-        - Blunt
-        - Slash
-        - Piercing
-        - Heat
-        - Shock
-    - type: Bloodstream
-      bloodlossDamage:
-        types:
-          Bloodloss: 1
-      bloodlossHealDamage:
-        types:
-          Bloodloss: -0.25
-    - type: Stamina
-    - type: StatusEffects
-      allowed:
-        - Stun
-        - KnockedDown
-        - SlowedDown
-        - Stutter
-        - SeeingRainbows
-        - Electrocution
-        - Drunk
-        - SlurredSpeech
-        - PressureImmunity
-        - Muted
-        - ForcedSleep
-        - TemporaryBlindness
-        - Pacified
-        - PsionicsDisabled
-        - PsionicallyInsulated
-    - type: DiseaseCarrier
-    - type: Blindable
-    # Other
-    - type: Inventory
-    - type: Clickable
-    - type: InteractionOutline
-    - type: Icon
-      sprite: Mobs/Species/Human/parts.rsi
-      state: full
-    - type: Sprite
-      netsync: false
-      noRot: true
-      drawdepth: Mobs
-      layers:
+  - type: LagCompensation
+  - type: RangedDamageSound
+    soundGroups:
+      Brute:
+        collection:
+          MeatBulletImpact
+    soundTypes:
+      Heat:
+        collection:
+          MeatLaserImpact
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+      Acidic: [Touch, Ingestion]
+    reactions:
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashCreamPieReaction
+  - type: Flashable
+  - type: Polymorphable
+  - type: Identity
+  - type: Hands
+  - type: MovementSpeedModifier
+  - type: MovedByPressure
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.15 #per second, scales with pressure and other constants.
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+  # Organs
+  - type: InjectableSolution
+    solution: chemicals
+  - type: IdExaminable
+  - type: HealthExaminable
+    examinableTypes:
+      - Blunt
+      - Slash
+      - Piercing
+      - Heat
+      - Shock
+  - type: Bloodstream
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          1
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+  - type: Stamina
+  - type: StatusEffects
+    allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - SeeingRainbows
+      - Electrocution
+      - Drunk
+      - SlurredSpeech
+      - PressureImmunity
+      - Muted
+      - ForcedSleep
+      - TemporaryBlindness
+      - Pacified
+      - PsionicsDisabled
+      - PsionicallyInsulated
+  - type: DiseaseCarrier
+  - type: Blindable
+  # Other
+  - type: Inventory
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Icon
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+    layers:
         - map: ["enum.HumanoidVisualLayers.Chest"]
         - map: ["enum.HumanoidVisualLayers.Head"]
         - map: ["enum.HumanoidVisualLayers.Snout"]
@@ -114,12 +118,12 @@
           visible: false
         - map: ["underpants"]
         - map: ["undershirt"]
-        - map: ["enum.HumanoidVisualLayers.LHand"]
-        - map: ["enum.HumanoidVisualLayers.RHand"]
         - map: ["enum.HumanoidVisualLayers.LFoot"]
         - map: ["enum.HumanoidVisualLayers.RFoot"]
         - map: ["socks"]
         - map: ["jumpsuit"]
+        - map: ["enum.HumanoidVisualLayers.LHand"]
+        - map: ["enum.HumanoidVisualLayers.RHand"]
         - map: ["enum.HumanoidVisualLayers.Handcuffs"]
           color: "#ffffff"
           sprite: Objects/Misc/handcuffs.rsi
@@ -144,148 +148,150 @@
         - map: ["head"]
         - map: ["pocket1"]
         - map: ["pocket2"]
-    - type: Physics
-      bodyType: KinematicController
-    - type: Fixtures
-      fixtures: # TODO: This needs a second fixture just for mob collisions.
-        - shape: !type:PhysShapeCircle
-            radius: 0.35
-          density: 185
-          restitution: 0.0
-          mask:
-            - MobMask
-          layer:
-            - MobLayer
-    - type: AtmosExposed
-    - type: Flammable
-      fireSpread: true
-      canResistFire: true
-      damage:
-        types:
-          Heat: 1 #per second, scales with number of fire 'stacks'
-    - type: Temperature
-      heatDamageThreshold: 360
-      coldDamageThreshold: 260
-      currentTemperature: 310.15
-      specificHeat: 42
-      coldDamage:
-        types:
-          Cold: 0.1 #per second, scales with temperature & other constants
-      heatDamage:
-        types:
-          Heat: 0.1 #per second, scales with temperature & other constants
-    - type: Humanoid
-      species: Human
-    - type: Body
-      prototype: Human
-    - type: Damageable
-      damageContainer: Biological
-    - type: RadiationReceiver
-    - type: ThermalRegulator
-      metabolismHeat: 800
-      radiatedHeat: 100
-      implicitHeatRegulation: 500
-      sweatHeatRegulation: 2000
-      shiveringHeatRegulation: 2000
-      normalBodyTemperature: 310.15
-      thermalRegulationTemperatureThreshold: 25
-    - type: Internals
-    - type: MobState
-      thresholds:
-        0: Alive
-        100: Critical
-        200: Dead
-    - type: Destructible
-      thresholds:
-        - trigger: !type:DamageTypeTrigger
-            damageType: Blunt
-            damage: 400
-          behaviors:
-            - !type:GibBehavior {}
-    - type: SlowOnDamage
-      speedModifierThresholds:
-        60: 0.8
-        80: 0.6
-    - type: HeatResistance
-    - type: DamageVisuals
-      thresholds: [20, 40, 100]
-      targetLayers:
-        - "enum.HumanoidVisualLayers.Chest"
-        - "enum.HumanoidVisualLayers.Head"
-        - "enum.HumanoidVisualLayers.LArm"
-        - "enum.HumanoidVisualLayers.LLeg"
-        - "enum.HumanoidVisualLayers.RArm"
-        - "enum.HumanoidVisualLayers.RLeg"
-      damageOverlayGroups:
-        Brute:
-          sprite: Mobs/Effects/brute_damage.rsi
-          color: "#FF0000"
-        Burn:
-          sprite: Mobs/Effects/burn_damage.rsi
-    - type: Appearance
-      visuals:
-        - type: RotationVisualizer
-        - type: BuckleVisualizer
-        - type: CreamPiedVisualizer
-          state: creampie_human
-    - type: FireVisuals
-      sprite: Mobs/Effects/onfire.rsi
-      normalState: Generic_mob_burning
-      alternateState: Standing
-      fireStackAlternateState: 3
-    - type: CombatMode
-      canDisarm: true
-    - type: Climbing
-    - type: Cuffable
-    - type: Ensnareable
-      sprite: Objects/Misc/ensnare.rsi
-      state: icon
-    - type: AnimationPlayer
-    - type: Buckle
-    - type: MeleeWeapon
-      hidden: true
-      soundHit:
-        collection: Punch
-      angle: 30
-      animation: WeaponArcFist
-      attackRate: 1
-      damage:
-        types:
-          Blunt: 5
-    - type: Pullable
-    - type: DoAfter
-    - type: CreamPied
-    - type: Stripping
-    - type: Strippable
-    - type: UserInterface
-      interfaces:
-        - key: enum.VoiceMaskUIKey.Key
-          type: VoiceMaskBoundUserInterface
-        - key: enum.HumanoidMarkingModifierKey.Key
-          type: HumanoidMarkingModifierBoundUserInterface
-        - key: enum.StrippingUiKey.Key
-          type: StrippableBoundUserInterface
-    - type: Puller
-    - type: Butcherable
-      butcheringType: Spike # TODO human.
-      spawned:
-        - id: FoodMeat
-          amount: 5
-    #  - type: Recyclable Turns out turning off recycler safeties without considering the instagib is a bad idea
-    #    safe: false
-    - type: Speech
-      speechSounds: Tenor
-    - type: Vocal
-    - type: Emoting
-    - type: Grammar
-      attributes:
-        proper: true
-    - type: StandingState
-    - type: Fingerprint
-    - type: MobPrice
-      price: 1500 # Kidnapping a living person and selling them for cred is a good move.
-      deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
-    - type: CanEscapeInventory
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      - shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 185
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: AtmosExposed
+  - type: Flammable
+    fireSpread: true
+    canResistFire: true
+    damage:
+      types:
+        Heat: 1 #per second, scales with number of fire 'stacks'
+  - type: Temperature
+    heatDamageThreshold: 360
+    coldDamageThreshold: 260
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 0.1 #per second, scales with temperature & other constants
+  - type: Humanoid
+    species: Human
+  - type: Body
+    prototype: Human
+    requiredLegs: 2
+  - type: Damageable
+    damageContainer: Biological
+  - type: RadiationReceiver
+  - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 2000
+    shiveringHeatRegulation: 2000
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 25
+  - type: Internals
+  - type: MobState
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Blunt
+          damage: 400
+        behaviors:
+          - !type:GibBehavior { }
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.8
+      80: 0.6
+  - type: HeatResistance
+  - type: DamageVisuals
+    thresholds: [ 20, 40, 100 ]
+    targetLayers:
+      - "enum.HumanoidVisualLayers.Chest"
+      - "enum.HumanoidVisualLayers.Head"
+      - "enum.HumanoidVisualLayers.LArm"
+      - "enum.HumanoidVisualLayers.LLeg"
+      - "enum.HumanoidVisualLayers.RArm"
+      - "enum.HumanoidVisualLayers.RLeg"
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#FF0000"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: Appearance
+    visuals:
+      - type: CreamPiedVisualizer
+        state: creampie_human
+  - type: RotationVisuals
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
+    alternateState: Standing
+    fireStackAlternateState: 3
+  - type: CombatMode
+    canDisarm: true
+  - type: Climbing
+  - type: Cuffable
+  - type: Ensnareable
+    sprite: Objects/Misc/ensnare.rsi
+    state: icon
+  - type: AnimationPlayer
+  - type: Buckle
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcFist
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+  - type: Pullable
+  - type: DoAfter
+  - type: CreamPied
+  - type: Stripping
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      - key: enum.VoiceMaskUIKey.Key
+        type: VoiceMaskBoundUserInterface
+      - key: enum.HumanoidMarkingModifierKey.Key
+        type: HumanoidMarkingModifierBoundUserInterface
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
+  - type: Puller
+  - type: Butcherable
+    butcheringType: Spike # TODO human.
+    spawned:
+      - id: FoodMeat
+        amount: 5
+  #  - type: Recyclable Turns out turning off recycler safeties without considering the instagib is a bad idea
+  #    safe: false
+  - type: Speech
+    speechSounds: Tenor
+  - type: Vocal
+  - type: Emoting
+  - type: Grammar
+    attributes:
+      proper: true
+  - type: StandingState
+  - type: Fingerprint
+  - type: MobPrice
+    price: 1500 # Kidnapping a living person and selling them for cred is a good move.
+    deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
+  - type: CanEscapeInventory
 
 - type: entity
   save: false
@@ -315,7 +321,9 @@
         - map: ["enum.HumanoidVisualLayers.RLeg"]
         - map: ["enum.HumanoidVisualLayers.LLeg"]
         - shader: StencilClear
-          sprite: Mobs/Species/Human/parts.rsi
+          sprite: Mobs/Species/Human/parts.rsi #PJB on stencil clear being on the left leg: "...this is 'fine'" -https://github.com/space-wizards/space-station-14/pull/12217#issuecomment-1291677115
+          # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
+          # sprite refactor when
           state: l_leg
         - shader: StencilMask
           map: ["enum.HumanoidVisualLayers.StencilMask"]
@@ -343,13 +351,13 @@
         - map: ["eyes"]
         - map: ["belt"]
         - map: ["neck"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]
+        - map: ["enum.HumanoidVisualLayers.Wings"]
         - map: ["back"]
         - map: ["enum.HumanoidVisualLayers.FacialHair"]
         - map: ["enum.HumanoidVisualLayers.Hair"]
         - map: ["enum.HumanoidVisualLayers.HeadSide"]
         - map: ["enum.HumanoidVisualLayers.HeadTop"]
-        - map: ["enum.HumanoidVisualLayers.Tail"]
-        - map: ["enum.HumanoidVisualLayers.Wings"]
         - map: ["mask"]
         - map: ["head"]
         - map: ["pocket1"]
@@ -358,18 +366,21 @@
       bodyType: Dynamic
     - type: Fixtures
       fixtures:
-        - shape: !type:PhysShapeAabb
-            bounds: "-0.35,-0.35,0.35,0.35"
-          density: 185
-          restitution: 0.0
-          mask:
-            - MobMask
-          layer:
-            - MobLayer
+      - shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 185
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
     - type: Humanoid
       species: Human
     - type: Body
       prototype: Human
+      requiredLegs: 2
+    - type: Appearance
     - type: Damageable
       damageContainer: Biological
     - type: MobState
@@ -377,9 +388,6 @@
         0: Alive
         100: Critical
         200: Dead
-    - type: Appearance
-      visuals:
-        - type: RotationVisualizer
     - type: UserInterface
       interfaces:
         - key: enum.HumanoidMarkingModifierKey.Key # sure, this can go here too

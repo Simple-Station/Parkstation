@@ -116,8 +116,12 @@ namespace Content.Server.Ghost
                 eye.VisibilityMask |= (uint) VisibilityFlags.Ghost;
             }
 
-            component.TimeOfDeath = _gameTiming.RealTime;
+            var time = _gameTiming.CurTime;
+            component.TimeOfDeath = time;
 
+            // TODO ghost: remove once ghosts are persistent and aren't deleted when returning to body
+            if (component.Action.UseDelay != null)
+                component.Action.Cooldown = (time, time + component.Action.UseDelay.Value);
             _actions.AddAction(uid, component.Action, null);
         }
 
@@ -156,12 +160,12 @@ namespace Content.Server.Ghost
 
         private void OnMindRemovedMessage(EntityUid uid, GhostComponent component, MindRemovedMessage args)
         {
-            DeleteEntity(uid);
+            // DeleteEntity(uid);
         }
 
         private void OnMindUnvisitedMessage(EntityUid uid, GhostComponent component, MindUnvisitedMessage args)
         {
-            DeleteEntity(uid);
+            // DeleteEntity(uid);
         }
 
         private void OnPlayerDetached(EntityUid uid, GhostComponent component, PlayerDetachedEvent args)

@@ -28,7 +28,6 @@ namespace Content.Server.Chemistry.AutoRegenReagent
 
         private void AddSwitchVerb(EntityUid uid, AutoRegenReagentComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
-            if (component.Reagents.Count <= 1) return;
             if (!args.CanInteract || !args.CanAccess)
                 return;
 
@@ -60,7 +59,7 @@ namespace Content.Server.Chemistry.AutoRegenReagent
 
             component.CurrentReagent = component.Reagents[component.CurrentIndex];
 
-            _popups.PopupEntity(Loc.GetString("autoregen-switched", ("reagent", component.CurrentReagent)), user, Filter.Entities(user));
+            _popups.PopupEntity(Loc.GetString("autoregen-switched", ("reagent", component.CurrentReagent)), user, user);
 
             return component.CurrentReagent;
         }

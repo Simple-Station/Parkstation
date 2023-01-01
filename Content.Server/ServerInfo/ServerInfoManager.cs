@@ -38,8 +38,7 @@ public sealed class ServerInfoManager
             if (string.IsNullOrEmpty(url))
                 continue;
 
-            // TODO: uhh broken for some reason
-            // _statusHost.AddLink(json, _loc.GetString(name), url, icon);
+            StatusHostHelpers.AddLink(json, _loc.GetString(name), url, icon);
         }
     }
 }

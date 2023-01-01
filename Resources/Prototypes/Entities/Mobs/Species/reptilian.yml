@@ -14,6 +14,7 @@
     state: full
   - type: Body
     prototype: Reptilian
+    requiredLegs: 2
   - type: LizardAccent
   - type: Speech
     speechSounds: Lizard
@@ -57,5 +58,8 @@
   components:
   - type: Humanoid
     species: Reptilian
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5
+    baseSprintSpeed : 3.2
 
 #Weh

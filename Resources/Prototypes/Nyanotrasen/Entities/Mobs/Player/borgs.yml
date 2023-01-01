@@ -15,8 +15,8 @@
       visible: false
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4
-    baseSprintSpeed : 2.5
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4
   - type: Puller
     needsHands: false
   - type: Speech
@@ -148,6 +148,8 @@
         enum.ToggleVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
+  - type: TypingIndicator
+    proto: robot
 - type: entity
   parent: PlayerCyborgBase
   id: PlayerCyborgStandard
@@ -200,6 +202,9 @@
         name: TrashBag
         startingItem: TrashBag
         locked: true
+  - type: Faction
+    factions:
+    - NanoTrasen
 
 - type: entity
   parent: PlayerCyborgBase

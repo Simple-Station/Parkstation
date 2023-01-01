@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltService
+  name: service over-ear headset
+  components:
+  - type: Headset
+    channels:
+    - Command
+    - Common
+    - Service
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/service.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/service.rsi

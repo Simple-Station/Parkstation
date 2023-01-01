@@ -4,8 +4,6 @@ using Content.Server.Database;
 using Content.Server.Chat.Managers;
 using Content.Server.Objectives.Interfaces;
 using Content.Server.Players;
-using Content.Server.Roles;
-using Content.Server.Traitor;
 using Content.Server.Traitor.Uplink;
 using Content.Server.SimpleStation14.Wizard;
 using Content.Server.MobState;
@@ -35,8 +33,6 @@ public sealed class WizardRuleSystem : GameRuleSystem
     [Dependency] private readonly IServerDbManager _db = default!;
 
 
-
-
     public override string Prototype => "Wizard";
 
     private readonly SoundSpecifier _addedSound = new SoundPathSpecifier("/Audio/Misc/tatoralert.ogg");
@@ -48,8 +44,8 @@ public sealed class WizardRuleSystem : GameRuleSystem
     public int TotalWizards => Wizards.Count;
     public string[] Codewords = new string[3];
 
-    private int _playersPerWizard => _cfg.GetCVar(CCVars.TraitorPlayersPerTraitor);
-    private int _maxWizards => _cfg.GetCVar(CCVars.TraitorMaxTraitors);
+    private int _playersPerWizard => _cfg.GetCVar(CCVars.WizardPlayersPerWizard);
+    private int _maxWizards => _cfg.GetCVar(CCVars.WizardMaxWizards);
 
     public override void Initialize()
     {
@@ -71,10 +67,9 @@ public sealed class WizardRuleSystem : GameRuleSystem
     private void OnStartAttempt(RoundStartAttemptEvent ev)
     {
         MakeCodewords();
-        if (!RuleAdded)
-            return;
+        if (!RuleAdded) return;
 
-        var minPlayers = _cfg.GetCVar(CCVars.TraitorMinPlayers);
+        var minPlayers = _cfg.GetCVar(CCVars.WizardMinPlayers);
         if (!ev.Forced && ev.Players.Length < minPlayers)
         {
             _chatManager.DispatchServerAnnouncement(Loc.GetString("wizard-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
@@ -93,7 +88,7 @@ public sealed class WizardRuleSystem : GameRuleSystem
     private void MakeCodewords()
     {
 
-        var codewordCount = _cfg.GetCVar(CCVars.TraitorCodewordCount);
+        var codewordCount = _cfg.GetCVar(CCVars.WizardCodewordCount);
         var adjectives = _prototypeManager.Index<DatasetPrototype>("adjectives").Values;
         var verbs = _prototypeManager.Index<DatasetPrototype>("verbs").Values;
         var codewordPool = adjectives.Concat(verbs).ToList();
@@ -111,7 +106,7 @@ public sealed class WizardRuleSystem : GameRuleSystem
             return;
 
         var numWizards = MathHelper.Clamp(ev.Players.Length / _playersPerWizard, 1, _maxWizards);
-        var codewordCount = _cfg.GetCVar(CCVars.TraitorCodewordCount);
+        var codewordCount = _cfg.GetCVar(CCVars.WizardCodewordCount);
 
         var wizardPool = FindPotentialWizards(ev);
         var selectedWizards = PickWizards(numWizards, wizardPool);
@@ -172,23 +167,31 @@ public sealed class WizardRuleSystem : GameRuleSystem
         var mind = wizard.Data.ContentData()?.Mind;
         if (mind == null)
         {
-            Logger.ErrorS("preset", "Failed getting mind for picked wizard.");
+            Logger.ErrorS("preset", $"Failed getting mind for {wizard.ConnectedClient.UserName}.");
             return;
         }
 
         if (!await _db.GetWhitelistStatusAsync(wizard.UserId))
+        {
+            Logger.ErrorS("preset", $"{wizard.ConnectedClient.UserName} is not whitelisted, preventing their selection.");
             return;
+        }
 
         // creadth: we need to create uplink for the antag.
         // PDA should be in place already
         DebugTools.AssertNotNull(mind.OwnedEntity);
 
-        var startingBalance = _cfg.GetCVar(CCVars.TraitorStartingBalance);
+        if (mind.AllRoles.Count() > 1)
+        {
+            Logger.InfoS("preset", $"{wizard.ConnectedClient.UserName} is already another antagonist.");
+            return;
+        }
+
+        var startingBalance = _cfg.GetCVar(CCVars.WizardStartingBalance);
 
         if (mind.CurrentJob != null) startingBalance = Math.Max(startingBalance - mind.CurrentJob.Prototype.AntagAdvantage, 0);
 
-        if (!_uplink.AddUplink(mind.OwnedEntity!.Value, startingBalance, WizardUplinkPresetId))
-            return;
+        if (!_uplink.AddUplink(mind.OwnedEntity!.Value, startingBalance, WizardUplinkPresetId)) return;
 
         var antagPrototype = _prototypeManager.Index<AntagPrototype>(WizardPrototypeID);
         var wizardRole = new WizardRole(mind, antagPrototype);
@@ -196,8 +199,8 @@ public sealed class WizardRuleSystem : GameRuleSystem
         Wizards.Add(wizardRole);
         wizardRole.GreetWizard(Codewords);
 
-        var maxDifficulty = _cfg.GetCVar(CCVars.TraitorMaxDifficulty);
-        var maxPicks = _cfg.GetCVar(CCVars.TraitorMaxPicks);
+        var maxDifficulty = _cfg.GetCVar(CCVars.WizardMaxDifficulty);
+        var maxPicks = _cfg.GetCVar(CCVars.WizardMaxPicks);
 
         //give wizards their objectives
         var difficulty = 0f;

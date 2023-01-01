@@ -6,6 +6,7 @@
   showInVote: false # secret
   description: survival-description
   rules:
+    - Minor
     - RampingStationEventScheduler
 
 - type: gamePreset
@@ -17,6 +18,7 @@
   showInVote: true
   description: extended-description
   rules:
+  - Minor
   - BasicStationEventScheduler
 
 - type: gamePreset
@@ -49,6 +51,7 @@
   showInVote: false
   rules:
     - Traitor
+    - Minor
     - BasicStationEventScheduler
 
 - type: gamePreset
@@ -94,6 +97,7 @@
   showInVote: false
   rules:
     - Nukeops
+    - Minor
     - BasicStationEventScheduler
 
 - type: gamePreset
@@ -109,6 +113,7 @@
   showInVote: false
   rules:
     - Zombie
+    - Minor
     - BasicStationEventScheduler
 
 - type: gamePreset
@@ -120,6 +125,7 @@
   showInVote: false
   rules:
     - Pirates
+    - Minor
     - BasicStationEventScheduler
 
 # - type: gamePreset
@@ -133,21 +139,22 @@
 
 - type: gamePreset
   id: Wizard
-  name: Wizard
+  name: wizard-name
   alias:
     - wizard
-  description: A Wizard is hiding among the station crew, find them and deal with them before they become too powerful.
+  description: wizard-description
   showInVote: false
   rules:
     - Wizard
+    - Minor
     - BasicStationEventScheduler
 
 - type: gamePreset
   id: Minor
-  name: Minor (TEST)
+  name: minor-title
   alias:
     - minor
-  description: ADD MINOR TO OTHER GAMMEODES AAAA
+  description: minor-description
   showInVote: false
   rules:
     - Minor

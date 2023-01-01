@@ -160,15 +160,18 @@
     dynamicRecipes:
       - LightTube
       - LightBulb
-      - SheetSteel #these sheet recipe costs don't scale with upgrades
+      - SheetSteel
+      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetGlass1
       - SheetRGlass
-      - SheetPlastic
+      - SheetGlass1
+      - BluespaceCrystal
       - CableStack
       - CableMVStack
       - CableHVStack
+      - PowerDrill
+      - MiningDrill
       - ConveyorBeltAssembly
       - AppraisalTool
       - RCDAmmo
@@ -189,8 +192,6 @@
       - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
-      - ChemicalMedipen
-      - MagicMedipen
       - Flash
       - MicroManipulatorStockPart
       - ScanningModuleStockPart
@@ -202,6 +203,7 @@
       - APCElectronics
       - AirAlarmElectronics
       - FireAlarmElectronics
+      - IntercomElectronics
       - MailingUnitElectronics
       - Bucket
       - MopItem
@@ -246,6 +248,7 @@
       - AirAlarmElectronics
       - FireAlarmElectronics
       - MailingUnitElectronics
+      - IntercomElectronics
       - SMESMachineCircuitboard
       - SubstationMachineCircuitboard
       - ThermomachineFreezerMachineCircuitBoard
@@ -272,6 +275,7 @@
       - ProtolatheMachineCircuitboard
       - ReagentGrinderMachineCircuitboard
       - MicrowaveMachineCircuitboard
+      - DeepFryerMachineCircuitboard
       - UniformPrinterMachineCircuitboard
       - ShuttleConsoleCircuitboard
       - RadarConsoleCircuitboard
@@ -286,6 +290,8 @@
       - WallmountGeneratorAPUElectronics
       - WallmountSubstationElectronics
       - EmitterCircuitboard
+      - ThrusterMachineCircuitboard
+      - GyroscopeMachineCircuitboard
       - GasRecyclerMachineCircuitboard
       - SeedExtractorMachineCircuitboard
       - AnalysisComputerCircuitboard
@@ -392,11 +398,12 @@
       - LightTube
       - LightBulb
       - SheetSteel
+      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetGlass1
       - SheetRGlass
-      - SheetPlastic
+      - SheetGlass1
+      - BluespaceCrystal
       - CableStack
       - CableMVStack
       - CableHVStack
@@ -448,8 +455,6 @@
       - Beaker
       - LargeBeaker
       - CryostasisBeaker
-      - ChemicalMedipen
-      - MagicMedipen
       - Dropper
       - Syringe
       - Implanter
@@ -464,11 +469,12 @@
       - LightTube
       - LightBulb
       - SheetSteel
+      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetGlass1
       - SheetRGlass
-      - SheetPlastic
+      - SheetGlass1
+      - BluespaceCrystal
       - CableStack
       - CableMVStack
       - CableHVStack

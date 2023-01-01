@@ -3,6 +3,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -27,6 +28,7 @@ namespace Content.Server.Vampiric
         [Dependency] private readonly StomachSystem _stomachSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         public override void Initialize()
         {
@@ -98,7 +100,7 @@ namespace Content.Server.Vampiric
 
                 if (_inventorySystem.TryGetSlotEntity(victim, "head", out var headUid) && HasComp<PressureProtectionComponent>(headUid))
                 {
-                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-helmet", ("helmet", headUid)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-helmet", ("helmet", headUid)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
                     return;
                 }
 
@@ -106,7 +108,7 @@ namespace Content.Server.Vampiric
                     EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
                     blocker.Enabled)
                 {
-                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-mask", ("mask", maskUid)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-mask", ("mask", maskUid)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
                     return;
                 }
             }
@@ -116,23 +118,23 @@ namespace Content.Server.Vampiric
 
             if (stream.BloodReagent != "Blood")
             {
-                _popups.PopupEntity(Loc.GetString("bloodsucker-fail-not-blood", ("target", victim)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+                _popups.PopupEntity(Loc.GetString("bloodsucker-fail-not-blood", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
                 return;
             }
 
             if (stream.BloodSolution.CurrentVolume <= 1)
             {
                 if (HasComp<BloodSuckedComponent>(victim))
-                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood-bloodsucked", ("target", victim)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood-bloodsucked", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
                 else
-                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood", ("target", victim)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
 
                 return;
             }
 
 
-            _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start-victim", ("sucker", bloodsucker)), victim, Filter.Entities(victim), Shared.Popups.PopupType.LargeCaution);
-            _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start", ("target", victim)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+            _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start-victim", ("sucker", bloodsucker)), victim, victim, Shared.Popups.PopupType.LargeCaution);
+            _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
 
             bloodSuckerComponent.CancelToken = new System.Threading.CancellationTokenSource();
             _doAfter.DoAfter(new DoAfterEventArgs(bloodsucker, bloodSuckerComponent.SuccDelay, bloodSuckerComponent.CancelToken.Token, target: victim)
@@ -195,13 +197,16 @@ namespace Content.Server.Vampiric
 
             if (unitsToDrain <= 2)
             {
-                _popups.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough"), bloodsucker, Filter.Entities(bloodsucker), Shared.Popups.PopupType.MediumCaution);
+                _popups.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough"), bloodsucker, bloodsucker, Shared.Popups.PopupType.MediumCaution);
                 return;
             }
+
+            _adminLogger.Add(Shared.Database.LogType.MeleeHit, Shared.Database.LogImpact.Medium, $"{ToPrettyString(bloodsucker):player} sucked blood from {ToPrettyString(victim):target}");
+
             // All good, succ time.
             SoundSystem.Play("/Audio/Items/drink.ogg", Filter.Pvs(bloodsucker), bloodsucker);
-            _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked-victim", ("sucker", bloodsucker)), victim, Filter.Entities(victim), Shared.Popups.PopupType.LargeCaution);
-            _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked", ("target", victim)), bloodsucker, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+            _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked-victim", ("sucker", bloodsucker)), victim, victim, Shared.Popups.PopupType.LargeCaution);
+            _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked", ("target", victim)), bloodsucker, bloodsucker, Shared.Popups.PopupType.Medium);
             EnsureComp<BloodSuckedComponent>(victim);
 
             // Make everything actually ingest.

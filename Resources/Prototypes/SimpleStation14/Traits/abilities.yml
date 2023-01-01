@@ -1,13 +1,4 @@
 - type: trait
-  id: Religious
-  name: Religious
-  description: Allows you to use Bibles and Spellbooks.
-  cost: -3
-  category: Positive
-  components:
-    - type: ReligiousTrait
-
-- type: trait
   id: DragonsBlood
   name: Draconic Bloodstream
   description: You have some of the great Space Dragon's healing abilities, and have Ichor in your blood. (Will be rethemed)
@@ -22,7 +13,7 @@
         unitsPerUpdate: 0.02
         accumulatorTime: 1
 
-- type: trait # Probably fine for now, right? Arachne are disabled... Please don't enable them again..
+- type: trait
   id: Arachnid
   name: Arachnid
   description: Allows you to spin webs, like the Arachne.

@@ -33,6 +33,7 @@
     state: juicer0
     drawdepth: SmallObjects
     snapCardinals: true
+    offset: 0, 0.35
   - type: ApcPowerReceiver
     powerLoad: 300
   - type: UpgradePowerDraw

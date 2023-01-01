@@ -76,6 +76,6 @@ namespace Content.Server.Body.Components
         public string Id = default!;
 
         [DataField("rateModifier")]
-        public FixedPoint2 MetabolismRateModifier = 1;
+        public FixedPoint2 MetabolismRateModifier = 1.0;
     }
 }

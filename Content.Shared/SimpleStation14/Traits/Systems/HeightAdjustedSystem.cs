@@ -24,6 +24,6 @@ public sealed class HeightAdjustedSystem : EntitySystem
         EnsureComp<ScaleVisualsComponent>(uid);
         if (!_appearance.TryGetData(uid, ScaleVisuals.Scale, out var oldScale)) oldScale = Vector2.One;
 
-        _appearance.SetData(uid, ScaleVisuals.Scale, (Vector2)oldScale * new Vector2(1.0f, component.Height));
+        _appearance.SetData(uid, ScaleVisuals.Scale, (Vector2) oldScale * new Vector2(1.0f, component.Height));
     }
 }

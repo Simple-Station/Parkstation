@@ -10,6 +10,3 @@ trait-sneezing-name = Runny nose
 trait-sneezing-desc = You sneeze and cough uncontrollably
 
 permanent-blindness-trait-examined = [color=lightblue]{CAPITALIZE(POSS-ADJ($target))} eyes are glassy and unfocused. It doesn't seem like {SUBJECT($target)} can see you.[/color]
-
-permanent-nearsighted-trait-examined = [color=lightblue]{CAPITALIZE(POSS-ADJ($target))} eyes are pretty unfocused. It doesn't seem like {SUBJECT($target)} can see things that well.[/color]
-monochromatic-blindness-trait-examined = [color=lightblue]{CAPITALIZE(POSS-ADJ($target))} eyes are quite colorless. It doesn't seem like {SUBJECT($target)} can see things properly.[/color]

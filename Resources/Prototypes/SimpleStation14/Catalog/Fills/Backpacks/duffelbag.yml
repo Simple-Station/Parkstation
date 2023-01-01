@@ -6,13 +6,12 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterWizard
-      - id: ClothingHeadHatWizard
-      - id: ClothingHeadHatWizardFake
-      - id: ClothingOuterWizardViolet
-      - id: ClothingHeadHatVioletwizard
-      - id: ClothingOuterWizardRed
-      - id: ClothingHeadHatRedwizard
+      - id: ClothingOuterWizardReal
+      - id: ClothingHeadHatWizardReal
+      - id: ClothingOuterWizardVioletReal
+      - id: ClothingHeadHatVioletwizardReal
+      - id: ClothingOuterWizardRedReal
+      - id: ClothingHeadHatRedwizardReal
       - id: ClothingShoesWizard
       - id: BedsheetWiz
         amount: 3
