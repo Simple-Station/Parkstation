@@ -40,6 +40,7 @@
                         </CollapsibleBody>
                     </Collapsible>
 
+                    <!-- Example -->
                     <Collapsible Orientation="Vertical">
                         <CollapsibleHeading Title="Placeholder" />
                         <CollapsibleBody>
@@ -48,6 +49,7 @@
                             </BoxContainer>
                         </CollapsibleBody>
                     </Collapsible>
+                    <!-- Example -->
                 </BoxContainer>
                 <!--
                 This contains the buttons used for navigation.
