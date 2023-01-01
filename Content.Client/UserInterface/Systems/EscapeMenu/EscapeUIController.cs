@@ -1,5 +1,6 @@
 ﻿using Content.Client.Gameplay;
 using Content.Client.Info;
+using Content.Client.SimpleStation14.Documentation.UI;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Info;
 using Content.Shared.CCVar;
@@ -95,7 +96,10 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
 
         _escapeWindow.WikiButton.OnPressed += _ =>
         {
-            _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
+            CloseEscapeWindow();
+            var Docswindow = new DocsWindow();
+            Docswindow.Open();
+            // _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
         };
 
         _escapeWindow.DiscordButton.OnPressed += _ =>

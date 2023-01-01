@@ -1,4 +1,5 @@
 ﻿using Content.Client.Changelog;
+using Content.Client.SimpleStation14.Documentation.UI;
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Content.Shared.CCVar;
 using Robust.Client.UserInterface;
@@ -25,13 +26,13 @@ namespace Content.Client.Info
             var uriOpener = IoCManager.Resolve<IUriOpener>();
             _cfg = IoCManager.Resolve<IConfigurationManager>();
 
-            var rulesButton = new Button() {Text = Loc.GetString("server-info-rules-button")};
+            var rulesButton = new Button() { Text = Loc.GetString("server-info-rules-button") };
             rulesButton.OnPressed += args => new RulesAndInfoWindow().Open();
             buttons.AddChild(rulesButton);
 
             AddInfoButton("server-info-discord-button", CCVars.InfoLinksDiscord);
             AddInfoButton("server-info-website-button", CCVars.InfoLinksWebsite);
-            AddInfoButton("server-info-wiki-button", CCVars.InfoLinksWiki);
+            AddWikiButton("server-info-wiki-button");
             AddInfoButton("server-info-forum-button", CCVars.InfoLinksForum);
 
             var changelogButton = new ChangelogButton();
@@ -44,6 +45,16 @@ namespace Content.Client.Info
                 button.OnPressed += _ => uriOpener.OpenUri(_cfg.GetCVar(cVar));
                 buttons.AddChild(button);
                 _infoLinks.Add((cVar, button));
+            }
+            void AddWikiButton(string loc)
+            {
+                var button = new Button { Text = Loc.GetString(loc) };
+                button.OnPressed += _ =>
+                {
+                    var Docswindow = new DocsWindow();
+                    Docswindow.Open();
+                };
+                buttons.AddChild(button);
             }
         }
 
