@@ -3,6 +3,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface;
 using Content.Client.SimpleStation14.Documentation.UI;
+using Content.Client.SimpleStation14.Documentation.UI.Elements;
 
 namespace Content.Client.SimpleStation14.Documentation.UI.Pages
 {
@@ -10,10 +11,14 @@ namespace Content.Client.SimpleStation14.Documentation.UI.Pages
     public sealed partial class WikiPages : Control
     {
         public BoxContainer contents => Contents;
+        public BoxContainer PlaceHolderContents => PlaceholderContents;
 
-        // public WikiPages()
-        // {
-        //     RobustXamlLoader.Load(this);
-        // }
+        public WikiPages()
+        {
+            RobustXamlLoader.Load(this);
+
+            // PlaceHolderContents.AddChild(new FoodRecipeList());
+            // PlaceHolderContents.AddChild(new ReagentRecipeList());
+        }
     }
 }
