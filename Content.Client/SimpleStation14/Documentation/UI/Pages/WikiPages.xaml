@@ -121,6 +121,86 @@
                 </BoxContainer>
             </BoxContainer>
         </BoxContainer>
+
+        <BoxContainer Name="StandardOperatingProcedureContents" Orientation="Vertical">
+            <BoxContainer Orientation="Vertical">
+                <Label Text="Standard Operating Procedures" StyleClasses="LabelHeadingBigger" />
+                <Label Text="Note these are not laws, and the group vote of the Heads may alter them as they see fit." />
+                <Label Text="Make sure to read Alert Procedure." />
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical">
+                <BoxContainer Orientation="Vertical">
+                    <Label Text="High Security Areas" StyleClasses="LabelHeadingBigger" />
+                    <Label Text="What High Security Areas are, and who should access them." />
+                    <Label Text="- Nonlethal Armory: Any security officer or above." />
+                    <Label Text="- Lethal Armory: Any security officer or above, but only on a code red." />
+                    <Label Text="- Self Destruct Room/Vault: Bolted at all times unless Heads request access." />
+                    <Label Text="- AI Satellite: Only Chief Engineer, or CE and another Head." />
+                </BoxContainer>
+                <Label Text=" " />
+                <Label Text=" " />
+                <BoxContainer Orientation="Vertical">
+                    <Label Text="Medical Evalutaion" StyleClasses="LabelHeadingBigger" />
+                    <Label Text="Given good medical reason and with documentation, the Chief Medical Officer may declare any on-duty personnel unfit for duty and remove them from their position." />
+                    <Label Text="   This includes other Heads and Centcom personnel." />
+                    <Label Text="   This cannot be overruled by anyone." />
+                    <Label Text="In order for a medical evaluation to be considered correct, two heads, one of which must be the CMO, must agree that the specified crewmate is unfit for duty." />
+                    <Label Text="If they are unfit for duty the Head of Personnel may demote them to assistant." />
+                    <Label Text="   If demotion is resisted, Security is allowed to detain if necessary." />
+                </BoxContainer>
+                <Label Text=" " />
+                <Label Text=" " />
+                <BoxContainer Orientation="Vertical">
+                    <BoxContainer Orientation="Vertical">
+                        <Label Text="Controlled Substances/Items" StyleClasses="LabelHeadingBigger" />
+                        <Label Text="Controlled substances are any substance that have been restriced or made illegal under Space Law. The current list of controlled substances is as follows:" />
+                        <Label Text="- Space Drugs." />
+                        <Label Text="- Pure Lysergic Acid Diethylamide, (LSD) sometimes referred to as 'MindBreaker'." />
+                        <Label Text="- Pure Ephedrine, when not in the possession of the CMO or Security." />
+                        <Label Text="- Pure DesoxyEphedrine, commonly referred to as 'Meth'." />
+                        <Label Text="   Possession of DesoxyEphedrine will warrant an arrest for you and any known creator of the substance." />
+                        <Label Text="- Any explosive or pyrotechnic compound outside of the Science department testing area." />
+                        <Label Text="- Any lethal toxin or toxic substance/compound outside of Science or the Medical chemistry lab." />
+                        <Label Text="- Any Reagents made mainly by hostile corporations." />
+                        <Label Text="- Corpium." />
+                        <Label Text="   Necromancy or reviving dead crew, effectively turning them into Zombies, will get you executed." />
+                        <Label Text="- XenoBlood." />
+                        <Label Text="   Giving lethal Diseases to crew and polymorphing them will get you executed." />
+                        <Label Text="- Nocturine." />
+                    </BoxContainer>
+                    <Label Text=" " />
+                    <BoxContainer Orientation="Vertical">
+                        <Label Text="Controlled Items are items that have been restricted or made illegal under Space Law. The current list of controlled items is as follows:" />
+                        <Label Text="- Biological or Chemical Weaponry, such as neurotoxin grenades." />
+                        <Label Text="   Plasma gas is considered a chemical weapon when used offensively." />
+                        <Label Text="- Any cloning technology designed to rapidly grow an adult clone with fully-developed mental faculties." />
+                        <Label Text="- Military Explosives when not in use by Security or otherwise authorised entities. " />
+                        <Label Text="   Note that constructive explosives, such as any charges used for mining are not subject to this restriction." />
+                        <Label Text="   Plasma-based explosives are considered Military Weaponry." />
+                        <Label Text="- Automatic Weaponry when not in use by Security, another authorised department of Central Command, or an otherwise authorised entity." />
+                        <Label Text="   This means any weapon capable of firing multiple shots when the trigger is depressed once, energy or otherwise." />
+                        <Label Text="- Corporate Security forces are considered an 'authorized entity' with repsect to the above clauses." />
+                        <Label Text="- Weaponry in the possession of personnel who have not been authorised to possess it." />
+                        <Label Text="- Hacking Software or Hardware which allows a person to subvert access to ship systems, bypass access restrictions or attack a vessels computer network." />
+                        <Label Text="- Any hostile corporation technology." />
+                    </BoxContainer>
+                </BoxContainer>
+                <Label Text=" " />
+                <Label Text=" " />
+                <BoxContainer Orientation="Vertical">
+                    <Label Text="Research Operations" StyleClasses="LabelHeadingBigger" />
+                    <Label Text="Science employees are permitted to use their lab spaces as they see fit with the following exceptions:" />
+                    <Label Text="- Any human experimentation must be done with the full consent of the test subject, and must not have an undue risk of life." />
+                    <Label Text="   The HoS or RD may terminate any experiment for safety or ethical purposes at their discretion." />
+                    <Label Text="- Self-Experimentation is prohibited and is chargeable with endangerment." />
+                    <Label Text="- Testing of any explosives with risk of penetrating the hull or causing mass destruction must be done at an off-station site." />
+                    <Label Text="- Small arms and larger weapons must also be tested at an off-station site if there is risk to the hull." />
+                    <Label Text="- Distribution of experimental technology to research personnel for testing is permitted." />
+                    <Label Text="- Experimental technology may be provided to crew departments for testing and use with the approval of the department Head." />
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+
         <BoxContainer Name="AlertProcedureContents" Orientation="Vertical">
             <BoxContainer Orientation="Vertical">
                 <Label Text="Alert Procedure" StyleClasses="LabelHeadingBigger" />

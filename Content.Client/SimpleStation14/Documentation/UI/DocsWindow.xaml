@@ -34,11 +34,12 @@
                         <CollapsibleBody>
                             <BoxContainer Orientation="Vertical">
                                 <Button Text="Getting Started" Name="GettingStarted" MinWidth="25" />
+                                <Button Text="Standard Operating Procedure" Name="StandardOperatingProcedure" MinWidth="25" />
                                 <Button Text="Alert Procedure" Name="AlertProcedure" MinWidth="25" />
                             </BoxContainer>
                         </CollapsibleBody>
                     </Collapsible>
-                    
+
                     <Collapsible Orientation="Vertical">
                         <CollapsibleHeading Title="Placeholder" />
                         <CollapsibleBody>
