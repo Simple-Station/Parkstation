@@ -16,21 +16,34 @@ namespace Content.Client.SimpleStation14.Documentation.UI
 
             UICloseButton.OnPressed += _ => Close();
 
-            // Add SetPage function to all buttons.
-            foreach (var button in Categories.Children)
-            {
-                Button fakeButton = new();
-                if (button.GetType() != fakeButton.GetType()) continue;
-                Button buttn = (Button) button;
+            ChildLoop(Categories);
+        }
 
-                buttn.OnPressed += ev =>
+        private void ChildLoop(Control Parent)
+        {
+            Button fakeButton = new();
+            foreach (var item in Parent.Children)
+            {
+                if (item.GetType() != fakeButton.GetType())
                 {
-                    if (ev.Button != null)
-                    {
-                        SetPage(ev.Button);
-                    }
-                };
+                    ChildLoop(item);
+                    continue;
+                }
+                SetSetPage(item);
             }
+        }
+
+        private void SetSetPage(Control butto)
+        {
+            Button buttn = (Button) butto;
+
+            buttn.OnPressed += ev =>
+            {
+                if (ev.Button != null)
+                {
+                    SetPage(ev.Button);
+                }
+            };
         }
 
         public void SetPage(BaseButton page)

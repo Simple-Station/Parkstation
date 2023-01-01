@@ -17,6 +17,7 @@
         You can probably find examples somewhere in the humanoid editor, lots of this was taken from there.
     -->
     <BoxContainer Name="Contents">
+        <!-- Main Items -->
         <BoxContainer Name="GettingStartedContents" Orientation="Vertical">
             <BoxContainer>
                 <Label Text="Getting Started" StyleClasses="LabelHeadingBigger" />
@@ -25,6 +26,13 @@
                 <Label Text="Someone needs to make page contents." />
             </BoxContainer>
         </BoxContainer>
+        <!-- Main Items -->
+
+        <!-- Placeholder -->
+        <BoxContainer Name="PlaceholderContents">
+            <Label Text="Placeholder" />
+        </BoxContainer>
+        <!-- Placeholder -->
     </BoxContainer>
     <!--
     This contains all wiki page UI contents inside of nested BoxContainers.
