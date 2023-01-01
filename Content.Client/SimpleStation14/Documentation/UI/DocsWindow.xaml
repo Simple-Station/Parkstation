@@ -2,7 +2,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:parallax="clr-namespace:Content.Client.Parallax"
-    xmlns:style="clr-namespace:Content.Client.Stylesheets" MinWidth="800" MinHeight="600" Title="{Loc docs-menu-title}">
+    xmlns:style="clr-namespace:Content.Client.Stylesheets" MinWidth="1000" MinHeight="600" Title="{Loc docs-menu-title}">
 
     <PanelContainer Name="BackgroundPanel" />
     <BoxContainer Orientation="Vertical" SeparationOverride="0">
@@ -26,19 +26,18 @@
                 <!--
                 This contains the buttons used for navigation.
                 More detailed guidelines can be found in the WikiPages.xaml
-                Only put a Button here.
+                Only put a Button or dividing Label here.
                 -->
                 <BoxContainer Name="Categories" Orientation="Vertical">
-                    <!-- If you make actual content please remove these base items -->
-                    <Button Text="page 1" MinWidth="25" Name="one"/>
-                    <Button Text="2 page" MinWidth="25" Name="two"/>
-                    <Button Text="This doesnt lead to anywhere" MinWidth="25" Name="gibberish"/>
-                    <!-- If you make actual content please remove these base items -->
+                    <Label Text="Main Items (need better name)" />
+                    <Button Text="Getting Started" Name="GettingStarted" MinWidth="25" />
+                    <Button Text="Alert Procedure" Name="AlertProcedure" MinWidth="25" />
+                    <Label Text="Other" />
                 </BoxContainer>
                 <!--
                 This contains the buttons used for navigation.
                 More detailed guidelines can be found in the WikiPages.xaml
-                Only put a Button here.
+                Only put a Button or dividing Label here.
                 -->
             </ScrollContainer>
 
@@ -50,10 +49,10 @@
             </PanelContainer>
 
             <!-- Right -->
-            <ScrollContainer MinSize="300 0" Margin="5 5 0 0">
+            <ScrollContainer MinSize="300 0" HorizontalExpand="True" Margin="5 5 0 0">
                 <BoxContainer Name="Contens" Orientation="Vertical">
                     <!-- Placeholder, only shows when first opened -->
-                    <Label Text="Click a button on the left to view documentation."/>
+                    <Label Text="Click a button on the left to view documentation." StyleClasses="LabelHeadingBigger" />
                 </BoxContainer>
             </ScrollContainer>
         </BoxContainer>

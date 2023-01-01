@@ -3,16 +3,11 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client.SimpleStation14.Documentation.UI
 {
-    /// <summary>
-    /// Initializes a <see cref="DocsWindow"/> and updates it when new server messages are received.
-    /// </summary>
     public sealed class DocsWindowBoundUserInterface : BoundUserInterface
     {
         private DocsWindow? _window;
 
-        public DocsWindowBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey)
-        {
-        }
+        public DocsWindowBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey) { }
 
         protected override void Open()
         {

@@ -1,5 +1,8 @@
 <Control xmlns="https://spacestation14.io"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:parallax="clr-namespace:Content.Client.Parallax"
+    xmlns:style="clr-namespace:Content.Client.Stylesheets">
     <!--
     This contains all wiki page UI contents inside of nested BoxContainers.
     Each root-level BoxContainer inside of the "Contents" BoxContainer must be named something relating to their contents
@@ -14,16 +17,14 @@
         You can probably find examples somewhere in the humanoid editor, lots of this was taken from there.
     -->
     <BoxContainer Name="Contents">
-        <!-- If you make actual content please remove these base items -->
-        <BoxContainer Name="oneContents">
-            <Label Text="1"/>
-            <Label Text="11"/>
+        <BoxContainer Name="GettingStartedContents" Orientation="Vertical">
+            <BoxContainer>
+                <Label Text="Getting Started" StyleClasses="LabelHeadingBigger" />
+            </BoxContainer>
+            <BoxContainer>
+                <Label Text="Someone needs to make page contents." />
+            </BoxContainer>
         </BoxContainer>
-        <BoxContainer Name="twoContents">
-            <Label Text="2"/>
-            <Label Text="22"/>
-        </BoxContainer>
-        <!-- If you make actual content please remove these base items -->
     </BoxContainer>
     <!--
     This contains all wiki page UI contents inside of nested BoxContainers.

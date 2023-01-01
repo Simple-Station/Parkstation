@@ -17,18 +17,19 @@ namespace Content.Client.SimpleStation14.Documentation.UI
             UICloseButton.OnPressed += _ => Close();
 
             // Add SetPage function to all buttons.
-            foreach (Button? button in Categories.Children)
+            foreach (var button in Categories.Children)
             {
-                if (button != null)
+                Button fakeButton = new();
+                if (button.GetType() != fakeButton.GetType()) continue;
+                Button buttn = (Button) button;
+
+                buttn.OnPressed += ev =>
                 {
-                    button.OnPressed += ev =>
+                    if (ev.Button != null)
                     {
-                        if (ev.Button != null)
-                        {
-                            SetPage(ev.Button);
-                        }
-                    };
-                }
+                        SetPage(ev.Button);
+                    }
+                };
             }
         }
 
@@ -36,7 +37,7 @@ namespace Content.Client.SimpleStation14.Documentation.UI
         {
             // Clear page content
             Contens.RemoveAllChildren();
-            Contens.AddChild(new Label() { Text="Failed to fetch page content." });
+            Contens.AddChild(new Label() { Text = "Page content does not exist, or could not be found.\nIf page content does exist, make sure you named the button and content correctly.\nIf the page doesn't exist, consider making it!" });
 
             var Page = new WikiPages();
             var contents = Page.contents;
