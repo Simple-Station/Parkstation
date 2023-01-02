@@ -32,16 +32,19 @@
   id: MobSlimeMarkingLimits
   points:
     Hair:
-      points: 10
+      points: 1
       required: false
     FacialHair:
-      points: 10
+      points: 1
+      required: false
+    Chest:
+      points: 1
       required: false
     Legs:
-      points: 20
+      points: 4
       required: false
     Arms:
-      points: 40
+      points: 4
       required: false
 
 - type: humanoidBaseSprite

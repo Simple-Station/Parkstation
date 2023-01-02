@@ -12,23 +12,25 @@
   id: MobFelinidMarkingLimits
   points:
     Hair:
-      points: 10
+      points: 1
       required: false
     FacialHair:
-      points: 10
+      points: 1
       required: false
     Tail:
-      points: 10
-      required: false
+      points: 1
+      required: true
+      defaultMarkings: [ FelinidTailBasic ]
     HeadTop:
-      points: 10
-      required: false
+      points: 1
+      required: true
+      defaultMarkings: [ FelinidEarsBasic ]
     Chest:
-      points: 10
+      points: 1
       required: false
     Legs:
-      points: 20
+      points: 2
       required: false
     Arms:
-      points: 20
+      points: 2
       required: false

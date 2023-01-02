@@ -36,28 +36,33 @@
   id: MobReptilianMarkingLimits
   points:
     Hair:
-      points: 10
+      points: 0
       required: false
     FacialHair:
-      points: 10
+      points: 0
       required: false
     Wings:
-      points: 10
+      points: 1
       required: false
     Tail:
-      points: 10
-      required: false
+      points: 1
+      required: true
+      defaultMarkings: [ LizardTailSmooth ]
+    Snout:
+      points: 1
+      required: true
+      defaultMarkings: [ LizardSnoutRound ]
     HeadTop:
-      points: 10
+      points: 2
       required: false
     Chest:
-      points: 10
+      points: 3
       required: false
     Legs:
-      points: 20
+      points: 2
       required: false
     Arms:
-      points: 20
+      points: 2
       required: false
 
 - type: humanoidBaseSprite
