@@ -1,5 +1,7 @@
 - type: department
   id: Command
+  description: department-Command-description
+  color: "#334E6D"
   roles:
   - SAI
   - CentralCommandOfficial
@@ -18,6 +20,8 @@
 
 - type: department
   id: Service
+  description: department-Civilian-description
+  color: "#9FED58"
   roles:
   - Bartender
   - Botanist
@@ -42,15 +46,18 @@
 
 - type: department
   id: Engineering
+  description: department-Engineering-description
+  color: "#EFB341"
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
   - StationEngineer
-  - TechnicalAssistant
   - SalvageTechnician
 
 - type: department
   id: Medical
+  description: department-Medical-description
+  color: "#52B4E9"
   roles:
   - Chemist
   - ChiefMedicalOfficer
@@ -62,6 +69,8 @@
 
 - type: department
   id: Security
+  description: department-Security-description
+  color: "#DE3A3A"
   roles:
   - HeadOfSecurity
   - SecurityCadet
@@ -72,6 +81,8 @@
 
 - type: department
   id: Epistemics
+  description: department-Epistemics-description
+  color: "#D381C9"
   roles:
   - Mystagogue
   - ForensicMantis
@@ -81,6 +92,8 @@
 
 - type: department
   id: Silicon
+  description: department-Silicon-description
+  color: "#8D9AAC"
   roles:
   - SAI
   - Cyborg

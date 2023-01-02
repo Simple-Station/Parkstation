@@ -2019,3 +2019,21 @@ Entries:
     type: Tweak
   id: 234
   time: '2022-12-27T08:08:52.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Emergency shuttles will properly open their airlocks when they dock.
+    type: Fix
+  id: 235
+  time: '2022-12-30T18:48:30.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Removed the prisoner role from Angle.
+    type: Remove
+  id: 236
+  time: '2023-01-01T15:54:36.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Removed tiny fans from many airlocks in Angle.
+    type: Remove
+  id: 237
+  time: '2023-01-01T20:50:59.0000000+00:00'

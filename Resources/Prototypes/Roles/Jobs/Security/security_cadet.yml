@@ -2,6 +2,7 @@
   id: SecurityCadet
   name: "peace keeper"
   setPreference: true
+  description: job-description-cadet
   playTimeTracker: JobSecurityCadet
   requirements:
     - !type:OverallPlaytimeRequirement

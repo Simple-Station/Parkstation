@@ -36,7 +36,7 @@ namespace Content.Server.SimpleStation14.Speech.RandomBark
             "Grrrrrrrrrrrrrrrrrr",
             "Rarrwrarrwr",
             "Goddamn I love gold fish crackers",
-            "Bork bork boof boof bork bork boof boof boof bork"
+            "Bork bork boof boof bork bork boof boof boof bork",
             "Bark",
             "Boof",
             "Woofums",
