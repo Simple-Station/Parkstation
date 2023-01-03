@@ -739,3 +739,10 @@ Entries:
     - { message: 'Fix AI core being able to move while unanchored.', type: Fix }
   id: 66
   time: "2022-12-29T21:12:05.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Add Anti-Social trait.', type: Add }
+    - { message: 'Add Ageusia trait.', type: Add }
+    - { message: 'Add Voracious trait.', type: Add }
+  id: 67
+  time: "2023-01-02T23:21:04.0000000+00:00"

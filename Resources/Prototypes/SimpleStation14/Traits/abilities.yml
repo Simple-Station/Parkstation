@@ -21,3 +21,25 @@
   category: Positive
   components:
     - type: Arachne
+
+- type: trait
+  id: Voracious
+  name: Voracious
+  description: You are able to eat and drink more.
+  cost: -2
+  category: Positive
+  components:
+    - type: Hunger
+      thresholds:
+        OverFed: 350
+        Okay: 250
+        Peckish: 150
+        Starving: 75
+        Dead: 0
+    - type: Thirst
+      thresholds:
+        OverHydrated: 700
+        Okay: 475
+        Thirsty: 350
+        Parched: 175
+        Dead: 0
