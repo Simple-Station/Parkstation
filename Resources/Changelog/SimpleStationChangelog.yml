@@ -745,5 +745,6 @@ Entries:
     - { message: 'Add Ageusia trait.', type: Add }
     - { message: 'Add Voracious trait.', type: Add }
     - { message: 'Trait point system actually works.', type: Add }
+    - { message: 'Syringes and hyposprays cannot go through a hardsuit.', type: Tweak }
   id: 67
   time: "2023-01-02T23:21:04.0000000+00:00"
