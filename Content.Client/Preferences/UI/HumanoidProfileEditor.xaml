@@ -139,8 +139,8 @@
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical" Margin="10">
                     <!-- Traits -->
-                    <BoxContainer>
-                        <Label Text="Available Points (unused) - " />
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Text="Available Points: " />
                         <Label Text="0" Name="TraitPoints" />
                     </BoxContainer>
                     <Label Text="" />

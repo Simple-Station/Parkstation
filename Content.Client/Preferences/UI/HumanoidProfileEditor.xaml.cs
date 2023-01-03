@@ -520,7 +520,6 @@ namespace Content.Client.Preferences.UI
             if (traits.Count > 0)
             {
                 if (_traitPoints.Text == null) return;
-                int points = int.Parse(_traitPoints.Text);
 
                 foreach (var trait in traits)
                 {
@@ -534,14 +533,22 @@ namespace Content.Client.Preferences.UI
                         {
                             if (preference == true)
                             {
-                                points += trait.Cost;
-                                _traitPoints.Text = points.ToString();
+                                var yayornay = true;
+                                var temp = int.Parse(_traitPoints.Text) + trait.Cost;
+                                if (temp < 0)
+                                {
+                                    preference = false;
+                                    yayornay = false;
+                                    Save();
+                                }
+                                if (yayornay == true) _traitPoints.Text = (temp).ToString();
                             }
                             else if (preference == false)
                             {
-                                points -= trait.Cost;
-                                _traitPoints.Text = points.ToString();
+                                var temp = int.Parse(_traitPoints.Text);
+                                _traitPoints.Text = (temp -= trait.Cost).ToString();
                             }
+
                             Profile = Profile?.WithTraitPreference(trait.ID, preference);
                             IsDirty = true;
                         };
@@ -554,16 +561,6 @@ namespace Content.Client.Preferences.UI
 
                         selector.PreferenceChanged += preference =>
                         {
-                            if (preference == true)
-                            {
-                                points += trait.Cost;
-                                _traitPoints.Text = points.ToString();
-                            }
-                            else if (preference == false)
-                            {
-                                points -= trait.Cost;
-                                _traitPoints.Text = points.ToString();
-                            }
                             Profile = Profile?.WithTraitPreference(trait.ID, preference);
                             IsDirty = true;
                         };
@@ -578,14 +575,22 @@ namespace Content.Client.Preferences.UI
                         {
                             if (preference == true)
                             {
-                                points += trait.Cost;
-                                _traitPoints.Text = points.ToString();
+                                var temp = int.Parse(_traitPoints.Text);
+                                _traitPoints.Text = (temp += trait.Cost).ToString();
                             }
                             else if (preference == false)
                             {
-                                points -= trait.Cost;
-                                _traitPoints.Text = points.ToString();
+                                var yayornay = true;
+                                var temp = int.Parse(_traitPoints.Text) - trait.Cost;
+                                if (temp < 0)
+                                {
+                                    preference = true;
+                                    yayornay = false;
+                                    Save();
+                                }
+                                if (yayornay == true) _traitPoints.Text = (temp).ToString();
                             }
+
                             Profile = Profile?.WithTraitPreference(trait.ID, preference);
                             IsDirty = true;
                         };
@@ -1294,7 +1299,7 @@ namespace Content.Client.Preferences.UI
         private void UpdateTraitPreferences()
         {
             if (_traitPoints.Text == null) return;
-            int points = int.Parse(_traitPoints.Text);
+            int points = 0;
 
             foreach (var preferenceSelector in _traitPreferences)
             {
