@@ -1,7 +1,8 @@
 <DefaultWindow xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" MinWidth="200" MinHeight="325" Title="{Loc aicamerawindowneedsalocalization}">
-    <BoxContainer Orientation="Vertical" SeparationOverride="0" MinWidth="175" MinHeight="300">
-        <Label Text="Placeholder" />
-        <ItemList Name="SubnetList" />
+    <BoxContainer Name="Box" Orientation="Vertical" SeparationOverride="0" MinWidth="175" MinHeight="300">
+        <LineEdit Name="SearchBar" PlaceHolder="{Loc 'searchboxneedsalocaletoo'}" HorizontalExpand="True"  Margin ="0 4"/>
+        <ItemList Name="SubnetList" SelectMode="Single" VerticalExpand="True" />
+        <Label Name="Text" Text="" />
     </BoxContainer>
 </DefaultWindow>

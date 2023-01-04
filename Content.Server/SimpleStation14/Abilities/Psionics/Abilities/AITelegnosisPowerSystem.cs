@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.StatusEffect;
 using Content.Shared.Abilities.Psionics;
-using Content.Shared.SimpleStation14.Abilities.Psionics;
+using Content.Shared.SimpleStation14.AI.Telegnosis;
 using Content.Server.Mind.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.MobState;
