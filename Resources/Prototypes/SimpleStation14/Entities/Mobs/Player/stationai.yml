@@ -46,20 +46,22 @@
   id: AIbase
   components:
     - type: Visibility
-    - type: Psionic
+    # - type: Psionic
     - type: UserInterface
       interfaces:
         - key: enum.LawsUiKey.Key
           type: LawsBoundUserInterface
         - key: enum.CommunicationsConsoleUiKey.Key
           type: CommunicationsConsoleBoundUserInterface
+        - key: enum.AICameraListUiKey.Key
+          type: AICameraListBoundUserInterface
     - type: IntrinsicUI
       uis:
         - key: enum.LawsUiKey.Key
           toggleAction:
             name: action-name-show-laws
             description: action-description-show-laws
-            icon: Structures/Wallmounts/posters.rsi/poster11_legit.png #someone wanna make new icons?
+            icon: Structures/Wallmounts/posters.rsi/poster11_legit.png
             iconOn: Structures/Wallmounts/posters.rsi/poster11_legit.png
             keywords: ["AI", "console", "interface", "laws", "borg"]
             priority: -3
@@ -72,6 +74,15 @@
             iconOn: Structures/Machines/parts.rsi/box_2.png
             keywords: ["AI", "console", "interface"]
             priority: -10
+            event: !type:ToggleIntrinsicUIEvent
+        - key: enum.AICameraListUiKey.Key
+          toggleAction:
+            name: name
+            description: description
+            icon: Structures/Machines/parts.rsi/box_0.png
+            iconOn: Structures/Machines/parts.rsi/box_2.png
+            keywords: ["AI", "console", "interface"]
+            priority: -1
             event: !type:ToggleIntrinsicUIEvent
     - type: CommunicationsConsole
       title: Station AI
@@ -205,7 +216,7 @@
       baseSprintSpeed: 0
     - type: Eye
       drawFov: true
-    - type: AITelegnosisPower
+    # - type: AITelegnosisPower
     - type: Input
       context: "human"
     - type: Physics
