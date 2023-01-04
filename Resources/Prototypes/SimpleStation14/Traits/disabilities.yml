@@ -11,7 +11,7 @@
   id: Nearsighted
   name: Nearsighted
   description: Your eyes have permanent damage, you are only able to see nearby you unless wearing glasses.
-  cost: 5
+  cost: 4
   category: Negative
   components:
     - type: Nearsighted
@@ -35,11 +35,21 @@
   id: FakeMime
   name: Mute
   description: For one reason or another you will not speak, ever, and communicate through miming or writing.
-  cost: 4
+  cost: 5
   category: Negative
   components:
     - type: MuteTrait
 
+- type: trait
+  id: Ageusia
+  name: Ageusia
+  description: Something has caused you to lose your sense of taste.
+  cost: 3
+  category: Negative
+  components:
+    - type: Ageusia
+
+# Me when chat shitcode
 # - type: trait
 #   id: Deaf
 #   name: Deaf

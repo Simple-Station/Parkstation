@@ -7,6 +7,7 @@ using Content.Server.Hands.Components;
 using Content.Server.MobState;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
+using Content.Server.SimpleStation14.Traits;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -96,7 +97,9 @@ namespace Content.Server.Nutrition.EntitySystems
             if (!_solutionContainerSystem.TryGetSolution(food.Owner, food.SolutionName, out var foodSolution))
                 return false;
 
-            var flavors = _flavorProfileSystem.GetLocalizedFlavorsMessage(food.Owner, user, foodSolution);
+            var flavors = "An error occurred";
+            if (HasComp<AgeusiaComponent>(user) == true) flavors = "Feels like food.";
+            else flavors = _flavorProfileSystem.GetLocalizedFlavorsMessage(food.Owner, user, foodSolution);
 
             if (food.UsesRemaining <= 0)
             {

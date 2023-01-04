@@ -8,6 +8,7 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.MobState;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
+using Content.Server.SimpleStation14.Traits;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -272,7 +273,9 @@ namespace Content.Server.Nutrition.EntitySystems
             drink.CancelToken = new CancellationTokenSource();
             var moveBreak = user != target;
 
-            var flavors = _flavorProfileSystem.GetLocalizedFlavorsMessage(user, drinkSolution);
+            var flavors = "An error occurred";
+            if (HasComp<AgeusiaComponent>(user) == true) flavors = "Feels like water.";
+            else flavors = _flavorProfileSystem.GetLocalizedFlavorsMessage(user, drinkSolution);
 
             _doAfterSystem.DoAfter(new DoAfterEventArgs(user, forceDrink ? drink.ForceFeedDelay : drink.Delay, drink.CancelToken.Token, target, drink.Owner)
             {

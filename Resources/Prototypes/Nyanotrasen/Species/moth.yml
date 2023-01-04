@@ -42,28 +42,30 @@
   id: MobMothMarkingLimits
   points:
     Hair:
-      points: 10
+      points: 0
       required: false
     FacialHair:
-      points: 10
+      points: 0
       required: false
     Tail:
-      points: 10
+      points: 1
       required: false
     Wings:
-      points: 10
-      required: false
+      points: 1
+      required: true
+      defaultMarkings: [ MothWingsDefault ]
     HeadTop:
-      points: 10
-      required: false
+      points: 1
+      required: true
+      defaultMarkings: [ MothAntennasDefault ]
     Chest:
-      points: 10
+      points: 1
       required: false
     Legs:
-      points: 20
+      points: 2
       required: false
     Arms:
-      points: 20
+      points: 2
       required: false
 
 - type: humanoidBaseSprite

@@ -17,3 +17,16 @@
   components:
     - type: HeightAdjusted
       height: 0.9
+
+- type: trait
+  id: AntiSocial
+  name: Anti-Social
+  description: You don't really like being around others, hugs bother you.
+  cost: 0
+  category: Equal
+  components:
+    - type: InteractionPopup
+      successChance: 0
+      interactFailureString: hugging-failure-generic
+      messagePerceivedByOthers: hugging-success-generic-others
+      soundPerceivedByOthers: false
