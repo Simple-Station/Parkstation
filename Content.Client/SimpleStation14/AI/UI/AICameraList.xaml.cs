@@ -10,8 +10,6 @@ namespace Content.Client.SimpleStation14.AI.UI
     [GenerateTypedNameReferences]
     public sealed partial class AICameraList : DefaultWindow
     {
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-
         private AICameraComponent? _selectedCamera;
 
         public AICameraList()
@@ -26,48 +24,52 @@ namespace Content.Client.SimpleStation14.AI.UI
         }
         private void ItemSelected(ItemList.ItemListSelectedEventArgs obj)
         {
+            Logger.Debug("Click");
             _selectedCamera = (AICameraComponent) obj.ItemList[obj.ItemIndex].Metadata!;
             UpdateCameraList();
         }
 
         private void ItemDeselected(ItemList.ItemListDeselectedEventArgs obj)
         {
+            Logger.Debug("Unclick");
             _selectedCamera = null;
             UpdateCameraList();
         }
 
         public void UpdateCameraList(string? filter = null)
         {
+            Logger.Debug("Update");
             SubnetList.Clear();
 
-            // Error object reference not set to instance of an object?
-            // var cameras = _entityManager.EntityQuery<AICameraComponent>();
-            var cameras = "string";
-            cameras = null;
+            var _entityManager = IoCManager.Resolve<IEntityManager>();
+            var cameras = _entityManager.EntityQuery<AICameraComponent>();
+
             if (cameras == null)
             {
                 Text.Text = "No cameras found.";
                 return;
             }
+
             Text.Text = "";
 
-            // foreach (var camera in cameras)
-            // {
-            //     var cameraMeta = _entityManager.GetComponent<MetaDataComponent>(camera.Owner);
+            foreach (var camera in cameras)
+            {
+                Logger.Debug(camera.CameraName);
+                if (camera.Enabled == false) continue;
 
-            //     if (!string.IsNullOrEmpty(filter) && !cameraMeta.EntityName.ToLowerInvariant().Contains(filter.Trim().ToLowerInvariant()))
-            //     {
-            //         continue;
-            //     }
+                if (!string.IsNullOrEmpty(filter) && !camera.CameraName.ToLowerInvariant().Contains(filter.Trim().ToLowerInvariant()))
+                {
+                    continue;
+                }
 
-            //     ItemList.Item cameraItem = new(SubnetList)
-            //     {
-            //         Metadata = camera,
-            //         Text = cameraMeta.EntityName
-            //     };
+                ItemList.Item cameraItem = new(SubnetList)
+                {
+                    Metadata = camera,
+                    Text = camera.CameraName
+                };
 
-            //     SubnetList.Add(cameraItem);
-            // }
+                SubnetList.Add(cameraItem);
+            }
         }
     }
 }

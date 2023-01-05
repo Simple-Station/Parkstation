@@ -18,6 +18,8 @@ namespace Content.Client.SimpleStation14.AI.UI
         {
             base.Open();
 
+            if (State != null) UpdateState(State);
+
             _window?.OpenCentered();
         }
 
