@@ -10,6 +10,7 @@
     drawdepth: SmallObjects
     state: booze
     netsync: false
+    offset: 0, 0.35
   - type: ReagentDispenser
     pack: BoozeDispenserInventory
     emagPack: BoozeDispenserEmagInventory

@@ -10,6 +10,7 @@
     drawdepth: SmallObjects
     state: soda
     netsync: false
+    offset: 0, 0.35
   - type: ReagentDispenser
     pack: SodaDispenserInventory
     emagPack: SodaDispenserEmagInventory
