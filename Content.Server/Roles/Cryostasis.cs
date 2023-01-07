@@ -49,6 +49,12 @@ namespace Content.Server.Administration.Commands.Cryostasis
                 return;
             }
 
+            if (mind.IsVisitingEntity)
+            {
+                shell.WriteLine("You cannot do this while visiting something.");
+                return;
+            }
+
             // No job (unemployed people are not allowed to go into cryogenics).
             if (!mind.HasRole<Job>())
             {
@@ -151,13 +157,27 @@ namespace Content.Server.Administration.Commands.Cryostasis
 
             // Send a cryostasis announcement to the station, if any.
             if (station != null)
-                EntitySystem.Get<ChatSystem>().DispatchStationAnnouncement((EntityUid) station,
+            {
+                var statio = (EntityUid) station;
+
+                EntitySystem.Get<ChatSystem>().DispatchStationAnnouncement(statio,
                     Loc.GetString("cryo-departure-announcement",
-                    ("character", _entities.GetComponent<MetaDataComponent>(uid).EntityName),
-                    ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Loc.GetString(jobprotot.Name)))
-                    ), Loc.GetString("latejoin-arrival-sender"),
+                        ("character", _entities.GetComponent<MetaDataComponent>(uid).EntityName),
+                        ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Loc.GetString(jobprotot.Name)))),
+                    Loc.GetString("latejoin-arrival-sender"),
                     playDefaultSound: false);
+
+                if (!_stationJobs.IsJobUnlimited(statio, jobprotot))
+                {
+                    _stationJobs.TryGetJobSlot(statio, jobprotot, out var slots);
+                    if (slots != null)
+                    {
+                        _stationJobs.TryAdjustJobSlot(statio, jobprotot, (int) (slots + 1));
+                    }
+                }
+            }
             else shell.WriteLine("No station found, leave announcement will not be sent.");
+
 
             // Put them into "Cryostasis".
             _entities.QueueDeleteEntity(uid);
