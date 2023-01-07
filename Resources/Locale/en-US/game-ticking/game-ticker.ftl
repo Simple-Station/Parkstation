@@ -32,4 +32,5 @@ player-join-message = {$name} joined the server.
 player-leave-message = {$name} left the server.
 
 latejoin-arrival-announcement = {$character} ({$job}) has arrived at the station!
+cryo-departure-announcement = {$character} ({$job}) has gone into cryogenic storage.
 latejoin-arrival-sender = Station
