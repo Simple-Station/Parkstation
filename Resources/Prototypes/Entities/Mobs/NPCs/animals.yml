@@ -593,7 +593,7 @@
 
 - type: entity
   name: gorilla
-  parent: SimpleMobBase
+  parent: MobMonkey
   id: MobGorilla
   description: Smashes, roars, looks cool. Don't stand near one.
   components:
@@ -630,6 +630,27 @@
   - type: Bloodstream
     bloodMaxVolume: 300
   - type: Puller
+  - type: UserInterface
+    interfaces:
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
+  - type: Oni
+    modifiers:
+      coefficients:
+        Blunt: 2
+        Slash: 1.7
+        Piercing: 1.7
+        Asphyxiation: 2
+    stamDamageBonus: 1.7
+  - type: MobState
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Oni
+  - type: Stamina
   - type: ReplacementAccent
     accent: monkey
   - type: RandomBark
@@ -755,6 +776,7 @@
       layer:
       - MobLayer
   - type: Strippable
+  - type: Stripping
   - type: UserInterface
     interfaces:
     - key: enum.StrippingUiKey.Key
