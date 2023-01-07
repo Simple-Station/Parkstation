@@ -15,6 +15,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Physics;
 using Content.Shared.Inventory;
+using Content.Server.Administration.Logs;
+using Content.Shared.Database;
 
 namespace Content.Server.Administration.Commands.Cryostasis
 {
@@ -23,7 +25,7 @@ namespace Content.Server.Administration.Commands.Cryostasis
     {
         [Dependency] private readonly IEntityManager _entities = default!;
         [Dependency] private readonly IEntitySystemManager _entitysys = default!;
-        // [Dependency] private readonly ChatSystem _chatSystem = default!;
+        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
         public string Command => "cryostasis";
         public string Description => "Deletes you and opens up a new job slot. Do this in a secure area or put your belongings in a secure area. MISUSE WILL BE MODERATED";
@@ -103,6 +105,9 @@ namespace Content.Server.Administration.Commands.Cryostasis
                 return;
             }
 
+            _adminLogger.Add(LogType.Suicide, LogImpact.High, $"{_entities.ToPrettyString(uid):player} is going into cryostasis");
+
+            // TODO: put items in a box? a pile of items is *fine* but a box of sorts might be nice.
             _entities.TryGetComponent<InventoryComponent>(uid, out var inventoryComponent);
             var invSystem = _entities.System<InventorySystem>();
             if (invSystem.TryGetSlots(uid, out var slotDefinitions, inventoryComponent))
@@ -129,12 +134,11 @@ namespace Content.Server.Administration.Commands.Cryostasis
                 EntitySystem.Get<ChatSystem>().DispatchStationAnnouncement((EntityUid) station,
                     Loc.GetString("cryo-departure-announcement",
                     ("character", _entities.GetComponent<MetaDataComponent>(uid).EntityName),
-                    ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(jobprotot.Name))
+                    ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Loc.GetString(jobprotot.Name)))
                     ), Loc.GetString("latejoin-arrival-sender"),
                     playDefaultSound: false);
             else shell.WriteLine("No station found, leave announcement will not be sent.");
 
-            // TODO: put it in a box? (the items)
             _entities.QueueDeleteEntity(uid);
         }
     }
