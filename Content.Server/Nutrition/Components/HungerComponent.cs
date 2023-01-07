@@ -124,23 +124,23 @@ namespace Content.Server.Nutrition.Components
             }
         }
 
-        protected override void Startup()
-        {
-            base.Startup();
-            // Do not change behavior unless starting hunger is explicitly defined
-            if (_currentHunger < 0)
-            {
-                // Similar functionality to SS13. Should also stagger people going to the chef.
-                _currentHunger = _random.Next(
-                    (int) _hungerThresholds[HungerThreshold.Peckish] + 10,
-                    (int) _hungerThresholds[HungerThreshold.Okay] - 1);
-            }
+        // protected override void Startup()
+        // {
+        //     base.Startup();
+        //     // Do not change behavior unless starting hunger is explicitly defined
+        //     if (_currentHunger < 0)
+        //     {
+        //         // Similar functionality to SS13. Should also stagger people going to the chef.
+        //         _currentHunger = _random.Next(
+        //             (int) _hungerThresholds[HungerThreshold.Peckish] + 10,
+        //             (int) _hungerThresholds[HungerThreshold.Okay] - 1);
+        //     }
 
-            _currentHungerThreshold = GetHungerThreshold(_currentHunger);
-            _lastHungerThreshold = HungerThreshold.Okay; // TODO: Potentially change this -> Used Okay because no effects.
-            HungerThresholdEffect(true);
-            Dirty();
-        }
+        //     _currentHungerThreshold = GetHungerThreshold(_currentHunger);
+        //     _lastHungerThreshold = HungerThreshold.Okay; // TODO: Potentially change this -> Used Okay because no effects.
+        //     HungerThresholdEffect(true);
+        //     Dirty();
+        // }
 
         public HungerThreshold GetHungerThreshold(float food)
         {
