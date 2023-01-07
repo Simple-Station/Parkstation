@@ -753,3 +753,8 @@ Entries:
     - { message: 'Strange spectacles act as prescription glasses.', type: Tweak }
   id: 68
   time: "2022-01-04T15:14:40.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Add cryostasis command, allowing people to remove themselves from rounds and open a new job slot for latejoiners.', type: Add }
+  id: 69
+  time: "2022-01-07T00:02:53.0000000+00:00"
