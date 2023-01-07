@@ -14,6 +14,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Physics;
+using Content.Shared.Inventory;
 
 namespace Content.Server.Administration.Commands.Cryostasis
 {
@@ -25,7 +26,7 @@ namespace Content.Server.Administration.Commands.Cryostasis
         // [Dependency] private readonly ChatSystem _chatSystem = default!;
 
         public string Command => "cryostasis";
-        public string Description => "Deletes you and opens up a new job slot.\nTHIS IS IRREVERSIBLE, DROP ANYTHING IMPORTANT YOU HAVE";
+        public string Description => "Deletes you and opens up a new job slot. Do this in a secure area or put your belongings in a secure area. MISUSE WILL BE MODERATED";
         public string Help => $"Usage: {Command}";
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
@@ -84,7 +85,7 @@ namespace Content.Server.Administration.Commands.Cryostasis
 
             if (isantag == true)
             {
-                shell.WriteLine("You are an antagonist, the Syndicate would not like this, and Centcom will get an easy arrest.");
+                shell.WriteLine("You are an antagonist, the Syndicate would not like this, and Centcom will get too easy of a resolution. This would be inappropriate.");
                 return;
             }
 
@@ -102,6 +103,16 @@ namespace Content.Server.Administration.Commands.Cryostasis
                 return;
             }
 
+            _entities.TryGetComponent<InventoryComponent>(uid, out var inventoryComponent);
+            var invSystem = _entities.System<InventorySystem>();
+            if (invSystem.TryGetSlots(uid, out var slotDefinitions, inventoryComponent))
+            {
+                foreach (var slot in slotDefinitions)
+                {
+                    invSystem.TryUnequip(uid, slot.Name, true, true, false, inventoryComponent);
+                }
+            }
+
             if (!EntitySystem.Get<GameTicker>().OnGhostAttempt(mind, false))
             {
                 shell.WriteLine("You can't ghost right now.");
@@ -113,6 +124,7 @@ namespace Content.Server.Administration.Commands.Cryostasis
             EntityUid? station = null;
             // TODO: when multiple stations ever get loaded regularly at the same time with jobs, do something about this var maybe?
             station = EntitySystem.Get<StationSystem>().Stations.ToList()[0];
+
             if (station != null)
                 EntitySystem.Get<ChatSystem>().DispatchStationAnnouncement((EntityUid) station,
                     Loc.GetString("cryo-departure-announcement",
