@@ -2105,3 +2105,71 @@ Entries:
     type: Add
   id: 247
   time: '2023-01-04T23:56:33.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Evil twins are a bit closer to their targets.
+    type: Fix
+  - message: Evil twin spawn fallback is more robust.
+    type: Fix
+  id: 248
+  time: '2023-01-05T17:59:21.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Replaced the cloning pod with the metempsychotic machine.
+    type: Add
+  - message: Cloning pods might still be out there somewhere...
+    type: Add
+  - message: Primates have a PDA slot (don't ask.)
+    type: Tweak
+  id: 249
+  time: '2023-01-05T20:19:30.0000000+00:00'
+- author: ODJ
+  changes:
+  - message: Lighthouse Improvements
+    type: Add
+  id: 250
+  time: '2023-01-05T21:48:03.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Fixed cargo's plastic flaps not being airtight on Shoukou.
+    type: Fix
+  id: 251
+  time: '2023-01-06T17:14:26.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a number of bugs with the metempsychotic machine.
+    type: Fix
+  - message: There's some new visuals for the metempsychotic machine while it is running.
+    type: Add
+  - message: 'The # of times you have been through the metempsychotic machine is now
+      tracked.'
+    type: Add
+  - message: Non-humanoid results of the metempsychotic machine can be sacrificed
+      if they are psionic.
+    type: Tweak
+  - message: Brushed up monkeys and gorillas.
+    type: Tweak
+  id: 252
+  time: '2023-01-06T17:17:19.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Sensitive airlocks like security now close much, much faster.
+    type: Tweak
+  - message: You can pray at Oracle.
+    type: Tweak
+  id: 253
+  time: '2023-01-06T17:28:00.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added RPG-7s to the Shoukou armory.
+    type: Add
+  id: 254
+  time: '2023-01-06T18:14:38.0000000+00:00'
+- author: Velcroboy
+  changes:
+  - message: added Arena/Tortuga Engi QoL!
+    type: Add
+  - message: added drastically better lighting in Tortuga Arrivals
+    type: Add
+  id: 255
+  time: '2023-01-06T18:49:15.0000000+00:00'
