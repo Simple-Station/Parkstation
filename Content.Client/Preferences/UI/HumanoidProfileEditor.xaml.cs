@@ -540,7 +540,6 @@ namespace Content.Client.Preferences.UI
                                 {
                                     preference = false;
                                     yayornay = false;
-                                    // Save();
                                 }
                                 if (yayornay == true) _traitPoints.Text = (temp).ToString();
                             }
@@ -589,7 +588,6 @@ namespace Content.Client.Preferences.UI
                                 {
                                     preference = true;
                                     yayornay = false;
-                                    // Save();
                                 }
                                 if (yayornay == true) _traitPoints.Text = (temp).ToString();
                             }
