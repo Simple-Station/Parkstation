@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "reddish",
+            "directions": 4
+        },
+        {
+            "name": "royal",
+            "directions": 4
+        },
+        {
+            "name": "gothic",
+            "directions": 4
+        },
+        {
+            "name": "whitefly",
+            "directions": 4
+        },
+        {
+            "name": "lovers",
+            "directions": 4
+        },
+        {
+            "name": "punished",
+            "directions": 4
+        },
+        {
+            "name": "firewatch",
+            "directions": 4
+        },
+        {
+            "name": "deathhead",
+            "directions": 4
+        },
+        {
+            "name": "poison",
+            "directions": 4
+        },
+        {
+            "name": "ragged",
+            "directions": 4
+        },
+        {
+            "name": "oakworm",
+            "directions": 4
+        },
+        {
+            "name": "jungle",
+            "directions": 4
+        },
+        {
+            "name": "witchwing",
+            "directions": 4
+        },
+        {
+            "name": "moonfly",
+            "directions": 4
+        }
+    ]
+}

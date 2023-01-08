@@ -1,98 +1,109 @@
 - type: marking
-  id: DragonOpen
+  id: WingsDragonOpen
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [Reptilian]
   sprites:
-    - sprite: SimpleStation14/Mobs/Customization/largewings.rsi
+    - sprite: SimpleStation14/Mobs/Customization/wings96x34.rsi
       state: dragon_open
 
 - type: marking
-  id: Dragon
+  id: WingsDragon
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [Reptilian]
   sprites:
-    - sprite: SimpleStation14/Mobs/Customization/largewings.rsi
+    - sprite: SimpleStation14/Mobs/Customization/wings96x34.rsi
       state: dragon
 
 - type: marking
-  id: FlyOpen
+  id: WingsFlyOpen
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [Moth, Slime]
   sprites:
-    - sprite: SimpleStation14/Mobs/Customization/largewings.rsi
+    - sprite: SimpleStation14/Mobs/Customization/wings96x34.rsi
       state: fly_open
 
 - type: marking
-  id: Fly
+  id: WingsFly
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [Moth, Slime]
   sprites:
-    - sprite: SimpleStation14/Mobs/Customization/largewings.rsi
+    - sprite: SimpleStation14/Mobs/Customization/wings96x34.rsi
       state: fly
 
 - type: marking
-  id: MegamothOpen
+  id: WingsMegamothOpen
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [Moth]
   sprites:
-    - sprite: SimpleStation14/Mobs/Customization/largewings.rsi
+    - sprite: SimpleStation14/Mobs/Customization/wings96x34.rsi
       state: megamoth_open
 
 - type: marking
-  id: Megamoth
+  id: WingsMegamoth
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [Moth]
   sprites:
-    - sprite: SimpleStation14/Mobs/Customization/largewings.rsi
+    - sprite: SimpleStation14/Mobs/Customization/wings96x34.rsi
       state: megamoth
 
 - type: marking
-  id: MothraOpen
+  id: WingsMothraOpen
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [Moth]
   sprites:
-    - sprite: SimpleStation14/Mobs/Customization/largewings.rsi
+    - sprite: SimpleStation14/Mobs/Customization/wings96x34.rsi
       state: mothra_open
 
 - type: marking
-  id: Mothra
+  id: WingsMothra
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [Moth]
   sprites:
-    - sprite: SimpleStation14/Mobs/Customization/largewings.rsi
+    - sprite: SimpleStation14/Mobs/Customization/wings96x34.rsi
       state: mothra
 
 - type: marking
-  id: Robotic
+  id: WingsRobotic
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [Human]
   sprites:
-    - sprite: SimpleStation14/Mobs/Customization/largewings.rsi
+    - sprite: SimpleStation14/Mobs/Customization/wings96x34.rsi
       state: robotic
 
 - type: marking
-  id: SkeletonOpen
+  id: WingsSkeletonOpen
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [Skeleton]
   sprites:
-    - sprite: SimpleStation14/Mobs/Customization/largewings.rsi
+    - sprite: SimpleStation14/Mobs/Customization/wings96x34.rsi
       state: skeleton_open
 
 - type: marking
-  id: Skeleton
+  id: WingsSkeleton
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [Skeleton]
   sprites:
-    - sprite: SimpleStation14/Mobs/Customization/largewings.rsi
+    - sprite: SimpleStation14/Mobs/Customization/wings96x34.rsi
       state: skeleton
+
+
+
+- type: marking
+  id: WingsHarpy
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Moth]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/wings64x32.rsi
+      state: harpy

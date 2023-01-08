@@ -31,6 +31,7 @@
     LFoot: MobHumanLFoot
     RFoot: MobHumanRFoot
     Tail: MobHumanoidAnyMarking
+    Wings: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
 
 - type: markingPoints
