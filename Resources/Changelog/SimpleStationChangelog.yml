@@ -967,3 +967,12 @@ Entries:
       - { message: 'Height change traits scale evenly, and change camera zoom.', type: Tweak }
     id: 71
     time: "2022-01-08T02:18:55.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: 'Add Species option to EntityWhitelist.', type: Add }
+      - { message: 'Trait Species whitelist option.', type: Add }
+      - { message: 'Traits will refuse to select if you fail the whitelist/blacklist.', type: Add }
+      - { message: 'Draconic Bloodstream is only for Reptilians.', type: Tweak }
+      - { message: 'Nerf Draconic Bloodstream.', type: Tweak }
+    id: 72
+    time: "2022-01-08T06:48:55.0000000+00:00"

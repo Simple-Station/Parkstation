@@ -1,17 +1,20 @@
 - type: trait
   id: DragonsBlood
   name: Draconic Bloodstream
-  description: You have some of the great Space Dragon's healing abilities, and have Ichor in your blood. (Will be rethemed)
+  description: You have some of the great Space Dragon's healing abilities, and have Ichor in your blood.  REQUIRES Reptilian species
   cost: -6
   category: Positive
+  whitelist:
+    species:
+      - Reptilian
   components:
     - type: TraitRegenReagent
     - type: DraconicBloodstream
       reagent:
         solutionName: chemicals
         reagent: Ichor
-        unitsPerUpdate: 0.02
-        accumulatorTime: 1
+        unitsPerUpdate: 0.01
+        accumulatorTime: 2
 
 
 - type: trait
@@ -54,9 +57,9 @@
 #   description: Bigger
 #   cost: -3
 #   category: Positive
-# #   blacklist:
-# #     components:
-# #       - HeightAdjusted
+#   blacklist:
+#     components:
+#       - HeightAdjusted
 #   components:
 #     - type: HeightAdjusted
 #       height: 1.2
@@ -67,9 +70,9 @@
   description: Big
   cost: -2
   category: Positive
-  # blacklist:
-  #   components:
-  #     - HeightAdjusted
+  blacklist:
+    components:
+      - HeightAdjusted
   components:
     - type: HeightAdjusted
       height: 1.1
@@ -80,9 +83,9 @@
   description: Small
   cost: -1
   category: Positive
-  # blacklist:
-  #   components:
-  #     - HeightAdjusted
+  blacklist:
+    components:
+      - HeightAdjusted
   components:
     - type: HeightAdjusted
       height: 0.9
@@ -94,9 +97,9 @@
 #   description: Smaller
 #   cost: -2
 #   category: Positive
-# #   blacklist:
-# #     components:
-# #       - HeightAdjusted
+#   blacklist:
+#     components:
+#       - HeightAdjusted
 #   components:
 #     - type: HeightAdjusted
 #       height: 0.8
