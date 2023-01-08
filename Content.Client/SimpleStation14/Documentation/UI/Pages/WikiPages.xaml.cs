@@ -11,14 +11,10 @@ namespace Content.Client.SimpleStation14.Documentation.UI.Pages
     public sealed partial class WikiPages : Control
     {
         public BoxContainer contents => Contents;
-        public BoxContainer PlaceHolderContents => PlaceholderContents;
 
         public WikiPages()
         {
             RobustXamlLoader.Load(this);
-
-            // PlaceHolderContents.AddChild(new FoodRecipeList());
-            // PlaceHolderContents.AddChild(new ReagentRecipeList());
         }
     }
 }

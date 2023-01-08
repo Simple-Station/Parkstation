@@ -39,17 +39,6 @@
                             </BoxContainer>
                         </CollapsibleBody>
                     </Collapsible>
-
-                    <!-- Example -->
-                    <Collapsible Orientation="Vertical">
-                        <CollapsibleHeading Title="Placeholder" />
-                        <CollapsibleBody>
-                            <BoxContainer Orientation="Vertical">
-                                <Button Text="Placeholder" Name="Placeholder" MinWidth="25" />
-                            </BoxContainer>
-                        </CollapsibleBody>
-                    </Collapsible>
-                    <!-- Example -->
                 </BoxContainer>
                 <!--
                 This contains the buttons used for navigation.

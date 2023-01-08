@@ -1,0 +1,326 @@
+<Control xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:style="clr-namespace:Content.Client.Stylesheets"
+    xmlns:Elements="clr-namespace:Content.Client.SimpleStation14.Documentation.UI.Elements">
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Vertical">
+            <Label Text="Alert Procedure" StyleClasses="LabelHeadingBigger" />
+            <PanelContainer>
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical">
+            <Label Text="Common Security Codes" StyleClasses="LabelHeadingBigger" />
+            <Label Text=" " />
+            <BoxContainer Orientation="Vertical">
+                <Label Text="Code Green" StyleClasses="LabelHeadingBigger" />
+                <Label Text="The normal operating procedure." />
+                <Label Text="There is no known threat to the ship or crew." />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+
+                <Label Text=" " />
+                <Label Text="Chain of command" StyleClasses="LabelBig" />
+                <Label Text="Centcom -> Group vote among Heads -> Ranking Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew " />
+                <Label Text=" " />
+                <Label Text="Weapons and Armor" StyleClasses="LabelBig" />
+                <Label Text="Open carrying disadvised (especially lethal weaponry) Kevlar vest and helmet or equivalent advised for security. " />
+                <Label Text=" " />
+                <Label Text="Discipline" StyleClasses="LabelBig" />
+                <Label Text="Follow due process (Space Law)." />
+                <Label Text=" " />
+                <Label Text="Secure and High Security Areas" StyleClasses="LabelBig" />
+                <Label Text="Secure areas are unlocked and accessible. Access to high security areas permitted for all authorized personnel." />
+                <Label Text=" " />
+                <Label Text="Medical" StyleClasses="LabelBig" />
+                <Label Text="Standard practice." />
+                <Label Text=" " />
+                <Label Text="Engineering" StyleClasses="LabelBig" />
+                <Label Text="Standard practice." />
+                <Label Text=" " />
+                <Label Text="Rules of engagement" StyleClasses="LabelBig" />
+                <Label Text="Engage with the minimum required force to subdue a target, dependent on their threat and level of compliance. De-escalation prioritised." />
+            </BoxContainer>
+            <Label Text=" " />
+            <BoxContainer Orientation="Vertical">
+                <Label Text="Code Blue" StyleClasses="LabelHeadingBigger" />
+                <Label Text="Elevated alert status." />
+                <Label Text="Ongoing, known, or suspected security threat to vessel or crew, or another security emergency." />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+
+                <Label Text=" " />
+                <Label Text="Chain of command" StyleClasses="LabelBig" />
+                <Label Text="Centcom -> Group vote among Heads -> Head of Security -> Ranking Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew" />
+                <Label Text=" " />
+                <Label Text="Weapons and Armor" StyleClasses="LabelBig" />
+                <Label Text="Lethal and non-lethal weapons may be worn openly by authorized personnel." />
+                <Label Text="Body armor is mandatory wear for security personnel, and authorized for all other personnel." />
+                <Label Text="Helmets are recommended for security personnel." />
+                <Label Text=" " />
+                <Label Text="Discipline" StyleClasses="LabelBig" />
+                <Label Text="Security personnel required to report to supervisor for orders. Arrests and searches may be performed at discretion of security personnel." />
+                <Label Text="Secure and High Security Areas" StyleClasses="LabelBig" />
+                <Label Text="Secure areas are can be left unlocked unless there is a known threat to that area. High security areas should be locked." />
+                <Label Text=" " />
+                <Label Text="Medical" StyleClasses="LabelBig" />
+                <Label Text="Binary suit sensor setting at a minimum is highly recommended. EVA suit wear recommended for emergency response technicians." />
+                <Label Text=" " />
+                <Label Text="Engineering" StyleClasses="LabelBig" />
+                <Label Text="EVA suit wear suggested for engineers. Emergency internals should be easily accessible for all personnel." />
+                <Label Text=" " />
+                <Label Text="Rules of engagement" StyleClasses="LabelBig" />
+                <Label Text="Engage with the minimum required force to subdue a target, dependent on their threat and level of compliance." />
+            </BoxContainer>
+            <Label Text=" " />
+            <BoxContainer Orientation="Vertical">
+                <Label Text="Code Red" StyleClasses="LabelHeadingBigger" />
+                <Label Text="Emergency alert status." />
+                <Label Text="There are multiple major emergency situations ongoing, or a severe security emergency." />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+
+                <Label Text=" " />
+                <Label Text="Chain of command" StyleClasses="LabelBig" />
+                <Label Text="Centcom -> Group vote among Heads -> Appropriate Departmental Head -> Other Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew" />
+                <Label Text=" " />
+                <Label Text="Weapons and Armor" StyleClasses="LabelBig" />
+                <Label Text="Body armor, helmet, and weapon heavily advised for security. Open carry of weapons permitted for all authorized personnel." />
+                <Label Text=" " />
+                <Label Text="Discipline" StyleClasses="LabelBig" />
+                <Label Text="Arrests and searches may be performed at discretion of security personnel." />
+                <Label Text="Arrests of Officers permitted at discretion of security personnel." />
+                <Label Text="All personnel, including security staff, should obey relevant instruction from emergency services who are attending their emergency situations." />
+                <Label Text="Secure and High Security Areas." />
+                <Label Text="Secure areas should be locked. High security areas should remain locked." />
+                <Label Text="SECURE THE DISK." />
+                <Label Text=" " />
+                <Label Text="Medical" StyleClasses="LabelBig" />
+                <Label Text="Full suit sensors are heavily advised. EVA suit wear heavily advised for emergency responders." />
+                <Label Text=" " />
+                <Label Text="Engineering" StyleClasses="LabelBig" />
+                <Label Text="EVA suit wear heavily advised for all engineers. Emergency internals heavily advised for all personnel." />
+                <Label Text=" " />
+                <Label Text="Rules of engagement" StyleClasses="LabelBig" />
+                <Label Text="Engage with the minimum required force to subdue a target, dependent on their threat and level of compliance, as security staff." />
+            </BoxContainer>
+            <Label Text=" " />
+            <Label Text=" " />
+            <Label Text=" " />
+            <Label Text="Specific Security Codes" StyleClasses="LabelHeadingBigger" />
+            <Label Text=" " />
+            <BoxContainer Orientation="Vertical">
+                <Label Text="Code Violet" StyleClasses="LabelHeadingBigger" />
+                <Label Text="Elevated alert status." />
+                <Label Text="There is a serious viral outbreak, many personnel are injured or (will be) dead, or another major medical emergency." />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+
+                <Label Text=" " />
+                <Label Text="Chain of command" StyleClasses="LabelBig" />
+                <Label Text="Centcom -> Group vote among Heads -> Chief medical officer -> Ranking Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew" />
+                <Label Text=" " />
+                <Label Text="Discipline" StyleClasses="LabelBig" />
+                <Label Text="Follow due process (Space Law)." />
+                <Label Text="Non-medical personnel should ensure they aren't getting in any medical staff's way, and should obey relevant instructions from medical personnel, such as leaving an area, remaining in quarantine, or assisting in rescue efforts if capable." />
+                <Label Text=" " />
+                <Label Text="Medical" StyleClasses="LabelBig" />
+                <Label Text="Medical personnel should report to supervisor for orders." />
+                <Label Text="EVA equipment recommended for emergency responders, if relevant." />
+                <Label Text="Suit Sensors are advised to be set to the highest possible level." />
+                <Label Text="All personnel should ensure they have a functioning emergency air supply." />
+            </BoxContainer>
+            <Label Text=" " />
+            <BoxContainer Orientation="Vertical">
+                <Label Text="Code Yellow" StyleClasses="LabelHeadingBigger" />
+                <Label Text="Elevated alert status." />
+                <Label Text="The ship has suffered severe damage, the power source can't function, the singularity is loose, there is a major fire, an incoming meteor storm, or another major engineering emergency." />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+
+                <Label Text=" " />
+                <Label Text="Chain of command" StyleClasses="LabelBig" />
+                <Label Text="Centcom -> Group vote among Heads -> Chief engineer -> Ranking Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew" />
+                <Label Text=" " />
+                <Label Text="Discipline" StyleClasses="LabelBig" />
+                <Label Text="Follow due process (Space Law)." />
+                <Label Text="Non-engineering personnel are advised to evacuate any affected areas, and should obey relevant instruction from engineering personnel, such as an order to evacuate or stay in an area." />
+                <Label Text=" " />
+                <Label Text="Medical" StyleClasses="LabelBig" />
+                <Label Text="Suit Sensors recommended to be set to the highest possible level." />
+                <Label Text="All personnel should ensure they have a functioning emergency air supply." />
+                <Label Text=" " />
+                <Label Text="Engineering" StyleClasses="LabelBig" />
+                <Label Text="Engineering personnel should report to supervisor for orders. EVA suits recommended." />
+                <Label Text=" " />
+                <Label Text="Evacuation" StyleClasses="LabelBig" />
+                <Label Text="The ship should be evacuated if the damage is not feasibly repairable without great loss of life, if not evacuating would result in total loss of crew, or if damage is so severe that breakup is imminent." />
+            </BoxContainer>
+            <Label Text=" " />
+            <BoxContainer Orientation="Vertical">
+                <Label Text="Code White" StyleClasses="LabelHeadingBigger" />
+                <Label Text="Elevated alert status." />
+                <Label Text="There is a major psionic emergency." />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+
+                <Label Text=" " />
+                <Label Text="Chain of command" StyleClasses="LabelBig" />
+                <Label Text="Centcom -> Group vote among Heads -> Head of Security -> Mystagogue -> Ranking Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew" />
+                <Label Text=" " />
+                <Label Text="Discipline" StyleClasses="LabelBig" />
+                <Label Text="Follow due process (Space Law)." />
+                <Label Text="ROE on mindbreaker is lifted." />
+                <Label Text="Try to avoid the use of lethal force." />
+                <Label Text="Wear psionic insulation if possible." />
+                <Label Text=" " />
+                <Label Text="Secure and High Security Areas" StyleClasses="LabelBig" />
+                <Label Text="It is recommended to have a group of two people guard the inside of High Security Areas" />
+                <Label Text="In the case of a mindswapper, having a second guard will allow easier apprehension of the swapper." />
+                <Label Text="In the case of a mass sleep user, make sure the guards are several (~10) meters (5 tiles) away from each other at least." />
+                <Label Text=" " />
+                <Label Text="Medical" StyleClasses="LabelBig" />
+                <Label Text="Suit Sensors recommended to be set to the highest possible level." />
+                <Label Text="Prepare psionic insulation for anyone who wants it." />
+                <Label Text="Prepare for an increase in burn and brain damage." />
+                <Label Text=" " />
+                <Label Text="Engineering" StyleClasses="LabelBig" />
+                <Label Text="Engineering personnel should report to supervisor for orders." />
+                <Label Text="EVA suits recommended, but not fully equipped for easy indentification." />
+                <Label Text="Help with disposing of glimmer probers may be required." />
+                <Label Text=" " />
+                <Label Text="Epistemics" StyleClasses="LabelBig" />
+                <Label Text="Shut off glimmer probers if possible." />
+                <Label Text="Get assistance from security and engineering to destroy probers if needed." />
+                <Label Text=" " />
+                <Label Text="Evacuation" StyleClasses="LabelBig" />
+                <Label Text="The ship should be evacuated only if the glimmer spiral seems irrecoverable even after all probers are destroyed and multiple psionics are golemized." />
+            </BoxContainer>
+            <Label Text=" " />
+            <Label Text=" " />
+            <Label Text=" " />
+            <Label Text="Centcom Takeover Codes" StyleClasses="LabelHeadingBigger" />
+            <Label Text=" " />
+            <BoxContainer Orientation="Vertical">
+                <Label Text="Code Gamma" StyleClasses="LabelHeadingBigger" />
+                <Label Text="Maximum alert status." />
+                <Label Text="The crew has multiple powerful threats among them, and are all in immediate danger." />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+
+                <Label Text=" " />
+                <Label Text="Chain of command" StyleClasses="LabelBig" />
+                <Label Text="Centcom -> Group vote among Heads -> Head of Security -> Supervisory roles (e.g. Warden) -> Ranking Department Head -> Standard Crew" />
+                <Label Text=" " />
+                <Label Text="Weapons and Armor" StyleClasses="LabelBig" />
+                <Label Text="Security is required to have multiple lethal weapons on them ready at all times." />
+                <Label Text="Security is required to have a armored hardsuit or strong body armor." />
+                <Label Text=" " />
+                <Label Text="Discipline" StyleClasses="LabelBig" />
+                <Label Text="Follow due process (Space Law)." />
+                <Label Text=" " />
+                <Label Text="Secure and High Security Areas" StyleClasses="LabelBig" />
+                <Label Text="Heavily guard all High Security Areas." />
+                <Label Text="SECURE THE FUCKING DISK." />
+                <Label Text=" " />
+                <Label Text="Rules of engagement" StyleClasses="LabelBig" />
+                <Label Text="Security, kill anyone who seems to be a threat (NO, NOT THE CLOWN)." />
+                <Label Text="Civilians and Heads, find the safest place you can, keep an emergency weapon or escape." />
+            </BoxContainer>
+            <Label Text=" " />
+            <BoxContainer Orientation="Vertical">
+                <Label Text="Code Delta" StyleClasses="LabelHeadingBigger" />
+                <Label Text="Maximum alert status." />
+                <Label Text="Station self destruct activated or destruction imminent." />
+                <Label Text="Evacuation procedures strongly advised." />
+                <Label Text="All crew and passengers must be evacuated." />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+
+                <Label Text=" " />
+                <Label Text="Chain of command" StyleClasses="LabelBig" />
+                <Label Text="Centcom -> Group vote among Heads -> Ranking Department Head -> Supervisory roles (e.g. Warden) -> Standard Crew" />
+                <Label Text=" " />
+                <Label Text="Weapons and Armor" StyleClasses="LabelBig" />
+                <Label Text="All personnel are allowed to carry weaponry openly." />
+                <Label Text="Armour heavily advised for all staff." />
+                <Label Text=" " />
+                <Label Text="Discipline" StyleClasses="LabelBig" />
+                <Label Text="All staff should report to their supervisor for orders." />
+                <Label Text="Summary punishment permitted (Necessary execution)." />
+                <Label Text=" " />
+                <Label Text="Secure and High Security Areas" StyleClasses="LabelBig" />
+                <Label Text="Unsecured as needed to facilitate evacuation and retrieval of sensitive materials." />
+                <Label Text=" " />
+                <Label Text="Rules of engagement" StyleClasses="LabelBig" />
+                <Label Text="Lethal force is authorised at the discretion of security personnel or in self defence." />
+                <Label Text=" " />
+                <Label Text="Evacuation" StyleClasses="LabelBig" />
+                <Label Text="Evacuation procedures should be initiated immediately." />
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical">
+                <Label Text="Code Epsilon" StyleClasses="LabelHeadingBigger" />
+                <Label Text="True Maximum alert status." />
+                <Label Text="The station is completely irrecoverable, Centcom will give no chance of escape and neither should the crew." />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+
+                <Label Text=" " />
+                <Label Text="Chain of command" StyleClasses="LabelBig" />
+                <Label Text="All contracts are terminated." />
+                <Label Text=" " />
+                <Label Text="Weapons and Armor" StyleClasses="LabelBig" />
+                <Label Text="Whatever is required to ensure your own survival." />
+                <Label Text=" " />
+                <Label Text="Discipline" StyleClasses="LabelBig" />
+                <Label Text="KILL EVERYONE" />
+                <Label Text=" " />
+                <Label Text="Secure and High Security Areas" StyleClasses="LabelBig" />
+                <Label Text="Raid all Secure Areas and steal anything you can." />
+                <Label Text=" " />
+                <Label Text="Medical" StyleClasses="LabelBig" />
+                <Label Text="Keep all medicine for yourself, keep yourself alive." />
+                <Label Text=" " />
+                <Label Text="Engineering" StyleClasses="LabelBig" />
+                <Label Text="Lock down your department, try to escape with salvage on their shuttle." />
+                <Label Text="If salvage has no shuttle, build the most secure fortress you can in space outside engineering." />
+                <Label Text=" " />
+                <Label Text="Rules of engagement" StyleClasses="LabelBig" />
+                <Label Text="Kill anyone you see, only you can survive, only you will survive." />
+                <Label Text="Evacuation" StyleClasses="LabelBig" />
+                <Label Text="Evacuation is not a possible option, any shuttle calls will be immediately rejected." />
+                <Label Text="You WILL NOT get any ERT, Deathsquad, CBRN, etc sent to the station, good luck." />
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</Control>

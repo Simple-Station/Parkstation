@@ -15,7 +15,7 @@ namespace Content.Client.SimpleStation14.Documentation.UI.Elements
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-        public BoxContainer ReagentBoxes => ReagentRecipeListb;
+        // public BoxContainer ReagentBoxes => ReagentRecipeListb;
 
         public ReagentRecipeList()
         {
