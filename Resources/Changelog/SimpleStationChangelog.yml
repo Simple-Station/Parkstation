@@ -758,3 +758,13 @@ Entries:
     - { message: 'Add cryostasis command, allowing people to remove themselves from rounds and open a new job slot for latejoiners.', type: Add }
   id: 69
   time: "2022-01-07T00:02:53.0000000+00:00"
+- author: "DEATHB4DEFEAT"
+  changes:
+    - { message: 'Station events have a 15-45 minute time in between them (used to be 5-25).', type: Tweak }
+    - { message: 'Ramping station events have a base 8-24 minute time in between (use to be 4-12).', type: Tweak }
+    - { message: 'Most station events have a maximum occurrence amount.', type: Tweak }
+    - { message: 'Antagonist spawning events are rarer, and have low maximum occurrences.', type: Tweak }
+    - { message: 'Made low effect events much more common.', type: Tweak }
+    - { message: "Added reoccurrence delays to most events, you don't want 3 power outages right after eachother, do you?", type: Tweak }
+  id: 70
+  time: "2022-01-07T16:55:28.0000000+00:00"
