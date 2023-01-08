@@ -13,6 +13,7 @@
         unitsPerUpdate: 0.02
         accumulatorTime: 1
 
+
 - type: trait
   id: Arachnid
   name: Arachnid
@@ -21,6 +22,7 @@
   category: Positive
   components:
     - type: Arachne
+
 
 - type: trait
   id: Voracious
@@ -43,3 +45,58 @@
         Thirsty: 350
         Parched: 175
         Dead: 0
+
+
+
+# - type: trait
+#   id: Bigger
+#   name: Bigger
+#   description: Bigger
+#   cost: -3
+#   category: Positive
+# #   blacklist:
+# #     components:
+# #       - HeightAdjusted
+#   components:
+#     - type: HeightAdjusted
+#       height: 1.2
+
+- type: trait
+  id: Big
+  name: Bigger
+  description: Big
+  cost: -2
+  category: Positive
+  # blacklist:
+  #   components:
+  #     - HeightAdjusted
+  components:
+    - type: HeightAdjusted
+      height: 1.1
+
+- type: trait
+  id: Small
+  name: Smaller
+  description: Small
+  cost: -1
+  category: Positive
+  # blacklist:
+  #   components:
+  #     - HeightAdjusted
+  components:
+    - type: HeightAdjusted
+      height: 0.9
+
+# teeny
+# - type: trait
+#   id: Smaller
+#   name: Smaller
+#   description: Smaller
+#   cost: -2
+#   category: Positive
+# #   blacklist:
+# #     components:
+# #       - HeightAdjusted
+#   components:
+#     - type: HeightAdjusted
+#       height: 0.8
