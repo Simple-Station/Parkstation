@@ -938,11 +938,11 @@ Entries:
   - author: "DEATHB4DEFEAT"
     changes:
       - {
-          message: "Station events have a 15-45 minute time in between them (used to be 5-25).",
+          message: "Station events have a longer time between occurances.",
           type: Tweak,
         }
       - {
-          message: "Ramping station events have a base 8-24 minute time in between (use to be 4-12).",
+          message: "Ramping station events have a base min/max about twice as long as before.",
           type: Tweak,
         }
       - {

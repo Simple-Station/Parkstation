@@ -23,7 +23,7 @@
     id: BureaucraticError
     startAnnouncement: station-event-bureaucratic-error-announcement
     minimumPlayers: 20
-    weight: 8
+    weight: 6
     endAfter: 1
     maxOccurrences: 2
     reoccurrenceDelay: 60
@@ -38,7 +38,7 @@
       params:
         volume: -4
     id: DiseaseOutbreak
-    weight: 13
+    weight: 8
     endAfter: 1
     earliestStart: 15
     maxOccurrences: 15
