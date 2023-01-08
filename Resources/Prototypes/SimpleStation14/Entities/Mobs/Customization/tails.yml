@@ -1,0 +1,147 @@
+- type: marking
+  id: TailAxolotl
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: axolotl
+
+- type: marking
+  id: TailDatashark
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: datashark_ears_inner
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: datashark_ears
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: datashark_fin
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: datashark_tail
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: datashark_taildata
+
+- type: marking
+  id: TailEasternDragon
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: easternd_primary
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: easternd_secondary
+
+- type: marking
+  id: TailFennec
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: fennec
+
+- type: marking
+  id: TailFish
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: fish_primary
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: fish_secondary
+
+- type: marking
+  id: TailFluffy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: fluffy
+
+- type: marking
+  id: TailFox
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: fox_primary
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: fox_secondary
+
+- type: marking
+  id: TailGecko
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: gecko_primary
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: gecko_secondary
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: gecko_tertiary
+
+- type: marking
+  id: TailKitsune
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: kitsune_primary
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: kitsune_secondary
+
+- type: marking
+  id: TailMaw
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, Slime]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: maw
+
+- type: marking
+  id: TailShark
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: shark_fin
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: shark_tail
+
+- type: marking
+  id: TailSnake
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, Slime]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: snake
+
+- type: marking
+  id: TailSuccubus
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth, Felinid]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: succubus
+
+- type: marking
+  id: TailTentacle
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, Oni]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails.rsi
+      state: tentacle

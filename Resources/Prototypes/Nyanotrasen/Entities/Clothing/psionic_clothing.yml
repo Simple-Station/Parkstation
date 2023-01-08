@@ -12,6 +12,9 @@
   - type: ClothingGrantPsionicPower
     power: TelegnosisPower
   - type: Psionic
+  - type: Tag
+    tags:
+    - GlassesNearsight
 
 - type: entity
   id: BedsheetInvisibilityCloak

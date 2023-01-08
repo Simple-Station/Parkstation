@@ -405,7 +405,7 @@ namespace Content.Client.Preferences.UI
 
                     category.AddChild(new PanelContainer
                     {
-                        PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#464966") },
+                        PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#464946")},
                         Children =
                         {
                             new Label
@@ -493,6 +493,7 @@ namespace Content.Client.Preferences.UI
             }
             else
             {
+                _antagList.Margin = new Thickness (0, 0, 0, 10);
                 _antagList.Margin = new Thickness(0, 0, 0, 10);
                 var whitelistLabel = new Label();
                 whitelistLabel.Text = Loc.GetString("roles-antag-not-whitelisted");

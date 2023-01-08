@@ -55,6 +55,8 @@
     accent: mouse
   - type: MeleeWeapon
     hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite
     damage:
@@ -591,7 +593,7 @@
 
 - type: entity
   name: gorilla
-  parent: SimpleMobBase
+  parent: MobMonkey
   id: MobGorilla
   description: Smashes, roars, looks cool. Don't stand near one.
   components:
@@ -628,6 +630,27 @@
   - type: Bloodstream
     bloodMaxVolume: 300
   - type: Puller
+  - type: UserInterface
+    interfaces:
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
+  - type: Oni
+    modifiers:
+      coefficients:
+        Blunt: 2
+        Slash: 1.7
+        Piercing: 1.7
+        Asphyxiation: 2
+    stamDamageBonus: 1.7
+  - type: MobState
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Oni
+  - type: Stamina
   - type: ReplacementAccent
     accent: monkey
   - type: RandomBark
@@ -753,6 +776,7 @@
       layer:
       - MobLayer
   - type: Strippable
+  - type: Stripping
   - type: UserInterface
     interfaces:
     - key: enum.StrippingUiKey.Key
@@ -1237,8 +1261,8 @@
   description: A small penguin with a grenade strapped around its neck. Harvested by the Syndicate from icy shit-hole planets.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed : 7
-    baseSprintSpeed : 7
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 5
   - type: InputMover
   - type: MobMover
   - type: HTN
@@ -1296,6 +1320,13 @@
     intensitySlope: 20
     totalIntensity: 225
   - type: ExplodeOnTrigger
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:ExplodeBehavior
 
   # I have included a snake_hiss.ogg sound file so if you want to use that be my guest
 - type: entity
@@ -1677,6 +1708,8 @@
         Base: narsian_dead
   - type: MeleeWeapon
     hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite
     damage:
@@ -2104,6 +2137,8 @@
       name: action-name-disarm
   - type: MeleeWeapon
     hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite
     damage:

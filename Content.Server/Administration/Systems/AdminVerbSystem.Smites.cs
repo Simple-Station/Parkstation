@@ -845,7 +845,7 @@ public sealed partial class AdminVerbSystem
             {
                 SoundSystem.Play("/Audio/SimpleStation14/Admin/Smites/smite.ogg", Filter.Pvs(args.Target), args.Target);
                 await Task.WhenAll(Timer.Delay(4000));
-                _electrocutionSystem.TryDoElectrocution(args.Target, args.Target, 95, TimeSpan.FromSeconds(5), true, 1, null, true);
+                _electrocutionSystem.TryDoElectrocution(args.Target, args.Target, 500, TimeSpan.FromSeconds(5), true, 1, null, true);
             },
             Impact = LogImpact.Extreme,
             Message = Loc.GetString("admin-smite-smite-description"),
@@ -861,7 +861,7 @@ public sealed partial class AdminVerbSystem
             {
                 SoundSystem.Play("/Audio/SimpleStation14/Admin/Smites/pleaseroleplay.ogg", Filter.Entities(args.Target), args.Target);
             },
-            Impact = LogImpact.Extreme,
+            Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-smite-roleplay-description"),
         };
         args.Verbs.Add(roleplay);
@@ -875,7 +875,7 @@ public sealed partial class AdminVerbSystem
             {
                 SoundSystem.Play("/Audio/SimpleStation14/Admin/Smites/manup.ogg", Filter.Entities(args.Target), args.Target);
             },
-            Impact = LogImpact.Extreme,
+            Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-smite-manup-description"),
         };
         args.Verbs.Add(manup);

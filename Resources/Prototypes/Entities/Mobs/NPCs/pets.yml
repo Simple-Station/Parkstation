@@ -30,6 +30,8 @@
     spawned:
     - id: FoodMeatCorgi
       amount: 2
+  - type: RandomBark
+    chatlog: True
 
 - type: entity
   name: Old Ian
@@ -56,6 +58,8 @@
     attributes:
       proper: true
       gender: male
+  - type: RandomBark
+    chatlog: True
 
 - type: entity
   name: Lisa
@@ -376,7 +380,7 @@
   - type: Grammar
     attributes:
       gender: male
-      
+
 - type: entity
   name: Renault
   parent: MobFox

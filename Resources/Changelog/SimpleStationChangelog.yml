@@ -1,750 +1,967 @@
 Entries:
-- author: DEATHB4DEFEAT
-  changes:
-    - { message: Remembered to add changelogs., type: Add }
-    - {
-        message: Added MagicalMedipen. Made in medical techfab after chem research.,
-        type: Add,
-      }
-    - { message: Medipens can now be refilled., type: Tweak }
-    - {
-        message: Chemical medipen can now be crafted a similar way as MagicMedipen.,
-        type: Fix,
-      }
-    - {
-        message: Added Trollospray. An admin item with several cool reagents in an infinite supply.,
-        type: Add,
-      }
-  id: 6
-  time: "2022-10-10T22:10:10.0000000+00:00"
-- author: DEATHB4DEFEAT
-  changes:
-    - {
-        message: Added a base for the station AI (unused but in sandbox menu).,
-        type: Add,
-      }
-    - {
-        message: Station AI(eye) can be controlled via ghostroles. THE FRIDGE DOESN'T WORK YET!,
-        type: Tweak,
-      }
-    - { message: Station AI can only be seen by ghosts., type: Fix }
-  id: 7
-  time: "2022-10-11T00:02:10.0000000+00:00"
-- author: DEATHB4DEFEAT
-  changes:
-    - { message: Added AI door remote., type: Add }
-    - {
-        message: Station AI(core) can be controlled via ghostroles.,
-        type: Fix,
-      }
-    - {
-        message: Station AIeye acts similar to a telegnostic projection from the core.,
-        type: Add,
-      }
-    - { message: Station AI has an actual AI texure., type: Fix }
-    - { message: Drones have their active animations again., type: Fix }
-    - {
-        message: Drones can kinda do some things around humans. Will fix later.,
-        type: Tweak,
-      }
-    - { message: Changed roundstart welcome sound., type: Tweak }
-    - { message: Added roundend bad to the bone riff sound., type: Add }
-    - {
-        message: Screams have no cooldown (dont abuse this please).,
-        type: Tweak,
-      }
-    - { message: Lithium flask now holds 150u., type: Fix }
-  id: 8
-  time: "2022-10-12T00:00:19.0000000+00:00"
-- author: DEATHB4DEFEAT
-  changes:
-    - {
-        message: Drones can now do "anything" and still have their active texture.,
-        type: Fix,
-      }
-    - {
-        message: Added a wizard syndicate catalogue (uses bluespace instead of TC).,
-        type: Add,
-      }
-    - { message: Added wizard uplink., type: Add }
-    - { message: Added wizard surplus and outfit bundle., type: Add }
-    - { message: Wand belts can hold spellbooks now., type: Tweak }
-    - {
-        message: Migrated (most) SimpleStation14 content to /SimpleStation14 folders.,
-        type: Tweak,
-      }
-    - { message: Added Zook's Flazk., type: Add }
-    - { message: Added spellbook tag., type: Add }
-    - { message: Altars are now a ghost role., type: Tweak }
-  id: 9
-  time: "2022-10-13T21:14:58.0000000+00:00"
-- author: DEATHB4DEFEAT
-  changes:
-    - {
-        message: Booze/Soda/Chem dispenser have new emag inventories.,
-        type: Tweak,
-      }
-    - {
-        message: Mindbreaker now has a really strong drunk effect.,
-        type: Tweak,
-      }
-    - {
-        message: Added liquid miasma for virology. Made with Spaceacilin Ammonia and UnstableMutagen.,
-        type: Add,
-      }
-    - { message: Added belt of holding., type: Add }
-    - { message: Fixed my custom lathe recipe icons., type: Fix }
-    - {
-        message: Added infinite point disk if you want to skip slow research in sandbox.,
-        type: Add,
-      }
-    - {
-        message: Added syndicate water. Made with 1 water and 4 Lexorin. 12 suffocation damage per unit.,
-        type: Add,
-      }
-  id: 10
-  time: "2022-10-14T17:39:17.0000000+00:00"
-- author: DEATHB4DEFEAT
-  changes:
-    - { message: Partial system for AIeye warping (teleporting)., type: Add }
-    - {
-        message: The AI core (and everything else) can't be possessed by more than one soul. Ghost roles are deleted once used and ghosted.,
-        type: Fix,
-      }
-    - {
-        message: Disable the really annoying power outage event.,
-        type: Tweak,
-      }
-    - {
-        message: The AI now has a handheld radio and omnitool. This is subject to change.,
-        type: Add,
-      }
-    - {
-        message: Removed spaceacilin and lowered capacity of/from Trollospray.,
-        type: Tweak,
-      }
-    - {
-        message: The AI (core only sadly) now has randomized names.,
-        type: Add,
-      }
-    - {
-        message: Drones no longer crash the server when you click the 'setup' context. (they dont have the option anymore),
-        type: Fix,
-      }
-  id: 11
-  time: "2022-10-16T02:46:37.0000000+00:00"
-- author: Wii
-  changes:
-    - {
-        message: Added Syndicate Smoker survival box. (New admeme),
-        type: Add,
-      }
-  id: 12
-  time: "2022-10-16T17:39:51.0000000+00:00"
-- author: DEATHB4DEFEAT
-  changes:
-    - { message: Captain can be antag - has 14 less TC., type: Tweak }
-    - { message: HOP can be antag - has 12 less TC., type: Tweak }
-    - { message: Chief Engineer can be antag - has 8 less TC., type: Tweak }
-    - { message: Added debug emag for the funny., type: Add }
-    - {
-        message: All station events have the same change of happening.,
-        type: Tweak,
-      }
-    - {
-        message: Syndicate over-ear is now a proper over-ear. It can hear all channels.,
-        type: Fix,
-      }
-    - {
-        message: Fixed the liquid miasma recipe - I was missing an L in spaceacillin.,
-        type: Fix,
-      }
-    - {
-        message: Undid changes to ghost system as it broke warping.,
-        type: Fix,
-      }
-  id: 13
-  time: "2022-10-16T21:50:55.0000000+00:00"
-- author: Wii + DEATHB4DEFEAT
-  changes:
-    - { message: Added a custom adminghost texture., type: Add }
-  id: 14
-  time: "2022-10-16T23:27:38.0000000+00:00"
-- author: DEATHB4DEFEAT
-  changes:
-    - {
-        message: Moved SimpleStation14 textures to SimpleStation14 subfolder.,
-        type: Tweak,
-      }
-    - {
-        message: Added Cellular Divider reagent - 200 cellular damage per unit.,
-        type: Add,
-      }
-    - {
-        message: Added Cell divider to trollospray to replace omnizine.,
-        type: Tweak,
-      }
-  id: 15
-  time: "2022-10-17T16:27:38.0000000+00:00"
-- author: Xelz
-  changes:
-    - { message: Added a water jug that fits 200u., type: Add }
-  id: 16
-  time: "2022-10-17T18:27:38.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: Undid my singulo changes., type: Add }
-    - {
-        message: Fixed nyano species (and reptilian/vox) not being able to use *all* or unlimited markings.,
-        type: Fix,
-      }
-  id: 17
-  time: "2022-10-18T16:47:13.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - {
-        message: Gamemodes don't need to be forcestarted anymore to be played.,
-        type: Fix,
-      }
-    - { message: Removed untested debug emag., type: Fix }
-    - { message: Changed whitelist messages., type: Tweak }
-  id: 18
-  time: "2022-10-19T22:38:17.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: New markings usable by all species., type: Fix }
-    - {
-        message: You can now see color when blind (you just become very nearsighted).,
-        type: Tweak,
-      }
-  id: 19
-  time: "2022-10-21T16:45:10.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - {
-        message: "New trait, monochromatic colorblindness, everything is on a colorscale of white-black.",
-        type: Add,
-      }
-    - {
-        message: "Fix monochromacy causing entity spawner to appear as your camera.",
-        type: Fix,
-      }
-    - {
-        message: "Rename funny spellbooks to something in spanish.",
-        type: Tweak,
-      }
-  id: 20
-  time: "2022-10-21T17:29:22.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - {
-        message: "Added new speech locales for nearly all spells.",
-        type: Add,
-      }
-    - { message: "Remade original spell incantations in latin.", type: Tweak }
-    - {
-        message: "Funny spellbooks have a slightly different incantation than normal book (mostly).",
-        type: Add,
-      }
-    - { message: "Removed time limit for traitor deathmatch.", type: Fix }
-    - {
-        message: "Smite now properly gibs, leaving all organs behind.",
-        type: Tweak,
-      }
-  id: 21
-  time: "2022-10-22T15:34:05.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - {
-        message: "Change mindbreaker recipe to match its effects. Ethanol - SpaceDrugs - Dylovene",
-        type: Tweak,
-      }
-    - { message: "Add unmerged upstream implant system.", type: Add }
-    - { message: "Add Micro/Macro Bomb implants.", type: Add }
-    - {
-        message: "Add failed trombone implant (clowns get this by default), plays a sad trombone on death.",
-        type: Add,
-      }
-    - { message: "Add secret storage implant, has 50 storage.", type: Add }
-    - {
-        message: "Add freedom implant, removes handcuffs instantly on use.",
-        type: Add,
-      }
-    - {
-        message: "Medical has an implant remover, takes 45 seconds (instead of 300..) to remove an implant from someone. Better get some narcotics!",
-        type: Add,
-      }
-  id: 22
-  time: "2022-10-23T17:51:46.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: "Add healing spellbook to wizard uplink.", type: Add }
-    - {
-        message: "Add implants to Implant category in wizard uplink.",
-        type: Add,
-      }
-  id: 23
-  time: "2022-10-23T18:38:19.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: "Add Urist McLing admeme ghostrole.", type: Add }
-    - { message: "Add(ing) changeling name list.", type: Add }
-    - { message: "Station AI has state laws action now.", type: Add }
-    - {
-        message: "Add changeling outfit, can be used in debug set outfit.",
-        type: Add,
-      }
-  id: 24
-  time: "2022-10-23T19:41:51.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - {
-        message: "Add Urist McWizard admeme ghostroles in 5 variations.",
-        type: Add,
-      }
-    - { message: "Increased changelog window size by a bit.", type: Tweak }
-    - { message: "Add healing spellbook to uplink.", type: Fix }
-    - { message: "Implants category of wizard uplink is visible.", type: Fix }
-  id: 25
-  time: "2022-10-23T20:17:10.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: "SpellbookUser component.", type: Add }
-    - { message: "Wizards get SpellbookUser component.", type: Add }
-    - {
-        message: "Anyone trying to use a spellbook without SpellbookUser will get 50 burn damage.",
-        type: Tweak,
-      }
-    - {
-        message: "Wizards and Changelings now have a RandomHumanoidAppearance.",
-        type: Tweak,
-      }
-    - { message: "Adminghosts have SpellbookUser.", type: Tweak }
-    - {
-        message: "Severely nerfed all normal wizard spellbooks (increased timers).",
-        type: Fix,
-      }
-    - {
-        message: "Spawn carp now only spawns one carp, like it says.",
-        type: Tweak,
-      }
-  id: 26
-  time: "2022-10-24T20:55:55.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: "AdminObserver light is bigger.", type: Tweak }
-    - { message: "AI core is pullable, and really heavy.", type: Fix }
-    - {
-        message: "Freedom implant has a minute long cooldown, enough time to remove the implant.",
-        type: Tweak,
-      }
-    - { message: "Added custom splash screen.", type: Add }
-    - {
-        message: "Telegnostics dont get deleted on return unless their original is dead, instead of not existing.",
-        type: Fix,
-      }
-    - {
-        message: "AI eye is forced to return to their core when it is killed (this does not delete them like the previous log says). AIs will be reviveable in the future somehow, for now only wizards and admins can rejuvinate it.",
-        type: Fix,
-      }
-  id: 27
-  time: "2022-10-25T22:04:21.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - {
-        message: "XenoVirus diseases, one makes you into a queen, the other into a drone, after a long painful process.",
-        type: Add,
-      }
-    - { message: "XenoBlood, gives a random XenoVirus.", type: Add }
-    - {
-        message: "Unused antag role and gamerules for XenoOutbreak.",
-        type: Add,
-      }
-    - { message: "Some animals no longer can carry diseases.", type: Tweak }
-  id: 28
-  time: "2022-10-26T18:20:28.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: "Low Alcohol tolerance trait.", type: Add }
-    - { message: "Mute trait.", type: Add }
-    - { message: "Increased chat hearing range by 3, to 10.", type: Tweak }
-    - {
-        message: "Revised the splash image, launch one is 0.5x res, versions up to 4x are available on github.",
-        type: Add,
-      }
-  id: 29
-  time: "2022-10-26T21:29:04.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: "Remove implants, too unstable :(.", type: Remove }
-    - { message: "Merge upstream.", type: Add }
-    - { message: "Fix AI body.", type: Fix }
-    - {
-        message: "AI telegnosis is completely fucked, need to fix that somehow later, just a warning.",
-        type: Fix,
-      }
-  id: 30
-  time: "2022-10-27T22:45:39.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - {
-        message: "Healing spell is now targeted, meaning you can heal yourself.",
-        type: Tweak,
-      }
-    - {
-        message: "Remove changeling and wizard randomHumanAppearance, since it overwrites random metadata names.",
-        type: Remove,
-      }
-  id: 31
-  time: "2022-10-28T14:10:38.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - {
-        message: "Draconic Bloodstream trait - 0.075 Ichor per second.",
-        type: Add,
-      }
-    - {
-        message: 'Partial "Religious" trait - SpellbookUser and BibleUser components.',
-        type: Add,
-      }
-    - {
-        message: "Fix unfinished XenoOutbreak not being removed from roundstart.",
-        type: Fix,
-      }
-    - {
-        message: "Un-buffed Ichor, but added asphyxiation healing.",
-        type: Tweak,
-      }
-    - {
-        message: "Fixed Monochromatic Colorblindness capitalization.",
-        type: Tweak,
-      }
-  id: 32
-  time: "2022-10-31T14:32:02.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - {
-        message: "Draconic Bloodstream trait - 0.02 Ichor per second.",
-        type: Tweak,
-      }
-    - { message: "Support for Trait descriptions.", type: Add }
-    - { message: "All traits have new descriptions.", type: Add }
-  id: 33
-  time: "2022-11-1T13:12:48.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - {
-        message: "Arachnid trait (unused since I havent fixed the issue with addComponentSpecial).",
-        type: Add,
-      }
-    - {
-        message: "Religious trait is now hidden til I fix addComponentSpecial.",
-        type: Remove,
-      }
-  id: 34
-  time: "2022-11-3T12:34:54.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: "Finally merged upstream.", type: Add }
-    - {
-        message: "Removed my very short lived trait description system, upstream did it better.",
-        type: Remove,
-      }
-    - {
-        message: "Fixed bluespace crystal stacking (how did it even work before??), it crashed client when near bluespace.",
-        type: Fix,
-      }
-  id: 35
-  time: "2022-11-24T00:43:25.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: "Finally made rules, please reread them!", type: Add }
-    - { message: "Merged upstream, gotta stay up to date!", type: Tweak }
-    - { message: "Teenage lightning lobby music.", type: Remove }
-  id: 36
-  time: "2022-11-25T19:25:39.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - {
-        message: "Moth work now, antennae didn't have textures for some reason.",
-        type: Fix,
-      }
-    - { message: "Diona are now available for roundstart.", type: Tweak }
-    - {
-        message: "Updated the marking whitelists, all species can use all markings once again. (still can't render all on every species)",
-        type: Fix,
-      }
-    - {
-        message: "Changed escapemenu wiki link to Nyanotrasen wiki.",
-        type: Tweak,
-      }
-    - { message: "Added VV keybind (alt+v).", type: Add }
-    - {
-        message: "Changed sandbox pick keybind (alt+middlemouse).",
-        type: Tweak,
-      }
-  id: 37
-  time: "2022-11-26T18:59:57.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - {
-        message: "Added ~175 wigs (unused), I plan on adding some sort of color options to them.",
-        type: Add,
-      }
-  id: 38
-  time: "2022-11-26T18:59:57.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: "5 nonfunctional Sleepers. All they do is look good and store a single item or person.", type: Add }
-    - { message: "Syndicate Comms Agent spawner (ghost role).", type: Add }
-    - { message: "Remove adminghost light, fullbright was made easier to access as ghosts.", type: Remove }
-  id: 39
-  time: "2022-12-2T20:35:53.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Fix sleeper textures layering incorrectly.', type: Fix }
-    - { message: 'Syndicate communications outpost map file.', type: Add }
-  id: 40
-  time: "2022-12-3T16:31:14.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Add 3 new inventory slots for underwear.', type: Add }
-    - { message: 'Added 148 new underwear.', type: Add }
-    - { message: 'Added back some of the Nyano whitelist restrictions.', type: Add }
-  id: 41
-  time: "2022-12-4T00:32:35.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Undo change causing ghosts to get deleted whenever the mind leaves.', type: Tweak }
-    - { message: 'Add a Brief system, similar to aghost.', type: Add }
-    - { message: 'Edit centcom official outfit to be more up to date.', type: Tweak }
-    - { message: '"Fix" strip menus underwear slots, need to resize the window to see them though.', type: Fix}
-  id: 42
-  time: "2022-12-4T02:15:02.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Fix Brief not deleting the officer after returning to original body.', type: Fix}
-  id: 43
-  time: "2022-12-6T13:20:20.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Fix AI telegnosis.', type: Fix }
-    - { message: 'Fix AI intrinsic radio.', type: Fix }
-    - { message: 'Add AI PDA and ID.', type: Add }
-    - { message: 'Remove AI omnitool.', type: Remove }
-  id: 44
-  time: "2022-12-6T20:48:00.0000000+00:00"
-- author: "Pspritechologist"
-  changes:
-    - { message: 'Added the Chief Service Supervisor as a role, though no maps implement it yet.', type: Add }
-    - { message: 'Added Peacekeeper as a role! Pick up that can, citizen.', type: Add }
-    - { message: 'Made ALL of Sec blue! No longer are the good guys dressed like terrorists!', type: Tweak }
-    - { message: 'Fixed some colour inconsistencies within Service.', type: Tweak }
-    - { message: 'Modified the temperature coefficients of all outfits, including winter coats. Better start bundling up!', type: Tweak }
-  id: 45
-  time: "2022-12-6T20:49:00.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Tweak species marking whitelist a bit to make more sense.', type: Tweak }
-    - { message: 'Disable a few species for roundstart, arachne, oni, dwarf, skeleton, vox.', type: Tweak }
-    - { message: 'Add back the scream cooldown. "Why the fuck are the rats screaming so much??" -Centcomm', type: Fix }
-    - { message: 'Add Urist McNars (SuperPsi).', type: Add }
-    - { message: 'RegalRats and mice have a rat hivemind radio channel (:r)', type: Add }
-    - { message: 'Xenos (spacemobs) have a Xeno hivemind radio channel (:x)', type: Add }
-  id: 44
-  time: "2022-12-8T12:36:09.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Add trait categories and sorting.', type: Add }
-    - { message: 'Add unused trait point values. (soon™)', type: Add }
-  id: 45
-  time: "2022-12-9T13:19:09.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Socks and feet render underneath the jumpsuit, meaning thigh highs and skirts will look cool.', type: Fix }
-    - { message: "Adminghost has SpellbookUser and BibleUser components again. (why'd they disappear?)", type: Fix }
-    - { message: 'Flamethrower. Fire. Everything is on fire. Death is imminent. Run.', type: Add }
-    - { message: 'Underwear can be quick equipped.', type: Tweak }
-    - { message: 'Underwear have a blank description instead of DESCRIPTION.', type: Remove }
-    - { message: "Underwear do not rotate when on the ground. (they're still off-center...)", type: Tweak }
-  id: 46
-  time: "2022-12-10T01:07:39.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Wizard gamemode, finally! (buggy, so admin only)', type: Add }
-    - { message: 'Remove all gamemodes from vote except for secret.', type: Remove }
-    - { message: 'Modified secret gamemode weights.', type: Tweak }
-  id: 47
-  time: "2022-12-10T05:08:51.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Wizard gamemode was fixed, somewhat, you dont get proper objectives but youre a wizard! (available in secret gamemode pool)', type: Add }
-    - { message: 'AI no longer spawns in arrivals if latejoining.', type: Fix }
-  id: 48
-  time: "2022-12-12T23:46:44.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Nerf magic medipen, 0.1 Ichor per second with a max capacity of 15u', type: Tweak }
-  id: 49
-  time: "2022-12-13T14:48:28.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Brief is now in the adminbus with aghost.', type: Add }
-    - { message: 'Nearsighted trait.', type: Add }
-    - { message: 'Mostly working Nearsight system.', type: Add }
-    - { message: 'GlassesNearsight Tag, for "prescription" eyewear.', type: Add }
-    - { message: 'Prescription HUDs. (unused)', type: Add }
-    - { message: 'Prescription glasses.', type: Tweak }
-    - { message: 'Remove heal spell knockback.', type: Fix }
-    - { message: 'Fix inconsistent naming, some Simplestation14, some SimpleStation14, now all the latter.', type: Fix }
-    - { message: 'Give Ichor a physical description.', type: Fix }
-    - { message: 'Smonk reagent, instantly makes a ton of fast smoke. (for wizard spell soon™)', type: Add }
-    - { message: 'Add Doormat name to AI and borg possibilites.', type: Add }
-    - { message: 'Add Fakethanol reagent.', type: Add }
-    - { message: 'Fix EasyDrunk trait, uses Fakethanol instead of Ethanol.', type: Fix }
-    - { message: 'Fix narcolepsy Loc "decs", now spelled "desc".', type: Fix }
-  id: 50
-  time: "2022-12-15T00:10:37.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Nearsight doesnt apply the shader to others around you.', type: Fix }
-    - { message: 'Nearsight doesnt apply your shader settings to others around you with nearsight (effectively blinding others).', type: Fix }
-    - { message: 'Woops, another trait that has issues with adding components! No more draconic bloodstream until I make a solution to this.', type: Remove }
-    - { message: 'Make prescription glasses more accessible, add to clothesmate, mediven, and repdrobe', type: Tweak }
-  id: 51
-  time: "2022-12-15T22:59:59.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Religious trait, allows usage of spellbooks and bibles.', type: Fix }
-    - { message: 'New regenReagent system.', type: Add }
-    - { message: 'Multiple traits using regenReagent can now be used without crashing something.', type: Fix }
-    - { message: 'Adding a component another trait adds will not crash, but instead replace it. (other things that add the same component will break still)', type: Fix }
-    - { message: 'Remake Draconic and "EasyDrunk" to use traitRegenReagent', type: Tweak }
-  id: 52
-  time: "2022-12-16T22:30:55.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Bookify smite, turns something into a book.', type: Add }
-    - { message: 'Smite smite, plays a sound and shocks someone.', type: Add }
-    - { message: 'Please Roleplay smite, tells the person to roleplay correctly.', type: Add }
-    - { message: 'Basketball and Book polymorphs.', type: Add }
-  id: 53
-  time: "2022-12-17T03:52:40.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Markings whitelist is more strict.', type: Tweak }
-    - { message: 'Un nerf the nuclear option.', type: Fix }
-    - { message: 'Add a wings marking layer.', type: Add}
-    - { message: 'Move moth wings to wing layer.', type: Tweak }
-    - { message: 'Add 11 large wings available for various species.', type: Add }
-    - { message: 'Add 10 Reptilian spines.', type: Add }
-    - { message: 'Add 5 Reptilian tails that wag.', type: Add }
-  id: 54
-  time: "2022-12-17T03:52:40.0000000+00:00" # forgot to set a time
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'You will now hunger almost as fast as you thirst.', type: Tweak }
-    - { message: 'Psprite only converted the human sprint/walk speeds, now EVERYTHING has swapped movement. (nerf hostile AI)', type: Fix }
-    - { message: 'Reagent processing is ~1-4x slower.', type: Tweak }
-    - { message: 'Only very small puddles will evaporate, more for the janitor to do!', type: Tweak }
-  id: 55
-  time: "2022-12-18T03:31:20.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'voxTest command.', type: Add }
-    - { message: '"Man up" smite.', type: Add }
-    - { message: 'Centcomm officials spawn without an outfit.', type: Tweak }
-    - { message: 'Brief now supports using any outfit prototype instead of just centcomm.', type: Tweak }
-    - { message: 'Brief outfit prototype autocompletion.', type: Add }
-    - { message: 'Tall/Short size change traits.', type: Add }
-    - { message: 'Add back original roundstart sound.', type: Tweak }
-    - { message: 'AI makes a sound on death if it has a mind.', type: Add }
-    - { message: 'Added purple coat with toggleable hood.', type: Add }
-  id: 56
-  time: "2022-12-18T21:02:58.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Made localization for new markings.', type: Add }
-    - { message: 'Removed Wizard from secret pool (my antags broke).', type: Tweak }
-    - { message: 'Hardsuits barely fit in dufflebags now.', type: Tweak }
-    - { message: 'Added proper names to socks.', type: Add }
-    - { message: 'Edited some marking whitelists.', type: Tweak }
-  id: 57
-  time: "2022-12-19T21:09:20.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Fix AI render layer.', type: Fix }
-  id: 58
-  time: "2022-12-20T21:24:21.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Nearsight can see a bit more.', type: Tweak }
-    - { message: 'Brief now allows you to change entity name.', type: Add }
-    - { message: 'Brief allows you to spawn as any Mob.', type: Add }
-    - { message: 'AI core always plays death sound, instead of the eye when it has a mind.', type: Fix }
-    - { message: 'AI cannot throw, drop, pick up, or strip.', type: Fix }
-    - { message: 'AI core has a hitbox again.', type: Fix }
-    - { message: 'EasyDrunk trait should be how I intended now.', type: Fix }
-    - { message: 'AI cannot spawn with traits.', type: Tweak }
-    - { message: 'AI eye inherits the name from its core.', type: Tweak }
-  id: 59
-  time: "2022-12-21T22:56:28.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Wizards work once again, added to secret mode.', type: Fix }
-    - { message: 'Minor antag works, only one objective currently.', type: Fix }
-    - { message: 'Minor antag is in most gamemodes now.', type: Add }
-  id: 60
-  time: "2022-12-22T23:26:27.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Removed Religious trait.', type: Remove }
-    - { message: 'ClothingGrantComponent Component.', type: Add }
-    - { message: 'Magic wizard robes.', type: Add }
-    - { message: 'Wizard store provides magical robes instead of costumes.', type: Tweak }
-    - { message: 'Spellbooks require wearing both magical robes and hat to be learned.', type: Tweak }
-    - { message: 'Minor gamemode killed server if theres too few players.', type: Fix }
-    - { message: 'Rename BC things to BS.', type: Fix }
-    - { message: 'There is no more air friction in an environment without gravity.', type: Tweak }
-  id: 61
-  time: "2022-12-23T00:55:39.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Borgs can not have traits.', type: Fix }
-  id: 62
-  time: "2022-12-23T22:44:10.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Wizard uplinks can have bluespace inserted into them.', type: Fix }
-    - { message: 'Bluespace now stacks.', type: Fix }
-    - { message: 'Wizard hardsuit allows usage of spells.', type: Fix }
-  id: 63
-  time: "2022-12-24T15:32:30.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'AI and silicon have the robot speech bubble.', type: Tweak }
-    - { message: 'Observers can view hivemind channels now.', type: Tweak }
-  id: 64
-  time: "2022-12-25T23:30:30.0000000+00:00"
-- author: "Pspritechologist"
-  changes:
-    - { message: 'Animals will no longer be a silent, soulless shell.', type: Add }
-    - { message: 'Added a (maybe temporary?) Parkstation sign!.', type: Add }
-    - { message: 'Service welcome messages now point to the correct Head.', type: Fix }
-    - { message: 'Fixed Scybersun and Syndie hardsuit helmets.', type: Fix }
-  id: 65
-  time: "2022-12-26T02:52:40.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Fix AI core being able to move while unanchored.', type: Fix }
-  id: 66
-  time: "2022-12-29T21:12:05.0000000+00:00"
-- author: "DEATHB4DEFEAT"
-  changes:
-    - { message: 'Add Anti-Social trait.', type: Add }
-    - { message: 'Add Ageusia trait.', type: Add }
-    - { message: 'Add Voracious trait.', type: Add }
-    - { message: 'Trait point system actually works.', type: Add }
-    - { message: 'Syringes and hyposprays cannot go through a hardsuit.', type: Tweak }
-  id: 67
-  time: "2023-01-02T23:21:04.0000000+00:00"
+  - author: DEATHB4DEFEAT
+    changes:
+      - { message: Remembered to add changelogs., type: Add }
+      - {
+          message: Added MagicalMedipen. Made in medical techfab after chem research.,
+          type: Add,
+        }
+      - { message: Medipens can now be refilled., type: Tweak }
+      - {
+          message: Chemical medipen can now be crafted a similar way as MagicMedipen.,
+          type: Fix,
+        }
+      - {
+          message: Added Trollospray. An admin item with several cool reagents in an infinite supply.,
+          type: Add,
+        }
+    id: 6
+    time: "2022-10-10T22:10:10.0000000+00:00"
+  - author: DEATHB4DEFEAT
+    changes:
+      - {
+          message: Added a base for the station AI (unused but in sandbox menu).,
+          type: Add,
+        }
+      - {
+          message: Station AI(eye) can be controlled via ghostroles. THE FRIDGE DOESN'T WORK YET!,
+          type: Tweak,
+        }
+      - { message: Station AI can only be seen by ghosts., type: Fix }
+    id: 7
+    time: "2022-10-11T00:02:10.0000000+00:00"
+  - author: DEATHB4DEFEAT
+    changes:
+      - { message: Added AI door remote., type: Add }
+      - {
+          message: Station AI(core) can be controlled via ghostroles.,
+          type: Fix,
+        }
+      - {
+          message: Station AIeye acts similar to a telegnostic projection from the core.,
+          type: Add,
+        }
+      - { message: Station AI has an actual AI texure., type: Fix }
+      - { message: Drones have their active animations again., type: Fix }
+      - {
+          message: Drones can kinda do some things around humans. Will fix later.,
+          type: Tweak,
+        }
+      - { message: Changed roundstart welcome sound., type: Tweak }
+      - { message: Added roundend bad to the bone riff sound., type: Add }
+      - {
+          message: Screams have no cooldown (dont abuse this please).,
+          type: Tweak,
+        }
+      - { message: Lithium flask now holds 150u., type: Fix }
+    id: 8
+    time: "2022-10-12T00:00:19.0000000+00:00"
+  - author: DEATHB4DEFEAT
+    changes:
+      - {
+          message: Drones can now do "anything" and still have their active texture.,
+          type: Fix,
+        }
+      - {
+          message: Added a wizard syndicate catalogue (uses bluespace instead of TC).,
+          type: Add,
+        }
+      - { message: Added wizard uplink., type: Add }
+      - { message: Added wizard surplus and outfit bundle., type: Add }
+      - { message: Wand belts can hold spellbooks now., type: Tweak }
+      - {
+          message: Migrated (most) SimpleStation14 content to /SimpleStation14 folders.,
+          type: Tweak,
+        }
+      - { message: Added Zook's Flazk., type: Add }
+      - { message: Added spellbook tag., type: Add }
+      - { message: Altars are now a ghost role., type: Tweak }
+    id: 9
+    time: "2022-10-13T21:14:58.0000000+00:00"
+  - author: DEATHB4DEFEAT
+    changes:
+      - {
+          message: Booze/Soda/Chem dispenser have new emag inventories.,
+          type: Tweak,
+        }
+      - {
+          message: Mindbreaker now has a really strong drunk effect.,
+          type: Tweak,
+        }
+      - {
+          message: Added liquid miasma for virology. Made with Spaceacilin Ammonia and UnstableMutagen.,
+          type: Add,
+        }
+      - { message: Added belt of holding., type: Add }
+      - { message: Fixed my custom lathe recipe icons., type: Fix }
+      - {
+          message: Added infinite point disk if you want to skip slow research in sandbox.,
+          type: Add,
+        }
+      - {
+          message: Added syndicate water. Made with 1 water and 4 Lexorin. 12 suffocation damage per unit.,
+          type: Add,
+        }
+    id: 10
+    time: "2022-10-14T17:39:17.0000000+00:00"
+  - author: DEATHB4DEFEAT
+    changes:
+      - { message: Partial system for AIeye warping (teleporting)., type: Add }
+      - {
+          message: The AI core (and everything else) can't be possessed by more than one soul. Ghost roles are deleted once used and ghosted.,
+          type: Fix,
+        }
+      - {
+          message: Disable the really annoying power outage event.,
+          type: Tweak,
+        }
+      - {
+          message: The AI now has a handheld radio and omnitool. This is subject to change.,
+          type: Add,
+        }
+      - {
+          message: Removed spaceacilin and lowered capacity of/from Trollospray.,
+          type: Tweak,
+        }
+      - {
+          message: The AI (core only sadly) now has randomized names.,
+          type: Add,
+        }
+      - {
+          message: Drones no longer crash the server when you click the 'setup' context. (they dont have the option anymore),
+          type: Fix,
+        }
+    id: 11
+    time: "2022-10-16T02:46:37.0000000+00:00"
+  - author: Wii
+    changes:
+      - {
+          message: Added Syndicate Smoker survival box. (New admeme),
+          type: Add,
+        }
+    id: 12
+    time: "2022-10-16T17:39:51.0000000+00:00"
+  - author: DEATHB4DEFEAT
+    changes:
+      - { message: Captain can be antag - has 14 less TC., type: Tweak }
+      - { message: HOP can be antag - has 12 less TC., type: Tweak }
+      - { message: Chief Engineer can be antag - has 8 less TC., type: Tweak }
+      - { message: Added debug emag for the funny., type: Add }
+      - {
+          message: All station events have the same change of happening.,
+          type: Tweak,
+        }
+      - {
+          message: Syndicate over-ear is now a proper over-ear. It can hear all channels.,
+          type: Fix,
+        }
+      - {
+          message: Fixed the liquid miasma recipe - I was missing an L in spaceacillin.,
+          type: Fix,
+        }
+      - {
+          message: Undid changes to ghost system as it broke warping.,
+          type: Fix,
+        }
+    id: 13
+    time: "2022-10-16T21:50:55.0000000+00:00"
+  - author: Wii + DEATHB4DEFEAT
+    changes:
+      - { message: Added a custom adminghost texture., type: Add }
+    id: 14
+    time: "2022-10-16T23:27:38.0000000+00:00"
+  - author: DEATHB4DEFEAT
+    changes:
+      - {
+          message: Moved SimpleStation14 textures to SimpleStation14 subfolder.,
+          type: Tweak,
+        }
+      - {
+          message: Added Cellular Divider reagent - 200 cellular damage per unit.,
+          type: Add,
+        }
+      - {
+          message: Added Cell divider to trollospray to replace omnizine.,
+          type: Tweak,
+        }
+    id: 15
+    time: "2022-10-17T16:27:38.0000000+00:00"
+  - author: Xelz
+    changes:
+      - { message: Added a water jug that fits 200u., type: Add }
+    id: 16
+    time: "2022-10-17T18:27:38.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: Undid my singulo changes., type: Add }
+      - {
+          message: Fixed nyano species (and reptilian/vox) not being able to use *all* or unlimited markings.,
+          type: Fix,
+        }
+    id: 17
+    time: "2022-10-18T16:47:13.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: Gamemodes don't need to be forcestarted anymore to be played.,
+          type: Fix,
+        }
+      - { message: Removed untested debug emag., type: Fix }
+      - { message: Changed whitelist messages., type: Tweak }
+    id: 18
+    time: "2022-10-19T22:38:17.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: New markings usable by all species., type: Fix }
+      - {
+          message: You can now see color when blind (you just become very nearsighted).,
+          type: Tweak,
+        }
+    id: 19
+    time: "2022-10-21T16:45:10.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "New trait, monochromatic colorblindness, everything is on a colorscale of white-black.",
+          type: Add,
+        }
+      - {
+          message: "Fix monochromacy causing entity spawner to appear as your camera.",
+          type: Fix,
+        }
+      - {
+          message: "Rename funny spellbooks to something in spanish.",
+          type: Tweak,
+        }
+    id: 20
+    time: "2022-10-21T17:29:22.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Added new speech locales for nearly all spells.",
+          type: Add,
+        }
+      - { message: "Remade original spell incantations in latin.", type: Tweak }
+      - {
+          message: "Funny spellbooks have a slightly different incantation than normal book (mostly).",
+          type: Add,
+        }
+      - { message: "Removed time limit for traitor deathmatch.", type: Fix }
+      - {
+          message: "Smite now properly gibs, leaving all organs behind.",
+          type: Tweak,
+        }
+    id: 21
+    time: "2022-10-22T15:34:05.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Change mindbreaker recipe to match its effects. Ethanol - SpaceDrugs - Dylovene",
+          type: Tweak,
+        }
+      - { message: "Add unmerged upstream implant system.", type: Add }
+      - { message: "Add Micro/Macro Bomb implants.", type: Add }
+      - {
+          message: "Add failed trombone implant (clowns get this by default), plays a sad trombone on death.",
+          type: Add,
+        }
+      - { message: "Add secret storage implant, has 50 storage.", type: Add }
+      - {
+          message: "Add freedom implant, removes handcuffs instantly on use.",
+          type: Add,
+        }
+      - {
+          message: "Medical has an implant remover, takes 45 seconds (instead of 300..) to remove an implant from someone. Better get some narcotics!",
+          type: Add,
+        }
+    id: 22
+    time: "2022-10-23T17:51:46.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Add healing spellbook to wizard uplink.", type: Add }
+      - {
+          message: "Add implants to Implant category in wizard uplink.",
+          type: Add,
+        }
+    id: 23
+    time: "2022-10-23T18:38:19.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Add Urist McLing admeme ghostrole.", type: Add }
+      - { message: "Add(ing) changeling name list.", type: Add }
+      - { message: "Station AI has state laws action now.", type: Add }
+      - {
+          message: "Add changeling outfit, can be used in debug set outfit.",
+          type: Add,
+        }
+    id: 24
+    time: "2022-10-23T19:41:51.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Add Urist McWizard admeme ghostroles in 5 variations.",
+          type: Add,
+        }
+      - { message: "Increased changelog window size by a bit.", type: Tweak }
+      - { message: "Add healing spellbook to uplink.", type: Fix }
+      - { message: "Implants category of wizard uplink is visible.", type: Fix }
+    id: 25
+    time: "2022-10-23T20:17:10.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "SpellbookUser component.", type: Add }
+      - { message: "Wizards get SpellbookUser component.", type: Add }
+      - {
+          message: "Anyone trying to use a spellbook without SpellbookUser will get 50 burn damage.",
+          type: Tweak,
+        }
+      - {
+          message: "Wizards and Changelings now have a RandomHumanoidAppearance.",
+          type: Tweak,
+        }
+      - { message: "Adminghosts have SpellbookUser.", type: Tweak }
+      - {
+          message: "Severely nerfed all normal wizard spellbooks (increased timers).",
+          type: Fix,
+        }
+      - {
+          message: "Spawn carp now only spawns one carp, like it says.",
+          type: Tweak,
+        }
+    id: 26
+    time: "2022-10-24T20:55:55.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "AdminObserver light is bigger.", type: Tweak }
+      - { message: "AI core is pullable, and really heavy.", type: Fix }
+      - {
+          message: "Freedom implant has a minute long cooldown, enough time to remove the implant.",
+          type: Tweak,
+        }
+      - { message: "Added custom splash screen.", type: Add }
+      - {
+          message: "Telegnostics dont get deleted on return unless their original is dead, instead of not existing.",
+          type: Fix,
+        }
+      - {
+          message: "AI eye is forced to return to their core when it is killed (this does not delete them like the previous log says). AIs will be reviveable in the future somehow, for now only wizards and admins can rejuvinate it.",
+          type: Fix,
+        }
+    id: 27
+    time: "2022-10-25T22:04:21.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "XenoVirus diseases, one makes you into a queen, the other into a drone, after a long painful process.",
+          type: Add,
+        }
+      - { message: "XenoBlood, gives a random XenoVirus.", type: Add }
+      - {
+          message: "Unused antag role and gamerules for XenoOutbreak.",
+          type: Add,
+        }
+      - { message: "Some animals no longer can carry diseases.", type: Tweak }
+    id: 28
+    time: "2022-10-26T18:20:28.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Low Alcohol tolerance trait.", type: Add }
+      - { message: "Mute trait.", type: Add }
+      - { message: "Increased chat hearing range by 3, to 10.", type: Tweak }
+      - {
+          message: "Revised the splash image, launch one is 0.5x res, versions up to 4x are available on github.",
+          type: Add,
+        }
+    id: 29
+    time: "2022-10-26T21:29:04.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Remove implants, too unstable :(.", type: Remove }
+      - { message: "Merge upstream.", type: Add }
+      - { message: "Fix AI body.", type: Fix }
+      - {
+          message: "AI telegnosis is completely fucked, need to fix that somehow later, just a warning.",
+          type: Fix,
+        }
+    id: 30
+    time: "2022-10-27T22:45:39.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Healing spell is now targeted, meaning you can heal yourself.",
+          type: Tweak,
+        }
+      - {
+          message: "Remove changeling and wizard randomHumanAppearance, since it overwrites random metadata names.",
+          type: Remove,
+        }
+    id: 31
+    time: "2022-10-28T14:10:38.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Draconic Bloodstream trait - 0.075 Ichor per second.",
+          type: Add,
+        }
+      - {
+          message: 'Partial "Religious" trait - SpellbookUser and BibleUser components.',
+          type: Add,
+        }
+      - {
+          message: "Fix unfinished XenoOutbreak not being removed from roundstart.",
+          type: Fix,
+        }
+      - {
+          message: "Un-buffed Ichor, but added asphyxiation healing.",
+          type: Tweak,
+        }
+      - {
+          message: "Fixed Monochromatic Colorblindness capitalization.",
+          type: Tweak,
+        }
+    id: 32
+    time: "2022-10-31T14:32:02.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Draconic Bloodstream trait - 0.02 Ichor per second.",
+          type: Tweak,
+        }
+      - { message: "Support for Trait descriptions.", type: Add }
+      - { message: "All traits have new descriptions.", type: Add }
+    id: 33
+    time: "2022-11-1T13:12:48.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Arachnid trait (unused since I havent fixed the issue with addComponentSpecial).",
+          type: Add,
+        }
+      - {
+          message: "Religious trait is now hidden til I fix addComponentSpecial.",
+          type: Remove,
+        }
+    id: 34
+    time: "2022-11-3T12:34:54.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Finally merged upstream.", type: Add }
+      - {
+          message: "Removed my very short lived trait description system, upstream did it better.",
+          type: Remove,
+        }
+      - {
+          message: "Fixed bluespace crystal stacking (how did it even work before??), it crashed client when near bluespace.",
+          type: Fix,
+        }
+    id: 35
+    time: "2022-11-24T00:43:25.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Finally made rules, please reread them!", type: Add }
+      - { message: "Merged upstream, gotta stay up to date!", type: Tweak }
+      - { message: "Teenage lightning lobby music.", type: Remove }
+    id: 36
+    time: "2022-11-25T19:25:39.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Moth work now, antennae didn't have textures for some reason.",
+          type: Fix,
+        }
+      - { message: "Diona are now available for roundstart.", type: Tweak }
+      - {
+          message: "Updated the marking whitelists, all species can use all markings once again. (still can't render all on every species)",
+          type: Fix,
+        }
+      - {
+          message: "Changed escapemenu wiki link to Nyanotrasen wiki.",
+          type: Tweak,
+        }
+      - { message: "Added VV keybind (alt+v).", type: Add }
+      - {
+          message: "Changed sandbox pick keybind (alt+middlemouse).",
+          type: Tweak,
+        }
+    id: 37
+    time: "2022-11-26T18:59:57.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Added ~175 wigs (unused), I plan on adding some sort of color options to them.",
+          type: Add,
+        }
+    id: 38
+    time: "2022-11-26T18:59:57.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "5 nonfunctional Sleepers. All they do is look good and store a single item or person.",
+          type: Add,
+        }
+      - { message: "Syndicate Comms Agent spawner (ghost role).", type: Add }
+      - {
+          message: "Remove adminghost light, fullbright was made easier to access as ghosts.",
+          type: Remove,
+        }
+    id: 39
+    time: "2022-12-2T20:35:53.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Fix sleeper textures layering incorrectly.", type: Fix }
+      - { message: "Syndicate communications outpost map file.", type: Add }
+    id: 40
+    time: "2022-12-3T16:31:14.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Add 3 new inventory slots for underwear.", type: Add }
+      - { message: "Added 148 new underwear.", type: Add }
+      - {
+          message: "Added back some of the Nyano whitelist restrictions.",
+          type: Add,
+        }
+    id: 41
+    time: "2022-12-4T00:32:35.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Undo change causing ghosts to get deleted whenever the mind leaves.",
+          type: Tweak,
+        }
+      - { message: "Add a Brief system, similar to aghost.", type: Add }
+      - {
+          message: "Edit centcom official outfit to be more up to date.",
+          type: Tweak,
+        }
+      - {
+          message: '"Fix" strip menus underwear slots, need to resize the window to see them though.',
+          type: Fix,
+        }
+    id: 42
+    time: "2022-12-4T02:15:02.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Fix Brief not deleting the officer after returning to original body.",
+          type: Fix,
+        }
+    id: 43
+    time: "2022-12-6T13:20:20.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Fix AI telegnosis.", type: Fix }
+      - { message: "Fix AI intrinsic radio.", type: Fix }
+      - { message: "Add AI PDA and ID.", type: Add }
+      - { message: "Remove AI omnitool.", type: Remove }
+    id: 44
+    time: "2022-12-6T20:48:00.0000000+00:00"
+  - author: "Pspritechologist"
+    changes:
+      - {
+          message: "Added the Chief Service Supervisor as a role, though no maps implement it yet.",
+          type: Add,
+        }
+      - {
+          message: "Added Peacekeeper as a role! Pick up that can, citizen.",
+          type: Add,
+        }
+      - {
+          message: "Made ALL of Sec blue! No longer are the good guys dressed like terrorists!",
+          type: Tweak,
+        }
+      - {
+          message: "Fixed some colour inconsistencies within Service.",
+          type: Tweak,
+        }
+      - {
+          message: "Modified the temperature coefficients of all outfits, including winter coats. Better start bundling up!",
+          type: Tweak,
+        }
+    id: 45
+    time: "2022-12-6T20:49:00.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Tweak species marking whitelist a bit to make more sense.",
+          type: Tweak,
+        }
+      - {
+          message: "Disable a few species for roundstart, arachne, oni, dwarf, skeleton, vox.",
+          type: Tweak,
+        }
+      - {
+          message: 'Add back the scream cooldown. "Why the fuck are the rats screaming so much??" -Centcomm',
+          type: Fix,
+        }
+      - { message: "Add Urist McNars (SuperPsi).", type: Add }
+      - {
+          message: "RegalRats and mice have a rat hivemind radio channel (:r)",
+          type: Add,
+        }
+      - {
+          message: "Xenos (spacemobs) have a Xeno hivemind radio channel (:x)",
+          type: Add,
+        }
+    id: 44
+    time: "2022-12-8T12:36:09.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Add trait categories and sorting.", type: Add }
+      - { message: "Add unused trait point values. (soon™)", type: Add }
+    id: 45
+    time: "2022-12-9T13:19:09.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Socks and feet render underneath the jumpsuit, meaning thigh highs and skirts will look cool.",
+          type: Fix,
+        }
+      - {
+          message: "Adminghost has SpellbookUser and BibleUser components again. (why'd they disappear?)",
+          type: Fix,
+        }
+      - {
+          message: "Flamethrower. Fire. Everything is on fire. Death is imminent. Run.",
+          type: Add,
+        }
+      - { message: "Underwear can be quick equipped.", type: Tweak }
+      - {
+          message: "Underwear have a blank description instead of DESCRIPTION.",
+          type: Remove,
+        }
+      - {
+          message: "Underwear do not rotate when on the ground. (they're still off-center...)",
+          type: Tweak,
+        }
+    id: 46
+    time: "2022-12-10T01:07:39.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Wizard gamemode, finally! (buggy, so admin only)",
+          type: Add,
+        }
+      - {
+          message: "Remove all gamemodes from vote except for secret.",
+          type: Remove,
+        }
+      - { message: "Modified secret gamemode weights.", type: Tweak }
+    id: 47
+    time: "2022-12-10T05:08:51.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Wizard gamemode was fixed, somewhat, you dont get proper objectives but youre a wizard! (available in secret gamemode pool)",
+          type: Add,
+        }
+      - {
+          message: "AI no longer spawns in arrivals if latejoining.",
+          type: Fix,
+        }
+    id: 48
+    time: "2022-12-12T23:46:44.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Nerf magic medipen, 0.1 Ichor per second with a max capacity of 15u",
+          type: Tweak,
+        }
+    id: 49
+    time: "2022-12-13T14:48:28.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Brief is now in the adminbus with aghost.", type: Add }
+      - { message: "Nearsighted trait.", type: Add }
+      - { message: "Mostly working Nearsight system.", type: Add }
+      - {
+          message: 'GlassesNearsight Tag, for "prescription" eyewear.',
+          type: Add,
+        }
+      - { message: "Prescription HUDs. (unused)", type: Add }
+      - { message: "Prescription glasses.", type: Tweak }
+      - { message: "Remove heal spell knockback.", type: Fix }
+      - {
+          message: "Fix inconsistent naming, some Simplestation14, some SimpleStation14, now all the latter.",
+          type: Fix,
+        }
+      - { message: "Give Ichor a physical description.", type: Fix }
+      - {
+          message: "Smonk reagent, instantly makes a ton of fast smoke. (for wizard spell soon™)",
+          type: Add,
+        }
+      - { message: "Add Doormat name to AI and borg possibilites.", type: Add }
+      - { message: "Add Fakethanol reagent.", type: Add }
+      - {
+          message: "Fix EasyDrunk trait, uses Fakethanol instead of Ethanol.",
+          type: Fix,
+        }
+      - { message: 'Fix narcolepsy Loc "decs", now spelled "desc".', type: Fix }
+    id: 50
+    time: "2022-12-15T00:10:37.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Nearsight doesnt apply the shader to others around you.",
+          type: Fix,
+        }
+      - {
+          message: "Nearsight doesnt apply your shader settings to others around you with nearsight (effectively blinding others).",
+          type: Fix,
+        }
+      - {
+          message: "Woops, another trait that has issues with adding components! No more draconic bloodstream until I make a solution to this.",
+          type: Remove,
+        }
+      - {
+          message: "Make prescription glasses more accessible, add to clothesmate, mediven, and repdrobe",
+          type: Tweak,
+        }
+    id: 51
+    time: "2022-12-15T22:59:59.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Religious trait, allows usage of spellbooks and bibles.",
+          type: Fix,
+        }
+      - { message: "New regenReagent system.", type: Add }
+      - {
+          message: "Multiple traits using regenReagent can now be used without crashing something.",
+          type: Fix,
+        }
+      - {
+          message: "Adding a component another trait adds will not crash, but instead replace it. (other things that add the same component will break still)",
+          type: Fix,
+        }
+      - {
+          message: 'Remake Draconic and "EasyDrunk" to use traitRegenReagent',
+          type: Tweak,
+        }
+    id: 52
+    time: "2022-12-16T22:30:55.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Bookify smite, turns something into a book.", type: Add }
+      - { message: "Smite smite, plays a sound and shocks someone.", type: Add }
+      - {
+          message: "Please Roleplay smite, tells the person to roleplay correctly.",
+          type: Add,
+        }
+      - { message: "Basketball and Book polymorphs.", type: Add }
+    id: 53
+    time: "2022-12-17T03:52:40.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Markings whitelist is more strict.", type: Tweak }
+      - { message: "Un nerf the nuclear option.", type: Fix }
+      - { message: "Add a wings marking layer.", type: Add }
+      - { message: "Move moth wings to wing layer.", type: Tweak }
+      - {
+          message: "Add 11 large wings available for various species.",
+          type: Add,
+        }
+      - { message: "Add 10 Reptilian spines.", type: Add }
+      - { message: "Add 5 Reptilian tails that wag.", type: Add }
+    id: 54
+    time: "2022-12-17T03:52:40.0000000+00:00" # forgot to set a time
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "You will now hunger almost as fast as you thirst.",
+          type: Tweak,
+        }
+      - {
+          message: "Psprite only converted the human sprint/walk speeds, now EVERYTHING has swapped movement. (nerf hostile AI)",
+          type: Fix,
+        }
+      - { message: "Reagent processing is ~1-4x slower.", type: Tweak }
+      - {
+          message: "Only very small puddles will evaporate, more for the janitor to do!",
+          type: Tweak,
+        }
+    id: 55
+    time: "2022-12-18T03:31:20.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "voxTest command.", type: Add }
+      - { message: '"Man up" smite.', type: Add }
+      - { message: "Centcomm officials spawn without an outfit.", type: Tweak }
+      - {
+          message: "Brief now supports using any outfit prototype instead of just centcomm.",
+          type: Tweak,
+        }
+      - { message: "Brief outfit prototype autocompletion.", type: Add }
+      - { message: "Tall/Short size change traits.", type: Add }
+      - { message: "Add back original roundstart sound.", type: Tweak }
+      - { message: "AI makes a sound on death if it has a mind.", type: Add }
+      - { message: "Added purple coat with toggleable hood.", type: Add }
+    id: 56
+    time: "2022-12-18T21:02:58.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Made localization for new markings.", type: Add }
+      - {
+          message: "Removed Wizard from secret pool (my antags broke).",
+          type: Tweak,
+        }
+      - { message: "Hardsuits barely fit in dufflebags now.", type: Tweak }
+      - { message: "Added proper names to socks.", type: Add }
+      - { message: "Edited some marking whitelists.", type: Tweak }
+    id: 57
+    time: "2022-12-19T21:09:20.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Fix AI render layer.", type: Fix }
+    id: 58
+    time: "2022-12-20T21:24:21.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Nearsight can see a bit more.", type: Tweak }
+      - { message: "Brief now allows you to change entity name.", type: Add }
+      - { message: "Brief allows you to spawn as any Mob.", type: Add }
+      - {
+          message: "AI core always plays death sound, instead of the eye when it has a mind.",
+          type: Fix,
+        }
+      - { message: "AI cannot throw, drop, pick up, or strip.", type: Fix }
+      - { message: "AI core has a hitbox again.", type: Fix }
+      - { message: "EasyDrunk trait should be how I intended now.", type: Fix }
+      - { message: "AI cannot spawn with traits.", type: Tweak }
+      - { message: "AI eye inherits the name from its core.", type: Tweak }
+    id: 59
+    time: "2022-12-21T22:56:28.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Wizards work once again, added to secret mode.", type: Fix }
+      - {
+          message: "Minor antag works, only one objective currently.",
+          type: Fix,
+        }
+      - { message: "Minor antag is in most gamemodes now.", type: Add }
+    id: 60
+    time: "2022-12-22T23:26:27.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Removed Religious trait.", type: Remove }
+      - { message: "ClothingGrantComponent Component.", type: Add }
+      - { message: "Magic wizard robes.", type: Add }
+      - {
+          message: "Wizard store provides magical robes instead of costumes.",
+          type: Tweak,
+        }
+      - {
+          message: "Spellbooks require wearing both magical robes and hat to be learned.",
+          type: Tweak,
+        }
+      - {
+          message: "Minor gamemode killed server if theres too few players.",
+          type: Fix,
+        }
+      - { message: "Rename BC things to BS.", type: Fix }
+      - {
+          message: "There is no more air friction in an environment without gravity.",
+          type: Tweak,
+        }
+    id: 61
+    time: "2022-12-23T00:55:39.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Borgs can not have traits.", type: Fix }
+    id: 62
+    time: "2022-12-23T22:44:10.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Wizard uplinks can have bluespace inserted into them.",
+          type: Fix,
+        }
+      - { message: "Bluespace now stacks.", type: Fix }
+      - { message: "Wizard hardsuit allows usage of spells.", type: Fix }
+    id: 63
+    time: "2022-12-24T15:32:30.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "AI and silicon have the robot speech bubble.", type: Tweak }
+      - { message: "Observers can view hivemind channels now.", type: Tweak }
+    id: 64
+    time: "2022-12-25T23:30:30.0000000+00:00"
+  - author: "Pspritechologist"
+    changes:
+      - {
+          message: "Animals will no longer be a silent, soulless shell.",
+          type: Add,
+        }
+      - { message: "Added a (maybe temporary?) Parkstation sign!.", type: Add }
+      - {
+          message: "Service welcome messages now point to the correct Head.",
+          type: Fix,
+        }
+      - { message: "Fixed Scybersun and Syndie hardsuit helmets.", type: Fix }
+    id: 65
+    time: "2022-12-26T02:52:40.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Fix AI core being able to move while unanchored.",
+          type: Fix,
+        }
+    id: 66
+    time: "2022-12-29T21:12:05.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Add Anti-Social trait.", type: Add }
+      - { message: "Add Ageusia trait.", type: Add }
+      - { message: "Add Voracious trait.", type: Add }
+      - { message: "Trait point system actually works.", type: Add }
+      - {
+          message: "Syringes and hyposprays cannot go through a hardsuit.",
+          type: Tweak,
+        }
+    id: 67
+    time: "2023-01-02T23:21:04.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Strange spectacles act as prescription glasses.",
+          type: Tweak,
+        }
+    id: 68
+    time: "2022-01-04T15:14:40.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Add cryostasis command, allowing people to remove themselves from rounds and open a new job slot for latejoiners.",
+          type: Add,
+        }
+    id: 69
+    time: "2022-01-07T00:02:53.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Station events have a 15-45 minute time in between them (used to be 5-25).",
+          type: Tweak,
+        }
+      - {
+          message: "Ramping station events have a base 8-24 minute time in between (use to be 4-12).",
+          type: Tweak,
+        }
+      - {
+          message: "Most station events have a maximum occurrence amount.",
+          type: Tweak,
+        }
+      - {
+          message: "Antagonist spawning events are rarer, and have low maximum occurrences.",
+          type: Tweak,
+        }
+      - { message: "Made low effect events much more common.", type: Tweak }
+      - {
+          message: "Added reoccurrence delays to most events, you don't want 3 power outages right after eachother, do you?",
+          type: Tweak,
+        }
+    id: 70
+    time: "2022-01-07T16:55:28.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: 'Add 30 new markings, included species being Felinid, Reptilian, Oni, Human, Slime, Moth, Skeleton.', type: Add }
+    id: 71
+    time: "2022-01-08T02:18:55.0000000+00:00"

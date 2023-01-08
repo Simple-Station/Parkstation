@@ -27,6 +27,10 @@
     RLeg: MobSlimeRLeg
     LFoot: MobSlimeLFoot
     RFoot: MobSlimeRFoot
+    Wings: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
 
 - type: markingPoints
   id: MobSlimeMarkingLimits
@@ -45,6 +49,18 @@
       required: false
     Arms:
       points: 4
+      required: false
+    Tail:
+      points: 1
+      required: false
+    Wings:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    Snout:
+      points: 1
       required: false
 
 - type: humanoidBaseSprite

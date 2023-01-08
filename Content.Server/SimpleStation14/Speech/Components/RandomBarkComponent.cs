@@ -7,6 +7,10 @@ namespace Content.Server.SimpleStation14.Speech.RandomBark
     {
         [Dependency] private readonly IRobustRandom _random = default!;
 
+        // Should the message be sent to the chat log?
+        [DataField("chatlog")]
+        public bool Chatlog = false;
+
         // Minimum time an animal will go without speaking
         [DataField("minTime")]
         public int MinTime = 45;
