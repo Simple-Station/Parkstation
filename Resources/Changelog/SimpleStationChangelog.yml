@@ -963,5 +963,6 @@ Entries:
   - author: "DEATHB4DEFEAT"
     changes:
       - { message: 'Add 30 new markings, included species being Felinid, Reptilian, Oni, Human, Slime, Moth, Skeleton.', type: Add }
+      - { message: "Switching character profiles won't keep the previous profiles trait points, preventing people from having only positive traits.", type: Fix }
     id: 71
     time: "2022-01-08T02:18:55.0000000+00:00"

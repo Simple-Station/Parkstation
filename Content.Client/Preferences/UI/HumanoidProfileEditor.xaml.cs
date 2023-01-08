@@ -540,7 +540,7 @@ namespace Content.Client.Preferences.UI
                                 {
                                     preference = false;
                                     yayornay = false;
-                                    Save();
+                                    // Save();
                                 }
                                 if (yayornay == true) _traitPoints.Text = (temp).ToString();
                             }
@@ -552,6 +552,8 @@ namespace Content.Client.Preferences.UI
 
                             Profile = Profile?.WithTraitPreference(trait.ID, preference);
                             IsDirty = true;
+
+                            Save();
                         };
                     }
                     else if (trait.Category == "Equal")
@@ -587,13 +589,15 @@ namespace Content.Client.Preferences.UI
                                 {
                                     preference = true;
                                     yayornay = false;
-                                    Save();
+                                    // Save();
                                 }
                                 if (yayornay == true) _traitPoints.Text = (temp).ToString();
                             }
 
                             Profile = Profile?.WithTraitPreference(trait.ID, preference);
                             IsDirty = true;
+
+                            Save();
                         };
                     }
                     else continue;
