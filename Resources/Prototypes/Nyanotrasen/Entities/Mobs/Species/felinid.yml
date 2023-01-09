@@ -97,6 +97,8 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: none
         visible: false
+  - type: Eye
+    zoom: "0.85, 0.85"
   - type: Humanoid
     species: Felinid
   - type: Fixtures

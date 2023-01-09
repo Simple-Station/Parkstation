@@ -3,7 +3,7 @@
   config:
     !type:StationEventRuleConfiguration
     id: BluespaceArtifact
-    weight: 5
+    weight: 10
     startAfter: 30
     endAfter: 35
 
@@ -12,7 +12,7 @@
   config:
     !type:StationEventRuleConfiguration
     id: BreakerFlip
-    weight: 10
+    weight: 12
     endAfter: 1
     minimumPlayers: 15
 
@@ -22,9 +22,11 @@
     !type:StationEventRuleConfiguration
     id: BureaucraticError
     startAnnouncement: station-event-bureaucratic-error-announcement
-    minimumPlayers: 25
-    weight: 5
+    minimumPlayers: 20
+    weight: 6
     endAfter: 1
+    maxOccurrences: 2
+    reoccurrenceDelay: 60
 
 - type: gameRule
   id: DiseaseOutbreak
@@ -36,9 +38,10 @@
       params:
         volume: -4
     id: DiseaseOutbreak
-    weight: 5
+    weight: 8
     endAfter: 1
     earliestStart: 15
+    maxOccurrences: 15
 
 # - type: gameRule
 #   id: Dragon
@@ -65,7 +68,7 @@
   config:
     !type:StationEventRuleConfiguration
     id: FalseAlarm
-    weight: 15
+    weight: 20
     endAfter: 1
 
 - type: gameRule
@@ -87,11 +90,13 @@
   config:
     !type:StationEventRuleConfiguration
     id: KudzuGrowth
-    earliestStart: 15
-    minimumPlayers: 15
+    earliestStart: 25
+    minimumPlayers: 10
     weight: 5
     startAfter: 50
     endAfter: 240
+    reoccurrenceDelay: 45
+    maxOccurrences: 7
 
 - type: gameRule
   id: MeteorSwarm
@@ -108,6 +113,8 @@
       params:
         volume: -4
     startAfter: 30
+    reoccurrenceDelay: 35
+    maxOccurrences: 4
 
 - type: gameRule
   id: MouseMigration
@@ -115,7 +122,7 @@
     !type:StationEventRuleConfiguration
     id: MouseMigration
     earliestStart: 30
-    minimumPlayers: 35
+    minimumPlayers: 15
     weight: 5
     endAfter: 50
 
@@ -130,8 +137,9 @@
     startAudio:
       path: /Audio/Announcements/power_off.ogg
       params:
-       volume: -4
+        volume: -4
     startAfter: 12
+    reoccurrenceDelay: 20
 
 # - type: gameRule
 #   id: RandomSentience
@@ -156,6 +164,7 @@
     weight: 5
     startAfter: 50
     endAfter: 60
+    reoccurrenceDelay: 20
 
 - type: gameRule
   id: VentCritters
@@ -166,6 +175,8 @@
     minimumPlayers: 15
     weight: 5
     endAfter: 60
+    reoccurrenceDelay: 50
+    maxOccurrences: 3
 
 # - type: gameRule
 #   id: ZombieOutbreak

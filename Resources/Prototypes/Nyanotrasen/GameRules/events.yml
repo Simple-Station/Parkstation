@@ -9,33 +9,37 @@
     weight: 5
     endAfter: 1
     earliestStart: 15
+    reoccurrenceDelay: 10
 
 - type: gameRule
   id: Fugitive
   config:
     !type:StationEventRuleConfiguration
     id: Fugitive
-    weight: 5
+    weight: 2.5
     endAfter: 1
-    reoccurrenceDelay: 40
+    reoccurrenceDelay: 60
+    maxOccurrences: 2
 
 - type: gameRule
   id: VampSpawn
   config:
     !type:StationEventRuleConfiguration
     id: VampSpawn
-    weight: 5
+    weight: 1.5
     endAfter: 1
-    reoccurrenceDelay: 40
+    reoccurrenceDelay: 80
+    maxOccurrences: 3
 
 - type: gameRule
   id: EvilTwin
   config:
     !type:StationEventRuleConfiguration
     id: EvilTwin
-    weight: 5
+    weight: 3
     endAfter: 1
-    reoccurrenceDelay: 40
+    reoccurrenceDelay: 90
+    maxOccurrences: 2
 
 - type: gameRule
   id: MundaneDischarge
@@ -43,8 +47,8 @@
     !type:GlimmerEventRuleConfiguration
     id: MundaneDischarge
     maximumGlimmer: 300
-    glimmerBurnLower: 8
-    glimmerBurnUpper: 30
+    glimmerBurnLower: 10
+    glimmerBurnUpper: 35
 
 - type: gameRule
   id: NoosphericZap
@@ -78,6 +82,7 @@
     minimumGlimmer: 900
     glimmerBurnLower: 50
     glimmerBurnUpper: 110
+    reoccurrenceDelay: 20
 
 ## converted upstream events
 - type: gameRule
@@ -97,3 +102,5 @@
     minimumGlimmer: 600
     maximumGlimmer: 900
     report: glimmer-event-report-signatures
+    maxOccurrences: 5
+    reoccurrenceDelay: 25
