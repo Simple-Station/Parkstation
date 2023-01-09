@@ -135,6 +135,7 @@
   - Drill
   - Saw
   - Hemostat
+  - CryoPodMachineCircuitboard
 
 - type: technology
   name: technologies-medical-machinery
@@ -159,7 +160,7 @@
   id: AdvancedLifeSupport
   description: technologies-advanced-life-support-description
   icon:
-    sprite: Structures/Machines/cloning.rsi
+    sprite: Nyanotrasen\Structures\Machines\metempsychotic.rsi
     state: pod_0
   requiredPoints: 20000
   requiredTechnologies:
@@ -170,7 +171,19 @@
   - MedicalScannerMachineCircuitboard
   - StasisBedMachineCircuitboard
   - CloningConsoleComputerCircuitboard
-  - CryoPodMachineCircuitboard
+
+- type: technology
+  name: technologies-cloning
+  id: Cloning
+  description: technologies-cloning-description
+  icon:
+    sprite: Structures/Machines/cloning.rsi
+    state: pod_0
+  requiredPoints: 25000
+  requiredTechnologies:
+  - AdvancedLifeSupport
+  unlockedRecipes:
+  - CloningPodMachineCircuitboard
 
 # Security Technology Tree
 

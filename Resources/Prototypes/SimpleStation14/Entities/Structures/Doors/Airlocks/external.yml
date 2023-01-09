@@ -5,3 +5,69 @@
   components:
   - type: Sprite
     sprite: SimpleStation14/Structures/Doors/Airlocks/External/atmospherics.rsi
+
+# External Airlocks
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalCommand
+  suffix: Command, External
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Doors/Airlocks/External/command.rsi
+
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalEngineering
+  suffix: Engineering, External
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Doors/Airlocks/External/engineering.rsi
+
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalMedical
+  suffix: Medical, External
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Doors/Airlocks/External/medical.rsi
+
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalSalvage
+  suffix: Salvage, External
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Doors/Airlocks/External/salvage.rsi
+
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalScience
+  suffix: Science, External
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Doors/Airlocks/External/science.rsi
+
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalSecurity
+  suffix: Security, External
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Doors/Airlocks/External/security.rsi
+
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalService
+  suffix: Service, External
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Doors/Airlocks/External/service.rsi
+
+# Maintenance Hatches
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintServiceLocked
+  suffix: Service, Locked
+  components:
+  - type: AccessReader
+    access: [["Service"]]

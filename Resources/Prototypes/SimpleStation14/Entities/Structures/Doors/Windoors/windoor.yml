@@ -1,0 +1,7 @@
+﻿- type: entity
+  parent: WindoorSecure
+  id: WindoorHOPLocked
+  suffix: HeadOfPersonnel, Locked
+  components:
+  - type: AccessReader
+    access: [["HeadOfPersonnel"]]
