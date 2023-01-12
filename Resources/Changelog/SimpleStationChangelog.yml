@@ -982,5 +982,6 @@ Entries:
       - { message: 'Edit new markings whitelist.', type: Tweak }
       - { message: 'New markings have locales.', type: Add }
       - { message: 'Fluffy tail has proper directional sprites.', type: Fix }
+      - { message: 'Many markings have color accuracy improved.', type: Tweak }
     id: 73
     time: "2022-01-09T18:38:08.0000000+00:00"
