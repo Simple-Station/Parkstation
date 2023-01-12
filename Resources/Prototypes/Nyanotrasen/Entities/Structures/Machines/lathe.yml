@@ -15,7 +15,7 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
     - state: inserting
-      map: ["enum.LatheVisualLayers.IsInserting"]
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
@@ -83,7 +83,7 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
     - state: inserting
-      map: ["enum.LatheVisualLayers.IsInserting"]
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
@@ -103,6 +103,10 @@
       - DrinkMug
       - DrinkMugMetal
       - DrinkGlass
+      - MopBucket
+      - SynthesizerInstrument
+      - TrashBag
+      - WetFloorSign
       - Shovel # Below is shared with other lathes
       - FlashlightLantern
       - Bucket
@@ -152,7 +156,7 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
     - state: inserting
-      map: ["enum.LatheVisualLayers.IsInserting"]
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
@@ -183,6 +187,8 @@
       - Drone
       - ConveyorBeltAssembly
       - RPED
+      - PowerDrill
+      - MiningDrill
       - RCDAmmo # Below is shared with other lathes
       - FlashlightLantern
       - Bucket

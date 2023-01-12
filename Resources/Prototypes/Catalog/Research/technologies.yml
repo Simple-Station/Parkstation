@@ -433,7 +433,6 @@
   - ElectromagneticTheory
   - IndustrialEngineering
   unlockedRecipes:
-  - RCDAmmo
   - PowerDrill
   - SMESMachineCircuitboard
   - PowerComputerCircuitboard
@@ -466,10 +465,11 @@
   icon:
     sprite: Objects/Specific/Research/rped.rsi
     state: icon
-  requiredPoints: 7500
+  requiredPoints: 10000
   requiredTechnologies:
   - ElectricalEngineering
   unlockedRecipes:
+  - RCDAmmo
   - RPED
 
 - type: technology
@@ -555,6 +555,7 @@
   requiredTechnologies:
   - BasicResearch
   unlockedRecipes:
+  - TechDiskComputerCircuitboard
   - CapacitorStockPart
   - MatterBinStockPart
   - MicroLaserStockPart

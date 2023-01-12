@@ -28,7 +28,6 @@ using Content.Server.Vampiric;
 using Content.Server.Speech.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
-using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -55,6 +54,7 @@ namespace Content.Server.Arachne
         [Dependency] private readonly BloodSuckerSystem _bloodSuckerSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
         private const string BodySlot = "body_slot";
 
@@ -251,6 +251,9 @@ namespace Content.Server.Arachne
             if (!TryComp<ArachneComponent>(args.Performer, out var arachne) || arachne.CancelToken != null)
                 return;
 
+            if (_containerSystem.IsEntityInContainer(args.Performer))
+                return;
+
             TryComp<HungerComponent>(args.Performer, out var hunger);
             TryComp<ThirstComponent>(args.Performer, out var thirst);
 
@@ -277,7 +280,7 @@ namespace Content.Server.Arachne
 
             foreach (var entity in coords.GetEntitiesInTile())
             {
-                IPhysBody? physics = null; // We use this to check if it's impassable
+                PhysicsComponent? physics = null; // We use this to check if it's impassable
                 if ((HasComp<WebComponent>(entity)) || // Is there already a web there?
                     ((Resolve(entity, ref physics, false) && (physics.CollisionLayer & (int) CollisionGroup.Impassable) != 0) // Is it impassable?
                     &&  !(TryComp<DoorComponent>(entity, out var door) && door.State != DoorState.Closed))) // Is it a door that's open and so not actually impassable?

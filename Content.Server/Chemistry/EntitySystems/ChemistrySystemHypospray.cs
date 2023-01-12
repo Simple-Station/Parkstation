@@ -11,7 +11,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.MobState.Components;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Player;
 using Content.Shared.Tag;
 using Content.Shared.Popups;
 
@@ -67,7 +66,9 @@ namespace Content.Server.Chemistry.EntitySystems
             if (!EligibleEntity(target, _entMan))
                 return false;
 
-            if (_entMan.TryGetComponent<TagComponent>(target, out var tag))
+            string? msgFormat = null;
+
+            if (!component.PierceArmor && _entMan.TryGetComponent<TagComponent>(target, out var tag))
             {
                 if (tag.Tags.Contains("HardsuitOn"))
                 {
@@ -78,8 +79,6 @@ namespace Content.Server.Chemistry.EntitySystems
                     return false;
                 }
             }
-
-            string? msgFormat = null;
 
             if (target == user)
                 msgFormat = "hypospray-component-inject-self-message";

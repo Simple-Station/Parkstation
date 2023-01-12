@@ -116,15 +116,15 @@
     reoccurrenceDelay: 35
     maxOccurrences: 4
 
-- type: gameRule
-  id: MouseMigration
-  config:
-    !type:StationEventRuleConfiguration
-    id: MouseMigration
-    earliestStart: 30
-    minimumPlayers: 15
-    weight: 5
-    endAfter: 50
+# - type: gameRule
+#   id: MouseMigration
+#   config:
+#     !type:StationEventRuleConfiguration
+#     id: MouseMigration
+#     earliestStart: 30
+#     minimumPlayers: 15
+#     weight: 5
+#     endAfter: 50
 
 - type: gameRule
   id: PowerGridCheck

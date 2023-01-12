@@ -29,9 +29,28 @@
 
 - type: entity
   parent: ResearchDisk
-  id: ResearchDisk100000000
-  name: research point disk (100000000)
-  description: A disk for the R&D server containing 100000000 points.
+  id: ResearchDiskDebug
+  name: research point disk
+  suffix: DEBUG, DO NOT MAP
+  description: A disk for the R&D server containing all the points you could ever need.
   components:
   - type: ResearchDisk
-    points: 100000000
+    unlockAllTech: true
+
+- type: entity
+  parent: BaseItem
+  id: TechnologyDisk
+  name: technology disk
+  description: A disk for the R&D server containing research technology.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+      map: ["enum.DamageStateVisualLayers.Base"]
+    - state: datadisk_label
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        datadisk_base: Sixteen
+  - type: TechnologyDisk

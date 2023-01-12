@@ -125,7 +125,7 @@ namespace Content.Server.Administration.Commands.Cryostasis
             }
 
             // Adminlogs
-            _adminLogger.Add(LogType.Suicide, LogImpact.High, $"{_entities.ToPrettyString(uid):player} is going into cryostasis");
+            _adminLogger.Add(LogType.LateJoin, LogImpact.High, $"{_entities.ToPrettyString(uid):player} is going into cryostasis");
 
             // TODO: put items in a box? a pile of items is *fine* but a box of sorts might be nice.
             // Unequip all their items, in case they didn't do what was advised in the description or someone needs something from them.
