@@ -40,8 +40,6 @@
       - type: AirlockVisualizer
         simpleVisuals: true
         animationTime: 1.2
-  - type: Airtight
-    fixVacuum: true
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -152,6 +150,8 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: Airtight
+    fixVacuum: true
   - type: Construction
     graph: DoorGraph
     node: plasmaDoor
