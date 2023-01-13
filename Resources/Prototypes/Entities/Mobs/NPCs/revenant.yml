@@ -9,8 +9,8 @@
   - type: Input
     context: "ghost"
   - type: MovementSpeedModifier
-    baseWalkSpeed: 6
-    baseSprintSpeed: 6
+    baseWalkSpeed: 6.5
+    baseSprintSpeed: 4
   - type: Sprite
     noRot: true
     drawdepth: Ghosts

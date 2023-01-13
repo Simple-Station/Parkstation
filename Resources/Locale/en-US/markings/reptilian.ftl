@@ -57,20 +57,3 @@ marking-LizardFrillsAxolotl = Lizard Frills (Axolotl)
 
 marking-LizardFrillsHood-frills_hood = Lizard Frills (Hood)
 marking-LizardFrillsHood = Lizard Frills (Hood)
-
-
-marking-SpinesAqua = Lizard Spine (Aquatic)
-marking-SpinesWagAqua = Lizard Spine (Aquatic Wag)
-marking-SpinesLong = Lizard Spine (Long)
-marking-SpinesWagLong = Lizard Spine (Long Wag)
-marking-SpinesLongmeme = Lizard Spine (Long Membrane)
-marking-SpinesWagLongmeme = Lizard Spine (Long Membrane Wag)
-marking-SpinesShort = Lizard Spine (Short)
-marking-SpinesWagShort = Lizard Spine (Short Wag)
-marking-SpinesShortmeme = Lizard Spine (Short Membrane)
-marking-SpinesWagShortmeme = Lizard Spine (Short Membrane Wag)
-
-marking-TailWagdTiger = Lizard Tail (Dark Tiger Wag)
-marking-TailWaglTiger = Lizard Tail (Light Tiger Wag)
-marking-TailWagSmooth = Lizard Tail (Smooth Wag)
-marking-TailWagSpike = Lizard Tail (Spike Wag)
