@@ -990,5 +990,6 @@ Entries:
       - { message: 'Biomass reclaimers drop the reclaimed entities items instead of deleting everything.', type: Tweak }
       - { message: 'Change many more mob speeds to match the theme, oneirophage shouldnt slip in puddles unless running now.', type: Tweak }
       - { message: 'Add 1.4 seconds to climb delay.', type: Tweak }
+      - { message: 'Trait description popup shows whitelist and blacklist information.', type: Add }
     id: 74
     time: "2022-01-12T23:00:00.0000000+00:00"

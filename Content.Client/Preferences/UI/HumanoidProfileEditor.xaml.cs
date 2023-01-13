@@ -514,7 +514,6 @@ namespace Content.Client.Preferences.UI
 
             #region Traits
 
-            // var traits = prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => Loc.GetString(t.Name)).ToList();
             var traits = prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => t.Cost).ToList();
             _traitPreferences = new List<TraitPreferenceSelector>();
             _tabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab"));
@@ -558,20 +557,6 @@ namespace Content.Client.Preferences.UI
                             Save();
                         };
                     }
-                    else if (trait.Category == "Equal")
-                    {
-                        var selector = new TraitPreferenceSelector(trait);
-                        _etraitsList.AddChild(selector);
-                        _traitPreferences.Add(selector);
-
-                        selector.PreferenceChanged += preference =>
-                        {
-                            if (!TestTrait(trait.Name)) preference = false;
-
-                            Profile = Profile?.WithTraitPreference(trait.ID, preference);
-                            IsDirty = true;
-                        };
-                    }
                     else if (trait.Category == "Negative")
                     {
                         var selector = new TraitPreferenceSelector(trait);
@@ -609,12 +594,25 @@ namespace Content.Client.Preferences.UI
                             Save();
                         };
                     }
-                    else continue;
+                    else
+                    {
+                        var selector = new TraitPreferenceSelector(trait);
+                        _etraitsList.AddChild(selector);
+                        _traitPreferences.Add(selector);
+
+                        selector.PreferenceChanged += preference =>
+                        {
+                            if (!TestTrait(trait.Name)) preference = false;
+
+                            Profile = Profile?.WithTraitPreference(trait.ID, preference);
+                            IsDirty = true;
+                        };
+                    }
                 }
             }
             else
             {
-                _ptraitsList.AddChild(new Label
+                _etraitsList.AddChild(new Label
                 {
                     Text = "No traits available :(",
                     FontColorOverride = Color.Gray,
@@ -1413,7 +1411,44 @@ namespace Content.Client.Preferences.UI
 
                 if (trait.Description is { } desc)
                 {
-                    _checkBox.ToolTip = Loc.GetString(desc);
+                    var tooltip = $"{Loc.GetString(desc)}";
+
+                    if (Trait.Whitelist != null)
+                    {
+                        tooltip += "\nWhitelist:";
+                        if (Trait.Whitelist.Components != null) foreach (var require in Trait.Whitelist.Components)
+                        {
+                            tooltip += $"\n - {require} (Component)";
+                        }
+                        if (Trait.Whitelist.Tags != null) foreach (var require in Trait.Whitelist.Tags)
+                        {
+                            tooltip += $"\n - {require} (Tag)";
+                        }
+                        if (Trait.Whitelist.Species != null) foreach (var require in Trait.Whitelist.Species)
+                        {
+                            tooltip += $"\n - {require} (Species)";
+                        }
+                        tooltip += $"\n Require All: {Trait.Whitelist.RequireAll}";
+                    }
+                    if (Trait.Blacklist != null)
+                    {
+                        tooltip += "\nBlacklist:";
+                        if (Trait.Blacklist.Components != null) foreach (var require in Trait.Blacklist.Components)
+                        {
+                            tooltip += $"\n - {require} (Component)";
+                        }
+                        if (Trait.Blacklist.Tags != null) foreach (var require in Trait.Blacklist.Tags)
+                        {
+                            tooltip += $"\n - {require} (Tag)";
+                        }
+                        if (Trait.Blacklist.Species != null) foreach (var require in Trait.Blacklist.Species)
+                        {
+                            tooltip += $"\n - {require} (Species)";
+                        }
+                        tooltip += $"\n Require All: {Trait.Blacklist.RequireAll}";
+                    }
+
+                    _checkBox.ToolTip = tooltip;
                     _checkBox.TooltipDelay = 0.2f;
                 }
 
