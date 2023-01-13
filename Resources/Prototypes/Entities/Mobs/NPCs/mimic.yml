@@ -42,5 +42,5 @@
       types:
         Blunt: 20
   - type: MovementSpeedModifier
-    baseWalkSpeed : 1
+    baseWalkSpeed : 1.5
     baseSprintSpeed : 1

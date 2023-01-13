@@ -985,3 +985,9 @@ Entries:
       - { message: 'Many markings have color accuracy improved.', type: Tweak }
     id: 73
     time: "2022-01-09T18:38:08.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: 'Biomass reclaimers drop the reclaimed entities items instead of deleting everything.', type: Tweak }
+      - { message: 'Change many more mob speeds to match the theme, oneirophage shouldnt slip in puddles unless running now.', type: Tweak }
+    id: 74
+    time: "2022-01-12T23:00:00.0000000+00:00"
