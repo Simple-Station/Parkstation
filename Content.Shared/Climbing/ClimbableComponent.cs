@@ -18,7 +18,7 @@ namespace Content.Shared.Climbing
         ///     The time it takes to climb onto the entity.
         /// </summary>
         [DataField("delay")]
-        public float ClimbDelay = 0.8f;
+        public float ClimbDelay = 2.2f;
 
         /// <summary>
         /// If set, people can bonk on this if <see cref="CCVars.GameTableBonk"/> is set or if they are clumsy.
