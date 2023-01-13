@@ -8,31 +8,8 @@
           steps:
             - material: Plasteel
               amount: 10
-            - tag: BluespaceCrystal
-              icon:
-                sprite: Nyanotrasen/Objects/Materials/materials.rsi
-                state: bluespace
-              name: a bluespace crystal
-              doAfter: 1
-            - tag: BluespaceCrystal
-              icon:
-                sprite: Nyanotrasen/Objects/Materials/materials.rsi
-                state: bluespace
-              name: a bluespace crystal
-              doAfter: 1
-            - tag: BluespaceCrystal
-              icon:
-                sprite: Nyanotrasen/Objects/Materials/materials.rsi
-                state: bluespace
-              name: a bluespace crystal
-              doAfter: 1
-            - tag: BluespaceCrystal
-              icon:
-                sprite: Nyanotrasen/Objects/Materials/materials.rsi
-                state: bluespace
-              name: a bluespace crystal
-              doAfter: 1
-            - tag: BluespaceCrystal
+            - material: Bluespace
+              amount: 5
               icon:
                 sprite: Nyanotrasen/Objects/Materials/materials.rsi
                 state: bluespace

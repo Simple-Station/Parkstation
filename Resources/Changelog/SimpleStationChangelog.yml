@@ -976,3 +976,12 @@ Entries:
       - { message: 'Nerf Draconic Bloodstream.', type: Tweak }
     id: 72
     time: "2022-01-08T06:48:55.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: 'Bluespace stacking works properly, and recipes related dont delete the whole stack.', type: Fix }
+      - { message: 'Edit new markings whitelist.', type: Tweak }
+      - { message: 'New markings have locales.', type: Add }
+      - { message: 'Fluffy tail has proper directional sprites.', type: Fix }
+      - { message: 'Many markings have color accuracy improved.', type: Tweak }
+    id: 73
+    time: "2022-01-09T18:38:08.0000000+00:00"

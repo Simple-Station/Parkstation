@@ -1,0 +1,14 @@
+marking-TailAxolotl=Axolotl
+marking-TailDatashark=Datashark
+marking-TailEasternDragon=Eastern Dragon
+marking-TailFennec=Fennec
+marking-TailFish=Fish
+marking-TailFluffy=Fluffy
+marking-TailFox=Fox
+marking-TailGecko=Gecko
+marking-TailKitsune=Kitsune
+marking-TailMaw=Maw
+marking-TailShark=Shark
+marking-TailSnake=Snake
+marking-TailSuccubus=Pointy
+marking-TailTentacle=Tentacles

@@ -7,13 +7,12 @@
     netsync: false
     sprite: Nyanotrasen/Objects/Materials/materials.rsi
     state: bluespace
-  - type: Material
-    materials:
-      Bluespace: 100
   - type: Tag
     tags:
       - BluespaceCrystal
-      - RawMaterial
+  - type: Material
+    materials:
+      Bluespace: 100
   - type: Stack
     stackType: Bluespace
     count: 1
