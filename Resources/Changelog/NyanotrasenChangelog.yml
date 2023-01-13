@@ -2405,3 +2405,47 @@ Entries:
     type: Tweak
   id: 280
   time: '2023-01-12T02:08:15.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Livestock crates and closets/lockers except the freezer are no longer
+      airtight.
+    type: Fix
+  id: 281
+  time: '2023-01-12T18:20:37.0000000+00:00'
+- author: Rane
+  changes:
+  - message: 'EXPERIMENTAL CHANGE: All alert levels use the same emergency shuttle
+      time.'
+    type: Tweak
+  id: 282
+  time: '2023-01-12T18:38:09.0000000+00:00'
+- author: CharcoalGungan
+  changes:
+  - message: Added Arrow Shuttle
+    type: Add
+  id: 283
+  time: '2023-01-12T18:45:30.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed cloning zombies.
+    type: Fix
+  id: 284
+  time: '2023-01-12T19:01:30.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Nuke operatives no longer receive station mail.
+    type: Fix
+  id: 285
+  time: '2023-01-12T19:01:46.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The scream popup is now better integrated.
+    type: Fix
+  id: 286
+  time: '2023-01-12T19:18:42.0000000+00:00'
+- author: deltanedas
+  changes:
+  - message: You can now buy crewmate crates with 5 small amongs.
+    type: Add
+  id: 287
+  time: '2023-01-12T19:27:40.0000000+00:00'
