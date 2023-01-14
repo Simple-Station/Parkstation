@@ -993,3 +993,11 @@ Entries:
       - { message: 'Trait description popup shows whitelist and blacklist information.', type: Add }
     id: 74
     time: "2022-01-12T23:00:00.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: 'Add LightWeight trait, increasing your speed and decreasing time to climb.', type: Add }
+      - { message: 'Tweaked most trait point costs.', type: Tweak }
+      - { message: 'Voracious trait allows you to eat faster instead of eat more.', type: Tweak }
+      - { message: 'Fix hunger being -1 roundstart.', type: Tweak }
+    id: 75
+    time: "2022-01-13T18:48:27.0000000+00:00"
