@@ -21,6 +21,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Chest: MobHumanTorso
+    HeadTop: MobHumanoidAnyMarking # Corvax-Sponsors
+    Tail: MobHumanoidAnyMarking # Corvax-Sponsors
     Eyes: MobHumanoidEyes
     LArm: MobHumanLArm
     RArm: MobHumanRArm
@@ -30,9 +32,7 @@
     RLeg: MobHumanRLeg
     LFoot: MobHumanLFoot
     RFoot: MobHumanRFoot
-    Tail: MobHumanoidAnyMarking
     Wings: MobHumanoidAnyMarking
-    HeadTop: MobHumanoidAnyMarking
 
 - type: markingPoints
   id: MobHumanMarkingLimits
@@ -42,6 +42,12 @@
       required: false
     FacialHair:
       points: 1
+      required: false
+    Tail:
+      points: 1 # Corvax-Sponsors
+      required: false
+    HeadTop:
+      points: 1 # Corvax-Sponsors
       required: false
     Chest:
       points: 1

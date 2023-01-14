@@ -9,12 +9,15 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Content.Server.Administration.Managers;
+using Content.Server.Corvax.Sponsors;
+using Content.Shared.Corvax.CCCVars;
 
 namespace Content.Server.Connection
 {
     public interface IConnectionManager
     {
         void Initialize();
+        Task<bool> HavePrivilegedJoin(NetUserId userId); // Corvax-Queue
     }
 
     /// <summary>
@@ -28,6 +31,7 @@ namespace Content.Server.Connection
         [Dependency] private readonly IServerDbManager _db = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IAdminManager _admin = default!;
+        [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
 
         public void Initialize()
         {
@@ -131,13 +135,13 @@ namespace Content.Server.Connection
                         return (ConnectionDenyReason.Panic, Loc.GetString("panic-bunker-no-admins"), null);
                     }
                 }
-
             }
 
-            var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
-                            ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&
-                            status == PlayerGameStatus.JoinedGame;
-            if ((_plyMgr.PlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && adminData is null) && !wasInGame)
+            // Corvax-Queue-Start
+            var isPrivileged = await HavePrivilegedJoin(e.UserId);
+            var isQueueEnabled = _cfg.GetCVar(CCCVars.QueueEnabled);
+            if (_plyMgr.PlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && !isPrivileged && !isQueueEnabled)
+            // Corvax-Queue-End
             {
                 return (ConnectionDenyReason.Full, Loc.GetString("soft-player-cap-full"), null);
             }
@@ -178,5 +182,19 @@ namespace Content.Server.Connection
             await _db.AssignUserIdAsync(name, assigned);
             return assigned;
         }
+
+        // Corvax-Queue-Start: Make these conditions in one place, for checks in the connection and in the queue
+        public async Task<bool> HavePrivilegedJoin(NetUserId userId)
+        {
+            var isAdmin = await _dbManager.GetAdminDataForAsync(userId) != null;
+            var havePriorityJoin = _sponsorsManager.TryGetInfo(userId, out var sponsor) && sponsor.HavePriorityJoin; // Corvax-Sponsors
+            var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
+                            ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&
+                            status == PlayerGameStatus.JoinedGame;
+            return isAdmin ||
+                   havePriorityJoin || // Corvax-Sponsors
+                   wasInGame;
+        }
+        // Corvax-Queue-End
     }
 }

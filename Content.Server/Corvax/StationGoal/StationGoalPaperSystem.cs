@@ -15,13 +15,13 @@ namespace Content.Server.Corvax.StationGoal
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly FaxSystem _faxSystem = default!;
-
+        
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<RoundStartedEvent>(OnRoundStarted);
         }
-
+        
         private void OnRoundStarted(RoundStartedEvent ev)
         {
             SendRandomGoal();

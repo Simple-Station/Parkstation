@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Server.Corvax.Sponsors;
 using Content.Server.MoMMI;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
@@ -23,6 +24,14 @@ namespace Content.Server.Chat.Managers
     /// </summary>
     internal sealed class ChatManager : IChatManager
     {
+        private static readonly Dictionary<string, string> PatronOocColors = new()
+        {
+            // I had plans for multiple colors and those went nowhere so...
+            { "nuclear_operative", "#aa00ff" },
+            { "syndicate_agent", "#aa00ff" },
+            { "revolutionary", "#aa00ff" }
+        };
+
         [Dependency] private readonly IReplayRecordingManager _replay = default!;
         [Dependency] private readonly IServerNetManager _netManager = default!;
         [Dependency] private readonly IMoMMILink _mommiLink = default!;
@@ -30,6 +39,7 @@ namespace Content.Server.Chat.Managers
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
         [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+        [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
         [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
 
         /// <summary>
@@ -161,6 +171,18 @@ namespace Content.Server.Chat.Managers
                 var prefs = _preferencesManager.GetPreferences(player.UserId);
                 colorOverride = prefs.AdminOOCColor;
             }
+            if (player.ConnectedClient.UserData.PatronTier is { } patron &&
+                     PatronOocColors.TryGetValue(patron, out var patronColor))
+            {
+                wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+            }
+
+            // Corvax-Sponsors-Start
+            if (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorData) && sponsorData.OOCColor != null)
+            {
+                wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", sponsorData.OOCColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+            }
+            // Corvax-Sponsors-End
 
             //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
             ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride);

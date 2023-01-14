@@ -35,6 +35,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Server.Traits.Assorted;
+using Content.Shared.CombatMode.Pacification;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -178,6 +180,11 @@ public sealed class NukeopsRuleSystem : GameRuleSystem
         var name = MetaData(uid).EntityName;
         if (session != null)
             _operativePlayers.Add(name, session);
+
+        // Corvax-DionaPacifist-Start: Allow dionas nukes to harm
+        RemComp<PacifistComponent>(uid);
+        RemComp<PacifiedComponent>(uid);
+        // Corvax-DionaPacifist-End
     }
 
     private void OnComponentRemove(EntityUid uid, NukeOperativeComponent component, ComponentRemove args)

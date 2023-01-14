@@ -100,7 +100,7 @@ public sealed partial class ChatSystem
         // Re-capitalize message since we removed the prefix.
         message = SanitizeMessageCapital(message);
 
-        
+
 
         if (!hasHeadset && !HasComp<IntrinsicRadioTransmitterComponent>(source))
         {

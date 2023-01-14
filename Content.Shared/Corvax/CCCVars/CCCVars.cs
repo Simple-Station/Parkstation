@@ -1,4 +1,4 @@
-using Robust.Shared.Configuration;
+﻿using Robust.Shared.Configuration;
 
 namespace Content.Shared.Corvax.CCCVars;
 
@@ -57,7 +57,7 @@ public sealed class CCCVars
      */
 
     /// <summary>
-    /// URL of the TTS server API.
+    /// Is TTS enabled?
     /// </summary>
     public static readonly CVarDef<bool> TTSEnabled =
         CVarDef.Create("tts.enabled", false, CVar.SERVERONLY);
@@ -75,7 +75,7 @@ public sealed class CCCVars
         CVarDef.Create("tts.api_token", "", CVar.SERVERONLY);
 
     /// <summary>
-    /// Lobby / round end music volume.
+    /// TTS voice volume.
     /// </summary>
     public static readonly CVarDef<float> TTSVolume =
         CVarDef.Create("tts.volume", 0f, CVar.CLIENTONLY | CVar.ARCHIVE);

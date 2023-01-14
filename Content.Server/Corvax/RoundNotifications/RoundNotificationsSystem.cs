@@ -1,4 +1,4 @@
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -19,11 +19,11 @@ public sealed class RoundNotificationsSystem : EntitySystem
 
     private ISawmill _sawmill = default!;
     private readonly HttpClient _httpClient = new();
-
+    
     private string _webhookUrl = String.Empty;
     private string _roleId = String.Empty;
     private bool _roundStartOnly;
-
+    
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -77,7 +77,7 @@ public sealed class RoundNotificationsSystem : EntitySystem
 
         SendDiscordMessage(payload);
     }
-
+    
     private void OnRoundEnded(RoundEndedEvent e)
     {
         if (String.IsNullOrEmpty(_webhookUrl) || _roundStartOnly)
