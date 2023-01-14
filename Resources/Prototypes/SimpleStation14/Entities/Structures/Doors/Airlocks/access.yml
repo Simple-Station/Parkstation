@@ -112,7 +112,7 @@
   suffix: Science, External, Locked
   components:
   - type: AccessReader
-    access: [["Science"]]
+    access: [["Research"]]
 
 - type: entity
   parent: AirlockExternalSecurity
