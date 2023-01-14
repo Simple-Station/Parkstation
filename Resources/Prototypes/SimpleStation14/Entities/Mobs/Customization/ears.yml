@@ -2,7 +2,7 @@
   id: EarsAvali
   bodyPart: HeadTop
   markingCategory: HeadTop
-  SpeciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: avali_inner
@@ -13,7 +13,7 @@
   id: EarsBunny
   bodyPart: HeadTop
   markingCategory: HeadTop
-  SpeciesRestriction: [Felinid]
+  speciesRestriction: [Felinid]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: bunny
@@ -22,7 +22,7 @@
   id: EarsBunny2
   bodyPart: HeadTop
   markingCategory: HeadTop
-  SpeciesRestriction: [Felinid]
+  speciesRestriction: [Felinid]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: bunny2
@@ -31,7 +31,7 @@
   id: EarsChemlight
   bodyPart: HeadTop
   markingCategory: HeadTop
-  SpeciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: chemlight_outer
@@ -51,7 +51,7 @@
   id: EarsEasternD
   bodyPart: HeadTop
   markingCategory: HeadTop
-  SpeciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: easternd_ears
@@ -62,7 +62,7 @@
   id: EarsJackal
   bodyPart: HeadTop
   markingCategory: HeadTop
-  SpeciesRestriction: [Felinid]
+  speciesRestriction: [Felinid]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: jackal_outer
@@ -84,7 +84,7 @@
   id: EarsMouse
   bodyPart: HeadTop
   markingCategory: HeadTop
-  SpeciesRestriction: [Felinid]
+  speciesRestriction: [Felinid]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: mouse
@@ -93,7 +93,7 @@
   id: EarsShadekin
   bodyPart: HeadTop
   markingCategory: HeadTop
-  SpeciesRestriction: [Felinid, Slime, Reptilian]
+  speciesRestriction: [Slime, Reptilian]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: shadekin

@@ -36,8 +36,8 @@
   - type: InputMover
   - type: InteractionOutline
   - type: MovementSpeedModifier
-    baseWalkSpeed: 1
-    baseSprintSpeed: 2
+    baseWalkSpeed: 2
+    baseSprintSpeed: 1
   - type: Tag
     tags:
     - DoorBumpOpener

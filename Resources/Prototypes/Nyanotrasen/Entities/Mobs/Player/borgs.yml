@@ -15,8 +15,8 @@
       visible: false
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
-    baseSprintSpeed : 4
+    baseWalkSpeed : 4
+    baseSprintSpeed : 2.5
   - type: Puller
     needsHands: false
   - type: Speech

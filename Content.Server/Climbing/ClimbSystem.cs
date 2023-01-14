@@ -16,6 +16,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.SimpleStation14.Traits;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
@@ -115,10 +116,13 @@ public sealed class ClimbSystem : SharedClimbSystem
         if (!TryComp(entityToMove, out ClimbingComponent? climbingComponent) || climbingComponent.IsClimbing)
             return;
 
+        var ClimbDelay = component.ClimbDelay;
+        if (TryComp<LightWeightTraitComponent>(entityToMove, out var Light) && Light.NegateTime != null) ClimbDelay -= (float) Light.NegateTime;
+
         if (TryBonk(component, user))
             return;
 
-        _doAfterSystem.DoAfter(new DoAfterEventArgs(user, component.ClimbDelay, default, climbable, entityToMove)
+        _doAfterSystem.DoAfter(new DoAfterEventArgs(user, ClimbDelay, default, climbable, entityToMove)
         {
             BreakOnTargetMove = true,
             BreakOnUserMove = true,

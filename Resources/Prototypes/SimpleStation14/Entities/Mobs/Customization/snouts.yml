@@ -24,7 +24,7 @@
   id: SnoutMagusSkull
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [Reptilian, Skeleton]
+  speciesRestriction: [nReptilian, Skeleton]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/snouts.rsi
       state: extra_magus
@@ -33,7 +33,7 @@
   id: SnoutBirdSkull
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [Reptilian, Skeleton]
+  speciesRestriction: [nReptilian, Skeleton]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/snouts.rsi
       state: skullbird

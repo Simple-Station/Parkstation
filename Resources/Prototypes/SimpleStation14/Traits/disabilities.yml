@@ -11,7 +11,7 @@
   id: Nearsighted
   name: Nearsighted
   description: Your eyes have permanent damage, you are only able to see nearby you unless wearing glasses.
-  cost: 4
+  cost: 3
   category: Negative
   components:
     - type: Nearsighted
@@ -20,7 +20,7 @@
   id: EasyDrunk
   name: Weak Stomach
   description: You take longer to metabolise, get drunk easier, and feel dizzy often.
-  cost: 3
+  cost: 2
   category: Negative
   components:
     - type: TraitRegenReagent
@@ -44,7 +44,7 @@
   id: Ageusia
   name: Ageusia
   description: Something has caused you to lose your sense of taste.
-  cost: 3
+  cost: 2
   category: Negative
   components:
     - type: Ageusia

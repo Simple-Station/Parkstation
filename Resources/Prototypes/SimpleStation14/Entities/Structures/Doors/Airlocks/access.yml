@@ -14,6 +14,7 @@
   - type: AccessReader
     access: [["ChiefServiceSupervisor"]]
 
+# Maint doors
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintCSSLocked
@@ -21,3 +22,100 @@
   components:
   - type: AccessReader
     access: [["ChiefServiceSupervisor"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintHOSLocked
+  suffix: HeadOfSecurity, Locked
+  components:
+  - type: AccessReader
+    access: [["HeadOfSecurity"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintRDLocked
+  suffix: ResearchDirector, Locked
+  components:
+  - type: AccessReader
+    access: [["ResearchDirector"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintCMOLocked
+  suffix: ChiefMedicalOfficer, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefMedicalOfficer"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintCELocked
+  suffix: ChiefEngineer, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefEngineer"]]
+
+# External Airlocks
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalAtmosphericsLocked
+  suffix: Atmospherics, External, Locked
+  components:
+  - type: AccessReader
+    access: [["Atmospherics"]]
+
+- type: entity
+  parent: AirlockExternalCommand
+  id: AirlockExternalCommandLocked
+  suffix: Command, External, Locked
+  components:
+  - type: AccessReader
+    access: [["Command"]]
+
+- type: entity
+  parent: AirlockExternalEngineering
+  id: AirlockExternalEngineeringLocked
+  suffix: Engineering, External, Locked
+  components:
+  - type: AccessReader
+    access: [["Engineering"]]
+
+- type: entity
+  parent: AirlockExternalMedical
+  id: AirlockExternalMedicalLocked
+  suffix: Medical, External, Locked
+  components:
+  - type: AccessReader
+    access: [["Medical"]]
+
+- type: entity
+  parent: AirlockExternalSalvage
+  id: AirlockExternalSalvageLocked
+  suffix: Salvage, External, Locked
+  components:
+  - type: AccessReader
+    access: [["Salvage"]]
+
+- type: entity
+  parent: AirlockExternalScience
+  id: AirlockExternalScienceLocked
+  suffix: Science, External, Locked
+  components:
+  - type: AccessReader
+    access: [["Science"]]
+
+- type: entity
+  parent: AirlockExternalSecurity
+  id: AirlockExternalSecurityLocked
+  suffix: Security, External, Locked
+  components:
+  - type: AccessReader
+    access: [["Security"]]
+
+- type: entity
+  parent: AirlockExternalService
+  id: AirlockExternalCargoLocked
+  suffix: Cargo, External, Locked
+  components:
+  - type: AccessReader
+    access: [["Cargo"]]
