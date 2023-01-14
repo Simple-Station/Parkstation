@@ -2,7 +2,7 @@
   id: DragonsBlood
   name: Draconic Bloodstream
   description: You have some of the great Space Dragon's healing abilities, and have Ichor in your blood.  REQUIRES Reptilian species
-  cost: -6
+  cost: -7
   category: Positive
   whitelist:
     species:
@@ -16,39 +16,41 @@
         unitsPerUpdate: 0.01
         accumulatorTime: 2
 
-
 - type: trait
   id: Arachnid
   name: Arachnid
   description: Allows you to spin webs, like the Arachne.
-  cost: -2
+  cost: -3
   category: Positive
+  whitelist:
+    species:
+      - Moth
   components:
     - type: Arachne
-
 
 - type: trait
   id: Voracious
   name: Voracious
-  description: You are able to eat and drink more.
-  cost: -2
+  description: You are able to eat and drink almost instantly.
+  cost: -3
   category: Positive
   components:
-    - type: Hunger
-      thresholds:
-        OverFed: 350
-        Okay: 250
-        Peckish: 150
-        Starving: 75
-        Dead: 0
-    - type: Thirst
-      thresholds:
-        OverHydrated: 700
-        Okay: 475
-        Thirsty: 350
-        Parched: 175
-        Dead: 0
+    - type: VoraciousTrait
+      negateHunger: 0.75
+      negateThirst: 0.75
 
+- type: trait
+  id: LightWeight
+  name: Light
+  description: You move faster and can climb easier, though this allows others to lift you onto things easier too.
+  cost: -5
+  category: Positive
+  components:
+    - type: LightWeightTrait
+      negateTime: 1.2
+      # I am aware these are the default values.
+      sprint: 1
+      walk: 1.25
 
 
 # - type: trait
