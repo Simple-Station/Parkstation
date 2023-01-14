@@ -33,21 +33,30 @@ public sealed class FaxMachineComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("responsePings")]
     public bool ResponsePings { get; set; } = true;
-    
+
     /// <summary>
     /// Should admins be notified on message receive
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("notifyAdmins")]
     public bool NotifyAdmins { get; set; } = false;
-    
+
     /// <summary>
     /// Should that fax receive nuke codes send by admins. Probably should be captain fax only
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("receiveNukeCodes")]
     public bool ReceiveNukeCodes { get; set; } = false;
-    
+
+    // Corvax-StationGoal-Start
+    /// <summary>
+    /// Should that fax receive station goal info
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("receiveStationGoal")]
+    public bool ReceiveStationGoal { get; set; } = false;
+    // Corvax-StationGoal-End
+
     /// <summary>
     /// Is fax was emaaged
     /// </summary>
