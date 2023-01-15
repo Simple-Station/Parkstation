@@ -6,7 +6,6 @@ namespace Content.Server.SimpleStation14.Traits
     public sealed class TraitRegenReagentSsytem : EntitySystem
     {
         [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
-        [Dependency] private readonly PopupSystem _popups = default!;
 
         public override void Initialize()
         {
@@ -19,6 +18,7 @@ namespace Content.Server.SimpleStation14.Traits
 
             foreach (var autoComp in EntityQuery<TraitRegenReagentComponent>())
             {
+                // bad solution
                 if (TryComp<DraconicBloodstreamComponent>(autoComp.Owner, out var Draconic) && !autoComp.Reagents.Contains(Draconic.Reagent))
                     autoComp.Reagents.Add(Draconic.Reagent);
                 if (TryComp<EasyDrunkComponent>(autoComp.Owner, out var EasyDrunk) && !autoComp.Reagents.Contains(EasyDrunk.Reagent))

@@ -17,6 +17,16 @@
 # Maint doors
 - type: entity
   parent: AirlockMaint
+  id: AirlockMaintArmoryLocked
+  suffix: Armory, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"]]
+  - type: Wires
+    LayoutId: AirlockArmory
+
+- type: entity
+  parent: AirlockMaint
   id: AirlockMaintCSSLocked
   suffix: ChiefServiceSupervisor, Locked
   components:
@@ -57,7 +67,7 @@
 
 # External Airlocks
 - type: entity
-  parent: AirlockExternal
+  parent: AirlockExternalAtmospherics
   id: AirlockExternalAtmosphericsLocked
   suffix: Atmospherics, External, Locked
   components:
@@ -102,7 +112,7 @@
   suffix: Science, External, Locked
   components:
   - type: AccessReader
-    access: [["Science"]]
+    access: [["Research"]]
 
 - type: entity
   parent: AirlockExternalSecurity

@@ -372,6 +372,12 @@
   components:
   - type: PDA
     id: LawyerIDCard
+    penSlot:
+      startingItem: PenCap
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     visuals:
       - type: PDAVisualizer

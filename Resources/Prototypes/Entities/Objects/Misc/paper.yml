@@ -107,10 +107,10 @@
     size: 2
 
 - type: entity
-  name: captain's fountain pen
+  name: lawyer's fountain pen
   parent: Pen
   id: PenCap
-  description: 'A luxurious fountain pen for the captain of the station.'
+  description: 'A luxurious fountain pen for the lawyer of the station, one of the only crewmates who might bother using it.'
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi

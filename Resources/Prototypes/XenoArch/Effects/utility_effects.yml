@@ -181,8 +181,8 @@
       Enact your eldritch whims.
       Forcibly activate your nodes for good or for evil.
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.25
-    baseSprintSpeed: 0.5
+    baseWalkSpeed: 0.5
+    baseSprintSpeed: 0.25
 
 - type: artifactEffect
   id: EffectMultitool

@@ -19,6 +19,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.MobState.Components;
+using Content.Shared.SimpleStation14.Traits;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -43,6 +44,7 @@ namespace Content.Server.Nutrition.EntitySystems
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         public override void Initialize()
         {
@@ -138,7 +140,10 @@ namespace Content.Server.Nutrition.EntitySystems
 
             var moveBreak = user != target;
 
-            _doAfterSystem.DoAfter(new DoAfterEventArgs(user, forceFeed ? food.ForceFeedDelay : food.Delay, food.CancelToken.Token, target, food.Owner)
+            var VoraciousDelay = food.Delay;
+            if (_entityManager.TryGetComponent<VoraciousTraitComponent>(target, out var Voracious) && Voracious.NegateThirst != null) VoraciousDelay -= (float) Voracious.NegateThirst;
+
+            _doAfterSystem.DoAfter(new DoAfterEventArgs(user, forceFeed ? food.ForceFeedDelay : VoraciousDelay, food.CancelToken.Token, target, food.Owner)
             {
                 BreakOnUserMove = moveBreak,
                 BreakOnDamage = true,

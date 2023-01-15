@@ -82,6 +82,8 @@
     price: 75 # These are limited supply items.
   - type: TrashOnEmpty
     solution: pen
+  - type: RefillableSolution
+    solution: pen
 
 - type: entity
   name: emergency medipen

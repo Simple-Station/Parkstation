@@ -9,6 +9,7 @@
   access:
   - Medical
   - Chemistry
+  - Maintenance
   special:
   - !type:AddComponentSpecial
     components:

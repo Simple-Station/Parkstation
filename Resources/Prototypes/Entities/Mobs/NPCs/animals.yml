@@ -80,7 +80,7 @@
       name: action-name-disarm
   - type: MovementSpeedModifier
     baseWalkSpeed : 7
-    baseSprintSpeed : 7
+    baseSprintSpeed : 4
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -317,7 +317,7 @@
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed : 6
-    baseSprintSpeed : 6
+    baseSprintSpeed : 4
   - type: Sprite
     drawdepth: Mobs
     netsync: false
@@ -475,7 +475,7 @@
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: RandomBark
-    barks: 
+    barks:
       - click clack
       - clack
       - clickity clack
@@ -599,8 +599,8 @@
   description: A large marsupial herbivore. It has powerful hind legs, with nails that resemble long claws.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4
-    baseSprintSpeed: 6
+    baseWalkSpeed: 6
+    baseSprintSpeed: 4
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -735,7 +735,7 @@
       20: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 5
-    baseSprintSpeed : 5
+    baseSprintSpeed : 3
   - type: Appearance
   - type: DamageStateVisuals
     states:
@@ -1021,7 +1021,7 @@
     rootTask: IdleEvadeCompound
   - type: RandomBark
     barkMultiplier: 1.3
-    barks: 
+    barks:
       - Croooaaaakkk
       - Ribbit
       - Ribbit
@@ -1041,7 +1041,7 @@
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed : 6
-    baseSprintSpeed : 6
+    baseSprintSpeed : 3
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -1127,7 +1127,7 @@
     interactSuccessSound:
       path: /Audio/Animals/penguin_squawk.ogg
   - type: RandomBark
-    barks: 
+    barks:
       - Wank
     barkMultiplier: 0.6
 
@@ -1138,8 +1138,8 @@
   description: A small penguin with a grenade strapped around its neck. Harvested by the Syndicate from icy shit-hole planets.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3.5
-    baseSprintSpeed : 5
+    baseWalkSpeed : 5
+    baseSprintSpeed : 3.5
   - type: InputMover
   - type: MobMover
   - type: Faction
@@ -1250,7 +1250,7 @@
     damageModifierSet: Scale
   - type: RandomBark
     barkMultiplier: 1.5
-    barks: 
+    barks:
       - Hsssssss
       - Hss
       - Hsssss
@@ -1820,7 +1820,7 @@
   description: Very slow animal. For people with low energy.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed : 1
+    baseWalkSpeed : 1.5
     baseSprintSpeed : 1
   - type: Sprite
     drawdepth: Mobs
@@ -1871,7 +1871,7 @@
       gender: epicene
   - type: RandomBark
     barkMultiplier: 10
-    barks: 
+    barks:
       - Sloth
 
 - type: entity
@@ -1970,7 +1970,7 @@
       60: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 4
-    baseSprintSpeed : 4
+    baseSprintSpeed : 2
   - type: Appearance
   - type: DamageStateVisuals
     states:

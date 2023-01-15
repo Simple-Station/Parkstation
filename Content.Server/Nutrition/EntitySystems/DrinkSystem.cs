@@ -20,6 +20,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.MobState.Components;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.SimpleStation14.Traits;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
@@ -45,6 +46,7 @@ namespace Content.Server.Nutrition.EntitySystems
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly SpillableSystem _spillableSystem = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
 
@@ -279,7 +281,10 @@ namespace Content.Server.Nutrition.EntitySystems
             if (HasComp<AgeusiaComponent>(user) == true) flavors = "Feels like water.";
             else flavors = _flavorProfileSystem.GetLocalizedFlavorsMessage(user, drinkSolution);
 
-            _doAfterSystem.DoAfter(new DoAfterEventArgs(user, forceDrink ? drink.ForceFeedDelay : drink.Delay, drink.CancelToken.Token, target, drink.Owner)
+            var VoraciousDelay = drink.Delay;
+            if (_entityManager.TryGetComponent<VoraciousTraitComponent>(target, out var Voracious) && Voracious.NegateHunger != null) VoraciousDelay -= (float) Voracious.NegateHunger;
+
+            _doAfterSystem.DoAfter(new DoAfterEventArgs(user, forceDrink ? drink.ForceFeedDelay : VoraciousDelay, drink.CancelToken.Token, target, drink.Owner)
             {
                 BreakOnUserMove = moveBreak,
                 BreakOnDamage = true,

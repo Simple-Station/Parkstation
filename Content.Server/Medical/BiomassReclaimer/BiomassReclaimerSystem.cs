@@ -26,6 +26,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Robust.Server.Player;
 using Robust.Shared.Physics.Components;
+using Content.Shared.Inventory;
 
 namespace Content.Server.Medical.BiomassReclaimer
 {
@@ -43,6 +44,7 @@ namespace Content.Server.Medical.BiomassReclaimer
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly IEntityManager _entities = default!;
         [Dependency] private readonly MaterialStorageSystem _material = default!;
 
         public override void Update(float frameTime)
@@ -234,6 +236,17 @@ namespace Content.Server.Medical.BiomassReclaimer
 
             component.CurrentExpectedYield = (int) Math.Max(0, physics.FixturesMass * component.YieldPerUnitMass);
             component.ProcessingTimer = physics.FixturesMass * component.ProcessingTimePerUnitMass;
+
+            _entities.TryGetComponent<InventoryComponent>(toProcess, out var inventoryComponent);
+            var invSystem = _entities.System<InventorySystem>();
+            if (invSystem.TryGetSlots(toProcess, out var slotDefinitions, inventoryComponent))
+            {
+                foreach (var slot in slotDefinitions)
+                {
+                    invSystem.TryUnequip(toProcess, slot.Name, true, true, false, inventoryComponent);
+                }
+            }
+
             QueueDel(toProcess);
         }
 

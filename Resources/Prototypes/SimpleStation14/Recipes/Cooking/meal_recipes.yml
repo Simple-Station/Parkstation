@@ -1,0 +1,9 @@
+#Italian
+- type: microwaveMealRecipe
+  id: RecipeSpesslawSpaghetti
+  name: spesslaw recipe
+  result: FoodNoodlesSpesslaw
+  time: 15
+  solids:
+    FoodNoodlesBoiled: 1
+    FoodMeatMeatball: 4
