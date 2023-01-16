@@ -153,6 +153,8 @@
   noSpawn: true
   description: A dummy felinid meant to be used in character setup.
   components:
+  - type: Humanoid
+    species: Felinid
   - type: Sprite
     netsync: false
     noRot: true
