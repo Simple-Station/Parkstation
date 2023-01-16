@@ -156,6 +156,8 @@
   noSpawn: true
   description: A dummy arachne meant to be used in character setup.
   components:
+  - type: Humanoid
+    species: Arachne
   - type: Sprite
     netsync: false
     noRot: true
