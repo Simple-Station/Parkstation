@@ -2,6 +2,7 @@
 using Content.Client.Ghost;
 using Content.Client.UserInterface.Systems.Ghost.Widgets;
 using Content.Shared.Ghost;
+using Robust.Client.Console;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 
@@ -11,6 +12,7 @@ namespace Content.Client.UserInterface.Systems.Ghost;
 public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
 {
     [Dependency] private readonly IEntityNetworkManager _net = default!;
+    [Dependency] private readonly IClientConsoleHost _clientConsoleHost = default!;
 
     [UISystemDependency] private readonly GhostSystem? _system = default;
 
@@ -99,6 +101,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.RequestWarpsPressed += RequestWarps;
         Gui.ReturnToBodyPressed += ReturnToBody;
         Gui.GhostRolesPressed += GhostRolesPressed;
+        Gui.GhostRespawnPressed += GhostRespawnPressed;
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
 
         UpdateGui();
@@ -112,6 +115,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.RequestWarpsPressed -= RequestWarps;
         Gui.ReturnToBodyPressed -= ReturnToBody;
         Gui.GhostRolesPressed -= GhostRolesPressed;
+        Gui.GhostRespawnPressed -= GhostRespawnPressed;
         Gui.TargetWindow.WarpClicked -= OnWarpClicked;
 
         Gui.Hide();
@@ -132,5 +136,10 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
     private void GhostRolesPressed()
     {
         _system?.OpenGhostRoles();
+    }
+
+    private void GhostRespawnPressed()
+    {
+        _clientConsoleHost.ExecuteCommand($"ghostrespawn");
     }
 }
