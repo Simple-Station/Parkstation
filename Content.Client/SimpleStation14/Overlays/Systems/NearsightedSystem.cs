@@ -31,34 +31,28 @@ public sealed class NearsightedSystem : EntitySystem
         {
             var sighted = nearsight.Owner;
 
+            // Convert this to ClothingGrantComponent Tag, this is pointlessly excessive
             var cinv = EnsureComp<ClientInventoryComponent>(sighted);
             cinv.SlotData.TryGetValue("eyes", out var eyes);
             var eyeslot = eyes?.Container?.ContainedEntity;
 
-            if (eyeslot == null) UpdateShader(nearsight);
+            if (eyeslot == null) UpdateShader(nearsight, true);
             else
             {
                 EntityUid eyeslo = new();
                 eyeslo = (EntityUid) eyeslot;
 
                 var comp = EnsureComp<TagComponent>(eyeslo);
-                if (comp.Tags.Contains("GlassesNearsight")) UpdateShaderGlasses(nearsight);
+                if (comp.Tags.Contains("GlassesNearsight")) UpdateShader(nearsight, false);
             }
         }
     }
 
 
-    private void UpdateShader(NearsightedComponent component)
+    private void UpdateShader(NearsightedComponent component, bool booLean)
     {
         while (_overlayMan.HasOverlay<NearsightedOverlay>()) _overlayMan.RemoveOverlay(_overlay);
-        component.Glasses = false;
-        _overlayMan.AddOverlay(_overlay);
-    }
-
-    private void UpdateShaderGlasses(NearsightedComponent component)
-    {
-        while (_overlayMan.HasOverlay<NearsightedOverlay>()) _overlayMan.RemoveOverlay(_overlay);
-        component.Glasses = true;
+        component.Glasses = booLean;
         _overlayMan.AddOverlay(_overlay);
     }
 }
