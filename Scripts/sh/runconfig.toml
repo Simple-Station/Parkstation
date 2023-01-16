@@ -1,28 +1,33 @@
 [game]
-hostname = "[CAN East][MRP] Parkstation"
+hostname = "[US East][MRP] Parkstation"
+desc = "A server focused on RP expectations and calmer rounds, looking to build player base at the moment."
 maxplayers = 48
 soft_max_players = 32
 type = 1
-welcomemsg = "Welcome to the server!"
 lobbyenabled = true
 lobbyduration = 180
 role_timers = false
 fallbackpreset = "survival"
 map_pool = "ParkMapPool"
 
+[npc]
+enabled = true
+pathfinding = true
+
 [server]
 rules_file = "Park_Rules.txt"
+id = "parkstation"
 
 [whitelist]
-min_players = 8
+min_players = 16
 
 [rules]
-rules.time = 45
+rules.time = 60
 rules.exempt_local = false
 
 [events]
 ramping_average_end_time = 120.0
-ramping_average_chaos = 8.0
+ramping_average_chaos = 7.0
 
 [traitor]
 min_players = 2
@@ -30,7 +35,7 @@ players_per_traitor = 8
 starting_balance = 16
 
 [zombie]
-min_players = 15
+min_players = 10
 players_per_infected = 5
 
 
@@ -46,7 +51,7 @@ emergency_early_launch_allowed = true
 emergency_dock_time = 260.0
 emergency_transit_time = 180.0
 recall_turning_point = 0.75
-auto_call_time = 0
+auto_call_time = 195
 
 [biomass]
 easy_mode = false
@@ -55,7 +60,7 @@ easy_mode = false
 restart_sounds_enabled = false
 
 [explosion]
-tiles_per_tick = 70
+tiles_per_tick = 75
 
 [ic]
 restricted_names = false
@@ -77,8 +82,6 @@ loginlocal = true
 
 [hub]
 advertise = false
-tags = "sandbox"
-server_url = "ss14://ss14.simplemodbot.tk"
 
 [auth]
 # 0 = Optional, 1 = Required, 2 = Disabled
@@ -89,7 +92,7 @@ allowlocal = true
 path = "logs"
 format = "log_%(date)s-%(time)s.txt"
 level = 1
-enabled = false
+enabled = true
 
 [net]
 tickrate = 30
@@ -110,6 +113,13 @@ wiki = "https://wiki.nyanotrasen.moe"
 #DO NOT PUT WEBHOOK URL IN THIS FILE, unless you don't intend to push it. This file can be viewed by anyone on GitHub, only put the URL on the actual server.
 ahelp_webhook = ""
 ahelp_avatar = "https://imgur.com/a/xyjaogg.png"
+
+[netres]
+limit = 0.0
+
+
+[build]
+fork_id = "ParkStation14"
 
 [database]
 # Database type to use. Can be "sqlite" or "postgres" currently.

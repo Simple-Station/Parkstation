@@ -48,9 +48,8 @@
   components:
     - type: LightWeightTrait
       negateTime: 1.2
-      # I am aware these are the default values.
       sprint: 1
-      walk: 1.25
+      walk: 0.75
 
 
 # - type: trait

@@ -79060,13 +79060,13 @@ entities:
   - color: '#0000FFFF'
     type: AtmosPipeColor
 - uid: 9944
-  type: WeaponTurretSyndicateBroken
+  type: WeaponTurretNanoTrasen
   components:
   - pos: 61.5,9.5
     parent: 852
     type: Transform
 - uid: 9945
-  type: WeaponTurretSyndicateBroken
+  type: WeaponTurretNanoTrasen
   components:
   - pos: 57.5,9.5
     parent: 852
