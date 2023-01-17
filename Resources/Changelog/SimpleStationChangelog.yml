@@ -1062,5 +1062,6 @@ Entries:
     changes:
       - { message: "Fix Nearsight trait being inverted.", type: Fix }
       - { message: "Medidrobe has medical HUDs.", type: Add }
+      - { message: 'Medical HUD has occlusion and range checks.', type: Tweak }
     id: 78
     time: "2022-01-16T23:17:39.0000000+00:00"
