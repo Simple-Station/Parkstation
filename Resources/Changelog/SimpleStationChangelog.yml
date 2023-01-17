@@ -1065,5 +1065,6 @@ Entries:
       - { message: 'Medical HUD has occlusion and range checks.', type: Tweak }
       - { message: 'Bigger lobby character preview.', type: Tweak }
       - { message: 'Felinid and Oni show their scale in character previews.', type: Tweak }
+      - { message: 'Character preview job clothing is hidden in marking editor on update.', type: Tweak }
     id: 78
     time: "2022-01-16T23:17:39.0000000+00:00"
