@@ -36,14 +36,14 @@ public sealed class NearsightedSystem : EntitySystem
             cinv.SlotData.TryGetValue("eyes", out var eyes);
             var eyeslot = eyes?.Container?.ContainedEntity;
 
-            if (eyeslot == null) UpdateShader(nearsight, true);
+            if (eyeslot == null) UpdateShader(nearsight, false);
             else
             {
                 EntityUid eyeslo = new();
                 eyeslo = (EntityUid) eyeslot;
 
                 var comp = EnsureComp<TagComponent>(eyeslo);
-                if (comp.Tags.Contains("GlassesNearsight")) UpdateShader(nearsight, false);
+                if (comp.Tags.Contains("GlassesNearsight")) UpdateShader(nearsight, true);
             }
         }
     }

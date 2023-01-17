@@ -1038,14 +1038,29 @@ Entries:
           message: "Replace Saltern broken turrets with NanoTrasen factioned turrets. Those pesky hostile mobs wont bother you anymore",
           type: Tweak,
         }
-      - { message: 'Medical HUD shows a health overlay while equipped.', type: Add }
+      - {
+          message: "Medical HUD shows a health overlay while equipped.",
+          type: Add,
+        }
     id: 76
     time: "2022-01-15T23:55:42.0000000+00:00"
   - author: "DEATHB4DEFEAT"
     changes:
-      - { message: 'Fix some species not being identified as their species.', type: Fix }
-      - { message: 'Mime cannot have the mute trait.', type: Fix }
-      - { message: 'Add multiple accent traits.', type: Add }
-      - { message: 'Anti-Social is now a negative trait, and gives the stuttering accent.', type: Tweak }
+      - {
+          message: "Fix some species not being identified as their species.",
+          type: Fix,
+        }
+      - { message: "Mime cannot have the mute trait.", type: Fix }
+      - { message: "Add multiple accent traits.", type: Add }
+      - {
+          message: "Anti-Social is now a negative trait, and gives the stuttering accent.",
+          type: Tweak,
+        }
     id: 77
     time: "2022-01-16T05:10:33.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: 'Fix nearsighted trait being inverted.', type: Fix }
+      - { message: 'Medidrobe has medical HUDs.', type: Add }
+    id: 78
+    time: "2022-01-16T23:17:39.0000000+00:00"
