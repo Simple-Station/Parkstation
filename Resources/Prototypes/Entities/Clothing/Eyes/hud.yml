@@ -40,9 +40,9 @@
   name: prescription diagnostic hud
   description: A heads-up display capable of analyzing the integrity and status of robotics and exosuits.
   components:
-  - type: Tag
-    tags:
-    - GlassesNearsight
+  - type: ClothingGrantComponent
+    # component: DiagnosticGlasses
+    tag: GlassesNearsight
 
 - type: entity
   parent: ClothingEyesHudMedical
@@ -50,11 +50,9 @@
   name: prescription medical hud
   description: A heads-up display that scans the humanoids in view and provides accurate data about their health status.
   components:
-  - type: Tag
-    tags:
-    - GlassesNearsight
   - type: ClothingGrantComponent
     component: HealthGlasses
+    tag: GlassesNearsight
 
 - type: entity
   parent: ClothingEyesHudSecurity
@@ -62,6 +60,6 @@
   name: prescription security hud
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records.
   components:
-  - type: Tag
-    tags:
-    - GlassesNearsight
+  - type: ClothingGrantComponent
+    # component: SecurityGlasses
+    tag: GlassesNearsight

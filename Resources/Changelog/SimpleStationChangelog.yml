@@ -1060,7 +1060,7 @@ Entries:
     time: "2022-01-16T05:10:33.0000000+00:00"
   - author: "DEATHB4DEFEAT"
     changes:
-      - { message: 'Fix nearsighted trait being inverted.', type: Fix }
-      - { message: 'Medidrobe has medical HUDs.', type: Add }
+      - { message: "Fix Nearsight trait being inverted.", type: Fix }
+      - { message: "Medidrobe has medical HUDs.", type: Add }
     id: 78
     time: "2022-01-16T23:17:39.0000000+00:00"
