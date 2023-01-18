@@ -962,42 +962,109 @@ Entries:
     time: "2022-01-07T16:55:28.0000000+00:00"
   - author: "DEATHB4DEFEAT"
     changes:
-      - { message: 'Add 30 new markings, included species being Felinid, Reptilian, Oni, Human, Slime, Moth, Skeleton.', type: Add }
-      - { message: "Switching character profiles won't keep the previous profiles trait points, preventing people from having only positive traits.", type: Fix }
-      - { message: 'Height change traits scale evenly, and change camera zoom.', type: Tweak }
+      - {
+          message: "Add 30 new markings, included species being Felinid, Reptilian, Oni, Human, Slime, Moth, Skeleton.",
+          type: Add,
+        }
+      - {
+          message: "Switching character profiles won't keep the previous profiles trait points, preventing people from having only positive traits.",
+          type: Fix,
+        }
+      - {
+          message: "Height change traits scale evenly, and change camera zoom.",
+          type: Tweak,
+        }
     id: 71
     time: "2022-01-08T02:18:55.0000000+00:00"
   - author: "DEATHB4DEFEAT"
     changes:
-      - { message: 'Add Species option to EntityWhitelist.', type: Add }
-      - { message: 'Trait Species whitelist option.', type: Add }
-      - { message: 'Traits will refuse to select if you fail the whitelist/blacklist.', type: Add }
-      - { message: 'Draconic Bloodstream is only for Reptilians.', type: Tweak }
-      - { message: 'Nerf Draconic Bloodstream.', type: Tweak }
+      - { message: "Add Species option to EntityWhitelist.", type: Add }
+      - { message: "Trait Species whitelist option.", type: Add }
+      - {
+          message: "Traits will refuse to select if you fail the whitelist/blacklist.",
+          type: Add,
+        }
+      - { message: "Draconic Bloodstream is only for Reptilians.", type: Tweak }
+      - { message: "Nerf Draconic Bloodstream.", type: Tweak }
     id: 72
     time: "2022-01-08T06:48:55.0000000+00:00"
   - author: "DEATHB4DEFEAT"
     changes:
-      - { message: 'Bluespace stacking works properly, and recipes related dont delete the whole stack.', type: Fix }
-      - { message: 'Edit new markings whitelist.', type: Tweak }
-      - { message: 'New markings have locales.', type: Add }
-      - { message: 'Fluffy tail has proper directional sprites.', type: Fix }
-      - { message: 'Many markings have color accuracy improved.', type: Tweak }
+      - {
+          message: "Bluespace stacking works properly, and recipes related dont delete the whole stack.",
+          type: Fix,
+        }
+      - { message: "Edit new markings whitelist.", type: Tweak }
+      - { message: "New markings have locales.", type: Add }
+      - { message: "Fluffy tail has proper directional sprites.", type: Fix }
+      - { message: "Many markings have color accuracy improved.", type: Tweak }
     id: 73
     time: "2022-01-09T18:38:08.0000000+00:00"
   - author: "DEATHB4DEFEAT"
     changes:
-      - { message: 'Biomass reclaimers drop the reclaimed entities items instead of deleting everything.', type: Tweak }
-      - { message: 'Change many more mob speeds to match the theme, oneirophage shouldnt slip in puddles unless running now.', type: Tweak }
-      - { message: 'Add 1.4 seconds to climb delay.', type: Tweak }
-      - { message: 'Trait description popup shows whitelist and blacklist information.', type: Add }
+      - {
+          message: "Biomass reclaimers drop the reclaimed entities items instead of deleting everything.",
+          type: Tweak,
+        }
+      - {
+          message: "Change many more mob speeds to match the theme, oneirophage shouldnt slip in puddles unless running now.",
+          type: Tweak,
+        }
+      - { message: "Add 1.4 seconds to climb delay.", type: Tweak }
+      - {
+          message: "Trait description popup shows whitelist and blacklist information.",
+          type: Add,
+        }
     id: 74
     time: "2022-01-12T23:00:00.0000000+00:00"
   - author: "DEATHB4DEFEAT"
     changes:
-      - { message: 'Add LightWeight trait, increasing your speed and decreasing time to climb.', type: Add }
-      - { message: 'Tweaked most trait point costs.', type: Tweak }
-      - { message: 'Voracious trait allows you to eat faster instead of eat more.', type: Tweak }
-      - { message: 'Fix hunger being -1 roundstart.', type: Tweak }
+      - {
+          message: "Add LightWeight trait, increasing your speed and decreasing time to climb.",
+          type: Add,
+        }
+      - { message: "Tweaked most trait point costs.", type: Tweak }
+      - {
+          message: "Voracious trait allows you to eat faster instead of eat more.",
+          type: Tweak,
+        }
+      - { message: "Fix hunger being -1 roundstart.", type: Tweak }
     id: 75
     time: "2022-01-13T18:48:27.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "NanoTrasen faction turret.", type: Add }
+      - {
+          message: "Replace Saltern broken turrets with NanoTrasen factioned turrets. Those pesky hostile mobs wont bother you anymore",
+          type: Tweak,
+        }
+      - {
+          message: "Medical HUD shows a health overlay while equipped.",
+          type: Add,
+        }
+    id: 76
+    time: "2022-01-15T23:55:42.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Fix some species not being identified as their species.",
+          type: Fix,
+        }
+      - { message: "Mime cannot have the mute trait.", type: Fix }
+      - { message: "Add multiple accent traits.", type: Add }
+      - {
+          message: "Anti-Social is now a negative trait, and gives the stuttering accent.",
+          type: Tweak,
+        }
+    id: 77
+    time: "2022-01-16T05:10:33.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Fix Nearsight trait being inverted.", type: Fix }
+      - { message: "Medidrobe has medical HUDs.", type: Add }
+      - { message: 'Medical HUD has occlusion and range checks.', type: Tweak }
+      - { message: 'Bigger lobby character preview.', type: Tweak }
+      - { message: 'Felinid and Oni show their scale in character previews.', type: Tweak }
+      - { message: 'Character preview job clothing is hidden in marking editor on update.', type: Tweak }
+    id: 78
+    time: "2022-01-16T23:17:39.0000000+00:00"

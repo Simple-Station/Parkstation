@@ -8,11 +8,13 @@
     ClothingUniformJumpskirtParamedic: 4
     ClothingHeadNurseHat: 4
     ClothingUniformJumpskirtNurse: 4
+    ClothingEyesHudMedical: 3
+    ClothingEyesHudMedicalPrescription: 2
     ClothingOuterCoatLab: 4
     ClothingShoesColorWhite: 4
     ClothingHandsGlovesLatex: 4
     ClothingHeadsetMedical: 4
     ClothingOuterWinterMed: 2
     ClothingOuterWinterPara: 2
-    ClothingHeadHelmetVoidParamed: 1
-    ClothingOuterHardsuitVoidParamed: 1
+    ClothingHeadHelmetVoidParamed: 2
+    ClothingOuterHardsuitVoidParamed: 2

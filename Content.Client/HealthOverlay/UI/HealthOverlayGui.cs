@@ -7,6 +7,9 @@ using Content.Shared.MobState.Components;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
+using Robust.Client.Player;
+using Content.Shared.SimpleStation14.Clothing;
+using Content.Shared.Examine;
 
 namespace Content.Client.HealthOverlay.UI
 {
@@ -14,6 +17,7 @@ namespace Content.Client.HealthOverlay.UI
     {
         [Dependency] private readonly IEyeManager _eyeManager = default!;
         [Dependency] private readonly IEntityManager _entities = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
 
         public HealthOverlayGui(EntityUid entity)
         {
@@ -139,7 +143,38 @@ namespace Content.Client.HealthOverlay.UI
 
             if (_entities.Deleted(Entity) || _eyeManager.CurrentMap != _entities.GetComponent<TransformComponent>(Entity).MapID)
             {
-                Visible = false;
+                SetVisibility(false);
+                return;
+            }
+
+            if (_playerManager.LocalPlayer?.ControlledEntity == null)
+            {
+                SetVisibility(false);
+                return;
+            }
+
+            var localPlayer = _playerManager.LocalPlayer.ControlledEntity;
+            if (!_entities.TryGetComponent(localPlayer, out HealthGlassesComponent? glassComp))
+            {
+                SetVisibility(false);
+                return;
+            }
+            if (localPlayer != glassComp.Owner)
+            {
+                SetVisibility(false);
+                return;
+            }
+            if (_entities.TryGetComponent(localPlayer, out TransformComponent? playerTransform) && _entities.TryGetComponent(Entity, out TransformComponent? entityTransform))
+            {
+                if (!ExamineSystemShared.InRangeUnOccluded(playerTransform.MapPosition, entityTransform.MapPosition, 7.5f, null))
+                {
+                    SetVisibility(false);
+                    return;
+                }
+            }
+            else
+            {
+                SetVisibility(false);
                 return;
             }
 

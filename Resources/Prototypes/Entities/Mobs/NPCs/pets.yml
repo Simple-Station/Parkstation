@@ -381,17 +381,17 @@
   id: MobHamsterHamlet
   description: A grumpy, cute and fluffy hamster.
   components:
-  - type: GhostTakeoverAvailable
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    whitelistRequired: false
-    name: ghost-role-information-hamlet-name
-    description: ghost-role-information-hamlet-description
+#  - type: GhostTakeoverAvailable
+#    makeSentient: true
+#    allowSpeech: true
+#    allowMovement: true
+#    whitelistRequired: false
+#    name: ghost-role-information-hamlet-name
+#    description: ghost-role-information-hamlet-description
   - type: InteractionPopup
     successChance: 1
-  - type: Puller
-    needsHands: false
+#  - type: Puller
+#    needsHands: false
   - type: Butcherable
     spawned:
     - id: FoodMeat

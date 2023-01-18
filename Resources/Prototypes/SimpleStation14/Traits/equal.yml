@@ -1,12 +1,38 @@
 - type: trait
-  id: AntiSocial
-  name: Anti-Social
-  description: You don't really like being around others, hugs bother you.
+  id: OwOAccent
+  name: OwO Accent
+  description: Oh god.. why?
+  cost: -1
+  category: Equal
+  whitelist:
+    species:
+      - Felinid
+  components:
+    - type: OwOAccent
+
+- type: trait
+  id: RussianAccent
+  name: Russian Accent
+  description: A Russian spy! Get 'em!
   cost: 0
   category: Equal
   components:
-    - type: InteractionPopup
-      successChance: 0
-      interactFailureString: hugging-failure-generic
-      messagePerceivedByOthers: hugging-success-generic-others
-      soundPerceivedByOthers: false
+    - type: RussianAccent
+
+- type: trait
+  id: SpanishAccent
+  name: Spanish Accent
+  description: Yo no hablo español.
+  cost: 0
+  category: Equal
+  components:
+    - type: SpanishAccent
+
+- type: trait
+  id: MobsterAccent
+  name: Mobster Accent
+  description: Ey, boss! This guy can understands us!
+  cost: 0
+  category: Equal
+  components:
+    - type: MobsterAccent

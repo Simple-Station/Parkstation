@@ -54,9 +54,12 @@
       announcement: alert-level-epsilon-announcement
       selectable: false
       sound:
-        path: /Audio/Misc/epsilon.ogg
+        # path: /Audio/Misc/epsilon.ogg
+        # params:
+        #   volume: -2
+        path: /Audio/Corvax/Announcements/epsilon_music.ogg
         params:
-          volume: -2
+          volume: -5
       disableSelection: true
       color: DarkViolet
       emergencyLightColor: DarkViolet

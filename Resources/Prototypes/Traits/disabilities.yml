@@ -4,9 +4,6 @@
   description: trait-blindness-desc
   cost: 7
   category: Negative
-  whitelist:
-    components:
-      - Blindable
   components:
     - type: PermanentBlindness
 
