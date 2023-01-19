@@ -178,7 +178,7 @@ namespace Content.Client.HealthOverlay.UI
                 return;
             }
 
-            Visible = true;
+            SetVisibility(true);
 
             var screenCoordinates = _eyeManager.CoordinatesToScreen(_entities.GetComponent<TransformComponent>(Entity).Coordinates);
             var playerPosition = UserInterfaceManager.ScreenToUIPosition(screenCoordinates);
