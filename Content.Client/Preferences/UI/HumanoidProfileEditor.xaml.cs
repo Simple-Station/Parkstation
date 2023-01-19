@@ -1168,7 +1168,8 @@ namespace Content.Client.Preferences.UI
                 return;
 
             EntitySystem.Get<HumanoidSystem>().LoadProfile(_previewDummy!.Value, Profile);
-            LobbyCharacterPreviewPanel.GiveDummyJobClothes(_previewDummy!.Value, Profile);
+            if (_tabContainer.CurrentTab == 4) LobbyCharacterPreviewPanel.GiveDummyJobClothes(_previewDummy!.Value, Profile, false);
+            else LobbyCharacterPreviewPanel.GiveDummyJobClothes(_previewDummy!.Value, Profile);
         }
 
         public void UpdateControls()

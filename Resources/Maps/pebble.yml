@@ -24168,7 +24168,7 @@ entities:
     parent: 7
     type: Transform
 - uid: 1692
-  type: WeaponTurretSyndicateBroken
+  type: WeaponTurretBroken
   components:
   - pos: -6.5,38.5
     parent: 7
@@ -24205,7 +24205,7 @@ entities:
     parent: 7
     type: Transform
 - uid: 1698
-  type: WeaponTurretSyndicateBroken
+  type: WeaponTurretBroken
   components:
   - pos: -8.5,38.5
     parent: 7

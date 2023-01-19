@@ -18,6 +18,8 @@ namespace Content.Shared.Whitelist
     ///   components:
     ///     - Buckle
     ///     - AsteroidRock
+    ///   species:
+    ///     - Reptilian
     /// </code>
     [DataDefinition]
     [Serializable, NetSerializable]

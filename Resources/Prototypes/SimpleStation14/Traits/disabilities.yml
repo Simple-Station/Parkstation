@@ -11,7 +11,7 @@
   id: Nearsighted
   name: Nearsighted
   description: Your eyes have permanent damage, you are only able to see nearby you unless wearing glasses.
-  cost: 3
+  cost: 4
   category: Negative
   components:
     - type: Nearsighted
@@ -35,8 +35,11 @@
   id: FakeMime
   name: Mute
   description: For one reason or another you will not speak, ever, and communicate through miming or writing.
-  cost: 5
+  cost: 6
   category: Negative
+  blacklist:
+    components:
+      - MimePowers
   components:
     - type: MuteTrait
 
@@ -58,3 +61,17 @@
 #   category: Negative
 #   components:
 #     - type: DeafTrait
+
+- type: trait
+  id: AntiSocial
+  name: Anti-Social
+  description: You don't really like being around others, you stutter a lot while speaking, and hugs bother you.
+  cost: 2
+  category: Negative
+  components:
+    - type: InteractionPopup
+      successChance: 0
+      interactFailureString: hugging-failure-generic
+      messagePerceivedByOthers: hugging-success-generic-others
+      soundPerceivedByOthers: false
+    - type: StutteringAccent

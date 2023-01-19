@@ -98,7 +98,7 @@ namespace Content.Client.Lobby.UI
             {
                 Sprite = _entityManager.GetComponent<ISpriteComponent>(entity),
                 OverrideDirection = direction,
-                Scale = (2, 2)
+                Scale = (4, 4)
             };
         }
 
@@ -136,7 +136,7 @@ namespace Content.Client.Lobby.UI
             }
         }
 
-        public static void GiveDummyJobClothes(EntityUid dummy, HumanoidCharacterProfile profile)
+        public static void GiveDummyJobClothes(EntityUid dummy, HumanoidCharacterProfile profile, bool equipNew = true)
         {
             var protoMan = IoCManager.Resolve<IPrototypeManager>();
             var entMan = IoCManager.Resolve<IEntityManager>();
@@ -160,7 +160,7 @@ namespace Content.Client.Lobby.UI
                         entMan.DeleteEntity(unequippedItem.Value);
                     }
 
-                    if (itemType != string.Empty)
+                    if (equipNew && itemType != string.Empty)
                     {
                         var item = entMan.SpawnEntity(itemType, MapCoordinates.Nullspace);
                         invSystem.TryEquip(dummy, item, slot.Name, true, true);

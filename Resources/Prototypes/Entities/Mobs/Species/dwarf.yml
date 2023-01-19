@@ -5,6 +5,8 @@
   id: BaseMobDwarf
   abstract: true
   components:
+  - type: Humanoid
+    species: Dwarf
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -34,6 +36,8 @@
   noSpawn: true
   description: A dummy human meant to be used in character setup.
   components:
+  - type: Humanoid
+    species: Dwarf
   - type: Sprite
     netsync: false
     noRot: true
