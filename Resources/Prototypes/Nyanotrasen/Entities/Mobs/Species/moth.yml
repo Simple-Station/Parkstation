@@ -88,8 +88,6 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - map: ["enum.HumanoidVisualLayers.Tail"]
-      - map: ["enum.HumanoidVisualLayers.Wings"]
       - map: ["id"]
       - map: ["gloves"]
       - map: ["shoes"]
@@ -107,6 +105,8 @@
       - map: ["head"]
       - map: ["pocket1"]
       - map: ["pocket2"]
+      - map: ["enum.HumanoidVisualLayers.Tail"]
+      - map: ["enum.HumanoidVisualLayers.Wings"]
 
 - type: entity
   save: false

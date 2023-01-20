@@ -137,8 +137,6 @@
         - map: ["eyes"]
         - map: ["belt"]
         - map: ["neck"]
-        - map: ["enum.HumanoidVisualLayers.Tail"]
-        - map: ["enum.HumanoidVisualLayers.Wings"]
         - map: ["back"]
         - map: ["enum.HumanoidVisualLayers.FacialHair"]
         - map: ["enum.HumanoidVisualLayers.Hair"]
@@ -148,6 +146,8 @@
         - map: ["head"]
         - map: ["pocket1"]
         - map: ["pocket2"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]
+        - map: ["enum.HumanoidVisualLayers.Wings"]
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -351,8 +351,6 @@
         - map: ["eyes"]
         - map: ["belt"]
         - map: ["neck"]
-        - map: ["enum.HumanoidVisualLayers.Tail"]
-        - map: ["enum.HumanoidVisualLayers.Wings"]
         - map: ["back"]
         - map: ["enum.HumanoidVisualLayers.FacialHair"]
         - map: ["enum.HumanoidVisualLayers.Hair"]
@@ -362,6 +360,8 @@
         - map: ["head"]
         - map: ["pocket1"]
         - map: ["pocket2"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]
+        - map: ["enum.HumanoidVisualLayers.Wings"]
     - type: Physics
       bodyType: Dynamic
     - type: Fixtures
