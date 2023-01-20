@@ -8,7 +8,7 @@ namespace Content.Server.Speech.EntitySystems
         [Dependency] private readonly IRobustRandom _random = default!;
 
         private static readonly IReadOnlyList<string> Prefixes = new List<string>{
-            "<3", "HIII!", "Haiiii,", "H-hewwo?", "(#o.o)", ";;w;;", ";w;"
+            "<3", "HIII!", "Haiiii,", "H-hewwo?", "(#o.o)", ";;w;;", ";w;", "Weh!"
         }.AsReadOnly();
 
         private static readonly IReadOnlyList<string> Faces = new List<string>{
@@ -20,7 +20,7 @@ namespace Content.Server.Speech.EntitySystems
         }.AsReadOnly();
 
         private static readonly IReadOnlyList<string> Suffixes = new List<string>{
-            "Ɛ>", "baii!", "bye bye!", "ceeya! :D"
+            "Ɛ>", "baii!", "bye bye!", "ceeya! :D", "weh!"
         }.AsReadOnly();
 
         private static readonly IReadOnlyDictionary<string, string> SpecialWords = new Dictionary<string, string>()
@@ -49,6 +49,17 @@ namespace Content.Server.Speech.EntitySystems
             { "THE", "DA" },
             { "The", "Da" },
             { "the", "da" },
+
+            { "WAS", "WUZ" },
+            { "Was", "Wuz" },
+            { "was", "wuz" },
+
+            { "HUGGED", "CUDDLED" },
+            { "Hugged", "Cuddled" },
+            { "hugged", "cuddled" },
+            { "HUG", "CUDDLE" },
+            { "Hug", "Cuddle" },
+            { "hug", "cuddle" },
         };
 
         public override void Initialize()
@@ -58,7 +69,7 @@ namespace Content.Server.Speech.EntitySystems
 
         public string Accentuate(string message)
         {
-            // Pretty much ReplacementAccent
+            // Replace words with other words
             foreach (var (word, repl) in SpecialWords) message = message.Replace(word, repl);
 
             // Random prefix
@@ -87,8 +98,6 @@ namespace Content.Server.Speech.EntitySystems
                 .Replace("r", "w").Replace("R", "W")
                 .Replace("l", "w").Replace("L", "W");
 
-            // "You're going to need a great lawyer for this! .. You do have a good lawyer, right?"
-            // "Wu're going to need a gweat wawyew fow this! UwU .. wu do have a good wawyew, wight? (._. )"
             return message;
         }
 
