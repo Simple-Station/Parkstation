@@ -79,9 +79,9 @@
         ignoreResistances: true
         damage:
           types:
-            Blunt: -4
-            Slash: -3
-            Piercing: -3
+            Blunt: -2
+            Slash: -1
+            Piercing: -1
 
 - type: reagent
   id: CellularDivider
