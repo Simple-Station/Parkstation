@@ -35,45 +35,31 @@
 
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: ClothingEyesHudDiagnostic
   id: ClothingEyesHudDiagnosticPrescription
   name: prescription diagnostic hud
   description: A heads-up display capable of analyzing the integrity and status of robotics and exosuits.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Hud/diag.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Hud/diag.rsi
-  - type: Tag
-    tags:
-    - GlassesNearsight
+  - type: ClothingGrantComponent
+    # component: DiagnosticGlasses
+    tag: GlassesNearsight
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: ClothingEyesHudMedical
   id: ClothingEyesHudMedicalPrescription
   name: prescription medical hud
   description: A heads-up display that scans the humanoids in view and provides accurate data about their health status.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Hud/med.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Hud/med.rsi
-  - type: Tag
-    tags:
-    - GlassesNearsight
   - type: ClothingGrantComponent
     component: HealthGlasses
+    tag: GlassesNearsight
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: ClothingEyesHudSecurity
   id: ClothingEyesHudSecurityPrescription
   name: prescription security hud
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Hud/sec.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Hud/sec.rsi
-  - type: Tag
-    tags:
-    - GlassesNearsight
+  - type: ClothingGrantComponent
+    # component: SecurityGlasses
+    tag: GlassesNearsight

@@ -1,4 +1,8 @@
 @echo off
 cd ../../
-call dotnet build -c Debug
+if exist sloth.txt (
+    call dotnet build -c Debug
+) else (
+    exit
+)
 pause

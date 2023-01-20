@@ -2,7 +2,7 @@
   id: OwOAccent
   name: OwO Accent
   description: Oh god.. why?
-  cost: -1
+  cost: 0
   category: Equal
   whitelist:
     species:
@@ -31,7 +31,7 @@
 - type: trait
   id: MobsterAccent
   name: Mobster Accent
-  description: Ey, boss! This guy can understands us!
+  description: Ey, boss! This guy can understands us! Capiche?
   cost: 0
   category: Equal
   components:
