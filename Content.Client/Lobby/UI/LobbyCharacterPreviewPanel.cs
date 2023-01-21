@@ -96,7 +96,7 @@ namespace Content.Client.Lobby.UI
         {
             return new()
             {
-                Sprite = _entityManager.GetComponent<ISpriteComponent>(entity),
+                Sprite = _entityManager.GetComponent<SpriteComponent>(entity),
                 OverrideDirection = direction,
                 Scale = (4, 4)
             };

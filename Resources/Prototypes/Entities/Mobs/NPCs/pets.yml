@@ -307,6 +307,8 @@
     attributes:
       proper: true
       gender: male
+  - type: RandomMetadata
+    nameSegments: null
   - type: RandomBark
     barkMultiplier: 1.1
 

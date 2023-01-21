@@ -20,6 +20,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using System.Linq;
+using Content.Server.Power.EntitySystems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 
@@ -28,6 +29,7 @@ namespace Content.Server.Doors.Systems;
 public sealed class DoorSystem : SharedDoorSystem
 {
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
+    [Dependency] private readonly AirlockSystem _airlock = default!;
     [Dependency] private readonly AirtightSystem _airtightSystem = default!;
     [Dependency] private readonly ConstructionSystem _constructionSystem = default!;
     [Dependency] private readonly ToolSystem _toolSystem = default!;
@@ -60,7 +62,9 @@ public sealed class DoorSystem : SharedDoorSystem
         args.Handled = true;
     }
 
-    protected override void SetCollidable(EntityUid uid, bool collidable,
+    protected override void SetCollidable(
+        EntityUid uid,
+        bool collidable,
         DoorComponent? door = null,
         PhysicsComponent? physics = null,
         OccluderComponent? occluder = null)
@@ -236,7 +240,7 @@ public sealed class DoorSystem : SharedDoorSystem
             return true;
 
         // If the door is on emergency access we skip the checks.
-        if (TryComp<SharedAirlockComponent>(uid, out var airlock) && airlock.EmergencyAccess)
+        if (TryComp<AirlockComponent>(uid, out var airlock) && airlock.EmergencyAccess)
             return true;
 
         if (!Resolve(uid, ref access, false))
@@ -276,7 +280,7 @@ public sealed class DoorSystem : SharedDoorSystem
     {
         if(TryComp<AirlockComponent>(uid, out var airlockComponent))
         {
-            if (airlockComponent.BoltsDown || !airlockComponent.IsPowered())
+            if (airlockComponent.BoltsDown || !this.IsPowered(uid, EntityManager))
                 return;
 
             if (door.State == DoorState.Closed)
@@ -301,14 +305,14 @@ public sealed class DoorSystem : SharedDoorSystem
             foreach (var fixture in fixtures.Fixtures.Values)
             {
                 if (fixture.CollisionLayer == (int) component.UnweldedLayer)
-                    _physics.SetCollisionLayer(fixtures, fixture, (int) component.WeldedLayer);
+                    _physics.SetCollisionLayer(uid, fixture, (int) component.WeldedLayer);
             }
         } else
         {
             foreach (var fixture in fixtures.Fixtures.Values)
             {
                 if (fixture.CollisionLayer == (int) component.WeldedLayer)
-                    _physics.SetCollisionLayer(fixtures, fixture, (int) component.UnweldedLayer);
+                    _physics.SetCollisionLayer(uid, fixture, (int) component.UnweldedLayer);
             }
         }
     }
@@ -325,8 +329,8 @@ public sealed class DoorSystem : SharedDoorSystem
         if (door.OpenSound != null)
             PlaySound(uid, door.OpenSound, AudioParams.Default.WithVolume(-5), user, predicted);
 
-        if(lastState == DoorState.Emagging && TryComp<AirlockComponent>(door.Owner, out var airlockComponent))
-            airlockComponent?.SetBoltsWithAudio(!airlockComponent.IsBolted());
+        if(lastState == DoorState.Emagging && TryComp<AirlockComponent>(uid, out var airlockComponent))
+            _airlock.SetBoltsWithAudio(uid, airlockComponent, !airlockComponent.BoltsDown);
     }
 
     protected override void CheckDoorBump(DoorComponent component, PhysicsComponent body)

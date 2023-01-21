@@ -431,6 +431,35 @@ namespace Content.Shared.CCVar
             CVarDef.Create("wizard.max_picks", 2);
 
         /*
+         * Tips
+         */
+
+        /// <summary>
+        ///     Whether tips being shown is enabled at all.
+        /// </summary>
+        public static readonly CVarDef<bool> TipsEnabled =
+            CVarDef.Create("tips.enabled", true);
+
+        /// <summary>
+        ///     The dataset prototype to use when selecting a random tip.
+        /// </summary>
+        public static readonly CVarDef<string> TipsDataset =
+            CVarDef.Create("tips.dataset", "Tips");
+
+        /// <summary>
+        ///     The number of seconds between each tip being displayed when the round is not actively going
+        ///     (i.e. postround or lobby)
+        /// </summary>
+        public static readonly CVarDef<float> TipFrequencyOutOfRound =
+            CVarDef.Create("tips.out_of_game_frequency", 60f * 1.5f);
+
+        /// <summary>
+        ///     The number of seconds between each tip being displayed when the round is actively going
+        /// </summary>
+        public static readonly CVarDef<float> TipFrequencyInRound =
+            CVarDef.Create("tips.in_game_frequency", 60f * 60);
+
+        /*
          * Console
          */
 
@@ -1260,7 +1289,7 @@ namespace Content.Shared.CCVar
         ///     some food object won't spam a user with flavors.
         /// </summary>
         public static readonly CVarDef<int>
-            FlavorLimit = CVarDef.Create("flavor.limit", 1000, CVar.SERVERONLY);
+            FlavorLimit = CVarDef.Create("flavor.limit", 25, CVar.SERVERONLY);
 
         /*
          * Mapping

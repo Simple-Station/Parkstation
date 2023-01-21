@@ -172,8 +172,6 @@
       - CableHVStack
       - ConveyorBeltAssembly
       - AppraisalTool
-      - HydroponicsToolScythe
-      - HydroponicsToolHatchet
       - Shovel
       - HandheldCrewMonitor
       - Scalpel
@@ -276,7 +274,6 @@
       - MicrowaveMachineCircuitboard
       - DeepFryerMachineCircuitboard
       - UniformPrinterMachineCircuitboard
-      - ShuttleConsoleCircuitboard
       - RadarConsoleCircuitboard
       - CircuitImprinterMachineCircuitboard
       - TechDiskComputerCircuitboard
@@ -292,14 +289,14 @@
       - WallmountGeneratorAPUElectronics
       - WallmountSubstationElectronics
       - EmitterCircuitboard
-      - ThrusterMachineCircuitboard
-      - GyroscopeMachineCircuitboard
       - GasRecyclerMachineCircuitboard
       - SeedExtractorMachineCircuitboard
       - AnalysisComputerCircuitboard
       - ExosuitFabricatorMachineCircuitboard
       - ArtifactAnalyzerMachineCircuitboard
       - TraversalDistorterMachineCircuitboard
+      - BoozeDispenserMachineCircuitboard
+      - SodaDispenserMachineCircuitboard
   - type: MaterialStorage
     whitelist:
       tags:
@@ -468,7 +465,16 @@
       - Implanter
       - PillCanister
       - BodyBag
-      - PillCanister #Everything below this is shared with other lathes
+      - ChemistryEmptyBottle01
+      - Medkit
+      - MedkitBurn
+      - MedkitToxin
+      - MedkitO2
+      - MedkitBrute
+      - MedkitAdvanced
+      - MedkitRadiation
+      - MedkitCombat
+      - ClothingEyesHudMedical
       - FlashlightLantern
       - Bucket
       - MopItem

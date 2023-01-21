@@ -3,11 +3,13 @@ using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Speech;
 using Content.Shared.Stealth.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Damage;
 using Content.Server.Players;
-using Content.Server.MobState;
+using Content.Shared.Mobs.Systems;
 using Content.Server.Popups;
 using Content.Server.Psionics;
+using Content.Server.GameTicking;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
@@ -31,6 +33,7 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<MindSwapPowerActionEvent>(OnPowerUsed);
             SubscribeLocalEvent<MindSwappedComponent, MindSwapPowerReturnActionEvent>(OnPowerReturned);
             SubscribeLocalEvent<MindSwappedComponent, DispelledEvent>(OnDispelled);
+            SubscribeLocalEvent<GhostAttemptHandleEvent>(OnGhostAttempt);
             //
             SubscribeLocalEvent<MindSwappedComponent, ComponentInit>(OnSwapInit);
         }
@@ -74,6 +77,9 @@ namespace Content.Server.Abilities.Psionics
             if (HasComp<PsionicInsulationComponent>(component.OriginalEntity) || HasComp<PsionicInsulationComponent>(uid))
                 return;
 
+            if (HasComp<MobStateComponent>(uid) && !_mobStateSystem.IsAlive(uid))
+                return;
+
             // How do we get trapped?
             // 1. Original target doesn't exist
             if (!component.OriginalEntity.IsValid() || Deleted(component.OriginalEntity))
@@ -96,7 +102,7 @@ namespace Content.Server.Abilities.Psionics
             }
 
             // 3. Target is dead
-            if (_mobStateSystem.IsDead(component.OriginalEntity))
+            if (HasComp<MobStateComponent>(component.OriginalEntity) && _mobStateSystem.IsDead(component.OriginalEntity))
             {
                 GetTrapped(uid);
                 return;
@@ -108,6 +114,18 @@ namespace Content.Server.Abilities.Psionics
         private void OnDispelled(EntityUid uid, MindSwappedComponent component, DispelledEvent args)
         {
             Swap(uid, component.OriginalEntity, true);
+            args.Handled = true;
+        }
+
+        private void OnGhostAttempt(GhostAttemptHandleEvent args)
+        {
+            if (args.Handled)
+                return;
+
+            if (!HasComp<MindSwappedComponent>(args.Mind.CurrentEntity))
+                return;
+
+            args.Result = false;
             args.Handled = true;
         }
 

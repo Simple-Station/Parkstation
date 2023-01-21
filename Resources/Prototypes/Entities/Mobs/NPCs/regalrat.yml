@@ -36,6 +36,7 @@
       layer:
       - SmallMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       150: Critical
@@ -163,6 +164,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: regalrat
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       300: Critical
@@ -230,6 +232,7 @@
       layer:
       - SmallMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       12: Critical
