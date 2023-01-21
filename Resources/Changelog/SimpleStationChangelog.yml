@@ -1074,3 +1074,15 @@ Entries:
         }
     id: 78
     time: "2023-01-16T23:17:39.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: 'Improve OwO accent greatly.', type: Tweak }
+    id: 79
+    time: "2023-01-19T17:36:43.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: 'Slime have their Wing, Tail, and Ear markings now.', type: Fix }
+      - { message: 'Wings and Tail layers render over everything else.', type: Tweak }
+      - { message: 'Increased max foam and smoke radius.', type: Tweak }
+    id: 80
+    time: "2023-01-20T01:17:20.0000000+00:00"
