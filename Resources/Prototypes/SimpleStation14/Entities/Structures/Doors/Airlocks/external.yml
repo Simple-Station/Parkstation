@@ -6,7 +6,6 @@
   - type: Sprite
     sprite: SimpleStation14/Structures/Doors/Airlocks/External/atmospherics.rsi
 
-# External Airlocks
 - type: entity
   parent: AirlockExternal
   id: AirlockExternalCommand
@@ -14,6 +13,10 @@
   components:
   - type: Sprite
     sprite: SimpleStation14/Structures/Doors/Airlocks/External/command.rsi
+  - type: Wires
+    BoardName: "HighSec Control"
+    LayoutId: HighSec
+    alwaysRandomize: true
 
 - type: entity
   parent: AirlockExternal
@@ -62,12 +65,3 @@
   components:
   - type: Sprite
     sprite: SimpleStation14/Structures/Doors/Airlocks/External/service.rsi
-
-# Maintenance Hatches
-- type: entity
-  parent: AirlockMaint
-  id: AirlockMaintServiceLocked
-  suffix: Service, Locked
-  components:
-  - type: AccessReader
-    access: [["Service"]]
