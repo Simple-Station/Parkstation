@@ -1086,3 +1086,8 @@ Entries:
       - { message: 'Increased max foam and smoke radius.', type: Tweak }
     id: 80
     time: "2023-01-20T01:17:20.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: 'Fixed transparency on slime markings, they should all match better.', type: Fix }
+    id: 81
+    time: "2023-01-22T02:24:02.0000000+00:00"
