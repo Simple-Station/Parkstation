@@ -77,7 +77,7 @@ namespace Content.Server.Voting.Managers
                 {
                     _chatManager.DispatchServerAnnouncement(Loc.GetString("ui-vote-restart-succeeded"));
                     var roundEnd = _entityManager.EntitySysManager.GetEntitySystem<RoundEndSystem>();
-                    roundEnd.EndRound();
+                    roundEnd.RequestRoundEnd(null, true, true);
                 }
                 else
                 {
