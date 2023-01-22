@@ -27,6 +27,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.SimpleStation14.CCVar;
 
 namespace Content.Server.Cargo.Systems;
 
@@ -516,6 +517,13 @@ public sealed partial class CargoSystem
             return;
         };
 
+        var cargoCost = _configManager.GetCVar(SimpleStationCVars.CargoShuttleCost);
+        if (cargoCost >= 0)
+        {
+            var bankAccount = GetBankAccount(EntityQuery<CargoOrderConsoleComponent>().First());
+            if (bankAccount?.Balance >= cargoCost) bankAccount.Balance -= cargoCost;
+        }
+
         SellPallets(shuttle, bank);
         _console.RefreshShuttleConsoles();
         SendToCargoMap(orderDatabase.Shuttle.Value);
@@ -552,6 +560,14 @@ public sealed partial class CargoSystem
     {
         var stationUid = _station.GetOwningStation(args.Entity);
         if (!TryComp<StationCargoOrderDatabaseComponent>(stationUid, out var orderDatabase)) return;
+
+        var cargoCost = _configManager.GetCVar(SimpleStationCVars.CargoShuttleCost);
+        if (cargoCost >= 0)
+        {
+            var bankAccount = GetBankAccount(EntityQuery<CargoOrderConsoleComponent>().First());
+            if (bankAccount?.Balance >= cargoCost) bankAccount.Balance -= cargoCost;
+        }
+
         CallShuttle(orderDatabase);
     }
 

@@ -15,6 +15,7 @@ namespace Content.Server.SimpleStation14.GameTicking
 
         private void OnRoundEnd(RoundEndTextAppendEvent ev)
         {
+            // TODO: Get it to show at bottom of manifest
             if (_roundEndSystem._autoCalled == true)
             {
                 ev.AddLine("");
