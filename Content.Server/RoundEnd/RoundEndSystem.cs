@@ -54,6 +54,7 @@ namespace Content.Server.RoundEnd
 
         public TimeSpan AutoCallStartTime;
         private bool AutoCalledBefore = false;
+        public bool? _autoCalled = null;
 
         public override void Initialize()
         {
@@ -153,6 +154,7 @@ namespace Content.Server.RoundEnd
                     false,
                     null,
                     Color.Gold);
+                _autoCalled = true;
             }
             else
             {
@@ -163,6 +165,7 @@ namespace Content.Server.RoundEnd
                     false,
                     null,
                     Color.Gold);
+                _autoCalled = false;
             }
 
             SoundSystem.Play("/Audio/Announcements/shuttlecalled.ogg", Filter.Broadcast());
@@ -196,6 +199,8 @@ namespace Content.Server.RoundEnd
             _countdownTokenSource.Cancel();
             _countdownTokenSource = null;
 
+            _autoCalled = null;
+
             if (requester != null)
             {
                 _adminLogger.Add(LogType.ShuttleRecalled, LogImpact.High, $"Shuttle recalled by {ToPrettyString(requester.Value):user}");
@@ -219,12 +224,16 @@ namespace Content.Server.RoundEnd
         public void EndRound()
         {
             if (_gameTicker.RunLevel != GameRunLevel.InRound) return;
+
             LastCountdownStart = null;
             ExpectedCountdownEnd = null;
+
             RaiseLocalEvent(RoundEndSystemChangedEvent.Default);
+
             _gameTicker.EndRound();
             _countdownTokenSource?.Cancel();
             _countdownTokenSource = new();
+
             _chatManager.DispatchServerAnnouncement(Loc.GetString("round-end-system-round-restart-eta-announcement", ("minutes", DefaultRestartRoundDuration.Minutes)));
             Timer.Spawn(DefaultRestartRoundDuration, AfterEndRoundRestart, _countdownTokenSource.Token);
         }
