@@ -2059,12 +2059,12 @@
     damage:
       types:
         Piercing: 2
-  - type: InteractionPopup
-    successChance: 0.4
-    interactSuccessString: petting-success-hamster
-    interactFailureString: petting-failure-hamster
-    interactSuccessSound:
-      path: /Audio/Animals/fox_squeak.ogg
+  # - type: InteractionPopup
+  #   successChance: 0.4
+  #   interactSuccessString: petting-success-hamster
+  #   interactFailureString: petting-failure-hamster
+  #   interactSuccessSound:
+  #     path: /Audio/Animals/fox_squeak.ogg
   - type: Bloodstream
     bloodMaxVolume: 60
   - type: CanEscapeInventory
