@@ -1091,3 +1091,9 @@ Entries:
       - { message: 'Fixed transparency on slime markings, they should all match better.', type: Fix }
     id: 81
     time: "2023-01-22T02:24:02.0000000+00:00"
+  - author: "Pspritechologist"
+    changes:
+      - { message: 'Fixed several doors and tiles on ParkStation.', type: Tweak }
+      - { message: "Added Morty.", type: Add }
+    id: 82
+    time: "2023-01-23T17:36:30.0000000+00:00"
