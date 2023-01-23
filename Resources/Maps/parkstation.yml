@@ -100,7 +100,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 7
+  - index: 5
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -1533,39 +1533,39 @@ entities:
           color: '#FFFFFFFF'
           id: WoodTrimThinCornerSe
           coordinates: -30,-24
-        2829:
+        2821:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -30,-20
-        2830:
+        2822:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -30,-19
-        2831:
+        2823:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -30,-18
-        2832:
+        2824:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -31,-20
-        2833:
+        2825:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -31,-19
-        2834:
+        2826:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -31,-18
-        2835:
+        2827:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -32,-18
-        2836:
+        2828:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -32,-19
-        2837:
+        2829:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -32,-20
@@ -3000,67 +3000,67 @@ entities:
           color: '#FFFFFFFF'
           id: DirtMedium
           coordinates: -1,26
-        2620:
+        2612:
           color: '#FFFFFFFF'
           id: WarnLineGreyscaleW
           coordinates: -5,5
-        2621:
+        2613:
           color: '#FFFFFFFF'
           id: WarnLineGreyscaleW
           coordinates: -5,6
-        2622:
+        2614:
           color: '#FFFFFFFF'
           id: WarnLineGreyscaleW
           coordinates: -5,7
-        2623:
+        2615:
           color: '#FFFFFFFF'
           id: WarnLineGreyscaleW
           coordinates: -5,8
-        2624:
+        2616:
           color: '#FFFFFFFF'
           id: WarnLineGreyscaleN
           coordinates: -4,9
-        2625:
+        2617:
           color: '#FFFFFFFF'
           id: WarnCornerGreyscaleNW
           coordinates: -5,9
-        2819:
+        2811:
           color: '#FFFFFFFF'
           id: WoodTrimThinCornerNe
           coordinates: -20,22
-        2820:
+        2812:
           color: '#FFFFFFFF'
           id: WoodTrimThinCornerNw
           coordinates: -22,22
-        2821:
+        2813:
           color: '#FFFFFFFF'
           id: WoodTrimThinCornerSw
           coordinates: -22,19
-        2822:
+        2814:
           color: '#FFFFFFFF'
           id: WoodTrimThinCornerSe
           coordinates: -20,19
-        2823:
+        2815:
           color: '#FFFFFFFF'
           id: WoodTrimThinLineS
           coordinates: -21,19
-        2824:
+        2816:
           color: '#FFFFFFFF'
           id: WoodTrimThinLineW
           coordinates: -22,20
-        2825:
+        2817:
           color: '#FFFFFFFF'
           id: WoodTrimThinLineW
           coordinates: -22,21
-        2826:
+        2818:
           color: '#FFFFFFFF'
           id: WoodTrimThinLineN
           coordinates: -21,22
-        2827:
+        2819:
           color: '#FFFFFFFF'
           id: WoodTrimThinLineE
           coordinates: -20,20
-        2828:
+        2820:
           color: '#FFFFFFFF'
           id: WoodTrimThinLineE
           coordinates: -20,21
@@ -4680,313 +4680,313 @@ entities:
           color: '#D381C996'
           id: HalfTileOverlayGreyscale90
           coordinates: 25,-23
-        2459:
+        2451:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 27.491869,-8.002424
-        2460:
+        2452:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtMedium
           coordinates: 27.481447,-3.9996455
-        2461:
+        2453:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 26.50384,-4.4999924
-        2462:
+        2454:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 23.497614,-8.746399
-        2463:
+        2455:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 21,-9
-        2464:
+        2456:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 20,-9
-        2465:
+        2457:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 21.491177,-8.506649
-        2466:
+        2458:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 27.01936,-10.005697
-        2467:
+        2459:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 26.487844,-9.984848
-        2468:
+        2460:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtMedium
           coordinates: 28,-15
-        2469:
+        2461:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtMedium
           coordinates: 29,-21
-        2470:
+        2462:
           color: '#334E6DC8'
           id: HalfTileOverlayGreyscale90
           coordinates: 27,-15
-        2471:
+        2463:
           angle: 4.71238898038469 rad
           color: '#FFFFFFFF'
           id: LoadingAreaGreyscale
           coordinates: 27,-15
-        2478:
+        2470:
           color: '#D381C996'
           id: CheckerNWSE
           coordinates: 31,-28
-        2479:
+        2471:
           color: '#D381C996'
           id: CheckerNWSE
           coordinates: 31,-29
-        2486:
+        2478:
           color: '#D381C996'
           id: CheckerNESW
           coordinates: 31,-26
-        2487:
+        2479:
           color: '#D381C996'
           id: CheckerNESW
           coordinates: 31,-25
-        2491:
+        2483:
           color: '#D381C996'
           id: HalfTileOverlayGreyscale90
           coordinates: 31,-27
-        2492:
+        2484:
           color: '#FFFFFFFF'
           id: MiniTileDarkLineS
           coordinates: 31,-29
-        2495:
+        2487:
           color: '#FFFFFFFF'
           id: MiniTileDarkLineN
           coordinates: 31,-25
-        2503:
+        2495:
           color: '#D381C996'
           id: OffsetOverlay
           coordinates: 27,-29
-        2504:
+        2496:
           color: '#D381C996'
           id: OffsetOverlay
           coordinates: 27,-28
-        2505:
+        2497:
           color: '#D381C996'
           id: OffsetOverlay
           coordinates: 27,-27
-        2506:
+        2498:
           color: '#D381C996'
           id: OffsetOverlay
           coordinates: 27,-26
-        2726:
+        2718:
           color: '#FFFFFFFF'
           id: MiniTileDarkCornerNe
           coordinates: 30,-24
-        2731:
+        2723:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 23,-24
-        2732:
+        2724:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 23,-23
-        2733:
+        2725:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 22,-24
-        2734:
+        2726:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 22,-23
-        2735:
+        2727:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 21,-24
-        2736:
+        2728:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 21,-23
-        2737:
+        2729:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 20,-24
-        2738:
+        2730:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 20,-23
-        2739:
+        2731:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 19,-24
-        2740:
+        2732:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 19,-23
-        2741:
+        2733:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 18,-24
-        2742:
+        2734:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 18,-23
-        2743:
+        2735:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 17,-24
-        2744:
+        2736:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 17,-23
-        2745:
+        2737:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 16,-24
-        2746:
+        2738:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 16,-23
-        2747:
+        2739:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 15,-24
-        2748:
+        2740:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 15,-23
-        2749:
+        2741:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 14,-24
-        2750:
+        2742:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 14,-23
-        2751:
+        2743:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 13,-24
-        2752:
+        2744:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 13,-23
-        2753:
+        2745:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 12,-24
-        2754:
+        2746:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 12,-23
-        2755:
+        2747:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 11,-24
-        2756:
+        2748:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 11,-23
-        2757:
+        2749:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 10,-24
-        2758:
+        2750:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 10,-23
-        2759:
+        2751:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 9,-24
-        2760:
+        2752:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 9,-23
-        2761:
+        2753:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 8,-24
-        2762:
+        2754:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 8,-23
-        2763:
+        2755:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 7,-23
-        2764:
+        2756:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 7,-24
-        2765:
+        2757:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineW
           coordinates: 7,-24
-        2766:
+        2758:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineW
           coordinates: 7,-23
-        2767:
+        2759:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineE
           coordinates: 23,-24
-        2768:
+        2760:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineE
           coordinates: 23,-23
-        2769:
+        2761:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 11,-26
-        2770:
+        2762:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 10,-26
-        2771:
+        2763:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 9,-26
-        2772:
+        2764:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 8,-26
-        2773:
+        2765:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 8,-27
-        2774:
+        2766:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 9,-27
-        2775:
+        2767:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 10,-27
-        2776:
+        2768:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 11,-27
-        2777:
+        2769:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 11,-28
-        2778:
+        2770:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 10,-28
-        2779:
+        2771:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 9,-28
-        2780:
+        2772:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 8,-28
@@ -7264,222 +7264,222 @@ entities:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 27,6
-        2414:
+        2408:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 29,9
-        2417:
+        2409:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 28,7
-        2418:
+        2410:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 28,8
-        2419:
+        2411:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 28,9
-        2420:
+        2412:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 27,9
-        2421:
+        2413:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 27,8
-        2422:
+        2414:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 27,7
-        2423:
+        2415:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 26,7
-        2424:
+        2416:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 26,8
-        2425:
+        2417:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 26,9
-        2426:
+        2418:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 25,7
-        2427:
+        2419:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 25,9
-        2428:
+        2420:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 24,9
-        2429:
+        2421:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 23,9
-        2430:
+        2422:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 21,9
-        2431:
+        2423:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 22,9
-        2432:
+        2424:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 20,9
-        2433:
+        2425:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 19,9
-        2434:
+        2426:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 19,8
-        2435:
+        2427:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 18,8
-        2436:
+        2428:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 20,8
-        2437:
+        2429:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 20,7
-        2438:
+        2430:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 21,8
-        2439:
+        2431:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 21,7
-        2440:
+        2432:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 22,8
-        2441:
+        2433:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 22,7
-        2442:
+        2434:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 23,8
-        2443:
+        2435:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 23,7
-        2444:
+        2436:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 22,6
-        2445:
+        2437:
           color: '#EFB34149'
           id: CheckerNESW
           coordinates: 23,6
-        2446:
+        2438:
           color: '#EFB34196'
           id: HalfTileOverlayGreyscale
           coordinates: 22,5
-        2447:
+        2439:
           color: '#334E6DC8'
           id: HalfTileOverlayGreyscale180
           coordinates: 22,5
-        2448:
+        2440:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtMedium
           coordinates: 23,4
-        2449:
+        2441:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 25,7
-        2450:
+        2442:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 22.50622,9.426161
-        2451:
+        2443:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 21.964285,8.988356
-        2452:
+        2444:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 23.954855,9.478279
-        2453:
+        2445:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 23.517138,8.977932
-        2454:
+        2446:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 24.976194,9.499128
-        2455:
+        2447:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 25.559818,9.467855
-        2456:
+        2448:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 25.57024,9.186411
-        2457:
+        2449:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 22.33947,9.186411
-        2458:
+        2450:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 24.5489,9.394888
-        2617:
+        2609:
           color: '#EFB34196'
           id: BrickTileWhiteLineW
           coordinates: 5,24
-        2618:
+        2610:
           color: '#EFB34196'
           id: BrickTileWhiteLineW
           coordinates: 5,25
-        2619:
+        2611:
           color: '#EFB34196'
           id: BrickTileWhiteLineW
           coordinates: 5,26
-        2839:
+        2831:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 1.2316604,19.983152
-        2840:
+        2832:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 1.0336456,20.452229
-        2841:
+        2833:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 1.2316604,20.796217
-        2842:
+        2834:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 1.1378646,21.348684
-        2843:
+        2835:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
@@ -8864,471 +8864,471 @@ entities:
           color: '#EFB341A4'
           id: CheckerNESW
           coordinates: 48,16
-        2626:
+        2618:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 59,25
-        2627:
+        2619:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 58,25
-        2628:
+        2620:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 57,25
-        2629:
+        2621:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 56,25
-        2630:
+        2622:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 53,25
-        2631:
+        2623:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 52,25
-        2632:
+        2624:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 50,25
-        2633:
+        2625:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 49,25
-        2634:
+        2626:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 48,25
-        2635:
+        2627:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 51,25
-        2636:
+        2628:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 49,24
-        2637:
+        2629:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 50,24
-        2638:
+        2630:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 51,24
-        2639:
+        2631:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 52,24
-        2640:
+        2632:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 54,24
-        2641:
+        2633:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 55,24
-        2642:
+        2634:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 53,24
-        2643:
+        2635:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 56,24
-        2644:
+        2636:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 58,24
-        2645:
+        2637:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 57,24
-        2646:
+        2638:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 43,22
-        2647:
+        2639:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 43,23
-        2648:
+        2640:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 43,24
-        2649:
+        2641:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 44,24
-        2650:
+        2642:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 44,23
-        2651:
+        2643:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 44,22
-        2652:
+        2644:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 45,22
-        2653:
+        2645:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 45,23
-        2654:
+        2646:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 45,24
-        2655:
+        2647:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 46,24
-        2656:
+        2648:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 46,23
-        2657:
+        2649:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 46,22
-        2658:
+        2650:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 47,22
-        2659:
+        2651:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 47,23
-        2660:
+        2652:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 47,24
-        2661:
+        2653:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 48,24
-        2662:
+        2654:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 48,23
-        2663:
+        2655:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 48,22
-        2664:
+        2656:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 48,21
-        2665:
+        2657:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 49,21
-        2666:
+        2658:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 49,22
-        2667:
+        2659:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 49,23
-        2668:
+        2660:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 50,23
-        2669:
+        2661:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 50,22
-        2670:
+        2662:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 51,22
-        2671:
+        2663:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 50,21
-        2672:
+        2664:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 51,21
-        2673:
+        2665:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 52,21
-        2674:
+        2666:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 52,22
+        2667:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 52,23
+        2668:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 51,23
+        2669:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 53,23
+        2670:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 54,23
+        2671:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 55,23
+        2672:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 56,23
+        2673:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 56,22
+        2674:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 53,21
         2675:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 52,23
+          coordinates: 53,22
         2676:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 51,23
+          coordinates: 54,22
         2677:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 53,23
+          coordinates: 55,22
         2678:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 54,23
+          coordinates: 57,22
         2679:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 55,23
+          coordinates: 57,23
         2680:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 56,23
+          coordinates: 58,23
         2681:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 56,22
+          coordinates: 58,22
         2682:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 53,21
+          coordinates: 59,21
         2683:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 53,22
+          coordinates: 60,21
         2684:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 54,22
+          coordinates: 60,22
         2685:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 55,22
+          coordinates: 59,22
         2686:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 57,22
+          coordinates: 59,23
         2687:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 57,23
+          coordinates: 60,23
         2688:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 58,23
+          coordinates: 60,24
         2689:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 58,22
-        2690:
-          color: '#EFB34196'
-          id: CheckerNESW
-          coordinates: 59,21
-        2691:
-          color: '#EFB34196'
-          id: CheckerNESW
-          coordinates: 60,21
-        2692:
-          color: '#EFB34196'
-          id: CheckerNESW
-          coordinates: 60,22
-        2693:
-          color: '#EFB34196'
-          id: CheckerNESW
-          coordinates: 59,22
-        2694:
-          color: '#EFB34196'
-          id: CheckerNESW
-          coordinates: 59,23
-        2695:
-          color: '#EFB34196'
-          id: CheckerNESW
-          coordinates: 60,23
-        2696:
-          color: '#EFB34196'
-          id: CheckerNESW
-          coordinates: 60,24
-        2697:
-          color: '#EFB34196'
-          id: CheckerNESW
           coordinates: 59,24
-        2698:
+        2690:
           color: '#FFFFFFFF'
           id: BrickTileSteelCornerNw
           coordinates: 59,24
-        2699:
+        2691:
           color: '#FFFFFFFF'
           id: BrickTileSteelCornerNe
           coordinates: 48,24
-        2700:
+        2692:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 49,23
-        2701:
+        2693:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 50,23
-        2702:
+        2694:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 51,23
-        2703:
+        2695:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 52,23
-        2704:
+        2696:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 54,23
-        2705:
+        2697:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 53,23
-        2706:
+        2698:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 55,23
-        2707:
+        2699:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 56,23
-        2708:
+        2700:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 57,23
-        2709:
+        2701:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 58,23
-        2710:
+        2702:
           color: '#FFFFFFFF'
           id: BrickTileSteelInnerNw
           coordinates: 59,23
-        2711:
+        2703:
           color: '#FFFFFFFF'
           id: BrickTileSteelCornerNe
           coordinates: 60,24
-        2712:
+        2704:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineE
           coordinates: 60,23
-        2713:
+        2705:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineE
           coordinates: 60,22
-        2714:
+        2706:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineE
           coordinates: 60,21
-        2715:
+        2707:
           color: '#FFFFFFFF'
           id: BrickTileSteelInnerNe
           coordinates: 48,23
-        2716:
+        2708:
           color: '#FFFFFFFF'
           id: BrickTileSteelInnerNe
           coordinates: 47,24
-        2717:
+        2709:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineE
           coordinates: 53,21
-        2718:
+        2710:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 58,22
-        2719:
+        2711:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 57,22
-        2720:
+        2712:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 56,22
-        2721:
+        2713:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 55,22
-        2722:
+        2714:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 54,22
-        2723:
+        2715:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineW
           coordinates: 59,21
-        2724:
+        2716:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerSw
           coordinates: 59,22
-        2725:
+        2717:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerSe
           coordinates: 53,22
-        2727:
+        2719:
           color: '#FFFFFFFF'
           id: BrickTileDarkEndW
           coordinates: 55,19
-        2728:
+        2720:
           color: '#FFFFFFFF'
           id: BrickTileDarkEndE
           coordinates: 57,19
-        2729:
+        2721:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: 56,19
-        2730:
+        2722:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 56,19
-        2781:
+        2773:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 53,29
-        2782:
+        2774:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 52,29
-        2783:
+        2775:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 51,29
-        2784:
+        2776:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 50,29
-        2785:
+        2777:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 49,29
-        2786:
+        2778:
           color: '#FFFFFFFF'
           id: WarnLineS
           coordinates: 54,28
-        2787:
+        2779:
           color: '#FFFFFFFF'
           id: WarnLineS
           coordinates: 54,27
-        2788:
+        2780:
           color: '#FFFFFFFF'
           id: WarnLineE
           coordinates: 48,27
-        2789:
+        2781:
           color: '#FFFFFFFF'
           id: WarnLineE
           coordinates: 48,28
-        2790:
+        2782:
           color: '#FFFFFFFF'
           id: WarnCornerSmallSE
           coordinates: 48,29
-        2791:
+        2783:
           color: '#FFFFFFFF'
           id: WarnCornerSmallSW
           coordinates: 54,29
-        2792:
+        2784:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 55,25
-        2793:
+        2785:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 54,25
@@ -10026,69 +10026,69 @@ entities:
           color: '#FFFFFFFF'
           id: BrickTileSteelCornerSw
           coordinates: -28,-33
-        2794:
+        2786:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtMedium
           coordinates: -1.0155911,-45.98986
-        2795:
+        2787:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: -3.006721,-41.514786
-        2796:
+        2788:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale
           coordinates: -7,-37
-        2797:
+        2789:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale180
           coordinates: -7,-42
-        2798:
+        2790:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -8,-38
-        2799:
+        2791:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -8,-39
-        2800:
+        2792:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -8,-40
-        2801:
+        2793:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -8,-41
-        2802:
+        2794:
           color: '#52DFE996'
           id: CheckerNWSE
           coordinates: -8,-42
-        2803:
+        2795:
           color: '#52DFE996'
           id: CheckerNESW
           coordinates: -8,-37
-        2804:
+        2796:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -6,-41
-        2805:
+        2797:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -6,-40
-        2806:
+        2798:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -6,-39
-        2807:
+        2799:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -6,-38
-        2808:
+        2800:
           color: '#52DFE996'
           id: QuarterTileOverlayGreyscale270
           coordinates: -6,-37
-        2809:
+        2801:
           color: '#52DFE996'
           id: QuarterTileOverlayGreyscale
           coordinates: -6,-42
@@ -10417,39 +10417,39 @@ entities:
           color: '#FFFFFFFF'
           id: WoodTrimThinInnerSe
           coordinates: 7,-34
-        2810:
+        2802:
           color: '#38A45196'
           id: MiniTileWhiteLineW
           coordinates: 1,-46
-        2811:
+        2803:
           color: '#38A45196'
           id: MiniTileWhiteLineW
           coordinates: 1,-45
-        2812:
+        2804:
           color: '#38A45196'
           id: MiniTileWhiteLineW
           coordinates: 1,-44
-        2813:
+        2805:
           color: '#38A45196'
           id: MiniTileWhiteLineW
           coordinates: 1,-43
-        2814:
+        2806:
           color: '#38A45196'
           id: MiniTileWhiteLineW
           coordinates: 1,-42
-        2815:
+        2807:
           color: '#38A45196'
           id: MiniTileWhiteLineW
           coordinates: 1,-41
-        2816:
+        2808:
           color: '#38A45196'
           id: MiniTileWhiteCornerNw
           coordinates: 1,-40
-        2817:
+        2809:
           color: '#38A45196'
           id: MiniTileWhiteLineN
           coordinates: 2,-40
-        2818:
+        2810:
           color: '#38A45196'
           id: MiniTileWhiteLineN
           coordinates: 3,-40
@@ -11359,471 +11359,471 @@ entities:
           color: '#D381C996'
           id: CheckerNESW
           coordinates: 35,-32
-        2472:
+        2464:
           color: '#D381C996'
           id: CheckerNWSE
           coordinates: 34,-29
-        2473:
+        2465:
           color: '#D381C996'
           id: CheckerNWSE
           coordinates: 34,-28
-        2474:
+        2466:
           color: '#D381C996'
           id: CheckerNWSE
           coordinates: 33,-28
-        2475:
+        2467:
           color: '#D381C996'
           id: CheckerNWSE
           coordinates: 33,-29
-        2476:
+        2468:
           color: '#D381C996'
           id: CheckerNWSE
           coordinates: 32,-29
-        2477:
+        2469:
           color: '#D381C996'
           id: CheckerNWSE
           coordinates: 32,-28
-        2480:
+        2472:
           color: '#D381C996'
           id: CheckerNESW
           coordinates: 34,-25
-        2481:
+        2473:
           color: '#D381C996'
           id: CheckerNESW
           coordinates: 34,-26
-        2482:
+        2474:
           color: '#D381C996'
           id: CheckerNESW
           coordinates: 33,-26
-        2483:
+        2475:
           color: '#D381C996'
           id: CheckerNESW
           coordinates: 33,-25
-        2484:
+        2476:
           color: '#D381C996'
           id: CheckerNESW
           coordinates: 32,-25
-        2485:
+        2477:
           color: '#D381C996'
           id: CheckerNESW
           coordinates: 32,-26
-        2488:
+        2480:
           color: '#D381C996'
           id: HalfTileOverlayGreyscale90
           coordinates: 34,-27
-        2489:
+        2481:
           color: '#D381C996'
           id: HalfTileOverlayGreyscale90
           coordinates: 33,-27
-        2490:
+        2482:
           color: '#D381C996'
           id: HalfTileOverlayGreyscale90
           coordinates: 32,-27
-        2493:
+        2485:
           color: '#FFFFFFFF'
           id: MiniTileDarkLineS
           coordinates: 32,-29
-        2494:
+        2486:
           color: '#FFFFFFFF'
           id: MiniTileDarkLineS
           coordinates: 33,-29
-        2496:
+        2488:
           color: '#FFFFFFFF'
           id: MiniTileDarkLineN
           coordinates: 32,-25
-        2497:
+        2489:
           color: '#FFFFFFFF'
           id: MiniTileDarkLineN
           coordinates: 33,-25
-        2498:
+        2490:
           color: '#FFFFFFFF'
           id: MiniTileDarkCornerNe
           coordinates: 34,-25
-        2499:
+        2491:
           color: '#FFFFFFFF'
           id: MiniTileDarkCornerSe
           coordinates: 34,-29
-        2500:
+        2492:
           color: '#FFFFFFFF'
           id: MiniTileDarkLineE
           coordinates: 34,-28
-        2501:
+        2493:
           color: '#FFFFFFFF'
           id: MiniTileDarkLineE
           coordinates: 34,-27
-        2502:
+        2494:
           color: '#FFFFFFFF'
           id: MiniTileDarkLineE
           coordinates: 34,-26
-        2523:
+        2515:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 43,-30
-        2524:
+        2516:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 41,-31
-        2525:
+        2517:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 40,-31
-        2526:
+        2518:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 38,-30
-        2527:
+        2519:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineW
           coordinates: 37,-27
-        2528:
+        2520:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: 38,-26
-        2529:
+        2521:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: 39,-26
-        2530:
+        2522:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: 40,-26
-        2531:
+        2523:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: 41,-26
-        2532:
+        2524:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: 43,-27
-        2533:
+        2525:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineE
           coordinates: 44,-29
-        2534:
+        2526:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineE
           coordinates: 44,-28
-        2535:
+        2527:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerSw
           coordinates: 39,-31
-        2536:
+        2528:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerSe
           coordinates: 42,-31
-        2537:
+        2529:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerSe
           coordinates: 44,-30
-        2538:
+        2530:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerNe
           coordinates: 44,-27
-        2539:
+        2531:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerNe
           coordinates: 42,-26
-        2540:
+        2532:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerNe
           coordinates: 42,-27
-        2541:
+        2533:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerSw
           coordinates: 39,-30
-        2542:
+        2534:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerSe
           coordinates: 42,-30
-        2543:
+        2535:
           color: '#D381C996'
           id: BrickTileWhiteLineW
           coordinates: 37,-27
-        2544:
+        2536:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerNw
           coordinates: 37,-26
-        2545:
+        2537:
           color: '#D381C996'
           id: BrickTileWhiteLineN
           coordinates: 38,-26
-        2546:
+        2538:
           color: '#D381C996'
           id: BrickTileWhiteLineN
           coordinates: 39,-26
-        2547:
+        2539:
           color: '#D381C996'
           id: BrickTileWhiteLineN
           coordinates: 40,-26
-        2548:
+        2540:
           color: '#D381C996'
           id: BrickTileWhiteLineN
           coordinates: 41,-26
-        2549:
+        2541:
           color: '#D381C996'
           id: BrickTileWhiteLineN
           coordinates: 43,-27
-        2550:
+        2542:
           color: '#D381C996'
           id: BrickTileWhiteLineS
           coordinates: 43,-30
-        2551:
+        2543:
           color: '#D381C996'
           id: BrickTileWhiteLineS
           coordinates: 41,-31
-        2552:
+        2544:
           color: '#D381C996'
           id: BrickTileWhiteLineS
           coordinates: 40,-31
-        2553:
+        2545:
           color: '#D381C996'
           id: BrickTileWhiteLineS
           coordinates: 38,-30
-        2554:
+        2546:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 44,-29
-        2555:
+        2547:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 44,-28
-        2556:
+        2548:
           color: '#D381C996'
           id: BrickTileWhiteCornerSe
           coordinates: 42,-31
-        2557:
+        2549:
           color: '#D381C996'
           id: BrickTileWhiteCornerSe
           coordinates: 44,-30
-        2558:
+        2550:
           color: '#D381C996'
           id: BrickTileWhiteCornerSw
           coordinates: 39,-31
-        2559:
+        2551:
           color: '#D381C996'
           id: BrickTileWhiteCornerNw
           coordinates: 37,-26
-        2560:
+        2552:
           color: '#D381C996'
           id: BrickTileWhiteCornerNe
           coordinates: 44,-27
-        2561:
+        2553:
           color: '#D381C996'
           id: BrickTileWhiteCornerNe
           coordinates: 42,-26
-        2562:
+        2554:
           color: '#D381C996'
           id: BrickTileWhiteInnerNe
           coordinates: 42,-27
-        2563:
+        2555:
           color: '#D381C996'
           id: BrickTileWhiteInnerSe
           coordinates: 42,-30
-        2564:
+        2556:
           color: '#D381C996'
           id: BrickTileWhiteInnerSw
           coordinates: 39,-30
-        2565:
+        2557:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 45,-31
-        2566:
+        2558:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 45,-30
-        2567:
+        2559:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 45,-28
-        2568:
+        2560:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 45,-27
-        2569:
+        2561:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 45,-26
-        2570:
+        2562:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 45,-29
-        2571:
+        2563:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 44,-26
-        2572:
+        2564:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 43,-26
-        2573:
+        2565:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 42,-25
-        2574:
+        2566:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 41,-25
-        2575:
+        2567:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 40,-25
-        2576:
+        2568:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 38,-25
-        2577:
+        2569:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 37,-25
-        2578:
+        2570:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 36,-25
-        2579:
+        2571:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 36,-26
-        2580:
+        2572:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 36,-27
-        2581:
+        2573:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 37,-31
-        2582:
+        2574:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 38,-31
-        2583:
+        2575:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 39,-32
-        2584:
+        2576:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 40,-32
-        2585:
+        2577:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 41,-32
-        2586:
+        2578:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 42,-32
-        2589:
+        2581:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 43,-32
-        2590:
+        2582:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 43,-31
-        2591:
+        2583:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 44,-31
-        2592:
+        2584:
           color: '#FFFFFFFF'
           id: Delivery
           coordinates: 37,-25
-        2593:
+        2585:
           color: '#FFFFFFFF'
           id: Delivery
           coordinates: 38,-25
-        2594:
+        2586:
           color: '#FFFFFFFF'
           id: Delivery
           coordinates: 36,-25
-        2595:
+        2587:
           color: '#FFFFFFFF'
           id: DeliveryGreyscale
           coordinates: 42,-25
-        2596:
+        2588:
           color: '#FFFFFFFF'
           id: DeliveryGreyscale
           coordinates: 41,-25
-        2597:
+        2589:
           color: '#FFFFFFFF'
           id: DeliveryGreyscale
           coordinates: 40,-25
-        2598:
+        2590:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 49,-27
-        2599:
+        2591:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 49,-28
-        2600:
+        2592:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 49,-29
-        2601:
+        2593:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 49,-30
-        2602:
+        2594:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 49,-31
-        2603:
+        2595:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 50,-31
-        2604:
+        2596:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 50,-30
-        2605:
+        2597:
           color: '#D381C996'
           id: BrickTileWhiteLineS
           coordinates: 37,-30
-        2606:
+        2598:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerSw
           coordinates: 37,-30
-        2607:
+        2599:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 36,-27
-        2608:
+        2600:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineE
           coordinates: 36,-29
-        2609:
+        2601:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineW
           coordinates: 36,-29
-        2610:
+        2602:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerSw
           coordinates: 36,-28
-        2611:
+        2603:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerSe
           coordinates: 36,-28
-        2612:
+        2604:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerNw
           coordinates: 36,-30
-        2613:
+        2605:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerNe
           coordinates: 36,-30
-        2614:
+        2606:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 39,-32
-        2615:
+        2607:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 40,-32
-        2616:
+        2608:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 41,-32
-        2838:
+        2830:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 39,-25
@@ -11892,76 +11892,76 @@ entities:
           color: '#D381C996'
           id: CheckerNESW
           coordinates: 34,-33
-        2507:
+        2499:
           color: '#FFFFFFFF'
           id: ArrowsGreyscale
           coordinates: 39.715797,-44.76834
-        2508:
+        2500:
           angle: 3.141592653589793 rad
           color: '#FFFFFFFF'
           id: ArrowsGreyscale
           coordinates: 40.65097,-45.215393
-        2509:
+        2501:
           color: '#D381C996'
           id: BrickTileWhiteLineN
           coordinates: 40,-45
-        2510:
+        2502:
           color: '#D381C996'
           id: BrickTileWhiteLineN
           coordinates: 41,-45
-        2511:
+        2503:
           color: '#D381C996'
           id: BrickTileWhiteLineN
           coordinates: 42,-45
-        2512:
+        2504:
           color: '#FFFFFFFF'
           id: space
           coordinates: 42,-45
+        2505:
+          color: '#FFFFFFFF'
+          id: BrickTileDarkLineN
+          coordinates: 43,-37
+        2506:
+          color: '#FFFFFFFF'
+          id: BrickTileDarkLineN
+          coordinates: 42,-37
+        2507:
+          color: '#FFFFFFFF'
+          id: BrickTileDarkLineN
+          coordinates: 41,-37
+        2508:
+          color: '#FFFFFFFF'
+          id: BrickTileDarkLineN
+          coordinates: 40,-37
+        2509:
+          color: '#FFFFFFFF'
+          id: BrickTileDarkLineN
+          coordinates: 39,-37
+        2510:
+          color: '#FFFFFFFF'
+          id: WarnLineW
+          coordinates: 43,-37
+        2511:
+          color: '#FFFFFFFF'
+          id: WarnLineW
+          coordinates: 42,-37
+        2512:
+          color: '#FFFFFFFF'
+          id: WarnLineW
+          coordinates: 41,-37
         2513:
           color: '#FFFFFFFF'
-          id: BrickTileDarkLineN
-          coordinates: 43,-37
+          id: WarnLineW
+          coordinates: 40,-37
         2514:
           color: '#FFFFFFFF'
-          id: BrickTileDarkLineN
-          coordinates: 42,-37
-        2515:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkLineN
-          coordinates: 41,-37
-        2516:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkLineN
-          coordinates: 40,-37
-        2517:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkLineN
-          coordinates: 39,-37
-        2518:
-          color: '#FFFFFFFF'
-          id: WarnLineW
-          coordinates: 43,-37
-        2519:
-          color: '#FFFFFFFF'
-          id: WarnLineW
-          coordinates: 42,-37
-        2520:
-          color: '#FFFFFFFF'
-          id: WarnLineW
-          coordinates: 41,-37
-        2521:
-          color: '#FFFFFFFF'
-          id: WarnLineW
-          coordinates: 40,-37
-        2522:
-          color: '#FFFFFFFF'
           id: WarnLineW
           coordinates: 39,-37
-        2587:
+        2579:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 42,-33
-        2588:
+        2580:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 43,-33
@@ -21766,8 +21766,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.935778
-      - 71.2346
+      - 18.405577
+      - 69.24003
       - 0
       - 0
       - 0
@@ -21796,8 +21796,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 20.04244
-      - 75.39776
+      - 19.481253
+      - 73.28662
       - 0
       - 0
       - 0
@@ -21826,8 +21826,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 21.807768
-      - 82.03875
+      - 21.197151
+      - 79.74166
       - 0
       - 0
       - 0
@@ -22346,60 +22346,6 @@ entities:
   - pos: -30.5,-4.5
     parent: 1
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents:
-        - 76
-        - 77
-        - 78
-        - 79
-        - 80
-    type: ContainerContainer
-- uid: 76
-  type: HyperlinkBookSpaceLaw
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 75
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 77
-  type: HyperlinkBookSpaceLaw
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 75
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 78
-  type: HyperlinkBookSpaceLaw
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 75
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 79
-  type: HyperlinkBookSpaceLaw
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 75
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 80
-  type: HyperlinkBookSpaceLaw
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 75
-    type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 81
   type: Bed
   components:
