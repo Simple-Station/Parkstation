@@ -13,8 +13,8 @@ public sealed partial class AdminVerbSystem
 {
     [Dependency] private readonly ZombifyOnDeathSystem _zombify = default!;
     [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
-    // [Dependency] private readonly MinorRuleSystem _minorRule = default!;
-    // [Dependency] private readonly WizardRuleSystem _wizardRule = default!;
+    [Dependency] private readonly MinorRuleSystem _minorRule = default!;
+    [Dependency] private readonly WizardRuleSystem _wizardRule = default!;
     [Dependency] private readonly NukeopsRuleSystem _nukeopsRule = default!;
     [Dependency] private readonly PiratesRuleSystem _piratesRule = default!;
 
@@ -50,39 +50,39 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(traitor);
 
-        // Verb minor = new()
-        // {
-        //     Text = "Make Minor",
-        //     Category = VerbCategory.Antag,
-        //     IconTexture = "/Textures/Structures/Wallmounts/posters.rsi/poster5_contraband.png",
-        //     Act = () =>
-        //     {
-        //         if (targetMindComp.Mind == null || targetMindComp.Mind.Session == null)
-        //             return;
+        Verb minor = new()
+        {
+            Text = "Make Minor",
+            Category = VerbCategory.Antag,
+            IconTexture = "/Textures/Structures/Wallmounts/posters.rsi/poster5_contraband.png",
+            Act = () =>
+            {
+                if (targetMindComp.Mind == null || targetMindComp.Mind.Session == null)
+                    return;
 
-        //         _minorRule.MakeMinor(targetMindComp.Mind.Session);
-        //     },
-        //     Impact = LogImpact.High,
-        //     Message = Loc.GetString("admin-verb-make-minor"),
-        // };
-        // args.Verbs.Add(minor);
+                _minorRule.MakeMinor(targetMindComp.Mind.Session);
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-minor"),
+        };
+        args.Verbs.Add(minor);
 
-        // Verb wizard = new()
-        // {
-        //     Text = "Make Wizard",
-        //     Category = VerbCategory.Antag,
-        //     IconTexture = "/Textures/Structures/Wallmounts/posters.rsi/poster5_contraband.png",
-        //     Act = () =>
-        //     {
-        //         if (targetMindComp.Mind == null || targetMindComp.Mind.Session == null)
-        //             return;
+        Verb wizard = new()
+        {
+            Text = "Make Wizard",
+            Category = VerbCategory.Antag,
+            IconTexture = "/Textures/Structures/Wallmounts/posters.rsi/poster5_contraband.png",
+            Act = () =>
+            {
+                if (targetMindComp.Mind == null || targetMindComp.Mind.Session == null)
+                    return;
 
-        //         _wizardRule.MakeWizard(targetMindComp.Mind.Session);
-        //     },
-        //     Impact = LogImpact.High,
-        //     Message = Loc.GetString("admin-verb-make-wizard"),
-        // };
-        // args.Verbs.Add(wizard);
+                _wizardRule.MakeWizard(targetMindComp.Mind.Session);
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-wizard"),
+        };
+        args.Verbs.Add(wizard);
 
         Verb zombie = new()
         {

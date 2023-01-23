@@ -84,21 +84,21 @@
   useDelay: 20
   serverEvent: !type:MindSwapPowerReturnActionEvent
 
-# - type: instantAction
-#   id: Telegnosis
-#   name: action-name-telegnosis
-#   description: action-description-telegnosis
-#   icon: Nyanotrasen/Interface/VerbIcons/telegnosis.png
-#   useDelay: 150
-#   serverEvent: !type:TelegnosisPowerActionEvent
+- type: instantAction
+  id: Telegnosis
+  name: action-name-telegnosis
+  description: action-description-telegnosis
+  icon: Nyanotrasen/Interface/VerbIcons/telegnosis.png
+  useDelay: 150
+  serverEvent: !type:TelegnosisPowerActionEvent
 
-# - type: instantAction
-#   id: AIeye
-#   name: action-name-aieye
-#   description: action-description-aieye
-#   icon: Interface/VerbIcons/sentient.svg.192dpi.png
-#   useDelay: 5
-#   serverEvent: !type:AITelegnosisPowerActionEvent
+- type: instantAction
+  id: AIeye
+  name: action-name-aieye
+  description: action-description-aieye
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 5
+  serverEvent: !type:AITelegnosisPowerActionEvent
 
 - type: instantAction
   id: PsionicRegeneration
