@@ -160,7 +160,7 @@ entities:
         tiles: RwAAAEAAAANAAAABQAAAAkAAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAEcAAABAAAABQAAAAUAAAANAAAABWgAAAFcAAAJXAAAAVwAAAVcAAAJXAAADVwAAAAwAAAMMAAADDAAAA1oAAABHAAAAQAAAA0AAAAJAAAACQAAAAUQAAABXAAABVwAAAFcAAABXAAAAVwAAAlcAAAMMAAADDAAAAAwAAANaAAAARwAAAEAAAAFAAAADQAAAAkAAAANaAAAAVwAAAVcAAAJXAAAAVwAAAlcAAAFXAAAADAAAAAwAAAIMAAAAWgAAAEcAAABAAAADQAAAAkAAAANAAAADWgAAAFoAAAASAAAAEgAAABIAAABXAAACVwAAAgwAAAIMAAABWgAAAFoAAABaAAAAQAAAAEAAAABAAAADQAAAAUAAAAJaAAAAEgAAABIAAAASAAAAVwAAAVcAAAEMAAACDAAAAFoAAAAxAAAASwAAAEAAAABAAAABQAAAAEAAAAFAAAADWgAAAFoAAABaAAAAWgAAAFoAAABLAAAAWgAAAFoAAABaAAAAMQAAAFoAAABAAAADQAAAA0AAAAFAAAABQAAAAksAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAQAAAAUAAAANAAAACQAAAAkAAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAALwAAAC8AAABAAAAAQAAAAUAAAAMvAAAALwAAAFoAAAAXAAACFwAAAxcAAAJaAAAAWgAAAFoAAABZAAAAWQAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAABaAAAAFwAAABcAAAIXAAABWgAAAFoAAABaAAAAWQAAAAAAAAAvAAAALwAAAFoAAAAcAAAAWgAAAC8AAAAvAAAAHAAAARcAAAMXAAACFwAAA1oAAABaAAAAWgAAAFkAAABZAAAALwAAAC8AAAA2AAAAIAAAAzYAAAAvAAAALwAAADYAAAAXAAACFwAAARcAAAFKAAAAWgAAAFoAAABZAAAAAAAAAC8AAAAvAAAAWgAAACAAAAFaAAAALwAAAC8AAAA2AAAANgAAABcAAAIXAAAAWgAAADEAAABaAAAAAAAAAAAAAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAADYAAAAXAAADFwAAAFoAAAAxAAAAWgAAAFkAAABZAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAABaAAAAWgAAAFoAAABaAAAAMQAAAFoAAABZAAAAAAAAAA==
       1,-2:
         ind: 1,-2
-        tiles: QAAAAEAAAANaAAAAWgAAAFoAAABaAAAAWgAAAEAAAABAAAACQAAAAkAAAABAAAACWgAAAEsAAABaAAAAWgAAAEAAAAJAAAAASwAAAFoAAAAxAAAAWgAAAFoAAABaAAAAQAAAAkAAAAJAAAACWgAAAFoAAAAbAAADGwAAABsAAAJGAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAEAAAABAAAAAQAAAAloAAAAbAAADGwAAARsAAAIbAAAAQAAAAkAAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABAAAADQAAAAkAAAANHAAAAGwAAABsAAAMbAAACIAAAA0AAAABAAAADWgAAAEAAAAFAAAABWgAAAFoAAABaAAAAQAAAAkAAAABAAAADRwAAABsAAAIbAAACGwAAAiAAAANAAAADQAAAAEAAAABAAAACQAAAA1oAAABaAAAAWgAAAEAAAAFAAAACQAAAA0cAAAAbAAABGwAAAhsAAAEgAAADQAAAAEAAAAJaAAAAQAAAAEAAAAFaAAAAWgAAAFoAAABAAAABQAAAAEAAAABHAAAAGwAAABsAAAAbAAABIAAAA0YAAAFaAAAAWgAAAFoAAABaAAAAWgAAAEsAAABaAAAAQAAAAUAAAAFAAAAAHAAAAxsAAAIbAAAAGwAAAyAAAAJAAAABQAAAA0AAAAFAAAADQAAAAkAAAAJAAAABQAAAAkAAAAJAAAADQAAAAhwAAAIbAAABGwAAABsAAAAbAAAAQAAAA0AAAANAAAACQAAAAkAAAAFAAAAAQAAAAkAAAAFAAAADQAAAA0AAAAFAAAAAQAAAARsAAAEbAAABGwAAA1oAAABaAAAAHAAAA1oAAABaAAAAWgAAAFoAAABaAAAAQAAAA0AAAAFAAAADQAAAAkAAAAFaAAAAWgAAAFoAAABXAAAAWgAAAB8AAANaAAAAQAAAAkAAAANAAAADWgAAAFoAAABAAAADQAAAAUAAAANAAAADQAAAAloAAABaAAAAVwAAA1oAAAAfAAACWgAAAEAAAABAAAAAQAAAAUAAAAJaAAAAQAAAAUAAAABAAAADQAAAA0AAAAFaAAAAWgAAAFcAAAEcAAACHwAAABwAAAJBAAAAQQAAAEEAAAJAAAADWgAAAEAAAABAAAABQAAAAUAAAAFaAAAAWgAAACQAAABaAAAAWgAAAB8AAABaAAAAQQAAAkEAAAFBAAABQAAAA1oAAABAAAACQAAAAkAAAAFAAAADWgAAACQAAABOAAACHQAAAB8AAAMfAAACWgAAAEEAAABBAAADQQAAAEAAAAJaAAAAQAAAAUAAAAJAAAABQAAAAyQAAAAkAAAATgAAAg==
+        tiles: QAAAAEAAAANaAAAAWgAAAFoAAABaAAAAWgAAAEAAAABAAAACQAAAAkAAAABAAAACWgAAAEsAAABaAAAAWgAAAEAAAAJAAAAASwAAAFoAAAAxAAAAWgAAAFoAAABaAAAAQAAAAkAAAAJAAAACWgAAAFoAAAAbAAADGwAAABsAAAJGAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAEAAAABAAAAAQAAAAloAAAAbAAADGwAAARsAAAIbAAAAQAAAAkAAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABAAAADQAAAAkAAAANHAAAAGwAAABsAAAMbAAACIAAAA0AAAABAAAADWgAAAEAAAAFAAAABWgAAAFoAAABaAAAAQAAAAkAAAABAAAADRwAAABsAAAIbAAACGwAAAiAAAANAAAADQAAAAEAAAABAAAACQAAAA1oAAABaAAAAWgAAAEAAAAFAAAACQAAAA0cAAAAbAAABGwAAAhsAAAEgAAADQAAAAEAAAAJaAAAAQAAAAEAAAAFaAAAAWgAAAFoAAABAAAABQAAAAEAAAABHAAAAGwAAABsAAAAbAAABIAAAA0YAAAFaAAAAWgAAAFoAAABaAAAAWgAAAEsAAABaAAAAQAAAAUAAAAFAAAAAHAAAAxsAAAIbAAAAGwAAAyAAAAJAAAABQAAAA0AAAAFAAAADQAAAAkAAAAJAAAABQAAAAkAAAAJAAAADQAAAAhwAAAIbAAABGwAAABsAAAAbAAAAQAAAA0AAAANAAAACQAAAAkAAAAFAAAAAQAAAAkAAAAFAAAADQAAAA0AAAAFAAAAAQAAAARsAAAEbAAABGwAAA1oAAABaAAAAHAAAA1oAAABaAAAAWgAAAFoAAABaAAAAQAAAA0AAAAFAAAADQAAAAkAAAAFaAAAAWgAAAFoAAABXAAAAWgAAAB8AAANaAAAAQAAAAkAAAANAAAADWgAAAFoAAABAAAADQAAAAUAAAANAAAADQAAAAksAAABaAAAAVwAAA1oAAAAfAAACWgAAAEAAAABAAAAAQAAAAUAAAAJaAAAAQAAAAUAAAABAAAADQAAAA0AAAAFaAAAAWgAAAFcAAAEcAAACHwAAABwAAAJBAAAAQQAAAEEAAAJAAAADWgAAAEAAAABAAAABQAAAAUAAAAFaAAAAWgAAACQAAABaAAAAWgAAAB8AAABaAAAAQQAAAkEAAAFBAAABQAAAA1oAAABAAAACQAAAAkAAAAFAAAADWgAAACQAAABOAAACHQAAAB8AAAMfAAACWgAAAEEAAABBAAADQQAAAEAAAAJaAAAAQAAAAUAAAAJAAAABQAAAAyQAAAAkAAAATgAAAg==
       0,-2:
         ind: 0,-2
         tiles: VgAAA1YAAABWAAADWgAAAFoAAABaAAAAWgAAAFgAAAJYAAADWAAAAlgAAAFYAAACWAAAAFgAAABYAAAAWAAAAlYAAANWAAACVgAAAlYAAAJaAAAAWgAAAFoAAABYAAABWAAAAVgAAANYAAAAWAAAA1gAAABYAAADWAAAAFgAAANWAAADVgAAAFYAAAFWAAAAWgAAAFoAAABaAAAAWgAAAFgAAANYAAAAWAAAAVgAAANYAAACWAAAAVgAAAJaAAAAVgAAAlYAAANWAAADVgAAAEsAAABaAAAAWgAAAFoAAABaAAAARgAAA0YAAABaAAAAWgAAAFoAAABaAAAAWgAAAFYAAANWAAADVgAAAFYAAAJaAAAAWgAAAFoAAABaAAAAQAAAA0AAAAFAAAACQAAAAFoAAABAAAADQAAAAVoAAABaAAAAWgAAAFoAAABaAAAAWgAAAEsAAABaAAAAWgAAAEAAAAFAAAADQAAAA0AAAABGAAABQAAAAkAAAABaAAAAQAAAA0AAAABAAAACQAAAA0AAAAFAAAABQAAAAFoAAABAAAADQAAAA0AAAAFAAAABWgAAAEAAAANAAAADWgAAAEAAAANAAAADQAAAAUAAAABAAAACQAAAAUAAAANaAAAAWgAAAEYAAAFGAAADWgAAAFoAAABaAAAAWgAAAFoAAABAAAACQAAAAUAAAABAAAABQAAAAkAAAAFAAAABQAAAAkAAAANAAAACQAAAAEAAAABAAAACQAAAAUAAAABAAAAAQAAAAUAAAABAAAACQAAAAUAAAANAAAADQAAAA0AAAABAAAABQAAAAkAAAANAAAACQAAAAkAAAAFAAAADQAAAAkAAAABAAAACQAAAA1oAAAAcAAAAWgAAAFoAAABaAAAARwAAAEcAAABaAAAAVwAAAloAAABaAAAARwAAAEcAAABAAAADQAAAAEAAAABaAAAAHwAAAFoAAABXAAACVwAAAlcAAAJXAAAAVwAAAlcAAAFXAAABVwAAAlcAAANXAAADQAAAAUAAAANAAAAAHQAAAB8AAANaAAAAVwAAA1cAAANXAAACVwAAAFcAAABXAAABVwAAAVcAAABXAAAAVwAAAUAAAAFAAAADQAAAAR0AAAAfAAADHAAAAVcAAAFXAAACVwAAAFcAAANXAAABVwAAA1cAAABXAAAAVwAAAlcAAABAAAACQAAAAkAAAAJaAAAAHwAAAVoAAABaAAAAQAAAAkAAAANAAAABQAAAA0AAAAFAAAABQAAAAEAAAABAAAACQAAAAkAAAAJAAAABWgAAAB8AAAMfAAACHQAAAEAAAAJAAAADQAAAA0AAAAJAAAABQAAAAkAAAAFAAAADQAAAAg==
@@ -21766,8 +21766,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.405577
-      - 69.24003
+      - 17.89022
+      - 67.30131
       - 0
       - 0
       - 0
@@ -21796,8 +21796,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 19.481253
-      - 73.28662
+      - 18.935778
+      - 71.2346
       - 0
       - 0
       - 0
@@ -21826,8 +21826,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 21.197151
-      - 79.74166
+      - 20.60363
+      - 77.508896
       - 0
       - 0
       - 0
@@ -21931,13 +21931,15 @@ entities:
     pos: -15.5,-18.5
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
         uid: 1374
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 11
   type: WallSolid
   components:
@@ -22346,6 +22348,36 @@ entities:
   - pos: -30.5,-4.5
     parent: 1
     type: Transform
+- uid: 76
+  type: AirlockSecurityGlassLocked
+  components:
+  - pos: -4.5,1.5
+    parent: 1
+    type: Transform
+- uid: 77
+  type: AirlockSecurityGlassLocked
+  components:
+  - pos: -8.5,1.5
+    parent: 1
+    type: Transform
+- uid: 78
+  type: AirlockBrigGlassLocked
+  components:
+  - pos: -9.5,9.5
+    parent: 1
+    type: Transform
+- uid: 79
+  type: AirlockSecurityGlassLocked
+  components:
+  - pos: -12.5,1.5
+    parent: 1
+    type: Transform
+- uid: 80
+  type: AirlockSecurityGlassLocked
+  components:
+  - pos: -13.5,5.5
+    parent: 1
+    type: Transform
 - uid: 81
   type: Bed
   components:
@@ -22501,9 +22533,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 106
-  type: AirlockSecurityGlass
+  type: AirlockMaintMedLocked
   components:
-  - pos: -8.5,1.5
+  - pos: -12.5,-47.5
     parent: 1
     type: Transform
 - uid: 107
@@ -22537,11 +22569,15 @@ entities:
     parent: 1
     type: Transform
 - uid: 112
-  type: AirlockSecurityGlass
+  type: PoweredSmallLight
   components:
-  - pos: -12.5,1.5
+  - pos: -31.5,30.5
     parent: 1
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 113
   type: RadioHandheld
   components:
@@ -23441,11 +23477,76 @@ entities:
     parent: 1
     type: Transform
 - uid: 259
-  type: AirlockSecurityGlassLocked
+  type: TwoWayLever
   components:
-  - pos: -9.5,9.5
+  - pos: -28.5,31.5
     parent: 1
     type: Transform
+  - outputs:
+      Left:
+      - port: Forward
+        uid: 3306
+      - port: Forward
+        uid: 3305
+      - port: Forward
+        uid: 3304
+      - port: Forward
+        uid: 3303
+      - port: Forward
+        uid: 8608
+      - port: Forward
+        uid: 3310
+      - port: Forward
+        uid: 3309
+      - port: Forward
+        uid: 3308
+      - port: Forward
+        uid: 3307
+      - port: Forward
+        uid: 3282
+      Right:
+      - port: Reverse
+        uid: 3306
+      - port: Reverse
+        uid: 3305
+      - port: Reverse
+        uid: 3304
+      - port: Reverse
+        uid: 3303
+      - port: Reverse
+        uid: 8608
+      - port: Reverse
+        uid: 3310
+      - port: Reverse
+        uid: 3309
+      - port: Reverse
+        uid: 3308
+      - port: Reverse
+        uid: 3307
+      - port: Reverse
+        uid: 3282
+      Middle:
+      - port: Off
+        uid: 3306
+      - port: Off
+        uid: 3305
+      - port: Off
+        uid: 3304
+      - port: Off
+        uid: 3303
+      - port: Off
+        uid: 8608
+      - port: Off
+        uid: 3310
+      - port: Off
+        uid: 3309
+      - port: Off
+        uid: 3308
+      - port: Off
+        uid: 3307
+      - port: Off
+        uid: 3282
+    type: SignalTransmitter
 - uid: 260
   type: WallSolid
   components:
@@ -23543,9 +23644,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 275
-  type: AirlockSecurityGlass
+  type: MaterialCloth
   components:
-  - pos: -13.5,5.5
+  - pos: 31.457754,-14.392372
     parent: 1
     type: Transform
 - uid: 276
@@ -25355,9 +25456,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 568
-  type: AirlockSecurityGlass
+  type: AirlockMaintLocked
   components:
-  - pos: -4.5,1.5
+  - pos: 30.5,-20.5
     parent: 1
     type: Transform
 - uid: 569
@@ -26079,21 +26180,21 @@ entities:
     parent: 1
     type: Transform
 - uid: 683
-  type: Catwalk
+  type: AirlockMaintLocked
   components:
-  - pos: -26.5,7.5
+  - pos: 32.5,-21.5
     parent: 1
     type: Transform
 - uid: 684
   type: Catwalk
   components:
-  - pos: -25.5,7.5
+  - pos: -17.5,-6.5
     parent: 1
     type: Transform
 - uid: 685
-  type: Catwalk
+  type: ClothingHeadHatBeretEng
   components:
-  - pos: -25.5,8.5
+  - pos: -34.30191,-30.217693
     parent: 1
     type: Transform
 - uid: 686
@@ -26567,8 +26668,6 @@ entities:
     pos: -11.5,12.5
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -26576,7 +26675,11 @@ entities:
       - port: Toggle
         uid: 826
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
   - type: ItemCooldown
+  - fixtures: []
+    type: Fixtures
 - uid: 758
   type: RiotShield
   components:
@@ -27513,8 +27616,6 @@ entities:
   - pos: 22.5,10.5
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -27524,6 +27625,10 @@ entities:
       - port: Toggle
         uid: 1805
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 890
   type: Paper
   components:
@@ -29647,9 +29752,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 1224
-  type: AirlockMaintLocked
+  type: SpawnMobPossumMorty
   components:
-  - pos: -12.5,-47.5
+  - pos: -9.5,-45.5
     parent: 1
     type: Transform
 - uid: 1225
@@ -33619,8 +33724,6 @@ entities:
   - pos: 36.5,15.5
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -33628,6 +33731,10 @@ entities:
       - port: Toggle
         uid: 5684
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 1855
   type: WallReinforced
   components:
@@ -34544,6 +34651,8 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 2004
   type: WallSolid
   components:
@@ -37127,8 +37236,6 @@ entities:
     pos: 0.5,18.5
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       On:
       - port: Open
@@ -37145,6 +37252,10 @@ entities:
       - port: Close
         uid: 2400
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 2402
   type: WallSolid
   components:
@@ -38097,8 +38208,6 @@ entities:
     pos: -18.5,21.5
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       On:
       - port: Open
@@ -38111,7 +38220,11 @@ entities:
       - port: Close
         uid: 7826
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
   - type: ItemCooldown
+  - fixtures: []
+    type: Fixtures
 - uid: 2552
   type: TableWood
   components:
@@ -42839,6 +42952,17 @@ entities:
     pos: -32.5,33.5
     parent: 1
     type: Transform
+  - inputs:
+      Reverse:
+      - port: Right
+        uid: 259
+      Forward:
+      - port: Left
+        uid: 259
+      Off:
+      - port: Middle
+        uid: 259
+    type: SignalReceiver
 - uid: 3283
   type: FoodBoxPizza
   components:
@@ -42974,6 +43098,17 @@ entities:
     pos: -31.5,29.5
     parent: 1
     type: Transform
+  - inputs:
+      Reverse:
+      - port: Right
+        uid: 259
+      Forward:
+      - port: Left
+        uid: 259
+      Off:
+      - port: Middle
+        uid: 259
+    type: SignalReceiver
 - uid: 3304
   type: ConveyorBelt
   components:
@@ -42981,6 +43116,17 @@ entities:
     pos: -30.5,29.5
     parent: 1
     type: Transform
+  - inputs:
+      Reverse:
+      - port: Right
+        uid: 259
+      Forward:
+      - port: Left
+        uid: 259
+      Off:
+      - port: Middle
+        uid: 259
+    type: SignalReceiver
 - uid: 3305
   type: ConveyorBelt
   components:
@@ -42988,6 +43134,17 @@ entities:
     pos: -29.5,29.5
     parent: 1
     type: Transform
+  - inputs:
+      Reverse:
+      - port: Right
+        uid: 259
+      Forward:
+      - port: Left
+        uid: 259
+      Off:
+      - port: Middle
+        uid: 259
+    type: SignalReceiver
 - uid: 3306
   type: ConveyorBelt
   components:
@@ -42995,6 +43152,17 @@ entities:
     pos: -28.5,29.5
     parent: 1
     type: Transform
+  - inputs:
+      Reverse:
+      - port: Right
+        uid: 259
+      Forward:
+      - port: Left
+        uid: 259
+      Off:
+      - port: Middle
+        uid: 259
+    type: SignalReceiver
 - uid: 3307
   type: ConveyorBelt
   components:
@@ -43002,6 +43170,17 @@ entities:
     pos: -31.5,33.5
     parent: 1
     type: Transform
+  - inputs:
+      Reverse:
+      - port: Right
+        uid: 259
+      Forward:
+      - port: Left
+        uid: 259
+      Off:
+      - port: Middle
+        uid: 259
+    type: SignalReceiver
 - uid: 3308
   type: ConveyorBelt
   components:
@@ -43009,6 +43188,17 @@ entities:
     pos: -30.5,33.5
     parent: 1
     type: Transform
+  - inputs:
+      Reverse:
+      - port: Right
+        uid: 259
+      Forward:
+      - port: Left
+        uid: 259
+      Off:
+      - port: Middle
+        uid: 259
+    type: SignalReceiver
 - uid: 3309
   type: ConveyorBelt
   components:
@@ -43016,6 +43206,17 @@ entities:
     pos: -29.5,33.5
     parent: 1
     type: Transform
+  - inputs:
+      Reverse:
+      - port: Right
+        uid: 259
+      Forward:
+      - port: Left
+        uid: 259
+      Off:
+      - port: Middle
+        uid: 259
+    type: SignalReceiver
 - uid: 3310
   type: ConveyorBelt
   components:
@@ -43023,6 +43224,17 @@ entities:
     pos: -28.5,33.5
     parent: 1
     type: Transform
+  - inputs:
+      Reverse:
+      - port: Right
+        uid: 259
+      Forward:
+      - port: Left
+        uid: 259
+      Off:
+      - port: Middle
+        uid: 259
+    type: SignalReceiver
 - uid: 3311
   type: ReagentContainerRice
   components:
@@ -45815,15 +46027,15 @@ entities:
     parent: 1
     type: Transform
 - uid: 3734
-  type: SpawnPointBotanist
+  type: Catwalk
   components:
-  - pos: -1.5,31.5
+  - pos: 49.5,-4.5
     parent: 1
     type: Transform
 - uid: 3735
-  type: SpawnPointBotanist
+  type: MaterialDurathread1
   components:
-  - pos: -4.5,29.5
+  - pos: 31.87227,-14.620167
     parent: 1
     type: Transform
 - uid: 3736
@@ -48151,6 +48363,8 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 4083
   type: OxygenCanister
   components:
@@ -48700,8 +48914,6 @@ entities:
     pos: 33.5,18.5
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -48709,6 +48921,10 @@ entities:
       - port: Toggle
         uid: 5684
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 4164
   type: ChairWood
   components:
@@ -48787,13 +49003,15 @@ entities:
     pos: -15.490155,27.441269
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
         uid: 4127
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 4176
   type: PosterContrabandRobustSoftdrinks
   components:
@@ -49005,8 +49223,6 @@ entities:
     pos: -13.5,32.5
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -49016,6 +49232,10 @@ entities:
       - port: Toggle
         uid: 990
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 4209
   type: SpawnPointChiefEngineer
   components:
@@ -51069,6 +51289,8 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 4522
   type: ClothingBeltChampion
   components:
@@ -55665,16 +55887,11 @@ entities:
     parent: 1
     type: Transform
 - uid: 5211
-  type: PoweredSmallLight
+  type: MaterialDurathread1
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 15.5,-40.5
+  - pos: 31.87227,-14.620167
     parent: 1
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 5212
   type: PoweredlightLED
   components:
@@ -55721,9 +55938,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 5219
-  type: AirlockMaintLocked
+  type: MaterialDurathread1
   components:
-  - pos: 32.5,-21.5
+  - pos: 31.87227,-14.620167
     parent: 1
     type: Transform
 - uid: 5220
@@ -55859,9 +56076,11 @@ entities:
     parent: 1
     type: Transform
 - uid: 5242
-  type: AirlockMaintLocked
+  type: VendingMachineCigs
   components:
-  - pos: 30.5,-20.5
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: -0.5,-18.5
     parent: 1
     type: Transform
 - uid: 5243
@@ -58603,8 +58822,6 @@ entities:
     pos: 26.5,10.5
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -58614,6 +58831,10 @@ entities:
       - port: Toggle
         uid: 1925
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 5647
   type: DisposalUnit
   components:
@@ -59600,8 +59821,6 @@ entities:
     pos: 44.5,15.5
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -59615,6 +59834,10 @@ entities:
       - port: Toggle
         uid: 2081
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 5789
   type: GasOutletInjector
   components:
@@ -68843,9 +69066,9 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 6862
-  type: Catwalk
+  type: RollerBedSpawnFolded
   components:
-  - pos: 50.5,-24.5
+  - pos: -3.3534846,-33.503372
     parent: 1
     type: Transform
 - uid: 6863
@@ -79869,21 +80092,21 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 8176
-  type: Catwalk
+  type: RollerBedSpawnFolded
   components:
-  - pos: -17.5,16.5
+  - pos: -3.3222194,-33.034298
     parent: 1
     type: Transform
 - uid: 8177
-  type: Catwalk
+  type: EmergencyRollerBedSpawnFolded
   components:
-  - pos: -17.5,15.5
+  - pos: 1.1921873,-40.421196
     parent: 1
     type: Transform
 - uid: 8178
-  type: Catwalk
+  type: RollerBed
   components:
-  - pos: -17.5,14.5
+  - pos: -4.396762,-33.40014
     parent: 1
     type: Transform
 - uid: 8179
@@ -80085,17 +80308,26 @@ entities:
     parent: 1
     type: Transform
 - uid: 8212
-  type: Catwalk
+  type: PoweredSmallLight
   components:
-  - pos: -20.5,-10.5
+  - pos: 14.5,-42.5
     parent: 1
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 8213
-  type: Catwalk
+  type: PoweredSmallLight
   components:
-  - pos: -21.5,-10.5
+  - rot: 1.5707963267948966 rad
+    pos: 15.5,-38.5
     parent: 1
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 8214
   type: Catwalk
   components:
@@ -80145,21 +80377,21 @@ entities:
     parent: 1
     type: Transform
 - uid: 8222
-  type: Catwalk
+  type: MaterialDurathread1
   components:
-  - pos: -33.5,-17.5
+  - pos: 31.87227,-14.620167
     parent: 1
     type: Transform
 - uid: 8223
-  type: Catwalk
+  type: MaterialDurathread1
   components:
-  - pos: -33.5,-18.5
+  - pos: 31.87227,-14.620167
     parent: 1
     type: Transform
 - uid: 8224
-  type: Catwalk
+  type: ClothingHandsGlovesColorYellowBudget
   components:
-  - pos: -33.5,-19.5
+  - pos: 21.502478,16.612469
     parent: 1
     type: Transform
 - uid: 8225
@@ -80235,15 +80467,15 @@ entities:
     parent: 1
     type: Transform
 - uid: 8237
-  type: Catwalk
+  type: ClothingHandsDispelGloves
   components:
-  - pos: -33.5,-32.5
+  - pos: 22.919847,16.758402
     parent: 1
     type: Transform
 - uid: 8238
-  type: Catwalk
+  type: ClothingHandsDispelGloves
   components:
-  - pos: -33.5,-33.5
+  - pos: 23.076176,16.667765
     parent: 1
     type: Transform
 - uid: 8239
@@ -83430,6 +83662,17 @@ entities:
     pos: -32.5,29.5
     parent: 1
     type: Transform
+  - inputs:
+      Reverse:
+      - port: Right
+        uid: 259
+      Forward:
+      - port: Left
+        uid: 259
+      Off:
+      - port: Middle
+        uid: 259
+    type: SignalReceiver
 - uid: 8609
   type: ClosetEmergencyFilledRandom
   components:
@@ -83935,33 +84178,33 @@ entities:
         uid: 14967
     type: SignalReceiver
 - uid: 8683
-  type: Catwalk
+  type: MaterialDurathread1
   components:
-  - pos: -15.5,-38.5
+  - pos: 31.87227,-14.620167
     parent: 1
     type: Transform
 - uid: 8684
-  type: Catwalk
+  type: MaterialDurathread1
   components:
-  - pos: -15.5,-39.5
+  - pos: 31.87227,-14.620167
     parent: 1
     type: Transform
 - uid: 8685
-  type: Catwalk
+  type: MaterialDurathread1
   components:
-  - pos: -15.5,-40.5
+  - pos: 31.87227,-14.620167
     parent: 1
     type: Transform
 - uid: 8686
-  type: Catwalk
+  type: MaterialDurathread1
   components:
-  - pos: -15.5,-41.5
+  - pos: 31.87227,-14.620167
     parent: 1
     type: Transform
 - uid: 8687
-  type: Catwalk
+  type: MaterialDurathread1
   components:
-  - pos: -15.5,-42.5
+  - pos: 31.87227,-14.620167
     parent: 1
     type: Transform
 - uid: 8688
@@ -84019,27 +84262,36 @@ entities:
     parent: 1
     type: Transform
 - uid: 8697
-  type: Catwalk
+  type: SpawnPointBotanist
   components:
-  - pos: -11.5,-48.5
+  - pos: -5.5,31.5
     parent: 1
     type: Transform
 - uid: 8698
-  type: Catwalk
+  type: PoweredSmallLight
   components:
-  - pos: -10.5,-48.5
+  - rot: 3.141592653589793 rad
+    pos: -31.5,32.5
     parent: 1
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 8699
-  type: Catwalk
+  type: VendingMachineCigs
   components:
-  - pos: -9.5,-48.5
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: -28.5,26.5
     parent: 1
     type: Transform
 - uid: 8700
-  type: Catwalk
+  type: VendingMachineCigs
   components:
-  - pos: -8.5,-48.5
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 6.5,8.5
     parent: 1
     type: Transform
 - uid: 8701
@@ -84135,23 +84387,29 @@ entities:
     parent: 1
     type: Transform
 - uid: 8716
-  type: Catwalk
+  type: VendingMachineCigs
   components:
-  - pos: -2.5,-47.5
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 27.5,-31.5
     parent: 1
     type: Transform
 - uid: 8717
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: -2.5,-46.5
+  - pos: -3.5,7.5
     parent: 1
     type: Transform
+  - location: Security
+    type: WarpPoint
 - uid: 8718
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: -2.5,-45.5
+  - pos: -29.5,-5.5
     parent: 1
     type: Transform
+  - location: Permabrig
+    type: WarpPoint
 - uid: 8719
   type: Catwalk
   components:
@@ -84159,23 +84417,29 @@ entities:
     parent: 1
     type: Transform
 - uid: 8720
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: 5.5,-47.5
+  - pos: 12.5,16.5
     parent: 1
     type: Transform
+  - location: Parlour
+    type: WarpPoint
 - uid: 8721
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: 6.5,-47.5
+  - pos: 40.5,15.5
     parent: 1
     type: Transform
+  - location: Engineering
+    type: WarpPoint
 - uid: 8722
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: 7.5,-47.5
+  - pos: 30.5,35.5
     parent: 1
     type: Transform
+  - location: AI Core
+    type: WarpPoint
 - uid: 8723
   type: Catwalk
   components:
@@ -85707,11 +85971,13 @@ entities:
     parent: 1
     type: Transform
 - uid: 8972
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: -8.5,17.5
+  - pos: 44.5,-10.5
     parent: 1
     type: Transform
+  - location: Command
+    type: WarpPoint
 - uid: 8973
   type: Catwalk
   components:
@@ -85737,17 +86003,21 @@ entities:
     parent: 1
     type: Transform
 - uid: 8977
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: -3.5,17.5
+  - pos: 31.5,-26.5
     parent: 1
     type: Transform
+  - location: Chapel
+    type: WarpPoint
 - uid: 8978
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: -2.5,17.5
+  - pos: 42.5,-29.5
     parent: 1
     type: Transform
+  - location: Epistemics
+    type: WarpPoint
 - uid: 8979
   type: Catwalk
   components:
@@ -86590,23 +86860,29 @@ entities:
     parent: 1
     type: Transform
 - uid: 9105
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: 47.5,-0.5
+  - pos: 24.5,-45.5
     parent: 1
     type: Transform
+  - location: Evac
+    type: WarpPoint
 - uid: 9106
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: 46.5,-0.5
+  - pos: 11.5,-31.5
     parent: 1
     type: Transform
+  - location: Courtroom
+    type: WarpPoint
 - uid: 9107
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: 45.5,-0.5
+  - pos: 11.5,-17.5
     parent: 1
     type: Transform
+  - location: Theatre
+    type: WarpPoint
 - uid: 9108
   type: Catwalk
   components:
@@ -86638,23 +86914,29 @@ entities:
     parent: 1
     type: Transform
 - uid: 9113
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: 39.5,-0.5
+  - pos: 11.5,-4.5
     parent: 1
     type: Transform
+  - location: Park
+    type: WarpPoint
 - uid: 9114
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: 38.5,-0.5
+  - pos: -4.5,-31.5
     parent: 1
     type: Transform
+  - location: Medical
+    type: WarpPoint
 - uid: 9115
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: 37.5,-0.5
+  - pos: -5.5,-14.5
     parent: 1
     type: Transform
+  - location: Common Room
+    type: WarpPoint
 - uid: 9116
   type: Catwalk
   components:
@@ -87365,23 +87647,29 @@ entities:
     parent: 1
     type: Transform
 - uid: 9223
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: -14.5,13.5
+  - pos: -27.5,-23.5
     parent: 1
     type: Transform
+  - location: Dormitories
+    type: WarpPoint
 - uid: 9224
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: -14.5,14.5
+  - pos: -20.5,33.5
     parent: 1
     type: Transform
+  - location: Cargo
+    type: WarpPoint
 - uid: 9225
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: -14.5,15.5
+  - pos: -10.5,25.5
     parent: 1
     type: Transform
+  - location: Service Hall
+    type: WarpPoint
 - uid: 9226
   type: Catwalk
   components:
@@ -89093,8 +89381,6 @@ entities:
     pos: 44.5,50.5
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -89102,6 +89388,10 @@ entities:
       - port: Toggle
         uid: 9491
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 9494
   type: GasPipeStraight
   components:
@@ -93678,29 +93968,29 @@ entities:
     parent: 1
     type: Transform
 - uid: 10132
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: 42.5,-42.5
+  - pos: -3.5,34.5
     parent: 1
     type: Transform
+  - location: Hydroponics
+    type: WarpPoint
 - uid: 10133
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: 41.5,-42.5
+  - pos: 53.5,11.5
     parent: 1
     type: Transform
+  - location: Atmospherics
+    type: WarpPoint
 - uid: 10134
-  type: Catwalk
+  type: WarpPoint
   components:
-  - pos: 40.5,-42.5
+  - pos: 3.5,48.5
     parent: 1
     type: Transform
-- uid: 10135
-  type: Catwalk
-  components:
-  - pos: 39.5,-42.5
-    parent: 1
-    type: Transform
+  - location: Arrivals
+    type: WarpPoint
 - uid: 10136
   type: Catwalk
   components:
@@ -93745,30 +94035,6 @@ entities:
   - pos: 45.5,-42.5
     parent: 1
     type: Transform
-- uid: 10143
-  type: Catwalk
-  components:
-  - pos: 45.5,-41.5
-    parent: 1
-    type: Transform
-- uid: 10144
-  type: Catwalk
-  components:
-  - pos: 46.5,-41.5
-    parent: 1
-    type: Transform
-- uid: 10145
-  type: Catwalk
-  components:
-  - pos: 46.5,-40.5
-    parent: 1
-    type: Transform
-- uid: 10146
-  type: Catwalk
-  components:
-  - pos: 47.5,-40.5
-    parent: 1
-    type: Transform
 - uid: 10147
   type: Catwalk
   components:
@@ -93803,42 +94069,6 @@ entities:
   type: Catwalk
   components:
   - pos: 51.5,-38.5
-    parent: 1
-    type: Transform
-- uid: 10153
-  type: Catwalk
-  components:
-  - pos: 51.5,-37.5
-    parent: 1
-    type: Transform
-- uid: 10154
-  type: Catwalk
-  components:
-  - pos: 51.5,-36.5
-    parent: 1
-    type: Transform
-- uid: 10155
-  type: Catwalk
-  components:
-  - pos: 51.5,-35.5
-    parent: 1
-    type: Transform
-- uid: 10156
-  type: Catwalk
-  components:
-  - pos: 51.5,-34.5
-    parent: 1
-    type: Transform
-- uid: 10157
-  type: Catwalk
-  components:
-  - pos: 37.5,-38.5
-    parent: 1
-    type: Transform
-- uid: 10158
-  type: Catwalk
-  components:
-  - pos: 37.5,-37.5
     parent: 1
     type: Transform
 - uid: 10159
@@ -94246,18 +94476,6 @@ entities:
   type: Catwalk
   components:
   - pos: 16.5,-37.5
-    parent: 1
-    type: Transform
-- uid: 10222
-  type: Catwalk
-  components:
-  - pos: 16.5,-36.5
-    parent: 1
-    type: Transform
-- uid: 10223
-  type: Catwalk
-  components:
-  - pos: 17.5,-36.5
     parent: 1
     type: Transform
 - uid: 10224
@@ -94672,12 +94890,6 @@ entities:
     type: Transform
   - color: '#00FFFFFF'
     type: AtmosPipeColor
-- uid: 10272
-  type: Catwalk
-  components:
-  - pos: 51.5,-33.5
-    parent: 1
-    type: Transform
 - uid: 10273
   type: Catwalk
   components:
@@ -94763,28 +94975,10 @@ entities:
   - pos: 48.5,-24.5
     parent: 1
     type: Transform
-- uid: 10286
-  type: Catwalk
-  components:
-  - pos: 49.5,-24.5
-    parent: 1
-    type: Transform
 - uid: 10287
   type: Catwalk
   components:
   - pos: 47.5,-23.5
-    parent: 1
-    type: Transform
-- uid: 10288
-  type: Catwalk
-  components:
-  - pos: 47.5,-22.5
-    parent: 1
-    type: Transform
-- uid: 10289
-  type: Catwalk
-  components:
-  - pos: 46.5,-22.5
     parent: 1
     type: Transform
 - uid: 10290
@@ -94803,42 +94997,6 @@ entities:
   type: Catwalk
   components:
   - pos: 45.5,-20.5
-    parent: 1
-    type: Transform
-- uid: 10293
-  type: Catwalk
-  components:
-  - pos: 45.5,-19.5
-    parent: 1
-    type: Transform
-- uid: 10294
-  type: Catwalk
-  components:
-  - pos: 45.5,-18.5
-    parent: 1
-    type: Transform
-- uid: 10295
-  type: Catwalk
-  components:
-  - pos: 45.5,-17.5
-    parent: 1
-    type: Transform
-- uid: 10296
-  type: Catwalk
-  components:
-  - pos: 45.5,-16.5
-    parent: 1
-    type: Transform
-- uid: 10297
-  type: Catwalk
-  components:
-  - pos: 45.5,-15.5
-    parent: 1
-    type: Transform
-- uid: 10298
-  type: Catwalk
-  components:
-  - pos: 46.5,-15.5
     parent: 1
     type: Transform
 - uid: 10299
@@ -95086,12 +95244,6 @@ entities:
     type: Transform
   - color: '#00FFFFFF'
     type: AtmosPipeColor
-- uid: 10328
-  type: Catwalk
-  components:
-  - pos: 37.5,-39.5
-    parent: 1
-    type: Transform
 - uid: 10329
   type: GasPipeStraight
   components:
@@ -96391,12 +96543,6 @@ entities:
     type: Transform
   - color: '#FFBB00FF'
     type: AtmosPipeColor
-- uid: 10497
-  type: Catwalk
-  components:
-  - pos: 36.5,-37.5
-    parent: 1
-    type: Transform
 - uid: 10498
   type: GasPipeBend
   components:
@@ -96414,40 +96560,10 @@ entities:
     type: Transform
   - color: '#FFBB00FF'
     type: AtmosPipeColor
-- uid: 10500
-  type: Catwalk
-  components:
-  - pos: 35.5,-37.5
-    parent: 1
-    type: Transform
-- uid: 10501
-  type: Catwalk
-  components:
-  - pos: 33.5,-37.5
-    parent: 1
-    type: Transform
-- uid: 10502
-  type: Catwalk
-  components:
-  - pos: 32.5,-37.5
-    parent: 1
-    type: Transform
-- uid: 10503
-  type: Catwalk
-  components:
-  - pos: 31.5,-37.5
-    parent: 1
-    type: Transform
 - uid: 10504
   type: Catwalk
   components:
   - pos: 31.5,-36.5
-    parent: 1
-    type: Transform
-- uid: 10505
-  type: Catwalk
-  components:
-  - pos: 34.5,-37.5
     parent: 1
     type: Transform
 - uid: 10506
@@ -96587,42 +96703,6 @@ entities:
   type: Catwalk
   components:
   - pos: 36.5,-14.5
-    parent: 1
-    type: Transform
-- uid: 10528
-  type: Catwalk
-  components:
-  - pos: 42.5,-22.5
-    parent: 1
-    type: Transform
-- uid: 10529
-  type: Catwalk
-  components:
-  - pos: 41.5,-22.5
-    parent: 1
-    type: Transform
-- uid: 10530
-  type: Catwalk
-  components:
-  - pos: 40.5,-22.5
-    parent: 1
-    type: Transform
-- uid: 10531
-  type: Catwalk
-  components:
-  - pos: 39.5,-22.5
-    parent: 1
-    type: Transform
-- uid: 10532
-  type: Catwalk
-  components:
-  - pos: 38.5,-22.5
-    parent: 1
-    type: Transform
-- uid: 10533
-  type: Catwalk
-  components:
-  - pos: 37.5,-22.5
     parent: 1
     type: Transform
 - uid: 10534
@@ -97227,8 +97307,6 @@ entities:
     pos: 39.85038,-37.417164
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -97244,6 +97322,10 @@ entities:
       - port: Toggle
         uid: 10607
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 10614
   type: ComputerTelevision
   components:
@@ -104952,12 +105034,6 @@ entities:
   - pos: 39.5,22.5
     parent: 1
     type: Transform
-- uid: 11871
-  type: Catwalk
-  components:
-  - pos: 18.5,-36.5
-    parent: 1
-    type: Transform
 - uid: 11872
   type: SignMinerDock
   components:
@@ -105025,18 +105101,6 @@ entities:
   type: Catwalk
   components:
   - pos: 22.5,-25.5
-    parent: 1
-    type: Transform
-- uid: 11883
-  type: Catwalk
-  components:
-  - pos: 22.5,-26.5
-    parent: 1
-    type: Transform
-- uid: 11884
-  type: Catwalk
-  components:
-  - pos: 22.5,-27.5
     parent: 1
     type: Transform
 - uid: 11885
@@ -105756,24 +105820,6 @@ entities:
   - pos: 19.5,13.5
     parent: 1
     type: Transform
-- uid: 11974
-  type: Catwalk
-  components:
-  - pos: 19.5,14.5
-    parent: 1
-    type: Transform
-- uid: 11975
-  type: Catwalk
-  components:
-  - pos: 19.5,15.5
-    parent: 1
-    type: Transform
-- uid: 11976
-  type: Catwalk
-  components:
-  - pos: 19.5,16.5
-    parent: 1
-    type: Transform
 - uid: 11977
   type: Catwalk
   components:
@@ -105796,24 +105842,6 @@ entities:
   type: Catwalk
   components:
   - pos: 21.5,18.5
-    parent: 1
-    type: Transform
-- uid: 11981
-  type: Catwalk
-  components:
-  - pos: 22.5,18.5
-    parent: 1
-    type: Transform
-- uid: 11982
-  type: Catwalk
-  components:
-  - pos: 23.5,18.5
-    parent: 1
-    type: Transform
-- uid: 11983
-  type: Catwalk
-  components:
-  - pos: 24.5,18.5
     parent: 1
     type: Transform
 - uid: 11984
@@ -105906,24 +105934,6 @@ entities:
   - pos: 20.5,26.5
     parent: 1
     type: Transform
-- uid: 11999
-  type: Catwalk
-  components:
-  - pos: 20.5,27.5
-    parent: 1
-    type: Transform
-- uid: 12000
-  type: Catwalk
-  components:
-  - pos: 19.5,27.5
-    parent: 1
-    type: Transform
-- uid: 12001
-  type: Catwalk
-  components:
-  - pos: 18.5,27.5
-    parent: 1
-    type: Transform
 - uid: 12002
   type: Catwalk
   components:
@@ -105990,24 +106000,6 @@ entities:
   - pos: 11.5,31.5
     parent: 1
     type: Transform
-- uid: 12013
-  type: Catwalk
-  components:
-  - pos: 10.5,31.5
-    parent: 1
-    type: Transform
-- uid: 12014
-  type: Catwalk
-  components:
-  - pos: 9.5,31.5
-    parent: 1
-    type: Transform
-- uid: 12015
-  type: Catwalk
-  components:
-  - pos: 8.5,31.5
-    parent: 1
-    type: Transform
 - uid: 12016
   type: Catwalk
   components:
@@ -106060,24 +106052,6 @@ entities:
   type: Catwalk
   components:
   - pos: 16.5,35.5
-    parent: 1
-    type: Transform
-- uid: 12025
-  type: Catwalk
-  components:
-  - pos: 16.5,36.5
-    parent: 1
-    type: Transform
-- uid: 12026
-  type: Catwalk
-  components:
-  - pos: 16.5,37.5
-    parent: 1
-    type: Transform
-- uid: 12027
-  type: Catwalk
-  components:
-  - pos: 16.5,38.5
     parent: 1
     type: Transform
 - uid: 12028
@@ -128200,24 +128174,6 @@ entities:
   - pos: -17.5,-9.5
     parent: 1
     type: Transform
-- uid: 15509
-  type: Catwalk
-  components:
-  - pos: -17.5,-8.5
-    parent: 1
-    type: Transform
-- uid: 15510
-  type: Catwalk
-  components:
-  - pos: -17.5,-7.5
-    parent: 1
-    type: Transform
-- uid: 15511
-  type: Catwalk
-  components:
-  - pos: -17.5,-6.5
-    parent: 1
-    type: Transform
 - uid: 15512
   type: Catwalk
   components:
@@ -128264,24 +128220,6 @@ entities:
   type: Catwalk
   components:
   - pos: -13.5,-2.5
-    parent: 1
-    type: Transform
-- uid: 15520
-  type: Catwalk
-  components:
-  - pos: -12.5,-2.5
-    parent: 1
-    type: Transform
-- uid: 15521
-  type: Catwalk
-  components:
-  - pos: -11.5,-2.5
-    parent: 1
-    type: Transform
-- uid: 15522
-  type: Catwalk
-  components:
-  - pos: -10.5,-2.5
     parent: 1
     type: Transform
 - uid: 15523
@@ -130660,8 +130598,6 @@ entities:
     pos: -0.5,28.5
     parent: 1
     type: Transform
-  - canCollide: False
-    type: Physics
   - outputs:
       On:
       - port: Open
@@ -130722,6 +130658,10 @@ entities:
       - port: Close
         uid: 2847
     type: SignalTransmitter
+  - canCollide: False
+    type: Physics
+  - fixtures: []
+    type: Fixtures
 - uid: 15793
   type: Catwalk
   components:
@@ -132098,24 +132038,6 @@ entities:
   - pos: -4.5,-20.5
     parent: 1
     type: Transform
-- uid: 15892
-  type: Catwalk
-  components:
-  - pos: -5.5,-20.5
-    parent: 1
-    type: Transform
-- uid: 15893
-  type: Catwalk
-  components:
-  - pos: -6.5,-20.5
-    parent: 1
-    type: Transform
-- uid: 15894
-  type: Catwalk
-  components:
-  - pos: -7.5,-20.5
-    parent: 1
-    type: Transform
 - uid: 15895
   type: Catwalk
   components:
@@ -132198,18 +132120,6 @@ entities:
   type: Catwalk
   components:
   - pos: -17.5,-16.5
-    parent: 1
-    type: Transform
-- uid: 15909
-  type: Catwalk
-  components:
-  - pos: -18.5,-16.5
-    parent: 1
-    type: Transform
-- uid: 15910
-  type: Catwalk
-  components:
-  - pos: -19.5,-16.5
     parent: 1
     type: Transform
 - uid: 15911
@@ -132444,24 +132354,6 @@ entities:
   type: OxygenCanister
   components:
   - pos: -16.5,-3.5
-    parent: 1
-    type: Transform
-- uid: 15945
-  type: Catwalk
-  components:
-  - pos: 5.5,-35.5
-    parent: 1
-    type: Transform
-- uid: 15946
-  type: Catwalk
-  components:
-  - pos: 5.5,-36.5
-    parent: 1
-    type: Transform
-- uid: 15947
-  type: Catwalk
-  components:
-  - pos: 6.5,-36.5
     parent: 1
     type: Transform
 - uid: 15948
@@ -132933,14 +132825,6 @@ entities:
   components:
   - rot: -1.5707963267948966 rad
     pos: -28.5,-36.5
-    parent: 1
-    type: Transform
-- uid: 16021
-  type: ClothingHeadHatBeretEngineering
-  components:
-  - desc: A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety. The name Sebastion is written on the nametag inside.
-    type: MetaData
-  - pos: -34.310684,-30.209324
     parent: 1
     type: Transform
 - uid: 16022
@@ -133813,30 +133697,6 @@ entities:
   - pos: 33.5,1.5
     parent: 1
     type: Transform
-- uid: 16149
-  type: Catwalk
-  components:
-  - pos: 33.5,2.5
-    parent: 1
-    type: Transform
-- uid: 16150
-  type: Catwalk
-  components:
-  - pos: 33.5,3.5
-    parent: 1
-    type: Transform
-- uid: 16151
-  type: Catwalk
-  components:
-  - pos: 33.5,4.5
-    parent: 1
-    type: Transform
-- uid: 16152
-  type: Catwalk
-  components:
-  - pos: 33.5,5.5
-    parent: 1
-    type: Transform
 - uid: 16153
   type: Catwalk
   components:
@@ -133909,30 +133769,6 @@ entities:
   - pos: 49.5,5.5
     parent: 1
     type: Transform
-- uid: 16165
-  type: Catwalk
-  components:
-  - pos: 49.5,6.5
-    parent: 1
-    type: Transform
-- uid: 16166
-  type: Catwalk
-  components:
-  - pos: 48.5,6.5
-    parent: 1
-    type: Transform
-- uid: 16167
-  type: Catwalk
-  components:
-  - pos: 47.5,6.5
-    parent: 1
-    type: Transform
-- uid: 16168
-  type: Catwalk
-  components:
-  - pos: 46.5,6.5
-    parent: 1
-    type: Transform
 - uid: 16169
   type: Catwalk
   components:
@@ -133967,18 +133803,6 @@ entities:
   type: Catwalk
   components:
   - pos: 49.5,-3.5
-    parent: 1
-    type: Transform
-- uid: 16175
-  type: Catwalk
-  components:
-  - pos: 49.5,-4.5
-    parent: 1
-    type: Transform
-- uid: 16176
-  type: Catwalk
-  components:
-  - pos: 49.5,-5.5
     parent: 1
     type: Transform
 - uid: 16177
@@ -134269,36 +134093,6 @@ entities:
   - pos: -18.5,39.5
     parent: 1
     type: Transform
-- uid: 16225
-  type: Catwalk
-  components:
-  - pos: -17.5,39.5
-    parent: 1
-    type: Transform
-- uid: 16226
-  type: Catwalk
-  components:
-  - pos: -16.5,39.5
-    parent: 1
-    type: Transform
-- uid: 16227
-  type: Catwalk
-  components:
-  - pos: -15.5,39.5
-    parent: 1
-    type: Transform
-- uid: 16228
-  type: Catwalk
-  components:
-  - pos: -14.5,39.5
-    parent: 1
-    type: Transform
-- uid: 16229
-  type: Catwalk
-  components:
-  - pos: -13.5,39.5
-    parent: 1
-    type: Transform
 - uid: 16230
   type: Catwalk
   components:
@@ -134393,30 +134187,6 @@ entities:
   type: Catwalk
   components:
   - pos: -0.5,38.5
-    parent: 1
-    type: Transform
-- uid: 16246
-  type: Catwalk
-  components:
-  - pos: -5.5,40.5
-    parent: 1
-    type: Transform
-- uid: 16247
-  type: Catwalk
-  components:
-  - pos: -5.5,41.5
-    parent: 1
-    type: Transform
-- uid: 16248
-  type: Catwalk
-  components:
-  - pos: -5.5,42.5
-    parent: 1
-    type: Transform
-- uid: 16249
-  type: Catwalk
-  components:
-  - pos: -5.5,43.5
     parent: 1
     type: Transform
 - uid: 16250
@@ -134702,24 +134472,6 @@ entities:
   - pos: 22.16877,16.715153
     parent: 1
     type: Transform
-- uid: 16281
-  type: ClothingHandsGlovesColorYellowUnsulated
-  components:
-  - pos: 22.898298,16.70473
-    parent: 1
-    type: Transform
-- uid: 16282
-  type: ClothingHandsGlovesColorYellowUnsulated
-  components:
-  - pos: 22.960829,16.60049
-    parent: 1
-    type: Transform
-- uid: 16283
-  type: ClothingHandsGlovesColorLightBrown
-  components:
-  - pos: 21.418396,16.70473
-    parent: 1
-    type: Transform
 - uid: 16284
   type: PoweredSmallLight
   components:
@@ -134869,14 +134621,6 @@ entities:
   components:
   - rot: 1.5707963267948966 rad
     pos: 21.5,7.5
-    parent: 1
-    type: Transform
-- uid: 16300
-  type: VendingMachineCoffee
-  components:
-  - flags: SessionSpecific
-    type: MetaData
-  - pos: -0.5,-18.5
     parent: 1
     type: Transform
 - uid: 16301
