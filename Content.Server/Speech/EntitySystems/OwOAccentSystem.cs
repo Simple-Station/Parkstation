@@ -85,7 +85,7 @@ namespace Content.Server.Speech.EntitySystems
             // Question
             if (message != "?") message = message.Replace("? ", $"? {_random.Pick(CFaces)} ");
             if (message.EndsWith("?") && message != "?")
-                message = message.Substring(0, message.Length - 1) + message.Substring(message.Length - 1).Replace("?", $"! {_random.Pick(CFaces)}");
+                message = message.Substring(0, message.Length - 1) + message.Substring(message.Length - 1).Replace("?", $"? {_random.Pick(CFaces)}");
 
             // Random suffix, not affected by ! and ? reformatting and won't do if theres punctuation
             if (!message.EndsWith("!") && !message.EndsWith("?")
