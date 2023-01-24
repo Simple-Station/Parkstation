@@ -9,10 +9,10 @@
   access:
   - Service
   - Kitchen
+  - Maintenance
   extendedAccess:
   - Hydroponics
   - Bar
-  - Maintenance
   special:
   - !type:AddComponentSpecial
     components:

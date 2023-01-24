@@ -96,7 +96,7 @@ namespace Content.Client.Lobby.UI
         {
             return new()
             {
-                Sprite = _entityManager.GetComponent<ISpriteComponent>(entity),
+                Sprite = _entityManager.GetComponent<SpriteComponent>(entity),
                 OverrideDirection = direction,
                 Scale = (4, 4)
             };
@@ -145,7 +145,7 @@ namespace Content.Client.Lobby.UI
 
             var highPriorityJob = profile.JobPriorities.FirstOrDefault(p => p.Value == JobPriority.High).Key;
 
-            // ReSharper disable once ConstantNullCoalescingCondition
+            // ReSharper disable once NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract (what is resharper smoking?)
             var job = protoMan.Index<JobPrototype>(highPriorityJob ?? SharedGameTicker.FallbackOverflowJob);
 
             if (job.StartingGear != null && invSystem.TryGetSlots(dummy, out var slots))

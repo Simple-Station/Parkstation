@@ -9,8 +9,6 @@
   supervisors: job-supervisors-hop
   access:
   - Service
-  extendedAccess:
-  - Maintenance
 
 - type: startingGear
   id: ZookeeperGear

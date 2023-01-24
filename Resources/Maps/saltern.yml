@@ -1395,15 +1395,13 @@ entities:
   components:
   - flags: SessionSpecific
     type: MetaData
-  - rot: 4.371139006309477E-08 rad
-    pos: -28.5,11.5
+  - pos: -28.5,11.5
     parent: 852
     type: Transform
 - uid: 195
   type: DisposalUnit
   components:
-  - rot: 4.371139006309477E-08 rad
-    pos: -29.5,11.5
+  - pos: -29.5,11.5
     parent: 852
     type: Transform
 - uid: 196
@@ -1472,8 +1470,7 @@ entities:
 - uid: 205
   type: DisposalUnit
   components:
-  - rot: 4.371139006309477E-08 rad
-    pos: -5.5,17.5
+  - pos: -5.5,17.5
     parent: 852
     type: Transform
 - uid: 206
@@ -1548,8 +1545,7 @@ entities:
 - uid: 216
   type: DisposalUnit
   components:
-  - rot: 4.371139006309477E-08 rad
-    pos: 24.5,8.5
+  - pos: 24.5,8.5
     parent: 852
     type: Transform
 - uid: 217
@@ -1730,8 +1726,7 @@ entities:
 - uid: 242
   type: DisposalUnit
   components:
-  - rot: 4.371139006309477E-08 rad
-    pos: 37.5,6.5
+  - : 37.5,6.5
     parent: 852
     type: Transform
 - uid: 243
@@ -2873,8 +2868,7 @@ entities:
 - uid: 408
   type: DisposalUnit
   components:
-  - rot: 4.371139006309477E-08 rad
-    pos: -10.5,-17.5
+  - pos: -10.5,-17.5
     parent: 852
     type: Transform
 - uid: 409
@@ -5744,8 +5738,7 @@ entities:
 - uid: 844
   type: DisposalUnit
   components:
-  - rot: 4.371139006309477E-08 rad
-    pos: -5.5,-14.5
+  - pos: -5.5,-14.5
     parent: 852
     type: Transform
 - uid: 845
@@ -44475,8 +44468,7 @@ entities:
 - uid: 5094
   type: LockerChemistryFilled
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 19.5,-2.5
+  - pos: 19.5,-2.5
     parent: 852
     type: Transform
 - uid: 5095

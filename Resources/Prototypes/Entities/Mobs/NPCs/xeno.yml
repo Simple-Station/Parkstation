@@ -54,6 +54,10 @@
       layer:
       - MobLayer
   - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
     thresholds:
       0: Alive
       200: Dead
@@ -137,6 +141,10 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
   - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
     thresholds:
       0: Alive
       300: Dead
@@ -169,6 +177,10 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
   - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
     thresholds:
       0: Alive
       200: Dead
@@ -204,6 +216,10 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
   - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
     thresholds:
       0: Alive
       1500: Dead
@@ -244,6 +260,10 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
   - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
     thresholds:
       0: Alive
       550: Dead
@@ -284,6 +304,10 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
   - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
     thresholds:
       0: Alive
       250: Dead
@@ -334,6 +358,10 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
   - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
     thresholds:
       0: Alive
       300: Dead

@@ -1,15 +1,15 @@
 using Content.Client.IoC;
-using Content.Client.MobState;
 using Content.Client.Resources;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
 using Robust.Client.Player;
 using Content.Shared.SimpleStation14.Clothing;
-using Content.Shared.Examine;
 
 namespace Content.Client.HealthOverlay.UI
 {
@@ -88,11 +88,10 @@ namespace Content.Client.HealthOverlay.UI
             }
 
             var mobStateSystem = _entities.EntitySysManager.GetEntitySystem<MobStateSystem>();
-            FixedPoint2 threshold;
-
+            var mobThresholdSystem = _entities.EntitySysManager.GetEntitySystem<MobThresholdSystem>();
             if (mobStateSystem.IsAlive(mobState.Owner, mobState))
             {
-                if (!mobStateSystem.TryGetEarliestCriticalState(mobState, damageable.TotalDamage, out _, out threshold))
+                if (!mobThresholdSystem.TryGetThresholdForState(Entity,MobState.Critical, out var threshold))
                 {
                     CritBar.Visible = false;
                     HealthBar.Visible = false;
@@ -101,7 +100,7 @@ namespace Content.Client.HealthOverlay.UI
 
                 CritBar.Ratio = 1;
                 CritBar.Visible = true;
-                HealthBar.Ratio = 1 - (damageable.TotalDamage / threshold).Float();
+                HealthBar.Ratio = 1 - ((FixedPoint2)(damageable.TotalDamage / threshold)).Float();
                 HealthBar.Visible = true;
             }
             else if (mobStateSystem.IsCritical(mobState.Owner, mobState))
@@ -109,8 +108,8 @@ namespace Content.Client.HealthOverlay.UI
                 HealthBar.Ratio = 0;
                 HealthBar.Visible = false;
 
-                if (!mobStateSystem.TryGetPreviousCriticalState(mobState, damageable.TotalDamage, out _, out var critThreshold) ||
-                    !mobStateSystem.TryGetEarliestDeadState(mobState, damageable.TotalDamage, out _, out var deadThreshold))
+                if (!mobThresholdSystem.TryGetThresholdForState(Entity, MobState.Critical, out var critThreshold) ||
+                    !mobThresholdSystem.TryGetThresholdForState(Entity, MobState.Dead, out var deadThreshold))
                 {
                     CritBar.Visible = false;
                     return;
@@ -119,7 +118,7 @@ namespace Content.Client.HealthOverlay.UI
                 CritBar.Visible = true;
                 CritBar.Ratio = 1 -
                     ((damageable.TotalDamage - critThreshold) /
-                    (deadThreshold - critThreshold)).Float();
+                    (deadThreshold - critThreshold)).Value.Float();
             }
             else if (mobStateSystem.IsDead(mobState.Owner, mobState))
             {
@@ -143,42 +142,22 @@ namespace Content.Client.HealthOverlay.UI
 
             if (_entities.Deleted(Entity) || _eyeManager.CurrentMap != _entities.GetComponent<TransformComponent>(Entity).MapID)
             {
-                SetVisibility(false);
+                Visible = false;
                 return;
             }
 
-            if (_playerManager.LocalPlayer?.ControlledEntity == null)
+            if (!_entities.TryGetComponent(_playerManager.LocalPlayer?.ControlledEntity, out HealthGlassesComponent? glassComp))
             {
                 SetVisibility(false);
                 return;
             }
-
-            var localPlayer = _playerManager.LocalPlayer.ControlledEntity;
-            if (!_entities.TryGetComponent(localPlayer, out HealthGlassesComponent? glassComp))
-            {
-                SetVisibility(false);
-                return;
-            }
-            if (localPlayer != glassComp.Owner)
-            {
-                SetVisibility(false);
-                return;
-            }
-            if (_entities.TryGetComponent(localPlayer, out TransformComponent? playerTransform) && _entities.TryGetComponent(Entity, out TransformComponent? entityTransform))
-            {
-                if (!ExamineSystemShared.InRangeUnOccluded(playerTransform.MapPosition, entityTransform.MapPosition, 7.5f, null))
-                {
-                    SetVisibility(false);
-                    return;
-                }
-            }
-            else
+            if (_playerManager.LocalPlayer?.ControlledEntity != glassComp.Owner)
             {
                 SetVisibility(false);
                 return;
             }
 
-            SetVisibility(true);
+            Visible = true;
 
             var screenCoordinates = _eyeManager.CoordinatesToScreen(_entities.GetComponent<TransformComponent>(Entity).Coordinates);
             var playerPosition = UserInterfaceManager.ScreenToUIPosition(screenCoordinates);

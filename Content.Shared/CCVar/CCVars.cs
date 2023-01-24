@@ -207,7 +207,7 @@ namespace Content.Shared.CCVar
         /// Is map rotation enabled?
         /// </summary>
         public static readonly CVarDef<bool>
-            GameMapRotation = CVarDef.Create<bool>("game.map_rotation", true, CVar.SERVERONLY);
+            GameMapRotation = CVarDef.Create("game.map_rotation", true, CVar.SERVERONLY);
 
         /// <summary>
         /// If roles should be restricted based on time.
@@ -250,7 +250,7 @@ namespace Content.Shared.CCVar
         /// Whether or not panic bunker is currently enabled.
         /// </summary>
         public static readonly CVarDef<bool> PanicBunkerEnabled =
-            CVarDef.Create("game.panic_bunker.enabled", false, CVar.SERVERONLY);
+            CVarDef.Create("game.panic_bunker.enabled", false, CVar.NOTIFY | CVar.REPLICATED);
 
         /// <summary>
         /// Panic bunker when no admins are on.
@@ -429,6 +429,35 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<int> WizardMaxPicks =
             CVarDef.Create("wizard.max_picks", 2);
+
+        /*
+         * Tips
+         */
+
+        /// <summary>
+        ///     Whether tips being shown is enabled at all.
+        /// </summary>
+        public static readonly CVarDef<bool> TipsEnabled =
+            CVarDef.Create("tips.enabled", true);
+
+        /// <summary>
+        ///     The dataset prototype to use when selecting a random tip.
+        /// </summary>
+        public static readonly CVarDef<string> TipsDataset =
+            CVarDef.Create("tips.dataset", "Tips");
+
+        /// <summary>
+        ///     The number of seconds between each tip being displayed when the round is not actively going
+        ///     (i.e. postround or lobby)
+        /// </summary>
+        public static readonly CVarDef<float> TipFrequencyOutOfRound =
+            CVarDef.Create("tips.out_of_game_frequency", 60f * 1.5f);
+
+        /// <summary>
+        ///     The number of seconds between each tip being displayed when the round is actively going
+        /// </summary>
+        public static readonly CVarDef<float> TipFrequencyInRound =
+            CVarDef.Create("tips.in_game_frequency", 60f * 60);
 
         /*
          * Console
@@ -816,14 +845,14 @@ namespace Content.Shared.CCVar
         ///     Needs <see cref="MonstermosEqualization"/> to be enabled to work.
         /// </summary>
         public static readonly CVarDef<bool> MonstermosDepressurization =
-            CVarDef.Create<bool>("atmos.monstermos_depressurization", true, CVar.SERVERONLY);
+            CVarDef.Create("atmos.monstermos_depressurization", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether monstermos explosive depressurization will rip tiles..
         ///     Needs <see cref="MonstermosEqualization"/> and <see cref="MonstermosDepressurization"/> to be enabled to work.
         /// </summary>
         public static readonly CVarDef<bool> MonstermosRipTiles =
-            CVarDef.Create<bool>("atmos.monstermos_rip_tiles", true, CVar.SERVERONLY);
+            CVarDef.Create("atmos.monstermos_rip_tiles", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether explosive depressurization will cause the grid to gain an impulse.
@@ -1260,7 +1289,7 @@ namespace Content.Shared.CCVar
         ///     some food object won't spam a user with flavors.
         /// </summary>
         public static readonly CVarDef<int>
-            FlavorLimit = CVarDef.Create("flavor.limit", 1000, CVar.SERVERONLY);
+            FlavorLimit = CVarDef.Create("flavor.limit", 25, CVar.SERVERONLY);
 
         /*
          * Mapping

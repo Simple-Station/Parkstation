@@ -146,6 +146,7 @@
     damageContainer: Inorganic
     damageModifierSet: Metallic
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       100: Dead
@@ -249,6 +250,9 @@
           keywords: [ "AI", "console", "interface", "laws", "borg" ]
           priority: -3
           event: !type:ToggleIntrinsicUIEvent
+  - type: GuideHelp
+    guides:
+    - AltarsGolemancy
 
 - type: entity
   parent: MobGolemBase

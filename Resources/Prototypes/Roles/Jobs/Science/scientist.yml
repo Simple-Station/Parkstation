@@ -9,7 +9,6 @@
   supervisors: job-supervisors-rd
   access:
   - Research
-  extendedAccess:
   - Maintenance
 
 - type: startingGear

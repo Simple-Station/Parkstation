@@ -9,8 +9,6 @@
   supervisors: "the mystagogue"
   access:
   - Research
-  extendedAccess:
-  - Maintenance
   special:
   - !type:AddComponentSpecial
     components:
@@ -27,5 +25,6 @@
     outerClothing: ClothingOuterRobeBrown
     head: ClothingHeadHoodBrown
     ears: ClothingHeadsetEpistemics
+    belt: BooksBag
     pocket1: d10Dice
   innerclothingskirt: ClothingUniformJumpskirtColorBrown

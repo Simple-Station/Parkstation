@@ -9,9 +9,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Player;
 using Content.Shared.Tag;
 using Content.Shared.Popups;
 
@@ -67,7 +66,9 @@ namespace Content.Server.Chemistry.EntitySystems
             if (!EligibleEntity(target, _entMan))
                 return false;
 
-            if (_entMan.TryGetComponent<TagComponent>(target, out var tag))
+            string? msgFormat = null;
+
+            if (!component.PierceArmor && _entMan.TryGetComponent<TagComponent>(target, out var tag))
             {
                 if (tag.Tags.Contains("HardsuitOn"))
                 {
@@ -79,8 +80,6 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
             }
 
-            string? msgFormat = null;
-
             if (target == user)
                 msgFormat = "hypospray-component-inject-self-message";
             else if (EligibleEntity(user, _entMan) && _interaction.TryRollClumsy(user, component.ClumsyFailChance))
@@ -91,7 +90,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
             _solutions.TryGetSolution(uid, component.SolutionName, out var hypoSpraySolution);
 
-            if (hypoSpraySolution == null || hypoSpraySolution.CurrentVolume == 0)
+            if (hypoSpraySolution == null || hypoSpraySolution.Volume == 0)
             {
                 _popup.PopupCursor(Loc.GetString("hypospray-component-empty-message"), user);
                 return true;
