@@ -3,11 +3,11 @@
   weights:
     Human: 1
     Felinid: 1
-    Oni: 1
-    Arachne: 1
+    Oni: 0.65
+    Arachne: 0.9
     Moth: 1
-    Reptilian: 0.5
+    Reptilian: 0.75
     Dwarf: 0.5
     SlimePerson: 0.5
     Vox: 0.1
-    Skeleton: 0.05
+    Skeleton: 0.1
