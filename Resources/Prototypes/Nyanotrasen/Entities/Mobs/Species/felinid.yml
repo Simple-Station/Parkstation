@@ -153,11 +153,13 @@
   noSpawn: true
   description: A dummy felinid meant to be used in character setup.
   components:
+  - type: Humanoid
+    species: Felinid
   - type: Sprite
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 1, 1
+    scale: 0.8, 0.8
     layers:
       - map: ["enum.HumanoidVisualLayers.Chest"]
         color: "#e8b59b"

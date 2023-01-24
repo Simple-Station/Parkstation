@@ -138,11 +138,13 @@
   id: MobOniDummy
   description: A dummy oni meant to be used in character setup.
   components:
+  - type: Humanoid
+    species: Oni
   - type: Sprite
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 1.0, 1.0
+    scale: 1.2, 1.2
     layers:
       - map: ["enum.HumanoidVisualLayers.Chest"]
         color: "#e8b59b"

@@ -14,7 +14,25 @@
   - type: AccessReader
     access: [["ChiefServiceSupervisor"]]
 
-# Maint doors
+# Maintenance Hatches
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintServiceLocked
+  suffix: Service, Locked
+  components:
+  - type: AccessReader
+    access: [["Service"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintArmoryLocked
+  suffix: Armory, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"]]
+  - type: Wires
+    LayoutId: AirlockArmory
+
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintArmoryLocked
@@ -64,6 +82,14 @@
   components:
   - type: AccessReader
     access: [["ChiefEngineer"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintBrigLocked
+  suffix: Brig, Locked
+  components:
+  - type: AccessReader
+    access: [["Brig"]]
 
 # External Airlocks
 - type: entity

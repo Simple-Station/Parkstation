@@ -70,7 +70,7 @@
           path: /Audio/Effects/Vehicle/vehiclestartup.ogg
           params:
             volume: -3
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 750 # Grand Theft Auto.
 
 - type: entity
@@ -308,6 +308,8 @@
     - type: Vehicle
       northOverride: -0.1
       southOverride: 0.1
+      hornSound:
+        path: /Audio/Effects/Vehicle/bone.ogg
     - type: Sprite
       sprite: Objects/Vehicles/motorbike.rsi
       layers:

@@ -320,7 +320,10 @@ public sealed class HumanoidVisualizerSystem : VisualizerSystem<HumanoidComponen
             }
             else
             {
-                sprite.LayerSetColor(layerId, colors[j]);
+                var skinColor = colors[j]; // Really?
+                skinColor.A = setting.LayerAlpha; // Why couldn't alpha work without matched color..
+
+                sprite.LayerSetColor(layerId, skinColor);
             }
         }
     }

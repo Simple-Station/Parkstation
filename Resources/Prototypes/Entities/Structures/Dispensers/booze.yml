@@ -10,9 +10,14 @@
     drawdepth: SmallObjects
     state: booze
     netsync: false
-    offset: 0, 0.35
+    offset: 0, 0.10
   - type: ReagentDispenser
     pack: BoozeDispenserInventory
     emagPack: BoozeDispenserEmagInventory
   - type: Transform
     noRot: false 
+  - type: Machine
+    board: BoozeDispenserMachineCircuitboard
+  - type: Wires
+    BoardName: "BoozeDispenser"
+    LayoutId: BoozeDispenser

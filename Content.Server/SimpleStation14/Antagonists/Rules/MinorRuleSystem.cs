@@ -4,7 +4,7 @@ using Content.Server.Database;
 using Content.Server.Chat.Managers;
 using Content.Server.Players;
 using Content.Server.SimpleStation14.Minor;
-using Content.Server.MobState;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Roles;
 using Robust.Server.Player;

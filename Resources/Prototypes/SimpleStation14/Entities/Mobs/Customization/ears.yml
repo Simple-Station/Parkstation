@@ -93,7 +93,7 @@
   id: EarsShadekin
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Slime, Reptilian]
+  speciesRestriction: [SlimePerson, Reptilian]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: shadekin
@@ -102,7 +102,7 @@
   id: EarsSylveon
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian, Slime, Oni]
+  speciesRestriction: [Reptilian, SlimePerson, Oni]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: sylveon_primary

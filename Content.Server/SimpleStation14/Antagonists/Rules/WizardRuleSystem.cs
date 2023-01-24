@@ -6,7 +6,7 @@ using Content.Server.Objectives.Interfaces;
 using Content.Server.Players;
 using Content.Server.Traitor.Uplink;
 using Content.Server.SimpleStation14.Wizard;
-using Content.Server.MobState;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.Roles;

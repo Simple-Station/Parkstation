@@ -1,0 +1,35 @@
+- type: entity
+  name: lois
+  parent: MobLizard
+  id: MobLizardLois
+  description: A lizard with a love of life, and a fear of justice.
+  components:
+  - type: InteractionPopup
+    successChance: 0.7
+  - type: Faction
+    factions:
+    - Pet
+
+- type: entity
+  name: randall
+  parent: MobFrog
+  id: MobFrogRandall
+  description: Ayooo, it's Randall hoppin' round!
+  components:
+  - type: InteractionPopup
+    successChance: 0.35
+  - type: Faction
+    factions:
+    - Pet
+
+- type: entity
+  name: terrance
+  parent: MobSlug
+  id: MobSlugTerrance
+  description: Tis Terrance.
+  components:
+  - type: InteractionPopup
+    successChance: 0.25
+  - type: Faction
+    factions:
+    - Pet

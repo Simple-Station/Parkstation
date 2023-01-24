@@ -38,29 +38,29 @@
   category: Atmospherics
   group: market
 
-#- type: cargoProduct
+- type: cargoProduct
 #  name: "water vapor canister"
-#  id: AtmosphericsWaterVapor
+  id: AtmosphericsWaterVapor
 #  description: "Water vapor canister"
-#  icon:
-#    sprite: Structures/Storage/canister.rsi
-#    state: water_vapor
-#  product: WaterVaporCanister
-#  cost: 2600
-#  category: Atmospherics
-#  group: market
+  icon:
+    sprite: Structures/Storage/canister.rsi
+    state: water_vapor
+  product: WaterVaporCanister
+  cost: 2600
+  category: Atmospherics
+  group: market
 
-#- type: cargoProduct
+- type: cargoProduct
 #  name: "plasma canister"
-#  id: AtmosphericsPlasma
+  id: AtmosphericsPlasma
 #  description: "Plasma canister"
-#  icon:
-#    sprite: Structures/Storage/canister.rsi
-#    state: orange
-#  product: PlasmaCanister
-#  cost: 8500
-#  category: Atmospherics
-#  group: market
+  icon:
+    sprite: Structures/Storage/canister.rsi
+    state: orange
+  product: PlasmaCanister
+  cost: 8500
+  category: Atmospherics
+  group: market
 
 #- type: cargoProduct
 #  name: "tritium canister"
