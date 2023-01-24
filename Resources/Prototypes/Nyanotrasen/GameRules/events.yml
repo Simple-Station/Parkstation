@@ -84,5 +84,5 @@
     minimumGlimmer: 600
     maximumGlimmer: 900
     report: glimmer-event-report-signatures
-    maxOccurrences: 5
+    maxOccurrences: 1
     reoccurrenceDelay: 25

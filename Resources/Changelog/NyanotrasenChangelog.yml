@@ -2124,3 +2124,72 @@ Entries:
   - {message: Pebble epistemics renovation., type: Add}
   id: 323
   time: '2023-01-22T20:34:32.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Evil twin target selection has been improved., type: Fix}
+  id: 324
+  time: '2023-01-23T23:48:03.0000000+00:00'
+- author: Emogarbage404
+  changes:
+  - {message: Anomalies, type: Add}
+  id: 325
+  time: '2023-01-23T23:53:12.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed oracle not accepting items it should., type: Fix}
+  - {message: Fixed oracle solution overflow visuals., type: Fix}
+  id: 326
+  time: '2023-01-23T23:53:22.0000000+00:00'
+- author: Router
+  changes:
+  - {message: Gave the reverse engineering machine a proper sprite., type: Add}
+  id: 327
+  time: '2023-01-23T23:53:32.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream., type: Add}
+  - {message: Anomaly equipment can be reverse engineered., type: Add}
+  - {message: Mid round antag min players moved to 15., type: Tweak}
+  - {message: Moved the tech tree around., type: Tweak}
+  id: 328
+  time: '2023-01-24T00:35:11.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Portals can be dispelled., type: Add}
+  id: 329
+  time: '2023-01-24T01:12:32.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Anomalies count as psionic., type: Add}
+  id: 330
+  time: '2023-01-24T02:01:14.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: The epi guidebook is similarly complete to the eng one., type: Add}
+  id: 331
+  time: '2023-01-24T02:14:13.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Anomalies interact with the glimmer system., type: Add}
+  id: 332
+  time: '2023-01-24T02:39:34.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Anomalies take damage from being dispelled., type: Add}
+  id: 333
+  time: '2023-01-24T03:02:39.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added anomaly scanners to epi lockers., type: Add}
+  id: 334
+  time: '2023-01-24T03:23:00.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Added an anomaly lab to Angle station., type: Add}
+  id: 335
+  time: '2023-01-24T03:51:58.0000000+00:00'
+- author: Kromabae
+  changes:
+  - {message: Anomaly Lab for pebble., type: Add}
+  id: 336
+  time: '2023-01-24T04:10:49.0000000+00:00'
