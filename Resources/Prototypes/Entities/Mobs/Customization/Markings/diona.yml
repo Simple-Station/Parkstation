@@ -4,7 +4,6 @@
   markingCategory: Head
   speciesRestriction:
     [
-      SlimePerson,
       Diona,
     ]
   sprites:
@@ -17,7 +16,6 @@
   markingCategory: Chest
   speciesRestriction:
     [
-      SlimePerson,
       Diona,
     ]
   sprites:
@@ -30,7 +28,6 @@
   markingCategory: Head
   speciesRestriction:
     [
-      SlimePerson,
       Diona,
     ]
   sprites:
@@ -43,7 +40,6 @@
   markingCategory: Chest
   speciesRestriction:
     [
-      SlimePerson,
       Diona,
     ]
   sprites:
@@ -56,7 +52,6 @@
   markingCategory: Chest
   speciesRestriction:
     [
-      SlimePerson,
       Diona,
     ]
   sprites:

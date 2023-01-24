@@ -20,7 +20,7 @@
   id: WingsFlyOpen
   bodyPart: Wings
   markingCategory: Wings
-  speciesRestriction: [Moth, SlimePerson]
+  speciesRestriction: [Moth]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/wings96x34.rsi
       state: fly_open
@@ -29,7 +29,7 @@
   id: WingsFly
   bodyPart: Wings
   markingCategory: Wings
-  speciesRestriction: [Moth, SlimePerson]
+  speciesRestriction: [Moth]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/wings96x34.rsi
       state: fly
