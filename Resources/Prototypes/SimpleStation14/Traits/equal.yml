@@ -1,32 +1,38 @@
 - type: trait
-  id: Tall
-  name: Taller
-  description:
+  id: OwOAccent
+  name: OwO Accent
+  description: Oh god.. why?
   cost: 0
   category: Equal
+  whitelist:
+    species:
+      - Felinid
   components:
-    - type: HeightAdjusted
-      height: 1.1
+    - type: OwOAccent
 
 - type: trait
-  id: Small
-  name: Smaller
-  description:
+  id: RussianAccent
+  name: Russian Accent
+  description: A Russian spy! Get 'em!
   cost: 0
   category: Equal
   components:
-    - type: HeightAdjusted
-      height: 0.9
+    - type: RussianAccent
 
 - type: trait
-  id: AntiSocial
-  name: Anti-Social
-  description: You don't really like being around others, hugs bother you.
+  id: SpanishAccent
+  name: Spanish Accent
+  description: Yo no hablo español.
   cost: 0
   category: Equal
   components:
-    - type: InteractionPopup
-      successChance: 0
-      interactFailureString: hugging-failure-generic
-      messagePerceivedByOthers: hugging-success-generic-others
-      soundPerceivedByOthers: false
+    - type: SpanishAccent
+
+- type: trait
+  id: MobsterAccent
+  name: Mobster Accent
+  description: Ey, boss! This guy can understands us! Capiche?
+  cost: 0
+  category: Equal
+  components:
+    - type: MobsterAccent

@@ -9,24 +9,19 @@
     weight: 5
     endAfter: 1
     earliestStart: 15
+    reoccurrenceDelay: 10
 
+# Rat king, evil twin, fugitive, oneiro, etc.
 - type: gameRule
-  id: Fugitive
+  id: MidRoundAntag
   config:
     !type:StationEventRuleConfiguration
-    id: Fugitive
-    weight: 5
+    id: MidRoundAntag
+    weight: 7
     endAfter: 1
-    reoccurrenceDelay: 40
-
-- type: gameRule
-  id: VampSpawn
-  config:
-    !type:StationEventRuleConfiguration
-    id: VampSpawn
-    weight: 5
-    endAfter: 1
-    reoccurrenceDelay: 40
+    reoccurrenceDelay: 20
+    minimumPlayers: 12
+    maxOccurrences: 4
 
 - type: gameRule
   id: MundaneDischarge
@@ -69,6 +64,7 @@
     minimumGlimmer: 900
     glimmerBurnLower: 50
     glimmerBurnUpper: 110
+    reoccurrenceDelay: 20
 
 ## converted upstream events
 - type: gameRule
@@ -88,3 +84,5 @@
     minimumGlimmer: 600
     maximumGlimmer: 900
     report: glimmer-event-report-signatures
+    maxOccurrences: 5
+    reoccurrenceDelay: 25

@@ -1,45 +1,30 @@
 - type: body
   id: AI
-  name: "routerai"
-  root: torso
-  slots:
-    head:
-      part: HeadHuman
-      connections:
-        - torso
-      organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
-    torso:
-      part: TorsoAnimal
-      connections:
-        - arm 1
-        - arm 2
-        # - arm 3
-      organs:
-        heart: OrganHumanHeart
-        lungs: OrganHumanLungs
-        stomach: OrganHumanStomach
-        liver: OrganHumanLiver
-        kidneys: OrganHumanKidneys
-    arm 1:
-      part: RightArmHuman
-      connections:
-        - hand 1
-    arm 2:
-      part: RightArmHuman
-      connections:
-        - hand 2
-    # arm 3:
-    #   part: LeftArmHuman
-    #   connections:
-    #     - hand 3
+  name: "routerai" # Thanks for the idea, and a base to go off
+  root: hand 1
+  slots: # Thanks for reminding me to fix this Faye
     hand 1:
-      part: RightHandHuman
+      part: LeftArmBorg
+      connections:
+      - hand 2
     hand 2:
-      part: RightHandHuman
+      part: RightArmBorg # LeftArmBorg
+      # connections:
+      # - hand 3
     # hand 3:
-    #   part: LeftHandHuman
+    #   part: LeftArmBorg
+    #   connections:
+    #   - hand 4
+    # hand 4:
+    #   part: LeftArmBorg
+    #   connections:
+    #   - hand 5
+    # hand 5:
+    #   part: RightArmBorg
+    #   connections:
+    #   - hand 6
+    # hand 6:
+    #   part: RightArmBorg
 
 - type: entity
   abstract: true
@@ -173,8 +158,8 @@
     - type: MobMover
     - type: InputMover
     - type: MovementSpeedModifier
-      baseWalkSpeed: 8
-      baseSprintSpeed: 12
+      baseWalkSpeed: 12
+      baseSprintSpeed: 8
     - type: Sprite
       drawdepth: Mobs
       sprite: SimpleStation14/Mobs/Silicon/aieye.rsi
@@ -259,7 +244,7 @@
     - type: Damageable
       damageContainer: Inorganic
     - type: Bloodstream
-      bloodReagent: Oil
+      bloodReagent: MotorOil
       bloodlossDamage:
         types:
           Bloodloss: 1

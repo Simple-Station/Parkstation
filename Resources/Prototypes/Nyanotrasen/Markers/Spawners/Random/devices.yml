@@ -44,21 +44,9 @@
       - SolarTrackerElectronics
       - Mousetrap
       - RadioHandheld
-    chance: 0.8
-    rarePrototypes:
-      - TraversalDistorterMachineCircuitboard
-      - CloningPodMachineCircuitboard
-      - MedicalScannerMachineCircuitboard
-      - ChemDispenserMachineCircuitboard
-      - DawInstrumentMachineCircuitboard
-      - StasisBedMachineCircuitboard
-      - EmitterCircuitboard
-      - SurveillanceCameraWirelessRouterCircuitboard
-      - GasRecyclerMachineCircuitboard
-      - SurveillanceWirelessCameraMonitorCircuitboard
-      - BodyScannerComputerCircuitboard
-      - ShuttleConsoleCircuitboard
-      - CloningConsoleComputerCircuitboard
+      - DeepFryerMachineCircuitboard
+      - BoozeDispenserMachineCircuitboard
+      - SodaDispenserMachineCircuitboard
       - RemoteSignaller
       - TimerTrigger
       - SignalTrigger
@@ -66,4 +54,21 @@
       - ExplosivePayload
       - ChemicalPayload
       - FlashPayload
-    rareChance: 0.05
+      - ChemDispenserMachineCircuitboard
+      - EmitterCircuitboard
+      - SurveillanceCameraWirelessRouterCircuitboard
+      - SurveillanceWirelessCameraMonitorCircuitboard
+    chance: 0.8
+    rarePrototypes:
+      - TraversalDistorterMachineCircuitboard
+      - CloningPodMachineCircuitboard
+      - MetempsychoticMachineCircuitboard
+      - ReverseEngineeringMachineCircuitboard
+      - MedicalScannerMachineCircuitboard
+      - DawInstrumentMachineCircuitboard
+      - StasisBedMachineCircuitboard
+      - GasRecyclerMachineCircuitboard
+      - CryoPodMachineCircuitboard
+      - BodyScannerComputerCircuitboard
+      - CloningConsoleComputerCircuitboard
+    rareChance: 0.25

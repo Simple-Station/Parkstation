@@ -16,7 +16,7 @@
       Extinguish: [Touch]
   - type: Faction
     factions:
-    - SimpleHostile
+    - RatPassive
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Animals/regalrat.rsi
@@ -36,12 +36,15 @@
       layer:
       - SmallMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       150: Critical
       200: Dead
   - type: MeleeWeapon
     hidden: true
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
     angle: 0
     animation: WeaponArcClaw
     damage:
@@ -87,18 +90,17 @@
   - type: Tag
     tags:
       - CannotSuicide
-      - DoorBumpOpener
       - FootstepSound
   - type: NoSlip
   - type: RatKing
     actionRaiseArmy:
-      useDelay: 4
+      useDelay: 1.5
       icon: Interface/Actions/ratKingArmy.png
       name: rat-king-raise-army-name
       description: rat-king-raise-army-description
       itemIconStyle: NoItem
       event: !type:RatKingRaiseArmyActionEvent
-    hungerPerArmyUse: 25
+    hungerPerArmyUse: 8
     actionDomain:
       useDelay: 10
       icon: Interface/Actions/ratKingDomain.png
@@ -162,12 +164,15 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: regalrat
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       300: Critical
       350: Dead
   - type: MeleeWeapon
     hidden: true
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh2.ogg
     angle: 0
     attackRate: 0.75
     animation: WeaponArcFist
@@ -197,8 +202,8 @@
   components:
   - type: CombatMode
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3.5
-    baseSprintSpeed : 3.5
+    baseWalkSpeed : 4
+    baseSprintSpeed : 3
   - type: InputMover
   - type: MobMover
   - type: HTN
@@ -227,20 +232,26 @@
       layer:
       - SmallMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
-      40: Critical
-      60: Dead
+      12: Critical
+      25: Dead
+  - type: Item
+    size: 12
   - type: Stamina
-    excess: 60
+    excess: 25
   - type: MeleeWeapon
     hidden: true
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
     angle: 0
     animation: WeaponArcClaw
     damage:
       types:
-        Slash: 5
-        Piercing: 3
+        Slash: 4
+        Piercing: 2
+    range: 1
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
@@ -300,9 +311,28 @@
       - FootstepSound
   - type: NoSlip
   - type: MobPrice
-    price: 500 # rat wealth
+    price: 100 # rat wealth
   - type: MobsterAccent
     isBoss: false
+  - type: FelinidFood
+  - type: Bloodstream
+    bloodMaxVolume: 70
+  - type: Recyclable
+  - type: CanEscapeInventory
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Blood
+          Quantity: 70
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatRat
+      amount: 1
   - type: IntrinsicRadioReceiver
     channels:
       - RatHive

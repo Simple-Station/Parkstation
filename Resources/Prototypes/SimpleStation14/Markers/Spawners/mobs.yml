@@ -1,0 +1,78 @@
+- type: entity
+  name: Lizard Spawner
+  id: SpawnMobLizard
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobLizard
+
+- type: entity
+  name: Lois Spawner
+  id: SpawnMobLizardLois
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobLizardLois
+
+- type: entity
+  name: Frog Spawner
+  id: SpawnMobFrog
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobFrog
+
+- type: entity
+  name: Randall Spawner
+  id: SpawnMobFrogRandall
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobFrogRandall
+
+
+- type: entity
+  name: Slug Spawner
+  id: SpawnMobSlug
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobSlug
+
+- type: entity
+  name: Terrance Spawner
+  id: SpawnMobSlugTerrance
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobSlugTerrance

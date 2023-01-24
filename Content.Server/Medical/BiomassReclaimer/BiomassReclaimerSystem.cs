@@ -1,5 +1,4 @@
 using System.Threading;
-using Content.Shared.MobState.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Audio;
 using Content.Shared.Jittering;
@@ -10,29 +9,30 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
-using Content.Server.MobState;
 using Content.Server.Power.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Climbing;
 using Content.Server.Construction;
 using Content.Server.DoAfter;
+using Content.Server.Materials;
 using Content.Server.Mind.Components;
-using Content.Server.Stack;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Robust.Server.Player;
 using Robust.Shared.Physics.Components;
+using Content.Shared.Inventory;
 
 namespace Content.Server.Medical.BiomassReclaimer
 {
     public sealed class BiomassReclaimerSystem : EntitySystem
     {
         [Dependency] private readonly IConfigurationManager _configManager = default!;
-        [Dependency] private readonly StackSystem _stackSystem = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedJitteringSystem _jitteringSystem = default!;
         [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
@@ -44,6 +44,8 @@ namespace Content.Server.Medical.BiomassReclaimer
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly IEntityManager _entities = default!;
+        [Dependency] private readonly MaterialStorageSystem _material = default!;
 
         public override void Update(float frameTime)
         {
@@ -76,7 +78,7 @@ namespace Content.Server.Medical.BiomassReclaimer
                     continue;
                 }
 
-                _stackSystem.SpawnMultiple(reclaimer.OutputEntityId, reclaimer.CurrentExpectedYield, Transform(reclaimer.Owner).Coordinates);
+                _material.SpawnMultipleFromMaterial(reclaimer.CurrentExpectedYield, "Biomass", Transform(reclaimer.Owner).Coordinates);
 
                 reclaimer.BloodReagent = null;
                 reclaimer.SpawnedEntities.Clear();
@@ -234,6 +236,17 @@ namespace Content.Server.Medical.BiomassReclaimer
 
             component.CurrentExpectedYield = (int) Math.Max(0, physics.FixturesMass * component.YieldPerUnitMass);
             component.ProcessingTimer = physics.FixturesMass * component.ProcessingTimePerUnitMass;
+
+            _entities.TryGetComponent<InventoryComponent>(toProcess, out var inventoryComponent);
+            var invSystem = _entities.System<InventorySystem>();
+            if (invSystem.TryGetSlots(toProcess, out var slotDefinitions, inventoryComponent))
+            {
+                foreach (var slot in slotDefinitions)
+                {
+                    invSystem.TryUnequip(toProcess, slot.Name, true, true, false, inventoryComponent);
+                }
+            }
+
             QueueDel(toProcess);
         }
 

@@ -15,8 +15,6 @@
   canBeAntag: false
   access:
   - Medical
-  extendedAccess:
-  - Maintenance
 
 - type: startingGear
   id: MedicalInternGear

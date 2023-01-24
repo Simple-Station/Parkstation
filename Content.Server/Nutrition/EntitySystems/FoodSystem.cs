@@ -4,7 +4,6 @@ using Content.Server.Body.Systems;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.DoAfter;
 using Content.Server.Hands.Components;
-using Content.Server.MobState;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Server.SimpleStation14.Traits;
@@ -18,7 +17,9 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.SimpleStation14.Traits;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -43,6 +44,7 @@ namespace Content.Server.Nutrition.EntitySystems
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         public override void Initialize()
         {
@@ -138,7 +140,10 @@ namespace Content.Server.Nutrition.EntitySystems
 
             var moveBreak = user != target;
 
-            _doAfterSystem.DoAfter(new DoAfterEventArgs(user, forceFeed ? food.ForceFeedDelay : food.Delay, food.CancelToken.Token, target, food.Owner)
+            var VoraciousDelay = food.Delay;
+            if (_entityManager.TryGetComponent<VoraciousTraitComponent>(target, out var Voracious) && Voracious.NegateThirst != null) VoraciousDelay -= (float) Voracious.NegateThirst;
+
+            _doAfterSystem.DoAfter(new DoAfterEventArgs(user, forceFeed ? food.ForceFeedDelay : VoraciousDelay, food.CancelToken.Token, target, food.Owner)
             {
                 BreakOnUserMove = moveBreak,
                 BreakOnDamage = true,
@@ -166,8 +171,8 @@ namespace Content.Server.Nutrition.EntitySystems
                 return;
 
             var transferAmount = args.Food.TransferAmount != null
-                ? FixedPoint2.Min((FixedPoint2) args.Food.TransferAmount, args.FoodSolution.CurrentVolume)
-                : args.FoodSolution.CurrentVolume;
+                ? FixedPoint2.Min((FixedPoint2) args.Food.TransferAmount, args.FoodSolution.Volume)
+                : args.FoodSolution.Volume;
 
             var split = _solutionContainerSystem.SplitSolution((args.Food).Owner, args.FoodSolution, transferAmount);
 

@@ -18,7 +18,8 @@
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
-  - type: StaticPrice
+    pierceArmor: true
+  - type: DynamicPrice
     price: 750
 
 - type: entity
@@ -41,6 +42,7 @@
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
+    pierceArmor: true
 
 - type: entity
   name: chemical medipen
@@ -76,9 +78,11 @@
     - Trash
   - type: Recyclable
   - type: SpaceGarbage
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 75 # These are limited supply items.
   - type: TrashOnEmpty
+    solution: pen
+  - type: RefillableSolution
     solution: pen
 
 - type: entity
@@ -198,5 +202,5 @@
   - type: Tag
     tags:
     - Write
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 75

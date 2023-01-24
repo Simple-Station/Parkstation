@@ -8,7 +8,7 @@ namespace Content.Server.SimpleStation14.Traits
     {
         /// <summary>
         /// Whether this component is active or not.
-        /// </summarY>
+        /// </summary>
         [ViewVariables]
         [DataField("enabled")]
         public bool Enabled = true;

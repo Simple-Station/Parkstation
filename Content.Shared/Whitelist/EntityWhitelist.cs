@@ -1,3 +1,4 @@
+using Content.Shared.Humanoid;
 using Content.Shared.Tag;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
@@ -17,6 +18,8 @@ namespace Content.Shared.Whitelist
     ///   components:
     ///     - Buckle
     ///     - AsteroidRock
+    ///   species:
+    ///     - Reptilian
     /// </code>
     [DataDefinition]
     [Serializable, NetSerializable]
@@ -36,6 +39,9 @@ namespace Content.Shared.Whitelist
         /// </summary>
         [DataField("tags", customTypeSerializer:typeof(PrototypeIdListSerializer<TagPrototype>))]
         public List<string>? Tags = null;
+
+        [DataField("species")]
+        public List<string>? Species = null;
 
         /// <summary>
         ///     If false, an entity only requires one of these components or tags to pass the whitelist. If true, an
@@ -92,6 +98,14 @@ namespace Content.Shared.Whitelist
             {
                 var tagSystem = entityManager.System<TagSystem>();
                 return RequireAll ? tagSystem.HasAllTags(tags, Tags) : tagSystem.HasAnyTag(tags, Tags);
+            }
+
+            if (Species != null && entityManager.TryGetComponent(uid, out HumanoidComponent? humanoid))
+            {
+                foreach (var species in Species)
+                {
+                    if (humanoid.Species == species) return true;
+                }
             }
 
             return false;

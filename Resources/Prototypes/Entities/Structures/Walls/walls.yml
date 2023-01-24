@@ -28,7 +28,7 @@
     state: full
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageModifierSet: MetallicStructure
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -43,7 +43,7 @@
       density: 1000
   - type: Occluder
   - type: Airtight
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 75
   - type: RadiationBlocker
     resistance: 2
@@ -438,17 +438,20 @@
   - type: Construction
     graph: Girder
     node: reinforcedWall
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1200 #excess damage (nuke?). avoid computational cost of spawning entities.
+        damage: 1000 #excess damage (nuke?). avoid computational cost of spawning entities.
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 500
       behaviors:
       - !type:ChangeConstructionNodeBehavior
         node: girder
@@ -460,7 +463,7 @@
   - type: Appearance
     visuals:
       - type: ReinforcedWallVisualizer
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 150
   - type: RadiationBlocker
     resistance: 5
@@ -495,7 +498,7 @@
   - type: IconSmooth
     key: walls
     base: riveted
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 150
 
 - type: entity

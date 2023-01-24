@@ -21,11 +21,18 @@ namespace Content.Server.Chemistry.Components
         [DataField("injectSound")]
         public SoundSpecifier InjectSound = new SoundPathSpecifier("/Audio/Items/hypospray.ogg");
 
+        /// <summary>
+        ///     Whether the hypospray uses a needle (i.e. medipens)
+        ///     or sci fi bullshit that sprays into the bloodstream directly (i.e. hypos)
+        /// </summary>
+        [DataField("pierceArmor")]
+        public bool PierceArmor = false;
+
         public override ComponentState GetComponentState()
         {
             var solutionSys = _entMan.EntitySysManager.GetEntitySystem<SolutionContainerSystem>();
             return solutionSys.TryGetSolution(Owner, SolutionName, out var solution)
-                ? new HyposprayComponentState(solution.CurrentVolume, solution.MaxVolume)
+                ? new HyposprayComponentState(solution.Volume, solution.MaxVolume)
                 : new HyposprayComponentState(FixedPoint2.Zero, FixedPoint2.Zero);
         }
     }

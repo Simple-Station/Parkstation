@@ -188,9 +188,12 @@ namespace Content.Server.Atmos.EntitySystems
 
         public void ConnectToInternals(GasTankComponent component)
         {
-            if (component.IsConnected || !CanConnectToInternals(component)) return;
+            if (component.IsConnected || !CanConnectToInternals(component))
+                return;
+
             var internals = GetInternalsComponent(component);
-            if (internals == null) return;
+            if (internals == null)
+                return;
 
             if (_internals.TryConnectTank(internals, component.Owner))
                 component.User = internals.Owner;
@@ -198,7 +201,8 @@ namespace Content.Server.Atmos.EntitySystems
             _actions.SetToggled(component.ToggleAction, component.IsConnected);
 
             // Couldn't toggle!
-            if (!component.IsConnected) return;
+            if (!component.IsConnected)
+                return;
 
             component.ConnectStream?.Stop();
 
@@ -324,7 +328,7 @@ namespace Content.Server.Atmos.EntitySystems
 
         private void OnGasTankPrice(EntityUid uid, GasTankComponent component, ref PriceCalculationEvent args)
         {
-            args.Price += _atmosphereSystem.GetPrice(component.Air);
+            args.Price += _atmosphereSystem.GetPrice(component.Air, args.Sale);
         }
     }
 }

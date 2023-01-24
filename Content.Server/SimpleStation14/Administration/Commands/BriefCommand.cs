@@ -50,6 +50,7 @@ namespace Content.Server.Administration.Commands.Brief
                     {
                         didYouBrief = true;
                         player.ContentData()!.Mind?.UnVisit();
+                        if (mind.CurrentEntity != null) _entities.RemoveComponent<BriefOfficerComponent>((EntityUid) mind.CurrentEntity);
                         _entities.QueueDeleteEntity(officer.Owner);
                         return;
                     }
@@ -95,6 +96,7 @@ namespace Content.Server.Administration.Commands.Brief
             if (args.Length >= 2)
                 _entities.GetComponent<MetaDataComponent>(brief).EntityName = args[1];
 
+            if (mind.CurrentEntity != null) _entities.EnsureComponent<BriefOfficerComponent>((EntityUid) mind.CurrentEntity);
             mind.Visit(brief);
             SetOutfitCommand.SetOutfit(brief, outfit, _entities);
         }

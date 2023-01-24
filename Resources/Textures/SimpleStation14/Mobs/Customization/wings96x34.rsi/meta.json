@@ -1,0 +1,50 @@
+{
+    "version": 1,
+    "size": { "x": 96, "y": 34 },
+    "states": [
+        {
+            "name": "dragon_open",
+            "directions": 4
+        },
+        {
+            "name": "dragon",
+            "directions": 4
+        },
+        {
+            "name": "fly_open",
+            "directions": 4
+        },
+        {
+            "name": "fly",
+            "directions": 4
+        },
+        {
+            "name": "megamoth_open",
+            "directions": 4
+        },
+        {
+            "name": "megamoth",
+            "directions": 4
+        },
+        {
+            "name": "mothra_open",
+            "directions": 4
+        },
+        {
+            "name": "mothra",
+            "directions": 4
+        },
+        {
+            "name": "robotic",
+            "directions": 4
+        },
+        {
+            "name": "skeleton_open",
+            "directions": 4
+        },
+        {
+            "name": "skeleton",
+            "directions": 4
+        }
+    ]
+}

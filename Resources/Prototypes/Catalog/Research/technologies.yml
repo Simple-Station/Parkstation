@@ -39,6 +39,25 @@
   - TrashBag
   - WetFloorSign
 
+# Food/Bev Service Technology Tree
+
+- type: technology
+  name: technologies-foodbev-technology
+  id: FoodBevTechnology
+  description: technologies-food-and-beverage-technology-description
+  icon:
+    sprite: Objects/Weapons/Melee/cleaver.rsi
+    state: butch
+  requiredPoints: 5000
+  requiredTechnologies:
+  - BasicResearch
+  unlockedRecipes:
+  - ButchCleaver
+  - KitchenKnife
+  - MicrowaveMachineCircuitboard
+  - BoozeDispenserMachineCircuitboard
+  - SodaDispenserMachineCircuitboard
+
 # Biological Technology Tree
 
 - type: technology
@@ -55,10 +74,21 @@
   - HydroponicsToolScythe
   - HydroponicsToolHatchet
   - Shovel
+  - MiniHoe
+  - Spade
+  - Clippers
   - ButchCleaver
   - KitchenKnife
   - MicrowaveMachineCircuitboard
   - DeepFryerMachineCircuitboard
+  - Medkit
+  - MedkitBurn
+  - MedkitToxin
+  - MedkitO2
+  - MedkitBrute
+  - MedkitAdvanced
+  - MedkitRadiation
+  - MedkitCombat
 
 - type: technology
   name: technologies-advanced-botany
@@ -135,6 +165,7 @@
   - Drill
   - Saw
   - Hemostat
+  - CryoPodMachineCircuitboard
 
 - type: technology
   name: technologies-medical-machinery
@@ -159,18 +190,31 @@
   id: AdvancedLifeSupport
   description: technologies-advanced-life-support-description
   icon:
-    sprite: Structures/Machines/cloning.rsi
-    state: pod_0
+    sprite: Clothing/Eyes/Hud/med.rsi
+    state: icon
   requiredPoints: 20000
   requiredTechnologies:
   - MedicalMachinery
   - Virology
   unlockedRecipes:
-  - CloningPodMachineCircuitboard
+  - MetempsychoticMachineCircuitboard
   - MedicalScannerMachineCircuitboard
   - StasisBedMachineCircuitboard
   - CloningConsoleComputerCircuitboard
-  - CryoPodMachineCircuitboard
+  - ClothingEyesHudMedical
+
+- type: technology
+  name: technologies-cloning
+  id: Cloning
+  description: technologies-cloning-description
+  icon:
+    sprite: Structures/Machines/cloning.rsi
+    state: pod_0
+  requiredPoints: 25000
+  requiredTechnologies:
+  - AdvancedLifeSupport
+  unlockedRecipes:
+  - CloningPodMachineCircuitboard
 
 # Security Technology Tree
 
@@ -303,23 +347,6 @@
   - OreProcessorMachineCircuitboard
 
 - type: technology
-  name: technologies-spacefaring
-  id: SpacefaringTechnology
-  description: technologies-spacefaring-description
-  icon:
-    sprite: Structures/Shuttles/gyroscope.rsi
-    state: base
-  requiredPoints: 10000
-  requiredTechnologies:
-  - SalvageEquipment
-  - IndustrialEngineering
-  unlockedRecipes:
-  - ShuttleConsoleCircuitboard
-  - RadarConsoleCircuitboard
-  - ThrusterMachineCircuitboard
-  - GyroscopeMachineCircuitboard
-
-- type: technology
   name: technologies-ripley-technology
   id: RipleyTechnology
   description: technologies-ripley-technology-description
@@ -420,7 +447,6 @@
   - ElectromagneticTheory
   - IndustrialEngineering
   unlockedRecipes:
-  - RCDAmmo
   - PowerDrill
   - SMESMachineCircuitboard
   - PowerComputerCircuitboard
@@ -429,6 +455,7 @@
   - SolarControlComputerCircuitboard
   - EmitterCircuitboard
   - Holoprojector
+  - RadarConsoleCircuitboard
 
 - type: technology
   name: technologies-advanced-atmospherics-technology
@@ -453,10 +480,11 @@
   icon:
     sprite: Objects/Specific/Research/rped.rsi
     state: icon
-  requiredPoints: 7500
+  requiredPoints: 10000
   requiredTechnologies:
   - ElectricalEngineering
   unlockedRecipes:
+  - RCDAmmo
   - RPED
 
 - type: technology
@@ -542,6 +570,7 @@
   requiredTechnologies:
   - BasicResearch
   unlockedRecipes:
+  - TechDiskComputerCircuitboard
   - CapacitorStockPart
   - MatterBinStockPart
   - MicroLaserStockPart
@@ -598,6 +627,7 @@
   - HighPowerMicroLaserStockPart
   - NanoManipulatorStockPart
   - AdvancedScanningModuleStockPart
+  - ReverseEngineeringMachineCircuitboard
 
 # Spacetime - the end point...
 - type: technology

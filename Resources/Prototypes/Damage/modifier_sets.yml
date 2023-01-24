@@ -9,6 +9,19 @@
     Blunt: 5
     Heat: 5
 
+# For airlocks, etc, to prevent cheesing.
+- type: damageModifierSet
+  id: MetallicStructure
+  coefficients:
+    Blunt: 0.7
+    Slash: 0.5
+    Piercing: 0.7
+    Shock: 1.2
+  flatReductions:
+    Blunt: 5
+    Heat: 5
+  minimumDamageToDamage: 10
+
 # Like metallic, but without flat reduction so it can be damaged with fists.
 - type: damageModifierSet
   id: FlimsyMetallic
@@ -32,6 +45,7 @@
     Piercing: 15
     Shock: 10
     Heat: 10
+  minimumDamageToDamage: 10 # (500 / 50)
 
 - type: damageModifierSet
   id: Inflatable
@@ -68,6 +82,7 @@
     Slash: 7
     Piercing: 5
     Heat: 5
+  minimumDamageToDamage: 3 # 150 (rwindow) / 50
 
 - type: damageModifierSet
   id: Wood

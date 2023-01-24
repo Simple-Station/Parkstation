@@ -131,8 +131,8 @@
     pressureResistance: 4
   - type: MovementAlwaysTouching
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.7
-    baseSprintSpeed : 4.5
+    baseWalkSpeed : 4.5
+    baseSprintSpeed : 2.7
   - type: Perishable
   - type: ThermalRegulator
     metabolismHeat: 800
@@ -156,6 +156,8 @@
   noSpawn: true
   description: A dummy arachne meant to be used in character setup.
   components:
+  - type: Humanoid
+    species: Arachne
   - type: Sprite
     netsync: false
     noRot: true

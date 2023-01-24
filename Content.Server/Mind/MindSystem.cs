@@ -1,10 +1,11 @@
+using JetBrains.Annotations;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind.Components;
-using Content.Server.MobState;
 using Content.Shared.Examine;
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
@@ -23,6 +24,15 @@ public sealed class MindSystem : EntitySystem
 
         SubscribeLocalEvent<MindComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MindComponent, ExaminedEvent>(OnExamined);
+    }
+
+    [PublicAPI]
+    public void SetExamineInfo(EntityUid uid, bool canExamine, MindComponent? mind = null)
+    {
+        if (!Resolve(uid, ref mind, false))
+            return;
+
+        mind.ShowExamineInfo = canExamine;
     }
 
     public void SetGhostOnShutdown(EntityUid uid, bool value, MindComponent? mind = null)

@@ -88,15 +88,16 @@
       type: StrippableBoundUserInterface
     - key: enum.LawsUiKey.Key
       type: LawsBoundUserInterface
-  # - type: GhostTakeoverAvailable
-  #   makeSentient: true
-  #   name: Maintenance Drone
-  #   description: Maintain the station. Ignore other beings except drones.
-  #   rules: |
-  #     You are bound by these laws both in-game and out-of-character:
-  #     1. You may not involve yourself in the matters of another being, even if such matters conflict with Law Two or Law Three, unless the other being is another Drone.
-  #     2. You may not harm any being, regardless of intent or circumstance.
-  #     3. Your goals are to build, maintain, repair, improve, and power to the best of your abilities, You must never actively work against these goals.
+  - type: GhostTakeoverAvailable
+    makeSentient: true
+    name: Maintenance Drone
+    description: Maintain the station. Ignore other beings except drones.
+    rules: |
+      You are bound by these laws both in-game and out-of-character:
+      - You may not involve yourself in the matters of another being, even if such matters conflict with Law Two or Law Three, unless the other being is another Drone.
+      - You may not harm any being, regardless of intent or circumstance.
+      - Your goals are to build, maintain, repair, improve, and power to the best of your abilities, You must never actively work against these goals.
+      - You may accept orders received via the binary channel, regardless of the nature of the being issuing them, so long as they do not conflict with Law Two or Law Three.
   - type: Laws
     canState: false
     laws:
@@ -106,8 +107,12 @@
     - You may accept orders received via the binary channel, regardless of the nature of the being issuing them, so long as they do not conflict with Law Two or Law Three.
   - type: MovementSpeedModifier
     baseWalkSpeed : 5
-    baseSprintSpeed : 5
+    baseSprintSpeed : 3
   - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
     thresholds:
       0: Alive
       60: Dead
@@ -193,9 +198,17 @@
   - type: IntrinsicRadioReceiver
     channels:
     - Binary
+    - Engineering
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
   - type: ActiveRadio
     channels:
     - Binary
+    - Engineering
+  - type: Access # May want to change later to specific accesses, like engineering
+    groups:
+      - AllAccess
 
 - type: entity
   name: onestar mecha
@@ -221,6 +234,10 @@
     baseWalkSpeed : 3
     baseSprintSpeed : 2
   - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
     thresholds:
       0: Alive
       1000: Dead

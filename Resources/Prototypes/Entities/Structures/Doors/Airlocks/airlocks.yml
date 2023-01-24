@@ -69,6 +69,8 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/command.rsi
+  - type: Airlock
+    autoCloseDelay: 1.5
 
 - type: entity
   parent: Airlock
@@ -77,6 +79,8 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/security.rsi
+  - type: Airlock
+    autoCloseDelay: 1.5
 
 - type: entity
   parent: Airlock
@@ -114,6 +118,9 @@
       - FullTileMask
       layer:     #removed opaque from the layer, allowing lasers to pass through glass airlocks
       - GlassAirlockLayer
+  - type: LayerChangeOnWeld
+    unweldedLayer: GlassAirlockLayer
+    weldedLayer: GlassLayer
   - type: Construction
     graph: Airlock
     node: glassAirlock
@@ -201,6 +208,8 @@
     sprite: Structures/Doors/Airlocks/Glass/command.rsi
   - type: PaintableAirlock
     group: Glass
+  - type: Airlock
+    autoCloseDelay: 1.5
 
 - type: entity
   parent: AirlockGlass
@@ -211,3 +220,5 @@
     sprite: Structures/Doors/Airlocks/Glass/security.rsi
   - type: PaintableAirlock
     group: Glass
+  - type: Airlock
+    autoCloseDelay: 1.5

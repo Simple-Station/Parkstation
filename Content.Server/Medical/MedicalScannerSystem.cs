@@ -5,7 +5,6 @@ using Content.Server.Power.Components;
 using Content.Shared.Destructible;
 using Content.Shared.ActionBlocker;
 using Content.Shared.DragDrop;
-using Content.Shared.MobState.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
@@ -13,10 +12,11 @@ using Content.Server.MachineLinking.System;
 using Content.Server.MachineLinking.Events;
 using Content.Server.Cloning.Components;
 using Content.Server.Construction;
-using Content.Server.MobState;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Robust.Server.Containers;
 
-using static Content.Shared.MedicalScanner.SharedMedicalScannerComponent; /// Hmm...
+using static Content.Shared.MedicalScanner.SharedMedicalScannerComponent; // Hmm...
 
 namespace Content.Server.Medical
 {
@@ -233,11 +233,13 @@ namespace Content.Server.Medical
             var ratingFail = args.PartRatings[component.MachinePartCloningFailChance];
 
             component.CloningFailChanceMultiplier = MathF.Pow(component.PartRatingFailMultiplier, ratingFail - 1);
+            component.MetemKarmaBonus = 0.25f * ratingFail;
         }
 
         private void OnUpgradeExamine(EntityUid uid, MedicalScannerComponent component, UpgradeExamineEvent args)
         {
             args.AddPercentageUpgrade("medical-scanner-upgrade-cloning", component.CloningFailChanceMultiplier);
+            args.AddPercentageUpgrade("medical-scanner-upgrade-metem", component.MetemKarmaBonus + 0.75f);
         }
     }
 }

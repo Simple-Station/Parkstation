@@ -40,7 +40,7 @@
       - !type:PlaySoundBehavior
         sound:
           path: /Audio/Effects/metalbreak.ogg
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 50
 
 - type: entity
@@ -175,6 +175,8 @@
   - type: Tag
     tags:
     - Wooden
+  - type: StaticPrice
+    price: 75
 
 - type: entity
   name: ritual chair

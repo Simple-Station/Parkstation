@@ -25,8 +25,8 @@
     - type: MobMover
     - type: InputMover
     - type: MovementSpeedModifier
-      baseWalkSpeed: 3
-      baseSprintSpeed: 5
+      baseWalkSpeed: 5
+      baseSprintSpeed: 3
       weightlessModifier: 1.5
     - type: RandomSprite
       available:
@@ -66,6 +66,7 @@
           layer:
             - FlyingMobLayer
     - type: MobState
+    - type: MobThresholds
       thresholds:
         0: Alive
         450: Critical
@@ -93,7 +94,7 @@
     - type: MeleeWeapon
       hidden: true
       soundHit:
-        path: /Audio/Effects/bite.ogg
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
       damage:
         types:
           Piercing: 15

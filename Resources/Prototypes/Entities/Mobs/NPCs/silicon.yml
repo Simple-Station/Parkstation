@@ -71,6 +71,10 @@
     - DoorBumpOpener
     - ShoesRequiredStepTriggerImmune
   - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
     thresholds:
       0: Alive
       120: Dead
@@ -162,8 +166,8 @@
       drainBuffer:
         maxVol: 30
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2
-    baseSprintSpeed: 3
+    baseWalkSpeed: 3
+    baseSprintSpeed: 2
   - type: NoSlip
   - type: HTN
     rootTask: CleanbotCompound

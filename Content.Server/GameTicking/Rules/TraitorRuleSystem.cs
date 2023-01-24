@@ -4,13 +4,12 @@ using Content.Server.Database;
 using Content.Server.Chat.Managers;
 using Content.Server.Objectives.Interfaces;
 using Content.Server.Players;
-using Content.Server.Roles;
 using Content.Server.Traitor;
 using Content.Server.Traitor.Uplink;
-using Content.Server.MobState;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.Preferences;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Roles;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -111,7 +110,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         {
             _chatManager.DispatchServerAnnouncement(Loc.GetString("traitor-no-one-ready"));
             ev.Cancel();
-            return;
         }
     }
 
@@ -227,6 +225,12 @@ public sealed class TraitorRuleSystem : GameRuleSystem
                 return;
         }
 
+        if (mind.OwnedEntity is not { } entity)
+        {
+            Logger.ErrorS("preset", "Mind picked for traitor did not have an attached entity.");
+            return;
+        }
+
         // creadth: we need to create uplink for the antag.
         // PDA should be in place already
         DebugTools.AssertNotNull(mind.OwnedEntity);
@@ -268,6 +272,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         traitorRole.Mind.Briefing = Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", Codewords)));
 
         _audioSystem.PlayGlobal(_addedSound, Filter.Empty().AddPlayer(traitor), false, AudioParams.Default);
+
         return;
     }
 
@@ -281,7 +286,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem
             return;
         if (!ev.Profile.AntagPreferences.Contains(TraitorPrototypeID))
             return;
-
 
         if (ev.JobId == null || !_prototypeManager.TryIndex<JobPrototype>(ev.JobId, out var job))
             return;
@@ -301,7 +305,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem
 
         float chance = (1f / _playersPerTraitor);
 
-        /// If we have too many traitors, divide by how many players below target for next traitor we are.
+        // If we have too many traitors, divide by how many players below target for next traitor we are.
         if (ev.JoinOrder < target)
         {
             chance /= (target - ev.JoinOrder);
@@ -314,7 +318,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem
 
         // Now that we've calculated our chance, roll and make them a traitor if we roll under.
         // You get one shot.
-        if (_random.Prob((float) chance))
+        if (_random.Prob(chance))
         {
             MakeTraitor(ev.Player);
         }
@@ -392,10 +396,10 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         ev.AddLine(result);
     }
 
-    public IEnumerable<Traitor.TraitorRole> GetOtherTraitorsAliveAndConnected(Mind.Mind ourMind)
+    public IEnumerable<TraitorRole> GetOtherTraitorsAliveAndConnected(Mind.Mind ourMind)
     {
         var traitors = Traitors;
-        List<Traitor.TraitorRole> removeList = new();
+        List<TraitorRole> removeList = new();
 
         return Traitors // don't want
             .Where(t => t.Mind is not null) // no mind

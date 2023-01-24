@@ -8,12 +8,14 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Inventory;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Shared.Traits;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Client.Lobby.UI
 {
@@ -94,9 +96,9 @@ namespace Content.Client.Lobby.UI
         {
             return new()
             {
-                Sprite = _entityManager.GetComponent<ISpriteComponent>(entity),
+                Sprite = _entityManager.GetComponent<SpriteComponent>(entity),
                 OverrideDirection = direction,
-                Scale = (2, 2)
+                Scale = (4, 4)
             };
         }
 
@@ -134,15 +136,16 @@ namespace Content.Client.Lobby.UI
             }
         }
 
-        public static void GiveDummyJobClothes(EntityUid dummy, HumanoidCharacterProfile profile)
+        public static void GiveDummyJobClothes(EntityUid dummy, HumanoidCharacterProfile profile, bool equipNew = true)
         {
             var protoMan = IoCManager.Resolve<IPrototypeManager>();
             var entMan = IoCManager.Resolve<IEntityManager>();
+            var siriMan = IoCManager.Resolve<ISerializationManager>(); // funi var
             var invSystem = EntitySystem.Get<ClientInventorySystem>();
 
             var highPriorityJob = profile.JobPriorities.FirstOrDefault(p => p.Value == JobPriority.High).Key;
 
-            // ReSharper disable once ConstantNullCoalescingCondition
+            // ReSharper disable once NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract (what is resharper smoking?)
             var job = protoMan.Index<JobPrototype>(highPriorityJob ?? SharedGameTicker.FallbackOverflowJob);
 
             if (job.StartingGear != null && invSystem.TryGetSlots(dummy, out var slots))
@@ -157,11 +160,29 @@ namespace Content.Client.Lobby.UI
                         entMan.DeleteEntity(unequippedItem.Value);
                     }
 
-                    if (itemType != string.Empty)
+                    if (equipNew && itemType != string.Empty)
                     {
                         var item = entMan.SpawnEntity(itemType, MapCoordinates.Nullspace);
                         invSystem.TryEquip(dummy, item, slot.Name, true, true);
                     }
+                }
+            }
+
+            foreach (var trait in profile.TraitPreferences)
+            {
+                if (!protoMan.TryIndex<TraitPrototype>(trait, out var traitPrototype)) return;
+
+                if (traitPrototype.Whitelist != null && !traitPrototype.Whitelist.IsValid(dummy))
+                    continue;
+
+                if (traitPrototype.Blacklist != null && traitPrototype.Blacklist.IsValid(dummy))
+                    continue;
+
+                foreach (var entry in traitPrototype.Components.Values)
+                {
+                    var comp = (Component) siriMan.CreateCopy(entry.Component, notNullableOverride: true);
+                    comp.Owner = dummy;
+                    entMan.AddComponent(dummy, comp, true);
                 }
             }
         }

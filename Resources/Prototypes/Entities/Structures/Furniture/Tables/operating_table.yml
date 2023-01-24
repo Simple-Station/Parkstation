@@ -28,6 +28,7 @@
     sprite: Structures/Furniture/Tables/optable.rsi
     state: operating_table
     noRot: true
+    offset: 0, 0.25
   - type: Icon
     sprite: Structures/Furniture/Tables/optable.rsi
     state: operating_table

@@ -9,8 +9,6 @@
   supervisors: job-supervisors-css
   access:
   - Service
-  extendedAccess:
-  - Maintenance
 
 - type: startingGear
   id: LibrarianGear

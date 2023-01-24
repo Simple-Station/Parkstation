@@ -55,12 +55,16 @@
     accent: mouse
   - type: MeleeWeapon
     hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite
     damage:
       types:
         Piercing: 5
   - type: NoSlip
+  - type: HTN
+    rootTask: IdleEvadeCompound
   - type: RandomBark
 
 - type: entity
@@ -76,7 +80,7 @@
       name: action-name-disarm
   - type: MovementSpeedModifier
     baseWalkSpeed : 7
-    baseSprintSpeed : 7
+    baseSprintSpeed : 4
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -95,6 +99,7 @@
       layer:
       - FlyingMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       5: Critical
@@ -149,8 +154,6 @@
         Piercing: 1
   - type: InputMover
   - type: MobMover
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - SimpleHostile
@@ -315,7 +318,7 @@
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed : 6
-    baseSprintSpeed : 6
+    baseSprintSpeed : 4
   - type: Sprite
     drawdepth: Mobs
     netsync: false
@@ -335,6 +338,7 @@
       layer:
       - FlyingMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       5: Critical
@@ -357,6 +361,8 @@
   - type: NoSlip
   - type: MobPrice
     price: 50
+  - type: HTN
+    rootTask: IdleEvadeCompound
 
 - type: entity
   name: cow
@@ -428,7 +434,6 @@
       - Moooo
     barkMultiplier: 1.7
 
-
 - type: entity
   name: crab
   parent: SimpleMobBase
@@ -472,7 +477,7 @@
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: RandomBark
-    barks: 
+    barks:
       - click clack
       - clack
       - clickity clack
@@ -590,57 +595,14 @@
   - type: Puller
 
 - type: entity
-  name: gorilla
-  parent: SimpleMobBase
-  id: MobGorilla
-  description: Smashes, roars, looks cool. Don't stand near one.
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: crawling
-      sprite: Mobs/Animals/gorilla.rsi
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.48
-      density: 200
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
-  - type: Appearance
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: crawling
-      Critical:
-        Base: dead
-      Dead:
-        Base: dead
-  - type: Butcherable
-    spawned:
-    - id: FoodMeat
-      amount: 4
-  - type: Bloodstream
-    bloodMaxVolume: 300
-  - type: Puller
-  - type: ReplacementAccent
-    accent: monkey
-  - type: RandomBark
-
-- type: entity
   name: kangaroo
   parent: SimpleMobBase
   id: MobKangaroo
   description: A large marsupial herbivore. It has powerful hind legs, with nails that resemble long claws.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4
-    baseSprintSpeed: 6
+    baseWalkSpeed: 6
+    baseSprintSpeed: 4
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -702,8 +664,6 @@
         Blunt: 10
   - type: InputMover
   - type: MobMover
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - SimpleHostile
@@ -731,70 +691,13 @@
         Base: kangaroo-dead
 
 - type: entity
-  name: monkey
-  id: MobMonkey
-  parent: SimpleMobBase
-  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
+  name: guidebook monkey
+  parent: MobMonkey
+  noSpawn: true
+  id: MobGuidebookMonkey
+  description: A hopefully helpful monkey whose only purpose in life is for you to click on. Does this count as having a monkey give you a tutorial?
   components:
-  - type: CombatMode
-    disarm: null
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-primate
-  - type: Inventory
-    templateId: monkey
-  - type: Fixtures
-    fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 80
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-    - key: enum.StrippingUiKey.Key
-      type: StrippableBoundUserInterface
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: monkey
-      sprite: Mobs/Animals/monkey.rsi
-  - type: Hands
-  - type: Speech
-    speechSounds: Monkey
-  - type: Body
-    prototype: Primate
-    requiredLegs: 1 # TODO: More than 1 leg
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: monkey
-      Critical:
-        Base: dead
-      Dead:
-        Base: dead
-  - type: Appearance
-  - type: FireVisuals
-    sprite: Mobs/Effects/onfire.rsi
-    normalState: Monkey_burning
-  - type: Butcherable
-    butcheringType: Spike
-    spawned:
-    - id: FoodMeat
-      amount: 3
-  - type: MonkeyAccent
-  - type: Puller
-  - type: CanHostGuardian
-  - type: DiseaseCarrier
-  - type: Tag
-    tags:
-    - GunsDisabled
-  - type: RandomBark
-    barkMultiplier: 0.65
+    - type: GuidebookControlsTest
 
 - type: entity
   name: mouse
@@ -837,13 +740,14 @@
       layer:
       - SmallMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       10: Critical
       20: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 5
-    baseSprintSpeed : 5
+    baseSprintSpeed : 3
   - type: Appearance
   - type: DamageStateVisuals
     states:
@@ -913,6 +817,11 @@
   - type: MobPrice
     price: 50
   - type: FelinidFood
+  - type: HTN
+    rootTask: IdleEvadeCompound
+  - type: Faction
+    factions:
+    - RatPassive
   - type: IntrinsicRadioReceiver
     channels:
       - RatHive
@@ -1120,9 +1029,11 @@
       path: /Audio/Animals/frog_ribbit.ogg
   - type: Bloodstream
     bloodMaxVolume: 50
+  - type: HTN
+    rootTask: IdleEvadeCompound
   - type: RandomBark
     barkMultiplier: 1.3
-    barks: 
+    barks:
       - Croooaaaakkk
       - Ribbit
       - Ribbit
@@ -1142,7 +1053,7 @@
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed : 6
-    baseSprintSpeed : 6
+    baseSprintSpeed : 3
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -1182,6 +1093,8 @@
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: NoSlip
+  - type: HTN
+    rootTask: IdleEvadeCompound
 
 - type: entity
   name: penguin
@@ -1225,8 +1138,13 @@
     interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/penguin_squawk.ogg
+  - type: Temperature
+    coldDamageThreshold: 235
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
   - type: RandomBark
-    barks: 
+    barks:
       - Wank
     barkMultiplier: 0.6
 
@@ -1237,12 +1155,10 @@
   description: A small penguin with a grenade strapped around its neck. Harvested by the Syndicate from icy shit-hole planets.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed : 7
-    baseSprintSpeed : 7
+    baseWalkSpeed : 5
+    baseSprintSpeed : 3.5
   - type: InputMover
   - type: MobMover
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - Syndicate
@@ -1296,6 +1212,13 @@
     intensitySlope: 20
     totalIntensity: 225
   - type: ExplodeOnTrigger
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:ExplodeBehavior
 
   # I have included a snake_hiss.ogg sound file so if you want to use that be my guest
 - type: entity
@@ -1344,7 +1267,7 @@
     damageModifierSet: Scale
   - type: RandomBark
     barkMultiplier: 1.5
-    barks: 
+    barks:
       - Hsssssss
       - Hss
       - Hsssss
@@ -1420,8 +1343,6 @@
         - Xeno
     - type: InputMover
     - type: MobMover
-    - type: HTN
-      rootTask: SimpleHostileCompound
     - type: GhostTakeoverAvailable
       makeSentient: true
       whitelistRequired: false
@@ -1591,6 +1512,9 @@
       gender: epicene
   - type: Bloodstream
     bloodMaxVolume: 100
+  - type: Faction
+    factions:
+    - Pet
 
 - type: entity
   name: corgi
@@ -1652,6 +1576,9 @@
   - type: MobPrice
     price: 200
   - type: DogVision
+  - type: Faction
+    factions:
+    - Pet
   - type: RandomBark
 
 - type: entity
@@ -1677,6 +1604,8 @@
         Base: narsian_dead
   - type: MeleeWeapon
     hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite
     damage:
@@ -1685,8 +1614,6 @@
         Slash: 5
   - type: InputMover
   - type: MobMover
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - SimpleHostile
@@ -1773,6 +1700,16 @@
       - MobMask
       layer:
       - MobLayer
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 2
+        Piercing: 5
   - type: Appearance
   - type: Inventory
     speciesId: cat
@@ -1807,6 +1744,9 @@
       gender: epicene
   - type: MobPrice
     price: 200
+  - type: Faction
+    factions:
+    - Cat
   - type: RandomBark
 
 - type: entity
@@ -1864,6 +1804,13 @@
   - type: Grammar
     attributes:
       gender: epicene
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: DiseaseProtection
+    protection: 0.05
+  - type: Temperature
+    coldDamageThreshold: 0
 
 - type: entity
   name: caracal cat
@@ -1897,7 +1844,7 @@
   description: Very slow animal. For people with low energy.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed : 1
+    baseWalkSpeed : 1.5
     baseSprintSpeed : 1
   - type: Sprite
     drawdepth: Mobs
@@ -1948,7 +1895,7 @@
       gender: epicene
   - type: RandomBark
     barkMultiplier: 10
-    barks: 
+    barks:
       - Sloth
 
 - type: entity
@@ -2041,13 +1988,14 @@
       layer:
       - SmallMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       40: Critical
       60: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 4
-    baseSprintSpeed : 4
+    baseSprintSpeed : 2
   - type: Appearance
   - type: DamageStateVisuals
     states:
@@ -2104,22 +2052,29 @@
       name: action-name-disarm
   - type: MeleeWeapon
     hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite
     damage:
       types:
         Piercing: 2
-  - type: InteractionPopup
-    successChance: 0.4
-    interactSuccessString: petting-success-hamster
-    interactFailureString: petting-failure-hamster
-    interactSuccessSound:
-      path: /Audio/Animals/fox_squeak.ogg
+  # - type: InteractionPopup
+  #   successChance: 0.4
+  #   interactSuccessString: petting-success-hamster
+  #   interactFailureString: petting-failure-hamster
+  #   interactSuccessSound:
+  #     path: /Audio/Animals/fox_squeak.ogg
   - type: Bloodstream
     bloodMaxVolume: 60
   - type: CanEscapeInventory
   - type: MobPrice
     price: 60
+  - type: HTN
+    rootTask: IdleEvadeCompound
+  - type: Faction
+    factions:
+    - Pet
 
 - type: entity
   name: pig

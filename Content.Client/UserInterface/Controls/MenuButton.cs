@@ -14,9 +14,9 @@ public sealed class MenuButton : ContainerButton
     public const string StyleClassRedTopButton = "topButtonLabel";
     private const float CustomTooltipDelay = 0.4f;
 
-    private static readonly Color ColorNormal = Color.FromHex("#7b7e9e");
+    private static readonly Color ColorNormal = Color.FromHex("#7b7e7e");
     private static readonly Color ColorRedNormal = Color.FromHex("#FEFEFE");
-    private static readonly Color ColorHovered = Color.FromHex("#9699bb");
+    private static readonly Color ColorHovered = Color.FromHex("#969999");
     private static readonly Color ColorRedHovered = Color.FromHex("#FFFFFF");
     private static readonly Color ColorPressed = Color.FromHex("#789B8C");
 
@@ -26,11 +26,11 @@ public sealed class MenuButton : ContainerButton
 
     private BoundKeyFunction _function;
     private readonly BoxContainer _root;
-    private readonly TextureRect _buttonIcon;
-    private readonly Label _buttonLabel;
+    private readonly TextureRect? _buttonIcon;
+    private readonly Label? _buttonLabel;
 
     public string AppendStyleClass { set => AddStyleClass(value); }
-    public Texture? Icon { get => _buttonIcon.Texture; set => _buttonIcon.Texture = value; }
+    public Texture? Icon { get => _buttonIcon!.Texture; set => _buttonIcon!.Texture = value; }
 
     public BoundKeyFunction BoundKey
     {
@@ -38,7 +38,7 @@ public sealed class MenuButton : ContainerButton
         set
         {
             _function = value;
-            _buttonLabel.Text = BoundKeyHelper.ShortKeyName(value);
+            _buttonLabel!.Text = BoundKeyHelper.ShortKeyName(value);
         }
     }
 
@@ -95,12 +95,12 @@ public sealed class MenuButton : ContainerButton
 
     private void OnKeyBindingChanged(IKeyBinding obj)
     {
-        _buttonLabel.Text = BoundKeyHelper.ShortKeyName(_function);
+        _buttonLabel!.Text = BoundKeyHelper.ShortKeyName(_function);
     }
 
     private void OnKeyBindingChanged()
     {
-        _buttonLabel.Text = BoundKeyHelper.ShortKeyName(_function);
+        _buttonLabel!.Text = BoundKeyHelper.ShortKeyName(_function);
     }
 
     protected override void StylePropertiesChanged()
