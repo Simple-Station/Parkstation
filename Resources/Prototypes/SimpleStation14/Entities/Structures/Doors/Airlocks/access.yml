@@ -35,16 +35,6 @@
 
 - type: entity
   parent: AirlockMaint
-  id: AirlockMaintArmoryLocked
-  suffix: Armory, Locked
-  components:
-  - type: AccessReader
-    access: [["Armory"]]
-  - type: Wires
-    LayoutId: AirlockArmory
-
-- type: entity
-  parent: AirlockMaint
   id: AirlockMaintCSSLocked
   suffix: ChiefServiceSupervisor, Locked
   components:
