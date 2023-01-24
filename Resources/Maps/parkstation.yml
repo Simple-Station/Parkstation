@@ -8904,9 +8904,9 @@ entities:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 51,25
-        2628:
+        2836:
           color: '#FFFFFFFF'
-          id: BotGreyscale
+          id: Bot
           coordinates: 49,24
         2629:
           color: '#FFFFFFFF'
@@ -21766,8 +21766,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 17.89022
-      - 67.30131
+      - 17.389294
+      - 65.41687
       - 0
       - 0
       - 0
@@ -21796,8 +21796,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.935778
-      - 71.2346
+      - 18.405577
+      - 69.24003
       - 0
       - 0
       - 0
@@ -21826,8 +21826,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 20.60363
-      - 77.508896
+      - 20.026728
+      - 75.338646
       - 0
       - 0
       - 0
@@ -50230,7 +50230,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 4358
-  type: AirlockCommandGlassLocked
+  type: AirlockHeadOfPersonnelGlassLocked
   components:
   - pos: 33.5,-13.5
     parent: 1
@@ -93991,6 +93991,12 @@ entities:
     type: Transform
   - location: Arrivals
     type: WarpPoint
+- uid: 10135
+  type: LockerMedicine
+  components:
+  - pos: 2.5,-45.5
+    parent: 1
+    type: Transform
 - uid: 10136
   type: Catwalk
   components:
@@ -94035,6 +94041,30 @@ entities:
   - pos: 45.5,-42.5
     parent: 1
     type: Transform
+- uid: 10143
+  type: LockerMedicineFilled
+  components:
+  - pos: 3.5,-45.5
+    parent: 1
+    type: Transform
+- uid: 10144
+  type: Vaccinator
+  components:
+  - pos: 1.5,-43.5
+    parent: 1
+    type: Transform
+- uid: 10145
+  type: DiseaseDiagnoser
+  components:
+  - pos: 1.5,-42.5
+    parent: 1
+    type: Transform
+- uid: 10146
+  type: BoxForensicPad
+  components:
+  - pos: -8.299529,5.457384
+    parent: 1
+    type: Transform
 - uid: 10147
   type: Catwalk
   components:
@@ -94069,6 +94099,42 @@ entities:
   type: Catwalk
   components:
   - pos: 51.5,-38.5
+    parent: 1
+    type: Transform
+- uid: 10153
+  type: ForensicScanner
+  components:
+  - pos: -26.395071,2.7238216
+    parent: 1
+    type: Transform
+- uid: 10154
+  type: OreProcessor
+  components:
+  - pos: 49.5,24.5
+    parent: 1
+    type: Transform
+- uid: 10155
+  type: CableHV
+  components:
+  - pos: -20.5,47.5
+    parent: 1
+    type: Transform
+- uid: 10156
+  type: CableHV
+  components:
+  - pos: -20.5,51.5
+    parent: 1
+    type: Transform
+- uid: 10157
+  type: CableHV
+  components:
+  - pos: 52.5,43.5
+    parent: 1
+    type: Transform
+- uid: 10158
+  type: CableHV
+  components:
+  - pos: 51.5,43.5
     parent: 1
     type: Transform
 - uid: 10159
@@ -94476,6 +94542,18 @@ entities:
   type: Catwalk
   components:
   - pos: 16.5,-37.5
+    parent: 1
+    type: Transform
+- uid: 10222
+  type: CableHV
+  components:
+  - pos: 48.5,43.5
+    parent: 1
+    type: Transform
+- uid: 10223
+  type: CableHV
+  components:
+  - pos: 47.5,43.5
     parent: 1
     type: Transform
 - uid: 10224
@@ -94890,6 +94968,12 @@ entities:
     type: Transform
   - color: '#00FFFFFF'
     type: AtmosPipeColor
+- uid: 10272
+  type: CableHV
+  components:
+  - pos: 46.5,43.5
+    parent: 1
+    type: Transform
 - uid: 10273
   type: Catwalk
   components:
@@ -121115,18 +121199,6 @@ entities:
   components:
   - rot: 1.5707963267948966 rad
     pos: -1.5,-42.5
-    parent: 1
-    type: Transform
-- uid: 14463
-  type: LockerMedical
-  components:
-  - pos: 2.5,-45.5
-    parent: 1
-    type: Transform
-- uid: 14464
-  type: LockerMedical
-  components:
-  - pos: 3.5,-45.5
     parent: 1
     type: Transform
 - uid: 14465
