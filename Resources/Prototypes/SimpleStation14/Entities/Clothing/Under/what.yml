@@ -1,34 +1,32 @@
-- type: entity
-  abstract: true
-  parent: Clothing
-  id: ClothingUnderWhatBase
-  components:
-    - type: Clothing
-      quickEquip: true
-      slots:
-        - SOCKS
-        - UNDERPANTS
-        - UNDERSHIRT
-    - type: Sprite
-      netsync: false
-      noRot: true
-      state: icon
+# - type: entity
+#   abstract: true
+#   parent: Clothing
+#   id: ClothingUnderWhatBase
+#   components:
+#     - type: Clothing
+#       slots:
+#         - SOCKS
+#         - UNDERPANTS
+#         - UNDERSHIRT
+#     - type: Sprite
+#       noRot: true
+#       state: icon
 
-- type: entity
-  parent: ClothingUnderWhatBase
-  id: ClothingUnderWhatMankini
-  name: mankini
-  description: Who thought this was a good idea?
-  components:
-    - type: Sprite
-      sprite: SimpleStation14/Clothing/Under/what.rsi
-      state: mankini
-    - type: Clothing
-      sprite: SimpleStation14/Clothing/Under/what.rsi
-      clothingVisuals:
-        underpants:
-          - state: mankini
-        undershirt:
-          - state: mankini
-        socks:
-          - state: mankini
+# - type: entity
+#   parent: ClothingUnderWhatBase
+#   id: ClothingUnderWhatMankini
+#   name: mankini
+#   description: Who thought this was a good idea?
+#   components:
+#     - type: Sprite
+#       sprite: SimpleStation14/Clothing/Under/what.rsi
+#       state: mankini
+#     - type: Clothing
+#       sprite: SimpleStation14/Clothing/Under/what.rsi
+#       clothingVisuals:
+#         underpants:
+#           - state: mankini
+#         undershirt:
+#           - state: mankini
+#         socks:
+#           - state: mankini

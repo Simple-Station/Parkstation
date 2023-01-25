@@ -1,25 +1,24 @@
 - type: entity
   abstract: true
+  description: Keep your private parts all cozy!
   parent: Clothing
   id: ClothingUnderPantsBase
   components:
     - type: Clothing
-      quickEquip: true
       slots:
         - UNDERPANTS
     - type: Sprite
-      netsync: false
-      noRot: true
+      # noRot: true
       state: icon
 
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderbee_shorts
-  name: bee_shorts
+  name: bee shorts
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: bee_shorts
+      state: bee_shorts-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -28,11 +27,11 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxer_briefs
-  name: boxer_briefs
+  name: boxer briefs
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: boxer_briefs
+      state: boxer_briefs-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -41,11 +40,11 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_assblastusa
-  name: boxers_assblastusa
+  name: american flag boxers
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: boxers_assblastusa
+      state: boxers_assblastusa-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -54,11 +53,11 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_commie
-  name: boxers_commie
+  name: commie boxers
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: boxers_commie
+      state: boxers_commie-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -67,11 +66,11 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_heart
-  name: boxers_heart
+  name: heart boxers
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: boxers_heart
+      state: boxers_heart-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -80,11 +79,11 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_striped
-  name: boxers_striped
+  name: striped boxers
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: boxers_striped
+      state: boxers_striped-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -93,11 +92,11 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_uk
-  name: boxers_uk
+  name: union jack boxers
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: boxers_uk
+      state: boxers_uk-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -110,7 +109,7 @@
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: boxers
+      state: boxers-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -123,46 +122,46 @@
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: briefs
+      state: briefs-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
         underpants:
           - state: briefs
-- type: entity
-  parent: ClothingUnderPantsBase
-  id: ClothingUnderfishnet_lower
-  name: fishnet_lower
-  components:
-    - type: Sprite
-      sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: fishnet_lower
-    - type: Clothing
-      sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      clothingVisuals:
-        underpants:
-          - state: fishnet_lower
-- type: entity
-  parent: ClothingUnderPantsBase
-  id: ClothingUnderjockstrap
-  name: jockstrap
-  components:
-    - type: Sprite
-      sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: jockstrap
-    - type: Clothing
-      sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      clothingVisuals:
-        underpants:
-          - state: jockstrap
+# - type: entity
+#   parent: ClothingUnderPantsBase
+#   id: ClothingUnderfishnet_lower
+#   name: fishnet lower underwear
+#   components:
+#     - type: Sprite
+#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
+#       state: fishnet_lower-ICON
+#     - type: Clothing
+#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
+#       clothingVisuals:
+#         underpants:
+#           - state: fishnet_lower
+# - type: entity
+#   parent: ClothingUnderPantsBase
+#   id: ClothingUnderjockstrap
+#   name: jockstrap
+#   components:
+#     - type: Sprite
+#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
+#       state: jockstrap-ICON
+#     - type: Clothing
+#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
+#       clothingVisuals:
+#         underpants:
+#           - state: jockstrap
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderljonb
-  name: ljonb
+  name: long john pants
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: ljonb
+      state: ljonb-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -171,11 +170,11 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_alt
-  name: panties_alt
+  name: panties
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: panties_alt
+      state: panties_alt-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -184,11 +183,11 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_assblastusa
-  name: panties_assblastusa
+  name: american flag panties
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: panties_assblastusa
+      state: panties_assblastusa-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -197,11 +196,11 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_bee-kini
-  name: panties_bee-kini
+  name: bee-kini panties
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: panties_bee-kini
+      state: panties_bee-kini-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -210,37 +209,37 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_commie
-  name: panties_commie
+  name: commie panties
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: panties_commie
+      state: panties_commie-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
         underpants:
           - state: panties_commie
-- type: entity
-  parent: ClothingUnderPantsBase
-  id: ClothingUnderpanties_kinky
-  name: panties_kinky
-  components:
-    - type: Sprite
-      sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: panties_kinky
-    - type: Clothing
-      sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      clothingVisuals:
-        underpants:
-          - state: panties_kinky
+# - type: entity
+#   parent: ClothingUnderPantsBase
+#   id: ClothingUnderpanties_kinky
+#   name: kinky panties
+#   components:
+#     - type: Sprite
+#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
+#       state: panties_kinky-ICON
+#     - type: Clothing
+#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
+#       clothingVisuals:
+#         underpants:
+#           - state: panties_kinky
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_neko
-  name: panties_neko
+  name: neko panties
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: panties_neko
+      state: panties_neko-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -249,11 +248,11 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_slim
-  name: panties_slim
+  name: slim panties
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: panties_slim
+      state: panties_slim-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -262,37 +261,37 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_swimming
-  name: panties_swimming
+  name: swimming panties
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: panties_swimming
+      state: panties_swimming-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
         underpants:
           - state: panties_swimming
-- type: entity
-  parent: ClothingUnderPantsBase
-  id: ClothingUnderpanties_thin
-  name: panties_thin
-  components:
-    - type: Sprite
-      sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: panties_thin
-    - type: Clothing
-      sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      clothingVisuals:
-        underpants:
-          - state: panties_thin
+# - type: entity
+#   parent: ClothingUnderPantsBase
+#   id: ClothingUnderpanties_thin
+#   name: thin panties
+#   components:
+#     - type: Sprite
+#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
+#       state: panties_thin-ICON
+#     - type: Clothing
+#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
+#       clothingVisuals:
+#         underpants:
+#           - state: panties_thin
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_uk
-  name: panties_uk
+  name: union jack panties
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: panties_uk
+      state: panties_uk-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -301,29 +300,29 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties
-  name: panties
+  name: regular panties
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: panties
+      state: panties-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
         underpants:
           - state: panties
-- type: entity
-  parent: ClothingUnderPantsBase
-  id: ClothingUnderpantyhose_ripped
-  name: pantyhose_ripped
-  components:
-    - type: Sprite
-      sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: pantyhose_ripped
-    - type: Clothing
-      sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      clothingVisuals:
-        underpants:
-          - state: pantyhose_ripped
+# - type: entity
+#   parent: ClothingUnderPantsBase
+#   id: ClothingUnderpantyhose_ripped
+#   name: ripped pantyhose
+#   components:
+#     - type: Sprite
+#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
+#       state: pantyhose_ripped-ICON
+#     - type: Clothing
+#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
+#       clothingVisuals:
+#         underpants:
+#           - state: pantyhose_ripped
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpantyhose
@@ -331,7 +330,7 @@
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: pantyhose
+      state: pantyhose-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
@@ -340,29 +339,29 @@
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderstriped_panties
-  name: striped_panties
+  name: striped panties
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: striped_panties
+      state: striped_panties-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
         underpants:
           - state: striped_panties
-- type: entity
-  parent: ClothingUnderPantsBase
-  id: ClothingUnderthong_babydoll
-  name: thong_babydoll
-  components:
-    - type: Sprite
-      sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: thong_babydoll
-    - type: Clothing
-      sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      clothingVisuals:
-        underpants:
-          - state: thong_babydoll
+# - type: entity
+#   parent: ClothingUnderPantsBase
+#   id: ClothingUnderthong_babydoll
+#   name: thong babydoll
+#   components:
+#     - type: Sprite
+#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
+#       state: thong_babydoll-ICON
+#     - type: Clothing
+#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
+#       clothingVisuals:
+#         underpants:
+#           - state: thong_babydoll
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderthong
@@ -370,7 +369,7 @@
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-      state: thong
+      state: thong-ICON
     - type: Clothing
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
       clothingVisuals:
