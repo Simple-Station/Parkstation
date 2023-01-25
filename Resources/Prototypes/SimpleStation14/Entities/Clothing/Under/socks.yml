@@ -232,19 +232,19 @@
 #       clothingVisuals:
 #         socks:
 #           - state: fishnet
-# - type: entity
-#   parent: ClothingUnderSocksBase
-#   id: ClothingUnderGarter
-#   name: garter
-#   components:
-#     - type: Sprite
-#       sprite: SimpleStation14/Clothing/Under/socks.rsi
-#       state: garter-ICON
-#     - type: Clothing
-#       sprite: SimpleStation14/Clothing/Under/socks.rsi
-#       clothingVisuals:
-#         socks:
-#           - state: garter
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderGarter
+  name: garter
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: garter-ICON
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: garter
 - type: entity
   parent: ClothingUnderSocksBase
   id: ClothingUnderRainbow_knee

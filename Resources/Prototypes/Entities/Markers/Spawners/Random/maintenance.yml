@@ -48,8 +48,8 @@
         - ClothingHeadHelmetCosmonaut
         - ClothingHeadHelmetScaf
         - ClothingShoeSlippersDuck
-        - ClothingUnderSocksBee
-        - ClothingUnderSocksCoder
+        - ClothingUnderBee_knee
+        - ClothingUnderStockings_lpink
         - ClothingHeadHatSquid
       chance: 0.6
       offset: 0.0

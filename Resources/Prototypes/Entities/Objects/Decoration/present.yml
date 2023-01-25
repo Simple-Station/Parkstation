@@ -209,9 +209,9 @@
         orGroup: GiftPool
       - id: ClothingShoeSlippersDuck
         orGroup: GiftPool
-      - id: ClothingUnderSocksBee
+      - id: ClothingUnderBee_knee
         orGroup: GiftPool
-      - id: ClothingUnderSocksCoder
+      - id: ClothingUnderStockings_lpink
         orGroup: GiftPool
       - id: ClothingBeltUtilityFilled
         orGroup: GiftPool
