@@ -1,0 +1,9 @@
+- type: entity
+  parent: VendingMachineRestockClothes
+  id: VendingMachineRestockUnderwear
+  name: UnderVend restock box
+  description: Place inside the UnderVend restock slot.
+  components:
+    - type: VendingMachineRestock
+      canRestock:
+        - UnderVendInventory

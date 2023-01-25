@@ -1,0 +1,31 @@
+- type: vendingMachineInventory
+  id: UnderVendInventory
+  startingInventory:
+    # Shirts
+    ClothingUnderundershirt: 4
+    ClothingUndershortsleeve: 4
+    ClothingUndertanktop: 4
+    ClothingUndertanktop_alt: 4
+
+    # Bras
+    ClothingUnderbra: 4
+    ClothingUnderbra_alt: 4
+    ClothingUndersports_bra: 4
+
+    # Pants
+    ClothingUnderboxer_briefs: 4
+    ClothingUnderboxers: 4
+    ClothingUnderbriefs: 4
+    ClothingUnderpanties: 4
+
+    # Socks
+    ClothingUnderSocks_short: 4
+    ClothingUnderSocks_norm: 4
+    ClothingUnderSocks_knee: 4
+    ClothingUnderSocks_thigh: 4
+
+    # Striped
+    ClothingUnderstriped_bra: 2
+    ClothingUnderstriped_panties: 2
+    ClothingUnderStriped_knee: 2
+    ClothingUnderStriped_thigh: 2
