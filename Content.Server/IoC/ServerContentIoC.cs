@@ -25,7 +25,6 @@ using Content.Shared.Kitchen;
 using Content.Shared.Module;
 using Content.Server.Corvax.JoinQueue;
 using Content.Server.Corvax.Sponsors;
-using Content.Server.Corvax.TTS;
 
 namespace Content.Server.IoC
 {
@@ -61,7 +60,6 @@ namespace Content.Server.IoC
             IoCManager.Register<UserDbDataManager>();
             IoCManager.Register<SponsorsManager>(); // Corvax-Sponsors
             IoCManager.Register<JoinQueueManager>(); // Corvax-Queue
-            IoCManager.Register<TTSManager>(); // Corvax-TTS
             IoCManager.Register<ServerInfoManager>();
         }
     }

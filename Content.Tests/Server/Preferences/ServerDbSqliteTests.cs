@@ -49,7 +49,6 @@ namespace Content.Tests.Server.Preferences
                 "Charlie Charlieson",
                 "The biggest boy around.",
                 "Human",
-                "Eugene", // Corvax-TTS
                 21,
                 Sex.Male,
                 Gender.Epicene,

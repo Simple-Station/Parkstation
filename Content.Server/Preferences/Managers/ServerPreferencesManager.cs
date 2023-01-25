@@ -14,7 +14,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Content.Server.Corvax.JoinQueue;
 using Content.Server.Corvax.Sponsors;
-using Content.Server.Corvax.TTS;
 
 
 namespace Content.Server.Preferences.Managers
