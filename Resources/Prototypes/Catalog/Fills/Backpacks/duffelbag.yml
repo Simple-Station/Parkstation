@@ -183,6 +183,8 @@
       - id: PlushieCarp
       - id: PlushieNuke
       - id: PlushieLizard
+      - id: PlushieLizardRGB
+        prob: 0.5
       - id: PlushieSharkBlue
 
 - type: entity

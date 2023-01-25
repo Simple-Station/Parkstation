@@ -65,6 +65,8 @@
         orGroup: GiftPool
       - id: PlushieLizard #Weh!
         orGroup: GiftPool
+      - id: PlushieLizardRGB
+        orGroup: GiftPool
       - id: PlushieNar
         orGroup: GiftPool
       - id: PlushieCarp
