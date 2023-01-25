@@ -26,10 +26,15 @@
       - PaintingSleepingGypsy
       - PaintingRedBlueYellow
       - PaintingHelloWorld
+      # Parkstation
+      - PaintingAmericanGothic
+      - PaintingEverythingsFine
     chance: 1
     rarePrototypes:
       - PaintingSkeletonBoof
       - PaintingEmpty
       - PaintingMoony
       - PaintingAmogusTriptych
+      # Parkstation
+      - PaintingLois
     rareChance: 0.01

@@ -5,7 +5,8 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.SimpleStation14.Abilities.Psionics;
 using Content.Server.Mind.Components;
 using Robust.Shared.Prototypes;
-using Content.Shared.MobState;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Server.Abilities.Psionics;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -24,6 +25,7 @@ namespace Content.Server.SimpleStation14.Abilities.Psionics
         [Dependency] private readonly MindSwapPowerSystem _mindSwap = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private readonly MobStateSystem _mobState = default!;
 
         public override void Initialize()
         {
@@ -81,7 +83,7 @@ namespace Content.Server.SimpleStation14.Abilities.Psionics
 
         private void OnMobStateChanged(EntityUid uid, AITelegnosisPowerComponent component, MobStateChangedEvent args)
         {
-            if (args.CurrentMobState is not DamageState.Dead) return;
+            if (!_mobState.IsDead(uid)) return;
 
             TryComp<MindSwappedComponent>(component.Owner, out var mindSwapped);
             if (mindSwapped == null) return;

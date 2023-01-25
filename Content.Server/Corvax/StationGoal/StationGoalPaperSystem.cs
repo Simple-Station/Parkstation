@@ -15,13 +15,13 @@ namespace Content.Server.Corvax.StationGoal
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly FaxSystem _faxSystem = default!;
-        
+
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<RoundStartedEvent>(OnRoundStarted);
         }
-        
+
         private void OnRoundStarted(RoundStartedEvent ev)
         {
             SendRandomGoal();
@@ -49,6 +49,7 @@ namespace Content.Server.Corvax.StationGoal
                 var printout = new FaxPrintout(
                     Loc.GetString(goal.Text),
                     Loc.GetString("station-goal-fax-paper-name"),
+                    null,
                     "paper_stamp-cent",
                     new() { Loc.GetString("stamp-component-stamped-name-centcom") });
                 _faxSystem.Receive(fax.Owner, printout, null, fax);

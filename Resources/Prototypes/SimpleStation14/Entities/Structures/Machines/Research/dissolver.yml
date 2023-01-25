@@ -16,7 +16,7 @@
   - type: Speech
     speechSounds: Pai
   - type: ApcPowerReceiver
-    powerLoad: 2000
+    powerLoad: 250
   - type: PointLight
     enabled: false
     # castShadows: false

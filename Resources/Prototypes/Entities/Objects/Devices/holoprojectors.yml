@@ -42,5 +42,8 @@
   - type: Tag
     tags:
       - HolofanProjector
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 80
+  - type: ReverseEngineering
+    recipes:
+      - HolofanProjector

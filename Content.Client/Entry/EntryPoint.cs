@@ -7,6 +7,7 @@ using Content.Client.Corvax.TTS;
 using Content.Client.Eui;
 using Content.Client.Flash;
 using Content.Client.GhostKick;
+using Content.Client.Guidebook;
 using Content.Client.Info;
 using Content.Client.Input;
 using Content.Client.IoC;
@@ -63,6 +64,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly IVoteManager _voteManager = default!;
         [Dependency] private readonly IGamePrototypeLoadManager _gamePrototypeLoadManager = default!;
         [Dependency] private readonly NetworkResourceManager _networkResources = default!;
+        [Dependency] private readonly DocumentParsingManager _documentParsingManager = default!;
         [Dependency] private readonly GhostKickManager _ghostKick = default!;
         [Dependency] private readonly ExtendedDisconnectInformationManager _extendedDisconnectInformation = default!;
         [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
@@ -167,6 +169,7 @@ namespace Content.Client.Entry
             _sponsorsManager.Initialize(); // Corvax-Sponsors
             _queueManager.Initialize(); // Corvax-Queue
             _ttsManager.Initialize(); // Corvax-TTS
+            _documentParsingManager.Initialize();
 
             _baseClient.RunLevelChanged += (_, args) =>
             {

@@ -9,8 +9,11 @@
   access:
   - Medical
   - Chemistry
-  extendedAccess:
   - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: MedicalTraining
 
 - type: startingGear
   id: DoctorGear

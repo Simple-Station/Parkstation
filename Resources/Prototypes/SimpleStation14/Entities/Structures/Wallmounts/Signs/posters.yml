@@ -68,3 +68,14 @@
   components:
   - type: Sprite
     state: poster7_parlour
+
+#maps
+
+- type: entity
+  parent: PosterBasePark
+  id: PosterMapParkStation
+  name: "ParkStation Map"
+  description: "A map of ParkStation."
+  components:
+  - type: Sprite
+    state: parkstationmap

@@ -42,9 +42,10 @@
     - type: Artifact
     - type: RandomArtifactSprite
     - type: Appearance
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 500
     - type: Actions
+    - type: Psionic
 
 - type: entity
   parent: BaseXenoArtifact

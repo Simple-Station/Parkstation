@@ -254,7 +254,7 @@
     damageCoefficient: 0.5
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitRd
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 750
 
 - type: entity
@@ -369,6 +369,11 @@
     damageCoefficient: 0.5
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndie
+  - type: ReverseEngineering
+    difficulty: 5
+    newItem: ClothingOuterHardsuitSyndieReverseEngineered
+    recipes:
+      - ClothingOuterHardsuitSyndieReverseEngineered
 
 - type: entity
   parent: ClothingOuterHardsuitBase

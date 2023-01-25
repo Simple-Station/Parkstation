@@ -1,5 +1,7 @@
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Fax;
 
@@ -143,16 +145,20 @@ public sealed class FaxPrintout
     [DataField("content")]
     public string Content { get; }
 
+    [DataField("prototypeId", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string PrototypeId { get; }
+
     [DataField("stampState")]
     public string? StampState { get; }
 
     [DataField("stampedBy")]
     public List<string> StampedBy { get; }
 
-    public FaxPrintout(string content, string name, string? stampState = null, List<string>? stampedBy = null)
+    public FaxPrintout(string content, string name, string? prototypeId, string? stampState = null, List<string>? stampedBy = null)
     {
         Content = content;
         Name = name;
+        PrototypeId = prototypeId ?? "";
         StampState = stampState;
         StampedBy = stampedBy ?? new List<string>();
     }

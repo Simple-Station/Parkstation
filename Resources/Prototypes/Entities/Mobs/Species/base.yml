@@ -39,7 +39,7 @@
   - type: Barotrauma
     damage:
       types:
-        Blunt: 0.15 #per second, scales with pressure and other constants.
+        Blunt: 0.35 #per second, scales with pressure and other constants.
   - type: DamageOnHighSpeedImpact
     damage:
       types:
@@ -137,8 +137,6 @@
         - map: ["eyes"]
         - map: ["belt"]
         - map: ["neck"]
-        - map: ["enum.HumanoidVisualLayers.Tail"]
-        - map: ["enum.HumanoidVisualLayers.Wings"]
         - map: ["back"]
         - map: ["enum.HumanoidVisualLayers.FacialHair"]
         - map: ["enum.HumanoidVisualLayers.Hair"]
@@ -148,6 +146,8 @@
         - map: ["head"]
         - map: ["pocket1"]
         - map: ["pocket2"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]
+        - map: ["enum.HumanoidVisualLayers.Wings"]
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -197,6 +197,7 @@
     thermalRegulationTemperatureThreshold: 25
   - type: Internals
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       100: Critical
@@ -234,6 +235,7 @@
       - type: CreamPiedVisualizer
         state: creampie_human
   - type: RotationVisuals
+  - type: FloatingVisuals
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning
@@ -352,8 +354,6 @@
         - map: ["eyes"]
         - map: ["belt"]
         - map: ["neck"]
-        - map: ["enum.HumanoidVisualLayers.Tail"]
-        - map: ["enum.HumanoidVisualLayers.Wings"]
         - map: ["back"]
         - map: ["enum.HumanoidVisualLayers.FacialHair"]
         - map: ["enum.HumanoidVisualLayers.Hair"]
@@ -363,6 +363,8 @@
         - map: ["head"]
         - map: ["pocket1"]
         - map: ["pocket2"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]
+        - map: ["enum.HumanoidVisualLayers.Wings"]
     - type: Physics
       bodyType: Dynamic
     - type: Fixtures
@@ -385,6 +387,7 @@
     - type: Damageable
       damageContainer: Biological
     - type: MobState
+    - type: MobThresholds
       thresholds:
         0: Alive
         100: Critical

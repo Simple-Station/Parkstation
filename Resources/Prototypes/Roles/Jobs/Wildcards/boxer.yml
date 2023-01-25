@@ -10,8 +10,6 @@
   access:
   - Service
   - Theatre
-  extendedAccess:
-  - Maintenance
   special:
   - !type:AddComponentSpecial
     components:

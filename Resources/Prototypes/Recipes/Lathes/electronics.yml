@@ -48,6 +48,15 @@
      Plastic: 50
 
 - type: latheRecipe
+  id: CloningPodMachineCircuitboard
+  result: CloningPodMachineCircuitboard
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
+     Gold: 100
+
+- type: latheRecipe
   id: ThermomachineFreezerMachineCircuitBoard
   result: ThermomachineFreezerMachineCircuitBoard
   completetime: 4
@@ -194,6 +203,22 @@
      Gold: 100
 
 - type: latheRecipe
+  id: AnomalyVesselCircuitboard
+  result: AnomalyVesselCircuitboard
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
+
+- type: latheRecipe
+  id: APECircuitboard
+  result: APECircuitboard
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
+
+- type: latheRecipe
   id: ReagentGrinderMachineCircuitboard
   result: ReagentGrinderMachineCircuitboard
   completetime: 4
@@ -220,21 +245,22 @@
      Gold: 100
 
 - type: latheRecipe
+  id: TechDiskComputerCircuitboard
+  icon: { sprite: Objects/Misc/module.rsi, state: cpu_science }
+  result: TechDiskComputerCircuitboard
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
+     Gold: 100
+
+- type: latheRecipe
   id: CrewMonitoringComputerCircuitboard
   result: CrewMonitoringComputerCircuitboard
   completetime: 4
   materials:
      Steel: 100
      Glass: 900
-
-- type: latheRecipe
-  id: ShuttleConsoleCircuitboard
-  result: ShuttleConsoleCircuitboard
-  completetime: 4
-  materials:
-     Steel: 100
-     Glass: 900
-     Gold: 100
 
 - type: latheRecipe
   id: RadarConsoleCircuitboard
@@ -461,24 +487,6 @@
     Glass: 900
 
 - type: latheRecipe
-  id: ThrusterMachineCircuitboard
-  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
-  result: ThrusterMachineCircuitboard
-  completetime: 4
-  materials:
-    Steel: 100
-    Glass: 900
-
-- type: latheRecipe
-  id: GyroscopeMachineCircuitboard
-  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
-  result: GyroscopeMachineCircuitboard
-  completetime: 4
-  materials:
-    Steel: 100
-    Glass: 900
-
-- type: latheRecipe
   id: GasRecyclerMachineCircuitboard
   result: GasRecyclerMachineCircuitboard
   completetime: 4
@@ -493,3 +501,31 @@
   materials:
     Steel: 100
     Glass: 900
+
+- type: latheRecipe
+  id: BoozeDispenserMachineCircuitboard
+  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
+  result: BoozeDispenserMachineCircuitboard
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
+
+- type: latheRecipe
+  id: SodaDispenserMachineCircuitboard
+  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
+  result: SodaDispenserMachineCircuitboard
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
+
+- type: latheRecipe
+  id: ClothingEyesHudMedical
+  icon: { sprite: Clothing/Eyes/Hud/med.rsi, state: icon }
+  result: ClothingEyesHudMedical
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 300
+    Plasma: 200

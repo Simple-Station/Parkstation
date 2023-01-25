@@ -10,9 +10,14 @@
     drawdepth: SmallObjects
     state: soda
     netsync: false
-    offset: 0, 0.35
+    offset: 0, 0.10
   - type: ReagentDispenser
     pack: SodaDispenserInventory
     emagPack: SodaDispenserEmagInventory
   - type: Transform
-    noRot: false 
+    noRot: false  
+  - type: Machine
+    board: SodaDispenserMachineCircuitboard
+  - type: Wires
+    BoardName: "SodaDispenser"
+    LayoutId: SodaDispenser
