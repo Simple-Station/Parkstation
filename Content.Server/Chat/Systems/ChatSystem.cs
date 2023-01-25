@@ -478,7 +478,6 @@ public sealed partial class ChatSystem : SharedChatSystem
     private string SanitizeInGameICMessage(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false)
     {
         var newMessage = message.Trim();
-        newMessage = ReplaceWords(newMessage); // Corvax-ChatSanitize
         if (capitalize)
             newMessage = SanitizeMessageCapital(newMessage);
         if (punctuate)
