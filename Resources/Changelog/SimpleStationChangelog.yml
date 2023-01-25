@@ -1097,3 +1097,9 @@ Entries:
       - { message: "Added Morty.", type: Add }
     id: 82
     time: "2023-01-23T17:36:30.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: 'Add several new tips.', type: Add }
+      - { message: 'Add showtip command for admins.', type: Add }
+    id: 83
+    time: "2023-01-24T09:41:29.0000000+00:00"

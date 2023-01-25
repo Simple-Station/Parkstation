@@ -82,7 +82,7 @@ public sealed class TipsSystem : EntitySystem
         _tipsDataset = value;
     }
 
-    private void AnnounceRandomTip()
+    public void AnnounceRandomTip()
     {
         if (!_prototype.TryIndex<DatasetPrototype>(_tipsDataset, out var tips))
             return;

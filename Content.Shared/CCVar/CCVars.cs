@@ -457,7 +457,7 @@ namespace Content.Shared.CCVar
         ///     The number of seconds between each tip being displayed when the round is actively going
         /// </summary>
         public static readonly CVarDef<float> TipFrequencyInRound =
-            CVarDef.Create("tips.in_game_frequency", 60f * 60);
+            CVarDef.Create("tips.in_game_frequency", 60f * 45);
 
         /*
          * Console
