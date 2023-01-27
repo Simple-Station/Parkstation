@@ -105,8 +105,8 @@
       - ClothingOuterCoatLab
       - ClothingShoesFlippers
       - ClothingShoesTourist
-      - ClothingUnderSocksBee
-      - ClothingUnderSocksCoder
+      - ClothingUnderBee_knee
+      - ClothingUnderStockings_lpink
     chance: 0.75
     rarePrototypes:
       - CigCartonGreen

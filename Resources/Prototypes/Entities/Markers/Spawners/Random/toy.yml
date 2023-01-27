@@ -11,12 +11,12 @@
     - type: RandomSpawner
       rarePrototypes:
         - FoamBlade
+        - PlushieLizardRGB
       rareChance: 0.03
       prototypes:
         - PlushieBee
         - PlushieNuke
         - PlushieLizard
-        - PlushieLizardRGB
         - PlushieNar
         - PlushieCarp
         - PlushieSlime
@@ -31,7 +31,7 @@
         - PlushieSharkGrey
         - ToyAmongPequeno
         - ToyMouse
-      chance: 0.5
+      chance: 0.8
       offset: 0.2
 
 - type: entity
