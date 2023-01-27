@@ -14,17 +14,17 @@
   startingGear: CyborgGear # for char preview only
   alwaysUseSpawner: true
 
-- type: startingGear
-  id: AIGear
-  equipment:
-    id: AIPDA
-  inhand:
-    hand 1: AIPDA
-    hand 2: DoorRemoteAI
-- type: startingGear
-  id: AIGearUnremoveable
-  equipment:
-    id: AIPDAur
-  inhand:
-    hand 1: AIPDAur
-    hand 2: DoorRemoteAIur
+# - type: startingGear
+#   id: AIGear
+#   equipment:
+#     id: AIPDA
+#   inhand:
+#     hand 1: AIPDA
+#     hand 2: DoorRemoteAI
+# - type: startingGear
+#   id: AIGearUnremoveable
+#   equipment:
+#     id: AIPDAur
+#   inhand:
+#     hand 1: AIPDAur
+#     hand 2: DoorRemoteAIur

@@ -1114,5 +1114,6 @@ Entries:
     changes:
       - { message: "OwO accent doesn't use Kaomojis if from trait.", type: Tweak }
       - { message: 'Remove Captain access from AllAccess, add CSS.', type: Tweak }
+      - { message: 'Station AI no longer drops PDA immediately.', type: Fix }
     id: 85
     time: "2022-01-26T19:33:33.0000000+00:00"
