@@ -1113,5 +1113,6 @@ Entries:
   - author: "DEATHB4DEFEAT"
     changes:
       - { message: "OwO accent doesn't use Kaomojis if from trait.", type: Tweak }
+      - { message: 'Remove Captain access from AllAccess, add CSS.', type: Tweak }
     id: 85
     time: "2022-01-26T19:33:33.0000000+00:00"

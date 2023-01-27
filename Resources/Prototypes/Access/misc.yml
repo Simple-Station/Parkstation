@@ -2,12 +2,13 @@
   id: AllAccess
   tags:
   - EmergencyShuttleRepealAll
-  - Captain
+  # - Captain
   - HeadOfPersonnel
   - ChiefEngineer
   - ChiefMedicalOfficer
   - HeadOfSecurity
   - ResearchDirector
+  - ChiefServiceSupervisor
   - Command
   - Security
   - Armory
