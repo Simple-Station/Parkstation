@@ -76,9 +76,6 @@ namespace Content.Shared.Roles
                 }
                 // Commando no longer, underwear shall be worn.
 
-                if (slot == "socks" && string.IsNullOrEmpty(_undersocks))
-                    return "ClothingUnderSocks_norm";
-
                 // Handles equipping all crew with underwear without putting it in every file.
                 // Checks for skirt settings, if skirt = true, equip with panties and bra
                 // if skirt = false, equip with boxers and shirt.
@@ -93,6 +90,9 @@ namespace Content.Shared.Roles
                     return "ClothingUnderundershirt";
                 if (slot == "undershirt" && profile.Clothing == ClothingPreference.Jumpskirt && string.IsNullOrEmpty(_undershirtskirt))
                     return "ClothingUnderbra";
+
+                if (slot == "socks" && string.IsNullOrEmpty(_undersocks))
+                    return "ClothingUnderSocks_norm";
 
                 // Handles custom underwear per role.
 

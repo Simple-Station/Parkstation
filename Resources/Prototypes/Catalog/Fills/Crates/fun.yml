@@ -6,7 +6,6 @@
     contents:
       - id: PlushieBee
         amount: 1
-      - id: PlushieRGBee
       - id: PlushieNar
         amount: 1
       - id: PlushieCarp
@@ -19,8 +18,6 @@
         amount: 1
       - id: PlushieLizard
         amount: 1
-      - id: PlushieLizardRGB
-        prob: 0.5
       - id: PlushieSpaceLizard
         amount: 1
       - id: PlushieVox
@@ -31,6 +28,12 @@
         amount: 1
       - id: PlushieSharkBlue
         amount: 1
+      - id: PlushieRGBee
+        amount: 1
+        prob: 0.20
+      - id: PlushieLizardRGB
+        amount: 1
+        prob: 0.20
 
 - type: entity
   id: CrateFunCrewmates
@@ -170,7 +173,7 @@
         amount: 4
       - id: KnifePlastic
         amount: 1
-
+        
 - type: entity
   id: CrateFunSyndicateSegway
   parent: CrateLivestock
