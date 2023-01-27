@@ -162,7 +162,7 @@
       fixtures:
         - shape: !type:PhysShapeCircle
             radius: 0.35
-          mass: 1000
+          density: 1000
           mask:
             - GhostImpassable
           layers:
