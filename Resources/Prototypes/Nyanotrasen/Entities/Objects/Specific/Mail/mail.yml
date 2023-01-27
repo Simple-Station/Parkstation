@@ -553,6 +553,9 @@
       orGroup: Plushie
     - id: PlushieLizard
       orGroup: Plushie
+    - id: PlushieLizardRGB
+      prob: 0.5
+      orGroup: Plushie
     - id: PlushieSpaceLizard
       orGroup: Plushie
     - id: PlushieRatvar
