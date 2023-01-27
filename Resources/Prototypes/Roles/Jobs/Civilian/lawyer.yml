@@ -26,3 +26,5 @@
   backpack: ClothingBackpackFilled
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
+  undershirt: ClothingUndertanktop
+  undersocks: ClothingUnderGarter
