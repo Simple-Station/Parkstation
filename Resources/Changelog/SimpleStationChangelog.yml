@@ -1105,3 +1105,8 @@ Entries:
       - { message: 'Severl improvements to parkstation.', type: Tweak }
     id: 83
     time: "2023-01-24T09:41:29.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "OwO accent doesn't use Kaomojis if from trait.", type: Tweak }
+    id: 84
+    time: "2022-01-26T19:33:33.0000000+00:00"
