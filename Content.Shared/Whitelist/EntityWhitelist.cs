@@ -100,13 +100,13 @@ namespace Content.Shared.Whitelist
                 return RequireAll ? tagSystem.HasAllTags(tags, Tags) : tagSystem.HasAnyTag(tags, Tags);
             }
 
-            if (Species != null && entityManager.TryGetComponent(uid, out HumanoidComponent? humanoid))
-            {
-                foreach (var species in Species)
-                {
-                    if (humanoid.Species == species) return true;
-                }
-            }
+            // if (Species != null && entityManager.TryGetComponent(uid, out HumanoidComponent? humanoid))
+            // {
+            //     foreach (var species in Species)
+            //     {
+            //         if (humanoid.Species == species) return true;
+            //     }
+            // }
 
             return false;
         }
