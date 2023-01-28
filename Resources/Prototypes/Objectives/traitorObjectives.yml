@@ -102,6 +102,8 @@
       conditions:
         - DieCondition
     - !type:NotRoleRequirement
+      roleId: ResearchDirector
+    - !type:NotRoleRequirement
       roleId: Mystagogue
   conditions:
     - !type:StealCondition
@@ -117,6 +119,8 @@
   - !type:IncompatibleConditionsRequirement
     conditions:
     - DieCondition
+  - !type:NotRoleRequirement
+    roleId: ResearchDirector
   conditions:
   - !type:StealCondition
     prototype: HandTeleporter
@@ -140,6 +144,8 @@
       roleId: ChiefEngineer
     - !type:NotRoleRequirement
       roleId: ChiefMedicalOfficer
+    - !type:NotRoleRequirement
+      roleId: ResearchDirector
     - !type:NotRoleRequirement
       roleId: Mystagogue
   conditions:

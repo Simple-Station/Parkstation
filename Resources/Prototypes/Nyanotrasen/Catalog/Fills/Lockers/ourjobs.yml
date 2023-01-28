@@ -39,3 +39,13 @@
       - id: FlashlightSeclite
       - id: ForensicScanner
       - id: BoxForensicPad
+
+- type: entity
+  id: VendingMachineForensics
+  name: Forensics Wardrobe
+  description: A fez dispenser.
+  components:
+  - type: VendingMachine
+    pack: DetDrobeInventory
+  - type: AccessReader
+    access: [["Detective"]]

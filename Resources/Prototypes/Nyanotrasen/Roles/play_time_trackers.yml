@@ -24,6 +24,3 @@
 
 - type: playTimeTracker
   id: JobPrisoner
-
-- type: playTimeTracker
-  id: JobValet

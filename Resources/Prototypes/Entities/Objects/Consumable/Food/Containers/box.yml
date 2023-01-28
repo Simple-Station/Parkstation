@@ -436,6 +436,8 @@
         orGroup: GiftPool
       - id: FoamBlade
         orGroup: GiftPool
+      - id: ToySkeleton
+        orGroup: GiftPool
       - id: ClothingHeadHatBunny
         orGroup: GiftPool
       - id: PersonalAI
@@ -575,6 +577,8 @@
       - id: ToySkeleton
         orGroup: GiftPool
       - id: FoamBlade
+        orGroup: GiftPool
+      - id: ToySkeleton
         orGroup: GiftPool
       - id: ClothingHeadHatBunny
         orGroup: GiftPool

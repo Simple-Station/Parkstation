@@ -74913,7 +74913,7 @@ entities:
     parent: 8
     type: Transform
 - uid: 9501
-  type: SpawnPointValet
+  type: SpawnPointServiceWorker
   components:
   - pos: -0.5,-4.5
     parent: 8

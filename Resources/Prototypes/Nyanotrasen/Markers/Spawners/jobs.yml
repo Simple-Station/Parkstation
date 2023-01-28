@@ -149,7 +149,3 @@
   components:
   - type: SpawnPoint
     job_id: Valet
-  - type: Sprite
-    layers:
-      - state: green
-      - state: passenger

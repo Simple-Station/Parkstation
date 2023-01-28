@@ -11,31 +11,23 @@
       job: ForensicMantis
 
 - type: entity
-  parent: IDCardStandard
+  parent: ResearchIDCard
   id: EpistemicsIDCard
   name: acolyte ID card
   components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idscientist
   - type: PresetIdCard
     job: Epistemologist
 
 - type: entity
-  parent: IDCardStandard
+  parent: RDIDCard
   id: MystaIDCard
   name: mystagogue ID card
   components:
-  - type: Sprite
-    layers:
-    - state: silver
-    - state: idresearchdirector
   - type: PresetIdCard
     job: Mystagogue
 
 - type: entity
-  parent: EngineeringIDCard
+  parent: SalvageIDCard
   id: SalvageTechIDCard
   components:
   - type: PresetIdCard

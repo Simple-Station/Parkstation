@@ -14,7 +14,7 @@
     state: pda-mailcarrier
 
 - type: entity
-  parent: EngineerPDA
+  parent: SalvagePDA
   id: SalvageTechPDA
   components:
   - type: PDA
@@ -36,34 +36,22 @@
     state: pda-detective
 
 - type: entity
-  parent: BasePDA
+  parent: SciencePDA
   id: EpistemicsPDA
-  name: acolyte PDA
+  name: epistemologist PDA
   description: Preinstalled with plenty of brain teasers and religious conversion booklets.
   components:
   - type: PDA
     id: EpistemicsIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-science
-  - type: Icon
-    state: pda-science
 
 - type: entity
-  parent: BasePDA
+  parent: RnDPDA
   id: MystaPDA
   name: mystagogue PDA
   description: Practically radiating psychic energies... They actually have the Pope on speed dial!
   components:
   - type: PDA
     id: MystaIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-rd
-  - type: Icon
-    state: pda-rd
 
 - type: entity
   parent: BasePDA
