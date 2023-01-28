@@ -27,3 +27,29 @@
   id: lawyer
   typingState: lawyer0
   idleState: lawyer3 # Corvax-TypingIndicator
+
+
+- type: typingIndicator # Parkstation
+  id: slime
+  typingState: slime0
+  idleState: slime3
+
+- type: typingIndicator # Parkstation
+  id: syndibot
+  typingState: syndibot0
+  idleState: syndibot3
+
+- type: typingIndicator # Parkstation
+  id: signlang
+  typingState: signlang0
+  idleState: signlang3
+
+- type: typingIndicator # Parkstation
+  id: blob
+  typingState: blob0
+  idleState: blob3
+
+- type: typingIndicator # Parkstation
+  id: alienroyal
+  typingState: alienroyal0
+  idleState: alienroyal3

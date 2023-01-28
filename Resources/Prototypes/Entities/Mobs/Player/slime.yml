@@ -27,3 +27,5 @@
         - NanoTrasen
     - type: MailReceiver
     - type: PotentialPsionic
+    - type: TypingIndicator
+      proto: slime

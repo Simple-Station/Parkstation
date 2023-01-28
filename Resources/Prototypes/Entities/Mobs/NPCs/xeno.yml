@@ -246,6 +246,8 @@
       - MobMask
       layer:
       - MobLayer
+  - type: TypingIndicator
+    proto: alienroyal
 
 - type: entity
   name: Ravager
