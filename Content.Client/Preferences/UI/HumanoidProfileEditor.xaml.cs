@@ -622,7 +622,7 @@ namespace Content.Client.Preferences.UI
 
             bool TestTrait(string trate)
             {
-                var species = Profile?.Species ?? SharedHumanoidSystem.DefaultSpecies;
+                var species = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
                 var dollProto = _prototypeManager.Index<SpeciesPrototype>(species).DollPrototype;
                 if (_previewDummy != null) _entMan.DeleteEntity(_previewDummy!.Value);
                 _previewDummy = _entMan.SpawnEntity(dollProto, MapCoordinates.Nullspace);

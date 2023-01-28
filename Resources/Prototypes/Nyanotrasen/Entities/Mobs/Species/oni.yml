@@ -138,7 +138,7 @@
   id: MobOniDummy
   description: A dummy oni meant to be used in character setup.
   components:
-  - type: Humanoid
+  - type: HumanoidAppearance
     species: Oni
   - type: Sprite
     netsync: false
