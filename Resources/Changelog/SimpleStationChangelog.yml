@@ -1105,3 +1105,15 @@ Entries:
       - { message: 'Severl improvements to parkstation.', type: Tweak }
     id: 83
     time: "2023-01-24T09:41:29.0000000+00:00"
+  - author: "Pspritechologist"
+    changes:
+      - { message: 'Underwear is now "fully" incorporated into the game, with icons, names, etc!', type: Add }
+    id: 84
+    time: "2023-01-26T18:38:30.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "OwO accent doesn't use Kaomojis if from trait.", type: Tweak }
+      - { message: 'Remove Captain access from AllAccess, add CSS.', type: Tweak }
+      - { message: 'Station AI no longer drops PDA immediately.', type: Fix }
+    id: 85
+    time: "2022-01-26T19:33:33.0000000+00:00"

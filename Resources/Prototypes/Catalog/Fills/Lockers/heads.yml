@@ -8,6 +8,8 @@
       - id: ClothingHeadsetCargo
       - id: PlushieLizard
         prob: 0.1
+      - id: PlushieLizardRGB
+        prob: 0.05
       - id: ClothingHandsGlovesColorBrown
       - id: ClothingOuterSuitFire
         prob: 0.5
