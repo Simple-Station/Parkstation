@@ -7,7 +7,7 @@
   - type: Material
     materials:
       Credit: 1
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0
   - type: Stack
     stackType: Credit
@@ -44,7 +44,7 @@
 - type: material
   id: Credit
   name: zorkmid
-  stack: Credit
+  stackEntity: SpaceCash
   icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
   price: 1
 

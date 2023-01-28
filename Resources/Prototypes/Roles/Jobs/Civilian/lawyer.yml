@@ -10,8 +10,6 @@
   access:
   - Service
   - Brig
-  extendedAccess:
-  - Maintenance
 
 - type: startingGear
   id: LawyerGear
@@ -28,3 +26,5 @@
   backpack: ClothingBackpackFilled
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
+  undershirt: ClothingUndertanktop
+  undersocks: ClothingUnderGarter

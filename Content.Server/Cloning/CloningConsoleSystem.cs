@@ -8,8 +8,6 @@ using Content.Server.Mind.Components;
 using Content.Server.MachineLinking.System;
 using Content.Server.MachineLinking.Events;
 using Content.Server.UserInterface;
-using Content.Server.MobState;
-using Content.Shared.MobState.Components;
 using Content.Server.Power.EntitySystems;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -17,6 +15,8 @@ using Content.Shared.Cloning.CloningConsole;
 using Content.Shared.Cloning;
 using Content.Shared.MachineLinking.Events;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Server.Cloning
 {
@@ -168,7 +168,7 @@ namespace Content.Server.Cloning
             if (mind == null || mind.UserId.HasValue == false || mind.Session == null)
                 return;
 
-            _cloningSystem.TryCloning(cloningPodUid, body.Value, mind, cloningPod, scannerComp.CloningFailChanceMultiplier);
+            _cloningSystem.TryCloning(cloningPodUid, body.Value, mind, cloningPod, scannerComp.CloningFailChanceMultiplier, scannerComp.MetemKarmaBonus);
         }
 
         public void RecheckConnections(EntityUid console, EntityUid? cloningPod, EntityUid? scanner, CloningConsoleComponent? consoleComp = null)

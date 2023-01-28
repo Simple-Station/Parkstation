@@ -29,22 +29,9 @@ public sealed class NearsightedSystem : EntitySystem
 
         foreach (var nearsight in EntityQuery<NearsightedComponent>())
         {
-            var sighted = nearsight.Owner;
-
-            // Convert this to ClothingGrantComponent Tag, this is pointlessly excessive
-            var cinv = EnsureComp<ClientInventoryComponent>(sighted);
-            cinv.SlotData.TryGetValue("eyes", out var eyes);
-            var eyeslot = eyes?.Container?.ContainedEntity;
-
-            if (eyeslot == null) UpdateShader(nearsight, true);
-            else
-            {
-                EntityUid eyeslo = new();
-                eyeslo = (EntityUid) eyeslot;
-
-                var comp = EnsureComp<TagComponent>(eyeslo);
-                if (comp.Tags.Contains("GlassesNearsight")) UpdateShader(nearsight, false);
-            }
+            var Tags = EnsureComp<TagComponent>(nearsight.Owner);
+            if (Tags.Tags.Contains("GlassesNearsight")) UpdateShader(nearsight, true);
+            else UpdateShader(nearsight, false);
         }
     }
 

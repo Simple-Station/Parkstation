@@ -16,6 +16,7 @@
         - ClothingHeadHelmetTemplar
         - ClothingNeckCloakTrans
         - ClothingNeckCloakAdmin
+        - ClothingNeckCloakGoliathCloak
         - ToySkeleton
         - Basketball
         - Football
@@ -24,6 +25,15 @@
         - Skub
         - ClothingHeadHatCatEars
         - DrinkMugDog
+        - ClothingNeckLGBTPin
+        - ClothingNeckAromanticPin
+        - ClothingNeckAsexualPin
+        - ClothingNeckBisexualPin
+        - ClothingNeckIntersexPin
+        - ClothingNeckLesbianPin
+        - ClothingNeckNonBinaryPin
+        - ClothingNeckPansexualPin
+        - ClothingNeckTransPin
       rareChance: 0.01
       prototypes:
         - Lighter
@@ -38,8 +48,8 @@
         - ClothingHeadHelmetCosmonaut
         - ClothingHeadHelmetScaf
         - ClothingShoeSlippersDuck
-        - ClothingUnderSocksBee
-        - ClothingUnderSocksCoder
+        - ClothingUnderBee_knee
+        - ClothingUnderStockings_lpink
         - ClothingHeadHatSquid
       chance: 0.6
       offset: 0.0

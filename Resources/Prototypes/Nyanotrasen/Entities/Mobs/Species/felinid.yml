@@ -47,6 +47,9 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: female_full
         visible: false
+      - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
       - map: ["jumpsuit"]
         shader: StencilDraw
       - map: ["enum.HumanoidVisualLayers.LHand"]
@@ -159,7 +162,7 @@
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 1, 1
+    scale: 0.8, 0.8
     layers:
       - map: ["enum.HumanoidVisualLayers.Chest"]
         color: "#e8b59b"
@@ -203,9 +206,9 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: female_full
         visible: false
+      - map: ["socks"]
       - map: ["underpants"]
       - map: ["undershirt"]
-      - map: ["socks"]
       - map: ["jumpsuit"]
         shader: StencilDraw
       - map: ["enum.HumanoidVisualLayers.LHand"]

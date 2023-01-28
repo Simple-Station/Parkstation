@@ -63,8 +63,11 @@
       color: "#93e2ff"
       delay: 5
       global: true
-    - type: Loadout
-      prototypes: [ AIGearUnremoveable ]
+    - type: InnateTool
+      tools:
+        - id: AIPDA
+        - id: DoorRemoteAI
+    - type: InnateItem
     - type: Hands
       showInHands: false
     - type: Mind
@@ -162,7 +165,7 @@
       fixtures:
         - shape: !type:PhysShapeCircle
             radius: 0.35
-          mass: 1000
+          density: 1000
           mask:
             - GhostImpassable
           layers:

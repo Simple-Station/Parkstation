@@ -9,8 +9,6 @@
   access:
   - Theatre
   - Service
-  extendedAccess:
-  - Maintenance
   special:
   - !type:AddComponentSpecial
     components:
@@ -36,3 +34,8 @@
     ears: ClothingHeadsetService
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelClownFilled
+  underpants: ClothingUnderboxers_heart
+  undershirt: ClothingUndershirt_clown
+  undershirtskirt: ClothingUndertank_rainbow
+  undersocks: ClothingUnderRainbow_knee
+

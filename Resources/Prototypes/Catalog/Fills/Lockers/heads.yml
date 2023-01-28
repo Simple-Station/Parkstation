@@ -8,6 +8,8 @@
       - id: ClothingHeadsetCargo
       - id: PlushieLizard
         prob: 0.1
+      - id: PlushieLizardRGB
+        prob: 0.05
       - id: ClothingHandsGlovesColorBrown
       - id: ClothingOuterSuitFire
         prob: 0.5
@@ -79,7 +81,6 @@
     #  - id: DoorRemoteService
       - id: ClothingNeckGoldmedal
       - id: RubberStampHop
-      - id: Telebaton
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -113,12 +114,13 @@
     contents:
       - id: MedkitFilled
       - id: ClothingHandsGlovesNitrile
-      #- name: ClothingEyesHudMedical #Removed until working properly
+      - id: ClothingEyesHudMedical
       - id: ClothingHeadsetAltMedical
       - id: ClothingCloakCmo
       - id: ClothingBackpackDuffelSurgeryFilled
       - id: ClothingOuterCoatLabCmo
       - id: ClothingMaskSterile
+      - id: ClothingHeadHatBeretCmo
       - id: ClothingOuterHardsuitMedical
       - id: Hypospray
       - id: HandheldCrewMonitor

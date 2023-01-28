@@ -25,6 +25,7 @@
     - state: on
       map: ["enum.PowerDeviceVisualLayers.Powered"]
       shader: unshaded
+    offset: 0, 0.15
   - type: ApcPowerReceiver
     powerLoad: 300
   - type: ItemSlots

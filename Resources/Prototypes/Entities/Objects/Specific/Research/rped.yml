@@ -10,9 +10,16 @@
   - type: Item
     sprite: Objects/Specific/Research/rped.rsi
     size: 50
+  - type: GuideHelp
+    guides:
+    - MachineUpgrading
   - type: PartExchanger
   - type: Storage
     capacity: 150
     whitelist:
       components:
       - MachinePart
+  - type: ReverseEngineering
+    difficulty: 3
+    recipes:
+      - RPED

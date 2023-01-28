@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesFingerlessInsulated
+  name: fingerless insulated gloves
+  description: Plain black gloves with yellow fiber fingertips, for the distinguished roboticist.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/Hands/Gloves/fingerless_insuls.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/Hands/Gloves/fingerless_insuls.rsi
+  - type: GloveHeatResistance
+    heatResistance: 1400
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-yellow
+  - type: FingerprintMask

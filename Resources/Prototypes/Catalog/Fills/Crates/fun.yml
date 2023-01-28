@@ -28,6 +28,21 @@
         amount: 1
       - id: PlushieSharkBlue
         amount: 1
+      - id: PlushieRGBee
+        amount: 1
+        prob: 0.20
+      - id: PlushieLizardRGB
+        amount: 1
+        prob: 0.20
+
+- type: entity
+  id: CrateFunCrewmates
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: ToyAmongPequeno
+        amount: 5
 
 - type: entity
   id: CrateFunInstruments

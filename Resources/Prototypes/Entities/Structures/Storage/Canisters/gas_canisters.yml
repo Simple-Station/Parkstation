@@ -84,7 +84,7 @@
           volume: 1
     - type: GasPortable
     - type: GasCanister
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 1000
     - type: AccessReader
       access: [["Atmospherics"], ["ResearchDirector"]]
@@ -527,6 +527,8 @@
         layer:
         - MachineLayer
     - type: Recyclable
+    - type: StaticPrice
+      price: 60
 
 - type: entity
   parent: GasCanisterBrokenBase
