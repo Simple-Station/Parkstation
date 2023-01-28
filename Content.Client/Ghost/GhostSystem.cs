@@ -1,3 +1,4 @@
+using Content.Client.UserInterface.Systems.Ghost.Widgets;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
 using JetBrains.Annotations;
@@ -5,6 +6,7 @@ using Robust.Client.Console;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Robust.Client.UserInterface;
 using Robust.Shared.GameStates;
 
 namespace Content.Client.Ghost
@@ -14,6 +16,17 @@ namespace Content.Client.Ghost
     {
         [Dependency] private readonly IClientConsoleHost _console = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
+
+        public override void Update(float frameTime)
+        {
+            foreach (var ghost in EntityManager.EntityQuery<GhostComponent>(true))
+            {
+                var ui = _uiManager.GetActiveUIWidgetOrNull<GhostGui>();
+                if (ui != null && Player != null)
+                    ui.UpdateRespawn(Player?.TimeOfDeath);
+            }
+        }
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly ILightManager _lightManager = default!;
         [Dependency] private readonly IEyeManager _eye = default!;
@@ -71,6 +84,7 @@ namespace Content.Client.Ghost
             SubscribeLocalEvent<GhostComponent, ToggleFoVActionEvent>(OnToggleFoV);
             SubscribeLocalEvent<GhostComponent, ToggleGhostsActionEvent>(OnToggleGhosts);
         }
+
 
         private void OnGhostInit(EntityUid uid, GhostComponent component, ComponentInit args)
         {

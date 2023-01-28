@@ -56,7 +56,7 @@ namespace Content.Shared.Ghost
             DisplayName = displayName;
             IsWarpPoint = isWarpPoint;
         }
-        
+
         /// <summary>
         /// The entity representing the warp point.
         /// This is passed back to the server in <see cref="GhostWarpToTargetRequestEvent"/>
