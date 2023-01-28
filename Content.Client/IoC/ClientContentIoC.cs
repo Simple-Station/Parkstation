@@ -18,7 +18,6 @@ using Content.Shared.Administration;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Module;
 using Content.Client.Corvax.JoinQueue;
-using Content.Client.Corvax.Sponsors;
 using Content.Client.Guidebook;
 
 namespace Content.Client.IoC
@@ -45,7 +44,6 @@ namespace Content.Client.IoC
             IoCManager.Register<GhostKickManager>();
             IoCManager.Register<ExtendedDisconnectInformationManager>();
             IoCManager.Register<PlayTimeTrackingManager>();
-            IoCManager.Register<SponsorsManager>(); // Corvax-Sponsors
             IoCManager.Register<JoinQueueManager>(); // Corvax-Queue
             IoCManager.Register<DocumentParsingManager>();
         }

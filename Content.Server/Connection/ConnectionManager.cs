@@ -9,7 +9,6 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Content.Server.Administration.Managers;
-using Content.Server.Corvax.Sponsors;
 using Content.Shared.Corvax.CCCVars;
 
 namespace Content.Server.Connection
@@ -31,7 +30,6 @@ namespace Content.Server.Connection
         [Dependency] private readonly IServerDbManager _db = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IAdminManager _admin = default!;
-        [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
 
         public void Initialize()
         {
@@ -187,12 +185,10 @@ namespace Content.Server.Connection
         public async Task<bool> HavePrivilegedJoin(NetUserId userId)
         {
             var isAdmin = await _dbManager.GetAdminDataForAsync(userId) != null;
-            var havePriorityJoin = _sponsorsManager.TryGetInfo(userId, out var sponsor) && sponsor.HavePriorityJoin; // Corvax-Sponsors
             var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
                             ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&
                             status == PlayerGameStatus.JoinedGame;
             return isAdmin ||
-                   havePriorityJoin || // Corvax-Sponsors
                    wasInGame;
         }
         // Corvax-Queue-End
