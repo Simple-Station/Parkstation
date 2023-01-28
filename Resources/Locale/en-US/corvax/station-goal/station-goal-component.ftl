@@ -1,4 +1,4 @@
-station-goal-fax-paper-name = Цель станции
+station-goal-fax-paper-name = Station Goal
 station-goal-shuttle =
     The goal of your shift is to build a manned shuttle in space and provide it with everything it needs to survive.
     To fulfill this goal, the service department needs to order all the necessary resources for the engineering and scientific departments.

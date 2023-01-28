@@ -11,7 +11,6 @@ public sealed class CCCVars
 {
     /**
      * RoundNotifications
-     * This is the only one used in parkstation so far! !!!!!!!!!!!!!!
      */
 
     /// <summary>
@@ -31,16 +30,6 @@ public sealed class CCCVars
     /// </summary>
     public static readonly CVarDef<bool> DiscordRoundStartOnly =
         CVarDef.Create("discord.round_start_only", false, CVar.SERVERONLY);
-
-    /**
-     * Sponsors
-     */
-
-    /// <summary>
-    ///     URL of the sponsors server API.
-    /// </summary>
-    public static readonly CVarDef<string> SponsorsApiUrl =
-        CVarDef.Create("sponsor.api_url", "", CVar.SERVERONLY);
 
     /*
      * Queue
