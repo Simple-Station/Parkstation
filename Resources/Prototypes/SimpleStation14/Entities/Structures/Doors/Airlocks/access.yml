@@ -14,7 +14,25 @@
   - type: AccessReader
     access: [["ChiefServiceSupervisor"]]
 
-# Maint doors
+# Maintenance Hatches
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintServiceLocked
+  suffix: Service, Locked
+  components:
+  - type: AccessReader
+    access: [["Service"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintArmoryLocked
+  suffix: Armory, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"]]
+  - type: Wires
+    LayoutId: AirlockArmory
+
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintCSSLocked
@@ -55,9 +73,17 @@
   - type: AccessReader
     access: [["ChiefEngineer"]]
 
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintBrigLocked
+  suffix: Brig, Locked
+  components:
+  - type: AccessReader
+    access: [["Brig"]]
+
 # External Airlocks
 - type: entity
-  parent: AirlockExternal
+  parent: AirlockExternalAtmospherics
   id: AirlockExternalAtmosphericsLocked
   suffix: Atmospherics, External, Locked
   components:
@@ -71,6 +97,10 @@
   components:
   - type: AccessReader
     access: [["Command"]]
+  - type: Wires
+    BoardName: "HighSec Control"
+    LayoutId: HighSec
+    alwaysRandomize: true
 
 - type: entity
   parent: AirlockExternalEngineering
@@ -102,7 +132,7 @@
   suffix: Science, External, Locked
   components:
   - type: AccessReader
-    access: [["Science"]]
+    access: [["Research"]]
 
 - type: entity
   parent: AirlockExternalSecurity

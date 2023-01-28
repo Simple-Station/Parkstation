@@ -65,6 +65,8 @@
         orGroup: GiftPool
       - id: PlushieLizard #Weh!
         orGroup: GiftPool
+      - id: PlushieLizardRGB
+        orGroup: GiftPool
       - id: PlushieNar
         orGroup: GiftPool
       - id: PlushieCarp
@@ -209,9 +211,9 @@
         orGroup: GiftPool
       - id: ClothingShoeSlippersDuck
         orGroup: GiftPool
-      - id: ClothingUnderSocksBee
+      - id: ClothingUnderBee_knee
         orGroup: GiftPool
-      - id: ClothingUnderSocksCoder
+      - id: ClothingUnderStockings_lpink
         orGroup: GiftPool
       - id: ClothingBeltUtilityFilled
         orGroup: GiftPool

@@ -63,6 +63,8 @@
       types:
         Piercing: 5
   - type: NoSlip
+  - type: HTN
+    rootTask: IdleEvadeCompound
   - type: RandomBark
 
 - type: entity
@@ -97,6 +99,7 @@
       layer:
       - FlyingMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       5: Critical
@@ -151,8 +154,6 @@
         Piercing: 1
   - type: InputMover
   - type: MobMover
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - SimpleHostile
@@ -337,6 +338,7 @@
       layer:
       - FlyingMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       5: Critical
@@ -359,6 +361,8 @@
   - type: NoSlip
   - type: MobPrice
     price: 50
+  - type: HTN
+    rootTask: IdleEvadeCompound
 
 - type: entity
   name: cow
@@ -429,7 +433,6 @@
       - Moooooo
       - Moooo
     barkMultiplier: 1.7
-
 
 - type: entity
   name: crab
@@ -592,70 +595,6 @@
   - type: Puller
 
 - type: entity
-  name: gorilla
-  parent: MobMonkey
-  id: MobGorilla
-  description: Smashes, roars, looks cool. Don't stand near one.
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: crawling
-      sprite: Mobs/Animals/gorilla.rsi
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.48
-      density: 200
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
-  - type: Appearance
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: crawling
-      Critical:
-        Base: dead
-      Dead:
-        Base: dead
-  - type: Butcherable
-    spawned:
-    - id: FoodMeat
-      amount: 4
-  - type: Bloodstream
-    bloodMaxVolume: 300
-  - type: Puller
-  - type: UserInterface
-    interfaces:
-      - key: enum.StrippingUiKey.Key
-        type: StrippableBoundUserInterface
-  - type: Oni
-    modifiers:
-      coefficients:
-        Blunt: 2
-        Slash: 1.7
-        Piercing: 1.7
-        Asphyxiation: 2
-    stamDamageBonus: 1.7
-  - type: MobState
-    thresholds:
-      0: Alive
-      100: Critical
-      200: Dead
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Oni
-  - type: Stamina
-  - type: ReplacementAccent
-    accent: monkey
-  - type: RandomBark
-
-- type: entity
   name: kangaroo
   parent: SimpleMobBase
   id: MobKangaroo
@@ -725,8 +664,6 @@
         Blunt: 10
   - type: InputMover
   - type: MobMover
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - SimpleHostile
@@ -754,71 +691,13 @@
         Base: kangaroo-dead
 
 - type: entity
-  name: monkey
-  id: MobMonkey
-  parent: SimpleMobBase
-  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
+  name: guidebook monkey
+  parent: MobMonkey
+  noSpawn: true
+  id: MobGuidebookMonkey
+  description: A hopefully helpful monkey whose only purpose in life is for you to click on. Does this count as having a monkey give you a tutorial?
   components:
-  - type: CombatMode
-    disarm: null
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-primate
-  - type: Inventory
-    templateId: monkey
-  - type: Fixtures
-    fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 80
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
-  - type: Strippable
-  - type: Stripping
-  - type: UserInterface
-    interfaces:
-    - key: enum.StrippingUiKey.Key
-      type: StrippableBoundUserInterface
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: monkey
-      sprite: Mobs/Animals/monkey.rsi
-  - type: Hands
-  - type: Speech
-    speechSounds: Monkey
-  - type: Body
-    prototype: Primate
-    requiredLegs: 1 # TODO: More than 1 leg
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: monkey
-      Critical:
-        Base: dead
-      Dead:
-        Base: dead
-  - type: Appearance
-  - type: FireVisuals
-    sprite: Mobs/Effects/onfire.rsi
-    normalState: Monkey_burning
-  - type: Butcherable
-    butcheringType: Spike
-    spawned:
-    - id: FoodMeat
-      amount: 3
-  - type: MonkeyAccent
-  - type: Puller
-  - type: CanHostGuardian
-  - type: DiseaseCarrier
-  - type: Tag
-    tags:
-    - GunsDisabled
-  - type: RandomBark
-    barkMultiplier: 0.65
+    - type: GuidebookControlsTest
 
 - type: entity
   name: mouse
@@ -861,6 +740,7 @@
       layer:
       - SmallMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       10: Critical
@@ -937,6 +817,11 @@
   - type: MobPrice
     price: 50
   - type: FelinidFood
+  - type: HTN
+    rootTask: IdleEvadeCompound
+  - type: Faction
+    factions:
+    - RatPassive
   - type: IntrinsicRadioReceiver
     channels:
       - RatHive
@@ -1144,6 +1029,8 @@
       path: /Audio/Animals/frog_ribbit.ogg
   - type: Bloodstream
     bloodMaxVolume: 50
+  - type: HTN
+    rootTask: IdleEvadeCompound
   - type: RandomBark
     barkMultiplier: 1.3
     barks:
@@ -1206,6 +1093,8 @@
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: NoSlip
+  - type: HTN
+    rootTask: IdleEvadeCompound
 
 - type: entity
   name: penguin
@@ -1249,6 +1138,11 @@
     interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/penguin_squawk.ogg
+  - type: Temperature
+    coldDamageThreshold: 235
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
   - type: RandomBark
     barks:
       - Wank
@@ -1265,8 +1159,6 @@
     baseSprintSpeed : 3.5
   - type: InputMover
   - type: MobMover
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - Syndicate
@@ -1451,8 +1343,6 @@
         - Xeno
     - type: InputMover
     - type: MobMover
-    - type: HTN
-      rootTask: SimpleHostileCompound
     - type: GhostTakeoverAvailable
       makeSentient: true
       whitelistRequired: false
@@ -1622,6 +1512,9 @@
       gender: epicene
   - type: Bloodstream
     bloodMaxVolume: 100
+  - type: Faction
+    factions:
+    - Pet
 
 - type: entity
   name: corgi
@@ -1683,6 +1576,9 @@
   - type: MobPrice
     price: 200
   - type: DogVision
+  - type: Faction
+    factions:
+    - Pet
   - type: RandomBark
 
 - type: entity
@@ -1718,8 +1614,6 @@
         Slash: 5
   - type: InputMover
   - type: MobMover
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - SimpleHostile
@@ -1806,6 +1700,16 @@
       - MobMask
       layer:
       - MobLayer
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 2
+        Piercing: 5
   - type: Appearance
   - type: Inventory
     speciesId: cat
@@ -1840,6 +1744,9 @@
       gender: epicene
   - type: MobPrice
     price: 200
+  - type: Faction
+    factions:
+    - Cat
   - type: RandomBark
 
 - type: entity
@@ -1897,6 +1804,13 @@
   - type: Grammar
     attributes:
       gender: epicene
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: DiseaseProtection
+    protection: 0.05
+  - type: Temperature
+    coldDamageThreshold: 0
 
 - type: entity
   name: caracal cat
@@ -2074,6 +1988,7 @@
       layer:
       - SmallMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       40: Critical
@@ -2144,17 +2059,22 @@
     damage:
       types:
         Piercing: 2
-  - type: InteractionPopup
-    successChance: 0.4
-    interactSuccessString: petting-success-hamster
-    interactFailureString: petting-failure-hamster
-    interactSuccessSound:
-      path: /Audio/Animals/fox_squeak.ogg
+  # - type: InteractionPopup
+  #   successChance: 0.4
+  #   interactSuccessString: petting-success-hamster
+  #   interactFailureString: petting-failure-hamster
+  #   interactSuccessSound:
+  #     path: /Audio/Animals/fox_squeak.ogg
   - type: Bloodstream
     bloodMaxVolume: 60
   - type: CanEscapeInventory
   - type: MobPrice
     price: 60
+  - type: HTN
+    rootTask: IdleEvadeCompound
+  - type: Faction
+    factions:
+    - Pet
 
 - type: entity
   name: pig

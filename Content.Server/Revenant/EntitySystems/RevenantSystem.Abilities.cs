@@ -1,37 +1,34 @@
+using System.Linq;
 using Content.Shared.Popups;
 using Content.Shared.Damage;
-using Content.Shared.MobState.Components;
-using Content.Server.DoAfter;
 using Content.Shared.Revenant;
-using Robust.Shared.Random;
-using Robust.Shared.Player;
-using Robust.Shared.Map;
 using Content.Shared.Tag;
-using Content.Shared.Maps;
+using Content.Shared.Throwing;
+using Content.Shared.Interaction;
+using Content.Shared.Abilities.Psionics;
+using Content.Shared.Item;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Emag.Systems;
+using Content.Shared.FixedPoint;
+using Content.Shared.Humanoid;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Revenant.Components;
+using Content.Server.DoAfter;
 using Content.Server.Storage.Components;
 using Content.Server.Light.Components;
 using Content.Server.Ghost;
-using Robust.Shared.Physics;
-using Content.Shared.Throwing;
 using Content.Server.Storage.EntitySystems;
-using Content.Shared.Interaction;
-using Content.Shared.Abilities.Psionics;
 using Content.Server.Disease;
 using Content.Server.Disease.Components;
-using Content.Shared.Item;
-using Content.Shared.Bed.Sleep;
-using Content.Shared.MobState;
-using System.Linq;
-using Content.Server.Beam;
-using Content.Server.Emag;
-using Content.Server.Humanoid;
+using Content.Server.Maps;
 using Content.Server.Revenant.Components;
 using Content.Server.Store.Components;
-using Content.Shared.FixedPoint;
-using Content.Shared.Humanoid;
-using Content.Shared.Revenant.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
+using Robust.Shared.Physics;
+using Robust.Shared.Random;
+using Robust.Shared.Map;
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -44,7 +41,9 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
+    [Dependency] private readonly TileSystem _tile = default!;
 
     private void InitializeAbilities()
     {
@@ -143,7 +142,7 @@ public sealed partial class RevenantSystem
             return;
         }
 
-        if (TryComp<MobStateComponent>(target, out var mobstate) && mobstate.CurrentState == DamageState.Alive && !HasComp<SleepingComponent>(target))
+        if (TryComp<MobStateComponent>(target, out var mobstate) && mobstate.CurrentState == Shared.Mobs.MobState.Alive && !HasComp<SleepingComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("revenant-soul-too-powerful"), target, uid);
             return;
@@ -197,8 +196,8 @@ public sealed partial class RevenantSystem
         }
 
         //KILL THEMMMM
-        var damage = _mobState.GetEarliestDeadState(mobstate, 0)?.threshold;
-        if (damage == null)
+
+        if (!_mobThresholdSystem.TryGetThresholdForState(args.Target, Shared.Mobs.MobState.Dead, out var damage))
             return;
         DamageSpecifier dspec = new();
         dspec.DamageDict.Add("Poison", damage.Value);
@@ -237,7 +236,7 @@ public sealed partial class RevenantSystem
         {
             if (!tiles.TryGetValue(i, out var value))
                 continue;
-            value.PryTile();
+            _tile.PryTile(value);
         }
 
         var lookup = _lookup.GetEntitiesInRange(uid, component.DefileRadius, LookupFlags.Approximate | LookupFlags.Static);
@@ -344,7 +343,7 @@ public sealed partial class RevenantSystem
 
         foreach (var ent in _lookup.GetEntitiesInRange(uid, component.MalfunctionRadius))
         {
-            _emag.DoEmag(ent, ent); //it emags itself. spooky.
+            _emag.DoEmagEffect(ent, ent); //it emags itself. spooky.
         }
         _psionics.LogPowerUsed(uid, "a spirit power");
     }

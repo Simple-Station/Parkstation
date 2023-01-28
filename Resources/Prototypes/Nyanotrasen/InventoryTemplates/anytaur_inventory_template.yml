@@ -19,6 +19,14 @@
       blacklist:
         tags:
           - FullBodyOuter
+      # Underwear
+    - name: undershirt
+      slotTexture: undershirt
+      slotFlags: UNDERSHIRT
+      stripTime: 8
+      uiWindowPos: 4,1
+      strippingWindowPos: 3,1
+      displayName: Undershirt
     - name: gloves
       slotTexture: gloves
       slotFlags: GLOVES

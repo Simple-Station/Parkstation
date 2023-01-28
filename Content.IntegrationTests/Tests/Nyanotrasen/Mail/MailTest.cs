@@ -10,19 +10,18 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
 using Content.Shared.Item;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mail;
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
-using Content.Server.Emag;
+using Content.Shared.Emag.Systems;
 using Content.Server.Hands.Components;
 using Content.Server.Mail;
 using Content.Server.Mail.Components;
-using Content.Server.MobState;
 using Content.Server.Mind;
 using Content.Server.Station.Systems;
 
@@ -1490,7 +1489,8 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsNotNull(stationBankAccountComponent,
                     "Unable to find matching StationBankAccountComponent for mail parcel.");
 
-                emagSystem.DoEmag(mail, clown);
+                // yeah mail can just emag itself
+                emagSystem.DoEmagEffect(mail, mail);
 
                 var currentBalance = stationBankAccountComponent!.Balance;
 
@@ -1576,7 +1576,7 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out mobStateComponent!),
                     "Human dummy candidate did not have a MobStateComponent.");
 
-                mobStateSystem.UpdateState(mobStateComponent, FixedPoint2.New(300f));
+                mobStateSystem.ChangeMobState(realCandidate1, Shared.Mobs.MobState.Dead);
 
                 Assert.IsTrue(mailSystem.TryGetMailRecipientForReceiver(mailReceiverComponent, out recipient),
                     "Human dummy candidate was unable to be converted into a MailRecipient after setting MobState to Dead.");

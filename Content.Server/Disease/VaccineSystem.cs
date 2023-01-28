@@ -10,11 +10,10 @@ using Content.Shared.Toggleable;
 using Content.Server.Disease.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.DoAfter;
-using Content.Server.Research;
+using Content.Server.Research.Systems;
 using Content.Server.UserInterface;
 using Content.Server.Construction;
 using Content.Server.Popups;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -125,7 +124,7 @@ namespace Content.Server.Disease
             }
         }
 
-        private void OnVaccinatorAmountChanged(EntityUid uid, DiseaseVaccineCreatorComponent component, MaterialAmountChangedEvent args)
+        private void OnVaccinatorAmountChanged(EntityUid uid, DiseaseVaccineCreatorComponent component, ref MaterialAmountChangedEvent args)
         {
             UpdateUserInterfaceState(uid, component);
         }

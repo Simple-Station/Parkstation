@@ -9,6 +9,7 @@
       - Felinid
   components:
     - type: OwOAccent
+      kaomoji: false
 
 - type: trait
   id: RussianAccent

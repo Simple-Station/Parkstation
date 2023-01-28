@@ -49,13 +49,17 @@
     - key: enum.InstrumentUiKey.Key
       type: InstrumentBoundUserInterface
   - type: Appearance
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 500
   - type: Item
     size: 40
     sprite: Objects/Specific/Xenoarchaeology/item_artifacts.rsi
     heldPrefix: ano01
   - type: Actions
+  - type: Psionic
+  - type: GuideHelp
+    guides:
+    - Xenoarchaeology
 
 - type: entity
   parent: BaseXenoArtifactItem

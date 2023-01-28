@@ -5,6 +5,7 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Mobs.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Botany;
@@ -81,9 +82,6 @@ namespace Content.Server.Research.Oracle
             "TargetHuman",
             "TargetSyndicate",
             "TargetClown",
-            "PowerCellSmallPrinted",
-            "PowerCellMediumPrinted",
-            "PowerCellHighPrinted",
             "Beaker",
             "LargeBeaker",
             "CryostasisBeaker",
@@ -98,13 +96,14 @@ namespace Content.Server.Research.Oracle
             "ShellTranquilizer",
             "ShellSoulbreaker",
 
-            // Mech non-items
+            // Mech non-items and items (mech stuff is all expensive)
             "RipleyHarness",
             "RipleyLArm",
             "RipleyLLeg",
             "RipleyRLeg",
             "RipleyRArm",
             "RipleyChassis",
+            "MechEquipmentGrabber",
         };
 
         public override void Update(float frameTime)
@@ -169,21 +168,20 @@ namespace Content.Server.Research.Oracle
         }
         private void OnInteractUsing(EntityUid uid, OracleComponent component, InteractUsingEvent args)
         {
+            if (HasComp<MobStateComponent>(args.Used))
+                return;
+
             if (!TryComp<MetaDataComponent>(args.Used, out var meta))
                 return;
 
             if (meta.EntityPrototype == null)
                 return;
 
-            var validItem = false;
+            var validItem = CheckValidity(meta.EntityPrototype, component.DesiredPrototype);
 
             var nextItem = true;
 
-            /// The trim helps with stacks and singles
-            if (meta.EntityPrototype.ID.TrimEnd('1') == component.DesiredPrototype.ID.TrimEnd('1'))
-                validItem = true;
-
-            if (component.LastDesiredPrototype != null && meta.EntityPrototype.ID.TrimEnd('1') == component.LastDesiredPrototype.ID.TrimEnd('1'))
+            if (component.LastDesiredPrototype != null && CheckValidity(meta.EntityPrototype, component.DesiredPrototype))
             {
                 nextItem = false;
                 validItem = true;
@@ -215,6 +213,16 @@ namespace Content.Server.Research.Oracle
                 NextItem(component);
         }
 
+        private bool CheckValidity(EntityPrototype given, EntityPrototype target)
+        {
+            // 1: directly compare Names
+            // name instead of ID because the oracle asks for them by name
+            // this could potentially lead to like, labeller exploits maybe but so far only mob names can be fully player-set.
+            if (given.Name == target.Name)
+                return true;
+
+            return false;
+        }
         private void DispenseLiquidReward(EntityUid uid)
         {
             if (!_solutionSystem.TryGetSolution(uid, OracleComponent.SolutionName, out var fountainSol))
@@ -242,8 +250,8 @@ namespace Content.Server.Research.Oracle
 
             _solutionSystem.TryMixAndOverflow(uid, fountainSol, sol, fountainSol.MaxVolume, out var overflowing);
 
-            if (overflowing != null && overflowing.CurrentVolume > 0)
-                _spillableSystem.SpillAt(uid, overflowing, "PuddleGeneric");
+            if (overflowing != null && overflowing.Volume > 0)
+                _spillableSystem.SpillAt(uid, overflowing, "PuddleSplatter");
         }
 
         private void NextItem(OracleComponent component)
@@ -254,7 +262,7 @@ namespace Content.Server.Research.Oracle
             if (_prototypeManager.TryIndex<EntityPrototype>(protoString, out var proto))
                 component.DesiredPrototype = proto;
             else
-                Logger.Error("Orcale can't index prototype " + protoString);
+                Logger.Error("Oracle can't index prototype " + protoString);
         }
 
         private string GetDesiredItem()
@@ -265,7 +273,18 @@ namespace Content.Server.Research.Oracle
 
         public List<string> GetAllProtos()
         {
-            var allRecipes = _prototypeManager.EnumeratePrototypes<LatheRecipePrototype>().Select(x => x.Result).ToList();
+            var allTechs = _prototypeManager.EnumeratePrototypes<TechnologyPrototype>();
+            var allRecipes = new List<String>();
+
+            foreach (var tech in allTechs)
+            {
+                foreach (var recipe in tech.UnlockedRecipes)
+                {
+                    var recipeProto = _prototypeManager.Index<LatheRecipePrototype>(recipe);
+                    allRecipes.Add(recipeProto.Result);
+                }
+            }
+
             var allPlants = _prototypeManager.EnumeratePrototypes<SeedPrototype>().Select(x => x.ProductPrototypes[0]).ToList();
             var allProtos = allRecipes.Concat(allPlants).ToList();
             foreach (var proto in BlacklistedProtos)

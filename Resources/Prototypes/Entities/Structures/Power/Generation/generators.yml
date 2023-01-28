@@ -67,7 +67,7 @@
     maxIntensity: 100
     intensitySlope: 2
     totalIntensity: 200
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 500
 
 # Base Wallmount Generator
@@ -96,6 +96,9 @@
   - type: Fixtures
   - type: Transform
     anchored: true
+  - type: Physics
+    bodyType: Static
+    canCollide: false
   - type: Sprite
     drawdepth: WallMountedItems
     netsync: false
@@ -132,6 +135,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
+    canCollide: false
   - type: Fixtures
   - type: Transform
     anchored: true

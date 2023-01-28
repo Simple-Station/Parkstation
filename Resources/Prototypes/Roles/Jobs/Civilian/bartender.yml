@@ -9,10 +9,10 @@
   access:
   - Service
   - Bar
+  - Maintenance
   extendedAccess:
   - Kitchen
   - Hydroponics
-  - Maintenance
 
 - type: startingGear
   id: BartenderGear

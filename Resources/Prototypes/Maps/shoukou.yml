@@ -3,6 +3,7 @@
   mapName: 'Shōkō'
   mapPath: /Maps/shoukou.yml
   minPlayers: 20
+  maxPlayers: 65
   stations:
     Shoukou:
       mapNameTemplate: '{0} Shōkō "Little Port" {1}'
@@ -40,7 +41,7 @@
         SecurityCadet: [ 0, 1 ]
         Lawyer: [ 1, 1 ]
         Quartermaster: [ 2, 3 ]
-        SalvageTechnician: [ 2, 4 ]
+        SalvageTechnician: [ 2, 5 ]
         Musician: [1, 1]
         AtmosphericTechnician: [ 1, 2 ]
         ServiceWorker: [ 0, 2 ]

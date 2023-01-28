@@ -22,6 +22,7 @@
       types:
         Heat: 2 # moths should burn more easily
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       100: Critical
@@ -75,11 +76,11 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: female_full
         visible: false
-      - map: ["underpants"]
-      - map: ["undershirt"]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
       - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]

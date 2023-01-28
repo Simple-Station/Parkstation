@@ -41,8 +41,6 @@
         #  sprite: Mobs/Customization/masking_helpers.rsi
         #  state: female_full
         #  visible: false
-        - map: ["underpants"]
-        - map: ["undershirt"]
         - map: ["enum.HumanoidVisualLayers.LFoot"]
           sprite: Mobs/Species/Vox/parts.rsi
           state: l_foot
@@ -50,6 +48,8 @@
           sprite: Mobs/Species/Vox/parts.rsi
           state: r_foot
         - map: ["socks"]
+        - map: ["underpants"]
+        - map: ["undershirt"]
         #- map: [ "jumpsuit" ]
         #  shader: StencilDraw
         - map: ["enum.HumanoidVisualLayers.LHand"]
