@@ -1,9 +1,13 @@
+using System.Linq;
+using Content.Server.Explosion.EntitySystems;
 using Content.Server.Shuttles.Components;
+using Content.Shared.Explosion;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
-using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -53,6 +57,20 @@ public sealed partial class ShuttleSystem
         var volume = MathF.Min(10f, 1f * MathF.Pow(jungleDiff, 0.5f) - 5f);
         var audioParams = AudioParams.Default.WithVariation(0.05f).WithVolume(volume);
 
+        var sysMan = IoCManager.Resolve<IEntitySystemManager>();
+        var protoMan = IoCManager.Resolve<IPrototypeManager>();
+
+        protoMan.TryIndex<ExplosionPrototype>("MicroBomb", out var type);
+        if (type == null) type = protoMan.EnumeratePrototypes<ExplosionPrototype>().FirstOrDefault();
+        if (type == null)
+        {
+            Logger.Error("Couldn't find any explosion prototypes while trying to explode shuttle collision.");
+            return;
+        }
+
+        var transform = EntityManager.GetComponent<TransformComponent>(uid);
+
+        sysMan.GetEntitySystem<ExplosionSystem>().QueueExplosion(new MapCoordinates(args.WorldPoint, transform.MapID), type.ID, volume * 100, 5, 75);
         _audio.Play(_shuttleImpactSound, Filter.Pvs(coordinates, rangeMultiplier: 4f, entityMan: EntityManager), coordinates, true, audioParams);
     }
 }
