@@ -22,6 +22,8 @@ namespace Content.Shared.Slippery
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+        [Dependency] private readonly IEntityManager _entities = default!;
+
 
         public override void Initialize()
         {
@@ -90,6 +92,14 @@ namespace Content.Shared.Slippery
             var playSound = !_statusEffectsSystem.HasStatusEffect(other, "KnockedDown");
 
             _stunSystem.TryParalyze(other, TimeSpan.FromSeconds(component.ParalyzeTime), true);
+
+            // PARK Unequip glasses on slip
+            _entities.TryGetComponent<InventoryComponent>(other, out var inventoryComponent);
+            var invSystem = _entities.System<InventorySystem>();
+            if (invSystem.TryGetSlots(other, out var slotDefinitions, inventoryComponent))
+            {
+                invSystem.TryUnequip(other, "eyes", true, true, true, inventoryComponent);
+            }
 
             // Preventing from playing the slip sound when you are already knocked down.
             if (playSound)
