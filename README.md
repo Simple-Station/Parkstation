@@ -1,3 +1,5 @@
+# Parkstation
+
 ## Links
 
 [Discord](https://discord.gg/49KeKwXc8g) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Standalone Download](https://spacestation14.io/about/nightlies/)
@@ -8,21 +10,32 @@ We are happy to accept contributions from anybody. Get in Discord if you want to
 
 ## Building
 
+Refer to [the space wizards guide](https://docs.spacestation14.io/getting-started/dev-setup) for general information about setting up a dev environment but keep in mind that Parkstation is a distant fork of space wizards' SS14 and not everything applies. We provide some scripts for making the job easier.
+
+### Build dependencies
+
+> - Git
+> - .NET SDK 7.0 or higher
+> - python 3.7 or higher
+
+
 ### Windows
+
 > 1. Clone this repository.
 > 2. Run `RUN_THIS.py` to init submodules and download the engine, or run `git submodule update --init --recursive` in a terminal.
-> 3. Run the `scripts/bat/run1build.bat`
-> 4. Run the `scripts/bat/run2config.bat`
-> 5. Run both the `scripts/bat/run3server.bat` and `scripts/bat/run4client.bat`
-> 6. Connect to the localhost and play.
+> 3. Run the `Scripts/bat/run1buildDebug.bat`
+> 4. Run the `Scripts/bat/run2configDev.bat` if you need other configurations run other config scripts.
+> 5. Run both the `Scripts/bat/run3server.bat` and `Scripts/bat/run4client.bat`
+> 6. Connect to localhost and play.
 
 ### Linux
+
 > 1. Clone this repository.
 > 2. Run `RUN_THIS.py` to init submodules and download the engine, or run `git submodule update --init --recursive` in a terminal.
-> 3. Run the `scripts/sh/run1build.sh`
-> 4. Run the `scripts/sh/run2config.sh`
-> 5. Run both the `scripts/sh/run3server.bat` and `scripts/sh/run4client.sh`
-> 6. Connect to the localhost and play.
+> 3. Run the `Scripts/sh/run1buildDebug.sh`
+> 4. Run the `Scripts/sh/run2configDev.sh` if you need other configurations run other config scripts.
+> 5. Run both the `Scripts/sh/run3server.bat` and `scripts/sh/run4client.sh`
+> 6. Connect to localhost and play.
 
 ## License
 
