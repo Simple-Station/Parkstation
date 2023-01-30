@@ -19,9 +19,9 @@ We are happy to accept contributions from anybody. Get in Discord if you want to
 ### Linux
 > 1. Clone this repository.
 > 2. Run `RUN_THIS.py` to init submodules and download the engine, or run `git submodule update --init --recursive` in a terminal.
-> 3. Run the `scripts/sh/run1build.sh`
-> 4. Run the `scripts/sh/run2config.sh`
-> 5. Run both the `scripts/sh/run3server.bat` and `scripts/sh/run4client.sh`
+> 3. Run the `Scripts/sh/run1build.sh`
+> 4. Run the `Scripts/sh/run2config.sh`
+> 5. Run both the `Scripts/sh/run3server.bat` and `Scripts/sh/run4client.sh`
 > 6. Connect to the localhost and play.
 
 ## License
