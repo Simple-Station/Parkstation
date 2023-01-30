@@ -1,8 +1,3 @@
 cd ../../
-if [ -e sloth.txt ]
-then
-    dotnet build -c Release
-else
-    exit
-fi
+dotnet build -c Release
 pause
