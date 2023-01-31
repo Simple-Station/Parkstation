@@ -8,6 +8,8 @@
     sprite: Clothing/Eyes/Hud/diag.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/diag.rsi
+  - type: DropOnSlip
+    chance: 25
 
 - type: entity
   parent: ClothingEyesBase
@@ -25,6 +27,8 @@
     difficulty: 3
     recipes:
       - ClothingEyesHudMedical
+  - type: DropOnSlip
+    chance: 25
 
 - type: entity
   parent: ClothingEyesBase
@@ -36,6 +40,8 @@
     sprite: Clothing/Eyes/Hud/sec.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/sec.rsi
+  - type: DropOnSlip
+    chance: 25
 
 
 - type: entity

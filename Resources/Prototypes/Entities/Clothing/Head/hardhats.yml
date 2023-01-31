@@ -67,6 +67,8 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot
+  - type: DropOnSlip
+    chance: 15
 
 - type: entity
   parent: ClothingHeadHatHardhatBase

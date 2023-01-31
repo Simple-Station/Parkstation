@@ -1120,7 +1120,7 @@ Entries:
   - author: "Pspritechologist"
     changes:
       - { message: "Prescription glasses now break if thrown, hit, or stepped on.", type: Add }
-      - { message: 'Glasses now fall off when the wearer slips.', type: Tweak }
-      - { message: 'You wouldn't slip a guy with glasses!', type: Tweak }
+      - { message: "Careful when you fall over, and keep an eye on your pockets." type: Add }
+      - { message: "You wouldn't slip a guy with glasses!", type: Tweak }
     id: 86
-    time: "2023-01-30T04:02:30.0000000+00:00"
+    time: "2023-01-31T04:02:30.0000000+00:00"
