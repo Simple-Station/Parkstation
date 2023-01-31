@@ -1,9 +1,8 @@
-#!/bin/env sh
-
-# make sure running from root
-if [ "$(dirname $0)" != "." ]; then
-  cd "$(dirname $0)"
+cd ../../
+if [ -e sloth.txt ]
+then
+    dotnet build -c Debug
+else
+    exit
 fi
-cd ../..
-
-dotnet build -c Debug
+pause
