@@ -7,9 +7,6 @@
     netsync: false
     sprite: Nyanotrasen/Objects/Materials/materials.rsi
     state: bluespace
-  - type: Tag
-    tags:
-      - BluespaceCrystal
   - type: Material
     materials:
       Bluespace: 100

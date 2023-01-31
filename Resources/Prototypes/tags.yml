@@ -16,6 +16,9 @@
   id: Baguette
 
 - type: Tag
+  id: BikeHorn
+
+- type: Tag
   id: Bee
 
 - type: Tag
@@ -29,9 +32,6 @@
 
 - type: Tag
   id: Brutepack
-
-- type: Tag
-  id: BikeHorn
 
 - type: Tag
   id: BodyBag

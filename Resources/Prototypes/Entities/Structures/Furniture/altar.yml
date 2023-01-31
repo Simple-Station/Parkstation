@@ -28,6 +28,7 @@
     snapCardinals: true
   - type: Clickable
   - type: GhostTakeoverAvailable
+    prob: 0.05
     name: Magical Altar
     description: Make people think they're going insane. Or lead rituals for God.
   - type: SacrificialAltar
