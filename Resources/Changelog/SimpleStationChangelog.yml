@@ -1149,3 +1149,8 @@ Entries:
       - { message: 'Getting Started guidebook.', type: Add }
     id: 86
     time: "2023-01-31T13:14:32.0000000+00:00"
+  - author: "Pspritechologist"
+    changes:
+      - { message: 'Mobs will no longer bark when controlled by players.', type: Tweak }
+    id: 87
+    time: "2023-01-31T18:32:50.0000000+00:00"
