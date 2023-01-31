@@ -1,0 +1,10 @@
+<Document>
+<Box>
+Why are you here?
+How are you here?
+Have this image of a dog.
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MobCorgi" />
+</Box>
+</Document>
