@@ -20,10 +20,5 @@ namespace Content.Server.Damage.Systems
         {
            _damageableSystem.TryChangeDamage(uid, component.Damage, component.IgnoreResistances);
         }
-
-        // private void DamageOnTrigger(EntityUid uid, DamageOnTriggerComponent component, ref StepTriggeredEvent args)
-        // {
-        //     _damageableSystem.TryChangeDamage(uid, component.Damage, component.IgnoreResistances);
-        // }
     }
 }
