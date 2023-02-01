@@ -151,7 +151,7 @@
   - type: DiseaseProtection
     protection: 0.05
   - type: IdentityBlocker
-  - type: ClothingGrantComponent
+  - type: ClothingGrantTag
     tag: HardsuitOn
 
 - type: entity

@@ -404,7 +404,8 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWizard
   - type: ClothingGrantComponent
-    component: SpellbookUser1
+    component:
+      - type: SpellbookUser1
 
 - type: entity
   parent: ClothingOuterHardsuitBase
