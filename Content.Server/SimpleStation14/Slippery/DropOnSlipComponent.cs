@@ -1,4 +1,4 @@
-namespace Content.Shared.Slippery
+namespace Content.Server.Slippery
 {
     [RegisterComponent]
     public sealed class DropOnSlipComponent : Component

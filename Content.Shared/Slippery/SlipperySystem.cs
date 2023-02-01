@@ -1,5 +1,4 @@
 using Content.Shared.Administration.Logs;
-using Content.Shared.Clothing.Components;
 using Content.Shared.Database;
 using Content.Shared.Inventory;
 using Content.Shared.StatusEffect;
@@ -11,7 +10,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Random;
 using Content.Shared.Interaction.Components;
 
 namespace Content.Shared.Slippery
@@ -26,7 +24,6 @@ namespace Content.Shared.Slippery
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
         [Dependency] private readonly IEntityManager _entities = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
 
 
 
@@ -99,28 +96,8 @@ namespace Content.Shared.Slippery
             _stunSystem.TryParalyze(other, TimeSpan.FromSeconds(component.ParalyzeTime), true);
 
             // PARK Unequip glasses on slip
-            _entities.TryGetComponent<InventoryComponent>(other, out var inventoryComponent);
-            var invSystem = _entities.System<InventorySystem>();
-            if (invSystem.TryGetSlots(other, out var slotDefinitions, inventoryComponent))
-            {
-                foreach (var slot in slotDefinitions)
-                {
-                    invSystem.TryGetSlotEntity(other, slot.Name, out var item);
-                    _entities.TryGetComponent<ClothingComponent>(item, out var clothingComp);
-                    if (_entities.TryGetComponent<DropOnSlipComponent>(item, out var dropComp) && slot.Name != "pocket1" && slot.Name != "pocket2" && (_random.NextFloat(0, 100) < dropComp.Chance))
-                    {
-                        invSystem.TryUnequip(other, slot.Name, true, true, false, inventoryComponent);
-                    }
-                    // else if (_random.NextFloat(0, 100) < 5 && _entities.TryGetComponent<ClumsyComponent>(other, out var ____) && slot.Name != "jumpsuit")
-                    // {
-                    //     invSystem.TryUnequip(other, slot.Name, true, true, false, inventoryComponent);
-                    // }
-                    else if (_random.NextFloat(0, 100) < 10 && slot.Name == "pocket1" | slot.Name == "pocket2")
-                    {
-                        invSystem.TryUnequip(other, slot.Name, true, true, false, inventoryComponent);
-                    }
-                }
-            }
+            var slipev = new SlipEvent();
+            RaiseLocalEvent(other, slipev, false);
 
             // Preventing from playing the slip sound when you are already knocked down.
             if (playSound)
@@ -147,5 +124,8 @@ namespace Content.Shared.Slippery
     public sealed class SlipAttemptEvent : CancellableEntityEventArgs, IInventoryRelayEvent
     {
         public SlotFlags TargetSlots { get; } = SlotFlags.FEET;
+    }
+        public sealed class SlipEvent : EntityEventArgs
+    {
     }
 }
