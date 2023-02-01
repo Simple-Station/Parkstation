@@ -1,0 +1,6 @@
+- type: guideEntry
+  id: GettingStarted
+  name: guide-entry-gettingstarted
+  text: "/Server Info/SimpleStation14/Guidebook/Server/GettingStarted.xml"
+  children:
+    - Controls
