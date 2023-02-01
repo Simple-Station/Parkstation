@@ -279,8 +279,20 @@
     sprite: Clothing/Head/Hats/redwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/redwizard.rsi
-  - type: DropOnSlip
-    chance: 20
+  - type: Item
+    size: 10
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
+  - type: IngestionBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: DiseaseProtection
+    protection: 0.05
+  - type: IdentityBlocker
 
 - type: entity
   parent: ClothingHeadBase
@@ -389,8 +401,20 @@
     sprite: Clothing/Head/Hats/violetwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/violetwizard.rsi
-  - type: DropOnSlip
-    chance: 20
+  - type: Item
+    size: 10
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
+  - type: IngestionBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: DiseaseProtection
+    protection: 0.05
+  - type: IdentityBlocker
 
 - type: entity
   parent: ClothingHeadBase
@@ -441,8 +465,20 @@
     sprite: Clothing/Head/Hats/wizardhat.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/wizardhat.rsi
-  - type: DropOnSlip
-    chance: 20
+  - type: Item
+    size: 10
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
+  - type: IngestionBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: DiseaseProtection
+    protection: 0.05
+  - type: IdentityBlocker
 
 - type: entity
   parent: ClothingHeadBase

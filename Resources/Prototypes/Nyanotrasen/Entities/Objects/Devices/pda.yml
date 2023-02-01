@@ -92,3 +92,33 @@
   components:
   - type: PDA
     id: GladiatorIDCard
+
+- type: entity
+  parent: BasePDA
+  id: ValetPDA
+  name: valet PDA
+  description: Why isn't it gray?
+  components:
+  - type: PDA
+    id: ValetIDCard
+  - type: Appearance
+    visuals:
+    - type: PDAVisualizer
+      state: pda-internservice
+  - type: Icon
+    state: pda-internservice
+
+- type: entity
+  parent: BasePDA
+  id: CataloguerPDA
+  name: cataloguer PDA
+  description: Probably the person most likely to use an antiquated note taking device. Placeholder sprite.
+  components:
+  - type: PDA
+    id: CataloguerIDCard
+  - type: Appearance
+    visuals:
+    - type: PDAVisualizer
+      state: pda-library
+  - type: Icon
+    state: pda-library

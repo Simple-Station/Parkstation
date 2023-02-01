@@ -22,7 +22,9 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/med.rsi
   - type: ClothingGrantComponent
-    component: HealthGlasses
+    component:
+    - type: ShowHealthBars
+      damageContainer: Biological
   - type: ReverseEngineering
     difficulty: 3
     recipes:
@@ -50,8 +52,7 @@
   name: prescription diagnostic hud
   description: A heads-up display capable of analyzing the integrity and status of robotics and exosuits.
   components:
-  - type: ClothingGrantComponent
-    # component: DiagnosticGlasses
+  - type: ClothingGrantTag
     tag: GlassesNearsight
 
 - type: entity
@@ -60,8 +61,7 @@
   name: prescription medical hud
   description: A heads-up display that scans the humanoids in view and provides accurate data about their health status.
   components:
-  - type: ClothingGrantComponent
-    component: HealthGlasses
+  - type: ClothingGrantTag
     tag: GlassesNearsight
 
 - type: entity
@@ -70,6 +70,5 @@
   name: prescription security hud
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records.
   components:
-  - type: ClothingGrantComponent
-    # component: SecurityGlasses
+  - type: ClothingGrantTag
     tag: GlassesNearsight

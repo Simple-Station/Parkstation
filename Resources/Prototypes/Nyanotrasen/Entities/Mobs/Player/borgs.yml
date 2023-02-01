@@ -287,4 +287,5 @@
       autoPopulate: false
       name: action-name-disarm
   - type: FabricateCandy
-  - type: HealthGlasses
+  - type: ShowHealthBars
+    damageContainer: Biological
