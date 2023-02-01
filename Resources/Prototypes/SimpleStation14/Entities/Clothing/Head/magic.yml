@@ -4,7 +4,8 @@
   suffix: magical
   components:
     - type: ClothingGrantComponent
-      component: SpellbookUser2
+      component:
+        - type: SpellbookUser2
 
 - type: entity
   parent: ClothingHeadHatWizard
@@ -12,7 +13,8 @@
   suffix: magical
   components:
     - type: ClothingGrantComponent
-      component: SpellbookUser2
+      component:
+        - type: SpellbookUser2
 
 - type: entity
   parent: ClothingHeadHatRedwizard
@@ -20,4 +22,5 @@
   suffix: magical
   components:
     - type: ClothingGrantComponent
-      component: SpellbookUser2
+      component:
+        - type: SpellbookUser2
