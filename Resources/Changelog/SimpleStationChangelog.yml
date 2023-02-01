@@ -1143,10 +1143,10 @@ Entries:
     time: "2023-01-26T19:33:33.0000000+00:00"
   - author: "DEATHB4DEFEAT"
     changes:
-      - { message: 'Reorganize some guidebook positions.', type: Tweak }
-      - { message: '3 Alert Procedure guidebooks.', type: Add }
-      - { message: 'Standard Operating Procedure guidebook.', type: Add }
-      - { message: 'Getting Started guidebook.', type: Add }
+      - { message: "Reorganize some guidebook positions.", type: Tweak }
+      - { message: "3 Alert Procedure guidebooks.", type: Add }
+      - { message: "Standard Operating Procedure guidebook.", type: Add }
+      - { message: "Getting Started guidebook.", type: Add }
     id: 86
     time: "2023-01-31T13:14:32.0000000+00:00"
   - author: "Pspritechologist"
@@ -1154,3 +1154,12 @@ Entries:
       - { message: "Merged Upstream", type: Add }
     id: 87
     time: "2023-01-31T23:25:45.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Gendered Slimes.", type: Add } # Pronouns don't affect emote sounds, so they can have genders.
+      - { message: "Slime laughs.", type: Add }
+      - { message: "Slime screams.", type: Add }
+      - { message: "Slime squish emote.", type: Add }
+      - { message: "Moth laugh.", type: Add }
+    id: 88
+    time: "2023-02-01T09:13:32.0000000+00:00"

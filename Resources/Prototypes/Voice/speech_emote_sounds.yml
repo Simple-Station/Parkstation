@@ -51,6 +51,8 @@
   sounds:
     Scream:
       path: /Audio/Voice/Moth/scream_moth.ogg
+    Laugh:
+      path: /Audio/SimpleStation14/Voice/Moth/laugh_moth.ogg
 
 # body emotes
 - type: emoteSounds

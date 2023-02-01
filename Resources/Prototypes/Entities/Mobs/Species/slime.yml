@@ -72,6 +72,13 @@
     naturalImmunities:
     - Ultragigacancer
     - BleedersBite
+  - type: BodyEmotes
+    soundsId: GeneralSlimeEmotes
+  - type: Vocal
+    sounds:
+      Male: MaleSlime
+      Female: FemaleSlime
+      Unsexed: UnisexSlime
 
 - type: entity
   save: false

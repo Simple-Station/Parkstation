@@ -1,0 +1,11 @@
+- type: emote
+  id: SlimeSquish
+  category: Hands
+  chatMessages: [squishes!]
+  chatTriggers:
+    - squish
+    - squish.
+    - squish!
+    - squishes
+    - squishes.
+    - squishes!
