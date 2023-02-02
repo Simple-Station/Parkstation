@@ -7,6 +7,7 @@
     netsync: false
     sprite: Nyanotrasen/Objects/Materials/materials.rsi
     state: bluespace
+    scale: 1, 1
   - type: Material
     materials:
       Bluespace: 100
