@@ -40,7 +40,7 @@ You have 10 pages of actions total that you can switch between by pressing [colo
 Additionally, you can press the lock icon to prevent the action bar from being modified.
 
 ## Movement
-There's a good few things that can modify your movement, most notably slipping (which requires you to walk with [color=#a4885c]shift[/color] to avoid, usually.) and a lack of gravity.
+There's a good few things that can modify your movement, most notably slipping (which requires you to avoid running, done with [color=#a4885c]shift[/color], in order to not slip.) and a lack of gravity.
 Slipping simply stuns you for a bit, but no gravity can be deadly if you're off station and wander more than about 1.5m away from the nearest wall or solid structure, as you'll lose your grip and no longer be able to move without throwing something.
 
 </Document>
