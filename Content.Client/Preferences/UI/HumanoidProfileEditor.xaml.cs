@@ -77,6 +77,7 @@ namespace Content.Client.Preferences.UI
         private BoxContainer _ptraitsList => CPTraitsList;
         private BoxContainer _etraitsList => CETraitsList;
         private BoxContainer _ntraitsList => CNTraitsList;
+        private Label _loadoutPoints => LoadoutPoints;
         private BoxContainer _loadoutsTab => CLoadoutsTab;
         private BoxContainer _loadoutsList => CLoadoutsList;
         private readonly List<JobPrioritySelector> _jobPriorities;
@@ -644,7 +645,7 @@ namespace Content.Client.Preferences.UI
             }
 
             #endregion
-            // ------------------------------------------------------- random line :)(: enil modnar -------------------------------------------------------
+
             #region Loadouts
 
             _tabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-loadouts-tab"));
@@ -653,7 +654,7 @@ namespace Content.Client.Preferences.UI
 
             if (loadouts.Count >= 0)
             {
-                if (_traitPoints.Text == null) return;
+                if (_loadoutPoints.Text == null) return;
 
                 foreach (var loadout in loadouts)
                 {
@@ -664,6 +665,21 @@ namespace Content.Client.Preferences.UI
                     selector.PreferenceChanged += preference =>
                     {
                         if (!TestLoadout(loadout.Name)) preference = false;
+
+                        if (preference == true)
+                        {
+                            var temp = int.Parse(_loadoutPoints.Text) - loadout.Cost;
+
+                            if (temp < 0)
+                            {
+                                preference = false;
+                            }
+                            else _loadoutPoints.Text = (temp).ToString();
+                        }
+                        else if (TestLoadout(loadout.Name))
+                        {
+                            _loadoutPoints.Text = (int.Parse(_loadoutPoints.Text) + loadout.Cost).ToString();
+                        }
 
                         Profile = Profile?.WithTraitPreference(loadout.ID, preference);
                         IsDirty = true;
@@ -1399,7 +1415,7 @@ namespace Content.Client.Preferences.UI
         private void UpdateTraitPreferences()
         {
             if (_traitPoints.Text == null) return;
-            int points = 0;
+            int points = 0; // Default value from the xaml, keep these consistent or issues will arise
 
             foreach (var preferenceSelector in _traitPreferences)
             {
@@ -1418,8 +1434,8 @@ namespace Content.Client.Preferences.UI
 
         private void UpdateLoadoutPreferences()
         {
-            // if (_traitPoints.Text == null) return;
-            // int points = 0;
+            if (_loadoutPoints.Text == null) return;
+            int points = 9; // Default value from the xaml, keep these consistent or issues will arise
 
             if (_loadoutPreferences == null) return;
 
@@ -1430,11 +1446,11 @@ namespace Content.Client.Preferences.UI
 
                 preferenceSelector.Preference = preference;
 
-                // if (preference == true)
-                // {
-                    // points += preferenceSelector.Trait.Cost;
-                    // _traitPoints.Text = points.ToString();
-                // }
+                if (preference == true)
+                {
+                    points -= preferenceSelector.Loadout.Cost;
+                    _loadoutPoints.Text = points.ToString();
+                }
             }
         }
 

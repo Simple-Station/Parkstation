@@ -141,6 +141,7 @@
                     <!-- Traits -->
                     <BoxContainer Orientation="Horizontal">
                         <Label Text="Available Points: " />
+                        <!-- Keep this value consistent with the Update__Preferences function's default 'points' value or issues will arise. -->
                         <Label Text="0" Name="TraitPoints" />
                     </BoxContainer>
                     <Label Text="" />
@@ -158,6 +159,11 @@
                     </ScrollContainer>
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical" Margin="10" Name="CLoadoutsTab">
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Text="Available Points: " />
+                        <!-- Keep this value consistent with the Update__Preferences function's default 'points' value or issues will arise. -->
+                        <Label Text="9" Name="LoadoutPoints" />
+                    </BoxContainer>
                     <ScrollContainer VerticalExpand="True">
                         <BoxContainer Name="CLoadoutsList" Orientation="Vertical" />
                     </ScrollContainer>
