@@ -681,7 +681,7 @@ namespace Content.Client.Preferences.UI
                             _loadoutPoints.Text = (int.Parse(_loadoutPoints.Text) + loadout.Cost).ToString();
                         }
 
-                        Profile = Profile?.WithTraitPreference(loadout.ID, preference);
+                        Profile = Profile?.WithLoadoutPreference(loadout.ID, preference);
                         IsDirty = true;
                     };
                 }
@@ -1442,7 +1442,7 @@ namespace Content.Client.Preferences.UI
             foreach (var preferenceSelector in _loadoutPreferences)
             {
                 var loadoutId = preferenceSelector.Loadout.ID;
-                var preference = Profile?.TraitPreferences.Contains(loadoutId) ?? false;
+                var preference = Profile?.LoadoutPreferences.Contains(loadoutId) ?? false;
 
                 preferenceSelector.Preference = preference;
 
