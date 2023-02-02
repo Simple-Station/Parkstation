@@ -10,6 +10,8 @@
     - type: Sprite
       # noRot: true
       state: icon
+    - type: TemperatureProtection
+      coefficient: 0.80
 
 - type: entity
   parent: ClothingUnderPantsBase
@@ -24,6 +26,7 @@
       clothingVisuals:
         underpants:
           - state: bee_shorts
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxer_briefs
@@ -37,6 +40,7 @@
       clothingVisuals:
         underpants:
           - state: boxer_briefs
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_assblastusa
@@ -50,6 +54,7 @@
       clothingVisuals:
         underpants:
           - state: boxers_assblastusa
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_commie
@@ -63,6 +68,7 @@
       clothingVisuals:
         underpants:
           - state: boxers_commie
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_heart
@@ -76,6 +82,7 @@
       clothingVisuals:
         underpants:
           - state: boxers_heart
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_striped
@@ -89,6 +96,7 @@
       clothingVisuals:
         underpants:
           - state: boxers_striped
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_uk
@@ -102,6 +110,7 @@
       clothingVisuals:
         underpants:
           - state: boxers_uk
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers
@@ -115,6 +124,7 @@
       clothingVisuals:
         underpants:
           - state: boxers
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderbriefs
@@ -128,6 +138,7 @@
       clothingVisuals:
         underpants:
           - state: briefs
+
 # - type: entity
 #   parent: ClothingUnderPantsBase
 #   id: ClothingUnderfishnet_lower
@@ -141,6 +152,7 @@
 #       clothingVisuals:
 #         underpants:
 #           - state: fishnet_lower
+
 # - type: entity
 #   parent: ClothingUnderPantsBase
 #   id: ClothingUnderjockstrap
@@ -154,6 +166,7 @@
 #       clothingVisuals:
 #         underpants:
 #           - state: jockstrap
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderljonb
@@ -167,6 +180,9 @@
       clothingVisuals:
         underpants:
           - state: ljonb
+    - type: TemperatureProtection
+      coefficient: 0.70
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_alt
@@ -180,6 +196,7 @@
       clothingVisuals:
         underpants:
           - state: panties_alt
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_assblastusa
@@ -193,6 +210,7 @@
       clothingVisuals:
         underpants:
           - state: panties_assblastusa
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_bee-kini
@@ -206,6 +224,9 @@
       clothingVisuals:
         underpants:
           - state: panties_bee-kini
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_commie
@@ -219,6 +240,7 @@
       clothingVisuals:
         underpants:
           - state: panties_commie
+
 # - type: entity
 #   parent: ClothingUnderPantsBase
 #   id: ClothingUnderpanties_kinky
@@ -232,6 +254,7 @@
 #       clothingVisuals:
 #         underpants:
 #           - state: panties_kinky
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_neko
@@ -245,6 +268,7 @@
       clothingVisuals:
         underpants:
           - state: panties_neko
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_slim
@@ -258,6 +282,7 @@
       clothingVisuals:
         underpants:
           - state: panties_slim
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_swimming
@@ -271,6 +296,7 @@
       clothingVisuals:
         underpants:
           - state: panties_swimming
+
 # - type: entity
 #   parent: ClothingUnderPantsBase
 #   id: ClothingUnderpanties_thin
@@ -284,6 +310,7 @@
 #       clothingVisuals:
 #         underpants:
 #           - state: panties_thin
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_uk
@@ -297,6 +324,7 @@
       clothingVisuals:
         underpants:
           - state: panties_uk
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties
@@ -310,6 +338,7 @@
       clothingVisuals:
         underpants:
           - state: panties
+
 # - type: entity
 #   parent: ClothingUnderPantsBase
 #   id: ClothingUnderpantyhose_ripped
@@ -323,6 +352,7 @@
 #       clothingVisuals:
 #         underpants:
 #           - state: pantyhose_ripped
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderpantyhose
@@ -336,6 +366,7 @@
       clothingVisuals:
         underpants:
           - state: pantyhose
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderstriped_panties
@@ -349,6 +380,7 @@
       clothingVisuals:
         underpants:
           - state: striped_panties
+
 # - type: entity
 #   parent: ClothingUnderPantsBase
 #   id: ClothingUnderthong_babydoll
@@ -362,6 +394,7 @@
 #       clothingVisuals:
 #         underpants:
 #           - state: thong_babydoll
+
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderthong
@@ -375,3 +408,4 @@
       clothingVisuals:
         underpants:
           - state: thong
+

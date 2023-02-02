@@ -139,7 +139,7 @@ entities:
         tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAFoAAABaAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAWgAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAFkAAABZAAAAWQAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAFkAAAAAAAAAAAAAAAAAAABZAAAAAAAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAFkAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAAAAAABZAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAAAAAAAAAAAAADYAAAA2AAAANgAAAFoAAABaAAAAWgAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAAAAAAAAAAAAA2AAAAQAAAAkAAAABAAAABQAAAAUAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAAAAAAAAAAAANgAAAEAAAAFBAAABQQAAAUEAAAJBAAAAQQAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAAAAAAAAAAAAADYAAABAAAACQQAAAUEAAABBAAADQQAAA0EAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAAWQAAAFkAAABaAAAAQAAAAEAAAANAAAABQAAAAUAAAANAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAADYAAAAcAAADNgAAADYAAAA2AAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAABXAAADVwAAA1cAAAM2AAAAVwAAAVcAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAVwAAAFcAAAJXAAACNgAAAFcAAABXAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAA==
       0,1:
         ind: 0,1
-        tiles: WgAAAEAAAANAAAABQAAAAUAAAANaAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAFoAAABAAAAAQAAAAUAAAABAAAACWgAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAABaAAAAWgAAAEAAAABAAAACQAAAAFoAAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAAMAAAAFoAAABAAAABQAAAAUAAAAJaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAADMAAABaAAAALgAAADAAAAAwAAAAQAAAAUAAAANAAAABWgAAADgAAAA4AAAAOAAAADgAAABaAAAAQAAAA1oAAAAuAAAALgAAAC4AAAAwAAAAMAAAAEAAAABAAAADQAAAAFoAAAA4AAAAOAAAADgAAAA4AAAAMwAAAEAAAAJaAAAALgAAAC4AAAAuAAAAMAAAADAAAABAAAAAQAAAAEAAAAFaAAAAOAAAADgAAAA4AAAAOAAAAFoAAABAAAAAMwAAAC4AAAAuAAAALgAAADAAAABaAAAAQAAAA0AAAABAAAABWgAAAFoAAABaAAAASgAAAEoAAABaAAAAQAAAAFoAAAAuAAAALgAAAC4AAABaAAAAWgAAAEAAAANAAAABQAAAAxEAAAMRAAAAWgAAAEoAAABKAAAASgAAAEAAAABaAAAAWgAAADMAAABaAAAAQAAAA0AAAABAAAACQAAAA0AAAAIRAAADEQAAAVoAAABaAAAAWgAAAFoAAAAzAAAAWgAAAFcAAANXAAABVwAAA0AAAAJAAAACQAAAAEAAAAFAAAADEQAAAxEAAAJaAAAAUgAAAVIAAABaAAAAVwAAAlcAAAFXAAAAVwAAA1cAAANAAAABQAAAAkAAAAJAAAADQAAAA1oAAABaAAAAWgAAAFIAAABSAAACMwAAAFcAAAFXAAAAVwAAAVcAAAJXAAABWgAAAEAAAANAAAABQAAAAkAAAAJaAAAAWgAAAEoAAABSAAAAUgAAAloAAABXAAADVwAAAVcAAAFXAAACVwAAAkcAAABAAAABQAAAAkAAAABAAAADWgAAAFoAAABaAAAAUgAAAlIAAANaAAAARgAAAFcAAANXAAADVwAAAVcAAAFHAAAAQAAAA0AAAANAAAAAQAAAAEoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAARwAAAEAAAANAAAACQAAAAUAAAANaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAA==
+        tiles: WgAAAEAAAANAAAABQAAAAUAAAANaAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAFoAAABAAAAAQAAAAUAAAABAAAACWgAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAABaAAAAWgAAAEAAAABAAAACQAAAAFoAAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAAMAAAAFoAAABAAAABQAAAAUAAAAJaAAAAWgAAAFoAAAAzAAAAWgAAAFoAAABaAAAAWgAAADMAAABaAAAALgAAADAAAAAwAAAAQAAAAUAAAANAAAABWgAAADgAAAA4AAAAOAAAADgAAABaAAAAQAAAA1oAAAAuAAAALgAAAC4AAAAwAAAAMAAAAEAAAABAAAADQAAAAFoAAAA4AAAAOAAAADgAAAA4AAAAMwAAAEAAAAJaAAAALgAAAC4AAAAuAAAAMAAAADAAAABAAAAAQAAAAEAAAAFaAAAAOAAAADgAAAA4AAAAOAAAAFoAAABAAAAAMwAAAC4AAAAuAAAALgAAADAAAABaAAAAQAAAA0AAAABAAAABWgAAAFoAAABaAAAASgAAAEoAAABaAAAAQAAAAFoAAAAuAAAALgAAAC4AAABaAAAAWgAAAEAAAANAAAABQAAAAxEAAAMRAAAAWgAAAEoAAABKAAAASgAAAEAAAABaAAAAWgAAADMAAABaAAAAQAAAA0AAAABAAAACQAAAA0AAAAIRAAADEQAAAVoAAABaAAAAWgAAAFoAAAAzAAAAWgAAAFcAAANXAAABVwAAA0AAAAJAAAACQAAAAEAAAAFAAAADEQAAAxEAAAJaAAAAUgAAAVIAAABaAAAAVwAAAlcAAAFXAAAAVwAAA1cAAANAAAABQAAAAkAAAAJAAAADQAAAA1oAAABaAAAAWgAAAFIAAABSAAACMwAAAFcAAAFXAAAAVwAAAVcAAAJXAAABWgAAAEAAAANAAAABQAAAAkAAAAJaAAAAWgAAAEoAAABSAAAAUgAAAloAAABXAAADVwAAAVcAAAFXAAACVwAAAkcAAABAAAABQAAAAkAAAABAAAADWgAAAFoAAABaAAAAUgAAAlIAAANaAAAARgAAAFcAAANXAAADVwAAAVcAAAFHAAAAQAAAA0AAAANAAAAAQAAAAEoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAARwAAAEAAAANAAAACQAAAAUAAAANaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAA==
       0,-1:
         ind: 0,-1
         tiles: QAAAAkAAAAJAAAAAWgAAAFoAAAAfAAAAHQAAAEAAAANAAAAAQAAAAEAAAANAAAABQAAAAkAAAAJAAAADQAAAAEAAAANAAAAAQAAAA0AAAAJaAAAAHwAAAloAAABaAAAAWgAAAB0AAAAdAAAAHQAAAB0AAAAdAAAAWgAAAFoAAABAAAACQAAAAkAAAAJAAAADWgAAAB8AAAAfAAADHwAAAx8AAAAfAAAAHwAAAx8AAAIfAAACHwAAAR8AAAMfAAABQAAAAUAAAANAAAAAQAAAAloAAAAfAAAAHwAAASoAAAIqAAABKgAAAR8AAAMfAAADHwAAACoAAAMqAAAAKgAAAkAAAAJAAAADQAAAA0AAAABaAAAAHwAAAyoAAAIqAAACKgAAAioAAAMfAAAAHwAAAR8AAAEqAAAAKgAAAyoAAAJAAAADQAAAAUAAAABAAAADWgAAACoAAAIqAAABKgAAACoAAAEqAAADHwAAAB8AAAEfAAADKgAAASoAAAAqAAACQAAAA0AAAAJAAAACRwAAAEcAAAAqAAAAKgAAAioAAAEqAAADKgAAAx8AAAEfAAADHwAAAyoAAAMqAAAAKgAAAEAAAABAAAACQAAAAkcAAAAqAAACKgAAAioAAAMqAAAAKgAAACoAAAEqAAAAHwAAASoAAAEqAAACKgAAASoAAAInAAAAQAAAAkcAAABHAAAAKgAAAyoAAAEqAAACKgAAAioAAAMqAAACKgAAAR8AAAEqAAABKgAAAioAAAIqAAABJwAAAEAAAAFaAAAAKgAAASoAAAIqAAAAKgAAACoAAAEqAAABKgAAASoAAAAfAAABKgAAACoAAAIqAAADKgAAAycAAABAAAABHAAAAR4AAAEeAAACHgAAAB4AAAAqAAACKgAAAioAAAEcAAAAHAAAABwAAAEqAAACKgAAASoAAAMnAAAAQAAAAloAAAAeAAAAHgAAAh4AAAMeAAACHgAAAx4AAAAeAAADHAAAAioAAAMcAAACHgAAAh4AAAMeAAAAJwAAAEAAAAAcAAADHgAAAB4AAAEeAAABHgAAACoAAAEqAAABKgAAARwAAAIcAAADHAAAAyoAAAMqAAAAKgAAACcAAABAAAABWgAAACoAAAMqAAACKgAAACoAAAEqAAAAKgAAAioAAAAqAAACHwAAACoAAAAqAAADKgAAACoAAAMnAAAAQAAAAFoAAABaAAAAKgAAAyoAAAEqAAABKgAAAioAAAIqAAABKgAAAR8AAAEqAAADKgAAAioAAAMqAAABQAAAAkAAAAJAAAADWgAAACoAAAEqAAADKgAAAioAAAAqAAABKgAAASoAAAMfAAABKgAAAioAAAEqAAABKgAAAA==
@@ -190,7 +190,7 @@ entities:
         tiles: DAAAAAwAAAEMAAACDAAAAgwAAAEMAAADJwAAACcAAAAnAAAAJwAAACcAAAAMAAAADAAAAwwAAAAMAAABDAAAAgwAAAMMAAAADAAAAgwAAAEMAAABJwAAACcAAAAnAAAAJwAAACcAAAAnAAAAJwAAAAwAAAMMAAABDAAAAwwAAAIMAAACDAAAAgwAAAIMAAADDAAAAycAAAAnAAAAJwAAACcAAAAnAAAAJwAAACcAAAAMAAAADAAAAgwAAAEMAAACWgAAAAwAAAMMAAAADAAAAwwAAAIMAAACJwAAACcAAAAnAAAAJwAAACcAAAAMAAACDAAAAQwAAAEMAAADDAAAAFoAAABaAAAADAAAAQwAAAMMAAABDAAAAgwAAAEnAAAAJwAAACcAAAAMAAABDAAAAAwAAAAMAAAADAAAAVoAAAAxAAAAWgAAAFoAAABaAAAADAAAAQwAAAAMAAACDAAAAwwAAAAMAAAADAAAAgwAAAMMAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAAwAAAEMAAABDAAAAQwAAAEMAAABDAAAAAwAAAMMAAACDAAAAVoAAAAAAAAAAAAAAFoAAABaAAAAWgAAAFoAAAAMAAABDAAAAgwAAAJAAAADQAAAAUAAAAMMAAACDAAAAgwAAAJaAAAAAAAAAAAAAABLAAAAWgAAAFoAAABaAAAAWgAAAAwAAAJAAAABQAAAA0AAAAJAAAAAQAAAAwwAAAFaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAMAAADQAAAAkAAAANAAAAAQAAAAEAAAAAMAAABWgAAAFoAAABaAAAAMQAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAEAAAAFAAAACQAAAAUAAAABAAAABWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAMQAAAFoAAABaAAAAQAAAA0AAAANAAAADWgAAAFoAAAAxAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAASwAAAEAAAAFAAAABQAAAAEsAAABaAAAAWgAAAFoAAABaAAAAWgAAAEAAAANAAAACWgAAAFoAAABaAAAAWgAAAFoAAABAAAADQAAAA0AAAAJaAAAAWgAAADEAAABaAAAAWgAAAE0AAAFAAAAAQAAAA1oAAABaAAAAWgAAAFoAAABaAAAAQAAAAEAAAANAAAACQAAAAVoAAABaAAAAWgAAAFoAAABNAAADQAAAAkAAAAJaAAAAWgAAAFoAAABaAAAAWgAAAEAAAAFAAAADQAAAA0AAAAFAAAABWgAAAFoAAABaAAAATQAAAQ==
       2,-2:
         ind: 2,-2
-        tiles: HAAAAFoAAABNAAACTQAAAloAAABLAAAAWgAAABcAAAMXAAAAFwAAARcAAAIXAAAAWgAAAFoAAABaAAAAWgAAABsAAANaAAAAUwAAAFoAAABaAAAAFwAAAhcAAAEcAAACHAAAAhwAAAAcAAAAFwAAAxcAAAEXAAADWgAAABcAAAEbAAAAGwAAAxsAAAFaAAAAKwAAABwAAAEcAAADHAAAABwAAAMcAAABHAAAAhwAAAMcAAAAFwAAAVoAAAAXAAABIAAAAiAAAAEgAAACWgAAACsAAAAcAAAAHAAAAhwAAAAcAAAAHAAAARwAAAMcAAABHAAAARcAAANaAAAAFwAAACAAAAMgAAAAIAAAAFoAAAArAAAAHAAAARwAAAIcAAACHAAAAxwAAAIcAAABHAAAAxwAAAEXAAACHAAAAhcAAAEgAAADIAAAACAAAAFaAAAAFwAAABwAAAEcAAABHAAAABwAAAMcAAABHAAAAxwAAAIcAAAAFwAAA1oAAAAXAAAAIAAAASAAAAMgAAADHAAAAhcAAAIcAAAAHAAAABwAAAAcAAACHAAAARwAAAMXAAABFwAAAhcAAABaAAAAWgAAACAAAAMgAAABIAAAAFoAAAAXAAABFwAAARcAAAIXAAABFwAAABcAAAIXAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAbAAABGwAAARsAAAJaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAxAAAAMQAAADEAAABaAAAAGwAAAloAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAEsAAABaAAAAMQAAADEAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAASwAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAkAAAAJAAAACQAAAAkAAAAJAAAACQAAABaAAAAWgAAAFoAAAAAAAAAWgAAAEsAAABaAAAAWgAAAFoAAABaAAAAJAAAAE0AAANNAAABTQAAAk0AAAIkAAAAWgAAAFoAAABaAAAAWQAAACQAAAAkAAAAJAAAAFoAAABaAAAAWgAAACQAAABNAAADTQAAAU0AAAFNAAABJAAAAFoAAABaAAAAWgAAAFkAAABOAAAATgAAAyQAAABaAAAAWgAAAFoAAAAkAAAATQAAAk0AAAFNAAABTQAAAiQAAABaAAAAWgAAAFoAAAAAAAAATgAAAU4AAAIkAAAAWgAAAFoAAABaAAAAJAAAAE0AAAFNAAABTQAAAk0AAAIkAAAAWgAAAFoAAABaAAAAWgAAAA==
+        tiles: HAAAAFoAAABNAAACTQAAAloAAABLAAAAWgAAABcAAAMXAAAAFwAAARcAAAIXAAAAWgAAAFoAAABaAAAAWgAAABsAAANaAAAAUwAAAFoAAABaAAAAFwAAAhcAAAEcAAACHAAAAhwAAAAcAAAAHAAAABcAAAEXAAADWgAAABcAAAEbAAAAGwAAAxsAAAFaAAAAKwAAABwAAAEcAAADHAAAABwAAAMcAAABHAAAAhwAAAMcAAAAFwAAAVoAAAAXAAABIAAAAiAAAAEgAAACWgAAACsAAAAcAAAAHAAAAhwAAAAcAAAAHAAAARwAAAMcAAABHAAAARcAAANaAAAAFwAAACAAAAMgAAAAIAAAAFoAAAArAAAAHAAAARwAAAIcAAACHAAAAxwAAAIcAAABHAAAAxwAAAEXAAACHAAAAhcAAAEgAAADIAAAACAAAAFaAAAAFwAAABwAAAEcAAABHAAAABwAAAMcAAABHAAAAxwAAAIcAAAAFwAAA1oAAAAXAAAAIAAAASAAAAMgAAADHAAAAhcAAAIcAAAAHAAAABwAAAAcAAACHAAAARwAAAMXAAABFwAAAhcAAABaAAAAWgAAACAAAAMgAAABIAAAAFoAAAAXAAABFwAAARcAAAIXAAABFwAAABcAAAIXAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAbAAABGwAAARsAAAJaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAxAAAAMQAAADEAAABaAAAAGwAAAloAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAEsAAABaAAAAMQAAADEAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAASwAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAkAAAAJAAAACQAAAAkAAAAJAAAACQAAABaAAAAWgAAAFoAAAAAAAAAWgAAAEsAAABaAAAAWgAAAFoAAABaAAAAJAAAAE0AAANNAAABTQAAAk0AAAIkAAAAWgAAAFoAAABaAAAAWQAAACQAAAAkAAAAJAAAAFoAAABaAAAAWgAAACQAAABNAAADTQAAAU0AAAFNAAABJAAAAFoAAABaAAAAWgAAAFkAAABOAAAATgAAAyQAAABaAAAAWgAAAFoAAAAkAAAATQAAAk0AAAFNAAABTQAAAiQAAABaAAAAWgAAAFoAAAAAAAAATgAAAU4AAAIkAAAAWgAAAFoAAABaAAAAJAAAAE0AAAFNAAABTQAAAk0AAAIkAAAAWgAAAFoAAABaAAAAWgAAAA==
       2,-1:
         ind: 2,-1
         tiles: TgAAAU4AAAMkAAAAWgAAAFoAAABaAAAAJAAAAE0AAAFNAAACTQAAA00AAAAkAAAAWgAAAFoAAABaAAAAWgAAACQAAAAkAAAAJAAAAFoAAABaAAAAWgAAACQAAAAkAAAATQAAA00AAAIkAAAAJAAAAFoAAABaAAAAWgAAAFoAAABaAAAAOAAAAFoAAABaAAAASwAAAFoAAABaAAAAOAAAAFoAAABaAAAAOAAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAACQAAAAkAAAAJAAAACQAAAAkAAAAJAAAACQAAAAkAAAAJAAAACQAAAAkAAAAJAAAACQAAABaAAAAJAAAADgAAABNAAABTQAAA00AAAJNAAABTQAAAk0AAAJNAAACTQAAAk0AAABNAAACTQAAAU0AAAFNAAADOAAAACQAAAA4AAAATQAAAU0AAAFNAAACTQAAA00AAAFNAAADTQAAAE0AAAFNAAACTQAAA00AAAJNAAADTQAAAzgAAAAkAAAAWgAAACQAAAAkAAAAJAAAACQAAAAkAAAAJAAAACQAAAAkAAAAJAAAACQAAAAkAAAAJAAAACQAAABaAAAAJAAAAFoAAABaAAAAWgAAADgAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAAA4AAAAWgAAAFoAAABaAAAAWgAAAFoAAAAYAAADGAAAAhgAAAEYAAAAGAAAARgAAAFaAAAANgAAADYAAAAXAAAAFwAAABcAAAA2AAAANgAAAFoAAABaAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAWgAAADYAAAA2AAAAFwAAABcAAAEXAAABNgAAADYAAABaAAAAWgAAADEAAAAxAAAAMQAAADEAAAAxAAAAQAAAAloAAAA2AAAANgAAABcAAAEXAAAAFwAAATYAAAA2AAAAWgAAAFoAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAABaAAAANgAAADYAAAA2AAAANgAAADYAAAA2AAAANgAAAFoAAABaAAAAGAAAARgAAAMYAAAAGAAAAxgAAAAYAAABWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABLAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAMQAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAA==
@@ -1533,39 +1533,39 @@ entities:
           color: '#FFFFFFFF'
           id: WoodTrimThinCornerSe
           coordinates: -30,-24
-        2815:
+        2808:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -30,-20
-        2816:
+        2809:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -30,-19
-        2817:
+        2810:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -30,-18
-        2818:
+        2811:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -31,-20
-        2819:
+        2812:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -31,-19
-        2820:
+        2813:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -31,-18
-        2821:
+        2814:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -32,-18
-        2822:
+        2815:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -32,-19
-        2823:
+        2816:
           color: '#7BD17296'
           id: DiagonalCheckerBOverlay
           coordinates: -32,-20
@@ -3000,67 +3000,67 @@ entities:
           color: '#FFFFFFFF'
           id: DirtMedium
           coordinates: -1,26
-        2607:
+        2600:
           color: '#FFFFFFFF'
           id: WarnLineGreyscaleW
           coordinates: -5,5
-        2608:
+        2601:
           color: '#FFFFFFFF'
           id: WarnLineGreyscaleW
           coordinates: -5,6
-        2609:
+        2602:
           color: '#FFFFFFFF'
           id: WarnLineGreyscaleW
           coordinates: -5,7
-        2610:
+        2603:
           color: '#FFFFFFFF'
           id: WarnLineGreyscaleW
           coordinates: -5,8
-        2611:
+        2604:
           color: '#FFFFFFFF'
           id: WarnLineGreyscaleN
           coordinates: -4,9
-        2612:
+        2605:
           color: '#FFFFFFFF'
           id: WarnCornerGreyscaleNW
           coordinates: -5,9
-        2805:
+        2798:
           color: '#FFFFFFFF'
           id: WoodTrimThinCornerNe
           coordinates: -20,22
-        2806:
+        2799:
           color: '#FFFFFFFF'
           id: WoodTrimThinCornerNw
           coordinates: -22,22
-        2807:
+        2800:
           color: '#FFFFFFFF'
           id: WoodTrimThinCornerSw
           coordinates: -22,19
-        2808:
+        2801:
           color: '#FFFFFFFF'
           id: WoodTrimThinCornerSe
           coordinates: -20,19
-        2809:
+        2802:
           color: '#FFFFFFFF'
           id: WoodTrimThinLineS
           coordinates: -21,19
-        2810:
+        2803:
           color: '#FFFFFFFF'
           id: WoodTrimThinLineW
           coordinates: -22,20
-        2811:
+        2804:
           color: '#FFFFFFFF'
           id: WoodTrimThinLineW
           coordinates: -22,21
-        2812:
+        2805:
           color: '#FFFFFFFF'
           id: WoodTrimThinLineN
           coordinates: -21,22
-        2813:
+        2806:
           color: '#FFFFFFFF'
           id: WoodTrimThinLineE
           coordinates: -20,20
-        2814:
+        2807:
           color: '#FFFFFFFF'
           id: WoodTrimThinLineE
           coordinates: -20,21
@@ -4786,207 +4786,207 @@ entities:
           color: '#D381C996'
           id: OffsetOverlay
           coordinates: 27,-26
-        2712:
+        2705:
           color: '#FFFFFFFF'
           id: MiniTileDarkCornerNe
           coordinates: 30,-24
-        2717:
+        2710:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 23,-24
-        2718:
+        2711:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 23,-23
-        2719:
+        2712:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 22,-24
-        2720:
+        2713:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 22,-23
-        2721:
+        2714:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 21,-24
-        2722:
+        2715:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 21,-23
-        2723:
+        2716:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 20,-24
-        2724:
+        2717:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 20,-23
-        2725:
+        2718:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 19,-24
-        2726:
+        2719:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 19,-23
-        2727:
+        2720:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 18,-24
-        2728:
+        2721:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 18,-23
-        2729:
+        2722:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 17,-24
-        2730:
+        2723:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 17,-23
-        2731:
+        2724:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 16,-24
-        2732:
+        2725:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 16,-23
-        2733:
+        2726:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 15,-24
-        2734:
+        2727:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 15,-23
-        2735:
+        2728:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 14,-24
-        2736:
+        2729:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 14,-23
-        2737:
+        2730:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 13,-24
-        2738:
+        2731:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 13,-23
-        2739:
+        2732:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 12,-24
-        2740:
+        2733:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 12,-23
-        2741:
+        2734:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 11,-24
-        2742:
+        2735:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 11,-23
-        2743:
+        2736:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 10,-24
-        2744:
+        2737:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 10,-23
-        2745:
+        2738:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 9,-24
-        2746:
+        2739:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 9,-23
-        2747:
+        2740:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 8,-24
-        2748:
+        2741:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 8,-23
-        2749:
+        2742:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 7,-23
-        2750:
+        2743:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 7,-24
-        2751:
+        2744:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineW
           coordinates: 7,-24
-        2752:
+        2745:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineW
           coordinates: 7,-23
-        2753:
+        2746:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineE
           coordinates: 23,-24
-        2754:
+        2747:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineE
           coordinates: 23,-23
-        2755:
+        2748:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 11,-26
-        2756:
+        2749:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 10,-26
-        2757:
+        2750:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 9,-26
-        2758:
+        2751:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 8,-26
-        2759:
+        2752:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 8,-27
-        2760:
+        2753:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 9,-27
-        2761:
+        2754:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 10,-27
-        2762:
+        2755:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 11,-27
-        2763:
+        2756:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 11,-28
-        2764:
+        2757:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 10,-28
-        2765:
+        2758:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 9,-28
-        2766:
+        2759:
           color: '#0000006E'
           id: CheckerNWSE
           coordinates: 8,-28
@@ -7447,39 +7447,39 @@ entities:
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 24.5489,9.394888
-        2604:
+        2597:
           color: '#EFB34196'
           id: BrickTileWhiteLineW
           coordinates: 5,24
-        2605:
+        2598:
           color: '#EFB34196'
           id: BrickTileWhiteLineW
           coordinates: 5,25
-        2606:
+        2599:
           color: '#EFB34196'
           id: BrickTileWhiteLineW
           coordinates: 5,26
-        2825:
+        2818:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 1.2316604,19.983152
-        2826:
+        2819:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 1.0336456,20.452229
-        2827:
+        2820:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 1.2316604,20.796217
-        2828:
+        2821:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: 1.1378646,21.348684
-        2829:
+        2822:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
@@ -7889,47 +7889,47 @@ entities:
           color: '#9FED5896'
           id: CheckerNWSE
           coordinates: -11,35
-        2831:
+        2824:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineS
           coordinates: -1,41
-        2832:
+        2825:
           color: '#779CBFFF'
           id: BrickTileWhiteLineW
           coordinates: -4,43
-        2833:
+        2826:
           color: '#779CBFFF'
           id: BrickTileWhiteLineW
           coordinates: -4,42
-        2834:
+        2827:
           color: '#779CBFFF'
           id: BrickTileWhiteLineE
           coordinates: -2,43
-        2835:
+        2828:
           color: '#779CBFFF'
           id: BrickTileWhiteLineE
           coordinates: -2,42
-        2836:
+        2829:
           color: '#779CBFFF'
           id: BrickTileWhiteLineS
           coordinates: -3,41
-        2837:
+        2830:
           color: '#779CBFFF'
           id: BrickTileWhiteLineN
           coordinates: -3,44
-        2838:
+        2831:
           color: '#779CBFFF'
           id: BrickTileWhiteCornerNw
           coordinates: -4,44
-        2839:
+        2832:
           color: '#779CBFFF'
           id: BrickTileWhiteCornerSe
           coordinates: -2,41
-        2840:
+        2833:
           color: '#779CBFFF'
           id: BrickTileWhiteCornerNe
           coordinates: -2,44
-        2841:
+        2834:
           color: '#779CBFFF'
           id: BrickTileWhiteCornerSw
           coordinates: -4,41
@@ -8888,471 +8888,471 @@ entities:
           color: '#EFB341A4'
           id: CheckerNESW
           coordinates: 48,16
-        2613:
+        2606:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 59,25
-        2614:
+        2607:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 58,25
-        2615:
+        2608:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 57,25
-        2616:
+        2609:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 56,25
-        2617:
+        2610:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 53,25
-        2618:
+        2611:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 52,25
-        2619:
+        2612:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 50,25
-        2620:
+        2613:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 49,25
-        2621:
+        2614:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 48,25
-        2622:
+        2615:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 51,25
-        2623:
+        2616:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 50,24
-        2624:
+        2617:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 51,24
-        2625:
+        2618:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 52,24
-        2626:
+        2619:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 54,24
-        2627:
+        2620:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 55,24
-        2628:
+        2621:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 53,24
-        2629:
+        2622:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 56,24
-        2630:
+        2623:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 58,24
-        2631:
+        2624:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 57,24
-        2632:
+        2625:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 43,22
-        2633:
+        2626:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 43,23
-        2634:
+        2627:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 43,24
-        2635:
+        2628:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 44,24
-        2636:
+        2629:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 44,23
-        2637:
+        2630:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 44,22
-        2638:
+        2631:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 45,22
-        2639:
+        2632:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 45,23
-        2640:
+        2633:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 45,24
-        2641:
+        2634:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 46,24
-        2642:
+        2635:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 46,23
-        2643:
+        2636:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 46,22
-        2644:
+        2637:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 47,22
-        2645:
+        2638:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 47,23
-        2646:
+        2639:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 47,24
-        2647:
+        2640:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 48,24
-        2648:
+        2641:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 48,23
-        2649:
+        2642:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 48,22
-        2650:
+        2643:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 48,21
-        2651:
+        2644:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 49,21
-        2652:
+        2645:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 49,22
-        2653:
+        2646:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 49,23
-        2654:
+        2647:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 50,23
-        2655:
+        2648:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 50,22
-        2656:
+        2649:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 51,22
-        2657:
+        2650:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 50,21
-        2658:
+        2651:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 51,21
-        2659:
+        2652:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 52,21
-        2660:
+        2653:
           color: '#EFB34196'
           id: CheckerNESW
           coordinates: 52,22
+        2654:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 52,23
+        2655:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 51,23
+        2656:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 53,23
+        2657:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 54,23
+        2658:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 55,23
+        2659:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 56,23
+        2660:
+          color: '#EFB34196'
+          id: CheckerNESW
+          coordinates: 56,22
         2661:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 52,23
+          coordinates: 53,21
         2662:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 51,23
+          coordinates: 53,22
         2663:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 53,23
+          coordinates: 54,22
         2664:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 54,23
+          coordinates: 55,22
         2665:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 55,23
+          coordinates: 57,22
         2666:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 56,23
+          coordinates: 57,23
         2667:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 56,22
+          coordinates: 58,23
         2668:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 53,21
+          coordinates: 58,22
         2669:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 53,22
+          coordinates: 59,21
         2670:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 54,22
+          coordinates: 60,21
         2671:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 55,22
+          coordinates: 60,22
         2672:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 57,22
+          coordinates: 59,22
         2673:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 57,23
+          coordinates: 59,23
         2674:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 58,23
+          coordinates: 60,23
         2675:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 58,22
+          coordinates: 60,24
         2676:
           color: '#EFB34196'
           id: CheckerNESW
-          coordinates: 59,21
-        2677:
-          color: '#EFB34196'
-          id: CheckerNESW
-          coordinates: 60,21
-        2678:
-          color: '#EFB34196'
-          id: CheckerNESW
-          coordinates: 60,22
-        2679:
-          color: '#EFB34196'
-          id: CheckerNESW
-          coordinates: 59,22
-        2680:
-          color: '#EFB34196'
-          id: CheckerNESW
-          coordinates: 59,23
-        2681:
-          color: '#EFB34196'
-          id: CheckerNESW
-          coordinates: 60,23
-        2682:
-          color: '#EFB34196'
-          id: CheckerNESW
-          coordinates: 60,24
-        2683:
-          color: '#EFB34196'
-          id: CheckerNESW
           coordinates: 59,24
-        2684:
+        2677:
           color: '#FFFFFFFF'
           id: BrickTileSteelCornerNw
           coordinates: 59,24
-        2685:
+        2678:
           color: '#FFFFFFFF'
           id: BrickTileSteelCornerNe
           coordinates: 48,24
-        2686:
+        2679:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 49,23
-        2687:
+        2680:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 50,23
-        2688:
+        2681:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 51,23
-        2689:
+        2682:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 52,23
-        2690:
+        2683:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 54,23
-        2691:
+        2684:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 53,23
-        2692:
+        2685:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 55,23
-        2693:
+        2686:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 56,23
-        2694:
+        2687:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 57,23
-        2695:
+        2688:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineN
           coordinates: 58,23
-        2696:
+        2689:
           color: '#FFFFFFFF'
           id: BrickTileSteelInnerNw
           coordinates: 59,23
-        2697:
+        2690:
           color: '#FFFFFFFF'
           id: BrickTileSteelCornerNe
           coordinates: 60,24
-        2698:
+        2691:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineE
           coordinates: 60,23
-        2699:
+        2692:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineE
           coordinates: 60,22
-        2700:
+        2693:
           color: '#FFFFFFFF'
           id: BrickTileSteelLineE
           coordinates: 60,21
-        2701:
+        2694:
           color: '#FFFFFFFF'
           id: BrickTileSteelInnerNe
           coordinates: 48,23
-        2702:
+        2695:
           color: '#FFFFFFFF'
           id: BrickTileSteelInnerNe
           coordinates: 47,24
-        2703:
+        2696:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineE
           coordinates: 53,21
-        2704:
+        2697:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 58,22
-        2705:
+        2698:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 57,22
-        2706:
+        2699:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 56,22
-        2707:
+        2700:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 55,22
-        2708:
+        2701:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 54,22
-        2709:
+        2702:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineW
           coordinates: 59,21
-        2710:
+        2703:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerSw
           coordinates: 59,22
-        2711:
+        2704:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerSe
           coordinates: 53,22
-        2713:
+        2706:
           color: '#FFFFFFFF'
           id: BrickTileDarkEndW
           coordinates: 55,19
-        2714:
+        2707:
           color: '#FFFFFFFF'
           id: BrickTileDarkEndE
           coordinates: 57,19
-        2715:
+        2708:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: 56,19
-        2716:
+        2709:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 56,19
-        2767:
+        2760:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 53,29
-        2768:
+        2761:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 52,29
-        2769:
+        2762:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 51,29
-        2770:
+        2763:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 50,29
-        2771:
+        2764:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 49,29
-        2772:
+        2765:
           color: '#FFFFFFFF'
           id: WarnLineS
           coordinates: 54,28
-        2773:
+        2766:
           color: '#FFFFFFFF'
           id: WarnLineS
           coordinates: 54,27
-        2774:
+        2767:
           color: '#FFFFFFFF'
           id: WarnLineE
           coordinates: 48,27
-        2775:
+        2768:
           color: '#FFFFFFFF'
           id: WarnLineE
           coordinates: 48,28
-        2776:
+        2769:
           color: '#FFFFFFFF'
           id: WarnCornerSmallSE
           coordinates: 48,29
-        2777:
+        2770:
           color: '#FFFFFFFF'
           id: WarnCornerSmallSW
           coordinates: 54,29
-        2778:
+        2771:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 55,25
-        2779:
+        2772:
           color: '#FFFFFFFF'
           id: BotGreyscale
           coordinates: 54,25
-        2830:
+        2823:
           color: '#FFFFFFFF'
           id: Bot
           coordinates: 49,24
@@ -10045,73 +10045,73 @@ entities:
           color: '#FFFFFFFF'
           id: BrickTileSteelCornerSw
           coordinates: -28,-33
-        2780:
+        2773:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtMedium
           coordinates: -1.0155911,-45.98986
-        2781:
+        2774:
           cleanable: True
           color: '#FFFFFFFF'
           id: DirtLight
           coordinates: -3.006721,-41.514786
-        2782:
+        2775:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale
           coordinates: -7,-37
-        2783:
+        2776:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale180
           coordinates: -7,-42
-        2784:
+        2777:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -8,-38
-        2785:
+        2778:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -8,-39
-        2786:
+        2779:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -8,-40
-        2787:
+        2780:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -8,-41
-        2788:
+        2781:
           color: '#52DFE996'
           id: CheckerNWSE
           coordinates: -8,-42
-        2789:
+        2782:
           color: '#52DFE996'
           id: CheckerNESW
           coordinates: -8,-37
-        2790:
+        2783:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -6,-41
-        2791:
+        2784:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -6,-40
-        2792:
+        2785:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -6,-39
-        2793:
+        2786:
           color: '#52DFE996'
           id: HalfTileOverlayGreyscale270
           coordinates: -6,-38
-        2794:
+        2787:
           color: '#52DFE996'
           id: QuarterTileOverlayGreyscale270
           coordinates: -6,-37
-        2795:
+        2788:
           color: '#52DFE996'
           id: QuarterTileOverlayGreyscale
           coordinates: -6,-42
-        2842:
+        2835:
           angle: 1.5707963267948966 rad
           color: '#AB373CFF'
           id: LoadingAreaGreyscale
@@ -10441,39 +10441,39 @@ entities:
           color: '#FFFFFFFF'
           id: WoodTrimThinInnerSe
           coordinates: 7,-34
-        2796:
+        2789:
           color: '#38A45196'
           id: MiniTileWhiteLineW
           coordinates: 1,-46
-        2797:
+        2790:
           color: '#38A45196'
           id: MiniTileWhiteLineW
           coordinates: 1,-45
-        2798:
+        2791:
           color: '#38A45196'
           id: MiniTileWhiteLineW
           coordinates: 1,-44
-        2799:
+        2792:
           color: '#38A45196'
           id: MiniTileWhiteLineW
           coordinates: 1,-43
-        2800:
+        2793:
           color: '#38A45196'
           id: MiniTileWhiteLineW
           coordinates: 1,-42
-        2801:
+        2794:
           color: '#38A45196'
           id: MiniTileWhiteLineW
           coordinates: 1,-41
-        2802:
+        2795:
           color: '#38A45196'
           id: MiniTileWhiteCornerNw
           coordinates: 1,-40
-        2803:
+        2796:
           color: '#38A45196'
           id: MiniTileWhiteLineN
           coordinates: 2,-40
-        2804:
+        2797:
           color: '#38A45196'
           id: MiniTileWhiteLineN
           coordinates: 3,-40
@@ -11482,375 +11482,375 @@ entities:
         2510:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
-          coordinates: 43,-30
+          coordinates: 41,-31
         2511:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
-          coordinates: 41,-31
+          coordinates: 40,-31
         2512:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
-          coordinates: 40,-31
-        2513:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkLineS
           coordinates: 38,-30
-        2514:
+        2513:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineW
           coordinates: 37,-27
+        2514:
+          color: '#FFFFFFFF'
+          id: BrickTileDarkLineN
+          coordinates: 38,-26
         2515:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
-          coordinates: 38,-26
+          coordinates: 39,-26
         2516:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
-          coordinates: 39,-26
+          coordinates: 40,-26
         2517:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
-          coordinates: 40,-26
+          coordinates: 41,-26
         2518:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
-          coordinates: 41,-26
+          coordinates: 43,-27
         2519:
           color: '#FFFFFFFF'
-          id: BrickTileDarkLineN
-          coordinates: 43,-27
+          id: BrickTileDarkLineE
+          coordinates: 44,-29
         2520:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineE
-          coordinates: 44,-29
-        2521:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkLineE
           coordinates: 44,-28
-        2522:
+        2521:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerSw
           coordinates: 39,-31
-        2523:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkCornerSe
-          coordinates: 42,-31
-        2524:
+        2522:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerSe
           coordinates: 44,-30
-        2525:
+        2523:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerNe
           coordinates: 44,-27
-        2526:
+        2524:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerNe
           coordinates: 42,-26
-        2527:
+        2525:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerNe
           coordinates: 42,-27
-        2528:
+        2526:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerSw
           coordinates: 39,-30
-        2529:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkInnerSe
-          coordinates: 42,-30
-        2530:
+        2527:
           color: '#D381C996'
           id: BrickTileWhiteLineW
           coordinates: 37,-27
-        2531:
+        2528:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerNw
           coordinates: 37,-26
-        2532:
+        2529:
           color: '#D381C996'
           id: BrickTileWhiteLineN
           coordinates: 38,-26
-        2533:
+        2530:
           color: '#D381C996'
           id: BrickTileWhiteLineN
           coordinates: 39,-26
-        2534:
+        2531:
           color: '#D381C996'
           id: BrickTileWhiteLineN
           coordinates: 40,-26
-        2535:
+        2532:
           color: '#D381C996'
           id: BrickTileWhiteLineN
           coordinates: 41,-26
-        2536:
+        2533:
           color: '#D381C996'
           id: BrickTileWhiteLineN
           coordinates: 43,-27
-        2537:
-          color: '#D381C996'
-          id: BrickTileWhiteLineS
-          coordinates: 43,-30
-        2538:
+        2534:
           color: '#D381C996'
           id: BrickTileWhiteLineS
           coordinates: 41,-31
-        2539:
+        2535:
           color: '#D381C996'
           id: BrickTileWhiteLineS
           coordinates: 40,-31
-        2540:
+        2536:
           color: '#D381C996'
           id: BrickTileWhiteLineS
           coordinates: 38,-30
-        2541:
+        2537:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 44,-29
-        2542:
+        2538:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 44,-28
-        2543:
-          color: '#D381C996'
-          id: BrickTileWhiteCornerSe
-          coordinates: 42,-31
-        2544:
+        2539:
           color: '#D381C996'
           id: BrickTileWhiteCornerSe
           coordinates: 44,-30
-        2545:
+        2540:
           color: '#D381C996'
           id: BrickTileWhiteCornerSw
           coordinates: 39,-31
-        2546:
+        2541:
           color: '#D381C996'
           id: BrickTileWhiteCornerNw
           coordinates: 37,-26
-        2547:
+        2542:
           color: '#D381C996'
           id: BrickTileWhiteCornerNe
           coordinates: 44,-27
-        2548:
+        2543:
           color: '#D381C996'
           id: BrickTileWhiteCornerNe
           coordinates: 42,-26
-        2549:
+        2544:
           color: '#D381C996'
           id: BrickTileWhiteInnerNe
           coordinates: 42,-27
-        2550:
-          color: '#D381C996'
-          id: BrickTileWhiteInnerSe
-          coordinates: 42,-30
-        2551:
+        2545:
           color: '#D381C996'
           id: BrickTileWhiteInnerSw
           coordinates: 39,-30
-        2552:
+        2546:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 45,-31
-        2553:
+        2547:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 45,-30
-        2554:
+        2548:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 45,-28
-        2555:
+        2549:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 45,-27
-        2556:
+        2550:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 45,-26
-        2557:
+        2551:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 45,-29
-        2558:
+        2552:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 44,-26
-        2559:
+        2553:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 43,-26
+        2554:
+          color: '#D381C996'
+          id: FullTileOverlayGreyscale
+          coordinates: 42,-25
+        2555:
+          color: '#D381C996'
+          id: FullTileOverlayGreyscale
+          coordinates: 41,-25
+        2556:
+          color: '#D381C996'
+          id: FullTileOverlayGreyscale
+          coordinates: 40,-25
+        2557:
+          color: '#D381C996'
+          id: FullTileOverlayGreyscale
+          coordinates: 38,-25
+        2558:
+          color: '#D381C996'
+          id: FullTileOverlayGreyscale
+          coordinates: 37,-25
+        2559:
+          color: '#D381C996'
+          id: FullTileOverlayGreyscale
+          coordinates: 36,-25
         2560:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
-          coordinates: 42,-25
+          coordinates: 36,-26
         2561:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
-          coordinates: 41,-25
+          coordinates: 36,-27
         2562:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
-          coordinates: 40,-25
+          coordinates: 37,-31
         2563:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
-          coordinates: 38,-25
+          coordinates: 38,-31
         2564:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
-          coordinates: 37,-25
+          coordinates: 39,-32
         2565:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
-          coordinates: 36,-25
+          coordinates: 40,-32
         2566:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
-          coordinates: 36,-26
+          coordinates: 41,-32
         2567:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
-          coordinates: 36,-27
-        2568:
-          color: '#D381C996'
-          id: FullTileOverlayGreyscale
-          coordinates: 37,-31
-        2569:
-          color: '#D381C996'
-          id: FullTileOverlayGreyscale
-          coordinates: 38,-31
+          coordinates: 42,-32
         2570:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
-          coordinates: 39,-32
+          coordinates: 43,-32
         2571:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
-          coordinates: 40,-32
-        2572:
-          color: '#D381C996'
-          id: FullTileOverlayGreyscale
-          coordinates: 41,-32
-        2573:
-          color: '#D381C996'
-          id: FullTileOverlayGreyscale
-          coordinates: 42,-32
-        2576:
-          color: '#D381C996'
-          id: FullTileOverlayGreyscale
-          coordinates: 43,-32
-        2577:
-          color: '#D381C996'
-          id: FullTileOverlayGreyscale
-          coordinates: 43,-31
-        2578:
-          color: '#D381C996'
-          id: FullTileOverlayGreyscale
           coordinates: 44,-31
-        2579:
+        2572:
           color: '#FFFFFFFF'
           id: Delivery
           coordinates: 37,-25
-        2580:
+        2573:
           color: '#FFFFFFFF'
           id: Delivery
           coordinates: 38,-25
-        2581:
+        2574:
           color: '#FFFFFFFF'
           id: Delivery
           coordinates: 36,-25
-        2582:
+        2575:
           color: '#FFFFFFFF'
           id: DeliveryGreyscale
           coordinates: 42,-25
-        2583:
+        2576:
           color: '#FFFFFFFF'
           id: DeliveryGreyscale
           coordinates: 41,-25
-        2584:
+        2577:
           color: '#FFFFFFFF'
           id: DeliveryGreyscale
           coordinates: 40,-25
-        2585:
+        2578:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 49,-27
-        2586:
+        2579:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 49,-28
-        2587:
+        2580:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 49,-29
-        2588:
+        2581:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 49,-30
-        2589:
+        2582:
           color: '#D381C996'
           id: BrickTileWhiteLineE
           coordinates: 49,-31
-        2590:
+        2583:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 50,-31
-        2591:
+        2584:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 50,-30
-        2592:
+        2585:
           color: '#D381C996'
           id: BrickTileWhiteLineS
           coordinates: 37,-30
-        2593:
+        2586:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerSw
           coordinates: 37,-30
-        2594:
+        2587:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: 36,-27
-        2595:
+        2588:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineE
           coordinates: 36,-29
-        2596:
+        2589:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineW
           coordinates: 36,-29
-        2597:
+        2590:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerSw
           coordinates: 36,-28
-        2598:
+        2591:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerSe
           coordinates: 36,-28
-        2599:
+        2592:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerNw
           coordinates: 36,-30
-        2600:
+        2593:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerNe
           coordinates: 36,-30
-        2601:
+        2594:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 39,-32
-        2602:
+        2595:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 40,-32
-        2603:
+        2596:
           color: '#FFFFFFFF'
           id: WarnLineN
           coordinates: 41,-32
-        2824:
+        2817:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 39,-25
+        2836:
+          color: '#D381C996'
+          id: BrickTileWhiteLineS
+          coordinates: 42,-31
+        2837:
+          color: '#D381C996'
+          id: BrickTileWhiteCornerSe
+          coordinates: 43,-31
+        2838:
+          color: '#D381C996'
+          id: BrickTileWhiteInnerSe
+          coordinates: 43,-30
+        2839:
+          color: '#FFFFFFFF'
+          id: WarnEndW
+          coordinates: 40,-29
+        2840:
+          color: '#FFFFFFFF'
+          id: WarnEndE
+          coordinates: 42,-29
+        2841:
+          color: '#FFFFFFFF'
+          id: WarnLineN
+          coordinates: 41,-29
+        2842:
+          color: '#FFFFFFFF'
+          id: WarnLineW
+          coordinates: 41,-29
       1,-2:
         1510:
           color: '#FFFFFFFF'
@@ -11981,11 +11981,11 @@ entities:
           color: '#FFFFFFFF'
           id: WarnLineW
           coordinates: 39,-37
-        2574:
+        2568:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 42,-33
-        2575:
+        2569:
           color: '#D381C996'
           id: FullTileOverlayGreyscale
           coordinates: 43,-33
@@ -13413,8 +13413,8 @@ entities:
       -27,4: 0
       -27,5: 0
       -27,6: 0
-      -27,7: 0
-      -27,8: 0
+      -27,7: 3
+      -27,8: 4
       -27,9: 0
       -27,10: 0
       -27,11: 0
@@ -14515,7 +14515,7 @@ entities:
       30,4: 0
       30,5: 0
       30,6: 0
-      30,7: 2
+      30,7: 3
       31,0: 0
       31,1: 0
       31,2: 0
@@ -15550,9 +15550,9 @@ entities:
       -20,-32: 0
       -20,-31: 0
       -20,-30: 0
-      -20,-29: 3
-      -20,-28: 3
-      -20,-27: 3
+      -20,-29: 5
+      -20,-28: 5
+      -20,-27: 5
       -20,-26: 0
       -20,-25: 0
       -20,-24: 0
@@ -15566,8 +15566,8 @@ entities:
       -19,-32: 0
       -19,-31: 0
       -19,-30: 0
-      -19,-29: 3
-      -19,-28: 3
+      -19,-29: 5
+      -19,-28: 5
       -19,-27: 0
       -19,-26: 0
       -19,-25: 0
@@ -15903,7 +15903,7 @@ entities:
       -14,-47: 0
       -14,-46: 0
       -14,-45: 0
-      -14,-44: 2
+      -14,-44: 3
       -14,-43: 0
       -14,-42: 0
       -14,-41: 0
@@ -15964,7 +15964,7 @@ entities:
       -11,-34: 0
       -11,-33: 0
       -10,-48: 0
-      -10,-47: 4
+      -10,-47: 6
       -10,-46: 0
       -10,-45: 0
       -10,-44: 0
@@ -16408,7 +16408,7 @@ entities:
       17,-45: 0
       17,-44: 0
       17,-43: 0
-      17,-42: 2
+      17,-42: 3
       17,-41: 1
       17,-40: 0
       17,-39: 0
@@ -16635,7 +16635,7 @@ entities:
       31,-42: 0
       31,-41: 0
       31,-40: 0
-      31,-39: 3
+      31,-39: 5
       31,-38: 0
       31,-37: 0
       31,-36: 0
@@ -17067,8 +17067,8 @@ entities:
       39,-43: 0
       39,-42: 0
       39,-41: 0
-      39,-40: 5
-      39,-39: 5
+      39,-40: 7
+      39,-39: 7
       39,-38: 0
       39,-37: 0
       39,-36: 0
@@ -17096,9 +17096,9 @@ entities:
       25,10: 0
       25,11: 0
       25,12: 0
-      25,13: 0
+      25,13: 3
       25,14: 0
-      25,15: 0
+      25,15: 4
       26,8: 0
       26,9: 0
       26,10: 0
@@ -17131,7 +17131,7 @@ entities:
       29,13: 0
       29,14: 0
       29,15: 0
-      30,8: 2
+      30,8: 3
       30,9: 0
       30,10: 0
       30,11: 0
@@ -17139,8 +17139,8 @@ entities:
       30,13: 0
       30,14: 0
       30,15: 0
-      31,8: 6
-      31,9: 6
+      31,8: 8
+      31,9: 8
       31,10: 0
       31,11: 0
       31,12: 0
@@ -18447,14 +18447,14 @@ entities:
       58,4: 0
       58,5: 0
       58,6: 0
-      58,7: 7
+      58,7: 9
       58,8: 0
-      58,9: 8
+      58,9: 10
       58,10: 0
       58,11: 0
       58,12: 0
       58,13: 0
-      58,14: 5
+      58,14: 7
       58,15: 0
       59,0: 0
       59,1: 0
@@ -18463,14 +18463,14 @@ entities:
       59,4: 0
       59,5: 0
       59,6: 0
-      59,7: 7
+      59,7: 9
       59,8: 0
-      59,9: 8
+      59,9: 10
       59,10: 0
       59,11: 0
       59,12: 0
       59,13: 0
-      59,14: 5
+      59,14: 7
       59,15: 0
       60,0: 0
       60,1: 0
@@ -19071,7 +19071,7 @@ entities:
       55,21: 0
       55,22: 0
       55,23: 0
-      55,24: 9
+      55,24: 11
       55,25: 0
       55,26: 0
       55,27: 0
@@ -19111,7 +19111,7 @@ entities:
       57,29: 0
       57,30: 0
       57,31: 0
-      58,16: 5
+      58,16: 7
       58,17: 0
       58,18: 0
       58,19: 0
@@ -19127,7 +19127,7 @@ entities:
       58,29: 0
       58,30: 0
       58,31: 0
-      59,16: 5
+      59,16: 7
       59,17: 0
       59,18: 0
       59,19: 0
@@ -19501,7 +19501,7 @@ entities:
       -23,-36: 0
       -23,-35: 0
       -23,-34: 0
-      -23,-33: 0
+      -23,-33: 4
       -22,-42: 0
       -22,-41: 0
       -22,-40: 0
@@ -19511,7 +19511,7 @@ entities:
       -22,-36: 0
       -22,-35: 0
       -22,-34: 0
-      -22,-33: 0
+      -22,-33: 3
       -21,-42: 0
       -21,-41: 0
       -21,-40: 0
@@ -19757,7 +19757,7 @@ entities:
       -24,27: 0
       -24,28: 0
       -24,29: 0
-      -24,30: 0
+      -24,30: 4
       -24,31: 0
       -23,19: 0
       -23,20: 0
@@ -19796,7 +19796,7 @@ entities:
       -21,27: 0
       -21,28: 0
       -21,29: 0
-      -21,30: 0
+      -21,30: 4
       -21,31: 0
       -20,19: 0
       -20,20: 0
@@ -20531,7 +20531,7 @@ entities:
       -35,-24: 0
       -35,-23: 0
       -35,-22: 0
-      -35,-21: 3
+      -35,-21: 5
       -35,-20: 0
       -35,-19: 0
       -35,-18: 0
@@ -20600,9 +20600,9 @@ entities:
       40,-44: 0
       40,-43: 0
       40,-42: 0
-      40,-41: 5
-      40,-40: 5
-      40,-39: 5
+      40,-41: 7
+      40,-40: 7
+      40,-39: 7
       40,-38: 0
       40,-37: 0
       40,-36: 0
@@ -20613,9 +20613,9 @@ entities:
       41,-44: 0
       41,-43: 0
       41,-42: 0
-      41,-41: 5
-      41,-40: 5
-      41,-39: 5
+      41,-41: 7
+      41,-40: 7
+      41,-39: 7
       41,-38: 0
       41,-37: 0
       41,-36: 0
@@ -20626,9 +20626,9 @@ entities:
       42,-44: 0
       42,-43: 0
       42,-42: 0
-      42,-41: 5
-      42,-40: 5
-      42,-39: 5
+      42,-41: 7
+      42,-40: 7
+      42,-39: 7
       42,-38: 0
       42,-37: 0
       42,-36: 0
@@ -20640,8 +20640,8 @@ entities:
       43,-43: 0
       43,-42: 0
       43,-41: 0
-      43,-40: 5
-      43,-39: 5
+      43,-40: 7
+      43,-39: 7
       43,-38: 0
       43,-37: 0
       43,-36: 0
@@ -20692,7 +20692,7 @@ entities:
       47,-41: 0
       47,-40: 0
       47,-39: 0
-      47,-38: 3
+      47,-38: 5
       47,-37: 0
       47,-36: 0
       47,-35: 0
@@ -21694,83 +21694,83 @@ entities:
       -21,-51: 0
       -21,-50: 0
       -21,-49: 0
-      31,-52: 5
-      34,-46: 5
-      54,-32: 5
-      54,-30: 5
-      54,-29: 5
-      54,-28: 5
-      55,-30: 5
-      66,29: 5
-      66,30: 5
-      66,31: 5
-      67,31: 5
-      68,31: 5
-      48,-44: 5
-      48,-43: 5
-      49,-42: 5
-      49,-41: 5
-      51,-41: 5
-      52,-41: 5
-      53,-40: 5
-      53,-39: 5
-      53,-38: 5
-      53,-36: 5
-      54,-40: 5
-      54,-36: 5
-      54,-34: 5
-      54,-33: 5
-      60,33: 5
-      60,34: 5
-      63,33: 5
-      64,33: 5
-      65,33: 5
-      65,34: 5
-      66,32: 5
-      66,33: 5
-      66,34: 5
-      66,35: 5
-      67,32: 5
-      67,33: 5
-      67,34: 5
-      68,34: 5
-      47,-44: 5
-      53,-26: 5
-      54,-31: 5
-      54,-27: 5
-      54,-26: 5
-      55,-32: 5
-      55,-31: 5
-      55,-29: 5
-      55,-28: 5
-      55,-27: 5
-      56,-32: 5
-      56,-31: 5
-      56,-30: 5
-      56,-29: 5
-      56,-28: 5
-      56,-27: 5
-      57,-32: 5
-      57,-31: 5
-      57,-30: 5
-      57,-29: 5
-      57,-28: 5
-      58,-31: 5
-      58,-30: 5
-      58,-29: 5
-      49,-44: 5
-      49,-43: 5
-      50,-44: 5
-      50,-43: 5
-      50,-42: 5
-      50,-41: 5
-      51,-44: 5
-      51,-43: 5
-      51,-42: 5
-      52,-43: 5
-      52,-42: 5
-      55,-33: 5
-      56,-33: 5
+      31,-52: 7
+      34,-46: 7
+      54,-32: 7
+      54,-30: 7
+      54,-29: 7
+      54,-28: 7
+      55,-30: 7
+      66,29: 7
+      66,30: 7
+      66,31: 7
+      67,31: 7
+      68,31: 7
+      48,-44: 7
+      48,-43: 7
+      49,-42: 7
+      49,-41: 7
+      51,-41: 7
+      52,-41: 7
+      53,-40: 7
+      53,-39: 7
+      53,-38: 7
+      53,-36: 7
+      54,-40: 7
+      54,-36: 7
+      54,-34: 7
+      54,-33: 7
+      60,33: 7
+      60,34: 7
+      63,33: 7
+      64,33: 7
+      65,33: 7
+      65,34: 7
+      66,32: 7
+      66,33: 7
+      66,34: 7
+      66,35: 7
+      67,32: 7
+      67,33: 7
+      67,34: 7
+      68,34: 7
+      47,-44: 7
+      53,-26: 7
+      54,-31: 7
+      54,-27: 7
+      54,-26: 7
+      55,-32: 7
+      55,-31: 7
+      55,-29: 7
+      55,-28: 7
+      55,-27: 7
+      56,-32: 7
+      56,-31: 7
+      56,-30: 7
+      56,-29: 7
+      56,-28: 7
+      56,-27: 7
+      57,-32: 7
+      57,-31: 7
+      57,-30: 7
+      57,-29: 7
+      57,-28: 7
+      58,-31: 7
+      58,-30: 7
+      58,-29: 7
+      49,-44: 7
+      49,-43: 7
+      50,-44: 7
+      50,-43: 7
+      50,-42: 7
+      50,-41: 7
+      51,-44: 7
+      51,-43: 7
+      51,-42: 7
+      52,-43: 7
+      52,-42: 7
+      55,-33: 7
+      56,-33: 7
     uniqueMixes:
     - volume: 2500
       temperature: 293.15
@@ -21790,8 +21790,23 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 15.969111
-      - 60.07428
+      - 14.664915
+      - 55.168015
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 19.481253
+      - 73.28662
       - 0
       - 0
       - 0
@@ -21820,8 +21835,23 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 16.902393
-      - 63.585197
+      - 20.04244
+      - 75.39776
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 15.521976
+      - 58.3922
       - 0
       - 0
       - 0
@@ -21865,8 +21895,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.391144
-      - 69.185745
+      - 16.88914
+      - 63.535347
       - 0
       - 0
       - 0
@@ -21910,8 +21940,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 20.04244
-      - 75.39776
+      - 18.405577
+      - 69.24003
       - 0
       - 0
       - 0
@@ -23696,7 +23726,7 @@ entities:
 - uid: 275
   type: MaterialCloth
   components:
-  - pos: 31.457754,-14.392372
+  - pos: 31.333899,-14.302254
     parent: 1
     type: Transform
 - uid: 276
@@ -39102,9 +39132,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 2685
-  type: AirlockBarLocked
+  type: BedsheetBrown
   components:
-  - pos: 8.5,19.5
+  - pos: 9.5,23.5
     parent: 1
     type: Transform
 - uid: 2686
@@ -40595,7 +40625,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 2908
-  type: Windoor
+  type: WindoorHydroponicsLocked
   components:
   - rot: 3.141592653589793 rad
     pos: -4.5,30.5
@@ -43417,9 +43447,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 3335
-  type: BedsheetBrown
+  type: BaseBigBox
   components:
-  - pos: 9.5,24.5
+  - pos: 25.329231,15.310694
     parent: 1
     type: Transform
 - uid: 3336
@@ -43491,8 +43521,10 @@ entities:
     parent: 1
     type: Transform
 - uid: 3347
-  type: Bed
+  type: VendingBarDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 9.5,24.5
     parent: 1
     type: Transform
@@ -43551,9 +43583,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 3357
-  type: SalvageMaterialCrateSpawner
+  type: BaseBigBox
   components:
-  - pos: -23.5,30.5
+  - pos: -23.237692,30.578466
     parent: 1
     type: Transform
 - uid: 3358
@@ -43879,9 +43911,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 3409
-  type: SalvageMaterialCrateSpawner
+  type: BaseBigBox
   components:
-  - pos: -20.5,30.5
+  - pos: -20.51672,30.564287
     parent: 1
     type: Transform
 - uid: 3410
@@ -46061,9 +46093,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 3735
-  type: MaterialDurathread1
+  type: CableApcExtension
   components:
-  - pos: 31.87227,-14.620167
+  - pos: 17.5,-26.5
     parent: 1
     type: Transform
 - uid: 3736
@@ -46678,9 +46710,9 @@ entities:
   - name: Chief Medical Officer's Office
     type: FaxMachine
 - uid: 3830
-  type: FaxMachineCentcom
+  type: FaxMachineCaptain
   components:
-  - pos: 55.5,-11.5
+  - pos: 48.5,-13.5
     parent: 1
     type: Transform
 - uid: 3831
@@ -51785,7 +51817,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 4594
-  type: VendingMachineClothing
+  type: VendingMachineUnderwear
   components:
   - flags: SessionSpecific
     type: MetaData
@@ -55916,9 +55948,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 5211
-  type: MaterialDurathread1
+  type: CableApcExtension
   components:
-  - pos: 31.87227,-14.620167
+  - pos: 18.5,-26.5
     parent: 1
     type: Transform
 - uid: 5212
@@ -55967,9 +55999,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 5219
-  type: MaterialDurathread1
+  type: CableApcExtension
   components:
-  - pos: 31.87227,-14.620167
+  - pos: 19.5,-26.5
     parent: 1
     type: Transform
 - uid: 5220
@@ -57173,13 +57205,8 @@ entities:
   - pos: 56.5,-29.5
     parent: 1
     type: Transform
-  - rules: >-
-      You don't remember any of your previous life unless an administrator tells you otherwise.
-
-      You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
-
-      You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
-    type: GhostTakeoverAvailable
+  missingComponents:
+  - GhostTakeoverAvailable
 - uid: 5418
   type: WallReinforced
   components:
@@ -57713,7 +57740,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 5498
-  type: PaintingSkeletonCigarette
+  type: SignRedSeven
   components:
   - pos: -25.5,-28.5
     parent: 1
@@ -59714,19 +59741,19 @@ entities:
 - uid: 5770
   type: SheetPlasteel
   components:
-  - pos: 38.452293,13.425726
+  - pos: 38.318604,13.305885
     parent: 1
     type: Transform
 - uid: 5771
   type: SheetSteel
   components:
-  - pos: 38.76452,12.6321945
+  - pos: 38.393967,12.761587
     parent: 1
     type: Transform
 - uid: 5772
   type: SheetSteel
   components:
-  - pos: 39.31688,12.621771
+  - pos: 38.644096,12.782436
     parent: 1
     type: Transform
 - uid: 5773
@@ -59738,7 +59765,7 @@ entities:
 - uid: 5774
   type: SheetGlass
   components:
-  - pos: 39.890076,12.6321945
+  - pos: 39.86316,12.573957
     parent: 1
     type: Transform
 - uid: 5775
@@ -80400,15 +80427,15 @@ entities:
     parent: 1
     type: Transform
 - uid: 8222
-  type: MaterialDurathread1
+  type: CableApcExtension
   components:
-  - pos: 31.87227,-14.620167
+  - pos: 54.5,7.5
     parent: 1
     type: Transform
 - uid: 8223
-  type: MaterialDurathread1
+  type: CableApcExtension
   components:
-  - pos: 31.87227,-14.620167
+  - pos: 53.5,7.5
     parent: 1
     type: Transform
 - uid: 8224
@@ -84191,35 +84218,37 @@ entities:
         uid: 14967
     type: SignalReceiver
 - uid: 8683
-  type: MaterialDurathread1
+  type: CableApcExtension
   components:
-  - pos: 31.87227,-14.620167
+  - pos: 48.5,11.5
     parent: 1
     type: Transform
 - uid: 8684
-  type: MaterialDurathread1
+  type: CableApcExtension
   components:
-  - pos: 31.87227,-14.620167
+  - pos: 48.5,12.5
     parent: 1
     type: Transform
 - uid: 8685
-  type: MaterialDurathread1
+  type: CableApcExtension
   components:
-  - pos: 31.87227,-14.620167
+  - pos: 52.5,12.5
     parent: 1
     type: Transform
 - uid: 8686
-  type: MaterialDurathread1
+  type: CableApcExtension
   components:
-  - pos: 31.87227,-14.620167
+  - pos: 52.5,13.5
     parent: 1
     type: Transform
 - uid: 8687
   type: MaterialDurathread1
   components:
-  - pos: 31.87227,-14.620167
+  - pos: 31.782038,-14.469036
     parent: 1
     type: Transform
+  - count: 10
+    type: Stack
 - uid: 8688
   type: Catwalk
   components:
@@ -87515,13 +87544,13 @@ entities:
 - uid: 9201
   type: SheetSteel
   components:
-  - pos: 51.542313,1.277704
+  - pos: 51.455467,1.6444113
     parent: 1
     type: Transform
 - uid: 9202
   type: SheetSteel
   components:
-  - pos: 51.615265,1.5695734
+  - pos: 51.71601,1.7694983
     parent: 1
     type: Transform
 - uid: 9203
@@ -93827,9 +93856,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 10126
-  type: TableCounterMetal
+  type: DisposalUnit
   components:
-  - pos: 40.5,-28.5
+  - pos: 39.5,-31.5
     parent: 1
     type: Transform
 - uid: 10127
@@ -94955,11 +94984,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 10286
-  type: VendingMachineUnderwear
+  type: SignRedZero
   components:
-  - flags: SessionSpecific
-    type: MetaData
-  - pos: 28.5,-1.5
+  - pos: -3.5115328,1.8434207
     parent: 1
     type: Transform
 - uid: 10287
@@ -95019,21 +95046,24 @@ entities:
     parent: 1
     type: Transform
 - uid: 10296
-  type: Bluespace5
+  type: DisposalPipe
   components:
-  - pos: 39.4712,-28.190834
+  - rot: 1.5707963267948966 rad
+    pos: 41.5,-30.5
     parent: 1
     type: Transform
 - uid: 10297
-  type: Bluespace1
+  type: DisposalPipe
   components:
-  - pos: 39.530144,-28.500263
+  - rot: 1.5707963267948966 rad
+    pos: 43.5,-30.5
     parent: 1
     type: Transform
 - uid: 10298
-  type: Bluespace1
+  type: DisposalPipe
   components:
-  - pos: 39.692253,-28.279242
+  - rot: 1.5707963267948966 rad
+    pos: 42.5,-30.5
     parent: 1
     type: Transform
 - uid: 10299
@@ -95862,22 +95892,21 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 10400
-  type: ChairOfficeDark
+  type: CrystalNormality
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 40.39055,-27.529108
+  - pos: 43.692856,-28.36033
     parent: 1
     type: Transform
 - uid: 10401
   type: TableCounterMetal
   components:
-  - pos: 41.5,-28.5
+  - pos: 42.5,-27.5
     parent: 1
     type: Transform
 - uid: 10402
-  type: TableCounterMetal
+  type: Protolathe
   components:
-  - pos: 42.5,-27.5
+  - pos: 44.5,-30.5
     parent: 1
     type: Transform
 - uid: 10403
@@ -95888,28 +95917,29 @@ entities:
     parent: 1
     type: Transform
 - uid: 10404
-  type: ComputerResearchAndDevelopment
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 41.5,-27.5
-    parent: 1
-    type: Transform
-- uid: 10405
   type: TableCounterMetal
   components:
   - pos: 39.5,-27.5
     parent: 1
     type: Transform
+- uid: 10405
+  type: DisposalPipe
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 40.5,-30.5
+    parent: 1
+    type: Transform
 - uid: 10406
   type: TableCounterMetal
   components:
-  - pos: 42.5,-28.5
+  - pos: 40.5,-27.5
     parent: 1
     type: Transform
 - uid: 10407
-  type: TableCounterMetal
+  type: DisposalBend
   components:
-  - pos: 39.5,-28.5
+  - rot: 1.5707963267948966 rad
+    pos: 39.5,-30.5
     parent: 1
     type: Transform
 - uid: 10408
@@ -95925,9 +95955,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 10410
-  type: HyperlinkBookGlimmer
+  type: MachineFrame
   components:
-  - pos: 39.427338,-27.34051
+  - pos: 40.5,-24.5
     parent: 1
     type: Transform
 - uid: 10411
@@ -95977,9 +96007,10 @@ entities:
     parent: 1
     type: Transform
 - uid: 10418
-  type: Protolathe
+  type: ComputerResearchAndDevelopment
   components:
-  - pos: 45.5,-30.5
+  - rot: 3.141592653589793 rad
+    pos: 45.5,-30.5
     parent: 1
     type: Transform
 - uid: 10419
@@ -96624,7 +96655,7 @@ entities:
 - uid: 10502
   type: PhoneInstrument
   components:
-  - pos: 48.722755,-13.097944
+  - pos: 48.70768,-14.324934
     parent: 1
     type: Transform
 - uid: 10503
@@ -105276,9 +105307,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 11892
-  type: SpawnMobSlugTerrance
+  type: SpawnPointScientist
   components:
-  - pos: 42.5,-28.5
+  - pos: 38.5,-25.5
     parent: 1
     type: Transform
 - uid: 11893
@@ -110931,13 +110962,13 @@ entities:
 - uid: 12779
   type: CableApcExtension
   components:
-  - pos: 49.5,13.5
+  - pos: 49.5,14.5
     parent: 1
     type: Transform
 - uid: 12780
   type: CableApcExtension
   components:
-  - pos: 50.5,13.5
+  - pos: 48.5,14.5
     parent: 1
     type: Transform
 - uid: 12781
@@ -110985,13 +111016,13 @@ entities:
 - uid: 12788
   type: CableApcExtension
   components:
-  - pos: 50.5,12.5
+  - pos: 49.5,10.5
     parent: 1
     type: Transform
 - uid: 12789
   type: CableApcExtension
   components:
-  - pos: 50.5,11.5
+  - pos: 52.5,11.5
     parent: 1
     type: Transform
 - uid: 12790
@@ -111003,19 +111034,19 @@ entities:
 - uid: 12791
   type: CableApcExtension
   components:
-  - pos: 50.5,9.5
+  - pos: 52.5,10.5
     parent: 1
     type: Transform
 - uid: 12792
   type: CableApcExtension
   components:
-  - pos: 51.5,9.5
+  - pos: 52.5,9.5
     parent: 1
     type: Transform
 - uid: 12793
   type: CableApcExtension
   components:
-  - pos: 52.5,9.5
+  - pos: 51.5,10.5
     parent: 1
     type: Transform
 - uid: 12794
@@ -111189,91 +111220,91 @@ entities:
 - uid: 12822
   type: CableApcExtension
   components:
-  - pos: 51.5,13.5
+  - pos: 51.5,14.5
     parent: 1
     type: Transform
 - uid: 12823
   type: CableApcExtension
   components:
-  - pos: 52.5,13.5
+  - pos: 52.5,14.5
     parent: 1
     type: Transform
 - uid: 12824
   type: CableApcExtension
   components:
-  - pos: 53.5,13.5
+  - pos: 48.5,10.5
     parent: 1
     type: Transform
 - uid: 12825
   type: CableApcExtension
   components:
-  - pos: 54.5,13.5
+  - pos: 56.5,6.5
     parent: 1
     type: Transform
 - uid: 12826
   type: CableApcExtension
   components:
-  - pos: 55.5,13.5
+  - pos: 54.5,6.5
     parent: 1
     type: Transform
 - uid: 12827
   type: CableApcExtension
   components:
-  - pos: 55.5,14.5
+  - pos: 55.5,6.5
     parent: 1
     type: Transform
 - uid: 12828
   type: CableApcExtension
   components:
-  - pos: 55.5,15.5
+  - pos: 53.5,14.5
     parent: 1
     type: Transform
 - uid: 12829
   type: CableApcExtension
   components:
-  - pos: 55.5,16.5
+  - pos: 53.5,15.5
     parent: 1
     type: Transform
 - uid: 12830
   type: CableApcExtension
   components:
-  - pos: 55.5,12.5
+  - pos: 54.5,16.5
     parent: 1
     type: Transform
 - uid: 12831
   type: CableApcExtension
   components:
-  - pos: 55.5,11.5
+  - pos: 54.5,15.5
     parent: 1
     type: Transform
 - uid: 12832
   type: CableApcExtension
   components:
-  - pos: 55.5,10.5
+  - pos: 55.5,17.5
     parent: 1
     type: Transform
 - uid: 12833
   type: CableApcExtension
   components:
-  - pos: 55.5,9.5
+  - pos: 54.5,17.5
     parent: 1
     type: Transform
 - uid: 12834
   type: CableApcExtension
   components:
-  - pos: 55.5,8.5
+  - pos: 56.5,15.5
     parent: 1
     type: Transform
 - uid: 12835
   type: CableApcExtension
   components:
-  - pos: 55.5,7.5
+  - pos: 56.5,8.5
     parent: 1
     type: Transform
 - uid: 12836
   type: CableApcExtension
   components:
-  - pos: 54.5,9.5
+  - pos: 56.5,17.5
     parent: 1
     type: Transform
 - uid: 12837
@@ -121964,11 +121995,13 @@ entities:
     parent: 1
     type: Transform
 - uid: 14536
-  type: SpawnPointEpistemologist
+  type: MachineAnomalyGenerator
   components:
-  - pos: 40.5,-27.5
+  - pos: 41.5,-28.5
     parent: 1
     type: Transform
+  - enabled: False
+    type: AmbientSound
 - uid: 14537
   type: SpawnPointEpistemologist
   components:
@@ -122666,9 +122699,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 14653
-  type: SpawnPointScientist
+  type: MachineFrame
   components:
-  - pos: 40.5,-27.5
+  - pos: 38.5,-24.5
     parent: 1
     type: Transform
 - uid: 14654
@@ -123580,9 +123613,10 @@ entities:
     parent: 1
     type: Transform
 - uid: 14786
-  type: DisposalUnit
+  type: DisposalTrunk
   components:
-  - pos: 45.5,-29.5
+  - rot: 3.141592653589793 rad
+    pos: 39.5,-31.5
     parent: 1
     type: Transform
 - uid: 14787
@@ -125333,10 +125367,10 @@ entities:
     parent: 1
     type: Transform
 - uid: 15041
-  type: DisposalTrunk
+  type: DisposalBend
   components:
-  - rot: 3.141592653589793 rad
-    pos: 45.5,-29.5
+  - rot: -1.5707963267948966 rad
+    pos: 45.5,-30.5
     parent: 1
     type: Transform
 - uid: 15042
@@ -132739,6 +132773,26 @@ entities:
   - pos: -16.5,-3.5
     parent: 1
     type: Transform
+- uid: 15945
+  type: VendingMachineClothing
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 28.5,-3.5
+    parent: 1
+    type: Transform
+- uid: 15946
+  type: SignRedOne
+  components:
+  - pos: -7.514082,1.8538444
+    parent: 1
+    type: Transform
+- uid: 15947
+  type: SignRedTwo
+  components:
+  - pos: -11.506669,1.8538444
+    parent: 1
+    type: Transform
 - uid: 15948
   type: Catwalk
   components:
@@ -133208,6 +133262,12 @@ entities:
   components:
   - rot: -1.5707963267948966 rad
     pos: -28.5,-36.5
+    parent: 1
+    type: Transform
+- uid: 16021
+  type: SignRedOne
+  components:
+  - pos: -25.5,-16.5
     parent: 1
     type: Transform
 - uid: 16022
@@ -134080,6 +134140,30 @@ entities:
   - pos: 33.5,1.5
     parent: 1
     type: Transform
+- uid: 16149
+  type: SignRedTwo
+  components:
+  - pos: -28.5,-17.5
+    parent: 1
+    type: Transform
+- uid: 16150
+  type: SignRedFive
+  components:
+  - pos: -25.5,-24.5
+    parent: 1
+    type: Transform
+- uid: 16151
+  type: SignRedFour
+  components:
+  - pos: -28.5,-21.5
+    parent: 1
+    type: Transform
+- uid: 16152
+  type: SignRedSix
+  components:
+  - pos: -28.5,-25.5
+    parent: 1
+    type: Transform
 - uid: 16153
   type: Catwalk
   components:
@@ -134152,6 +134236,30 @@ entities:
   - pos: 49.5,5.5
     parent: 1
     type: Transform
+- uid: 16165
+  type: SignRedEight
+  components:
+  - pos: -28.5,-29.5
+    parent: 1
+    type: Transform
+- uid: 16166
+  type: PaintingSkeletonCigarette
+  components:
+  - pos: -25.5,-30.5
+    parent: 1
+    type: Transform
+- uid: 16167
+  type: Bed
+  components:
+  - pos: 9.5,23.5
+    parent: 1
+    type: Transform
+- uid: 16168
+  type: AirlockBarLocked
+  components:
+  - pos: 8.5,19.5
+    parent: 1
+    type: Transform
 - uid: 16169
   type: Catwalk
   components:
@@ -134186,6 +134294,19 @@ entities:
   type: Catwalk
   components:
   - pos: 49.5,-3.5
+    parent: 1
+    type: Transform
+- uid: 16175
+  type: AMEJar
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 39.472282,5.6333103
+    parent: 1
+    type: Transform
+- uid: 16176
+  type: Bluespace5
+  components:
+  - pos: 39.357376,-28.339483
     parent: 1
     type: Transform
 - uid: 16177
@@ -134440,6 +134561,12 @@ entities:
   - pos: 7.5,14.5
     parent: 1
     type: Transform
+- uid: 16219
+  type: HyperlinkBookGlimmer
+  components:
+  - pos: 39.959145,-27.354029
+    parent: 1
+    type: Transform
 - uid: 16220
   type: Catwalk
   components:
@@ -134468,6 +134595,36 @@ entities:
   type: Catwalk
   components:
   - pos: -18.5,39.5
+    parent: 1
+    type: Transform
+- uid: 16225
+  type: AnomalyVesselCircuitboard
+  components:
+  - pos: 39.438057,-27.65632
+    parent: 1
+    type: Transform
+- uid: 16226
+  type: APECircuitboard
+  components:
+  - pos: 43.33895,-27.819374
+    parent: 1
+    type: Transform
+- uid: 16227
+  type: TableCounterMetal
+  components:
+  - pos: 43.5,-28.5
+    parent: 1
+    type: Transform
+- uid: 16228
+  type: TableCounterMetal
+  components:
+  - pos: 39.5,-28.5
+    parent: 1
+    type: Transform
+- uid: 16229
+  type: TableCounterMetal
+  components:
+  - pos: 43.5,-27.5
     parent: 1
     type: Transform
 - uid: 16230
@@ -134564,6 +134721,30 @@ entities:
   type: Catwalk
   components:
   - pos: -0.5,38.5
+    parent: 1
+    type: Transform
+- uid: 16246
+  type: AnomalyScanner
+  components:
+  - pos: 43.60948,-27.411755
+    parent: 1
+    type: Transform
+- uid: 16247
+  type: TableCounterMetal
+  components:
+  - pos: 41.5,-27.5
+    parent: 1
+    type: Transform
+- uid: 16248
+  type: BaseBigBox
+  components:
+  - pos: -22.691883,-32.37343
+    parent: 1
+    type: Transform
+- uid: 16249
+  type: AppraisalTool
+  components:
+  - pos: 49.79628,21.74575
     parent: 1
     type: Transform
 - uid: 16250
@@ -134849,6 +135030,24 @@ entities:
   - pos: 22.16877,16.715153
     parent: 1
     type: Transform
+- uid: 16281
+  type: AppraisalTool
+  components:
+  - pos: 52.436684,21.812778
+    parent: 1
+    type: Transform
+- uid: 16282
+  type: ReverseCymbalsInstrument
+  components:
+  - pos: 5.8465757,-1.174618
+    parent: 1
+    type: Transform
+- uid: 16283
+  type: ReverseEngineeringMachine
+  components:
+  - pos: 38.5,16.5
+    parent: 1
+    type: Transform
 - uid: 16284
   type: PoweredSmallLight
   components:
@@ -135000,6 +135199,12 @@ entities:
     pos: 21.5,7.5
     parent: 1
     type: Transform
+- uid: 16300
+  type: SolarPanel
+  components:
+  - pos: -24.5,47.5
+    parent: 1
+    type: Transform
 - uid: 16301
   type: BenchSteelLeft
   components:
@@ -135019,6 +135224,337 @@ entities:
   components:
   - rot: 1.5707963267948966 rad
     pos: 20.5,8.5
+    parent: 1
+    type: Transform
+- uid: 16304
+  type: SolarPanel
+  components:
+  - pos: -25.5,49.5
+    parent: 1
+    type: Transform
+- uid: 16305
+  type: SolarPanel
+  components:
+  - pos: -24.5,49.5
+    parent: 1
+    type: Transform
+- uid: 16306
+  type: SolarPanel
+  components:
+  - pos: -22.5,50.5
+    parent: 1
+    type: Transform
+- uid: 16307
+  type: SolarPanel
+  components:
+  - pos: -21.5,52.5
+    parent: 1
+    type: Transform
+- uid: 16308
+  type: SolarPanel
+  components:
+  - pos: -21.5,49.5
+    parent: 1
+    type: Transform
+- uid: 16309
+  type: SolarPanel
+  components:
+  - pos: -25.5,50.5
+    parent: 1
+    type: Transform
+- uid: 16310
+  type: SolarPanel
+  components:
+  - pos: -27.5,50.5
+    parent: 1
+    type: Transform
+- uid: 16311
+  type: SolarPanel
+  components:
+  - pos: -17.5,48.5
+    parent: 1
+    type: Transform
+- uid: 16312
+  type: SolarPanel
+  components:
+  - pos: -16.5,48.5
+    parent: 1
+    type: Transform
+- uid: 16313
+  type: SolarPanel
+  components:
+  - pos: -12.5,50.5
+    parent: 1
+    type: Transform
+- uid: 16314
+  type: SolarPanel
+  components:
+  - pos: -13.5,50.5
+    parent: 1
+    type: Transform
+- uid: 16315
+  type: SolarPanel
+  components:
+  - pos: -16.5,50.5
+    parent: 1
+    type: Transform
+- uid: 16316
+  type: SolarPanel
+  components:
+  - pos: -15.5,53.5
+    parent: 1
+    type: Transform
+- uid: 16317
+  type: SolarPanel
+  components:
+  - pos: -14.5,53.5
+    parent: 1
+    type: Transform
+- uid: 16318
+  type: SolarPanel
+  components:
+  - pos: -19.5,53.5
+    parent: 1
+    type: Transform
+- uid: 16319
+  type: SheetPlasma1
+  components:
+  - pos: -13.6450405,-30.214808
+    parent: 1
+    type: Transform
+- uid: 16320
+  type: SheetPlasma1
+  components:
+  - pos: -13.321963,-30.319046
+    parent: 1
+    type: Transform
+- uid: 16321
+  type: SheetPlasma1
+  components:
+  - pos: -13.519978,-30.41286
+    parent: 1
+    type: Transform
+- uid: 16322
+  type: SignAnomaly2
+  components:
+  - pos: 35.5,-24.5
+    parent: 1
+    type: Transform
+- uid: 16323
+  type: ScanningModuleStockPart
+  components:
+  - pos: 39.344635,-27.292126
+    parent: 1
+    type: Transform
+- uid: 16324
+  type: DisposalPipe
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 44.5,-30.5
+    parent: 1
+    type: Transform
+- uid: 16325
+  type: DisposalPipe
+  components:
+  - pos: 45.5,-29.5
+    parent: 1
+    type: Transform
+- uid: 16326
+  type: ChairOfficeDark
+  components:
+  - pos: 45.276978,-29.413145
+    parent: 1
+    type: Transform
+- uid: 16327
+  type: CrystalNormality
+  components:
+  - pos: 43.619904,-28.245667
+    parent: 1
+    type: Transform
+- uid: 16328
+  type: CrystalNormality
+  components:
+  - pos: 43.328094,-28.41245
+    parent: 1
+    type: Transform
+- uid: 16329
+  type: CrystalNormality
+  components:
+  - pos: 43.390625,-28.1727
+    parent: 1
+    type: Transform
+- uid: 16330
+  type: CrystalNormality
+  components:
+  - pos: 43.567795,-28.527113
+    parent: 1
+    type: Transform
+- uid: 16331
+  type: Bluespace1
+  components:
+  - pos: 39.67003,-28.30821
+    parent: 1
+    type: Transform
+- uid: 16332
+  type: Bluespace1
+  components:
+  - pos: 39.74298,-28.047613
+    parent: 1
+    type: Transform
+- uid: 16333
+  type: ScanningModuleStockPart
+  components:
+  - pos: 39.39675,-27.375517
+    parent: 1
+    type: Transform
+- uid: 16334
+  type: ScanningModuleStockPart
+  components:
+  - pos: 39.334213,-27.323397
+    parent: 1
+    type: Transform
+- uid: 16335
+  type: ScanningModuleStockPart
+  components:
+  - pos: 39.428017,-27.312973
+    parent: 1
+    type: Transform
+- uid: 16336
+  type: ScanningModuleStockPart
+  components:
+  - pos: 39.3759,-27.312973
+    parent: 1
+    type: Transform
+- uid: 16337
+  type: SheetPlasma
+  components:
+  - pos: 39.36548,-28.553417
+    parent: 1
+    type: Transform
+- uid: 16338
+  type: SheetPlasma1
+  components:
+  - pos: 39.698982,-28.626385
+    parent: 1
+    type: Transform
+- uid: 16339
+  type: SheetPlasma1
+  components:
+  - pos: 39.646873,-28.58469
+    parent: 1
+    type: Transform
+- uid: 16340
+  type: SheetPlasma1
+  components:
+  - pos: 39.74067,-28.542994
+    parent: 1
+    type: Transform
+- uid: 16341
+  type: SheetPlasma1
+  components:
+  - pos: 39.67814,-28.542994
+    parent: 1
+    type: Transform
+- uid: 16342
+  type: SheetPlasma1
+  components:
+  - pos: 39.646873,-28.668081
+    parent: 1
+    type: Transform
+- uid: 16343
+  type: CableApcStack
+  components:
+  - pos: 44.699516,-30.302656
+    parent: 1
+    type: Transform
+- uid: 16344
+  type: CapacitorStockPart
+  components:
+  - pos: 43.024223,-27.36719
+    parent: 1
+    type: Transform
+- uid: 16345
+  type: MicroLaserStockPart
+  components:
+  - pos: 43.764175,-27.909233
+    parent: 1
+    type: Transform
+- uid: 16346
+  type: MicroLaserStockPart
+  components:
+  - pos: 43.72249,-27.89881
+    parent: 1
+    type: Transform
+- uid: 16347
+  type: MicroLaserStockPart
+  components:
+  - pos: 43.73291,-27.815418
+    parent: 1
+    type: Transform
+- uid: 16348
+  type: SheetGlass
+  components:
+  - pos: 43.31672,-28.58459
+    parent: 1
+    type: Transform
+- uid: 16349
+  type: SheetSteel
+  components:
+  - pos: 43.650215,-28.626287
+    parent: 1
+    type: Transform
+- uid: 16350
+  type: SignAnomaly
+  components:
+  - pos: 41.5,-32.5
+    parent: 1
+    type: Transform
+- uid: 16351
+  type: SpawnMobSlugTerrance
+  components:
+  - pos: 38.5,-30.5
+    parent: 1
+    type: Transform
+- uid: 16352
+  type: CableApcExtension
+  components:
+  - pos: 56.5,10.5
+    parent: 1
+    type: Transform
+- uid: 16353
+  type: SheetPlasteel
+  components:
+  - pos: 51.28872,1.7486503
+    parent: 1
+    type: Transform
+- uid: 16354
+  type: ToolboxMechanicalFilled
+  components:
+  - pos: 51.424202,0.5394771
+    parent: 1
+    type: Transform
+- uid: 16355
+  type: trayScanner
+  components:
+  - pos: 51.41378,1.0502486
+    parent: 1
+    type: Transform
+- uid: 16356
+  type: SheetSteel
+  components:
+  - pos: 38.693108,13.328163
+    parent: 1
+    type: Transform
+- uid: 16357
+  type: SheetGlass
+  components:
+  - pos: 39.510483,12.556795
+    parent: 1
+    type: Transform
+- uid: 16358
+  type: SheetGlass
+  components:
+  - pos: 39.166557,12.54637
     parent: 1
     type: Transform
 ...

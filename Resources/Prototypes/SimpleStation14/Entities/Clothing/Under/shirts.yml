@@ -10,6 +10,8 @@
     - type: Sprite
       # noRot: true
       state: icon
+    - type: TemperatureProtection
+      coefficient: 0.75
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -24,6 +26,7 @@
       clothingVisuals:
         undershirt:
           - state: babydoll
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderband
@@ -37,6 +40,7 @@
       clothingVisuals:
         undershirt:
           - state: band
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbee_shirt
@@ -50,6 +54,7 @@
       clothingVisuals:
         undershirt:
           - state: bee_shirt
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderblueshirtsport
@@ -63,6 +68,7 @@
       clothingVisuals:
         undershirt:
           - state: blueshirtsport
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbowling
@@ -76,6 +82,7 @@
       clothingVisuals:
         undershirt:
           - state: bowling
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbowlinga
@@ -89,6 +96,7 @@
       clothingVisuals:
         undershirt:
           - state: bowlinga
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbowlingp
@@ -102,6 +110,7 @@
       clothingVisuals:
         undershirt:
           - state: bowlingp
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbowlingw
@@ -115,6 +124,7 @@
       clothingVisuals:
         undershirt:
           - state: bowlingw
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbra_alt
@@ -128,6 +138,9 @@
       clothingVisuals:
         undershirt:
           - state: bra_alt
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbra_assblastusa
@@ -141,6 +154,9 @@
       clothingVisuals:
         undershirt:
           - state: bra_assblastusa
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbra_bee-kini
@@ -154,6 +170,9 @@
       clothingVisuals:
         undershirt:
           - state: bra_bee-kini
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbra_binder_strapless
@@ -167,6 +186,9 @@
       clothingVisuals:
         undershirt:
           - state: bra_binder_strapless
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbra_binder
@@ -180,6 +202,9 @@
       clothingVisuals:
         undershirt:
           - state: bra_binder
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbra_commie
@@ -193,6 +218,9 @@
       clothingVisuals:
         undershirt:
           - state: bra_commie
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 # - type: entity
 #   parent: ClothingUnderShirtBase
 #   id: ClothingUnderbra_kinky
@@ -206,6 +234,7 @@
 #       clothingVisuals:
 #         undershirt:
 #           - state: bra_kinky
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbra_neko
@@ -219,6 +248,9 @@
       clothingVisuals:
         undershirt:
           - state: bra_neko
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbra_strapless_alt
@@ -232,6 +264,9 @@
       clothingVisuals:
         undershirt:
           - state: bra_strapless_alt
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbra_strapless
@@ -245,6 +280,9 @@
       clothingVisuals:
         undershirt:
           - state: bra_strapless
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbra_swimming_alt
@@ -258,6 +296,9 @@
       clothingVisuals:
         undershirt:
           - state: bra_swimming_alt
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbra_swimming
@@ -271,6 +312,9 @@
       clothingVisuals:
         undershirt:
           - state: bra_swimming
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 # - type: entity
 #   parent: ClothingUnderShirtBase
 #   id: ClothingUnderbra_thin
@@ -284,6 +328,7 @@
 #       clothingVisuals:
 #         undershirt:
 #           - state: bra_thin
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbra_uk
@@ -297,6 +342,9 @@
       clothingVisuals:
         undershirt:
           - state: bra_uk
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderbra
@@ -310,6 +358,9 @@
       clothingVisuals:
         undershirt:
           - state: bra
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndercowboyshirt_navy
@@ -323,6 +374,7 @@
       clothingVisuals:
         undershirt:
           - state: cowboyshirt_navy
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndercowboyshirt_navys
@@ -336,6 +388,7 @@
       clothingVisuals:
         undershirt:
           - state: cowboyshirt_navys
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndercowboyshirt_red
@@ -349,6 +402,7 @@
       clothingVisuals:
         undershirt:
           - state: cowboyshirt_red
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndercowboyshirt_reds
@@ -362,6 +416,7 @@
       clothingVisuals:
         undershirt:
           - state: cowboyshirt_reds
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndercowboyshirt_s
@@ -375,6 +430,7 @@
       clothingVisuals:
         undershirt:
           - state: cowboyshirt_s
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndercowboyshirt_white
@@ -388,6 +444,7 @@
       clothingVisuals:
         undershirt:
           - state: cowboyshirt_white
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndercowboyshirt_whites
@@ -401,6 +458,7 @@
       clothingVisuals:
         undershirt:
           - state: cowboyshirt_whites
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndercowboyshirt
@@ -414,6 +472,7 @@
       clothingVisuals:
         undershirt:
           - state: cowboyshirt
+
 # - type: entity
 #   parent: ClothingUnderShirtBase
 #   id: ClothingUnderfishnet_body
@@ -427,6 +486,7 @@
 #       clothingVisuals:
 #         undershirt:
 #           - state: fishnet_body
+
 # - type: entity
 #   parent: ClothingUnderShirtBase
 #   id: ClothingUnderfishnet_gloves
@@ -440,6 +500,7 @@
 #       clothingVisuals:
 #         undershirt:
 #           - state: fishnet_gloves
+
 # - type: entity
 #   parent: ClothingUnderShirtBase
 #   id: ClothingUnderfishnet_sleeves
@@ -453,6 +514,7 @@
 #       clothingVisuals:
 #         undershirt:
 #           - state: fishnet_sleeves
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndergreenshirtsport
@@ -466,6 +528,7 @@
       clothingVisuals:
         undershirt:
           - state: greenshirtsport
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderhalterneck_bra
@@ -479,6 +542,9 @@
       clothingVisuals:
         undershirt:
           - state: halterneck_bra
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderian
@@ -492,6 +558,7 @@
       clothingVisuals:
         undershirt:
           - state: ian
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderilovent
@@ -505,6 +572,7 @@
       clothingVisuals:
         undershirt:
           - state: ilovent
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderljont
@@ -518,6 +586,9 @@
       clothingVisuals:
         undershirt:
           - state: ljont
+    - type: TemperatureProtection
+      coefficient: 0.70
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderlongstripe_blue
@@ -531,6 +602,7 @@
       clothingVisuals:
         undershirt:
           - state: longstripe_blue
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderlongstripe
@@ -544,6 +616,7 @@
       clothingVisuals:
         undershirt:
           - state: longstripe
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderlover
@@ -557,6 +630,7 @@
       clothingVisuals:
         undershirt:
           - state: lover
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndermatroska
@@ -570,6 +644,7 @@
       clothingVisuals:
         undershirt:
           - state: matroska
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderpeace
@@ -583,6 +658,7 @@
       clothingVisuals:
         undershirt:
           - state: peace
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderpogoman
@@ -596,6 +672,7 @@
       clothingVisuals:
         undershirt:
           - state: pogoman
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderpolo
@@ -609,6 +686,7 @@
       clothingVisuals:
         undershirt:
           - state: polo
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderredshirtsport
@@ -622,6 +700,7 @@
       clothingVisuals:
         undershirt:
           - state: redshirtsport
+
 # - type: entity
 #   parent: ClothingUnderShirtBase
 #   id: ClothingUndershibari_sleeves
@@ -635,6 +714,7 @@
 #       clothingVisuals:
 #         undershirt:
 #           - state: shibari_sleeves
+
 # - type: entity
 #   parent: ClothingUnderShirtBase
 #   id: ClothingUndershibari
@@ -648,6 +728,7 @@
 #       clothingVisuals:
 #         undershirt:
 #           - state: shibari
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershirt_alien
@@ -661,6 +742,7 @@
       clothingVisuals:
         undershirt:
           - state: shirt_alien
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershirt_assblastusa
@@ -674,10 +756,11 @@
       clothingVisuals:
         undershirt:
           - state: shirt_assblastusa
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershirt_bluejersey
-  name: blue jersey shirt
+  name: blue jersey
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/undershirts.rsi
@@ -687,6 +770,7 @@
       clothingVisuals:
         undershirt:
           - state: shirt_bluejersey
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershirt_clown
@@ -700,6 +784,7 @@
       clothingVisuals:
         undershirt:
           - state: shirt_clown
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershirt_commie
@@ -713,6 +798,7 @@
       clothingVisuals:
         undershirt:
           - state: shirt_commie
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershirt_meat
@@ -726,6 +812,7 @@
       clothingVisuals:
         undershirt:
           - state: shirt_meat
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershirt_nano
@@ -739,6 +826,7 @@
       clothingVisuals:
         undershirt:
           - state: shirt_nano
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershirt_question
@@ -752,6 +840,7 @@
       clothingVisuals:
         undershirt:
           - state: shirt_question
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershirt_redjersey
@@ -765,6 +854,7 @@
       clothingVisuals:
         undershirt:
           - state: shirt_redjersey
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershirt_skull
@@ -778,6 +868,7 @@
       clothingVisuals:
         undershirt:
           - state: shirt_skull
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershirt_ss13
@@ -791,6 +882,7 @@
       clothingVisuals:
         undershirt:
           - state: shirt_ss13
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershirt_stripes
@@ -804,6 +896,7 @@
       clothingVisuals:
         undershirt:
           - state: shirt_stripes
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershirt_tiedye
@@ -817,6 +910,7 @@
       clothingVisuals:
         undershirt:
           - state: shirt_tiedye
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndershortsleeve
@@ -830,6 +924,7 @@
       clothingVisuals:
         undershirt:
           - state: shortsleeve
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndersports_bra_alt
@@ -843,6 +938,9 @@
       clothingVisuals:
         undershirt:
           - state: sports_bra_alt
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndersports_bra
@@ -856,6 +954,9 @@
       clothingVisuals:
         undershirt:
           - state: sports_bra
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderstriped_bra
@@ -869,6 +970,9 @@
       clothingVisuals:
         undershirt:
           - state: striped_bra
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderswimming_black
@@ -882,6 +986,9 @@
       clothingVisuals:
         undershirt:
           - state: swimming_black
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderswimming_blue
@@ -895,6 +1002,9 @@
       clothingVisuals:
         undershirt:
           - state: swimming_blue
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderswimming_red
@@ -908,6 +1018,9 @@
       clothingVisuals:
         undershirt:
           - state: swimming_red
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndertank_fire
@@ -921,6 +1034,9 @@
       clothingVisuals:
         undershirt:
           - state: tank_fire
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndertank_midriff_alt
@@ -934,6 +1050,9 @@
       clothingVisuals:
         undershirt:
           - state: tank_midriff_alt
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndertank_midriff
@@ -947,6 +1066,9 @@
       clothingVisuals:
         undershirt:
           - state: tank_midriff
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndertank_rainbow
@@ -960,6 +1082,9 @@
       clothingVisuals:
         undershirt:
           - state: tank_rainbow
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndertank_stripes
@@ -973,6 +1098,9 @@
       clothingVisuals:
         undershirt:
           - state: tank_stripes
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndertank_sun
@@ -986,6 +1114,9 @@
       clothingVisuals:
         undershirt:
           - state: tank_sun
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndertanktop_alt
@@ -999,6 +1130,9 @@
       clothingVisuals:
         undershirt:
           - state: tanktop_alt
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndertanktop
@@ -1012,6 +1146,9 @@
       clothingVisuals:
         undershirt:
           - state: tanktop
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUndertubetop
@@ -1025,6 +1162,9 @@
       clothingVisuals:
         undershirt:
           - state: tubetop
+    - type: TemperatureProtection
+      coefficient: 0.85
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderuk
@@ -1038,6 +1178,7 @@
       clothingVisuals:
         undershirt:
           - state: uk
+
 - type: entity
   parent: ClothingUnderShirtBase
   id: ClothingUnderundershirt
@@ -1051,3 +1192,4 @@
       clothingVisuals:
         undershirt:
           - state: undershirt
+
