@@ -1,0 +1,19 @@
+- type: loadout
+  id: test1
+  name: test2
+  description: test3
+  cost: 2
+  blacklist:
+    species:
+      - SlimePerson
+  item: ClothingOuterPurpleCoat
+
+- type: loadout
+  id: test4
+  name: test5
+  description: test6
+  cost: 4
+  whitelist:
+    species:
+      - SlimePerson
+  item: ClothingOuterPurpleCoat

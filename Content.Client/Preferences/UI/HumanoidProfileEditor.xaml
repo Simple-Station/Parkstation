@@ -157,6 +157,11 @@
                         <BoxContainer Name="CNTraitsList" Orientation="Vertical" />
                     </ScrollContainer>
                 </BoxContainer>
+                <BoxContainer Orientation="Vertical" Margin="10" Name="CLoadoutsTab">
+                    <ScrollContainer VerticalExpand="True">
+                        <BoxContainer Name="CLoadoutsList" Orientation="Vertical" />
+                    </ScrollContainer>
+                </BoxContainer>
                 <BoxContainer Name="CMarkingsTab" Orientation="Vertical" Margin="10">
                     <!-- Markings -->
                     <ScrollContainer VerticalExpand="True">
