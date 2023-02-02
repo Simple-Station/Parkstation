@@ -8,6 +8,7 @@
     - type: Sprite
       netsync: false
       sprite: Objects/Misc/stock_parts.rsi
+      scale: 0.8, 0.8
     - type: MachinePart
       rating: 1
     - type: GuideHelp
