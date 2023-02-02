@@ -65,11 +65,11 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
         {
             var textLabel = new RichTextLabel();
             textLabel.SetMessage(Loc.GetString("ghost-roles-window-redirect-label"));
-            EntryContainer.AddChild(textLabel);
+            // EntryContainer.AddChild(textLabel);
 
             var redirectButton = new Button();
             redirectButton.Text = Loc.GetString("ghost-roles-window-redirect");
-            EntryContainer.AddChild(redirectButton);
+            // EntryContainer.AddChild(redirectButton);
             redirectButton.OnPressed += _ => Redirect();
         }
 
