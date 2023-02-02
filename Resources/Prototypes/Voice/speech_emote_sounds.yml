@@ -53,6 +53,8 @@
       path: /Audio/Voice/Moth/scream_moth.ogg
     Laugh:
       path: /Audio/SimpleStation14/Voice/Moth/laugh_moth.ogg
+      params:
+        volume: -3
 
 # body emotes
 - type: emoteSounds
@@ -63,7 +65,7 @@
     Snap:
       collection: Snaps
       params:
-        volume: -6
+        volume: -3
 
 # mobs
 - type: emoteSounds
