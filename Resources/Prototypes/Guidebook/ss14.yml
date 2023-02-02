@@ -3,8 +3,9 @@
   name: guide-entry-ss14
   text: "/Server Info/Guidebook/Space Station 14.xml"
   children:
-  - AlertProcedure
+  # - AlertProcedure
   # - Controls
   - GettingStarted
   - Jobs
   - Survival
+  - InWorldInfo

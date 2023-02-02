@@ -8,22 +8,20 @@
 ## High Security Areas
 
 What High Security Areas are, and who should access them.
-- Nonlethal Armory: Any security officer or above.
-- Lethal Armory: Any security officer or above, but only on a code red.
-- Command: All Heads, and Supervisory roles if given permission by HoP.
-- Self Destruct Room/Vault: Bolted at all times unless Heads request access.
-- AI Satellite: Only Chief Engineer, or CE and another Head.
+- Level one Armory: Non lethal equipment, nay security personnel.
+- Level two Armory: Low grade lethal weaponry, Security Officers and above.
+- Level three Armory: High grade lethal weaponry, Head of Security and Warden only.
+- Command/Head Offices/AI Satellite: Head offices are entirely restricted for entrance without the respective Head present. Command may only be entered under supervision of a Head.
+- Self Destruct Room/Vault: Bolted at all times, access on request of Head.
+- Departments: Unauthorized entrance to a department is trespassing, and may justify a search based on present items.
 
 
 ## Medical Evaluation
 
-Given good medical reason and with documentation, the Chief Medical Officer may declare any on-duty personnel unfit for duty and remove them from their position.
-[color=#FF0000]This includes other Heads and Centcom personnel.[/color]
-[color=#FF0000]This cannot be overruled by anyone.[/color]
+Given good medical reason and with documentation, the Chief Medical Officer may declare any on-duty personnel unfit for duty and remove them from their position. This includes other Heads of Staff.
 
-In order for a medical evaluation to be considered correct, two heads, one of which must be the CMO, must agree that the specified crewmate is unfit for duty.
-If they are unfit for duty the Head of Personnel may demote them to assistant.
-If demotion is resisted, Security is allowed to detain if necessary.
+In order for a medical evaluation to be considered valid, two heads, one of which must be the CMO, must agree that the specified crewmate is unfit for duty.
+If they are unfit for duty the Head of Personnel may demote them to assistant. If demotion is resisted, Security is allowed to detain if necessary.
 
 
 ## Controlled Substances/Items
@@ -32,26 +30,19 @@ Controlled substances are any substance that have been restriced or made illegal
 - Space Drugs.
 - Pure Lysergic Acid Diethylamide, (LSD) sometimes referred to as 'MindBreaker'.
 - Pure Ephedrine, when not in the possession of the CMO or Security.
-- Pure DesoxyEphedrine, commonly referred to as 'Meth'. -
-Possession of DesoxyEphedrine will warrant an arrest for you and any known creator of the substance.
+- Pure DesoxyEphedrine, commonly referred to as 'Meth'. - Possession of DesoxyEphedrine will warrant an arrest for you and any known creator of the substance.
 - Any explosive or pyrotechnic compound outside of the Science department testing area.
-- Any lethal toxin or toxic substance/compound outside of Science or the Medical chemistry lab.
+- Any lethal toxin or toxic substance/compound outside of the Medical chemistry lab.
 - Any Reagents made mainly by hostile corporations.
-- Corpium. -
-Necromancy or reviving dead crew, effectively turning them into Zombies, will get you executed.
-- XenoBlood. -
-Giving lethal Diseases to crew and polymorphing them will get you executed.
+- Corpium. - Necromancy or reviving dead crew, effectively turning them into Zombies, will get you executed.
+- XenoBlood. - Giving lethal Diseases to crew and polymorphing them will get you executed.
 - Nocturine.
 
 Controlled Items are items that have been restricted or made illegal under Space Law. The current list of controlled items is as follows:
-- Biological or Chemical Weaponry, such as neurotoxin grenades. -
-Plasma gas is considered a chemical weapon when used offensively.
+- Biological or Chemical Weaponry, such as neurotoxin grenades. - Plasma gas is considered a chemical weapon when used offensively.
 - Any cloning technology designed to rapidly grow an adult clone with fully-developed mental faculties not in possession of the medical department.
-- Military Explosives when not in use by Security or otherwise authorised entities. -
-Note that constructive explosives, such as any charges used for mining are not subject to this restriction.
-Plasma-based explosives are considered Military Weaponry.
-- Automatic Weaponry when not in use by Security, another authorised department of Central Command, or an otherwise authorised entity. -
-This means any weapon capable of firing multiple shots when the trigger is depressed once, energy or otherwise.
+- Military Explosives when not in use by Security or otherwise authorised entities. - Note that constructive explosives, such as any charges used for mining are not subject to this restriction. Plasma-based explosives are considered Military Weaponry.
+- Automatic Weaponry when not in use by Security, another authorised department of Central Command, or an otherwise authorised entity. - This means any weapon capable of firing multiple shots when the trigger is depressed once, energy or otherwise.
 - Corporate Security forces are considered an 'authorized entity' with repsect to the above clauses.
 - Weaponry in the possession of personnel who have not been authorised to possess it.
 - Hacking Software or Hardware which allows a person to subvert access to ship systems, bypass access restrictions or attack a vessels computer network.
@@ -61,8 +52,7 @@ This means any weapon capable of firing multiple shots when the trigger is depre
 ## Research Operations
 
 Science employees are permitted to use their lab spaces as they see fit with the following exceptions:
-- Any human experimentation must be done with the full consent of the test subject, and must not have an undue risk of life. -
-The HoS or RD may terminate any experiment for safety or ethical purposes at their discretion.
+- Any human experimentation must be done with the full consent of the test subject, and must not have an undue risk of life. - The HoS, CMO, or MG may terminate any human experiment for safety or ethical purposes at their discretion.
 - Self-Experimentation is prohibited and is chargeable with endangerment.
 - Testing of any explosives with risk of penetrating the hull or causing mass destruction must be done at an off-station site.
 - Small arms and larger weapons must also be tested at an off-station site if there is risk to the hull.
