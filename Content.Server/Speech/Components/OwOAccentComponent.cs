@@ -4,6 +4,6 @@
     public sealed class OwOAccentComponent : Component
     {
         [DataField("kaomoji"), ViewVariables(VVAccess.ReadWrite)]
-        public bool Kaomoji = true;
+        public bool Kaomoji = false;
     }
 }
