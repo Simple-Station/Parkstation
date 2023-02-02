@@ -1153,6 +1153,9 @@ Entries:
     changes:
       - { message: "Merged Upstream", type: Add }
       - { message: "Mobs will no longer bark when controlled by players.", type: Tweak }
+      - { message: "Prescription glasses now break if thrown, hit, or stepped on.", type: Add }
+      - { message: "Careful when you fall over, and keep an eye on your pockets.", type: Add }
+      - { message: "You wouldn't slip a guy with glasses!", type: Tweak }
     id: 87
     time: "2023-01-31T23:25:45.0000000+00:00"
   - author: "DEATHB4DEFEAT"

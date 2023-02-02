@@ -8,6 +8,8 @@
     sprite: Clothing/Eyes/Glasses/beergoggles.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/beergoggles.rsi
+  - type: DropOnSlip
+    chance: 30
 
 - type: entity
   parent: ClothingEyesBase
@@ -24,6 +26,8 @@
     damage:
       types:
         Blunt: 7
+  - type: DropOnSlip
+    chance: 30
 
 - type: entity
   parent: ClothingEyesBase
@@ -43,6 +47,8 @@
     damage:
       types:
         Blunt: 10
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingEyesBase
@@ -62,6 +68,8 @@
     damage:
       types:
         Blunt: 10
+  - type: DropOnSlip
+    chance: 10
 
 - type: entity
   parent: ClothingEyesBase
@@ -75,6 +83,8 @@
     sprite: Clothing/Eyes/Glasses/meson.rsi
   - type: FlashImmunity
   - type: EyeProtection
+  - type: DropOnSlip
+    chance: 30
 
 - type: entity
   parent: ClothingEyesBase
@@ -89,6 +99,71 @@
   - type: VisionCorrection
   - type: ClothingGrantTag
     tag: GlassesNearsight
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal:
+            min: 1
+            max: 1
+          ShardGlass:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
+    chance: 15
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5
+  - type: CollisionWake
+    enabled: false
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.2,-0.2,0.2,0.2"
+      id: "slips"
+      hard: false
+      layer:
+      - LowImpassable
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.2,-0.2,0.2,0.2"
+      density: 30
+      mask:
+      - ItemMask
+  - type: TriggerOnStepTrigger
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+  - type: Slippery
+    slipSound:
+      path: /Audio/Effects/glass_step.ogg
+    launchForwardsMultiplier: 0
+    paralyzeTime: 0
+  - type: DamageOnTrigger
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
+  - type: DropOnSlip
+    chance: 30
 
 - type: entity
   parent: ClothingEyesBase
@@ -103,6 +178,8 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
+  - type: DropOnSlip
+    chance: 30
 
 - type: entity
   parent: ClothingEyesBase
@@ -134,3 +211,5 @@
       coefficients:
         Heat: 0.95
   - type: GroupExamine
+  - type: DropOnSlip
+    chance: 30
