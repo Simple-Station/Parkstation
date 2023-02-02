@@ -36,7 +36,7 @@ namespace Content.Client.Launcher
             };
             RetryButton.OnPressed += _ => _state.RetryConnect();
             ExitButton.OnPressed += _ => _state.Exit();
-            RedirectButton.OnPressed += _ => _state.Redirect();
+            // RedirectButton.OnPressed += _ => _state.Redirect();
 
             var addr = state.Address;
             if (addr != null)
@@ -66,10 +66,10 @@ namespace Content.Client.Launcher
         {
             if (address == null)
             {
-                RedirectButton.Visible = false;
+                // RedirectButton.Visible = false;
             } else
             {
-                RedirectButton.Visible = true;
+                // RedirectButton.Visible = true;
             }
         }
 

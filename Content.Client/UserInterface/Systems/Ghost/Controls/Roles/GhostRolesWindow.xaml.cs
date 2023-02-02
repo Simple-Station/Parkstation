@@ -67,10 +67,10 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             textLabel.SetMessage(Loc.GetString("ghost-roles-window-redirect-label"));
             // EntryContainer.AddChild(textLabel);
 
-            var redirectButton = new Button();
-            redirectButton.Text = Loc.GetString("ghost-roles-window-redirect");
+            // var redirectButton = new Button();
+            // redirectButton.Text = Loc.GetString("ghost-roles-window-redirect");
             // EntryContainer.AddChild(redirectButton);
-            redirectButton.OnPressed += _ => Redirect();
+            // redirectButton.OnPressed += _ => Redirect();
         }
 
         private void Redirect()
