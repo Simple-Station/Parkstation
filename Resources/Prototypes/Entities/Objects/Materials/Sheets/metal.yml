@@ -7,6 +7,7 @@
   - type: Sprite
     netsync: false
     sprite: Objects/Materials/Sheets/metal.rsi
+    scale: 0.65, 0.65
   - type: Item
     sprite: Objects/Materials/Sheets/metal.rsi
   - type: DynamicPrice
