@@ -1152,6 +1152,7 @@ Entries:
   - author: "Pspritechologist"
     changes:
       - { message: "Merged Upstream", type: Add }
+      - { message: "Mobs will no longer bark when controlled by players.", type: Tweak }
     id: 87
     time: "2023-01-31T23:25:45.0000000+00:00"
   - author: "DEATHB4DEFEAT"
