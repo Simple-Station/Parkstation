@@ -164,9 +164,7 @@
                         <!-- Keep this value consistent with the Update__Preferences function's default 'points' value or issues will arise. -->
                         <Label Text="9" Name="LoadoutPoints" />
                     </BoxContainer>
-                    <ScrollContainer VerticalExpand="True">
-                        <BoxContainer Name="CLoadoutsList" Orientation="Vertical" />
-                    </ScrollContainer>
+                    <TabContainer Name="CLoadoutsTabs" VerticalExpand="True" />
                 </BoxContainer>
                 <BoxContainer Name="CMarkingsTab" Orientation="Vertical" Margin="10">
                     <!-- Markings -->

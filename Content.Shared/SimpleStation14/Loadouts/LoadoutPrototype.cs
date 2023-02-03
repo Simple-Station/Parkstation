@@ -26,6 +26,18 @@ namespace Content.Shared.SimpleStation14.Loadouts
         public string? Description { get; private set; }
 
         /// <summary>
+        ///     Which tab category to put this under.
+        /// </summary>
+        [DataField("category")]
+        public string Category { get; private set; } = "Uncategorized";
+
+        /// <summary>
+        ///     Which tab category to put this under.
+        /// </summary>
+        [DataField("categoryNum")]
+        public int CategoryNum { get; private set; } = 0; // Awful solution 👍
+
+        /// <summary>
         ///     The point cost of this loadout.
         /// </summary>
         [DataField("cost")]

@@ -1,3 +1,10 @@
+# These numbers and names are all defined in these Loadout Prototypes
+# Not following this format won't do much, but much is still something.
+# <categoryNum>: <category>
+# Categories:
+#   0: Uncategorized
+#   1: shit
+
 - type: loadout
   id: test1
   name: test2
@@ -12,7 +19,21 @@
   id: test4
   name: test5
   description: test6
+  category: shit
+  categoryNum: 1
   cost: 4
+  whitelist:
+    species:
+      - SlimePerson
+  item: ClothingOuterPurpleCoat
+
+- type: loadout
+  id: test5
+  name: test4
+  description: test7
+  category: shit
+  categoryNum: 1
+  cost: 5
   whitelist:
     species:
       - SlimePerson

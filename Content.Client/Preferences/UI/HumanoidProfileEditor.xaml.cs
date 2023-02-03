@@ -79,7 +79,7 @@ namespace Content.Client.Preferences.UI
         private BoxContainer _ntraitsList => CNTraitsList;
         private Label _loadoutPoints => LoadoutPoints;
         private BoxContainer _loadoutsTab => CLoadoutsTab;
-        private BoxContainer _loadoutsList => CLoadoutsList;
+        private TabContainer _loadoutsTabs => CLoadoutsTabs;
         private readonly List<JobPrioritySelector> _jobPriorities;
         private OptionButton _preferenceUnavailableButton => CPreferenceUnavailableButton;
         private readonly Dictionary<string, BoxContainer> _jobCategories;
@@ -650,22 +650,50 @@ namespace Content.Client.Preferences.UI
 
             _tabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-loadouts-tab"));
             _loadoutPreferences = new List<LoadoutPreferenceSelector>();
-            var loadouts = prototypeManager.EnumeratePrototypes<LoadoutPrototype>().OrderBy(l => l.Name).ToList();
+            var loadouts = prototypeManager.EnumeratePrototypes<LoadoutPrototype>().OrderBy(l => Loc.GetString(l.Name)).ToList();
 
             if (loadouts.Count >= 0)
             {
+                // Where points?
                 if (_loadoutPoints.Text == null) return;
 
                 foreach (var loadout in loadouts)
                 {
+                    // Look for an existing loadout category
+                    BoxContainer? match = null;
+                    foreach (var child in _loadoutsTabs.Children)
+                    {
+                        if (match != null) continue;
+                        if (child.Name == loadout.Category) match = (BoxContainer) child;
+                    }
+
                     var selector = new LoadoutPreferenceSelector(loadout);
-                    _loadoutsList.AddChild(selector);
+                    // If theres no category...
+                    if (match == null)
+                    {
+                        // ... Make one
+                        var box = new BoxContainer()
+                        {
+                            Orientation = BoxContainer.LayoutOrientation.Vertical,
+                            VerticalExpand = true,
+                            Name = loadout.Category
+                        };
+                        _loadoutsTabs.AddChild(box);
+                        _loadoutsTabs.SetTabTitle(loadout.CategoryNum, Loc.GetString(loadout.Category));
+                        // Add loadout selector
+                        box.AddChild(selector);
+                    }
+                    // If there is, add the loadout selector
+                    else match.AddChild(selector);
+
                     _loadoutPreferences.Add(selector);
 
                     selector.PreferenceChanged += preference =>
                     {
+                        // Test the Whitelist/Blacklist
                         if (!TestLoadout(loadout.Name)) preference = false;
 
+                        // Make sure they have enough loadout points
                         if (preference == true)
                         {
                             var temp = int.Parse(_loadoutPoints.Text) - loadout.Cost;
@@ -681,6 +709,7 @@ namespace Content.Client.Preferences.UI
                             _loadoutPoints.Text = (int.Parse(_loadoutPoints.Text) + loadout.Cost).ToString();
                         }
 
+                        // Update Preference
                         Profile = Profile?.WithLoadoutPreference(loadout.ID, preference);
                         IsDirty = true;
                     };
@@ -688,7 +717,7 @@ namespace Content.Client.Preferences.UI
             }
             else
             {
-                _loadoutsList.AddChild(new Label { Text="No loadouts found D:" });
+                _loadoutsTab.AddChild(new Label { Text="No loadouts found D:" });
             }
 
             bool TestLoadout(string loadut)
