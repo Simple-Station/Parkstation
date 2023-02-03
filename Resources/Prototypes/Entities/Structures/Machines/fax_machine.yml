@@ -99,10 +99,10 @@
 - type: entity
   parent: FaxMachineBase
   id: FaxMachineCaptain
-  name: captain long range fax machine
-  suffix: NukeCodes
+  name: command long range fax machine
+  suffix: Command
   components:
     - type: FaxMachine
-      name: "Captain's Office"
+      name: "Command"
       receiveNukeCodes: true
       receiveStationGoal: true # Corvax-StationGoal

@@ -47,6 +47,8 @@
   - type: Construction
     graph: flowercrown
     node: flowercrown
+  - type: DropOnSlip
+    chance: 50
 
 - type: entity
   parent: ClothingHeadBase
@@ -58,6 +60,8 @@
     sprite: Clothing/Head/Misc/hairflower.rsi
   - type: Clothing
     sprite: Clothing/Head/Misc/hairflower.rsi
+  - type: DropOnSlip
+    chance: 60
 
 - type: entity
   parent: ClothingHeadBase
@@ -81,6 +85,8 @@
     sprite: Clothing/Head/Misc/pwig.rsi
   - type: Clothing
     sprite: Clothing/Head/Misc/pwig.rsi
+  - type: DropOnSlip
+    chance: 60
 
 - type: entity
   parent: ClothingHeadBase
@@ -116,6 +122,8 @@
     sprite: Clothing/Head/Misc/shrine-maidens-wig.rsi
   - type: Clothing
     sprite: Clothing/Head/Misc/shrine-maidens-wig.rsi
+  - type: DropOnSlip
+    chance: 60
 
 - type: entity
   parent: ClothingHeadBase
@@ -127,6 +135,8 @@
     sprite: Clothing/Head/Misc/cone.rsi
   - type: Clothing
     sprite: Clothing/Head/Misc/cone.rsi
+  - type: DropOnSlip
+    chance: 70
 
 - type: entity
   parent: ClothingHeadBase

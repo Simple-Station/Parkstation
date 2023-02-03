@@ -2,7 +2,6 @@ using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client.Clickable;
-using Content.Client.Options;
 using Content.Client.Eui;
 using Content.Client.GhostKick;
 using Content.Client.Info;
@@ -14,6 +13,7 @@ using Content.Client.Screenshot;
 using Content.Client.Stylesheets;
 using Content.Client.Viewport;
 using Content.Client.Voting;
+using Content.Client.Redial;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Module;
@@ -46,6 +46,7 @@ namespace Content.Client.IoC
             IoCManager.Register<PlayTimeTrackingManager>();
             IoCManager.Register<JoinQueueManager>(); // Corvax-Queue
             IoCManager.Register<DocumentParsingManager>();
+            IoCManager.Register<RedialManager>();
         }
     }
 }

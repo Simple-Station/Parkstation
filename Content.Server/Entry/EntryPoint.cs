@@ -31,6 +31,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Server.Station.Systems;
+using Content.Server.Redial;
 using Content.Shared.Localizations;
 using Content.Server.Corvax.JoinQueue;
 
@@ -45,6 +46,7 @@ namespace Content.Server.Entry
         private IVoteManager _voteManager = default!;
         private ServerUpdateManager _updateManager = default!;
         private PlayTimeTrackingManager? _playTimeTracking;
+        private RedialManager? _redial;
         private IEntitySystemManager? _sysMan;
 
         /// <inheritdoc />
@@ -94,6 +96,7 @@ namespace Content.Server.Entry
                 _voteManager = IoCManager.Resolve<IVoteManager>();
                 _updateManager = IoCManager.Resolve<ServerUpdateManager>();
                 _playTimeTracking = IoCManager.Resolve<PlayTimeTrackingManager>();
+                _redial = IoCManager.Resolve<RedialManager>();
                 _sysMan = IoCManager.Resolve<IEntitySystemManager>();
 
                 logManager.GetSawmill("Storage").Level = LogLevel.Info;
@@ -113,6 +116,7 @@ namespace Content.Server.Entry
                 _voteManager.Initialize();
                 _updateManager.Initialize();
                 _playTimeTracking.Initialize();
+                _redial.Initialize();
             }
         }
 
@@ -167,6 +171,7 @@ namespace Content.Server.Entry
                 case ModUpdateLevel.FramePostEngine:
                     _updateManager.Update();
                     _playTimeTracking?.Update();
+                    _redial?.Update();
                     break;
             }
         }

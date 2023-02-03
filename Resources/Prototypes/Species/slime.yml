@@ -9,6 +9,8 @@
   dollPrototype: MobSlimePersonDummy
   skinColoration: Hues
   sexes:
+  - Male
+  - Female
   - Unsexed
 
 - type: speciesBaseSprites

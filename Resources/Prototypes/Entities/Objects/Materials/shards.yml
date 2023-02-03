@@ -10,6 +10,7 @@
         state: shard1
         map: [ "enum.DamageStateVisualLayers.Base" ]
     netsync: false
+    scale: 0.65, 0.65
   - type: RandomSprite
     available:
       - enum.DamageStateVisualLayers.Base:

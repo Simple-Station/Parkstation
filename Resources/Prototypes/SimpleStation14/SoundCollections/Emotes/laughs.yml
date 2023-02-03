@@ -1,0 +1,17 @@
+- type: soundCollection
+  id: SlimeMaleLaughs
+  files:
+    - /Audio/SimpleStation14/Voice/Slime/slime_laugh_m1.ogg
+    - /Audio/SimpleStation14/Voice/Slime/slime_laugh_m2.ogg
+
+- type: soundCollection
+  id: SlimeFemaleLaughs
+  files:
+    - /Audio/SimpleStation14/Voice/Slime/slime_laugh_f1.ogg
+
+- type: soundCollection
+  id: SlimeUnisexLaughs
+  files:
+    - /Audio/SimpleStation14/Voice/Slime/slime_laugh_m1.ogg
+    - /Audio/SimpleStation14/Voice/Slime/slime_laugh_m2.ogg
+    - /Audio/SimpleStation14/Voice/Slime/slime_laugh_f1.ogg

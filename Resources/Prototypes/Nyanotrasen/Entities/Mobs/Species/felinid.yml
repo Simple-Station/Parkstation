@@ -102,7 +102,7 @@
         visible: false
   - type: Eye
     zoom: "0.85, 0.85"
-  - type: Humanoid
+  - type: HumanoidAppearance
     species: Felinid
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
@@ -156,7 +156,7 @@
   noSpawn: true
   description: A dummy felinid meant to be used in character setup.
   components:
-  - type: Humanoid
+  - type: HumanoidAppearance
     species: Felinid
   - type: Sprite
     netsync: false
