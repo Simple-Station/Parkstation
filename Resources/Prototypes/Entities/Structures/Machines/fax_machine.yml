@@ -99,7 +99,7 @@
 - type: entity
   parent: FaxMachineBase
   id: FaxMachineCaptain
-  name: captain long range fax machine
+  name: command long range fax machine
   suffix: Command
   components:
     - type: FaxMachine
