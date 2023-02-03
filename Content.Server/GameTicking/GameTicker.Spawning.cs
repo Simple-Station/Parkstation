@@ -6,11 +6,14 @@ using Content.Server.Players;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
+using Content.Server.Storage.Components;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
+using Content.Shared.Inventory;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Shared.SimpleStation14.Loadouts;
 using JetBrains.Annotations;
 using Robust.Server.Player;
 using Robust.Shared.Map;
@@ -221,6 +224,23 @@ namespace Content.Server.GameTicking
             {
                 EntityManager.AddComponent<OwOAccentComponent>(mob);
             }
+
+            // Parkstation-loadouts start
+            var invSystem = EntitySystem.Get<InventorySystem>();
+            if (invSystem.TryGetSlotEntity(mob, "back", out var item))
+            {
+                EntityManager.TryGetComponent<ServerStorageComponent>(item, out var inventory);
+
+                foreach (var loadout in character.LoadoutPreferences)
+                {
+                    if (!_prototypeManager.TryIndex<LoadoutPrototype>(loadout, out var loadoutProto)) continue;
+                    var spawned = EntityManager.SpawnEntity(loadoutProto.Item, EntityManager.GetComponent<TransformComponent>(mob).Coordinates);
+
+                    if (inventory?.Storage == null) continue;
+                    if (inventory.Storage.CanInsert(spawned)) inventory.Storage.Insert(spawned);
+                }
+            }
+            // Parkstation-loadouts end
 
             _stationJobs.TryAssignJob(station, jobPrototype);
 
