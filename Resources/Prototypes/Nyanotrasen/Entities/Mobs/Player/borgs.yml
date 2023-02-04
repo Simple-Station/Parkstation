@@ -145,8 +145,9 @@
     autoRot: true
   - type: Appearance
   - type: Eye
-  - type: RandomMetadata
-    nameSegments: [names_autoborg]
+  - type: SiliconJobMetadata
+#  - type: RandomMetadata
+#    nameSegments: [names_autoborg]
   - type: Strap
     position: Stand
     buckleOffset: "0,0.15"
