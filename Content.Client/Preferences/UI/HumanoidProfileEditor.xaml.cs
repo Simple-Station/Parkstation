@@ -543,7 +543,7 @@ namespace Content.Client.Preferences.UI
                                 var yayornay = true;
                                 var temp = int.Parse(_traitPoints.Text) + trait.Cost;
 
-                                if (temp < 0 || !TestTrait(trait.Name))
+                                if (temp < 0)
                                 {
                                     preference = false;
                                     yayornay = false;
@@ -574,12 +574,8 @@ namespace Content.Client.Preferences.UI
                         {
                             if (preference == true)
                             {
-                                if (!TestTrait(trait.Name)) preference = false;
-                                else
-                                {
-                                    var temp = int.Parse(_traitPoints.Text);
-                                    _traitPoints.Text = (temp += trait.Cost).ToString();
-                                }
+                                var temp = int.Parse(_traitPoints.Text);
+                                _traitPoints.Text = (temp += trait.Cost).ToString();
                             }
                             else if (preference == false)
                             {
@@ -610,8 +606,6 @@ namespace Content.Client.Preferences.UI
 
                         selector.PreferenceChanged += preference =>
                         {
-                            if (!TestTrait(trait.Name)) preference = false;
-
                             Profile = Profile?.WithTraitPreference(trait.ID, preference);
                             IsDirty = true;
 
@@ -628,25 +622,6 @@ namespace Content.Client.Preferences.UI
                     Text = "No traits available :(",
                     FontColorOverride = Color.Gray,
                 });
-            }
-
-            bool TestTrait(string trate)
-            {
-                var species = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
-                var dollProto = _prototypeManager.Index<SpeciesPrototype>(species).DollPrototype;
-                if (_previewDummy != null) _entMan.DeleteEntity(_previewDummy!.Value);
-                _previewDummy = _entMan.SpawnEntity(dollProto, MapCoordinates.Nullspace);
-
-                foreach (var trait in prototypeManager.EnumeratePrototypes<TraitPrototype>())
-                {
-                    // if (!_prototypeManager.TryIndex<TraitPrototype>(trait.ID, out var traitPrototype)) continue;
-                    if (trait.Name != trate) continue;
-
-                    if (trait.Whitelist != null && !trait.Whitelist.IsValid((EntityUid) _previewDummy)) return false;
-                    if (trait.Blacklist != null && trait.Blacklist.IsValid((EntityUid) _previewDummy)) return false;
-                }
-
-                return true;
             }
 
             #endregion
@@ -728,9 +703,6 @@ namespace Content.Client.Preferences.UI
                     _loadoutPreferences.Add(selector);
                     selector.PreferenceChanged += preference =>
                     {
-                        // Test the Whitelist/Blacklist
-                        if (!TestLoadout(loadout.Name)) preference = false;
-
                         // Make sure they have enough loadout points
                         if (preference == true)
                         {
@@ -742,7 +714,7 @@ namespace Content.Client.Preferences.UI
                             }
                             else _loadoutPoints.Text = (temp).ToString();
                         }
-                        else if (TestLoadout(loadout.Name))
+                        else
                         {
                             _loadoutPoints.Text = (int.Parse(_loadoutPoints.Text) + loadout.Cost).ToString();
                         }
@@ -759,24 +731,6 @@ namespace Content.Client.Preferences.UI
             else
             {
                 _loadoutsTab.AddChild(new Label { Text="No loadouts found D:" });
-            }
-
-            bool TestLoadout(string loadut)
-            {
-                var species = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
-                var dollProto = _prototypeManager.Index<SpeciesPrototype>(species).DollPrototype;
-                if (_previewDummy != null) _entMan.DeleteEntity(_previewDummy!.Value);
-                _previewDummy = _entMan.SpawnEntity(dollProto, MapCoordinates.Nullspace);
-
-                foreach (var loadout in prototypeManager.EnumeratePrototypes<LoadoutPrototype>())
-                {
-                    if (loadout.Name != loadut) continue;
-
-                    if (loadout.Whitelist != null && !loadout.Whitelist.IsValid((EntityUid) _previewDummy)) return false;
-                    if (loadout.Blacklist != null && loadout.Blacklist.IsValid((EntityUid) _previewDummy)) return false;
-                }
-
-                return true;
             }
 
             #endregion
