@@ -145,9 +145,6 @@
     autoRot: true
   - type: Appearance
   - type: Eye
-  - type: SiliconJobMetadata
-#  - type: RandomMetadata
-#    nameSegments: [names_autoborg]
   - type: Strap
     position: Stand
     buckleOffset: "0,0.15"
@@ -174,6 +171,7 @@
           False: { visible: false }
   - type: TypingIndicator
     proto: robot
+
 - type: entity
   parent: PlayerCyborgBase
   id: PlayerCyborgStandard
@@ -231,6 +229,7 @@
     - NanoTrasen
   - type: TypingIndicator
     proto: robot
+  - type: PlayerSiliconJobMetadata
 
 - type: entity
   parent: PlayerCyborgBase
@@ -290,3 +289,4 @@
   - type: FabricateCandy
   - type: ShowHealthBars
     damageContainer: Biological
+  - type: PlayerSiliconJobMetadata

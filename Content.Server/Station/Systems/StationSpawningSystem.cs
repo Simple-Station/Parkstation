@@ -74,7 +74,8 @@ public sealed class StationSpawningSystem : EntitySystem
 
         DebugTools.Assert(ev.SpawnResult is {Valid: true} or null);
 
-        RaiseLocalEvent(new PlayerMobSpawnedEvent(job, profile, station, lateJoin, ev.SpawnResult!.Value));
+        var ev2 = new PlayerMobSpawnedEvent(job, profile, station, lateJoin, ev.SpawnResult!.Value);
+        RaiseLocalEvent(ev2);
 
         return ev.SpawnResult;
     }
