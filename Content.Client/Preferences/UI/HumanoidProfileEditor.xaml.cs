@@ -1548,28 +1548,28 @@ namespace Content.Client.Preferences.UI
                     if (Trait.Whitelist != null)
                     {
                         tooltip += "\nWhitelist:";
-                        if (Loadout.Whitelist.Components != null)
-                            foreach (var require in Loadout.Whitelist.Components)
+                        if (Trait.Whitelist.Components != null)
+                            foreach (var require in Trait.Whitelist.Components)
                                 tooltip += $"\n - {require} (Component)";
-                        if (Loadout.Whitelist.Tags != null)
-                            foreach (var require in Loadout.Whitelist.Tags)
+                        if (Trait.Whitelist.Tags != null)
+                            foreach (var require in Trait.Whitelist.Tags)
                                 tooltip += $"\n - {require} (Tag)";
-                        if (Loadout.Whitelist.Species != null)
-                            foreach (var require in Loadout.Whitelist.Species)
+                        if (Trait.Whitelist.Species != null)
+                            foreach (var require in Trait.Whitelist.Species)
                                 tooltip += $"\n - {require} (Species)";
                         tooltip += $"\n Require All: {Trait.Whitelist.RequireAll}";
                     }
                     if (Trait.Blacklist != null)
                     {
                         tooltip += "\nBlacklist:";
-                        if (Loadout.Blacklist.Components != null)
-                            foreach (var require in Loadout.Blacklist.Components)
+                        if (Trait.Blacklist.Components != null)
+                            foreach (var require in Trait.Blacklist.Components)
                                 tooltip += $"\n - {require} (Component)";
-                        if (Loadout.Blacklist.Tags != null)
-                            foreach (var require in Loadout.Blacklist.Tags)
+                        if (Trait.Blacklist.Tags != null)
+                            foreach (var require in Trait.Blacklist.Tags)
                                 tooltip += $"\n - {require} (Tag)";
-                        if (Loadout.Blacklist.Species != null)
-                            foreach (var require in Loadout.Blacklist.Species)
+                        if (Trait.Blacklist.Species != null)
+                            foreach (var require in Trait.Blacklist.Species)
                                 tooltip += $"\n - {require} (Species)";
                         tooltip += $"\n Require All: {Trait.Blacklist.RequireAll}";
                     }
