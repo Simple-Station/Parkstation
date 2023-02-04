@@ -1,0 +1,45 @@
+- type: loadout
+  id: EyesMediHUD
+  name: Medical HUD
+  category: Eyes
+  cost: 2
+  jobWhitelist:
+    - MedicalDoctor
+    - ChiefMedicalOfficer
+  item: ClothingEyesHudMedical
+
+- type: loadout
+  id: EyesPrescriptionMediHUD
+  name: Prescription Medical HUD
+  category: Eyes
+  cost: 3
+  jobWhitelist:
+    - MedicalDoctor
+    - ChiefMedicalOfficer
+  whitelist:
+    components:
+      - Nearsighted
+  item: ClothingEyesHudMedicalPrescription
+
+- type: loadout
+  id: EyesSalesman
+  name: Colored Glasses
+  description: Best salesman of 1997
+  category: Eyes
+  cost: 1
+  item: ClothingEyesSalesman
+
+- type: loadout
+  id: EyesEyepatch
+  name: Eyepatch
+  category: Eyes
+  cost: 1
+  item: ClothingEyesEyepatch
+
+- type: loadout
+  id: EyesBlindfold
+  name: Blindfold
+  description: Why would you want this?
+  category: Eyes
+  cost: 2
+  item: ClothingEyesBlindfold

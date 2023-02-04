@@ -47,7 +47,7 @@ namespace Content.Shared.SimpleStation14.Loadouts
         ///     The point cost of this loadout.
         /// </summary>
         [DataField("cost")]
-        public int Cost = 0;
+        public int Cost = 1;
 
         /// <summary>
         ///     Don't apply this loadout to entities this whitelist IS NOT valid for.

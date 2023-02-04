@@ -1,0 +1,61 @@
+- type: loadout
+  id: HeadBunny
+  name: Bunny Ears
+  category: Head
+  cost: 3
+  item: ClothingHeadHatBunny
+
+- type: loadout
+  id: HeadChicken
+  name: Chicken Head
+  category: Head
+  cost: 2
+  jobWhitelist:
+    - AtmosphericTechnician # :)
+  item: ClothingHeadHatChickenhead
+
+- type: loadout
+  id: HeadCatEars
+  name: Cat Ears
+  category: Head
+  cost: 4
+  item: ClothingHeadHatCatEars
+
+- type: loadout
+  id: HeadBeaverHat
+  name: Beaver Hat
+  description: Gentlemen.
+  category: Head
+  cost: 2
+  item: ClothingHeadHatBeaverHat
+
+- type: loadout
+  id: HeadTophat
+  name: Tophat
+  description: A stylish black tophat.
+  category: Head
+  cost: 2
+  item: ClothingHeadHatTophat
+
+- type: loadout
+  id: HeadPaperSack
+  name: Paper Sack
+  category: Head
+  cost: 3
+  jobWhitelist:
+    - Passenger
+  item: ClothingHeadPaperSack
+
+- type: loadout
+  id: HeadJesterHat
+  name: Jester hat
+  category: Head
+  cost: 1
+  item: ClothingHeadHatJester
+
+- type: loadout
+  id: HeadJesterHatAlt
+  name: Jester hat (Alt)
+  category: Head
+  cost: 1
+  item: ClothingHeadHatJesterAlt

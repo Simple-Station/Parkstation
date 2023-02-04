@@ -1,0 +1,16 @@
+- type: loadout
+  id: OuterClothingChickenSuit
+  name: Chicken Suit
+  category: Outer
+  cost: 2
+  jobWhitelist:
+    - AtmosphericTechnician # :)
+  item: ClothingOuterSuitChicken
+
+- type: loadout
+  id: OuterClothingGhostSheet
+  name: Ghost Sheet
+  description: Spooky..
+  category: Outer
+  cost: 2
+  item: OuterClothingGhostSheet

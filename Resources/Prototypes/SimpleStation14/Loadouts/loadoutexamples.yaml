@@ -1,10 +1,4 @@
-# These numbers and names are all defined in these Loadout Prototypes
-# Not following this format won't do much, but much is still something.
-# I want to make this stuff unneeded, and only need a single string to categorize things
-# <categoryNum>: <category>
-# Categories:
-#   0: Uncategorized
-#   1: things
+# All of these shouldn't show up in game, the file type is different.
 
 - type: loadout
   id: CategorizedSpeciesWhitelistExample

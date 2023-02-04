@@ -1,0 +1,78 @@
+- type: loadout
+  id: UniformScrubsBlue
+  name: Blue Scrubs
+  category: Uniform
+  cost: 1
+  item: UniformScrubsColorBlue
+
+- type: loadout
+  id: UniformScrubsGreen
+  name: Green Scrubs
+  category: Uniform
+  cost: 1
+  item: UniformScrubsColorGreen
+
+- type: loadout
+  id: UniformScrubsPurple
+  name: Purple Scrubs
+  category: Uniform
+  cost: 1
+  item: UniformScrubsColorPurple
+
+- type: loadout
+  id: UniformBoxers
+  name: Boxers
+  category: Uniform
+  cost: 1
+  item: UniformShortsRed
+
+# - type: loadout
+#   id: UniformBoxersTop
+#   name: Boxers (With Top)
+#   category: Uniform
+#   cost: 1
+#   item: UniformShortsRedWithTop
+
+- type: loadout
+  id: UniformAncientJumpsuit
+  name: Ancient jumpsuit
+  description: The legend of the Greytide.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitAncient
+
+- type: loadout
+  id: UniformJester
+  name: Jester suit
+  category: Uniform
+  cost: 1
+  jobWhitelist:
+    - Clown
+  item: ClothingUniformJumpsuitJester
+
+- type: loadout
+  id: UniformJester
+  name: Jester suit (Alt)
+  category: Uniform
+  cost: 1
+  jobWhitelist:
+    - Clown
+  item: ClothingUniformJumpsuitJesterAlt
+
+- type: loadout
+  id: UniformParamedicJumpsuit
+  name: Paramedic jumpsuit
+  category: Uniform
+  cost: 1
+  jobWhitelist:
+    - MedicalDoctor
+  item: ClothingUniformJumpsuitParamedic
+
+- type: loadout
+  id: UniformParamedicJumpskirt
+  name: Paramedic jumpskirt
+  category: Uniform
+  cost: 1
+  jobWhitelist:
+    - MedicalDoctor
+  item: ClothingUniformJumpskirtParamedic
