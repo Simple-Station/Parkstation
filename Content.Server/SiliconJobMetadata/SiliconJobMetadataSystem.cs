@@ -13,7 +13,7 @@ public sealed class SiliconJobMetadataSystem : EntitySystem
 {
     // [Dependency] private readonly IPrototypeManager _prototype = default!;
     // [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
+    // [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
 
     public override void Initialize()
@@ -22,17 +22,20 @@ public sealed class SiliconJobMetadataSystem : EntitySystem
 
         // SubscribeLocalEvent<PlayerSpawningEvent>(OnSpawnPlayer);
         // SubscribeLocalEvent<SiliconJobMetadataComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SiliconJobMetadataComponent, PlayerMobSpawnedEvent>(OnSpawnPlayer);
+        SubscribeLocalEvent<PlayerMobSpawnedEvent>(OnSpawnPlayer);
     }
 
     // This is done on map init so that map-placed entities have it randomized each time the map loads, for fun.
-    private void OnSpawnPlayer(EntityUid mob, SiliconJobMetadataComponent component, PlayerMobSpawnedEvent args)
+    private void OnSpawnPlayer(PlayerMobSpawnedEvent args)
     {
+        Logger.Debug("SiliconJobMetadataSystem.OnSpawnPlayer");
+        var mob = args.SpawnResult;
         var meta = MetaData(mob);
 
         if (args.Profile != null)
         {
-            meta.EntityName = args.Profile.Name;
+            // meta.EntityName = args.Profile.Name;
+            meta.EntityName = "Silicon test name";
         }
         else
             meta.EntityName = "silicon job name";
