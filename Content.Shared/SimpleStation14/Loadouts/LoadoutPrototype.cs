@@ -26,6 +26,18 @@ namespace Content.Shared.SimpleStation14.Loadouts
         public string? Description { get; private set; }
 
         /// <summary>
+        ///     Need one of these jobs to give loadout.
+        /// </summary>
+        [DataField("jobWhitelist")]
+        public List<string>? JobWhitelist { get; private set; }
+
+        /// <summary>
+        ///     Need none of these jobs to give loadout.
+        /// </summary>
+        [DataField("jobBlacklist")]
+        public List<string>? JobBlacklist { get; private set; }
+
+        /// <summary>
         ///     Which tab category to put this under.
         /// </summary>
         [DataField("category")]

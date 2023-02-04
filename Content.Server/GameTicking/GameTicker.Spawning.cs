@@ -234,6 +234,10 @@ namespace Content.Server.GameTicking
                 foreach (var loadout in character.LoadoutPreferences)
                 {
                     if (!_prototypeManager.TryIndex<LoadoutPrototype>(loadout, out var loadoutProto)) continue;
+
+                    if (loadoutProto.JobWhitelist != null) if (!loadoutProto.JobWhitelist.Contains(jobPrototype.ID)) continue;
+                    if (loadoutProto.JobBlacklist != null) if (loadoutProto.JobBlacklist.Contains(jobPrototype.ID)) continue;
+
                     var spawned = EntityManager.SpawnEntity(loadoutProto.Item, EntityManager.GetComponent<TransformComponent>(mob).Coordinates);
 
                     if (inventory?.Storage == null) continue;
