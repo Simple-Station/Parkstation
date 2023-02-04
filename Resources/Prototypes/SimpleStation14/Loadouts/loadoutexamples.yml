@@ -11,7 +11,6 @@
   name: Purple Coat
   description: A nice purple coat
   category: things
-  categoryNum: 1
   cost: 1
   whitelist:
     species:
@@ -33,7 +32,6 @@
   name: Purple Coat
   description: A nice purple coat
   category: things
-  categoryNum: 1
   cost: 2
   jobWhitelist:
     - Passenger # This item is only for Passengers
@@ -44,7 +42,6 @@
   name: Purple Coat
   description: A nice purple coat
   category: things
-  categoryNum: 1
   cost: 2
   jobBlacklist:
     - Engineer # Engineer cannot have this item

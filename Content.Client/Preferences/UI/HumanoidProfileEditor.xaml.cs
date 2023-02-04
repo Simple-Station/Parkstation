@@ -657,37 +657,70 @@ namespace Content.Client.Preferences.UI
                 // Where points?
                 if (_loadoutPoints.Text == null) return;
 
+                // Make Uncategorized category
+                var bocks = new BoxContainer()
+                {
+                    Orientation = BoxContainer.LayoutOrientation.Vertical,
+                    VerticalExpand = true,
+                    Name = "Uncategorized_0"
+                };
+                
+                _loadoutsTabs.AddChild(bocks);
+                _loadoutsTabs.SetTabTitle(0, "Uncategorized");
+
+                // Make categories
+                int currentCategory = 1;
                 foreach (var loadout in loadouts)
                 {
-                    // Look for an existing loadout category
+                    // Check for an existing category
                     BoxContainer? match = null;
                     foreach (var child in _loadoutsTabs.Children)
                     {
-                        if (match != null) continue;
-                        if (child.Name == loadout.Category) match = (BoxContainer) child;
+                        if (match != null || child.Name == null) continue;
+                        if (child.Name.Split("_")[0] == loadout.Category) match = (BoxContainer) child;
                     }
 
-                    var selector = new LoadoutPreferenceSelector(loadout);
-                    // If theres no category...
-                    if (match == null)
+                    // If there is a category do nothing
+                    if (match != null) continue;
+                    // If not, make it
+                    else
                     {
-                        // ... Make one
                         var box = new BoxContainer()
                         {
                             Orientation = BoxContainer.LayoutOrientation.Vertical,
                             VerticalExpand = true,
-                            Name = loadout.Category
+                            Name = $"{loadout.Category}_{currentCategory}"
                         };
+
                         _loadoutsTabs.AddChild(box);
-                        _loadoutsTabs.SetTabTitle(loadout.CategoryNum, Loc.GetString(loadout.Category));
-                        // Add loadout selector
-                        box.AddChild(selector);
+                        _loadoutsTabs.SetTabTitle(currentCategory, Loc.GetString(loadout.Category));
                     }
-                    // If there is, add the loadout selector
-                    else match.AddChild(selector);
+                }
+
+                // Fill categories
+                foreach (var loadout in loadouts)
+                {
+                    var selector = new LoadoutPreferenceSelector(loadout);
+
+                    // Look for an existing loadout category
+                    BoxContainer? match = null;
+                    foreach (var child in _loadoutsTabs.Children)
+                    {
+                        if (match != null || child.Name == null) continue;
+                        if (child.Name.Split("_")[0] == loadout.Category) match = (BoxContainer) child;
+                    }
+                    if (match?.Name == null)
+                    {
+                        _loadoutsTabs.SetTabTitle(0, "Uncategorized");
+                        bocks.AddChild(selector);
+                    }
+                    else
+                    {
+                        _loadoutsTabs.SetTabTitle(int.Parse(match.Name.Split("_")[1]), loadout.Category);
+                        match.AddChild(selector);
+                    }
 
                     _loadoutPreferences.Add(selector);
-
                     selector.PreferenceChanged += preference =>
                     {
                         // Test the Whitelist/Blacklist
