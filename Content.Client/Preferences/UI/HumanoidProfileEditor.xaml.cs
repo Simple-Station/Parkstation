@@ -560,7 +560,8 @@ namespace Content.Client.Preferences.UI
                             Profile = Profile?.WithTraitPreference(trait.ID, preference);
                             IsDirty = true;
 
-                            Save();
+                            UpdateTraitPreferences();
+                            RebuildSpriteView();
                         };
                     }
                     else if (trait.Category == "Negative")
@@ -597,7 +598,8 @@ namespace Content.Client.Preferences.UI
                             Profile = Profile?.WithTraitPreference(trait.ID, preference);
                             IsDirty = true;
 
-                            Save();
+                            UpdateTraitPreferences();
+                            RebuildSpriteView();
                         };
                     }
                     else
@@ -612,6 +614,9 @@ namespace Content.Client.Preferences.UI
 
                             Profile = Profile?.WithTraitPreference(trait.ID, preference);
                             IsDirty = true;
+
+                            UpdateTraitPreferences();
+                            RebuildSpriteView();
                         };
                     }
                 }
@@ -664,7 +669,7 @@ namespace Content.Client.Preferences.UI
                     VerticalExpand = true,
                     Name = "Uncategorized_0"
                 };
-                
+
                 _loadoutsTabs.AddChild(bocks);
                 _loadoutsTabs.SetTabTitle(0, "Uncategorized");
 
@@ -745,6 +750,9 @@ namespace Content.Client.Preferences.UI
                         // Update Preference
                         Profile = Profile?.WithLoadoutPreference(loadout.ID, preference);
                         IsDirty = true;
+
+                        UpdateLoadoutPreferences();
+                        RebuildSpriteView();
                     };
                 }
             }
