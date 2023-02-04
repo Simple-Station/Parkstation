@@ -51,7 +51,7 @@
   item: ClothingUniformJumpsuitJester
 
 - type: loadout
-  id: UniformJester
+  id: UniformJesterAlt
   name: Jester suit (Alt)
   category: Uniform
   cost: 1

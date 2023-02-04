@@ -674,6 +674,7 @@ namespace Content.Client.Preferences.UI
 
                         _loadoutsTabs.AddChild(box);
                         _loadoutsTabs.SetTabTitle(currentCategory, Loc.GetString(loadout.Category));
+                        currentCategory++;
                     }
                 }
 
