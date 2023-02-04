@@ -1548,35 +1548,29 @@ namespace Content.Client.Preferences.UI
                     if (Trait.Whitelist != null)
                     {
                         tooltip += "\nWhitelist:";
-                        if (Trait.Whitelist.Components != null) foreach (var require in Trait.Whitelist.Components)
-                        {
-                            tooltip += $"\n - {require} (Component)";
-                        }
-                        if (Trait.Whitelist.Tags != null) foreach (var require in Trait.Whitelist.Tags)
-                        {
-                            tooltip += $"\n - {require} (Tag)";
-                        }
-                        if (Trait.Whitelist.Species != null) foreach (var require in Trait.Whitelist.Species)
-                        {
-                            tooltip += $"\n - {require} (Species)";
-                        }
+                        if (Loadout.Whitelist.Components != null)
+                            foreach (var require in Loadout.Whitelist.Components)
+                                tooltip += $"\n - {require} (Component)";
+                        if (Loadout.Whitelist.Tags != null)
+                            foreach (var require in Loadout.Whitelist.Tags)
+                                tooltip += $"\n - {require} (Tag)";
+                        if (Loadout.Whitelist.Species != null)
+                            foreach (var require in Loadout.Whitelist.Species)
+                                tooltip += $"\n - {require} (Species)";
                         tooltip += $"\n Require All: {Trait.Whitelist.RequireAll}";
                     }
                     if (Trait.Blacklist != null)
                     {
                         tooltip += "\nBlacklist:";
-                        if (Trait.Blacklist.Components != null) foreach (var require in Trait.Blacklist.Components)
-                        {
-                            tooltip += $"\n - {require} (Component)";
-                        }
-                        if (Trait.Blacklist.Tags != null) foreach (var require in Trait.Blacklist.Tags)
-                        {
-                            tooltip += $"\n - {require} (Tag)";
-                        }
-                        if (Trait.Blacklist.Species != null) foreach (var require in Trait.Blacklist.Species)
-                        {
-                            tooltip += $"\n - {require} (Species)";
-                        }
+                        if (Loadout.Blacklist.Components != null)
+                            foreach (var require in Loadout.Blacklist.Components)
+                                tooltip += $"\n - {require} (Component)";
+                        if (Loadout.Blacklist.Tags != null)
+                            foreach (var require in Loadout.Blacklist.Tags)
+                                tooltip += $"\n - {require} (Tag)";
+                        if (Loadout.Blacklist.Species != null)
+                            foreach (var require in Loadout.Blacklist.Species)
+                                tooltip += $"\n - {require} (Species)";
                         tooltip += $"\n Require All: {Trait.Blacklist.RequireAll}";
                     }
 
@@ -1625,36 +1619,36 @@ namespace Content.Client.Preferences.UI
                     if (Loadout.Whitelist != null)
                     {
                         tooltip += "\nWhitelist:";
-                        if (Loadout.Whitelist.Components != null) foreach (var require in Loadout.Whitelist.Components)
-                        {
-                            tooltip += $"\n - {require} (Component)";
-                        }
-                        if (Loadout.Whitelist.Tags != null) foreach (var require in Loadout.Whitelist.Tags)
-                        {
-                            tooltip += $"\n - {require} (Tag)";
-                        }
-                        if (Loadout.Whitelist.Species != null) foreach (var require in Loadout.Whitelist.Species)
-                        {
-                            tooltip += $"\n - {require} (Species)";
-                        }
-                        tooltip += $"\n Require All: {Loadout.Whitelist.RequireAll}";
+                        if (Loadout.Whitelist.Components != null)
+                            foreach (var require in Loadout.Whitelist.Components)
+                                tooltip += $"\n - {require} (Component)";
+                        if (Loadout.Whitelist.Tags != null)
+                            foreach (var require in Loadout.Whitelist.Tags)
+                                tooltip += $"\n - {require} (Tag)";
+                        if (Loadout.Whitelist.Species != null)
+                            foreach (var require in Loadout.Whitelist.Species)
+                                tooltip += $"\n - {require} (Species)";
+                        tooltip += $"\n Require All: {Loadout.Whitelist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
+                        if (Loadout.JobWhitelist != null)
+                            foreach (var require in Loadout.JobWhitelist)
+                                tooltip += $"\n - {require} (Job)";
                     }
                     if (Loadout.Blacklist != null)
                     {
                         tooltip += "\nBlacklist:";
-                        if (Loadout.Blacklist.Components != null) foreach (var require in Loadout.Blacklist.Components)
-                        {
-                            tooltip += $"\n - {require} (Component)";
-                        }
-                        if (Loadout.Blacklist.Tags != null) foreach (var require in Loadout.Blacklist.Tags)
-                        {
-                            tooltip += $"\n - {require} (Tag)";
-                        }
-                        if (Loadout.Blacklist.Species != null) foreach (var require in Loadout.Blacklist.Species)
-                        {
-                            tooltip += $"\n - {require} (Species)";
-                        }
-                        tooltip += $"\n Require All: {Loadout.Blacklist.RequireAll}";
+                        if (Loadout.Blacklist.Components != null)
+                            foreach (var require in Loadout.Blacklist.Components)
+                                tooltip += $"\n - {require} (Component)";
+                        if (Loadout.Blacklist.Tags != null)
+                            foreach (var require in Loadout.Blacklist.Tags)
+                                tooltip += $"\n - {require} (Tag)";
+                        if (Loadout.Blacklist.Species != null)
+                            foreach (var require in Loadout.Blacklist.Species)
+                                tooltip += $"\n - {require} (Species)";
+                        tooltip += $"\n Require All: {Loadout.Blacklist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
+                        if (Loadout.JobBlacklist != null)
+                            foreach (var require in Loadout.JobBlacklist)
+                                tooltip += $"\n - {require} (Job)";
                     }
 
                     _checkBox.ToolTip = tooltip;
