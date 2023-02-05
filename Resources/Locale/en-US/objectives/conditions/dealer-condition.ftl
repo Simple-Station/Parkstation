@@ -1,0 +1,2 @@
+objective-condition-dealer-title = Dealer.
+objective-condition-dealer-description = You know that the best way to make bank is getting people hooked on what you're selling- be it chemical, luxury, or pretty much anything else controlled. Clear heavy contraband, like Syndicate equipment and weapons are well outside of your wheel house, but if someone needs their next hit of ephedrine, you might be their guy.

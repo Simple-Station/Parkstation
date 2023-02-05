@@ -5,26 +5,24 @@ using JetBrains.Annotations;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Objectives.Conditions
+namespace Content.Server.Objectives.Interfaces
 {
-    [UsedImplicitly]
-    [DataDefinition]
-    public sealed class PickpocketCondition : IObjectiveCondition
+    public abstract class GenericFreewillCondition : IObjectiveCondition
     {
         private Mind.Mind? _mind;
 
         public IObjectiveCondition GetAssigned(Mind.Mind mind)
         {
-            return new PickpocketCondition {
-                _mind = mind,
-            };
+            var clone = (GenericFreewillCondition)this.MemberwiseClone();
+            clone._mind = mind;
+            return clone;
         }
 
-        public string Title => Loc.GetString("objective-condition-pickpocket-title");
+        public abstract string Title { get; }
 
-        public string Description => Loc.GetString("objective-condition-pickpocket-description");
+        public abstract string Description { get; }
 
-        public SpriteSpecifier Icon => new SpriteSpecifier.Rsi(new ResourcePath("Clothing/Hands/Gloves/fingerless.rsi"), "icon");
+        public abstract SpriteSpecifier Icon { get;  }
 
         private bool IsAgentOnShuttle(TransformComponent agentXform, EntityUid? shuttle)
         {
@@ -44,7 +42,8 @@ namespace Content.Server.Objectives.Conditions
 
         public float Progress
         {
-            get {
+            get
+            {
                 var entMan = IoCManager.Resolve<IEntityManager>();
 
                 if (_mind?.OwnedEntity == null
@@ -53,17 +52,14 @@ namespace Content.Server.Objectives.Conditions
 
                 var shuttleContainsAgent = false;
                 var agentIsAlive = !_mind.CharacterDeadIC;
-                var agentIsEscaping = true;
-
-                if (entMan.TryGetComponent<CuffableComponent>(_mind.OwnedEntity, out var cuffed)
-                    && cuffed.CuffedHandCount > 0)
-                    // You're not escaping if you're restrained!
-                    agentIsEscaping = false;
+                var agentIsEscaping = !(entMan.TryGetComponent<CuffableComponent>(_mind.OwnedEntity, out var cuffed)
+                                        && cuffed.CuffedHandCount > 0); // You're not escaping if you're restrained!
 
                 // Any emergency shuttle counts for this objective.
                 foreach (var stationData in entMan.EntityQuery<StationDataComponent>())
                 {
-                    if (IsAgentOnShuttle(xform, stationData.EmergencyShuttle)) {
+                    if (IsAgentOnShuttle(xform, stationData.EmergencyShuttle))
+                    {
                         shuttleContainsAgent = true;
                         break;
                     }
@@ -77,15 +73,18 @@ namespace Content.Server.Objectives.Conditions
 
         public bool Equals(IObjectiveCondition? other)
         {
-            return other is PickpocketCondition esc && Equals(_mind, esc._mind);
+            return other is GenericFreewillCondition esc && Equals(_mind, esc._mind);
         }
 
         public override bool Equals(object? obj)
         {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals((PickpocketCondition) obj);
+            if (ReferenceEquals(null, obj))
+                return false;
+            if (ReferenceEquals(this, obj))
+                return true;
+            if (obj.GetType() != GetType())
+                return false;
+            return Equals((GenericFreewillCondition) obj);
         }
 
         public override int GetHashCode()
