@@ -1,62 +1,61 @@
 - type: objective
   id: FreewillAddictObjective
-  issuer: yourself
+  issuer: Your free will
   difficultyOverride: 2.75
   conditions:
     - !type:AdditctCondition {}
 
 - type: objective
   id: FreewillDealerObjective
-  issuer: yourself
+  issuer: Your free will
   difficultyOverride: 2.75
   conditions:
     - !type:FreewillCondition
 
 - type: objective
   id: FreewillGraffitiArtistObjective
-  issuer: yourself
+  issuer: Your free will
   difficultyOverride: 2.75
   conditions:
     - !type:GraffitiArtistCondition {}
 
 - type: objective
   id: FreewillLitterbugObjective
-  issuer: yourself
+  issuer: Your free will
   difficultyOverride: 2.75
   conditions:
     - !type:LitterbugCondition {}
 
 - type: objective
   id: FreewillObsessedObjective
-  issuer: yourself
+  issuer: Your free will
   difficultyOverride: 2.75
   conditions:
     - !type:ObsessedCondition {}
 
 - type: objective
   id: FreewillPickpocketObjective
-  issuer: yourself
+  issuer: Your free will
   difficultyOverride: 2.75
   conditions:
     - !type:PickpocketCondition {}
 
 - type: objective
   id: FreewillPoorWorkerObjective
-  issuer: yourself
+  issuer: Your free will
   difficultyOverride: 2.75
   conditions:
     - !type:PoorWorkerCondition {}
 
 - type: objective
   id: FreewillSyndicateEnthusiastObjective
-  issuer: yourself
+  issuer: Your free will
   difficultyOverride: 2.75
   conditions:
     - !type:SyndicateEnthusiastCondition {}
 
 - type: objective
   id: FreewillTwitchyObjective
-  issuer: yourself
   difficultyOverride: 2.75
   conditions:
     - !type:TwitchyCondition {}
