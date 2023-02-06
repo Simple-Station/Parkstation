@@ -1,13 +1,21 @@
 # Minor Antags
 - type: weightedRandom
-  id: MinorantagObjectiveGroup
+  id: MinorantagObjectiveGroup # Fixme: should be named `XxxGroups` according to convention
   weights:
-    MinorantagObjectiveGroupTheft: 1
+    FreewillObjectiveGroup: 1
 
 - type: weightedRandom
-  id: MinorantagObjectiveGroupTheft
+  id: FreewillObjectiveGroup
   weights:
-    MinorPickpocketObjective: 1
+    FreewillAddictObjective: 1
+    FreewillDealerObjective: 1
+    FreewillGraffitiArtistObjective: 1
+    FreewillLitterbugObjective: 1
+    FreewillObsessedObjective: 1
+    FreewillPickpocketObjective: 1
+    FreewillPoorWorkerObjective: 1
+    FreewillSyndicateEnthusiastObjective: 1
+    FreewillTwitchyObjective: 1
 
 # Wizard
 - type: weightedRandom
