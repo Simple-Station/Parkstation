@@ -17,4 +17,4 @@
   text: "/Server Info/SimpleStation14/Guidebook/Server/InWorldInfo.xml"
   children:
     - AlertProcedure
-
+    - StandardOperatingProcedure

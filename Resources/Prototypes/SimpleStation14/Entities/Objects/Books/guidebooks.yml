@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseHyperlinkBook
+  id: HyperlinkBookAnomaliesArtifacts
+  suffix: GuidebookBook
+  name: Reality; and When it's Wrong
+  description: A guide on anomalies, and artifacts. No one knows where this book came from.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Misc/books.rsi
+    layers:
+    - state: book_anomalies
+  - type: GuidebookBook
+    guides:
+    - AnomalousResearch
+    - Xenoarchaeology
+
