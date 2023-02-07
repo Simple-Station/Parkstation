@@ -16,9 +16,8 @@
   description: A big book of laws for space courts.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Misc/books.rsi
     layers:
-    - state: law_space
+    - state: book_space_law
   - type: HyperlinkBook
     url: https://wiki.nyanotrasen.moe/view/Space_Law
 
@@ -29,23 +28,28 @@
   description: The ravings of a madman.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Misc/books.rsi
     layers:
-    - state: law_space
+    - state: book_space_law
   - type: HyperlinkBook
     url: https://supernannyfanon.fandom.com/wiki/Category:Discipline_Techniques
 
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookGlimmer
-  name: guide to glimmer
-  description: A guide to the phenomenon known as 'glimmer.'
+  suffix: GuidebookBook
+  name: A Layman's Guide to the Mind
+  description: A guide on psionics.
   components:
   - type: Sprite
+    sprite: SimpleStation14/Objects/Misc/books.rsi
     layers:
-    - state: book6
-  - type: HyperlinkBook
-    url: https://wiki.nyanotrasen.moe/view/Glimmer
+    - state: book_psionics
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Glimmer
+  - type: GuidebookBook
+    guides:
+    - Psionics
+    - AltarsGolemancy
 
 - type: entity
   parent: BaseHyperlinkBook
@@ -110,26 +114,36 @@
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookAlerts
-  name: alert procedure
+  suffix: GuidebookBook
+  name: What to do When Things are Blowing Up
   description: Procedure for when and why each alert should be put in effect, and what to do.
   components:
   - type: Sprite
     layers:
     - state: book_nuclear
-  - type: HyperlinkBook
-    url: https://wiki.nyanotrasen.moe/view/Alert_Procedure
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Alert_Procedure
+  - type: GuidebookBook
+    guides:
+    - CommonAlerts
+    - SpecificAlerts
+    - CentCommAlerts
 
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookProcedure
+  suffix: GuidebookBook
   name: standard operating procedure
   description: A guide to normal station function.
   components:
   - type: Sprite
     layers:
     - state: book_particle_accelerator
-  - type: HyperlinkBook
-    url: https://wiki.nyanotrasen.moe/view/Standard_Operating_Procedure
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Standard_Operating_Procedure
+  - type: GuidebookBook
+    guides:
+    - StandardOperatingProcedure
 
 - type: entity
   parent: BaseHyperlinkBook
@@ -170,11 +184,15 @@
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookAtmos
-  name: guide to atmospherics
-  description: How to make sure everyone has air to breathe.
+  suffix: GuidebookBook
+  name: How to Make Gas Hot
+  description: A guide on Atmospherics. Make sure to grab the thrilling sequal; What to do When Gas Hot.
   components:
   - type: Sprite
     layers:
     - state: book_engineering2
-  - type: HyperlinkBook
-    url: https://wiki.nyanotrasen.moe/view/Atmospheric_Science
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Atmospheric_Science
+  - type: GuidebookBook
+    guides:
+    - Atmospherics

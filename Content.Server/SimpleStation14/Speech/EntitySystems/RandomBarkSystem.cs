@@ -15,8 +15,18 @@ namespace Content.Server.SimpleStation14.Speech.RandomBark
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly EntityManager _entities = default!;
 
+        public override void Initialize()
+        {
+            base.Initialize();
 
-        [ViewVariables(VVAccess.ReadWrite)]
+            SubscribeLocalEvent<RandomBarkComponent, ComponentInit>(OnInit);
+        }
+
+        public void OnInit(EntityUid uid, RandomBarkComponent barker, ComponentInit args)
+        {
+            barker.BarkAccumulator = _random.NextFloat(barker.MinTime, barker.MaxTime)*barker.BarkMultiplier;
+            Logger.Debug("Hello");
+        }
 
         public override void Update(float frameTime)
         {
@@ -27,17 +37,16 @@ namespace Content.Server.SimpleStation14.Speech.RandomBark
                 if (barker.BarkAccumulator <= 0)
                 {
                     barker.BarkAccumulator = _random.NextFloat(barker.MinTime, barker.MaxTime)*barker.BarkMultiplier;
-                    if (_entities.TryGetComponent<ActorComponent>(barker.Owner, out var actComp))
+                    if (_entities.TryGetComponent<MindComponent>(barker.Owner, out var actComp))
                     {
-                        return;
+                        if (actComp.HasMind)
+                        {
+                            return;
+                        }
                     }
                     _chat.TrySendInGameICMessage(barker.Owner, _random.Pick(barker.Barks), InGameICChatType.Speak, !barker.Chatlog);
                 }
             }
-        }
-        public override void Initialize()
-        {
-            base.Initialize();
         }
     }
 }
