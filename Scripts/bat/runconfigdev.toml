@@ -10,10 +10,6 @@ role_timers = false
 fallbackpreset = "extended"
 map_pool = "ParkMapPool"
 
-[npc]
-enabled = true
-pathfinding = true
-
 [server]
 rules_file = "Park_Rules.txt"
 id = "parkstation"
