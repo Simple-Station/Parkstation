@@ -1,0 +1,197 @@
+- type: entity
+  save: false
+  abstract: true
+  id: PlayerHologramBase
+  components:
+  # - type: Reactive
+  #   groups:
+  #     Acidic: [Touch]
+  - type: Input
+    context: "human"
+  - type: InputMover
+  - type: MobMover
+  # - type: DamageOnHighSpeedImpact
+  #   damage:
+  #     types:
+  #       Blunt: 5
+  #   soundHit:
+  #     path: /Audio/Effects/hit_kick.ogg
+  - type: Clickable
+  # - type: Damageable
+  #   damageContainer: Inorganic
+  # - type: Bloodstream
+  #   bloodReagent: MotorOil
+  #   bloodlossDamage:
+  #     types:
+  #       Bloodloss:
+  #         1
+  #   bloodlossHealDamage:
+  #     types:
+  #       Bloodloss:
+  #         -0.25
+  - type: InteractionOutline
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+    layers:
+        - map: ["enum.HumanoidVisualLayers.Chest"]
+        - map: ["enum.HumanoidVisualLayers.Head"]
+        - map: ["enum.HumanoidVisualLayers.Snout"]
+        - map: ["enum.HumanoidVisualLayers.Eyes"]
+        - map: ["enum.HumanoidVisualLayers.RArm"]
+        - map: ["enum.HumanoidVisualLayers.LArm"]
+        - map: ["enum.HumanoidVisualLayers.RLeg"]
+        - map: ["enum.HumanoidVisualLayers.LLeg"]
+        - shader: StencilClear
+          sprite: Mobs/Species/Human/parts.rsi
+          # sprite refactor when
+          state: l_leg
+        - shader: StencilMask
+          map: ["enum.HumanoidVisualLayers.StencilMask"]
+          sprite: Mobs/Customization/masking_helpers.rsi
+          state: female_full
+          visible: false
+        - map: ["enum.HumanoidVisualLayers.LFoot"]
+        - map: ["enum.HumanoidVisualLayers.RFoot"]
+        - map: ["socks"]
+        - map: ["underpants"]
+        - map: ["undershirt"]
+        - map: ["jumpsuit"]
+        - map: ["enum.HumanoidVisualLayers.LHand"]
+        - map: ["enum.HumanoidVisualLayers.RHand"]
+        - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+          color: "#ffffff"
+          sprite: Objects/Misc/handcuffs.rsi
+          state: body-overlay-2
+          visible: false
+        - map: ["id"]
+        - map: ["gloves"]
+        - map: ["shoes"]
+        - map: ["ears"]
+        - map: ["outerClothing"]
+        - map: ["eyes"]
+        - map: ["belt"]
+        - map: ["neck"]
+        - map: ["back"]
+        - map: ["enum.HumanoidVisualLayers.FacialHair"]
+        - map: ["enum.HumanoidVisualLayers.Hair"]
+        - map: ["enum.HumanoidVisualLayers.HeadSide"]
+        - map: ["enum.HumanoidVisualLayers.HeadTop"]
+        - map: ["mask"]
+        - map: ["head"]
+        - map: ["pocket1"]
+        - map: ["pocket2"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]
+        - map: ["enum.HumanoidVisualLayers.Wings"]
+  - type: HumanoidAppearance
+    species: Human
+  # - type: Body
+  #   prototype: Human
+  #   requiredLegs: 2
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      - shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5
+    baseSprintSpeed : 3.5
+  - type: Hands
+    showInHands: false
+  - type: Body
+    prototype: Hologram
+  - type: DoAfter
+  # - type: Pullable
+  - type: Examiner
+  # - type: Puller
+  # - type: Recyclable
+  #   safe: false
+  - type: StandingState
+  - type: Alerts
+  - type: Tag
+    tags:
+      - ShoesRequiredStepTriggerImmune
+  - type: NoSlip
+  - type: TypingIndicator
+    proto: holo
+  - type: RotationVisuals
+  - type: FloatingVisuals
+    force: true
+  - type: Speech
+    speechSounds: Tenor
+  - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: FemaleHuman
+      Unsexed: MaleHuman
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: Grammar
+    attributes:
+      proper: true
+  - type: Hologram
+
+- type: entity
+  save: false
+  name: Urist McLight
+  parent: PlayerHologramBase
+  id: MobHologram
+  components:
+  # - type: CombatMode
+  #   disarm: null
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-hologram
+    # interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-hologram-others
+  - type: Mind
+    showExamineInfo: true
+  - type: Input
+    context: "human"
+  - type: MobMover
+  - type: InputMover
+  - type: Inventory
+  - type: Alerts
+  - type: Actions
+  - type: Eye
+  # - type: CameraRecoil
+  - type: Examiner
+  - type: Faction
+    factions:
+    - NanoTrasen
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Common
+    - Engineering
+    - Medical
+    - Science
+    - Service
+    - Binary
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Engineering
+    - Medical
+    - Science
+    - Service
+    - Binary
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Engineering
+    - Medical
+    - Science
+    - Service
+    - Binary
+  - type: PointLight
+    radius: 3.5
+    softness: 1

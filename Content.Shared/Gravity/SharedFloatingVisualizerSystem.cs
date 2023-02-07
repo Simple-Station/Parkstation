@@ -28,6 +28,9 @@ public abstract class SharedFloatingVisualizerSystem : EntitySystem
 
     protected bool CanFloat(EntityUid uid, FloatingVisualsComponent component, TransformComponent? transform = null)
     {
+        if (component.Force == true)
+            return true;
+
         if (!Resolve(uid, ref transform))
             return false;
 
@@ -59,7 +62,7 @@ public abstract class SharedFloatingVisualizerSystem : EntitySystem
             Dirty(floating);
 
             var uid = floating.Owner;
-            if (!args.HasGravity)
+            if (!args.HasGravity || floating.Force == true)
                 FloatAnimation(uid, floating.Offset, floating.AnimationKey, floating.AnimationTime);
         }
     }
@@ -67,7 +70,7 @@ public abstract class SharedFloatingVisualizerSystem : EntitySystem
     private void OnEntParentChanged(EntityUid uid, FloatingVisualsComponent component, ref EntParentChangedMessage args)
     {
         var transform = args.Transform;
-        if (CanFloat(uid, component, transform))
+        if (CanFloat(uid, component, transform) || component.Force == true)
             FloatAnimation(uid, component.Offset, component.AnimationKey, component.AnimationTime);
     }
 
