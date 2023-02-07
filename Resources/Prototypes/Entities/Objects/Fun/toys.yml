@@ -61,6 +61,9 @@
     energy: 2
   - type: RgbLightController
     layers: [ 0 ]
+  - type: Tag
+    tags:
+    - Hardlight
 
 - type: entity
   parent: BasePlushie
