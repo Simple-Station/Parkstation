@@ -43,13 +43,15 @@
   description: A guide on psionics.
   components:
   - type: Sprite
+    sprite: SimpleStation14/Objects/Misc/books.rsi
     layers:
-    - state: book6
+    - state: book_psionics
   # - type: HyperlinkBook
   #   url: https://wiki.nyanotrasen.moe/view/Glimmer
   - type: GuidebookBook
     guides:
     - Psionics
+    - AltarsGolemancy
 
 - type: entity
   parent: BaseHyperlinkBook
@@ -124,7 +126,10 @@
   # - type: HyperlinkBook
   #   url: https://wiki.nyanotrasen.moe/view/Alert_Procedure
   - type: GuidebookBook
-    guides: [ CommonAlerts, SpecificAlerts, CentCommAlerts ]
+    guides:
+    - CommonAlerts
+    - SpecificAlerts
+    - CentCommAlerts
 
 - type: entity
   parent: BaseHyperlinkBook
