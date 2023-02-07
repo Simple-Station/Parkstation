@@ -16,9 +16,8 @@
   description: A big book of laws for space courts.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Misc/books.rsi
     layers:
-    - state: law_space
+    - state: book_space_law
   - type: HyperlinkBook
     url: https://wiki.nyanotrasen.moe/view/Space_Law
 
@@ -29,9 +28,8 @@
   description: The ravings of a madman.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Misc/books.rsi
     layers:
-    - state: law_space
+    - state: book_space_law
   - type: HyperlinkBook
     url: https://supernannyfanon.fandom.com/wiki/Category:Discipline_Techniques
 
