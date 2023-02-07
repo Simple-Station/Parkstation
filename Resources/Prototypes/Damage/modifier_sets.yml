@@ -94,7 +94,7 @@
   flatReductions:
     Blunt: 5
 
-# - type: damageModifierSet # Old
+# - type: damageModifierSet
 #   id: Slime
 #   coefficients:
 #     Blunt: 0.6
@@ -103,22 +103,23 @@
 #     Cold: 1.5
 #     Poison: 0.8
 #     Cellular: 0.2
+
 - type: damageModifierSet
   id: Slime
   coefficients:
-    Blunt: 2.0 # Lots of blunt, if they do more than 5 damage (flatReduction)
+    Blunt: 2 # Lots of blunt, if they do more than 5 damage (flatReduction)
     Slash: 1.5
     Piercing: 0.5
     Cold: 1.6
     Heat: 0.4
-    Poison: -1.0 # Poison modifier doesn't do anything?
+    Poison: -1 # Poison modifier doesn't do anything?
     Cellular: 0.2
     Asphyxiation: 0.9
     Bloodloss: 1.1
     Shock: 0.4
     Radiation: 0.5
   flatReductions:
-    Blunt: 5.0
+    Blunt: 5
 
 - type: damageModifierSet
   id: Infernal
