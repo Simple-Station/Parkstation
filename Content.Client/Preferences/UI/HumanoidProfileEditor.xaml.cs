@@ -1659,13 +1659,13 @@ namespace Content.Client.Preferences.UI
                 {
                     _checkBox.ToolTip = tooltip;
                     _checkBox.TooltipDelay = 0.2f;
-
-                    AddChild(new BoxContainer
-                    {
-                        Orientation = LayoutOrientation.Horizontal,
-                        Children = { _checkBox },
-                    });
                 }
+                
+                AddChild(new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Horizontal,
+                    Children = { _checkBox },
+                });
             }
 
             private void OnCheckBoxToggled(BaseButton.ButtonToggledEventArgs args)
