@@ -2371,3 +2371,92 @@ Entries:
   - {message: Scrubber backpressure now comes out of scrubbers instead of vents, type: Fix}
   id: 368
   time: '2023-01-31T01:33:57.0000000+00:00'
+- author: Kromabae
+  changes:
+  - {message: a bunch of lights from pebble, type: Remove}
+  id: 369
+  time: '2023-01-31T18:10:41.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Fixed cold clothing not protecting against cold; also scarves protect
+      against cold now., type: Fix}
+  id: 370
+  time: '2023-01-31T18:56:51.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Primates from the metempsychtoic machine can emote again., type: Fix}
+  id: 371
+  time: '2023-01-31T23:00:28.0000000+00:00'
+- author: Faye
+  changes:
+  - {message: Remastered all N.E.I.L. announcements., type: Tweak}
+  id: 372
+  time: '2023-02-01T01:02:13.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Removed windup from melee weapons., type: Remove}
+  - {message: Heavy attacks now cost more stamina., type: Add}
+  id: 373
+  time: '2023-02-01T02:08:07.0000000+00:00'
+- author: Hyenh
+  changes:
+  - {message: The mail carrier can now get a winter coat from the MailDrobe., type: Add}
+  - {message: 'Added two new types of winter coats, available in the mail and from
+      the ClothesMate.', type: Add}
+  - {message: Freed the soul of the Discount Dan's vending machine sprite., type: Fix}
+  id: 374
+  time: '2023-02-03T19:09:20.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Merged Emisse's salvage updates from upstream., type: Add}
+  id: 375
+  time: '2023-02-04T22:47:38.0000000+00:00'
+- author: Hyenh
+  changes:
+  - {message: Added a winter coat for the forensic mantis., type: Add}
+  id: 376
+  time: '2023-02-05T06:59:40.0000000+00:00'
+- author: Huvy
+  changes:
+  - {message: Added an entirely new outfit for the forensic mantis., type: Add}
+  id: 377
+  time: '2023-02-05T08:36:05.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Trying to refill a lit welder feels impossibly stupid now, type: Tweak}
+  id: 378
+  time: '2023-02-05T17:02:49.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: The forensic mantis' extra headset is now a proper mantis headset instead
+      of a regular epistemics headset., type: Fix}
+  - {message: The forensic mantis' cabinet has been made more resilient to intrusion.,
+    type: Tweak}
+  - {message: 'The forensic mantis'' cabinet now holds all of the mantis'' gear, including
+      the anti-psychic knife.', type: Add}
+  - {message: The Forensics Drobe has been retired., type: Remove}
+  id: 379
+  time: '2023-02-05T17:03:15.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: The Vaccinator's UI will now update as soon as a vaccine is available.,
+    type: Tweak}
+  - {message: Fixed the Vaccinator not connecting to a server on startup., type: Fix}
+  id: 380
+  time: '2023-02-05T19:53:57.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Merged the bugfix from upstream for voice masks., type: Add}
+  id: 381
+  time: '2023-02-05T20:43:04.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Unlit welders are ATEX certified again. Lit welders are definitely not.,
+    type: Fix}
+  id: 382
+  time: '2023-02-06T14:33:56.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Felinids and moths can laugh with sound again., type: Fix}
+  id: 383
+  time: '2023-02-07T09:20:03.0000000+00:00'
