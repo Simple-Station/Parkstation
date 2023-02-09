@@ -1619,39 +1619,39 @@ namespace Content.Client.Preferences.UI
                 if (loadout.Description is { } desc)
                 {
                     tooltip += $"{Loc.GetString(desc)}";
-                    if (loadout.Whitelist != null || loadout.Blacklist != null) tooltip += "\n";
+                    if (loadout.Whitelist != null || loadout.JobWhitelist != null || loadout.Blacklist != null || loadout.JobBlacklist != null) tooltip += "\n";
                 }
 
-                if (loadout.Whitelist != null)
+                if (loadout.Whitelist != null || loadout.JobWhitelist != null)
                 {
                     tooltip += "Whitelist:";
-                    if (loadout.Whitelist.Components != null)
+                    if (loadout.Whitelist?.Components != null)
                         foreach (var require in loadout.Whitelist.Components)
                             tooltip += $"\n - {require} (Component)";
-                    if (loadout.Whitelist.Tags != null)
+                    if (loadout.Whitelist?.Tags != null)
                         foreach (var require in loadout.Whitelist.Tags)
                             tooltip += $"\n - {require} (Tag)";
-                    if (loadout.Whitelist.Species != null)
+                    if (loadout.Whitelist?.Species != null)
                         foreach (var require in loadout.Whitelist.Species)
                             tooltip += $"\n - {require} (Species)";
-                    tooltip += $"\n Require All: {loadout.Whitelist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
+                    if (loadout.Whitelist?.RequireAll == true) tooltip += $"\n Require All: {loadout.Whitelist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
                     if (loadout.JobWhitelist != null)
                         foreach (var require in loadout.JobWhitelist)
                             tooltip += $"\n - {require} (Job)";
                 }
-                if (loadout.Blacklist != null)
+                if (loadout.Blacklist != null || loadout.JobBlacklist != null)
                 {
                     tooltip += "Blacklist:";
-                    if (loadout.Blacklist.Components != null)
+                    if (loadout.Blacklist?.Components != null)
                         foreach (var require in loadout.Blacklist.Components)
                             tooltip += $"\n - {require} (Component)";
-                    if (loadout.Blacklist.Tags != null)
+                    if (loadout.Blacklist?.Tags != null)
                         foreach (var require in loadout.Blacklist.Tags)
                             tooltip += $"\n - {require} (Tag)";
-                    if (loadout.Blacklist.Species != null)
+                    if (loadout.Blacklist?.Species != null)
                         foreach (var require in loadout.Blacklist.Species)
                             tooltip += $"\n - {require} (Species)";
-                    tooltip += $"\n Require All: {loadout.Blacklist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
+                    if (loadout.Blacklist?.RequireAll == true) tooltip += $"\n Require All: {loadout.Blacklist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
                     if (loadout.JobBlacklist != null)
                         foreach (var require in loadout.JobBlacklist)
                             tooltip += $"\n - {require} (Job)";
