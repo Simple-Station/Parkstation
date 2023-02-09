@@ -3,59 +3,104 @@
   issuer: Your free will
   difficultyOverride: 2.75
   conditions:
-    - !type:AddictCondition {}
+    - !type:GenericFreewillCondition
+      title: objective-condition-addict-title
+      description: objective-condition-addict-description
+      icon:
+        sprite: Clothing/Hands/Gloves/fingerless.rsi
+        state: icon
 
 - type: objective
   id: FreewillDealerObjective
   issuer: Your free will
   difficultyOverride: 2.75
   conditions:
-    - !type:DealerCondition {}
+    - !type:GenericFreewillCondition
+      title: objective-condition-dealer-title
+      description: objective-condition-dealer-description
+      icon:
+        sprite: Clothing/Hands/Gloves/fingerless.rsi
+        state: icon
 
 - type: objective
   id: FreewillGraffitiArtistObjective
   issuer: Your free will
   difficultyOverride: 2.75
   conditions:
-    - !type:GraffitiArtistCondition {}
+    - !type:GenericFreewillCondition
+      title: objective-condition-graffiti-artist-title
+      description: objective-condition-graffiti-artist-description
+      icon:
+        sprite: Clothing/Hands/Gloves/fingerless.rsi
+        state: icon
 
 - type: objective
   id: FreewillLitterbugObjective
   issuer: Your free will
   difficultyOverride: 2.75
   conditions:
-    - !type:LitterbugCondition {}
+    - !type:GenericFreewillCondition
+      title: objective-condition-litterbug-title
+      description: objective-condition-litterbug-description
+      icon:
+        sprite: Clothing/Hands/Gloves/fingerless.rsi
+        state: icon
 
 - type: objective
   id: FreewillObsessedObjective
   issuer: Your free will
   difficultyOverride: 2.75
   conditions:
-    - !type:ObsessedCondition {}
+    - !type:GenericFreewillCondition
+      title: objective-condition-obsessed-title
+      description: objective-condition-obsessed-description
+      icon:
+        sprite: Clothing/Hands/Gloves/fingerless.rsi
+        state: icon
 
 - type: objective
   id: FreewillPickpocketObjective
   issuer: Your free will
   difficultyOverride: 2.75
   conditions:
-    - !type:PickpocketCondition {}
+    - !type:GenericFreewillCondition
+      title: objective-condition-pickpocket-title
+      description: objective-condition-pickpocket-description
+      icon:
+        sprite: Clothing/Hands/Gloves/fingerless.rsi
+        state: icon
 
 - type: objective
   id: FreewillPoorWorkerObjective
   issuer: Your free will
   difficultyOverride: 2.75
   conditions:
-    - !type:PoorWorkerCondition {}
+    - !type:GenericFreewillCondition
+      title: objective-condition-poor-worker-title
+      description: objective-condition-poor-worker-description
+      icon:
+        sprite: Clothing/Hands/Gloves/fingerless.rsi
+        state: icon
 
 - type: objective
   id: FreewillSyndicateEnthusiastObjective
   issuer: Your free will
   difficultyOverride: 2.75
   conditions:
-    - !type:SyndicateEnthusiastCondition {}
+    - !type:GenericFreewillCondition
+      title: objective-condition-syndicate-enthusiast-title
+      description: objective-condition-syndicate-enthusiast-description
+      icon:
+        sprite: Clothing/Hands/Gloves/fingerless.rsi
+        state: icon
 
 - type: objective
   id: FreewillTwitchyObjective
   difficultyOverride: 2.75
   conditions:
-    - !type:TwitchyCondition {}
+    - !type:GenericFreewillCondition
+      title: objective-condition-twitchy-title
+      description: objective-condition-twitchy-description
+      icon:
+        sprite: Clothing/Hands/Gloves/fingerless.rsi
+        state: icon

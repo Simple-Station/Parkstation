@@ -3,26 +3,42 @@ using Content.Server.Objectives.Interfaces;
 using Content.Server.Station.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Objectives.Interfaces
+namespace Content.Server.Objectives.Conditions
 {
-    public abstract class GenericFreewillCondition : IObjectiveCondition
+    [UsedImplicitly]
+    [DataDefinition]
+    public sealed class GenericFreewillCondition : IObjectiveCondition, ISerializationHooks
     {
         private Mind.Mind? _mind;
 
+        [DataField("title", required: true)]
+        private string _title = "";
+
+        [DataField("description", required: true)]
+        private string _description = "";
+
+        [DataField("icon", required: true)]
+        private SpriteSpecifier _icon = SpriteSpecifier.Invalid;
+
         public IObjectiveCondition GetAssigned(Mind.Mind mind)
         {
-            var clone = (GenericFreewillCondition)this.MemberwiseClone();
-            clone._mind = mind;
-            return clone;
+            return new GenericFreewillCondition
+            {
+                _mind = mind,
+                _title = _title,
+                _description = _description,
+                _icon = _icon,
+            };
         }
 
-        public abstract string Title { get; }
+        public string Title => Loc.GetString(_title);
 
-        public abstract string Description { get; }
+        public string Description => Loc.GetString(_description);
 
-        public abstract SpriteSpecifier Icon { get;  }
+        public SpriteSpecifier Icon => _icon;
 
         private bool IsAgentOnShuttle(TransformComponent agentXform, EntityUid? shuttle)
         {
