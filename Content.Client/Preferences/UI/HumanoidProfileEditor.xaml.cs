@@ -1542,42 +1542,44 @@ namespace Content.Client.Preferences.UI
                 _checkBox = new CheckBox { Text = $"[{trait.Cost}] {trait.Name}" };
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
+                var tooltip = "";
                 if (trait.Description is { } desc)
                 {
-                    var tooltip = $"{Loc.GetString(desc)}";
-
-                    if (Trait.Whitelist != null)
-                    {
-                        tooltip += "\nWhitelist:";
-                        if (Trait.Whitelist.Components != null)
-                            foreach (var require in Trait.Whitelist.Components)
-                                tooltip += $"\n - {require} (Component)";
-                        if (Trait.Whitelist.Tags != null)
-                            foreach (var require in Trait.Whitelist.Tags)
-                                tooltip += $"\n - {require} (Tag)";
-                        if (Trait.Whitelist.Species != null)
-                            foreach (var require in Trait.Whitelist.Species)
-                                tooltip += $"\n - {require} (Species)";
-                        tooltip += $"\n Require All: {Trait.Whitelist.RequireAll}";
-                    }
-                    if (Trait.Blacklist != null)
-                    {
-                        tooltip += "\nBlacklist:";
-                        if (Trait.Blacklist.Components != null)
-                            foreach (var require in Trait.Blacklist.Components)
-                                tooltip += $"\n - {require} (Component)";
-                        if (Trait.Blacklist.Tags != null)
-                            foreach (var require in Trait.Blacklist.Tags)
-                                tooltip += $"\n - {require} (Tag)";
-                        if (Trait.Blacklist.Species != null)
-                            foreach (var require in Trait.Blacklist.Species)
-                                tooltip += $"\n - {require} (Species)";
-                        tooltip += $"\n Require All: {Trait.Blacklist.RequireAll}";
-                    }
-
-                    _checkBox.ToolTip = tooltip;
-                    _checkBox.TooltipDelay = 0.2f;
+                    tooltip += $"{Loc.GetString(desc)}";
+                    if (trait.Whitelist != null || trait.Blacklist != null) tooltip += "\n";
                 }
+
+                if (Trait.Whitelist != null)
+                {
+                    tooltip += "\nWhitelist:";
+                    if (Trait.Whitelist.Components != null)
+                        foreach (var require in Trait.Whitelist.Components)
+                            tooltip += $"\n - {require} (Component)";
+                    if (Trait.Whitelist.Tags != null)
+                        foreach (var require in Trait.Whitelist.Tags)
+                            tooltip += $"\n - {require} (Tag)";
+                    if (Trait.Whitelist.Species != null)
+                        foreach (var require in Trait.Whitelist.Species)
+                            tooltip += $"\n - {require} (Species)";
+                    tooltip += $"\n Require All: {Trait.Whitelist.RequireAll}";
+                }
+                if (Trait.Blacklist != null)
+                {
+                    tooltip += "\nBlacklist:";
+                    if (Trait.Blacklist.Components != null)
+                        foreach (var require in Trait.Blacklist.Components)
+                            tooltip += $"\n - {require} (Component)";
+                    if (Trait.Blacklist.Tags != null)
+                        foreach (var require in Trait.Blacklist.Tags)
+                            tooltip += $"\n - {require} (Tag)";
+                    if (Trait.Blacklist.Species != null)
+                        foreach (var require in Trait.Blacklist.Species)
+                            tooltip += $"\n - {require} (Species)";
+                    tooltip += $"\n Require All: {Trait.Blacklist.RequireAll}";
+                }
+
+                _checkBox.ToolTip = tooltip;
+                _checkBox.TooltipDelay = 0.2f;
 
                 AddChild(new BoxContainer
                 {
@@ -1660,7 +1662,7 @@ namespace Content.Client.Preferences.UI
                     _checkBox.ToolTip = tooltip;
                     _checkBox.TooltipDelay = 0.2f;
                 }
-                
+
                 AddChild(new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
