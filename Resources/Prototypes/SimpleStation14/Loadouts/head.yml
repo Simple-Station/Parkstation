@@ -1,22 +1,15 @@
 - type: loadout
   id: HeadBunny
   name: Bunny Ears
+  description: "I hope this doesn't awaken anything in me..."
   category: Head
   cost: 3
   item: ClothingHeadHatBunny
 
 - type: loadout
-  id: HeadChicken
-  name: Chicken Head
-  category: Head
-  cost: 2
-  jobWhitelist:
-    - AtmosphericTechnician # :)
-  item: ClothingHeadHatChickenhead
-
-- type: loadout
   id: HeadCatEars
   name: Cat Ears
+  description: "I hope this doesn't awaken anything in me..."
   category: Head
   cost: 4
   item: ClothingHeadHatCatEars
@@ -40,22 +33,9 @@
 - type: loadout
   id: HeadPaperSack
   name: Paper Sack
+  description: WE ARE ANNONYMOUS
   category: Head
   cost: 3
   jobWhitelist:
     - Passenger
   item: ClothingHeadPaperSack
-
-- type: loadout
-  id: HeadJesterHat
-  name: Jester hat
-  category: Head
-  cost: 1
-  item: ClothingHeadHatJester
-
-- type: loadout
-  id: HeadJesterHatAlt
-  name: Jester hat (Alt)
-  category: Head
-  cost: 1
-  item: ClothingHeadHatJesterAlt

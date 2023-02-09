@@ -1,0 +1,392 @@
+# Command
+
+- type: loadout
+  id: NeckMantleCE
+  name: CE Mantle
+  description: "To really show who has the authority around here."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - ChiefEngineer
+  item: ClothingNeckMantleCE
+
+- type: loadout
+  id: NeckMantleCMO
+  name: CMO Mantle
+  description: "To really show who has the authority around here."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - ChiefMedicalOfficer
+  item: ClothingNeckMantleCMO
+
+- type: loadout
+  id: NeckMantleHOP
+  name: HOP Mantle
+  description: "To really show who has the authority around here."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - HeadOfPersonnel
+  item: ClothingNeckMantleHOP
+
+- type: loadout
+  id: NeckMantleHOS
+  name: HOS Mantle
+  description: "To really show who has the authority around here."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - HeadOfSecurity
+  item: ClothingNeckMantleHOS
+
+- type: loadout
+  id: NeckMantleRD
+  name: RD Mantle
+  description: "To really show who has the authority around here."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Mystagogue
+    - ResearchDirector
+  item: ClothingNeckMantleRD
+
+
+# Security
+
+- type: loadout
+  id: UniformSecurityGrey
+  name: Grey Security jumpsuit
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - SecurityOfficer
+  item: ClothingUniformJumpsuitSecGrey
+
+
+# Medical
+
+- type: loadout
+  id: EyesMediHUD
+  name: Medical HUD
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 3
+  exclusive: true
+  jobWhitelist:
+    - MedicalDoctor
+    - ChiefMedicalOfficer
+  item: ClothingEyesHudMedical
+
+- type: loadout
+  id: UniformChemistSuit
+  name: Chemist Jumpsuit
+  description: "An alternate job equipment."
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - MedicalDoctor
+  item: ClothingUniformJumpskirtChemistry
+
+- type: loadout
+  id: UniformChemistSkirt
+  name: Chemist Jumpskirt
+  description: "An alternate job equipment."
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - MedicalDoctor
+  item: ClothingUniformJumpsuitChemistry
+
+- type: loadout
+  id: UniformScrubsBlue
+  name: Blue Scrubs
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - MedicalDoctor
+  item: UniformScrubsColorBlue
+
+- type: loadout
+  id: UniformScrubsGreen
+  name: Green Scrubs
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - MedicalDoctor
+  item: UniformScrubsColorGreen
+
+- type: loadout
+  id: UniformScrubsPurple
+  name: Purple Scrubs
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - MedicalDoctor
+  item: UniformScrubsColorPurple
+
+- type: loadout
+  id: UniformParamedicJumpsuit
+  name: Paramedic jumpsuit
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  jobWhitelist:
+    - MedicalDoctor
+  item: ClothingUniformJumpsuitParamedic
+
+- type: loadout
+  id: UniformParamedicJumpskirt
+  name: Paramedic jumpskirt
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - MedicalDoctor
+  item: ClothingUniformJumpskirtParamedic
+
+
+# Engineering
+
+- type: loadout
+  id: UniformEngineeringHazard
+  name: Engineering hazard suit
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - StationEngineer
+  item: ClothingUniformJumpsuitEngineeringHazard
+
+- type: loadout
+  id: OuterClothingChickenSuit
+  name: Eggmospheric Technician Suit
+  description: "For the Eggmos tech who always knows where home is..."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - AtmosphericTechnician # :)
+  item: ClothingOuterSuitChicken
+
+- type: loadout
+  id: HeadChicken
+  name: Eggmospheric Technician Helmet
+  description: "For the Eggmos tech who always knows where home is..."
+  category: Jobs
+  cost: 1
+  exclusive: true
+  jobWhitelist:
+    - AtmosphericTechnician # :)
+  item: ClothingHeadHatChickenhead
+
+
+# Epistemics
+
+
+
+# Service
+
+- type: loadout
+  id: UniformJester
+  name: Jester suit
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Clown
+  item: ClothingUniformJumpsuitJester
+
+- type: loadout
+  id: UniformJesterAlt
+  name: Jester suit (Alt)
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Clown
+  item: ClothingUniformJumpsuitJesterAlt
+
+- type: loadout
+  id: HeadJesterHat
+  name: Jester hat
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 1
+  exclusive: true
+  jobWhitelist:
+    - Clown
+  item: ClothingHeadHatJester
+
+- type: loadout
+  id: HeadJesterHatAlt
+  name: Jester hat (Alt)
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 1
+  exclusive: true
+  jobWhitelist:
+    - Clown
+  item: ClothingHeadHatJesterAlt
+
+- type: loadout
+  id: UniformBartenderPurple
+  name: Purple bartender jumpsuit
+  description: "An alternate job equipment."
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Bartender
+  item: ClothingUniformJumpsuitBartenderPurple
+
+- type: loadout
+  id: UniformOveralls
+  name: overalls
+  description: "A rugged pair of overalls."
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Botanist
+  item: ClothingUniformOveralls
+
+- type: loadout
+  id: UniformLawyerBlue
+  name: Blue Lawyer's suit
+  description: A suit, very legal inded.
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Lawyer
+  item: ClothingUniformJumpsuitLawyerBlue
+
+- type: loadout
+  id: UniformLawyerRed
+  name: Red Lawyer's suit
+  description: A suit, very legal inded.
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Lawyer
+  item: ClothingUniformJumpsuitLawyerRed
+
+- type: loadout
+  id: UniformLawyerPurple
+  name: Purple Lawyer's suit
+  description: A suit, very legal inded.
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Lawyer
+  item: ClothingUniformJumpsuitLawyerPurple
+
+- type: loadout
+  id: UniformLawyerGood
+  name: Grey Lawyer's suit
+  description: A suit, very legal inded.
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Lawyer
+  item: ClothingUniformJumpsuitLawyerGood
+
+- type: loadout
+  id: UniformLawyerBlue
+  name: Blue Lawyer's skirt
+  description: A skirt, very legal inded.
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Lawyer
+  item: ClothingUniformJumpskirtLawyerBlue
+
+- type: loadout
+  id: UniformLawyerRed
+  name: Red Lawyer's skirt
+  description: A skirt, very legal inded.
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Lawyer
+  item: ClothingUniformJumpskirtLawyerRed
+
+- type: loadout
+  id: UniformLawyerPurple
+  name: Purple Lawyer's skirt
+  description: A skirt, very legal inded.
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Lawyer
+  item: ClothingUniformJumpskirtLawyerPurple
+
+- type: loadout
+  id: UniformLawyerGood
+  name: Grey Lawyer's skirt
+  description: A skirt, very legal inded.
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Lawyer
+  item: ClothingUniformJumpskirtLawyerGood
+
+- type: loadout
+  id: UniformReporterJournalist
+  name: Journalist suit
+  description: For the reporter on the case!
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Reporter
+  item: ClothingUniformJumpsuitJournalist
+
+- type: loadout
+  id: UniformReporterDetectivesuit
+  name: Hard boiled suit
+  description: Always reminds you of the one that got away...
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Reporter
+  item: ClothingUniformJumpsuitDetective
+
+- type: loadout
+  id: UniformReporterDetectiveskirt
+  name: Hard boiled skirt
+  description: Always reminds you of the one that got away...
+  catagory: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Reporter
+  item: ClothingUniformJumpskirtDetective

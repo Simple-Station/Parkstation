@@ -1,78 +1,272 @@
 - type: loadout
-  id: UniformScrubsBlue
-  name: Blue Scrubs
-  category: Uniform
-  cost: 1
-  item: UniformScrubsColorBlue
-
-- type: loadout
-  id: UniformScrubsGreen
-  name: Green Scrubs
-  category: Uniform
-  cost: 1
-  item: UniformScrubsColorGreen
-
-- type: loadout
-  id: UniformScrubsPurple
-  name: Purple Scrubs
-  category: Uniform
-  cost: 1
-  item: UniformScrubsColorPurple
-
-- type: loadout
-  id: UniformBoxers
-  name: Boxers
-  category: Uniform
-  cost: 1
-  item: UniformShortsRed
-
-# - type: loadout
-#   id: UniformBoxersTop
-#   name: Boxers (With Top)
-#   category: Uniform
-#   cost: 1
-#   item: UniformShortsRedWithTop
-
-- type: loadout
   id: UniformAncientJumpsuit
   name: Ancient jumpsuit
   description: The legend of the Greytide.
   category: Uniform
   cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Passenger
   item: ClothingUniformJumpsuitAncient
 
-- type: loadout
-  id: UniformJester
-  name: Jester suit
-  category: Uniform
-  cost: 1
-  jobWhitelist:
-    - Clown
-  item: ClothingUniformJumpsuitJester
+# Colored jumpsuits
 
 - type: loadout
-  id: UniformJesterAlt
-  name: Jester suit (Alt)
+  id: ClothingUniformJumpsuitColorBlack
+  name: Black Jumpsuit
+  description: A black jumpsuit.
   category: Uniform
-  cost: 1
-  jobWhitelist:
-    - Clown
-  item: ClothingUniformJumpsuitJesterAlt
+  cost: 2
+  item: ClothingUniformJumpsuitColorBlack
 
 - type: loadout
-  id: UniformParamedicJumpsuit
-  name: Paramedic jumpsuit
+  id: ClothingUniformJumpskirtColorBlack
+  name: Black Jumpskirt
+  description: A black jumpskirt.
   category: Uniform
-  cost: 1
-  jobWhitelist:
-    - MedicalDoctor
-  item: ClothingUniformJumpsuitParamedic
+  cost: 2
+  item: ClothingUniformJumpskirtColorBlack
 
 - type: loadout
-  id: UniformParamedicJumpskirt
-  name: Paramedic jumpskirt
+  id: ClothingUniformJumpsuitColorBlue
+  name: Blue Jumpsuit
+  description: A blue jumpsuit.
   category: Uniform
-  cost: 1
-  jobWhitelist:
-    - MedicalDoctor
-  item: ClothingUniformJumpskirtParamedic
+  cost: 2
+  item: ClothingUniformJumpsuitColorBlue
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorBlue
+  name: Blue Jumpskirt
+  description: A blue jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorBlue
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorGreen
+  name: Green Jumpsuit
+  description: A green jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitColorGreen
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorGreen
+  name: Green Jumpskirt
+  description: A green jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorGreen
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorOrange
+  name: Orange Jumpsuit
+  description: An orange jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitColorOrange
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorOrange
+  name: Orange Jumpskirt
+  description: An orange jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorOrange
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorPink
+  name: Pink Jumpsuit
+  description: A pink jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitColorPink
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorPink
+  name: Pink Jumpskirt
+  description: A pink jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorPink
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorRed
+  name: Red Jumpsuit
+  description: A red jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitColorRed
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorRed
+  name: Red Jumpskirt
+  description: A red jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorRed
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorWhite
+  name: White Jumpsuit
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorWhite
+  name: White Jumpsuit
+  description: A white jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitColorWhite
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorWhite
+  name: White Jumpskirt
+  description: A white jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorWhite
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorYellow
+  name: Yellow Jumpsuit
+  description: A yellow jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitColorYellow
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorYellow
+  name: Yellow Jumpskirt
+  description: A yellow jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorYellow
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorDarkBlue
+  name: Dark Blue Jumpsuit
+  description: A dark blue jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitColorDarkBlue
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorDarkBlue
+  name: Dark Blue Jumpskirt
+  description: A dark blue jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorDarkBlue
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorTeal
+  name: Teal Jumpsuit
+  description: A teal jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitColorTeal
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorTeal
+  name: Teal Jumpskirt
+  description: A teal jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorTeal
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorPurple
+  name: Purple Jumpsuit
+  description: A purple jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitColorPurple
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorPurple
+  name: Purple Jumpskirt
+  description: A purple jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorPurple
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorDarkGreen
+  name: Dark Green Jumpsuit
+  description: A dark green jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitColorDarkGreen
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorDarkGreen
+  name: Dark Green Jumpskirt
+  description: A dark green jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorDarkGreen
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorLightBrown
+  name: Light Brown Jumpsuit
+  description: A light brown jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitColorLightBrown
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorLightBrown
+  name: Light Brown Jumpskirt
+  description: A light brown jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorLightBrown
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorBrown
+  name: Brown Jumpsuit
+  description: A brown jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitColorBrown
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorBrown
+  name: Brown Jumpskirt
+  description: A brown jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorBrown
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorMaroon
+  name: Maroon Jumpsuit
+  description: A maroon jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpsuitColorMaroon
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorMaroon
+  name: Maroon Jumpskirt
+  description: A maroon jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformJumpskirtColorMaroon
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorRainbow
+  name: Rainbow Jumpsuit
+  description: A rainbow jumpsuit.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformColorRainbow
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorRainbow
+  name: Rainbow Jumpskirt
+  description: A rainbow jumpskirt.
+  category: Uniform
+  cost: 2
+  item: ClothingUniformColorRainbow

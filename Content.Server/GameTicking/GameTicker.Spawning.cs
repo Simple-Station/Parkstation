@@ -21,6 +21,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Job = Content.Server.Roles.Job;
+using Content.Shared.Clothing.Components;
+
 
 namespace Content.Server.GameTicking
 {
@@ -233,13 +235,34 @@ namespace Content.Server.GameTicking
 
                 foreach (var loadout in character.LoadoutPreferences)
                 {
+                    var slot = "";
                     if (!_prototypeManager.TryIndex<LoadoutPrototype>(loadout, out var loadoutProto)) continue;
 
                     if (loadoutProto.JobWhitelist != null) if (!loadoutProto.JobWhitelist.Contains(jobPrototype.ID)) continue;
                     if (loadoutProto.JobBlacklist != null) if (loadoutProto.JobBlacklist.Contains(jobPrototype.ID)) continue;
 
                     var spawned = EntityManager.SpawnEntity(loadoutProto.Item, EntityManager.GetComponent<TransformComponent>(mob).Coordinates);
-
+                    if (EntityManager.TryGetComponent<ClothingComponent>(spawned, out var clothingComp))
+                    {
+                        if (loadoutProto.Exclusive)
+                        {
+                            if (invSystem.TryGetSlots(mob, out var slotDefinitions) && slotDefinitions != null)
+                            {
+                                var deleted = false;
+                                foreach (var slotCur in slotDefinitions)
+                                {
+                                    if (!clothingComp.Slots.HasFlag(slotCur.SlotFlags) || deleted) continue;
+                                    if (invSystem.TryGetSlotEntity(mob, slotCur.Name, out var slotItem))
+                                    {
+                                        EntityManager.DeleteEntity((EntityUid)slotItem);
+                                    }
+                                    slot = slotCur.Name;
+                                    deleted = true;
+                                }
+                            }
+                        }
+                    }
+                    if (invSystem.TryEquip(mob, spawned, slot)) continue;
                     if (inventory?.Storage == null) continue;
                     if (inventory.Storage.CanInsert(spawned)) inventory.Storage.Insert(spawned);
                 }

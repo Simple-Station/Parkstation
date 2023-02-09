@@ -61,6 +61,12 @@ namespace Content.Shared.SimpleStation14.Loadouts
         [DataField("blacklist")]
         public EntityWhitelist? Blacklist;
 
+        /// <summary>
+        ///     Should this item override other items in the same slot?
+        /// </summary>
+        [DataField("exclusive")]
+        public bool Exclusive = false;
+
         [DataField("item")]
         public string? Item;
     }

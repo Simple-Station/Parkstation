@@ -1,0 +1,15 @@
+# Nearsighted
+
+- type: loadout
+  id: EyesPrescriptionMediHUD
+  name: Prescription Medical HUD
+  description: Ironic...
+  category: Traits
+  cost: 4
+  jobWhitelist:
+    - MedicalDoctor
+    - ChiefMedicalOfficer
+  whitelist:
+    components:
+      - Nearsighted
+  item: ClothingEyesHudMedicalPrescription
