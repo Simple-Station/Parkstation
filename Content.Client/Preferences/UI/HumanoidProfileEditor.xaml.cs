@@ -1613,54 +1613,59 @@ namespace Content.Client.Preferences.UI
                 _checkBox = new CheckBox { Text = $"[{loadout.Cost}] {loadout.Name}" };
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
+                var tooltip = "";
                 if (loadout.Description is { } desc)
                 {
-                    var tooltip = $"{Loc.GetString(desc)}";
-
-                    if (Loadout.Whitelist != null)
-                    {
-                        tooltip += "\nWhitelist:";
-                        if (Loadout.Whitelist.Components != null)
-                            foreach (var require in Loadout.Whitelist.Components)
-                                tooltip += $"\n - {require} (Component)";
-                        if (Loadout.Whitelist.Tags != null)
-                            foreach (var require in Loadout.Whitelist.Tags)
-                                tooltip += $"\n - {require} (Tag)";
-                        if (Loadout.Whitelist.Species != null)
-                            foreach (var require in Loadout.Whitelist.Species)
-                                tooltip += $"\n - {require} (Species)";
-                        tooltip += $"\n Require All: {Loadout.Whitelist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
-                        if (Loadout.JobWhitelist != null)
-                            foreach (var require in Loadout.JobWhitelist)
-                                tooltip += $"\n - {require} (Job)";
-                    }
-                    if (Loadout.Blacklist != null)
-                    {
-                        tooltip += "\nBlacklist:";
-                        if (Loadout.Blacklist.Components != null)
-                            foreach (var require in Loadout.Blacklist.Components)
-                                tooltip += $"\n - {require} (Component)";
-                        if (Loadout.Blacklist.Tags != null)
-                            foreach (var require in Loadout.Blacklist.Tags)
-                                tooltip += $"\n - {require} (Tag)";
-                        if (Loadout.Blacklist.Species != null)
-                            foreach (var require in Loadout.Blacklist.Species)
-                                tooltip += $"\n - {require} (Species)";
-                        tooltip += $"\n Require All: {Loadout.Blacklist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
-                        if (Loadout.JobBlacklist != null)
-                            foreach (var require in Loadout.JobBlacklist)
-                                tooltip += $"\n - {require} (Job)";
-                    }
-
-                    _checkBox.ToolTip = tooltip;
-                    _checkBox.TooltipDelay = 0.2f;
+                    tooltip += $"{Loc.GetString(desc)}";
+                    if (loadout.Whitelist != null || loadout.Blacklist != null) tooltip += "\n";
                 }
 
-                AddChild(new BoxContainer
+                if (loadout.Whitelist != null)
                 {
-                    Orientation = LayoutOrientation.Horizontal,
-                    Children = { _checkBox },
-                });
+                    tooltip += "Whitelist:";
+                    if (loadout.Whitelist.Components != null)
+                        foreach (var require in loadout.Whitelist.Components)
+                            tooltip += $"\n - {require} (Component)";
+                    if (loadout.Whitelist.Tags != null)
+                        foreach (var require in loadout.Whitelist.Tags)
+                            tooltip += $"\n - {require} (Tag)";
+                    if (loadout.Whitelist.Species != null)
+                        foreach (var require in loadout.Whitelist.Species)
+                            tooltip += $"\n - {require} (Species)";
+                    tooltip += $"\n Require All: {loadout.Whitelist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
+                    if (loadout.JobWhitelist != null)
+                        foreach (var require in loadout.JobWhitelist)
+                            tooltip += $"\n - {require} (Job)";
+                }
+                if (loadout.Blacklist != null)
+                {
+                    tooltip += "Blacklist:";
+                    if (loadout.Blacklist.Components != null)
+                        foreach (var require in loadout.Blacklist.Components)
+                            tooltip += $"\n - {require} (Component)";
+                    if (loadout.Blacklist.Tags != null)
+                        foreach (var require in loadout.Blacklist.Tags)
+                            tooltip += $"\n - {require} (Tag)";
+                    if (loadout.Blacklist.Species != null)
+                        foreach (var require in loadout.Blacklist.Species)
+                            tooltip += $"\n - {require} (Species)";
+                    tooltip += $"\n Require All: {loadout.Blacklist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
+                    if (loadout.JobBlacklist != null)
+                        foreach (var require in loadout.JobBlacklist)
+                            tooltip += $"\n - {require} (Job)";
+                }
+
+                if (tooltip != "")
+                {
+                    _checkBox.ToolTip = tooltip;
+                    _checkBox.TooltipDelay = 0.2f;
+
+                    AddChild(new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Horizontal,
+                        Children = { _checkBox },
+                    });
+                }
             }
 
             private void OnCheckBoxToggled(BaseButton.ButtonToggledEventArgs args)
