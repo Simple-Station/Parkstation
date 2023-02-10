@@ -2460,3 +2460,122 @@ Entries:
   - {message: Felinids and moths can laugh with sound again., type: Fix}
   id: 383
   time: '2023-02-07T09:20:03.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream. Be sure to report any regressions on GitHub or Discord.,
+    type: Add}
+  id: 384
+  time: '2023-02-07T22:25:50.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Cats will eventually rip the mouse toy apart when they play with it.,
+    type: Add}
+  id: 385
+  time: '2023-02-07T23:45:12.0000000+00:00'
+- author: Faye
+  changes:
+  - {message: TC costs+general rebalance for certain uplink items, type: Tweak}
+  id: 386
+  time: '2023-02-07T23:45:20.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Glimmer from anomalies has been reduced to more manageable levels.,
+    type: Tweak}
+  - {message: The anomaly spawn event is slightly less common., type: Tweak}
+  id: 387
+  time: '2023-02-07T23:45:46.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Restored the oni naming scheme that got accidentally removed at some
+      point., type: Fix}
+  id: 388
+  time: '2023-02-08T00:09:17.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Probers will ignore mobs like pAIs that are immune to electrocution.,
+    type: Tweak}
+  id: 389
+  time: '2023-02-08T00:20:57.0000000+00:00'
+- author: Torun
+  changes:
+  - {message: Added a Space Law Quick Reference to the Guidebook, type: Add}
+  id: 390
+  time: '2023-02-08T00:34:42.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: NPCs no longer get to cheat and attack inside containers., type: Fix}
+  id: 391
+  time: '2023-02-08T00:50:33.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Oracle will accept its last requested item again., type: Fix}
+  id: 392
+  time: '2023-02-08T08:08:56.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed an issue that was causing several regressions., type: Fix}
+  id: 393
+  time: '2023-02-08T22:01:53.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Heavy attack damage multiplier and stamina cost from 2.0/3.0 to 1.1/2.0.,
+    type: Tweak}
+  id: 394
+  time: '2023-02-09T02:30:45.0000000+00:00'
+- author: ChilbroBaggins
+  changes:
+  - {message: Added 10 new salvage maps from the remains of Atlas Station, type: Add}
+  id: 395
+  time: '2023-02-09T02:31:27.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added 15% damage variance., type: Add}
+  id: 396
+  time: '2023-02-09T02:32:28.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added glimmer wisps., type: Add}
+  id: 397
+  time: '2023-02-09T02:32:41.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Ectoplasm can be used to create normality crystals. Check the psionics
+      guidebook page for details., type: Add}
+  - {message: Glimmer wisps and revenants drop ectoplasm., type: Add}
+  id: 398
+  time: '2023-02-10T00:58:22.0000000+00:00'
+- author: ChilbroBaggins
+  changes:
+  - {message: Added new map Hammurabi Prison Station!, type: Add}
+  id: 399
+  time: '2023-02-10T02:24:05.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+  - {message: Add a moth plushie., type: Add}
+  id: 400
+  time: '2023-02-10T03:56:45.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added a bunch of behavior to wisps., type: Add}
+  - {message: Fixed a bunch of instances of NPCs getting stuck. The reason it was
+      broken I am actually mad the guy that broke NPCs for the past 5 months had the
+      gall to call me a shitcoder., type: Fix}
+  id: 401
+  time: '2023-02-10T04:09:12.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: NPCs should be a little less laggy looking and still get "most" of the
+      improvements to not getting stuck., type: Fix}
+  id: 402
+  time: '2023-02-10T05:54:10.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Added a new damage type: holy.', type: Add}
+  - {message: All bibles deal holy damage in combat mode., type: Add}
+  - {message: Psionic insulation will now suppress your faction., type: Add}
+  - {message: Changed the way all current spirits / familiars / demons etc handle
+      damage., type: Tweak}
+  - {message: Changed several missing or strange behaviors with the glimmer wisp.,
+    type: Tweak}
+  id: 403
+  time: '2023-02-10T21:58:36.0000000+00:00'

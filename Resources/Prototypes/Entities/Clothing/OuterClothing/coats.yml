@@ -9,7 +9,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
   - type: TemperatureProtection
-    coefficient: 0.65
+    coefficient: 0.1
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -24,6 +24,8 @@
   - type: StorageFill
     contents:
     - id: SmokingPipeFilledTobacco
+  - type: TemperatureProtection
+    coefficient: 0.2
   - type: Armor
     modifiers:
       coefficients:
@@ -31,8 +33,6 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: TemperatureProtection
-    coefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -45,7 +45,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
   - type: TemperatureProtection
-    coefficient: 0.8
+    coefficient: 0.2
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -57,6 +57,8 @@
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
+  - type: TemperatureProtection
+    coefficient: 0.2
   - type: Armor
     modifiers:
       coefficients:
@@ -64,8 +66,6 @@
         Slash: 0.7
         Piercing: 0.4
         Heat: 0.7
-  - type: TemperatureProtection
-    coefficient: 0.8
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -88,6 +88,8 @@
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
+  - type: TemperatureProtection
+    coefficient: 0.2
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -110,6 +112,17 @@
     sprite: Clothing/OuterClothing/Coats/labcoat_chem.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_chem.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatLabViro
+  name: lab coat (viro)
+  description: A suit that protects against bacteria and viruses. Has an green stripe on the shoulder.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/labcoat_viro.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/labcoat_viro.rsi
 
 - type: entity
   parent: ClothingOuterStorageBase
