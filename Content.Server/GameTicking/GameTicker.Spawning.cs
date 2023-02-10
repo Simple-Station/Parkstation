@@ -242,6 +242,7 @@ namespace Content.Server.GameTicking
                     if (loadoutProto.JobBlacklist != null) if (loadoutProto.JobBlacklist.Contains(jobPrototype.ID)) continue;
 
                     var spawned = EntityManager.SpawnEntity(loadoutProto.Item, EntityManager.GetComponent<TransformComponent>(mob).Coordinates);
+
                     if (EntityManager.TryGetComponent<ClothingComponent>(spawned, out var clothingComp))
                     {
                         if (loadoutProto.Exclusive)
@@ -252,16 +253,15 @@ namespace Content.Server.GameTicking
                                 foreach (var slotCur in slotDefinitions)
                                 {
                                     if (!clothingComp.Slots.HasFlag(slotCur.SlotFlags) || deleted) continue;
-                                    if (invSystem.TryGetSlotEntity(mob, slotCur.Name, out var slotItem))
-                                    {
-                                        EntityManager.DeleteEntity((EntityUid)slotItem);
-                                    }
+                                    if (invSystem.TryGetSlotEntity(mob, slotCur.Name, out var slotItem)) EntityManager.DeleteEntity((EntityUid)slotItem);
+
                                     slot = slotCur.Name;
                                     deleted = true;
                                 }
                             }
                         }
                     }
+
                     if (invSystem.TryEquip(mob, spawned, slot)) continue;
                     if (inventory?.Storage == null) continue;
                     if (inventory.Storage.CanInsert(spawned)) inventory.Storage.Insert(spawned);

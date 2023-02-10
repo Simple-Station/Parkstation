@@ -159,6 +159,7 @@
                     </ScrollContainer>
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical" Margin="10" Name="CLoadoutsTab">
+                    <!-- Loadouts -->
                     <BoxContainer Orientation="Horizontal">
                         <Label Text="Available Points: " />
                         <!-- Keep this value consistent with the Update__Preferences function's default 'points' value or issues will arise. -->

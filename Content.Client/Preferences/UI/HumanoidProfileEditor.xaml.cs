@@ -709,16 +709,11 @@ namespace Content.Client.Preferences.UI
                         {
                             var temp = int.Parse(_loadoutPoints.Text) - loadout.Cost;
 
-                            if (temp < 0)
-                            {
-                                preference = false;
-                            }
+                            if (temp < 0) preference = false;
                             else _loadoutPoints.Text = (temp).ToString();
                         }
-                        else
-                        {
-                            _loadoutPoints.Text = (int.Parse(_loadoutPoints.Text) + loadout.Cost).ToString();
-                        }
+                        else _loadoutPoints.Text = (int.Parse(_loadoutPoints.Text) + loadout.Cost).ToString();
+
 
                         // Update Preference
                         Profile = Profile?.WithLoadoutPreference(loadout.ID, preference);
@@ -727,6 +722,11 @@ namespace Content.Client.Preferences.UI
                         UpdateLoadoutPreferences();
                         RebuildSpriteView();
                     };
+                }
+
+                if (bocks.Children.Count() <= 0)
+                {
+                    _loadoutsTabs.SetTabVisible(0, false);
                 }
             }
             else
