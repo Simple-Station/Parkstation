@@ -1,5 +1,5 @@
 - type: loadout
-  id: EyesSalesman
+  id: LoadoutEyesSalesman
   name: Colored Glasses
   description: Best salesman of 1997.
   category: Eyes
@@ -7,7 +7,7 @@
   item: ClothingEyesSalesman
 
 - type: loadout
-  id: EyesEyepatch
+  id: LoadoutEyesEyepatch
   name: Eyepatch
   description: Eyewear, for the fashionista without and eye.
   category: Eyes
@@ -15,7 +15,7 @@
   item: ClothingEyesEyepatch
 
 - type: loadout
-  id: EyesBlindfold
+  id: LoadoutEyesBlindfold
   name: Blindfold
   description: Why would you want this?
   category: Eyes

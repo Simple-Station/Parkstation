@@ -1,5 +1,5 @@
 - type: loadout
-  id: UniformAncientJumpsuit
+  id: LoadoutUniformAncientJumpsuit
   name: Ancient jumpsuit
   description: The legend of the Greytide.
   category: Uniform
@@ -12,7 +12,7 @@
 # Colored jumpsuits
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorBlack
+  id: LoadoutUniformJumpsuitColorBlack
   name: Black Jumpsuit
   description: A black jumpsuit.
   category: Uniform
@@ -20,7 +20,7 @@
   item: ClothingUniformJumpsuitColorBlack
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorBlack
+  id: LoadoutUniformJumpskirtColorBlack
   name: Black Jumpskirt
   description: A black jumpskirt.
   category: Uniform
@@ -28,7 +28,7 @@
   item: ClothingUniformJumpskirtColorBlack
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorBlue
+  id: LoadoutUniformJumpsuitColorBlue
   name: Blue Jumpsuit
   description: A blue jumpsuit.
   category: Uniform
@@ -36,7 +36,7 @@
   item: ClothingUniformJumpsuitColorBlue
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorBlue
+  id: LoadoutUniformJumpskirtColorBlue
   name: Blue Jumpskirt
   description: A blue jumpskirt.
   category: Uniform
@@ -44,7 +44,7 @@
   item: ClothingUniformJumpskirtColorBlue
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorGreen
+  id: LoadoutUniformJumpsuitColorGreen
   name: Green Jumpsuit
   description: A green jumpsuit.
   category: Uniform
@@ -52,7 +52,7 @@
   item: ClothingUniformJumpsuitColorGreen
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorGreen
+  id: LoadoutUniformJumpskirtColorGreen
   name: Green Jumpskirt
   description: A green jumpskirt.
   category: Uniform
@@ -60,7 +60,7 @@
   item: ClothingUniformJumpskirtColorGreen
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorOrange
+  id: LoadoutUniformJumpsuitColorOrange
   name: Orange Jumpsuit
   description: An orange jumpsuit.
   category: Uniform
@@ -68,7 +68,7 @@
   item: ClothingUniformJumpsuitColorOrange
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorOrange
+  id: LoadoutUniformJumpskirtColorOrange
   name: Orange Jumpskirt
   description: An orange jumpskirt.
   category: Uniform
@@ -76,7 +76,7 @@
   item: ClothingUniformJumpskirtColorOrange
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorPink
+  id: LoadoutUniformJumpsuitColorPink
   name: Pink Jumpsuit
   description: A pink jumpsuit.
   category: Uniform
@@ -84,7 +84,7 @@
   item: ClothingUniformJumpsuitColorPink
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorPink
+  id: LoadoutUniformJumpskirtColorPink
   name: Pink Jumpskirt
   description: A pink jumpskirt.
   category: Uniform
@@ -92,7 +92,7 @@
   item: ClothingUniformJumpskirtColorPink
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorRed
+  id: LoadoutUniformJumpsuitColorRed
   name: Red Jumpsuit
   description: A red jumpsuit.
   category: Uniform
@@ -100,7 +100,7 @@
   item: ClothingUniformJumpsuitColorRed
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorRed
+  id: LoadoutUniformJumpskirtColorRed
   name: Red Jumpskirt
   description: A red jumpskirt.
   category: Uniform
@@ -108,11 +108,7 @@
   item: ClothingUniformJumpskirtColorRed
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorWhite
-  name: White Jumpsuit
-
-- type: loadout
-  id: ClothingUniformJumpsuitColorWhite
+  id: LoadoutUniformJumpsuitColorWhite
   name: White Jumpsuit
   description: A white jumpsuit.
   category: Uniform
@@ -120,7 +116,7 @@
   item: ClothingUniformJumpsuitColorWhite
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorWhite
+  id: LoadoutUniformJumpskirtColorWhite
   name: White Jumpskirt
   description: A white jumpskirt.
   category: Uniform
@@ -128,7 +124,7 @@
   item: ClothingUniformJumpskirtColorWhite
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorYellow
+  id: LoadoutUniformJumpsuitColorYellow
   name: Yellow Jumpsuit
   description: A yellow jumpsuit.
   category: Uniform
@@ -136,7 +132,7 @@
   item: ClothingUniformJumpsuitColorYellow
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorYellow
+  id: LoadoutUniformJumpskirtColorYellow
   name: Yellow Jumpskirt
   description: A yellow jumpskirt.
   category: Uniform
@@ -144,7 +140,7 @@
   item: ClothingUniformJumpskirtColorYellow
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorDarkBlue
+  id: LoadoutUniformJumpsuitColorDarkBlue
   name: Dark Blue Jumpsuit
   description: A dark blue jumpsuit.
   category: Uniform
@@ -152,7 +148,7 @@
   item: ClothingUniformJumpsuitColorDarkBlue
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorDarkBlue
+  id: LoadoutUniformJumpskirtColorDarkBlue
   name: Dark Blue Jumpskirt
   description: A dark blue jumpskirt.
   category: Uniform
@@ -160,7 +156,7 @@
   item: ClothingUniformJumpskirtColorDarkBlue
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorTeal
+  id: LoadoutUniformJumpsuitColorTeal
   name: Teal Jumpsuit
   description: A teal jumpsuit.
   category: Uniform
@@ -168,7 +164,7 @@
   item: ClothingUniformJumpsuitColorTeal
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorTeal
+  id: LoadoutUniformJumpskirtColorTeal
   name: Teal Jumpskirt
   description: A teal jumpskirt.
   category: Uniform
@@ -176,7 +172,7 @@
   item: ClothingUniformJumpskirtColorTeal
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorPurple
+  id: LoadoutUniformJumpsuitColorPurple
   name: Purple Jumpsuit
   description: A purple jumpsuit.
   category: Uniform
@@ -184,7 +180,7 @@
   item: ClothingUniformJumpsuitColorPurple
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorPurple
+  id: LoadoutUniformJumpskirtColorPurple
   name: Purple Jumpskirt
   description: A purple jumpskirt.
   category: Uniform
@@ -192,7 +188,7 @@
   item: ClothingUniformJumpskirtColorPurple
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorDarkGreen
+  id: LoadoutUniformJumpsuitColorDarkGreen
   name: Dark Green Jumpsuit
   description: A dark green jumpsuit.
   category: Uniform
@@ -200,7 +196,7 @@
   item: ClothingUniformJumpsuitColorDarkGreen
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorDarkGreen
+  id: LoadoutUniformJumpskirtColorDarkGreen
   name: Dark Green Jumpskirt
   description: A dark green jumpskirt.
   category: Uniform
@@ -208,7 +204,7 @@
   item: ClothingUniformJumpskirtColorDarkGreen
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorLightBrown
+  id: LoadoutUniformJumpsuitColorLightBrown
   name: Light Brown Jumpsuit
   description: A light brown jumpsuit.
   category: Uniform
@@ -216,7 +212,7 @@
   item: ClothingUniformJumpsuitColorLightBrown
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorLightBrown
+  id: LoadoutUniformJumpskirtColorLightBrown
   name: Light Brown Jumpskirt
   description: A light brown jumpskirt.
   category: Uniform
@@ -224,7 +220,7 @@
   item: ClothingUniformJumpskirtColorLightBrown
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorBrown
+  id: LoadoutUniformJumpsuitColorBrown
   name: Brown Jumpsuit
   description: A brown jumpsuit.
   category: Uniform
@@ -232,7 +228,7 @@
   item: ClothingUniformJumpsuitColorBrown
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorBrown
+  id: LoadoutUniformJumpskirtColorBrown
   name: Brown Jumpskirt
   description: A brown jumpskirt.
   category: Uniform
@@ -240,7 +236,7 @@
   item: ClothingUniformJumpskirtColorBrown
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorMaroon
+  id: LoadoutUniformJumpsuitColorMaroon
   name: Maroon Jumpsuit
   description: A maroon jumpsuit.
   category: Uniform
@@ -248,7 +244,7 @@
   item: ClothingUniformJumpsuitColorMaroon
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorMaroon
+  id: LoadoutUniformJumpskirtColorMaroon
   name: Maroon Jumpskirt
   description: A maroon jumpskirt.
   category: Uniform
@@ -256,7 +252,7 @@
   item: ClothingUniformJumpskirtColorMaroon
 
 - type: loadout
-  id: ClothingUniformJumpsuitColorRainbow
+  id: LoadoutUniformJumpsuitColorRainbow
   name: Rainbow Jumpsuit
   description: A rainbow jumpsuit.
   category: Uniform
@@ -264,7 +260,7 @@
   item: ClothingUniformColorRainbow
 
 - type: loadout
-  id: ClothingUniformJumpskirtColorRainbow
+  id: LoadoutUniformJumpskirtColorRainbow
   name: Rainbow Jumpskirt
   description: A rainbow jumpskirt.
   category: Uniform

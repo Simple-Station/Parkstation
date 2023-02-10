@@ -153,19 +153,21 @@
 #         underpants:
 #           - state: fishnet_lower
 
-# - type: entity
-#   parent: ClothingUnderPantsBase
-#   id: ClothingUnderjockstrap
-#   name: jockstrap
-#   components:
-#     - type: Sprite
-#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-#       state: jockstrap-ICON
-#     - type: Clothing
-#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-#       clothingVisuals:
-#         underpants:
-#           - state: jockstrap
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderjockstrap
+  name: jockstrap
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: jockstrap-ICON
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: jockstrap
+    - type: TemperatureProtection
+      coefficient: 0.98
 
 - type: entity
   parent: ClothingUnderPantsBase

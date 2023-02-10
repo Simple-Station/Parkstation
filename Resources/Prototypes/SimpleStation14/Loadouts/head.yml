@@ -1,5 +1,5 @@
 - type: loadout
-  id: HeadBunny
+  id: LoadoutHeadBunny
   name: Bunny Ears
   description: "I hope this doesn't awaken anything in me..."
   category: Head
@@ -7,7 +7,7 @@
   item: ClothingHeadHatBunny
 
 - type: loadout
-  id: HeadCatEars
+  id: LoadoutHeadCatEars
   name: Cat Ears
   description: "I hope this doesn't awaken anything in me..."
   category: Head
@@ -15,7 +15,7 @@
   item: ClothingHeadHatCatEars
 
 - type: loadout
-  id: HeadBeaverHat
+  id: LoadoutHeadBeaverHat
   name: Beaver Hat
   description: Gentlemen.
   category: Head
@@ -23,7 +23,7 @@
   item: ClothingHeadHatBeaverHat
 
 - type: loadout
-  id: HeadTophat
+  id: LoadoutHeadTophat
   name: Tophat
   description: A stylish black tophat.
   category: Head
@@ -31,7 +31,7 @@
   item: ClothingHeadHatTophat
 
 - type: loadout
-  id: HeadPaperSack
+  id: LoadoutHeadPaperSack
   name: Paper Sack
   description: WE ARE ANNONYMOUS
   category: Head

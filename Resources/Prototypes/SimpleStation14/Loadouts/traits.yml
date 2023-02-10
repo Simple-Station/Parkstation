@@ -1,7 +1,7 @@
 # Nearsighted
 
 - type: loadout
-  id: EyesPrescriptionMediHUD
+  id: LoadoutEyesPrescriptionMediHUD
   name: Prescription Medical HUD
   description: Ironic...
   category: Traits
