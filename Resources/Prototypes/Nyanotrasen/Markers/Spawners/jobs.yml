@@ -148,7 +148,7 @@
   name: valet
   components:
   - type: SpawnPoint
-    job_id: Valet
+    job_id: ServiceWorker
   - type: Sprite
     layers:
       - state: green
