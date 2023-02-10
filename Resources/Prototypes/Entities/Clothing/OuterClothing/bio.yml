@@ -67,7 +67,7 @@
   id: ClothingOuterBioSecurity
   name: bio suit
   suffix: Security
-  description: A suit that protects against biological contamination, in Security colors.
+  description: A suit that protects against biological contamination and gunfire, in Security colors.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Bio/security.rsi
