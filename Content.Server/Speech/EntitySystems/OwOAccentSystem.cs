@@ -12,6 +12,10 @@ namespace Content.Server.Speech.EntitySystems
         {
             "<3", "HIII!", "Haiiii,", "H-hewwo?", "(#o.o)", ";;w;;", ";w;", "Weh!"
         }.AsReadOnly();
+        private static readonly IReadOnlyList<string> nPrefixes = new List<string>
+        {
+            "HIII!", "Haiiii,", "H-hewwo?", "Weh!"
+        }.AsReadOnly();
 
         private static readonly IReadOnlyList<string> Faces = new List<string>
         {
@@ -26,6 +30,10 @@ namespace Content.Server.Speech.EntitySystems
         private static readonly IReadOnlyList<string> Suffixes = new List<string>
         {
             "Ɛ>", "baii!", "bye bye!", "ceeya! :D", "weh!"
+        }.AsReadOnly();
+        private static readonly IReadOnlyList<string> nSuffixes = new List<string>
+        {
+            "baii!", "bye bye!", "ceeya!", "weh!"
         }.AsReadOnly();
 
         private static readonly IReadOnlyDictionary<string, string> SpecialWords = new Dictionary<string, string>()
@@ -104,7 +112,7 @@ namespace Content.Server.Speech.EntitySystems
             SubscribeLocalEvent<OwOAccentComponent, AccentGetEvent>(OnAccent);
         }
 
-        public string Accentuate(string message)
+        public string Accentuate(string message, OwOAccentComponent component)
         {
             message = message.Trim();
 
@@ -113,39 +121,71 @@ namespace Content.Server.Speech.EntitySystems
                 if (Regex.IsMatch(message.ToLowerInvariant(), $"\\b{word}\\b"))
                     message = message.Replace(word, repl);
 
-            // Random prefix
-            if (_random.Next(1, 12) == 5 && message.Length > 12)
-                message = $"{_random.Pick(Prefixes)} {message}";
 
-            // Exclaim
-            if (message != "!")
-                message = message.Replace("! ", $"! {_random.Pick(Faces)} ");
-            if (message.EndsWith("!") && message != "!")
-                message = message.Substring(0, message.Length - 1) + message.Substring(message.Length - 1).Replace("!", $"! {_random.Pick(Faces)}");
+            // If there should be emojis in the message
+            if (component.Kaomoji)
+            {
+                // Random prefix
+                if (_random.Next(1, 12) == 5 && message.Length > 12)
+                    message = $"{_random.Pick(Prefixes)} {message}";
+            }
+            else
+            {
+                // Random prefix
+                if (_random.Next(1, 12) == 5 && message.Length > 12)
+                    message = $"{_random.Pick(nPrefixes)} {message}";
+            }
 
-            // Question
-            if (message != "?") message = message.Replace("? ", $"? {_random.Pick(CFaces)} ");
-            if (message.EndsWith("?") && message != "?")
-                message = message.Substring(0, message.Length - 1) + message.Substring(message.Length - 1).Replace("?", $"? {_random.Pick(CFaces)}");
 
-            // Random suffix, not affected by ! and ? reformatting and won't do if theres punctuation or some Kaomojis to end the message
-            if (!message.EndsWith("!") && !message.EndsWith("?")
-                && !message.EndsWith(".") && !message.EndsWith(",")
-                && !message.EndsWith(")") && !message.EndsWith(";")
-                && message.Length > 12 && _random.Next(1, 10) == 5)
-                message = $"{message}, {_random.Pick(Suffixes)}";
+            // If there should be emojis in the message
+            if (component.Kaomoji)
+            {
+                // Exclaim
+                if (message != "!")
+                    message = message.Replace("! ", $"! {_random.Pick(Faces)} ");
+                if (message.EndsWith("!") && message != "!")
+                    message = message.Substring(0, message.Length - 1) + message.Substring(message.Length - 1).Replace("!", $"! {_random.Pick(Faces)}");
+
+                // Question
+                if (message != "?") message = message.Replace("? ", $"? {_random.Pick(CFaces)} ");
+                if (message.EndsWith("?") && message != "?")
+                    message = message.Substring(0, message.Length - 1) + message.Substring(message.Length - 1).Replace("?", $"? {_random.Pick(CFaces)}");
+            }
+
+
+            // If there should be emojis in the message
+            if (component.Kaomoji)
+            {
+                // Random suffix, not affected by ! and ? reformatting and won't do if theres punctuation or some Kaomojis to end the message
+                if (!message.EndsWith("!") && !message.EndsWith("?")
+                    && !message.EndsWith(".") && !message.EndsWith(",")
+                    && !message.EndsWith(")") && !message.EndsWith(";")
+                    && message.Length > 12 && _random.Next(1, 10) == 5)
+                    message = $"{message}, {_random.Pick(Suffixes)}";
+            }
+            else
+            {
+                // Random suffix, not affected by ! and ? reformatting and won't do if theres punctuation or some Kaomojis to end the message
+                if (!message.EndsWith("!") && !message.EndsWith("?")
+                    && !message.EndsWith(".") && !message.EndsWith(",")
+                    && !message.EndsWith(")") && !message.EndsWith(";")
+                    && message.Length > 12 && _random.Next(1, 10) == 5)
+                    message = $"{message}, {_random.Pick(nSuffixes)}";
+            }
+
 
             // Slur letters
             message = message
                 .Replace("r", "w").Replace("R", "W")
                 .Replace("l", "w").Replace("L", "W");
 
+
             return message;
         }
 
         private void OnAccent(EntityUid uid, OwOAccentComponent component, AccentGetEvent args)
         {
-            args.Message = Accentuate(args.Message);
+            args.Message = Accentuate(args.Message, component);
         }
     }
 }

@@ -25,28 +25,32 @@
       - id: ClothingHeadsetScience
       - id: ClothingMaskSterile
       - id: ClothingOuterRobeWhite
-      - id: Paper
+      - id: AnomalyScanner
 
 - type: entity
   id: LockerForensicMantisFilled
   suffix: Filled
-  parent: LockerDetective
-  name: forensic mantis' cabinet
+  parent: LockerForensicMantis
   components:
   - type: StorageFill
     contents:
-      - id: ClothingHeadHatFez
+      # Tools
       - id: FlashlightSeclite
       - id: ForensicScanner
       - id: BoxForensicPad
-
-- type: entity
-  id: VendingMachineForensics
-  name: Forensics Wardrobe
-  description: A fez dispenser.
-  components:
-  - type: VendingMachine
-    pack: DetDrobeInventory
-  - type: AccessReader
-    access: [["Detective"]]
-  - type: Actions ### ???
+      - id: AntiPsychicKnife
+      # Spare change of clothes
+      - id: ClothingUniformJumpsuitMantis
+      - id: ClothingUniformSkirtMantis
+      - id: ClothingBeltMantis
+      - id: ClothingShoesBootsMantis
+      - id: ClothingHandsGlovesColorWhite
+      - id: ClothingHeadsetMantis
+      - id: ClothingHeadHatFezMantis
+      - id: ClothingOuterCoatMantis
+      - id: ClothingOuterWinterCoatMantis
+      - id: ClothingEyesGlassesSunglasses
+      # Insulative headgear
+      - id: ClothingHeadHelmetInsulated
+      - id: ClothingHeadCage
+      - id: ClothingHeadCage

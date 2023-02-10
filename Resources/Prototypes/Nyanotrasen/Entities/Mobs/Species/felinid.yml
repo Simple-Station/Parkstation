@@ -47,6 +47,9 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: female_full
         visible: false
+      - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
       - map: ["jumpsuit"]
         shader: StencilDraw
       - map: ["enum.HumanoidVisualLayers.LHand"]
@@ -99,7 +102,7 @@
         visible: false
   - type: Eye
     zoom: "0.85, 0.85"
-  - type: Humanoid
+  - type: HumanoidAppearance
     species: Felinid
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
@@ -153,7 +156,7 @@
   noSpawn: true
   description: A dummy felinid meant to be used in character setup.
   components:
-  - type: Humanoid
+  - type: HumanoidAppearance
     species: Felinid
   - type: Sprite
     netsync: false
@@ -203,9 +206,9 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: female_full
         visible: false
+      - map: ["socks"]
       - map: ["underpants"]
       - map: ["undershirt"]
-      - map: ["socks"]
       - map: ["jumpsuit"]
         shader: StencilDraw
       - map: ["enum.HumanoidVisualLayers.LHand"]

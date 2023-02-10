@@ -160,6 +160,8 @@
     sprite: Clothing/Mask/clown.rsi
   - type: BreathMask
   - type: IdentityBlocker
+  - type: DropOnSlip
+    chance: 5
 
 - type: entity
   parent: ClothingMaskBase

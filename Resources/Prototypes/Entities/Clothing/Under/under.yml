@@ -6,6 +6,7 @@
   id: ClothingUnderSocksBee
   name: bee socks
   description: Make them loins buzz!
+  noSpawn: true # We got our own underwear
   components:
   - type: Sprite
     sprite: Clothing/Under/Socks/bee.rsi
@@ -19,6 +20,7 @@
   id: ClothingUnderSocksCoder
   name: coder socks
   description: It's time to code sisters!!11!
+  noSpawn: true # We got our own underwear
   components:
   - type: Sprite
     sprite: Clothing/Under/Socks/coder.rsi

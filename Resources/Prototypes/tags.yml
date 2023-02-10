@@ -16,6 +16,9 @@
   id: Baguette
 
 - type: Tag
+  id: BikeHorn
+
+- type: Tag
   id: Bee
 
 - type: Tag
@@ -29,9 +32,6 @@
 
 - type: Tag
   id: Brutepack
-
-- type: Tag
-  id: BikeHorn
 
 - type: Tag
   id: BodyBag
@@ -251,6 +251,9 @@
 
 - type: Tag
   id: ForceNoFixRotations # fixrotations command WON'T target this
+
+- type: Tag
+  id: ForensicBeltEquip
 
 - type: Tag
   id: FullBodyOuter # this outerclothing wraps around the feet and legs

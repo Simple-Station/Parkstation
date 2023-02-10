@@ -1,0 +1,8 @@
+- type: entity
+  parent: VendingMachineClothing
+  id: VendingMachineUnderwear
+  name: UnderVend
+  description: A vending machine for underwear.
+  components:
+    - type: VendingMachine
+      pack: UnderVendInventory

@@ -10,6 +10,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Content.Shared.Interaction.Components;
 
 namespace Content.Shared.Slippery
 {
@@ -22,6 +23,9 @@ namespace Content.Shared.Slippery
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+        [Dependency] private readonly IEntityManager _entities = default!;
+
+
 
         public override void Initialize()
         {
@@ -91,6 +95,10 @@ namespace Content.Shared.Slippery
 
             _stunSystem.TryParalyze(other, TimeSpan.FromSeconds(component.ParalyzeTime), true);
 
+            // PARK Unequip glasses on slip
+            var slipev = new SlipEvent();
+            RaiseLocalEvent(other, slipev, false);
+
             // Preventing from playing the slip sound when you are already knocked down.
             if (playSound)
             {
@@ -116,5 +124,8 @@ namespace Content.Shared.Slippery
     public sealed class SlipAttemptEvent : CancellableEntityEventArgs, IInventoryRelayEvent
     {
         public SlotFlags TargetSlots { get; } = SlotFlags.FEET;
+    }
+        public sealed class SlipEvent : EntityEventArgs
+    {
     }
 }

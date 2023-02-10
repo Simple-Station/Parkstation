@@ -116,11 +116,11 @@
           sprite: Mobs/Customization/masking_helpers.rsi
           state: female_full
           visible: false
-        - map: ["underpants"]
-        - map: ["undershirt"]
         - map: ["enum.HumanoidVisualLayers.LFoot"]
         - map: ["enum.HumanoidVisualLayers.RFoot"]
         - map: ["socks"]
+        - map: ["underpants"]
+        - map: ["undershirt"]
         - map: ["jumpsuit"]
         - map: ["enum.HumanoidVisualLayers.LHand"]
         - map: ["enum.HumanoidVisualLayers.RHand"]
@@ -179,7 +179,7 @@
     heatDamage:
       types:
         Heat: 0.1 #per second, scales with temperature & other constants
-  - type: Humanoid
+  - type: HumanoidAppearance
     species: Human
   - type: Body
     prototype: Human
@@ -284,7 +284,13 @@
   - type: Speech
     speechSounds: Tenor
   - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: FemaleHuman
+      Unsexed: MaleHuman
   - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
   - type: Grammar
     attributes:
       proper: true
@@ -332,11 +338,11 @@
           sprite: Mobs/Customization/masking_helpers.rsi
           state: female_full
           visible: false
-        - map: ["underpants"]
-        - map: ["undershirt"]
         - map: ["enum.HumanoidVisualLayers.LFoot"]
         - map: ["enum.HumanoidVisualLayers.RFoot"]
         - map: ["socks"]
+        - map: ["underpants"]
+        - map: ["undershirt"]
         - map: ["jumpsuit"]
         - map: ["enum.HumanoidVisualLayers.LHand"]
         - map: ["enum.HumanoidVisualLayers.RHand"]
@@ -377,7 +383,7 @@
         - MobMask
         layer:
         - MobLayer
-    - type: Humanoid
+    - type: HumanoidAppearance
       species: Human
     - type: Body
       prototype: Human

@@ -13,10 +13,6 @@
   components:
   - type: Sprite
     sprite: SimpleStation14/Structures/Doors/Airlocks/External/command.rsi
-  - type: Wires
-    BoardName: "HighSec Control"
-    LayoutId: HighSec
-    alwaysRandomize: true
 
 - type: entity
   parent: AirlockExternal

@@ -15,6 +15,9 @@ using Content.Server.Jobs;
 using Content.Server.Traitor;
 using Content.Server.Objectives;
 using Content.Server.GameTicking;
+using Content.Server.Fugitive;
+using Content.Server.Cloning;
+using Content.Server.GameTicking.Rules.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
@@ -31,7 +34,7 @@ namespace Content.Server.EvilTwin
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly StationSpawningSystem _stationSpawningSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly HumanoidSystem _humanoidSystem = default!;
+        [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
         [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
@@ -145,7 +148,7 @@ namespace Content.Server.EvilTwin
         }
         public EntityUid? SpawnEvilTwin()
         {
-            var candidates = EntityQuery<ActorComponent, MindComponent, HumanoidComponent>().ToList();
+            var candidates = EntityQuery<ActorComponent, MindComponent, HumanoidAppearanceComponent>().ToList();
             _random.Shuffle(candidates);
 
             foreach (var candidate in candidates)
@@ -153,6 +156,12 @@ namespace Content.Server.EvilTwin
                 var candUid = candidate.Item1.Owner;
 
                 if (candidate.Item2.Mind?.CurrentJob == null)
+                    continue;
+
+                if (HasComp<MetempsychosisKarmaComponent>(candUid))
+                    continue;
+
+                if (HasComp<FugitiveComponent>(candUid) || HasComp<EvilTwinComponent>(candUid) || HasComp<NukeOperativeComponent>(candUid))
                     continue;
 
                 if (!_prototypeManager.TryIndex<SpeciesPrototype>(candidate.Item3.Species, out var species))

@@ -30,6 +30,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> RulesHeader =
             CVarDef.Create("server.rules_header", "ui-rules-header", CVar.REPLICATED | CVar.SERVER);
 
+        /// <summary>
+        ////    A txt file containing other servers that we're happy redialing to.
+        /// </summary>
+        public static readonly CVarDef<string> RedialAddressesFile =
+            CVarDef.Create("server.redial_addresses", "RedialAddresses.txt", CVar.REPLICATED | CVar.SERVER);
+
         /*
          * Ambience
          */
@@ -457,7 +463,7 @@ namespace Content.Shared.CCVar
         ///     The number of seconds between each tip being displayed when the round is actively going
         /// </summary>
         public static readonly CVarDef<float> TipFrequencyInRound =
-            CVarDef.Create("tips.in_game_frequency", 60f * 60);
+            CVarDef.Create("tips.in_game_frequency", 60f * 45);
 
         /*
          * Console
@@ -1179,6 +1185,16 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> BiomassEasyMode =
             CVarDef.Create("biomass.easy_mode", true, CVar.SERVERONLY);
+
+        /*
+         * Anomaly
+         */
+
+        /// <summary>
+        ///     A scale factor applied to a grid's bounds when trying to find a spot to randomly generate an anomaly.
+        /// </summary>
+        public static readonly CVarDef<float> AnomalyGenerationGridBoundsScale =
+            CVarDef.Create("anomaly.generation_grid_bounds_scale", 0.6f, CVar.SERVERONLY);
 
         /*
          * VIEWPORT

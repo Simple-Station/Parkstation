@@ -2124,3 +2124,339 @@ Entries:
   - {message: Pebble epistemics renovation., type: Add}
   id: 323
   time: '2023-01-22T20:34:32.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Evil twin target selection has been improved., type: Fix}
+  id: 324
+  time: '2023-01-23T23:48:03.0000000+00:00'
+- author: Emogarbage404
+  changes:
+  - {message: Anomalies, type: Add}
+  id: 325
+  time: '2023-01-23T23:53:12.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed oracle not accepting items it should., type: Fix}
+  - {message: Fixed oracle solution overflow visuals., type: Fix}
+  id: 326
+  time: '2023-01-23T23:53:22.0000000+00:00'
+- author: Router
+  changes:
+  - {message: Gave the reverse engineering machine a proper sprite., type: Add}
+  id: 327
+  time: '2023-01-23T23:53:32.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream., type: Add}
+  - {message: Anomaly equipment can be reverse engineered., type: Add}
+  - {message: Mid round antag min players moved to 15., type: Tweak}
+  - {message: Moved the tech tree around., type: Tweak}
+  id: 328
+  time: '2023-01-24T00:35:11.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Portals can be dispelled., type: Add}
+  id: 329
+  time: '2023-01-24T01:12:32.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Anomalies count as psionic., type: Add}
+  id: 330
+  time: '2023-01-24T02:01:14.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: The epi guidebook is similarly complete to the eng one., type: Add}
+  id: 331
+  time: '2023-01-24T02:14:13.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Anomalies interact with the glimmer system., type: Add}
+  id: 332
+  time: '2023-01-24T02:39:34.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Anomalies take damage from being dispelled., type: Add}
+  id: 333
+  time: '2023-01-24T03:02:39.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added anomaly scanners to epi lockers., type: Add}
+  id: 334
+  time: '2023-01-24T03:23:00.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Added an anomaly lab to Angle station., type: Add}
+  id: 335
+  time: '2023-01-24T03:51:58.0000000+00:00'
+- author: Kromabae
+  changes:
+  - {message: Anomaly Lab for pebble., type: Add}
+  id: 336
+  time: '2023-01-24T04:10:49.0000000+00:00'
+- author: Daemon
+  changes:
+  - {message: Added The Lid O' Saws!, type: Add}
+  id: 337
+  time: '2023-01-25T06:14:33.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed spawning as cataloguer., type: Fix}
+  - {message: Fixed a desync with blindfolds that allowed permanent blindness to be
+      removed., type: Fix}
+  id: 338
+  time: '2023-01-25T19:44:47.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed a mindswap regression caused by upstream changes to the mind system.,
+    type: Fix}
+  id: 339
+  time: '2023-01-25T20:49:56.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Rewrote several parts of the rules., type: Tweak}
+  id: 340
+  time: '2023-01-26T05:46:02.0000000+00:00'
+- author: tomasalves8
+  changes:
+  - {message: Increase Glow Duration for the Red Glowstick, type: Tweak}
+  id: 341
+  time: '2023-01-26T18:31:11.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: You can be redirected to another server when the server is full or from
+      the ghost roles menu., type: Add}
+  id: 342
+  time: '2023-01-26T23:44:46.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: The health bars from medical HUDs have been completely rewritten! They
+      should look a bit fancier and everyone should get a small performance improvement.,
+    type: Add}
+  id: 343
+  time: '2023-01-27T00:44:05.0000000+00:00'
+- author: QuizzyQuin
+  changes:
+  - {message: Added two new end round clips, type: Add}
+  id: 344
+  time: '2023-01-27T05:54:46.0000000+00:00'
+- author: ODJ
+  changes:
+  - {message: Track 4, type: Add}
+  id: 345
+  time: '2023-01-27T08:35:07.0000000+00:00'
+- author: tomasalves8
+  changes:
+  - {message: Telegnostic Projections are no longer consumed by the Singularity.,
+    type: Fix}
+  id: 346
+  time: '2023-01-27T19:15:39.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Changed many outer-layer clothes to withstand cold temperatures., type: Tweak}
+  id: 347
+  time: '2023-01-27T19:42:44.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream. Lots of bugfixes and refactors. Be sure to report any
+      regressions., type: Add}
+  id: 348
+  time: '2023-01-27T19:48:03.0000000+00:00'
+- author: Debug
+  changes:
+  - {message: Completely overhauled Ovni's Epistemics and air alarms., type: Tweak}
+  id: 349
+  time: '2023-01-27T19:48:20.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: I think I've tracked down the main mind swap regression from the past
+      2 weeks and fixed it., type: Fix}
+  id: 350
+  time: '2023-01-27T20:24:07.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: We'll only redirect to servers with at least 3 players on., type: Tweak}
+  id: 351
+  time: '2023-01-27T22:33:47.0000000+00:00'
+- author: tomasalves8
+  changes:
+  - {message: Players can no longer unbuckle or toggle internals while dead or in
+      critical condition, type: Fix}
+  id: 352
+  time: '2023-01-27T22:36:29.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Drones are back with a new overlay and some of their old law enforcement
+      mechanics tweaked. Fifth time is the charm? Don''t make me disable them again.',
+    type: Add}
+  - {message: Drone interaction blocker is predicted., type: Fix}
+  id: 353
+  time: '2023-01-28T01:13:28.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Added Sake and Soju bottles and glasses. Kanpai!, type: Add}
+  id: 354
+  time: '2023-01-28T04:08:18.0000000+00:00'
+- author: router
+  changes:
+  - {message: Added more triggers to the emoting system., type: Tweak}
+  id: 355
+  time: '2023-01-28T04:37:09.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: The unknown humanoids drone see should look a bit better., type: Fix}
+  id: 356
+  time: '2023-01-28T18:57:37.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Drone restrictions only apply to items and mobs, not structures.',
+    type: Fix}
+  id: 357
+  time: '2023-01-28T22:20:30.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: 'Removed most small salvages from rotation. If you''re interested in
+      working on the brand new salvage set, check our mapping channel.', type: Remove}
+  id: 358
+  time: '2023-01-28T22:31:26.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: The station's automated PA system has been upgraded., type: Add}
+  id: 359
+  time: '2023-01-30T04:41:17.0000000+00:00'
+- author: Debug
+  changes:
+  - {message: Fixed Moth and Felinid screams using the wrong sound, type: Fix}
+  id: 360
+  time: '2023-01-30T18:18:40.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Screams should no longer double., type: Fix}
+  id: 361
+  time: '2023-01-30T21:21:51.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream. Their killer feature for this weekend is headset encryption
+      keys., type: Add}
+  id: 362
+  time: '2023-01-30T21:24:07.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Jetpacks and syndicate encryption keys can be reverse engineered., type: Add}
+  - {message: Fixed the draw depth for the reverse engineering machine., type: Fix}
+  id: 363
+  time: '2023-01-30T22:04:59.0000000+00:00'
+- author: Faye
+  changes:
+  - {message: Did a pass on all of the N.E.I.L. voice lines after player feedback.,
+    type: Add}
+  id: 364
+  time: '2023-01-30T22:05:16.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Bluespace crystals can be recovered from deconstruction., type: Fix}
+  id: 365
+  time: '2023-01-30T23:31:42.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Added a corridor between Salvage and Cargo on Ovni, type: Tweak}
+  id: 366
+  time: '2023-01-31T00:33:11.0000000+00:00'
+- author: Velcroboy
+  changes:
+  - {message: Rebalanced angry critters!, type: Tweak}
+  id: 367
+  time: '2023-01-31T00:38:50.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Scrubber backpressure now comes out of scrubbers instead of vents, type: Fix}
+  id: 368
+  time: '2023-01-31T01:33:57.0000000+00:00'
+- author: Kromabae
+  changes:
+  - {message: a bunch of lights from pebble, type: Remove}
+  id: 369
+  time: '2023-01-31T18:10:41.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Fixed cold clothing not protecting against cold; also scarves protect
+      against cold now., type: Fix}
+  id: 370
+  time: '2023-01-31T18:56:51.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Primates from the metempsychtoic machine can emote again., type: Fix}
+  id: 371
+  time: '2023-01-31T23:00:28.0000000+00:00'
+- author: Faye
+  changes:
+  - {message: Remastered all N.E.I.L. announcements., type: Tweak}
+  id: 372
+  time: '2023-02-01T01:02:13.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Removed windup from melee weapons., type: Remove}
+  - {message: Heavy attacks now cost more stamina., type: Add}
+  id: 373
+  time: '2023-02-01T02:08:07.0000000+00:00'
+- author: Hyenh
+  changes:
+  - {message: The mail carrier can now get a winter coat from the MailDrobe., type: Add}
+  - {message: 'Added two new types of winter coats, available in the mail and from
+      the ClothesMate.', type: Add}
+  - {message: Freed the soul of the Discount Dan's vending machine sprite., type: Fix}
+  id: 374
+  time: '2023-02-03T19:09:20.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Merged Emisse's salvage updates from upstream., type: Add}
+  id: 375
+  time: '2023-02-04T22:47:38.0000000+00:00'
+- author: Hyenh
+  changes:
+  - {message: Added a winter coat for the forensic mantis., type: Add}
+  id: 376
+  time: '2023-02-05T06:59:40.0000000+00:00'
+- author: Huvy
+  changes:
+  - {message: Added an entirely new outfit for the forensic mantis., type: Add}
+  id: 377
+  time: '2023-02-05T08:36:05.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Trying to refill a lit welder feels impossibly stupid now, type: Tweak}
+  id: 378
+  time: '2023-02-05T17:02:49.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: The forensic mantis' extra headset is now a proper mantis headset instead
+      of a regular epistemics headset., type: Fix}
+  - {message: The forensic mantis' cabinet has been made more resilient to intrusion.,
+    type: Tweak}
+  - {message: 'The forensic mantis'' cabinet now holds all of the mantis'' gear, including
+      the anti-psychic knife.', type: Add}
+  - {message: The Forensics Drobe has been retired., type: Remove}
+  id: 379
+  time: '2023-02-05T17:03:15.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: The Vaccinator's UI will now update as soon as a vaccine is available.,
+    type: Tweak}
+  - {message: Fixed the Vaccinator not connecting to a server on startup., type: Fix}
+  id: 380
+  time: '2023-02-05T19:53:57.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Merged the bugfix from upstream for voice masks., type: Add}
+  id: 381
+  time: '2023-02-05T20:43:04.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Unlit welders are ATEX certified again. Lit welders are definitely not.,
+    type: Fix}
+  id: 382
+  time: '2023-02-06T14:33:56.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Felinids and moths can laugh with sound again., type: Fix}
+  id: 383
+  time: '2023-02-07T09:20:03.0000000+00:00'

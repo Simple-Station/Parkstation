@@ -7,6 +7,7 @@
   - type: Sprite
     netsync: false
     sprite: Objects/Materials/Sheets/other.rsi
+    scale: 0.65, 0.65
   - type: Item
     sprite: Objects/Materials/Sheets/other.rsi
   - type: ItemStatus
@@ -152,7 +153,14 @@
   - type: Stack
     stackType: Uranium
   - type: Sprite
-    state: uranium
+    state: uranium_3
+  - type: Appearance
+    visuals:
+    - type: StackVisualizer
+      stackLayers:
+      - uranium
+      - uranium_2
+      - uranium_3
   - type: Item
     heldPrefix: uranium
   - type: Extractable

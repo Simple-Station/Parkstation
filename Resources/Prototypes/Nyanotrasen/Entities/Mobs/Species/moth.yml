@@ -5,7 +5,7 @@
   id: BaseMobMoth
   abstract: true
   components:
-  - type: Humanoid
+  - type: HumanoidAppearance
     species: Moth
   - type: Hunger
   - type: Thirst
@@ -76,11 +76,11 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: female_full
         visible: false
-      - map: ["underpants"]
-      - map: ["undershirt"]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
       - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
@@ -117,7 +117,7 @@
   noSpawn: true
   description: A dummy moth meant to be used in character setup.
   components:
-  - type: Humanoid
+  - type: HumanoidAppearance
     species: Moth
 
 #Weh

@@ -287,7 +287,6 @@
     - ShellSoulbreaker
     - CartridgePistolRubber
     - CartridgeMagnumRubber
-    - CartridgeCaselessRifleRubber
     - CartridgeLightRifleRubber
     - CartridgeRifleRubber
     - ShockCollar
@@ -434,6 +433,11 @@
   - SignalTrigger
   - VoiceTrigger
   - TimerTrigger
+  - CapacitorStockPart
+  - MatterBinStockPart
+  - MicroLaserStockPart
+  - MicroManipulatorStockPart
+  - ScanningModuleStockPart
 
 - type: technology
   name: technologies-electrical-engineering
@@ -541,6 +545,42 @@
   unlockedRecipes:
   - PowerCellHigh
 
+- type: technology
+  name: technologies-adv-parts-technology
+  id: AdvancedPartsTechnology
+  description: technologies-adv-parts-technology-description
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: adv_capacitor
+  requiredPoints: 15000
+  requiredTechnologies:
+  - CompactPowerTechnology
+  - ElectricalEngineering
+  unlockedRecipes:
+  - AdvancedCapacitorStockPart
+  - AdvancedMatterBinStockPart
+  - HighPowerMicroLaserStockPart
+  - NanoManipulatorStockPart
+  - AdvancedScanningModuleStockPart
+  - ReverseEngineeringMachineCircuitboard
+
+- type: technology
+  name: technologies-robotics-technology
+  id: RoboticsTechnology
+  description: technologies-robotics-technology-description
+  icon:
+    sprite: Mobs/Silicon/Bots/honkbot.rsi
+    state: honkbot
+  requiredPoints: 7500
+  requiredTechnologies:
+  - CompactPowerTechnology
+  unlockedRecipes:
+  - ProximitySensor
+  - LeftArmBorg
+  - RightArmBorg
+  - Drone
+  - ExosuitFabricatorMachineCircuitboard
+
 # Entertainment Technology Tree
 
 - type: technology
@@ -571,29 +611,22 @@
   - BasicResearch
   unlockedRecipes:
   - TechDiskComputerCircuitboard
-  - CapacitorStockPart
-  - MatterBinStockPart
-  - MicroLaserStockPart
-  - MicroManipulatorStockPart
-  - ScanningModuleStockPart
   - NodeScanner
+  - AnomalyScanner
 
 - type: technology
-  name: technologies-robotics-technology
-  id: RoboticsTechnology
-  description: technologies-robotics-technology-description
+  name: technologies-anomaly-technology
+  id: AnomalyTechnology
+  description: technologies-anomaly-technology-description
   icon:
-    sprite: Mobs/Silicon/Bots/honkbot.rsi
-    state: honkbot
-  requiredPoints: 7500
+    sprite: Structures/Machines/Anomaly/ape.rsi
+    state: base
+  requiredPoints: 10000
   requiredTechnologies:
   - ScientificTechnology
   unlockedRecipes:
-  - ProximitySensor
-  - LeftArmBorg
-  - RightArmBorg
-  - Drone
-  - ExosuitFabricatorMachineCircuitboard
+  - AnomalyVesselCircuitboard
+  - APECircuitboard
 
 - type: technology
   name: technologies-archaeology
@@ -611,26 +644,6 @@
   - TraversalDistorterMachineCircuitboard
 
 - type: technology
-  name: technologies-adv-parts-technology
-  id: AdvancedPartsTechnology
-  description: technologies-adv-parts-technology-description
-  icon:
-    sprite: Objects/Misc/stock_parts.rsi
-    state: adv_capacitor
-  requiredPoints: 15000
-  requiredTechnologies:
-  - ScientificTechnology
-  - CompactPowerTechnology
-  unlockedRecipes:
-  - AdvancedCapacitorStockPart
-  - AdvancedMatterBinStockPart
-  - HighPowerMicroLaserStockPart
-  - NanoManipulatorStockPart
-  - AdvancedScanningModuleStockPart
-  - ReverseEngineeringMachineCircuitboard
-
-# Spacetime - the end point...
-- type: technology
   name: technologies-space-time-technology
   id: SpaceTimeTechnology
   description: technologies-space-time-technology-description
@@ -642,7 +655,7 @@
     - CompactPowerTechnology
     - AdvancedPartsTechnology
     - ArchaeologicalEquipment
-    - ChemistryTechnology
+    - AnomalyTechnology
   unlockedRecipes:
     - QSI
     - BluespaceBeaker
