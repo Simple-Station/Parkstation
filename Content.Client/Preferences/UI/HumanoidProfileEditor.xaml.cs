@@ -630,7 +630,7 @@ namespace Content.Client.Preferences.UI
 
             _tabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-loadouts-tab"));
             _loadoutPreferences = new List<LoadoutPreferenceSelector>();
-            var loadouts = prototypeManager.EnumeratePrototypes<LoadoutPrototype>().OrderBy(l => Loc.GetString(l.Name)).ToList();
+            var loadouts = prototypeManager.EnumeratePrototypes<LoadoutPrototype>().OrderBy(l => l.ID).ToList();
 
             if (loadouts.Count >= 0)
             {
@@ -1441,6 +1441,7 @@ namespace Content.Client.Preferences.UI
         {
             if (_traitPoints.Text == null) return;
             int points = 0; // Default value from the xaml, keep these consistent or issues will arise
+            _traitPoints.Text = points.ToString();
 
             foreach (var preferenceSelector in _traitPreferences)
             {
@@ -1461,6 +1462,7 @@ namespace Content.Client.Preferences.UI
         {
             if (_loadoutPoints.Text == null) return;
             int points = 9; // Default value from the xaml, keep these consistent or issues will arise
+            _loadoutPoints.Text = points.ToString();
 
             if (_loadoutPreferences == null) return;
 
