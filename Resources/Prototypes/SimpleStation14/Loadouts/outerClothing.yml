@@ -5,3 +5,43 @@
   category: Outer
   cost: 2
   item: ClothingOuterGhostSheet
+
+- type: loadout
+  id: LoadoutClothingOuterPirateCoat
+  name: Pirate costume
+  description: Yarrrr!
+  category: Outer
+  cost: 3
+  item: ClothingOuterCoatPirateBlack
+
+- type: loadout
+  id: LoadoutClothingOuterBomberjacket
+  name: Bomber jacket
+  description: A sleek bomber jacket.
+  category: Outer
+  cost: 3
+  item: ClothingOuterCoatBomber
+
+- type: loadout
+  id: LoadoutClothingOuterHoodieBlack
+  name: Black hoodie
+  description: A warm hoodie.
+  category: Outer
+  cost: 2
+  item: ClothingOuterHoodieBlack
+
+- type: loadout
+  id: LoadoutClothingOuterHoodieGrey
+  name: Grey hoodie
+  description: A warm hoodie.
+  category: Outer
+  cost: 2
+  item: ClothingOuterHoodieGrey
+
+- type: loadout
+  id: LoadoutClothingOuterHoodiePurple
+  name: Purple hoodie
+  description: With an actual hood! Amazing!
+  category: Outer
+  cost: 4
+  item: ClothingOuterPurpleCoat # :D

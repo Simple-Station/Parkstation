@@ -2,23 +2,23 @@
   id: LoadoutHeadBunny
   name: Bunny Ears
   description: "I hope this doesn't awaken anything in me..."
-  category: Head
+  category: Accessories
   cost: 3
   item: ClothingHeadHatBunny
 
-- type: loadout
-  id: LoadoutHeadCatEars
-  name: Cat Ears
-  description: "I hope this doesn't awaken anything in me..."
-  category: Head
-  cost: 4
-  item: ClothingHeadHatCatEars
+# - type: loadout # Furry and too many goofy features :P
+#   id: LoadoutHeadCatEars
+#   name: Cat Ears
+#   description: "I hope this doesn't awaken anything in me..."
+#   category: Accessories
+#   cost: 4
+#   item: ClothingHeadHatCatEars
 
 - type: loadout
   id: LoadoutHeadBeaverHat
   name: Beaver Hat
   description: Gentlemen.
-  category: Head
+  category: Accessories
   cost: 2
   item: ClothingHeadHatBeaverHat
 
@@ -26,16 +26,16 @@
   id: LoadoutHeadTophat
   name: Tophat
   description: A stylish black tophat.
-  category: Head
+  category: Accessories
   cost: 2
   item: ClothingHeadHatTophat
 
-- type: loadout
-  id: LoadoutHeadPaperSack
-  name: Paper Sack
-  description: WE ARE ANNONYMOUS
-  category: Head
-  cost: 3
-  jobWhitelist:
-    - Passenger
-  item: ClothingHeadPaperSack
+# - type: loadout
+#   id: LoadoutHeadPaperSack
+#   name: Paper Sack
+#   description: WE ARE ANNONYMOUS
+#   category: Accessories
+#   cost: 3
+#   jobWhitelist:
+#     - Passenger
+#   item: ClothingHeadPaperSack

@@ -2,7 +2,7 @@
   id: LoadoutEyesSalesman
   name: Colored Glasses
   description: Best salesman of 1997.
-  category: Eyes
+  category: Accessories
   cost: 1
   item: ClothingEyesSalesman
 
@@ -10,7 +10,7 @@
   id: LoadoutEyesEyepatch
   name: Eyepatch
   description: Eyewear, for the fashionista without and eye.
-  category: Eyes
+  category: Accessories
   cost: 1
   item: ClothingEyesEyepatch
 
@@ -18,6 +18,6 @@
   id: LoadoutEyesBlindfold
   name: Blindfold
   description: Why would you want this?
-  category: Eyes
+  category: Accessories
   cost: 2
   item: ClothingEyesBlindfold

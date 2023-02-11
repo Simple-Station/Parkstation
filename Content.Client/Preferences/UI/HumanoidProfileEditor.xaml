@@ -163,7 +163,7 @@
                     <BoxContainer Orientation="Horizontal">
                         <Label Text="Available Points: " />
                         <!-- Keep this value consistent with the Update__Preferences function's default 'points' value or issues will arise. -->
-                        <Label Text="9" Name="LoadoutPoints" />
+                        <Label Text="14" Name="LoadoutPoints" />
                     </BoxContainer>
                     <ScrollContainer VerticalExpand="True">
                         <TabContainer Name="CLoadoutsTabs" VerticalExpand="True" />

@@ -3,7 +3,7 @@
   name: "American Flag Knee-Highs"
   description: "Wear your patriotism on your legs with these American Flag knee-highs!"
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderAssBlastUSA_knee
 
@@ -12,7 +12,7 @@
   name: "American Flag Thigh-Highs"
   description: "Get ready to wave the flag (on your legs) with these American Flag thigh-highs!"
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderAssBlastUSA_thigh
 
@@ -21,7 +21,7 @@
   name: "Bee Knee-Highs"
   description: "Bee yourself with these bee knee-highs, perfect for any occasion buzzing with excitement!"
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderBee_knee
 
@@ -30,7 +30,7 @@
   name: "Bee Socks"
   description: "Buzz your way into style with these bee socks, just bee-ware of fashion critics!"
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderBee_norm
 
@@ -39,7 +39,7 @@
   name: "Bee Thigh-Highs"
   description: "Bee the center of attention with these bee thigh-highs, because who wouldn't want to bee near such a buzz-worthy fashion statement?"
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderBee_thigh
 
@@ -48,7 +48,7 @@
   name: "Green Striped Knee-Highs"
   description: "Get ready to spread some holiday cheer with these green striped knee-highs, perfect for any Christmas celebration!"
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderCandyCaneg_knee
 
@@ -57,7 +57,7 @@
   name: "Green Striped Socks"
   description: "Step into the holiday season with these green striped socks, perfect for spreading holiday cheer one step at a time!"
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderCandyCaneg_norm
 
@@ -66,7 +66,7 @@
   name: "Green Striped Thigh-Highs"
   description: "Get ready to jingle all the way with these green striped thigh-highs, perfect for spreading holiday cheer from your knees to your hips!"
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderCandyCaneg_thigh
 
@@ -75,7 +75,7 @@
   name: "Red Striped Knee-Highs"
   description: "Get into the holiday spirit with these red striped knee-highs, perfect for any Christmas celebration!"
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderCandyCaner_knee
 
@@ -85,7 +85,7 @@
   name: "Red Striped Socks"
   description: "Add some sweetness to your step with these candy cane socks."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderCandyCaner_norm
 
@@ -94,7 +94,7 @@
   name: "Red Striped Thigh-Highs"
   description: "Stride with confidence and a little bit of sass with these red striped thigh-highs."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderCandyCaner_thigh
 
@@ -103,7 +103,7 @@
   name: "Christmas Knee-Highs"
   description: "Spread holiday cheer all year round with these festive knee-highs."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderChristmas_knee
 
@@ -112,7 +112,7 @@
   name: "Christmas Socks"
   description: "Wrap your feet up in holiday warmth with these cozy Christmas socks."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderChristmas_norm
 
@@ -121,7 +121,7 @@
   name: "Christmas Thigh-Highs"
   description: "Get in the holiday spirit from the toes up with these merry thigh-highs."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderChristmas_thigh
 
@@ -130,7 +130,7 @@
   name: "Commie Knee-Highs"
   description: "Make a political statement with these fun and funky commie knee-highs."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderCommie_knee
 
@@ -139,7 +139,7 @@
   name: "Commie Thigh-Highs"
   description: "Show your revolutionary spirit from the knees up with these commie thigh-highs."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderCommie_thigh
 
@@ -148,7 +148,7 @@
   name: "Garter"
   description: "Get a leg up on style with this versatile garter."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderGarter
 
@@ -158,7 +158,7 @@
   name: "Rainbow Knee-High Socks"
   description: "Step into a rainbow with these knee-highs. Perfect for brightening up a dull day!"
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderRainbow_knee
 
@@ -167,7 +167,7 @@
   name: "Rainbow Thigh-High Socks"
   description: "Get legs for days with these rainbow thigh-highs! Perfect for showing off a little bit of color."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderRainbow_thigh
 
@@ -176,7 +176,7 @@
   name: "Knee-High Socks"
   description: "Bring back the knee-highs! Perfect for keeping your legs warm and looking stylish."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderSocks_knee
 
@@ -185,7 +185,7 @@
   name: "Socks"
   description: "Keep your feet toasty with these basic socks. Perfect for when you need to blend in with the crowd."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderSocks_norm
 
@@ -194,7 +194,7 @@
   name: "Short Socks"
   description: "Stay cool with these short socks. Perfect for when you want to show off your footwear."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderSocks_short
 
@@ -203,7 +203,7 @@
   name: "Thigh-High Socks"
   description: "Make a statement with these thigh-highs. Perfect for when you want to add a pop of color to your outfit."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderSocks_thigh
 
@@ -212,7 +212,7 @@
   name: "Blue Thigh-High Stockings"
   description: "Stay cool and classic with these blue thigh-highs. Perfect for a touch of sophistication."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderStockings_blue
 
@@ -221,7 +221,7 @@
   name: "Cyan Thigh-High Stockings"
   description: "Make a splash with these cyan thigh-highs. Perfect for when you want to stand out in a sea of black."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderStockings_cyan
 
@@ -230,7 +230,7 @@
   name: "Dark Pink Thigh-High Stockings"
   description: "Stay sultry with these dark pink thigh-highs. Perfect for a night out on the town."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderStockings_dpink
 
@@ -239,7 +239,7 @@
   name: "Green Thigh-High Stock"
   description: "Make everyone green with envy with these stylish and comfortable green thigh-highs."
   category: "Socks"
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderStockings_green
 
@@ -249,7 +249,7 @@
   name: "Coder Socks"
   description: "For all the geeks out there who need a quick code-fix while they walk."
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderStockings_lpink
 
@@ -258,7 +258,7 @@
   name: "Orange Thigh-Highs"
   description: "For the daring fashionista who's not afraid of a little...well, a lot of color."
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderStockings_orange
 
@@ -267,7 +267,7 @@
   name: "Purple Thigh-Highs"
   description: "For royalty and those who want to feel like it, every step of the way."
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderStockings_purple
 
@@ -276,7 +276,7 @@
   name: "Yellow Thigh-Highs"
   description: "For the sunshine on a cloudy day and those who want to bring a little light wherever they go."
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderStockings_yellow
 
@@ -285,7 +285,7 @@
   name: "Striped Knee-Highs"
   description: "For the sailor in all of us, or for those who just really love stripes."
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderStriped_knee
 
@@ -294,7 +294,7 @@
   name: "Striped Thigh-Highs"
   description: "For the fashionista who's feeling a little nautical and a little sassy."
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderStriped_thigh
 
@@ -303,7 +303,7 @@
   name: "Thin Knee-Highs"
   description: "For the minimalist who wants a touch of style without the bulk."
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderThin_knee
 
@@ -312,7 +312,7 @@
   name: "Thin Thigh-Highs"
   description: "For the minimalist who wants a touch of style without the bulk, up higher."
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderThin_thigh
 
@@ -321,7 +321,7 @@
   name: "UK Knee-Highs"
   description: "For the Anglophile who wants a touch of Britain with every step."
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderUK_knee
 
@@ -330,6 +330,6 @@
   name: "UK Thigh-Highs"
   description: "For the Anglophile who wants to show their love for Britain, head to toe."
   category: Socks
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderUK_thigh

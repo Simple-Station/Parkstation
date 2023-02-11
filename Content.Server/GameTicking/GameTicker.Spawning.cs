@@ -245,19 +245,21 @@ namespace Content.Server.GameTicking
 
                     if (EntityManager.TryGetComponent<ClothingComponent>(spawned, out var clothingComp))
                     {
-                        if (loadoutProto.Exclusive)
+                        if (invSystem.TryGetSlots(mob, out var slotDefinitions) && slotDefinitions != null)
                         {
-                            if (invSystem.TryGetSlots(mob, out var slotDefinitions) && slotDefinitions != null)
+                            var deleted = false;
+                            foreach (var slotCur in slotDefinitions)
                             {
-                                var deleted = false;
-                                foreach (var slotCur in slotDefinitions)
-                                {
-                                    if (!clothingComp.Slots.HasFlag(slotCur.SlotFlags) || deleted) continue;
-                                    if (invSystem.TryGetSlotEntity(mob, slotCur.Name, out var slotItem)) EntityManager.DeleteEntity((EntityUid)slotItem);
+                                if (!clothingComp.Slots.HasFlag(slotCur.SlotFlags) || deleted) continue;
 
-                                    slot = slotCur.Name;
-                                    deleted = true;
+                                if (invSystem.TryGetSlotEntity(mob, slotCur.Name, out var slotItem)) {
+                                    var slotItemMeta = EntityManager.GetComponent<MetaDataComponent>(slotItem.Value);
+                                    if (loadoutProto.Exclusive || slotItemMeta.EntityName == "grey jumpsuit")
+                                    EntityManager.DeleteEntity((EntityUid)slotItem);
                                 }
+
+                                slot = slotCur.Name;
+                                deleted = true;
                             }
                         }
                     }

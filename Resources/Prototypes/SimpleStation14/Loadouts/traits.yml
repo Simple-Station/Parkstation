@@ -1,7 +1,18 @@
 # Nearsighted
 
 - type: loadout
-  id: LoadoutEyesPrescriptionMediHUD
+  id: LoadoutNearsightedEyesGlasses
+  name: Prescription glasses
+  description: "For 'yer peepers"
+  category: Traits
+  cost: 0
+  whitelist:
+    components:
+      - Nearsighted
+  item: ClothingEyesGlasses
+
+- type: loadout
+  id: LoadoutNearsightedEyesMediHUD
   name: Prescription Medical HUD
   description: Ironic...
   category: Traits
