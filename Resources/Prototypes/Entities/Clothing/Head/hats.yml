@@ -305,7 +305,8 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/santahat.rsi
   - type: TemperatureProtection
-    coefficient: 0.35
+    coefficient: 0.33
+
   - type: DropOnSlip
     chance: 20
 
@@ -384,10 +385,10 @@
     sprite: Clothing/Head/Hats/ushanka.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/ushanka.rsi
+  - type: TemperatureProtection
+    coefficient: 0.4
   - type: AddAccentClothing
     accent: RussianAccent
-  - type: TemperatureProtection
-    coefficient: 0.25
   - type: DropOnSlip
     chance: 20
 
