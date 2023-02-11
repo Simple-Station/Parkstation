@@ -1,7 +1,7 @@
 - type: loadout
-  id: LoadoutOuterClothingGhostSheet
+  id: LoadoutClothingOuterGhostSheet
   name: Ghost Sheet
   description: Spooky..
   category: Outer
   cost: 2
-  item: OuterClothingGhostSheet
+  item: ClothingOuterGhostSheet

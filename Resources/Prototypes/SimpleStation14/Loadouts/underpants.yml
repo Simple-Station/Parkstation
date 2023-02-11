@@ -230,14 +230,14 @@
   exclusive: true
   item: ClothingUnderstriped_panties
 
-- type: loadout
-  id: LoadoutUnderthong_babydoll
-  name: "Thong Babydoll"
-  description: "For when you want to feel cute and scandalous at the same time."
-  category: Underwear
-  cost: 1
-  exclusive: true
-  item: ClothingUnderthong_babydoll
+# - type: loadout
+#   id: LoadoutUnderthong_babydoll
+#   name: "Thong Babydoll"
+#   description: "For when you want to feel cute and scandalous at the same time."
+#   category: Underwear
+#   cost: 1
+#   exclusive: true
+#   item: ClothingUnderthong_babydoll
 
 # - type: loadout
 #   id: LoadoutUnderthong

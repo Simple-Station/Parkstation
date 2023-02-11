@@ -520,7 +520,7 @@ namespace Content.Client.Preferences.UI
 
             #region Traits
 
-            var traits = prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => t.Cost).ToList();
+            var traits = prototypeManager.EnumeratePrototypes<TraitPrototype>().ToList();
             _traitPreferences = new List<TraitPreferenceSelector>();
             _tabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab"));
 
@@ -1460,7 +1460,7 @@ namespace Content.Client.Preferences.UI
         private void UpdateLoadoutPreferences()
         {
             if (_loadoutPoints.Text == null) return;
-            int points = 201; // Default value from the xaml, keep these consistent or issues will arise
+            int points = 9; // Default value from the xaml, keep these consistent or issues will arise
 
             if (_loadoutPreferences == null) return;
 
@@ -1611,6 +1611,19 @@ namespace Content.Client.Preferences.UI
             {
                 Loadout = loadout;
 
+                var entman = IoCManager.Resolve<IEntityManager>();
+                var dummyLoadout = entman.SpawnEntity(loadout.Item, MapCoordinates.Nullspace);
+                var sprite = entman.GetComponent<SpriteComponent>(dummyLoadout);
+
+                var previewLoadout = new SpriteView
+                {
+                    Sprite = sprite,
+                    Scale = (1, 1),
+                    OverrideDirection = Direction.South,
+                    VerticalAlignment = VAlignment.Center,
+                    SizeFlagsStretchRatio = 1
+                };
+
                 _checkBox = new CheckBox {Text = Loc.GetString(loadout.Name)};
                 _checkBox = new CheckBox { Text = $"[{loadout.Cost}] {loadout.Name}" };
                 _checkBox.OnToggled += OnCheckBoxToggled;
@@ -1666,7 +1679,7 @@ namespace Content.Client.Preferences.UI
                 AddChild(new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
-                    Children = { _checkBox },
+                    Children = { previewLoadout, _checkBox },
                 });
             }
 
