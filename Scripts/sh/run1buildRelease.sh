@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/usr/bin/env sh
 
 # make sure to start from script dir
 if [ "$(dirname $0)" != "." ]; then
@@ -7,9 +7,4 @@ fi
 
 cd ../../
 
-if [ -e sloth.txt ]
-then
-    dotnet build -c Release
-else
-    exit
-fi
+dotnet build -c Release
