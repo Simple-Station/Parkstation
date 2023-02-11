@@ -1461,7 +1461,7 @@ namespace Content.Client.Preferences.UI
         private void UpdateLoadoutPreferences()
         {
             if (_loadoutPoints.Value == null) return;
-            int points = 9; // Default value from the xaml, keep these consistent or issues will arise
+            int points = 14; // Default value from the xaml, keep these consistent or issues will arise
             _loadoutPoints.Value = points;
 
             if (_loadoutPreferences == null) return;

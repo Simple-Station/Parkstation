@@ -1,7 +1,7 @@
 # Command
 
 - type: loadout
-  id: LoadoutNeckMantleCE
+  id: LoadoutCommandNeckMantleCE
   name: CE Mantle
   description: "To really show who has the authority around here."
   category: Jobs
@@ -12,7 +12,7 @@
   item: ClothingNeckMantleCE
 
 - type: loadout
-  id: LoadoutNeckMantleCMO
+  id: LoadoutCommandNeckMantleCMO
   name: CMO Mantle
   description: "To really show who has the authority around here."
   category: Jobs
@@ -23,7 +23,7 @@
   item: ClothingNeckMantleCMO
 
 - type: loadout
-  id: LoadoutNeckMantleHOP
+  id: LoadoutCommandNeckMantleHOP
   name: HOP Mantle
   description: "To really show who has the authority around here."
   category: Jobs
@@ -34,7 +34,7 @@
   item: ClothingNeckMantleHOP
 
 - type: loadout
-  id: LoadoutNeckMantleHOS
+  id: LoadoutCommandNeckMantleHOS
   name: HOS Mantle
   description: "To really show who has the authority around here."
   category: Jobs
@@ -45,7 +45,7 @@
   item: ClothingNeckMantleHOS
 
 - type: loadout
-  id: LoadoutNeckMantleRD
+  id: LoadoutCommandNeckMantleRD
   name: RD Mantle
   description: "To really show who has the authority around here."
   category: Jobs
@@ -60,7 +60,7 @@
 # Security
 
 - type: loadout
-  id: LoadoutUniformSecurityGrey
+  id: LoadoutSecurityUniformGrey
   name: Grey Security jumpsuit
   description: "An alternate job equipment."
   category: Jobs
@@ -70,11 +70,22 @@
     - SecurityOfficer
   item: ClothingUniformJumpsuitSecGrey
 
+- type: loadout
+  id: LoadoutSecurityOuterClothingKevlar
+  name: Kevlar vest
+  description: "For the Secoff who knows what's comin'"
+  category: Jobs
+  cost: 4
+  exclusive: true
+  jobWhitelist:
+    - SecurityOfficer
+  item: ClothingOuterVestKevlar
+
 
 # Medical
 
 - type: loadout
-  id: LoadoutEyesMediHUD
+  id: LoadoutMedicalEyesMediHUD
   name: Medical HUD
   description: "An alternate job equipment."
   category: Jobs
@@ -86,7 +97,7 @@
   item: ClothingEyesHudMedical
 
 - type: loadout
-  id: LoadoutOuterClothingMedicalLabcoat
+  id: LoadoutMedicalOuterClothingLabcoat
   name: Lab coat
   description: "An alternate job equipment."
   category: Jobs
@@ -97,7 +108,7 @@
   item: ClothingOuterCoatLab
 
 - type: loadout
-  id: LoadoutNeckMedicalStethoscope
+  id: LoadoutMedicalNeckStethoscope
   name: Stethoscope
   description: "An alternate job equipment."
   category: Jobs
@@ -109,7 +120,7 @@
   item: ClothingNeckStethoscope
 
 - type: loadout
-  id: LoadoutUniformChemistSuit
+  id: LoadoutMedicalUniformChemistSuit
   name: Chemist Jumpsuit
   description: "An alternate job equipment."
   category: Jobs
@@ -120,7 +131,7 @@
   item: ClothingUniformJumpskirtChemistry
 
 - type: loadout
-  id: LoadoutUniformChemistSkirt
+  id: LoadoutMedicalUniformChemistSkirt
   name: Chemist Jumpskirt
   description: "An alternate job equipment."
   category: Jobs
@@ -131,7 +142,18 @@
   item: ClothingUniformJumpsuitChemistry
 
 - type: loadout
-  id: LoadoutUniformScrubsBlue
+  id: LoadoutMedicalOuterClothingChemistLabcoat
+  name: Chemist lab coat
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - MedicalDoctor
+  item: ClothingOuterCoatLabChem
+
+- type: loadout
+  id: LoadoutMedicalUniformScrubsBlue
   name: Blue Scrubs
   description: "An alternate job equipment."
   category: Jobs
@@ -142,7 +164,7 @@
   item: UniformScrubsColorBlue
 
 - type: loadout
-  id: LoadoutUniformScrubsGreen
+  id: LoadoutMedicalUniformScrubsGreen
   name: Green Scrubs
   description: "An alternate job equipment."
   category: Jobs
@@ -153,7 +175,7 @@
   item: UniformScrubsColorGreen
 
 - type: loadout
-  id: LoadoutUniformScrubsPurple
+  id: LoadoutMedicalUniformScrubsPurple
   name: Purple Scrubs
   description: "An alternate job equipment."
   category: Jobs
@@ -164,7 +186,7 @@
   item: UniformScrubsColorPurple
 
 - type: loadout
-  id: LoadoutUniformParamedicJumpsuit
+  id: LoadoutMedicalUniformParamedicJumpsuit
   name: Paramedic jumpsuit
   description: "An alternate job equipment."
   category: Jobs
@@ -174,7 +196,7 @@
   item: ClothingUniformJumpsuitParamedic
 
 - type: loadout
-  id: LoadoutUniformParamedicJumpskirt
+  id: LoadoutMedicalUniformParamedicJumpskirt
   name: Paramedic jumpskirt
   description: "An alternate job equipment."
   category: Jobs
@@ -184,11 +206,33 @@
     - MedicalDoctor
   item: ClothingUniformJumpskirtParamedic
 
+- type: loadout
+  id: LoadoutMedicalUniformNurseJumpskirt
+  name: Nurse outfit
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - MedicalDoctor
+  item: ClothingUniformJumpskirtNurse
+
+- type: loadout
+  id: LoadoutMedicalHeadNurse
+  name: Nurse hat
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - MedicalDoctor
+  item: ClothingHeadNurseHat
+
 
 # Engineering
 
 - type: loadout
-  id: LoadoutUniformEngineeringHazard
+  id: LoadoutEngineeringUniformHazard
   name: Engineering hazard suit
   description: "An alternate job equipment."
   category: Jobs
@@ -199,49 +243,158 @@
   item: ClothingUniformJumpsuitEngineeringHazard
 
 - type: loadout
-  id: LoadoutOuterClothingChickenSuit
+  id: LoadoutEngineeringOuterClothingChickenSuit
   name: Eggmospheric Technician Suit
   description: "For the Eggmos tech who always knows where home is..."
   category: Jobs
-  cost: 2
+  cost: 3
   exclusive: true
   jobWhitelist:
     - AtmosphericTechnician # :)
   item: ClothingOuterSuitChicken
 
 - type: loadout
-  id: LoadoutHeadChicken
+  id: LoadoutEngineeringHeadChicken
   name: Eggmospheric Technician Helmet
   description: "For the Eggmos tech who always knows where home is..."
   category: Jobs
-  cost: 1
+  cost: 2
   exclusive: true
   jobWhitelist:
     - AtmosphericTechnician # :)
   item: ClothingHeadHatChickenhead
 
-
-# Epistemics
-
-
-
-# Service
-
 - type: loadout
-  id: LoadoutUniformJester
-  name: Jester suit
+  id: LoadoutEngineeringEyesMeson
+  name: Engineer goggles
   description: "An alternate job equipment."
   category: Jobs
   cost: 2
   exclusive: true
   jobWhitelist:
-    - Clown
-  item: ClothingUniformJumpsuitJester
+    - StationEngineer
+    - AtmosphericTechnician
+  item: ClothingEyesGlassesMeson
 
 - type: loadout
-  id: LoadoutUniformJesterAlt
-  name: Jester suit (Alt)
+  id: LoadoutEngineeringHeadHardhatBlue
+  name: Hard hat
   description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - StationEngineer
+    - AtmosphericTechnician
+  item: ClothingHeadHatHardhatBlue
+
+- type: loadout
+  id: LoadoutEngineeringHeadHardhatOrange
+  name: Hard hat
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - StationEngineer
+    - AtmosphericTechnician
+  item: ClothingHeadHatHardhatOrange
+
+- type: loadout
+  id: LoadoutEngineeringHeadHardhatYellow
+  name: Hard hat
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - StationEngineer
+    - AtmosphericTechnician
+  item: ClothingHeadHatHardhatYellow
+
+- type: loadout
+  id: LoadoutEngineeringHeadHardhatWhite
+  name: Hard hat
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - StationEngineer
+    - AtmosphericTechnician
+  item: ClothingHeadHatHardhatWhite
+
+- type: loadout
+  id: LoadoutEngineeringHeadHardhatRed
+  name: Hard hat
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - StationEngineer
+    - AtmosphericTechnician
+  item: ClothingHeadHatHardhatRed
+
+- type: loadout
+  id: LoadoutEngineeringItemInflatable
+  name: Emergency inflatable set
+  description: "A box containing infaltable walls and doors, for quickly patching up breaches."
+  category: Jobs
+  cost: 4
+  jobWhitelist:
+    - StationEngineer
+    - AtmosphericTechnician
+  item: BoxInflatable
+
+
+# Epistemics
+
+- type: loadout
+  id: LoadoutScienceOuterClothingLabcoat
+  name: Lab coat
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - Epistemologist
+    - Scientist
+  item: ClothingOuterCoatLab
+
+- type: loadout
+  id: LoadoutScienceItemTrackerAnomaly
+  name: Anomaly tracker
+  description: "A tracker used for locating anomalies on the station."
+  category: Jobs
+  cost: 3
+  jobWhitelist:
+    - Epistemologist
+    - ForensicMantis
+    - Cataloguer
+    - Scientist
+  item: PinpointerAnomaly
+
+- type: loadout
+  id: LoadoutScienceItemTrackerArtifact
+  name: Artifact tracker
+  description: "A tracker used for locating artifacts on the station."
+  category: Jobs
+  cost: 3
+  jobWhitelist:
+    - Epistemologist
+    - ForensicMantis
+    - Cataloguer
+    - Scientist
+  item: PinpointerArtifact
+
+
+# Service
+
+- type: loadout
+  id: LoadoutServiceClownUniformJesterAlt
+  name: Jester suit
+  description: "For the fool who knows their place."
   category: Jobs
   cost: 2
   exclusive: true
@@ -250,20 +403,20 @@
   item: ClothingUniformJumpsuitJesterAlt
 
 - type: loadout
-  id: LoadoutHeadJesterHat
-  name: Jester hat
-  description: "An alternate job equipment."
+  id: LoadoutServiceClownShoesJester
+  name: Jester shoes
+  description: "For the fool who knows their place."
   category: Jobs
   cost: 1
   exclusive: true
   jobWhitelist:
     - Clown
-  item: ClothingHeadHatJester
+  item: ClothingShoesJester
 
 - type: loadout
-  id: LoadoutHeadJesterHatAlt
-  name: Jester hat (Alt)
-  description: "An alternate job equipment."
+  id: LoadoutServiceClownHeadJesterHatAlt
+  name: Jester hat
+  description: "For the fool who knows their place."
   category: Jobs
   cost: 1
   exclusive: true
@@ -272,7 +425,7 @@
   item: ClothingHeadHatJesterAlt
 
 - type: loadout
-  id: LoadoutUniformBartenderPurple
+  id: LoadoutServiceBartenderUniformPurple
   name: Purple bartender jumpsuit
   description: "An alternate job equipment."
   category: Jobs
@@ -283,8 +436,8 @@
   item: ClothingUniformJumpsuitBartenderPurple
 
 - type: loadout
-  id: LoadoutUniformOveralls
-  name: overalls
+  id: LoadoutServiceBotanistUniformOveralls
+  name: Overalls
   description: "A rugged pair of overalls."
   category: Jobs
   cost: 2
@@ -294,7 +447,7 @@
   item: ClothingUniformOveralls
 
 - type: loadout
-  id: LoadoutUniformLawyerBlueSuit
+  id: LoadoutServiceLawyerUniformBlueSuit
   name: Blue Lawyer's suit
   description: A suit, very legal inded.
   category: Jobs
@@ -305,7 +458,7 @@
   item: ClothingUniformJumpsuitLawyerBlue
 
 - type: loadout
-  id: LoadoutUniformLawyerBlueSkirt
+  id: LoadoutServiceLawyerUniformBlueSkirt
   name: Blue Lawyer's skirt
   description: A skirt, very legal inded.
   category: Jobs
@@ -316,7 +469,7 @@
   item: ClothingUniformJumpskirtLawyerBlue
 
 - type: loadout
-  id: LoadoutUniformLawyerRedSuit
+  id: LoadoutServiceLawyerUniformRedSuit
   name: Red Lawyer's suit
   description: A suit, very legal inded.
   category: Jobs
@@ -327,7 +480,7 @@
   item: ClothingUniformJumpsuitLawyerRed
 
 - type: loadout
-  id: LoadoutUniformLawyerRedSkirt
+  id: LoadoutServiceLawyerUniformRedSkirt
   name: Red Lawyer's skirt
   description: A skirt, very legal inded.
   category: Jobs
@@ -338,7 +491,7 @@
   item: ClothingUniformJumpskirtLawyerRed
 
 - type: loadout
-  id: LoadoutUniformLawyerPurpleSuit
+  id: LoadoutServiceLawyerUniformPurpleSuit
   name: Purple Lawyer's suit
   description: A suit, very legal inded.
   category: Jobs
@@ -349,7 +502,7 @@
   item: ClothingUniformJumpsuitLawyerPurple
 
 - type: loadout
-  id: LoadoutUniformLawyerPurpleSkirt
+  id: LoadoutServiceLawyerUniformPurpleSkirt
   name: Purple Lawyer's skirt
   description: A skirt, very legal inded.
   category: Jobs
@@ -360,7 +513,7 @@
   item: ClothingUniformJumpskirtLawyerPurple
 
 - type: loadout
-  id: LoadoutUniformLawyerGoodSuit
+  id: LoadoutServiceLawyerUniformGoodSuit
   name: Grey Lawyer's suit
   description: A suit, very legal inded.
   category: Jobs
@@ -371,7 +524,7 @@
   item: ClothingUniformJumpsuitLawyerGood
 
 - type: loadout
-  id: LoadoutUniformLawyerGoodSkirt
+  id: LoadoutServiceLawyerUniformGoodSkirt
   name: Grey Lawyer's skirt
   description: A skirt, very legal inded.
   category: Jobs
@@ -382,7 +535,7 @@
   item: ClothingUniformJumpskirtLawyerGood
 
 - type: loadout
-  id: LoadoutUniformReporterJournalist
+  id: LoadoutServiceReporterUniformJournalist
   name: Journalist suit
   description: For the reporter on the case!
   category: Jobs
@@ -393,7 +546,7 @@
   item: ClothingUniformJumpsuitJournalist
 
 - type: loadout
-  id: LoadoutUniformReporterDetectivesuit
+  id: LoadoutServiceReporterUniformDetectivesuit
   name: Hard boiled suit
   description: Always reminds you of the one that got away...
   category: Jobs
@@ -404,7 +557,7 @@
   item: ClothingUniformJumpsuitDetective
 
 - type: loadout
-  id: LoadoutUniformReporterDetectiveskirt
+  id: LoadoutServiceReporterUniformDetectiveskirt
   name: Hard boiled skirt
   description: Always reminds you of the one that got away...
   category: Jobs

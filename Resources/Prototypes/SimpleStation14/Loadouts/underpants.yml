@@ -3,7 +3,7 @@
   name: "Bee Shorts"
   description: "The buzz-worthy choice for a summer day!"
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderbee_shorts
 
@@ -12,7 +12,7 @@
   name: "Boxer Briefs"
   description: "The perfect blend of comfort and support!"
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderboxer_briefs
 
@@ -21,7 +21,7 @@
   name: "American Flag Boxers"
   description: "Show your patriotic spirit with these stars and stripes!"
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderboxers_assblastusa
 
@@ -30,7 +30,7 @@
   name: "Commie Boxers"
   description: "A political statement in your pants."
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderboxers_commie
 
@@ -39,7 +39,7 @@
   name: "Heart Boxers"
   description: "A love letter to your significant other, written on your underwear."
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderboxers_heart
 
@@ -48,7 +48,7 @@
   name: "Striped Boxers"
   description: "A classic pattern, now in underwear form!"
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderboxers_striped
 
@@ -57,7 +57,7 @@
   name: "Union Jack Boxers"
   description: "Represent your British heritage with these stylish undies!"
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderboxers_uk
 
@@ -66,7 +66,7 @@
   name: "Boxers"
   description: "Classic and comfy, just like grandpa's!"
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderboxers
 
@@ -75,7 +75,7 @@
   name: "Briefs"
   description: "For those who want a snug fit in all the right places!"
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderbriefs
 
@@ -84,7 +84,7 @@
 #   name: "Fishnet Lower Underwear"
 #   description: "A daring choice, for those who want to leave little to the imagination!"
 #   category: Underwear
-#   cost: 1
+#   cost: 0
 #   item: ClothingUnderfishnet_lower
 
 - type: loadout
@@ -92,7 +92,7 @@
   name: "Jockstrap"
   description: "For the sporty and adventurous type!"
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderjockstrap
 
@@ -111,7 +111,7 @@
   name: "Panties"
   description: "Regular, good old fashioned panties."
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderpanties_alt
 
@@ -120,7 +120,7 @@
   name: "American Flag Panties"
   description: "For the patriotic bottom, show your love for the red, white, and blue."
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderpanties_assblastusa
 
@@ -129,7 +129,7 @@
   name: "Bee-Kini Panties"
   description: "Get a buzz going with these adorable bee-print panties."
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderpanties_bee-kini
 
@@ -138,7 +138,7 @@
   name: "Commie Panties"
   description: "For the rebellious and daring, these commie-themed panties will have you feeling revolutionary."
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderpanties_commie
 
@@ -147,7 +147,7 @@
 #   name: "Kinky Panties"
 #   description: "Get ready for some fun with these kinky and daring panties."
 #   category: Underwear
-#   cost: 1
+#   cost: 0
 #   item: ClothingUnderpanties_kinky
 
 - type: loadout
@@ -155,7 +155,7 @@
   name: "Neko Panties"
   description: "For the cat-lover, these cute neko-print panties are purr-fect."
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderpanties_neko
 
@@ -164,7 +164,7 @@
   name: "Slim Panties"
   description: "For the minimalist, these slim and comfortable panties are perfect."
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderpanties_slim
 
@@ -173,7 +173,7 @@
   name: "Swimming Panties"
   description: "Hit the pool in style with these cute swimming panties."
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderpanties_swimming
 
@@ -182,7 +182,7 @@
 #   name: "Thin Panties"
 #   description: "For the light and airy, these thin panties will have you feeling free."
 #   category: Underwear
-#   cost: 1
+#   cost: 0
 #   item: ClothingUnderpanties_thin
 
 - type: loadout
@@ -190,7 +190,7 @@
   name: "Union Jack Panties"
   description: "For the patriotic bottom, show your love for the UK with these union jack panties."
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderpanties_uk
 
@@ -199,7 +199,7 @@
   name: "Panties"
   description: "Regular, good old fashioned panties."
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderpanties
 
@@ -209,7 +209,7 @@
 #   name: "Ripped Pantyhose"
 #   description: "Who needs to be comfortable when you look this good?"
 #   category: Underwear
-#   cost: 1
+#   cost: 0
 #   item: ClothingUnderpantyhose_ripped
 
 - type: loadout
@@ -217,7 +217,7 @@
   name: "Pantyhose"
   description: "For when you want to look like a human-sized spider."
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderpantyhose
 
@@ -226,7 +226,7 @@
   name: "Striped Panties"
   description: "For when you want to make a fashion statement... down there."
   category: Underwear
-  cost: 1
+  cost: 0
   exclusive: true
   item: ClothingUnderstriped_panties
 
@@ -235,7 +235,7 @@
 #   name: "Thong Babydoll"
 #   description: "For when you want to feel cute and scandalous at the same time."
 #   category: Underwear
-#   cost: 1
+#   cost: 0
 #   exclusive: true
 #   item: ClothingUnderthong_babydoll
 
@@ -244,5 +244,5 @@
 #   name: "Thong"
 #   description: "For when you want to feel comfortable, but still turn heads."
 #   category: Underwear
-#   cost: 1
+#   cost: 0
 #   item: ClothingUnderthong
