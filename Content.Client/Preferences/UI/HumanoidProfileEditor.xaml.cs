@@ -679,7 +679,7 @@ namespace Content.Client.Preferences.UI
                 }
 
                 // Fill categories
-                foreach (var loadout in loadouts)
+                foreach (var loadout in loadouts.OrderBy(l => !l.Exclusive))
                 {
                     var selector = new LoadoutPreferenceSelector(loadout);
 

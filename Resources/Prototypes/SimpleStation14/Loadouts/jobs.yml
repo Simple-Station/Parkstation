@@ -191,6 +191,7 @@
   description: "An alternate job equipment."
   category: Jobs
   cost: 2
+  exclusive: true
   jobWhitelist:
     - MedicalDoctor
   item: ClothingUniformJumpsuitParamedic
