@@ -14,6 +14,7 @@ public sealed class ChannelSelectorPopup : Popup
         ChatSelectChannel.Emotes,
         ChatSelectChannel.Radio,
         ChatSelectChannel.Telepathic,
+        ChatSelectChannel.Empathy,
         ChatSelectChannel.LOOC,
         ChatSelectChannel.OOC,
         ChatSelectChannel.Dead,

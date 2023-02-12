@@ -8,6 +8,7 @@ using Content.Client.Examine;
 using Content.Client.Gameplay;
 using Content.Client.Ghost;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
+using Content.Client.SimpleStation14.Chat;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -46,6 +47,7 @@ public sealed class ChatUIController : UIController
     [UISystemDependency] private readonly ExamineSystem? _examine = default;
     [UISystemDependency] private readonly GhostSystem? _ghost = default;
     [UISystemDependency] private readonly PsionicChatUpdateSystem? _psionic = default!;
+    [UISystemDependency] private readonly ShadekinChatUpdateSystem? _shadekin = default!;
     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
 
     private ISawmill _sawmill = default!;
@@ -60,12 +62,14 @@ public sealed class ChatUIController : UIController
     public const char AliasRadio = ';';
     public const char AliasWhisper = ',';
     public const char AliasTelepathic = '=';
+    public const char AliasEmpathy = '~';
 
     public static readonly Dictionary<char, ChatSelectChannel> PrefixToChannel = new()
     {
         {AliasLocal, ChatSelectChannel.Local},
         {AliasWhisper, ChatSelectChannel.Whisper},
         {AliasTelepathic, ChatSelectChannel.Telepathic},
+        {AliasEmpathy, ChatSelectChannel.Empathy},
         {AliasConsole, ChatSelectChannel.Console},
         {AliasLOOC, ChatSelectChannel.LOOC},
         {AliasOOC, ChatSelectChannel.OOC},
@@ -429,6 +433,7 @@ public sealed class ChatUIController : UIController
             FilterableChannels |= ChatChannel.AdminChat;
             CanSendChannels |= ChatSelectChannel.Admin;
             FilterableChannels |= ChatChannel.Telepathic;
+            FilterableChannels |= ChatChannel.Empathy;
         }
 
         // psionics
@@ -436,6 +441,13 @@ public sealed class ChatUIController : UIController
         {
             FilterableChannels |= ChatChannel.Telepathic;
             CanSendChannels |= ChatSelectChannel.Telepathic;
+        }
+
+        // Shadekin
+        if (_shadekin != null && _shadekin.IsShadekin)
+        {
+            FilterableChannels |= ChatChannel.Empathy;
+            CanSendChannels |= ChatSelectChannel.Empathy;
         }
 
         SelectableChannels = CanSendChannels;

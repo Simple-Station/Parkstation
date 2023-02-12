@@ -30,6 +30,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Server.SimpleStation14.Chat;
 
 namespace Content.Server.Chat.Systems;
 
@@ -54,6 +55,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly NyanoChatSystem _nyanoChatSystem = default!;
+    [Dependency] private readonly SimpleStationChatSystem _simpleStationChatSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public const int VoiceRange = 10; // how far voice goes in world units
@@ -182,6 +184,9 @@ public sealed partial class ChatSystem : SharedChatSystem
                 break;
             case InGameICChatType.Telepathic:
                 _nyanoChatSystem.SendTelepathicChat(source, message, hideChat);
+                break;
+            case InGameICChatType.Empathy:
+                _simpleStationChatSystem.SendEmpathyChat(source, message, hideChat);
                 break;
         }
     }
@@ -675,7 +680,8 @@ public enum InGameICChatType : byte
     Speak,
     Emote,
     Whisper,
-    Telepathic
+    Telepathic,
+    Empathy
 }
 
 /// <summary>
