@@ -35,7 +35,7 @@ public sealed class VocalSystem : EntitySystem
         if (_proto.TryIndex(component.ScreamActionId, out InstantActionPrototype? proto))
         {
             component.ScreamAction = new InstantAction(proto);
-            _actions.AddAction(uid, component.ScreamAction, null);
+            // _actions.AddAction(uid, component.ScreamAction, null);
         }
 
         LoadSounds(uid, component);

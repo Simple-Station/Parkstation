@@ -1186,3 +1186,11 @@ Entries:
       - { message: "Updated Parkstation with various tweaks.", type: Tweak }
     id: 91
     time: "2023-02-03T06:01:23.0000000+00:00"
+  - author: "Pspritechologist"
+    changes:
+      - { message: "Parkstation has a third solar array!", type: Add }
+      - { message: "Added actual guidebooks in game! Find them in Atmos, Command, or Epistemics!", type: Add }
+      - { message: "Updated Parkstation with various tweaks.", type: Tweak }
+    id: 92
+    time: "2023-02-10T23:47:50.0000000+00:00"
+
