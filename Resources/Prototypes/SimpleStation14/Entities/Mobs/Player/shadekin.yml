@@ -118,6 +118,7 @@
         Slash: 3
         Piercing: 1
   - type: ShadekinTeleport
+  - type: ShadekinDarkSwap
   - type: Vocal
     sounds:
       Male: UnisexSlime

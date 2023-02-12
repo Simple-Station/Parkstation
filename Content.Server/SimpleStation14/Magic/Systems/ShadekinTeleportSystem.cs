@@ -1,20 +1,27 @@
+using Content.Server.SimpleStation14.Magic.Components;
+using Content.Server.SimpleStation14.Magic.Events;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
-using Content.Shared.SimpleStation14.Magic.Components;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.SimpleStation14.Magic.Systems
+namespace Content.Server.SimpleStation14.Magic.Systems
 {
     public sealed class ShadekinTeleportSystem : EntitySystem
     {
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
 
         public override void Initialize()
         {
             base.Initialize();
+
             SubscribeLocalEvent<ShadekinTeleportComponent, ComponentStartup>(Startup);
             SubscribeLocalEvent<ShadekinTeleportComponent, ComponentShutdown>(Shutdown);
+
+            SubscribeLocalEvent<ShadekinTeleportEvent>(Teleport);
         }
 
         private void Startup(EntityUid uid, ShadekinTeleportComponent component, ComponentStartup args)
@@ -27,6 +34,21 @@ namespace Content.Shared.SimpleStation14.Magic.Systems
         {
             var action = new WorldTargetAction(_prototypeManager.Index<WorldTargetActionPrototype>("ShadekinTeleport"));
             _actionsSystem.RemoveAction(uid, action);
+        }
+
+        private void Teleport(ShadekinTeleportEvent args)
+        {
+            if (args.Handled) return;
+
+            var transform = Transform(args.Performer);
+            if (transform.MapID != args.Target.GetMapId(EntityManager)) return;
+
+            _transformSystem.SetCoordinates(args.Performer, args.Target);
+            transform.AttachToGridOrMap();
+
+            _audio.PlayPvs(args.BlinkSound, args.Performer, AudioParams.Default.WithVolume(args.BlinkVolume));
+
+            args.Handled = true;
         }
     }
 }

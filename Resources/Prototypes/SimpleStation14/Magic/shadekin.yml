@@ -1,0 +1,26 @@
+- type: worldTargetAction
+  id: ShadekinTeleport
+  name: action-name-shadekin-teleport
+  description: action-description-shadekin-teleport
+  useDelay: 45
+  range: 32
+  speech: Maar!
+  itemIconStyle: NoItem
+  checkCanAccess: true
+  repeat: true
+  icon:
+    sprite: SimpleStation14/Mobs/Species/shadekin_icons.rsi
+    state: teleport
+  serverEvent: !type:ShadekinTeleportEvent
+
+- type: instantAction
+  id: ShadekinDarkSwap
+  name: action-name-shadekin-darkswap
+  description: action-description-shadekin-darkswap
+  useDelay: 5 # 60
+  speech: Mar maar!
+  itemIconStyle: NoItem
+  icon:
+    sprite: SimpleStation14/Mobs/Species/shadekin_icons.rsi
+    state: darkswap
+  serverEvent: !type:ShadekinDarkSwapEvent
