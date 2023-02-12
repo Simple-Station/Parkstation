@@ -3,6 +3,7 @@ using Content.Server.Visible;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Damage.Systems;
 using Content.Shared.SimpleStation14.Magic.Components;
 using Content.Shared.SimpleStation14.Magic.Events;
 using Robust.Server.GameObjects;
@@ -18,6 +19,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
+        [Dependency] private readonly StaminaSystem _staminaSystem = default!;
 
         public override void Initialize()
         {
@@ -69,11 +71,15 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             {
                 EnsureComp<ShadekinDarkSwappedComponent>(uid);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, true));
+
+                _staminaSystem.TakeStaminaDamage(uid, 45);
             }
             else
             {
                 RemComp<ShadekinDarkSwappedComponent>(uid);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, false));
+
+                _staminaSystem.TakeStaminaDamage(uid, 35);
             }
         }
 

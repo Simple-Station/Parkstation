@@ -1,5 +1,6 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.SimpleStation14.Magic.Components;
 using Content.Shared.SimpleStation14.Magic.Events;
 using Robust.Shared.Audio;
@@ -13,6 +14,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly StaminaSystem _staminaSystem = default!;
 
         public override void Initialize()
         {
@@ -47,6 +49,8 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             transform.AttachToGridOrMap();
 
             _audio.PlayPvs(args.BlinkSound, args.Performer, AudioParams.Default.WithVolume(args.BlinkVolume));
+
+            _staminaSystem.TakeStaminaDamage(args.Performer, 35);
 
             args.Handled = true;
         }
