@@ -107,7 +107,7 @@
 
 # seam
 - type: loadout
-  id: LoadoutUnderpanties_alt
+  id: LoadoutPantiesUnderpanties_alt
   name: "Panties"
   description: "Regular, good old fashioned panties."
   category: Underwear
@@ -116,7 +116,7 @@
   item: ClothingUnderpanties_alt
 
 - type: loadout
-  id: LoadoutUnderpanties_assblastusa
+  id: LoadoutPantiesUnderpanties_assblastusa
   name: "American Flag Panties"
   description: "For the patriotic bottom, show your love for the red, white, and blue."
   category: Underwear
@@ -125,7 +125,7 @@
   item: ClothingUnderpanties_assblastusa
 
 - type: loadout
-  id: LoadoutUnderpanties_bee-kini
+  id: LoadoutPantiesUnderpanties_bee-kini
   name: "Bee-Kini Panties"
   description: "Get a buzz going with these adorable bee-print panties."
   category: Underwear
@@ -134,7 +134,7 @@
   item: ClothingUnderpanties_bee-kini
 
 - type: loadout
-  id: LoadoutUnderpanties_commie
+  id: LoadoutPantiesUnderpanties_commie
   name: "Commie Panties"
   description: "For the rebellious and daring, these commie-themed panties will have you feeling revolutionary."
   category: Underwear
@@ -151,7 +151,7 @@
 #   item: ClothingUnderpanties_kinky
 
 - type: loadout
-  id: LoadoutUnderpanties_neko
+  id: LoadoutPantiesUnderpanties_neko
   name: "Neko Panties"
   description: "For the cat-lover, these cute neko-print panties are purr-fect."
   category: Underwear
@@ -160,7 +160,7 @@
   item: ClothingUnderpanties_neko
 
 - type: loadout
-  id: LoadoutUnderpanties_slim
+  id: LoadoutPantiesUnderpanties_slim
   name: "Slim Panties"
   description: "For the minimalist, these slim and comfortable panties are perfect."
   category: Underwear
@@ -169,7 +169,7 @@
   item: ClothingUnderpanties_slim
 
 - type: loadout
-  id: LoadoutUnderpanties_swimming
+  id: LoadoutPantiesUnderpanties_swimming
   name: "Swimming Panties"
   description: "Hit the pool in style with these cute swimming panties."
   category: Underwear
@@ -186,7 +186,7 @@
 #   item: ClothingUnderpanties_thin
 
 - type: loadout
-  id: LoadoutUnderpanties_uk
+  id: LoadoutPantiesUnderpanties_uk
   name: "Union Jack Panties"
   description: "For the patriotic bottom, show your love for the UK with these union jack panties."
   category: Underwear
@@ -195,7 +195,7 @@
   item: ClothingUnderpanties_uk
 
 - type: loadout
-  id: LoadoutUnderpanties
+  id: LoadoutPantiesUnderpanties
   name: "Panties"
   description: "Regular, good old fashioned panties."
   category: Underwear
@@ -222,7 +222,7 @@
   item: ClothingUnderpantyhose
 
 - type: loadout
-  id: LoadoutUnderstriped_panties
+  id: LoadoutPantiesUnderstriped_panties
   name: "Striped Panties"
   description: "For when you want to make a fashion statement... down there."
   category: Underwear
