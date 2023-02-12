@@ -10,7 +10,7 @@
   - type: Hunger
   - type: Thirst
   - type: Icon
-    sprite: Nyanotrasen/Mobs/Species/Shadekin/parts.rsi
+    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
     state: full
   - type: Body
     prototype: Shadekin
@@ -117,6 +117,12 @@
         Blunt: 2
         Slash: 3
         Piercing: 1
+  - type: ShadekinTeleport
+  - type: Vocal
+    sounds:
+      Male: UnisexSlime
+      Female: UnisexSlime
+      Unsexed: UnisexSlime
 
 - type: entity
   save: false

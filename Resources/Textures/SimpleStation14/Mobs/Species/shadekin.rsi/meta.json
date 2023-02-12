@@ -8,6 +8,10 @@
     },
     "states": [
         {
+            "name": "full",
+            "directions": 4
+        },
+        {
             "name": "head_m",
             "directions": 4
         },

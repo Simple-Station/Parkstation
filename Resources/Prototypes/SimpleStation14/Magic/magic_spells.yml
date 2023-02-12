@@ -1,3 +1,18 @@
+- type: worldTargetAction
+  id: ShadekinTeleport
+  name: action-name-spell-teleport
+  description: action-description-spell-teleport
+  useDelay: 60
+  range: 32
+  speech: Maar!
+  itemIconStyle: NoItem
+  checkCanAccess: true
+  repeat: true
+  icon:
+    sprite: SimpleStation14/Mobs/Species/shadekin_icons.rsi
+    state: teleport
+  serverEvent: !type:TeleportSpellEvent
+
 - type: entityTargetAction
   id: HealingSpell
   name: action-name-spell-healing
