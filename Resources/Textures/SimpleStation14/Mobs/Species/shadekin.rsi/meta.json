@@ -54,6 +54,10 @@
         {
             "name": "l_leg_behind",
             "directions": 4
+        },
+        {
+            "name": "eyes",
+            "directions": 4
         }
     ]
 }

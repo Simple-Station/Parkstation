@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "size": { "x": 64, "y": 32 },
+    "states": [
+        {
+            "name": "shadekin",
+            "directions": 4
+        },
+        {
+            "name": "shadekin_big",
+            "directions": 4
+        }
+    ]
+}

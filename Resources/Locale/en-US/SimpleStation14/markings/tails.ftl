@@ -12,3 +12,5 @@ marking-TailShark=Shark
 marking-TailSnake=Snake
 marking-TailSuccubus=Pointy
 marking-TailTentacle=Tentacles
+marking-TailShadekin=Shadekin
+marking-TailShadekinBig=Shadekin (Big)
