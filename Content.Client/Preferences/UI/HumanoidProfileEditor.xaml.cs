@@ -77,7 +77,7 @@ namespace Content.Client.Preferences.UI
         private BoxContainer _ptraitsList => CPTraitsList;
         private BoxContainer _etraitsList => CETraitsList;
         private BoxContainer _ntraitsList => CNTraitsList;
-        private Label _loadoutPoints => LoadoutPoints;
+        private ProgressBar _loadoutPoints => LoadoutPoints;
         private BoxContainer _loadoutsTab => CLoadoutsTab;
         private TabContainer _loadoutsTabs => CLoadoutsTabs;
         private readonly List<JobPrioritySelector> _jobPriorities;
@@ -635,7 +635,7 @@ namespace Content.Client.Preferences.UI
             if (loadouts.Count >= 0)
             {
                 // Where points?
-                if (_loadoutPoints.Text == null) return;
+                if (_loadoutPoints.Value == null) return;
 
                 // Make Uncategorized category
                 var bocks = new BoxContainer()
@@ -707,12 +707,12 @@ namespace Content.Client.Preferences.UI
                         // Make sure they have enough loadout points
                         if (preference == true)
                         {
-                            var temp = int.Parse(_loadoutPoints.Text) - loadout.Cost;
+                            var temp = _loadoutPoints.Value - loadout.Cost;
 
                             if (temp < 0) preference = false;
-                            else _loadoutPoints.Text = (temp).ToString();
+                            else _loadoutPoints.Value = temp;
                         }
-                        else _loadoutPoints.Text = (int.Parse(_loadoutPoints.Text) + loadout.Cost).ToString();
+                        else _loadoutPoints.Value = _loadoutPoints.Value + loadout.Cost;
 
 
                         // Update Preference
@@ -1460,9 +1460,9 @@ namespace Content.Client.Preferences.UI
 
         private void UpdateLoadoutPreferences()
         {
-            if (_loadoutPoints.Text == null) return;
+            if (_loadoutPoints.Value == null) return;
             int points = 14; // Default value from the xaml, keep these consistent or issues will arise
-            _loadoutPoints.Text = points.ToString();
+            _loadoutPoints.Value = points;
 
             if (_loadoutPreferences == null) return;
 
@@ -1476,7 +1476,7 @@ namespace Content.Client.Preferences.UI
                 if (preference == true)
                 {
                     points -= preferenceSelector.Loadout.Cost;
-                    _loadoutPoints.Text = points.ToString();
+                    _loadoutPoints.Value = points;
                 }
             }
         }
