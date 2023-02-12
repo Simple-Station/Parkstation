@@ -1,9 +1,8 @@
-using Content.Shared.Abilities;
+using Content.Shared.SimpleStation14.Traits.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
-using Content.Shared.Examine;
-using Content.Shared.IdentityManagement;
+using Content.Client.SimpleStation14.Overlays;
 using Robust.Shared.Network;
 
 namespace Content.Client.SimpleStation14.Overlays;

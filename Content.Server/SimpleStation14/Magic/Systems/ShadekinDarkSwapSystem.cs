@@ -1,10 +1,10 @@
 using Content.Server.Psionics;
-using Content.Server.SimpleStation14.Magic.Components;
-using Content.Server.SimpleStation14.Magic.Events;
 using Content.Server.Visible;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.SimpleStation14.Magic.Components;
+using Content.Shared.SimpleStation14.Magic.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -68,10 +68,12 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             if (!HasComp<ShadekinDarkSwappedComponent>(uid))
             {
                 EnsureComp<ShadekinDarkSwappedComponent>(uid);
+                RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, true));
             }
             else
             {
                 RemComp<ShadekinDarkSwappedComponent>(uid);
+                RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, false));
             }
         }
 

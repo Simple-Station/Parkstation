@@ -2,11 +2,11 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Content.Shared.SimpleStation14.Traits.Components;
+using Content.Shared.SimpleStation14.Magic.Components;
 
 namespace Content.Client.SimpleStation14.Overlays
 {
-    public sealed class MonochromacyOverlay : Overlay
+    public sealed class ShadekinDarkenOverlay : Overlay
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -17,7 +17,7 @@ namespace Content.Client.SimpleStation14.Overlays
         public override OverlaySpace Space => OverlaySpace.WorldSpace;
         private readonly ShaderInstance _greyscaleShader;
 
-        public MonochromacyOverlay()
+        public ShadekinDarkenOverlay()
         {
             IoCManager.InjectDependencies(this);
             _greyscaleShader = _prototypeManager.Index<ShaderPrototype>("GreyscaleFullscreen").InstanceUnique();
@@ -27,7 +27,7 @@ namespace Content.Client.SimpleStation14.Overlays
         {
             if (ScreenTexture == null) return;
             if (_playerManager.LocalPlayer?.ControlledEntity is not { Valid: true } player) return;
-            if (!_entityManager.HasComponent<MonochromacyComponent>(player)) return;
+            if (!_entityManager.HasComponent<ShadekinDarkSwapComponent>(player)) return;
 
             _greyscaleShader?.SetParameter("SCREEN_TEXTURE", ScreenTexture);
 

@@ -1,7 +1,7 @@
-using Content.Server.SimpleStation14.Magic.Components;
-using Content.Server.SimpleStation14.Magic.Events;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
+using Content.Shared.SimpleStation14.Magic.Components;
+using Content.Shared.SimpleStation14.Magic.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 

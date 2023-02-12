@@ -1,4 +1,4 @@
-namespace Content.Shared.Traits.Assorted;
+namespace Content.Shared.SimpleStation14.Traits.Components;
 
 /// <summary>
 /// This is used for adjusting something's height.

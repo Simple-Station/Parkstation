@@ -4,7 +4,7 @@ using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.Abilities;
+using Content.Shared.SimpleStation14.Traits.Components;
 
 
 namespace Content.Client.SimpleStation14.Overlays;

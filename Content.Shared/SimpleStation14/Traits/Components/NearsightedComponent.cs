@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Abilities
+namespace Content.Shared.SimpleStation14.Traits.Components
 {
     [RegisterComponent]
     [NetworkedComponent]

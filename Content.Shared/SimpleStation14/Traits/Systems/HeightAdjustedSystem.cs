@@ -1,6 +1,7 @@
+using Content.Shared.SimpleStation14.Traits.Components;
 using Robust.Shared.Network;
 
-namespace Content.Shared.Traits.Assorted;
+namespace Content.Shared.SimpleStation14.Traits;
 
 public sealed class HeightAdjustedSystem : EntitySystem
 {

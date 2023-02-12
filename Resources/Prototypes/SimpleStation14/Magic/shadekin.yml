@@ -17,7 +17,7 @@
   id: ShadekinDarkSwap
   name: action-name-shadekin-darkswap
   description: action-description-shadekin-darkswap
-  useDelay: 5 # 60
+  useDelay: 60
   speech: Mar maar!
   itemIconStyle: NoItem
   icon:
