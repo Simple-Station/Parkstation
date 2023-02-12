@@ -1,0 +1,9 @@
+- type: damageContainer
+  id: Shadekin
+  supportedGroups:
+    - Brute
+    - Burn
+    - Toxin
+    - Genetic
+  supportedTypes:
+    - Bloodloss

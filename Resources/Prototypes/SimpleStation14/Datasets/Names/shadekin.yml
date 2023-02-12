@@ -1,0 +1,61 @@
+# Names for the shadekin,
+# Shadekin names are descriptive of
+# Their Primary Emotion,
+# A State of Being,
+# Or past Memories.
+
+- type: dataset
+  id: names_shadekin
+  values:
+  # Mar
+  - Mar
+
+  # Sad
+  - Lone
+  - Solitary
+  - Solitude
+  - Lonesome
+  - Sorrow
+  - Heartbreak
+  - Shade
+  - Loss
+
+  # Angry
+  - Rage
+  - Wrath
+  - Fury
+  - Pain
+  - Fear
+  - Fearful
+
+  # Happy
+  - Happy
+  - Joyous
+  - Content
+  - Contented
+  - Calm
+  - Peace
+  - Peaceful
+  - Quiet
+  - Tranquil
+  - Tranquility
+  - Serene
+  - Serenity
+  - Hope
+  - Lovely
+
+  # Memory
+  - Memory
+  - Remembrance
+  - Reminisce
+  - Reminiscence
+  - Recollection
+
+  # Other
+  - Collected
+  - Unbound
+  - Free
+  - Interest
+  - Curiousity
+  - Still
+  - Stillness

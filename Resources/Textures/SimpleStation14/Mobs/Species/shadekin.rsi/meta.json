@@ -16,11 +16,11 @@
             "directions": 4
         },
         {
-            "name": "chest_m",
+            "name": "torso_m",
             "directions": 4
         },
         {
-            "name": "chest_f",
+            "name": "torso_f",
             "directions": 4
         },
         {
@@ -40,19 +40,19 @@
             "directions": 4
         },
         {
-            "name": "r_leg_front",
+            "name": "r_leg",
             "directions": 4
         },
         {
-            "name": "r_leg_behind",
+            "name": "r_foot",
             "directions": 4
         },
         {
-            "name": "l_leg_front",
+            "name": "l_leg",
             "directions": 4
         },
         {
-            "name": "l_leg_behind",
+            "name": "l_foot",
             "directions": 4
         },
         {

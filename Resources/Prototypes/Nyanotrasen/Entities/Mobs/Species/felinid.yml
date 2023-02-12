@@ -101,7 +101,7 @@
         state: none
         visible: false
   - type: Eye
-    zoom: "0.85, 0.85"
+    zoom: "0.8, 0.8"
   - type: HumanoidAppearance
     species: Felinid
   - type: Fixtures

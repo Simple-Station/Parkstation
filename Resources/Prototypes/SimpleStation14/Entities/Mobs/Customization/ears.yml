@@ -93,7 +93,7 @@
   id: EarsShadekin
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [SlimePerson, Reptilian]
+  speciesRestriction: [SlimePerson, Reptilian, Shadekin]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: shadekin

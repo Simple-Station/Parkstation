@@ -103,7 +103,7 @@
   id: WingsHarpy
   bodyPart: Wings
   markingCategory: Wings
-  speciesRestriction: [Moth]
+  speciesRestriction: [Moth, Shadekin]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/wings64x32.rsi
       state: harpy
