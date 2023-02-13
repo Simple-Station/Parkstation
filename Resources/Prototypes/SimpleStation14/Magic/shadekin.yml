@@ -2,7 +2,7 @@
   id: ShadekinTeleport
   name: action-name-shadekin-teleport
   description: action-description-shadekin-teleport
-  useDelay: 45
+  useDelay: 30
   range: 32
   speech: Maar!
   itemIconStyle: NoItem
