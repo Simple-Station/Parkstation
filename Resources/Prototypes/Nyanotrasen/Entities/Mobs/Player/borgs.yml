@@ -196,6 +196,7 @@
   id: PlayerCyborgStandard
   name: standard cyborg
   components:
+  - type: SiliconCharge
   - type: InnateTool
     tools:
       - id: WelderIndustrial
