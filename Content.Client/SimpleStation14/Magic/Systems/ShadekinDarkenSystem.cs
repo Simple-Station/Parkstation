@@ -38,16 +38,17 @@ public sealed class ShadekinDarken : EntitySystem
 
     private void OnStartup(EntityUid uid, ShadekinDarkSwappedComponent component, ComponentStartup args)
     {
-        if (_player.LocalPlayer?.ControlledEntity == uid) _overlayMan.AddOverlay(_overlay);
+        if (_player.LocalPlayer?.ControlledEntity != uid) return;
+
+        _overlayMan.AddOverlay(_overlay);
     }
 
     private void OnShutdown(EntityUid uid, ShadekinDarkSwappedComponent component, ComponentShutdown args)
     {
-        if (_player.LocalPlayer?.ControlledEntity == uid)
-        {
-            _overlay.Reset();
-            _overlayMan.RemoveOverlay(_overlay);
-        }
+        if (_player.LocalPlayer?.ControlledEntity != uid) return;
+
+        _overlay.Reset();
+        _overlayMan.RemoveOverlay(_overlay);
     }
 
     private void OnPlayerAttached(EntityUid uid, ShadekinDarkSwappedComponent component, PlayerAttachedEvent args)
@@ -71,13 +72,10 @@ public sealed class ShadekinDarken : EntitySystem
         if (isDark)
         {
             EnsureComp<ShadekinDarkSwappedComponent>(uid);
-            _overlayMan.AddOverlay(_overlay);
         }
         else
         {
             RemComp<ShadekinDarkSwappedComponent>(uid);
-            _overlay.Reset();
-            _overlayMan.RemoveOverlay(_overlay);
         }
     }
 }
