@@ -1540,8 +1540,7 @@ namespace Content.Client.Preferences.UI
             {
                 Trait = trait;
 
-                _checkBox = new CheckBox {Text = Loc.GetString(trait.Name)};
-                _checkBox = new CheckBox { Text = $"[{trait.Cost}] {trait.Name}" };
+                _checkBox = new CheckBox { Text = $"[{trait.Cost}] {Loc.GetString(trait.Name)}" };
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
                 var tooltip = "";
@@ -1626,8 +1625,11 @@ namespace Content.Client.Preferences.UI
                     SizeFlagsStretchRatio = 1
                 };
 
-                _checkBox = new CheckBox {Text = Loc.GetString(loadout.Name)};
-                _checkBox = new CheckBox { Text = $"[{loadout.Cost}] {loadout.Name}" };
+                _checkBox = new CheckBox
+                {
+                    Text = $"[{loadout.Cost}] {Loc.GetString(loadout.Name)}",
+                    VerticalAlignment = VAlignment.Center
+                };
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
                 var tooltip = "";
