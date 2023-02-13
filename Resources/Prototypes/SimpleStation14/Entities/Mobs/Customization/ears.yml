@@ -2,7 +2,7 @@
   id: EarsAvali
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, Shadekin]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: avali_inner
