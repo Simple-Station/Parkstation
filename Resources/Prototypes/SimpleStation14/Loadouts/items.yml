@@ -61,3 +61,11 @@
   category: Items
   cost: 1
   item: CheapLighter
+
+- type: loadout
+  id: LoadoutItemMatches
+  name: Box of matches
+  description: "A box of matches."
+  category: Items
+  cost: 1
+  item: Matchbox

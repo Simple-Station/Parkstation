@@ -1,5 +1,5 @@
 - type: loadout
-  id: LoadoutClothingOuterGhostSheet
+  id: LoadoutOuterGhostSheet
   name: Ghost Sheet
   description: Spooky..
   category: Outer
@@ -7,7 +7,7 @@
   item: ClothingOuterGhostSheet
 
 - type: loadout
-  id: LoadoutClothingOuterPirateCoat
+  id: LoadoutOuterCoatPirateCoat
   name: Pirate costume
   description: Yarrrr!
   category: Outer
@@ -15,7 +15,7 @@
   item: ClothingOuterCoatPirateBlack
 
 - type: loadout
-  id: LoadoutClothingOuterBomberjacket
+  id: LoadoutOuterCoatBomberjacket
   name: Bomber jacket
   description: A sleek bomber jacket.
   category: Outer
@@ -23,7 +23,7 @@
   item: ClothingOuterCoatBomber
 
 - type: loadout
-  id: LoadoutClothingOuterHoodieBlack
+  id: LoadoutOuterCoatHoodieBlack
   name: Black hoodie
   description: A warm hoodie.
   category: Outer
@@ -31,7 +31,7 @@
   item: ClothingOuterHoodieBlack
 
 - type: loadout
-  id: LoadoutClothingOuterHoodieGrey
+  id: LoadoutOuterCoatHoodieGrey
   name: Grey hoodie
   description: A warm hoodie.
   category: Outer
@@ -39,9 +39,41 @@
   item: ClothingOuterHoodieGrey
 
 - type: loadout
-  id: LoadoutClothingOuterHoodiePurple
+  id: LoadoutOuterCoatHoodiePurple
   name: Purple hoodie
   description: With an actual hood! Amazing!
   category: Outer
   cost: 4
   item: ClothingOuterPurpleCoat # :D
+
+- type: loadout
+  id: LoadoutOuterCoatWinterCoat
+  name: Winter coat
+  description: For keeping nice and snug.
+  category: Outer
+  cost: 3
+  item: ClothingOuterWinterCoat
+
+- type: loadout
+  id: LoadoutOuterCoatHyenhSweater
+  name: Comfy sweater
+  description: For keeping nice and snug.
+  category: Outer
+  cost: 3
+  item: ClothingOuterCoatHyenhSweater
+
+- type: loadout
+  id: LoadoutOuterCoatWinterLong
+  name: Long winter coat
+  description: For keeping nice and snug.
+  category: Outer
+  cost: 4
+  item: ClothingOuterWinterCoatLong
+
+- type: loadout
+  id: LoadoutOuterCoatWinterCoatPlaid
+  name: Plaid inter coat
+  description: For keeping nice and snug.
+  category: Outer
+  cost: 3
+  item: ClothingOuterWinterCoatPlaid

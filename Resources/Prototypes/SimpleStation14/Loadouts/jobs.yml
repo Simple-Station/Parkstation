@@ -71,7 +71,7 @@
   item: ClothingUniformJumpsuitSecGrey
 
 - type: loadout
-  id: LoadoutSecurityOuterClothingKevlar
+  id: LoadoutSecurityOuterKevlar
   name: Kevlar vest
   description: "For the Secoff who knows what's comin'"
   category: Jobs
@@ -97,7 +97,7 @@
   item: ClothingEyesHudMedical
 
 - type: loadout
-  id: LoadoutMedicalOuterClothingLabcoat
+  id: LoadoutMedicalOuterLabcoat
   name: Lab coat
   description: "An alternate job equipment."
   category: Jobs
@@ -142,7 +142,7 @@
   item: ClothingUniformJumpsuitChemistry
 
 - type: loadout
-  id: LoadoutMedicalOuterClothingChemistLabcoat
+  id: LoadoutMedicalOuterChemistLabcoat
   name: Chemist lab coat
   description: "An alternate job equipment."
   category: Jobs
@@ -244,7 +244,18 @@
   item: ClothingUniformJumpsuitEngineeringHazard
 
 - type: loadout
-  id: LoadoutEngineeringOuterClothingChickenSuit
+  id: LoadoutEngineeringOuterHazard
+  name: Engineering hazard vest
+  description: "An alternate job equipment."
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - StationEngineer
+  item: ClothingOuterVestHazard
+
+- type: loadout
+  id: LoadoutEngineeringOuterChickenSuit
   name: Eggmospheric Technician Suit
   description: "For the Eggmos tech who always knows where home is..."
   category: Jobs
@@ -352,7 +363,7 @@
 # Epistemics
 
 - type: loadout
-  id: LoadoutScienceOuterClothingLabcoat
+  id: LoadoutScienceOuterLabcoat
   name: Lab coat
   description: "An alternate job equipment."
   category: Jobs
