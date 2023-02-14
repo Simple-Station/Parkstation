@@ -45,4 +45,17 @@ namespace Content.Shared.SimpleStation14.Magic.Events
             Euid = euid;
         }
     }
+
+    [Serializable, NetSerializable]
+    public sealed class ShadekinDarkenEvent : EntityEventArgs
+    {
+        public readonly EntityUid Euid;
+        public readonly List<EntityUid> Lights;
+
+        public ShadekinDarkenEvent(EntityUid euid, List<EntityUid> lights)
+        {
+            Euid = euid;
+            Lights = lights;
+        }
+    }
 }

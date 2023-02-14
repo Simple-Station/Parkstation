@@ -108,6 +108,7 @@
   components:
   - type: Sprite
     state: off
+  - type: ShadekinLight
   - type: PoweredLight
     hasLampOnSpawn: LightTube
     damage:
