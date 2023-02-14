@@ -1,9 +1,8 @@
-using Content.Shared.SimpleStation14.Traits.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
-using Content.Client.SimpleStation14.Overlays;
 using Robust.Shared.Network;
+using Content.Shared.SimpleStation14.Traits;
 
 namespace Content.Client.SimpleStation14.Overlays;
 public sealed class MonochromacySystem : EntitySystem

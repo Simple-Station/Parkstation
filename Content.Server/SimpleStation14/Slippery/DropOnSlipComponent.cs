@@ -1,5 +1,8 @@
 namespace Content.Server.Slippery
 {
+    /// <summary>
+    ///     Uses provided chance to try and drop the item when slipped, if equipped.
+    /// </summary>
     [RegisterComponent]
     public sealed class DropOnSlipComponent : Component
     {
