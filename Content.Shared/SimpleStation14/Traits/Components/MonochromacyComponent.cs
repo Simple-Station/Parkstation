@@ -1,10 +1,11 @@
-using Robust.Shared.GameStates;
-
 namespace Content.Shared.Abilities
 {
+    /// <summary>
+    ///     Entity cannot see color.
+    /// </summary>
     [RegisterComponent]
-    [NetworkedComponent]
-
     public sealed class MonochromacyComponent : Component
-    {}
+    {
+
+    }
 }

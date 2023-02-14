@@ -20,9 +20,6 @@ public sealed class NearsightedOverlay : Overlay
 
     private readonly ShaderInstance _nearsightShader;
 
-    /// <summary>
-    /// Handles the darkening overlay.
-    /// </summary>
     public float OxygenLevel = 0f;
     private float _oldOxygenLevel = 0f;
     public float outerDarkness = 1f;

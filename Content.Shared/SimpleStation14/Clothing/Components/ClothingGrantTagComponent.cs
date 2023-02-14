@@ -1,5 +1,8 @@
 namespace Content.Shared.SimpleStation14.Clothing
 {
+    /// <summary>
+    ///     Grants the owner entity the specified tag while equipped.
+    /// </summary>
     [RegisterComponent]
     public sealed class ClothingGrantTagComponent : Component
     {
