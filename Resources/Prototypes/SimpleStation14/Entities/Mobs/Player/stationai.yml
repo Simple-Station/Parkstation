@@ -176,6 +176,7 @@
       color: "#9dc5c9"
     - type: MovementIgnoreGravity
     - type: MobState
+    - type: MobThresholds
       thresholds:
         0: Alive
         100000: Dead
@@ -212,6 +213,7 @@
     - type: Transform
       anchored: true
     - type: MobState
+    - type: MobThresholds
       thresholds:
         0: Alive
         1000: Dead

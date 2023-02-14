@@ -17,6 +17,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderbee_shorts
   name: bee shorts
+  description: "A pair of bee shorts, the buzz-worthy choice for a summer day."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -31,6 +32,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxer_briefs
   name: boxer briefs
+  description: "A pair of boxer briefs, the perfect blend of comfort and support."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -45,6 +47,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_assblastusa
   name: american flag boxers
+  description: "A pair of American Flag boxers, showing off your patriotic spirit with stars and stripes."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -59,6 +62,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_commie
   name: commie boxers
+  description: "A pair of Commie boxers, making a political statement in your pants."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -73,6 +77,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_heart
   name: heart boxers
+  description: "A pair of Heart boxers, a love letter to your significant other written on your underwear."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -87,6 +92,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_striped
   name: striped boxers
+  description: "A pair of Striped boxers, featuring a classic pattern."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -101,6 +107,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers_uk
   name: union jack boxers
+  description: "A pair of Union Jack boxers, representing your British heritage with style."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -115,6 +122,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderboxers
   name: boxers
+  description: "A pair of classic boxers, just as comfy as grandpa's."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -129,6 +137,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderbriefs
   name: briefs
+  description: "A pair of briefs, for those who want a snug fit in all the right places."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -153,24 +162,28 @@
 #         underpants:
 #           - state: fishnet_lower
 
-# - type: entity
-#   parent: ClothingUnderPantsBase
-#   id: ClothingUnderjockstrap
-#   name: jockstrap
-#   components:
-#     - type: Sprite
-#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-#       state: jockstrap-ICON
-#     - type: Clothing
-#       sprite: SimpleStation14/Clothing/Under/underpants.rsi
-#       clothingVisuals:
-#         underpants:
-#           - state: jockstrap
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderjockstrap
+  name: jockstrap
+  description: "A jockstrap, for the sporty and adventurous type."
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: jockstrap-ICON
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: jockstrap
+    - type: TemperatureProtection
+      coefficient: 0.98
 
 - type: entity
   parent: ClothingUnderPantsBase
   id: ClothingUnderljonb
   name: long john pants
+  description: "A pair of Long John pants, to stay warm in these classic long underwear."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -187,6 +200,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_alt
   name: panties
+  description: "A pair of regular panties, good old fashioned."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -201,6 +215,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_assblastusa
   name: american flag panties
+  description: "A pair of American Flag panties, showing love for the red, white, and blue."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -215,6 +230,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_bee-kini
   name: bee-kini panties
+  description: "A pair of Bee-Kini panties, getting a buzz going with the bee-print design."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -231,6 +247,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_commie
   name: commie panties
+  description: "A pair of Commie panties, for the rebellious and daring, with a commie-themed design."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -259,6 +276,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_neko
   name: neko panties
+  description: "A pair of Neko panties, for the cat-lover, featuring a cute neko-print design."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -273,6 +291,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_slim
   name: slim panties
+  description: "A pair of Slim panties, for the minimalist, with a slim and comfortable fit."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -287,6 +306,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_swimming
   name: swimming panties
+  description: "A pair of Swimming panties, hitting the pool in style."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -315,6 +335,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties_uk
   name: union jack panties
+  description: "A pair of Union Jack panties, showing love for the UK with the union jack design."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -329,6 +350,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpanties
   name: panties
+  description: "A pair of regular panties, good old fashioned."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -357,6 +379,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderpantyhose
   name: pantyhose
+  description: "A pair of pantyhose, for when you want to look like a human-sized spider."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi
@@ -371,6 +394,7 @@
   parent: ClothingUnderPantsBase
   id: ClothingUnderstriped_panties
   name: striped panties
+  description: "A pair of Striped panties, making a fashion statement... down there."
   components:
     - type: Sprite
       sprite: SimpleStation14/Clothing/Under/underpants.rsi

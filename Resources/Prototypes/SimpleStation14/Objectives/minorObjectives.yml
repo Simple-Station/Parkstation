@@ -1,6 +1,24 @@
+# Harmless
 - type: objective
   id: MinorPickpocketObjective
   issuer: freewill
   difficultyOverride: 2.75
   conditions:
     - !type:PickpocketCondition {}
+
+# Dangerous
+- type: objective
+  id: MinorTwitchyObjective
+  issuer: freewill
+  difficultyOverride: 2.75
+  requirements:
+    - !type:NotRoleRequirement
+      roleId: HeadOfSecurity
+    - !type:NotRoleRequirement
+      roleId: SecurityOfficer
+    - !type:NotRoleRequirement
+      roleId: SecurityCadet
+    - !type:NotRoleRequirement
+      roleId: Lawyer
+  conditions:
+    - !type:TwitchyCondition {}

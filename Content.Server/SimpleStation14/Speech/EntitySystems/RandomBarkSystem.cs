@@ -25,7 +25,6 @@ namespace Content.Server.SimpleStation14.Speech.RandomBark
         public void OnInit(EntityUid uid, RandomBarkComponent barker, ComponentInit args)
         {
             barker.BarkAccumulator = _random.NextFloat(barker.MinTime, barker.MaxTime)*barker.BarkMultiplier;
-            Logger.Debug("Hello");
         }
 
         public override void Update(float frameTime)

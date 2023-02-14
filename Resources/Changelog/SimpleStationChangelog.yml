@@ -1193,4 +1193,10 @@ Entries:
       - { message: "Updated Parkstation with various tweaks.", type: Tweak }
     id: 92
     time: "2023-02-10T23:47:50.0000000+00:00"
-
+  - author: "Pspritechologist"
+    changes:
+      - { message: "Character loadouts are a go! Find them in the new tab, with items specific to traits, jobs, or just fashion!", type: Add }
+      - { message: "Character editor UI has been redone.", type: Tweak }
+      - { message: "The scream action is no longer present, since screaming can be done through emotes.", type: Remove }
+    id: 93
+    time: "2023-02-12T21:43:11.0000000+00:00"
