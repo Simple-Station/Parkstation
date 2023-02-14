@@ -1,1 +1,1 @@
-species-name-shadekin=Shadekin
+species-name-shadekin=Shadowkin
