@@ -9,6 +9,8 @@
     state: icon_alt
   - type: Clothing
     equippedPrefix: alt
+  - type: DropOnSlip
+    chance: 0
 
 - type: entity
   parent: ClothingHeadsetAlt
