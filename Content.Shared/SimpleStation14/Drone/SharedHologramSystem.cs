@@ -3,7 +3,6 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Damage;
 using Content.Shared.Item;
 using Content.Shared.Tag;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.SimpleStation14.Hologram
 {
