@@ -6,7 +6,7 @@ namespace Content.Shared.SimpleStation14.Magic.Components
     public sealed class ShadekinComponent : Component
     {
         /// <summary>
-        ///     Used client side.
+        ///     Used server side.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         public bool Darken = true;
@@ -22,6 +22,7 @@ namespace Content.Shared.SimpleStation14.Magic.Components
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
         public List<EntityUid> DarkenedLights = new();
+
 
         /// <summary>
         ///     Used client side.

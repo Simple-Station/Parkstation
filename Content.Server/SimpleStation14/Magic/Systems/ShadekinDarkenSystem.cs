@@ -29,20 +29,25 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
             foreach (var light in args.Lights)
             {
-                if (!_entityManager.TryGetComponent(light, out PoweredLightComponent? powered)) continue;
-                if (!_entityManager.TryGetComponent(light, out ShadekinLightComponent? shadekinLight)) continue;
-                if (!powered.On) continue;
-
-
                 var lightPos = _entityManager.GetComponent<TransformComponent>(light).WorldPosition;
                 var pointLight = _entityManager.GetComponent<PointLightComponent>(light);
                 var lightSys = _systemManager.GetEntitySystem<SharedPointLightSystem>();
 
-                var distance = (lightPos - playerPos).Length;
-                if (distance > component.DarkenRange)
+
+                if (!_entityManager.TryGetComponent(light, out ShadekinLightComponent? shadekinLight)) continue;
+                if (!_entityManager.TryGetComponent(light, out PoweredLightComponent? powered)
+                    || !_entityManager.TryGetComponent(entity, out ShadekinDarkSwappedComponent? _)
+                    || !powered.On)
                 {
-                    lightSys.SetRadius(pointLight.Owner, shadekinLight.OldRadius);
-                    shadekinLight.OldRadiusEdited = false;
+                    ResetLight(pointLight, shadekinLight);
+                    continue;
+                }
+
+
+                var distance = (lightPos - playerPos).Length;
+                if (distance > component.DarkenRange || !component.Darken)
+                {
+                    ResetLight(pointLight, shadekinLight);
                     continue;
                 }
 
@@ -63,9 +68,10 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             component.DarkenedLights = args.Lights;
         }
 
-
         private void OnRemove(EntityUid uid, ShadekinComponent component, ComponentRemove args)
         {
+            component.Darken = false;
+
             foreach (var light in component.DarkenedLights.ToArray())
             {
                 var pointLight = _entityManager.GetComponent<PointLightComponent>(light);
@@ -77,6 +83,15 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             }
 
             component.DarkenedLights.Clear();
+        }
+
+
+        private void ResetLight(PointLightComponent light, ShadekinLightComponent sLight)
+        {
+            var lightSys = _systemManager.GetEntitySystem<SharedPointLightSystem>();
+
+            lightSys.SetRadius(light.Owner, sLight.OldRadius);
+            sLight.OldRadiusEdited = false;
         }
     }
 }

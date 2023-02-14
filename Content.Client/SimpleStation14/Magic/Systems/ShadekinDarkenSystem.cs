@@ -7,6 +7,10 @@ using Content.Shared.GameTicking;
 
 namespace Content.Client.SimpleStation14.Magic.Systems
 {
+    /// <summary>
+    ///     Holy shit this is so laggy, move to server entirely if possible to avoid network spam.
+    /// </summary>
+    [Obsolete("Move entirely to server if possible")]
     public sealed class ShadekinDarkenSystem : EntitySystem
     {
         [Dependency] private readonly IPlayerManager _player = default!;
@@ -17,12 +21,9 @@ namespace Content.Client.SimpleStation14.Magic.Systems
         public override void Initialize()
         {
             base.Initialize();
-
-            SubscribeLocalEvent<ShadekinComponent, ComponentShutdown>(OnShutdown);
         }
 
-        // todo: only darken lights while player is darkened
-        public override void Update(float frameTime) // Holy shit this is so laggy
+        public override void Update(float frameTime)
         {
             base.Update(frameTime);
 
@@ -30,7 +31,6 @@ namespace Content.Client.SimpleStation14.Magic.Systems
             var uid = _player.LocalPlayer.ControlledEntity.Value;
 
             if (!_entityManager.TryGetComponent(uid, out ShadekinComponent? component)) return;
-            if (!component.Darken) return;
 
             if (component.Accumulator < component.AccumulatorTime)
             {
@@ -39,10 +39,9 @@ namespace Content.Client.SimpleStation14.Magic.Systems
             }
             else component.Accumulator = 0f;
 
-            var playerPos = _entityManager.GetComponent<TransformComponent>(uid).WorldPosition;
             var lightQuery = _entityManager.EntityQuery<PointLightComponent, ShadekinLightComponent>();
 
-            foreach (var (light, _) in lightQuery)
+            foreach (var (light, __) in lightQuery)
             {
                 var entity = light.Owner;
 
@@ -54,13 +53,6 @@ namespace Content.Client.SimpleStation14.Magic.Systems
             RaiseNetworkEvent(new ShadekinDarkenEvent(uid, _darkened));
 
             foreach (var entity in _darkened.ToArray()) _darkened.Remove(entity);
-        }
-
-        private void OnShutdown(EntityUid uid, ShadekinComponent component, ComponentShutdown args)
-        {
-            if (_player.LocalPlayer?.ControlledEntity != uid) return;
-
-            component.Darken = false;
         }
     }
 }
