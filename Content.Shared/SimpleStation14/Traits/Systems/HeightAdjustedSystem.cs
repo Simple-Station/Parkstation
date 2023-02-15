@@ -1,4 +1,3 @@
-using Content.Shared.SimpleStation14.Traits.Components;
 using Robust.Shared.Network;
 
 namespace Content.Shared.SimpleStation14.Traits;

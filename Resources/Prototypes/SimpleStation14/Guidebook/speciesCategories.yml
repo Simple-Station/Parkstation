@@ -1,0 +1,40 @@
+- type: guideEntry
+  id: Species
+  name: guide-entry-species
+  text: "/Server Info/SimpleStation14/Guidebook/Species/Species.xml"
+  children:
+    - WizdenSpecies
+    - NyanoSpecies
+    - SimpleStationSpecies
+
+
+- type: guideEntry
+  id: WizdenSpecies
+  name: guide-entry-wizden-species
+  text: "/Server Info/SimpleStation14/Guidebook/Species/WizdenSpecies.xml"
+  children:
+    - SpeciesHuman
+    - SpeciesDiona
+    - SpeciesDwarf
+    - SpeciesSlime
+    - SpeciesSkeleton
+    - SpeciesReptilian
+    - SpeciesVox
+
+- type: guideEntry
+  id: NyanoSpecies
+  name: guide-entry-nyano-species
+  text: "/Server Info/SimpleStation14/Guidebook/Species/NyanoSpecies.xml"
+  children:
+    - SpeciesArachne
+    - SpeciesFelinid
+    - SpeciesMoff
+    - SpeciesOni
+
+- type: guideEntry
+  id: SimpleStationSpecies
+  name: guide-entry-simplestation-species
+  text: "/Server Info/SimpleStation14/Guidebook/Species/SimpleStationSpecies.xml"
+  children:
+    # - SpeciesPlasmaman
+    - SpeciesShadekin
