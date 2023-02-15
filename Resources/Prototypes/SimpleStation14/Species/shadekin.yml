@@ -4,7 +4,7 @@
   roundStart: true
   prototype: MobShadekin
   sprites: MobShadekinSprites
-  defaultSkinTone: "#000000" # #FFFFFF
+  defaultSkinTone: "#000000"
   markingLimits: MobShadekinMarkingLimits
   dollPrototype: MobShadekinDummy
   skinColoration: Hues
@@ -14,10 +14,11 @@
   minAge: 18
   maxAge: 300
   youngAge: 20
-  oldAge: 30
+  oldAge: 250
   sexes:
   - Male
   - Female
+  - Unsexed
 
 - type: speciesBaseSprites
   id: MobShadekinSprites
@@ -42,9 +43,6 @@
 - type: markingPoints
   id: MobShadekinMarkingLimits
   points:
-    Wings:
-      points: 1
-      required: false
     Tail:
       points: 1
       required: true
