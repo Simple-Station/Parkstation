@@ -4,9 +4,16 @@ namespace Content.Shared.SimpleStation14.Magic.Components
     public sealed class ShadekinLightComponent : Component
     {
         [ViewVariables(VVAccess.ReadOnly)]
-        public float OldRadius = 5f;
+        public float OldRadius = 0f;
 
         [ViewVariables(VVAccess.ReadOnly)]
         public bool OldRadiusEdited = false;
+
+
+        [ViewVariables(VVAccess.ReadOnly)]
+        public float OldEnergy = 0f;
+
+        [ViewVariables(VVAccess.ReadOnly)]
+        public bool OldEnergyEdited = false;
     }
 }

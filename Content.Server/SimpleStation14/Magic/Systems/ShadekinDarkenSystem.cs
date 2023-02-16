@@ -13,11 +13,10 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         {
             base.Initialize();
 
+            SubscribeLocalEvent<ShadekinComponent, ComponentStartup>(OnStartup);
             SubscribeLocalEvent<ShadekinComponent, ComponentRemove>(OnRemove);
         }
 
-        // todo: Set light color slightly darker than normal?
-        // todo: Set light power dynamically too
         /// <summary>
         ///     This sucks, though isn't nearly as bad as the client to server networked version.
         /// </summary>
@@ -79,16 +78,31 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                         shadekinLight.OldRadius = pointLight.Radius;
                         shadekinLight.OldRadiusEdited = true;
                     }
+                    if (!shadekinLight.OldEnergyEdited)
+                    {
+                        shadekinLight.OldEnergy = pointLight.Energy;
+                        shadekinLight.OldEnergyEdited = true;
+                    }
 
                     var radius = distance * 2f;
-                    if (radius > shadekinLight.OldRadius) radius = shadekinLight.OldRadius;
-                    if (radius < shadekinLight.OldRadius * 0.2f) radius = shadekinLight.OldRadius * 0.2f;
+                    if (shadekinLight.OldRadiusEdited && radius > shadekinLight.OldRadius) radius = shadekinLight.OldRadius;
+                    if (shadekinLight.OldRadiusEdited && radius < shadekinLight.OldRadius * 0.25f) radius = shadekinLight.OldRadius * 0.25f;
+
+                    var energy = distance;
+                    if (shadekinLight.OldEnergyEdited && energy > shadekinLight.OldEnergy) energy = shadekinLight.OldEnergy;
+                    if (shadekinLight.OldEnergyEdited && energy < shadekinLight.OldEnergy * 0.25f) energy = shadekinLight.OldEnergy * 0.25f;
 
                     lightSys.SetRadius(pointLight.Owner, radius);
+                    pointLight.Energy = energy;
                 }
 
                 foreach (var light in _darkened.ToArray()) _darkened.Remove(light);
             }
+        }
+
+        private void OnStartup(EntityUid uid, ShadekinComponent component, ComponentStartup args)
+        {
+            component.Darken = true;
         }
 
         private void OnRemove(EntityUid uid, ShadekinComponent component, ComponentRemove args)
@@ -103,6 +117,8 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
                 lightSys.SetRadius(pointLight.Owner, shadekinLight.OldRadius);
                 shadekinLight.OldRadiusEdited = false;
+                pointLight.Energy = shadekinLight.OldEnergy;
+                shadekinLight.OldEnergyEdited = false;
             }
 
             component.DarkenedLights.Clear();
@@ -113,8 +129,10 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         {
             var lightSys = _systemManager.GetEntitySystem<SharedPointLightSystem>();
 
-            lightSys.SetRadius(light.Owner, sLight.OldRadius);
+            if (sLight.OldRadiusEdited) lightSys.SetRadius(light.Owner, sLight.OldRadius);
             sLight.OldRadiusEdited = false;
+            if (sLight.OldEnergyEdited) light.Energy = sLight.OldEnergy;
+            sLight.OldEnergyEdited = false;
         }
     }
 }

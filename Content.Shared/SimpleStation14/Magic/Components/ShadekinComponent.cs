@@ -6,7 +6,7 @@ namespace Content.Shared.SimpleStation14.Magic.Components
     public sealed class ShadekinComponent : Component
     {
         [ViewVariables(VVAccess.ReadWrite)]
-        public bool Darken = true;
+        public bool Darken = false;
 
         [ViewVariables(VVAccess.ReadWrite)]
         public float DarkenRange = 5f;
