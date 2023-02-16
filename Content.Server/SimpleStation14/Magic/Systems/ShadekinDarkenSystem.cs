@@ -1,6 +1,5 @@
 using Content.Server.Light.Components;
 using Content.Shared.SimpleStation14.Magic.Components;
-using Content.Shared.SimpleStation14.Magic.Events;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.SimpleStation14.Magic.Systems
@@ -14,58 +13,82 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         {
             base.Initialize();
 
-            SubscribeNetworkEvent<ShadekinDarkenEvent>(OnDarken);
-
             SubscribeLocalEvent<ShadekinComponent, ComponentRemove>(OnRemove);
         }
 
         // todo: Set light color slightly darker than normal?
         // todo: Set light power dynamically too
-        private void OnDarken(ShadekinDarkenEvent args)
+        /// <summary>
+        ///     This sucks, though isn't nearly as bad as the client to server networked version.
+        /// </summary>
+        public override void Update(float frameTime)
         {
-            var entity = args.Euid;
-            var playerPos = _entityManager.GetComponent<TransformComponent>(entity).WorldPosition;
-            var component = _entityManager.GetComponent<ShadekinComponent>(entity);
+            base.Update(frameTime);
 
-            foreach (var light in args.Lights)
+            var shadekins = _entityManager.EntityQuery<ShadekinComponent>();
+            var _darkened = new List<EntityUid>();
+
+            foreach (var shadekin in shadekins)
             {
-                var lightPos = _entityManager.GetComponent<TransformComponent>(light).WorldPosition;
-                var pointLight = _entityManager.GetComponent<PointLightComponent>(light);
-                var lightSys = _systemManager.GetEntitySystem<SharedPointLightSystem>();
-
-
-                if (!_entityManager.TryGetComponent(light, out ShadekinLightComponent? shadekinLight)) continue;
-                if (!_entityManager.TryGetComponent(light, out PoweredLightComponent? powered)
-                    || !_entityManager.TryGetComponent(entity, out ShadekinDarkSwappedComponent? _)
-                    || !powered.On)
+                if (shadekin.Accumulator < shadekin.AccumulatorTime)
                 {
-                    ResetLight(pointLight, shadekinLight);
+                    shadekin.Accumulator += frameTime;
                     continue;
                 }
+                else shadekin.Accumulator = 0f;
 
+                var entity = shadekin.Owner;
+                var playerPos = _entityManager.GetComponent<TransformComponent>(entity).WorldPosition;
 
-                var distance = (lightPos - playerPos).Length;
-                if (distance > component.DarkenRange || !component.Darken)
+                var lightQuery = _entityManager.EntityQuery<PointLightComponent, ShadekinLightComponent>();
+                foreach (var (light, __) in lightQuery)
                 {
-                    ResetLight(pointLight, shadekinLight);
-                    continue;
+                    if (_darkened.Contains(light.Owner)) continue;
+                    _darkened.Add(light.Owner);
                 }
 
+                shadekin.DarkenedLights = _darkened;
 
-                if (!shadekinLight.OldRadiusEdited)
+                foreach (var light in _darkened.ToArray())
                 {
-                    shadekinLight.OldRadius = pointLight.Radius;
-                    shadekinLight.OldRadiusEdited = true;
+                    var lightPos = _entityManager.GetComponent<TransformComponent>(light).WorldPosition;
+                    var pointLight = _entityManager.GetComponent<PointLightComponent>(light);
+                    var lightSys = _systemManager.GetEntitySystem<SharedPointLightSystem>();
+
+
+                    if (!_entityManager.TryGetComponent(light, out ShadekinLightComponent? shadekinLight)) continue;
+                    if (!_entityManager.TryGetComponent(light, out PoweredLightComponent? powered)
+                        || !_entityManager.TryGetComponent(entity, out ShadekinDarkSwappedComponent? _)
+                        || !powered.On)
+                    {
+                        ResetLight(pointLight, shadekinLight);
+                        continue;
+                    }
+
+
+                    var distance = (lightPos - playerPos).Length;
+                    if (distance > shadekin.DarkenRange || !shadekin.Darken)
+                    {
+                        ResetLight(pointLight, shadekinLight);
+                        continue;
+                    }
+
+
+                    if (!shadekinLight.OldRadiusEdited)
+                    {
+                        shadekinLight.OldRadius = pointLight.Radius;
+                        shadekinLight.OldRadiusEdited = true;
+                    }
+
+                    var radius = distance * 2f;
+                    if (radius > shadekinLight.OldRadius) radius = shadekinLight.OldRadius;
+                    if (radius < shadekinLight.OldRadius * 0.2f) radius = shadekinLight.OldRadius * 0.2f;
+
+                    lightSys.SetRadius(pointLight.Owner, radius);
                 }
 
-                var radius = distance * 1.5f;
-                if (radius > shadekinLight.OldRadius) radius = shadekinLight.OldRadius;
-                if (radius < shadekinLight.OldRadius * 0.2f) radius = shadekinLight.OldRadius * 0.2f;
-
-                lightSys.SetRadius(pointLight.Owner, radius);
+                foreach (var light in _darkened.ToArray()) _darkened.Remove(light);
             }
-
-            component.DarkenedLights = args.Lights;
         }
 
         private void OnRemove(EntityUid uid, ShadekinComponent component, ComponentRemove args)
