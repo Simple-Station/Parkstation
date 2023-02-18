@@ -203,7 +203,7 @@ namespace Content.Client.Preferences.UI
                 {
                     Text = description,
                     ClipText = true,
-                    MinSize = (100, 0),
+                    MinSize = (180, 0),
                     HorizontalExpand = true
                 };
                 var deleteButton = new Button
@@ -233,7 +233,7 @@ namespace Content.Client.Preferences.UI
                 {
                     Orientation = LayoutOrientation.Horizontal,
                     HorizontalExpand = true,
-                    MinSize = (125, 0),
+                    MinSize = (200, 0),
                     SeparationOverride = 0,
                     Children =
                     {
