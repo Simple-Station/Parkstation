@@ -1200,3 +1200,8 @@ Entries:
       - { message: "The scream action is no longer present, since screaming can be done through emotes.", type: Remove }
     id: 93
     time: "2023-02-12T21:43:11.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: 'Add guidebooks for every species, quickly explaining their mechanics.', type: Add }
+    id: 94
+    time: "2023-02-18T00:09:30.0000000+00:00"
