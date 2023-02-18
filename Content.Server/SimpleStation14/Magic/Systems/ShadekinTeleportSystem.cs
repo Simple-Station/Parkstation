@@ -50,7 +50,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
             _audio.PlayPvs(args.BlinkSound, args.Performer, AudioParams.Default.WithVolume(args.BlinkVolume));
 
-            _staminaSystem.TakeStaminaDamage(args.Performer, 35);
+            _staminaSystem.TakeStaminaDamage(args.Performer, args.StaminaCost);
 
             args.Handled = true;
         }

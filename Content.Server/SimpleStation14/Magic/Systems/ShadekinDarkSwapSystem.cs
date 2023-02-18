@@ -60,27 +60,27 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
         private void DarkSwap(EntityUid uid, ShadekinDarkSwapComponent component, ShadekinDarkSwapEvent args)
         {
-            ToggleInvisibility(args.Performer);
+            ToggleInvisibility(args.Performer, args);
 
             args.Handled = true;
         }
 
 
-        public void ToggleInvisibility(EntityUid uid)
+        public void ToggleInvisibility(EntityUid uid, ShadekinDarkSwapEvent args)
         {
             if (!HasComp<ShadekinDarkSwappedComponent>(uid))
             {
                 EnsureComp<ShadekinDarkSwappedComponent>(uid);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, true));
 
-                _staminaSystem.TakeStaminaDamage(uid, 45);
+                _staminaSystem.TakeStaminaDamage(uid, args.StaminaCostOn);
             }
             else
             {
                 RemComp<ShadekinDarkSwappedComponent>(uid);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, false));
 
-                _staminaSystem.TakeStaminaDamage(uid, 35);
+                _staminaSystem.TakeStaminaDamage(uid, args.StaminaCostOff);
             }
         }
 
