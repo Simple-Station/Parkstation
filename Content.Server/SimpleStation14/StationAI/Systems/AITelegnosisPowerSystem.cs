@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.StatusEffect;
 using Content.Shared.Abilities.Psionics;
-using Content.Shared.SimpleStation14.Abilities.Psionics;
+using Content.Shared.SimpleStation14.StationAI;
 using Content.Server.Mind.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Mobs;
@@ -10,12 +10,8 @@ using Content.Shared.Mobs.Systems;
 using Content.Server.Abilities.Psionics;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
-using Content.Shared.Throwing;
-using Content.Shared.Item;
-using Content.Shared.DragDrop;
-using Content.Shared.Strip.Components;
 
-namespace Content.Server.SimpleStation14.Abilities.Psionics
+namespace Content.Server.SimpleStation14.StationAI
 {
     public sealed class AITelegnosisPowerSystem : EntitySystem
     {
@@ -37,11 +33,6 @@ namespace Content.Server.SimpleStation14.Abilities.Psionics
             SubscribeLocalEvent<AITelegnosisPowerComponent, AITelegnosisPowerActionEvent>(OnPowerUsed);
 
             SubscribeLocalEvent<AITelegnosisPowerComponent, MobStateChangedEvent>(OnMobStateChanged);
-
-            SubscribeLocalEvent<AITelegnosisPowerComponent, ThrowAttemptEvent>(OnDisallowedEvent);
-            SubscribeLocalEvent<AITelegnosisPowerComponent, PickupAttemptEvent>(OnDisallowedEvent);
-            SubscribeLocalEvent<AITelegnosisPowerComponent, DropAttemptEvent>(OnDisallowedEvent);
-            SubscribeLocalEvent<AITelegnosisPowerComponent, StrippingSlotButtonPressed>(OnStripEvent);
         }
 
         private void OnInit(EntityUid uid, AITelegnosisPowerComponent component, ComponentInit args)
@@ -91,16 +82,6 @@ namespace Content.Server.SimpleStation14.Abilities.Psionics
             _mindSwap.Swap(component.Owner, mindSwapped.OriginalEntity);
             // SoundSystem.Play("/Audio/SimpleStation14/Machines/AI/borg_death.ogg", Filter.Pvs(component.Owner), component.Owner); // Eye shouldn't emit the sound
             SoundSystem.Play("/Audio/SimpleStation14/Machines/AI/borg_death.ogg", Filter.Pvs(mindSwapped.OriginalEntity), mindSwapped.OriginalEntity);
-        }
-
-        private void OnDisallowedEvent(EntityUid uid, AITelegnosisPowerComponent drone, CancellableEntityEventArgs args)
-        {
-            args.Cancel();
-        }
-
-        private void OnStripEvent(EntityUid uid, AITelegnosisPowerComponent component, StrippingSlotButtonPressed args)
-        {
-            return;
         }
     }
 

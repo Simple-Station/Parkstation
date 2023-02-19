@@ -26,11 +26,6 @@
   - type: Access
     groups:
     - AllAccess
-# - type: entity
-#   parent: DoorRemoteAI
-#   id: DoorRemoteAIur
-#   components:
-#   - type: Unremoveable
 
 - type: entity
   parent: DoorRemoteDefault
