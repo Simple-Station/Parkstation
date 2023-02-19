@@ -126,10 +126,6 @@
   components:
   - type: PDA
     id: TechnicalAssistantIDCard
-  - type: Appearance
-    visuals:
-    - type: PDAVisualizer
-      state: pda-interntech
   - type: Icon
     state: pda-interntech
 
@@ -141,10 +137,6 @@
   components:
   - type: PDA
     id: MedicalInternIDCard
-  - type: Appearance
-    visuals:
-    - type: PDAVisualizer
-      state: pda-internmed
   - type: Icon
     state: pda-internmed
   - type: HealthAnalyzer
@@ -172,10 +164,6 @@
   components:
   - type: PDA
     id: ServiceWorkerIDCard
-  - type: Appearance
-    visuals:
-    - type: PDAVisualizer
-      state: pda-internservice
   - type: Icon
     state: pda-internservice
 
@@ -301,10 +289,6 @@
   components:
   - type: PDA
     id: CargoIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-cargo
   - type: Icon
     state: pda-cargo
 
@@ -316,10 +300,6 @@
   components:
   - type: PDA
     id: SalvageIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-miner
   - type: Icon
     state: pda-miner
 
@@ -343,10 +323,6 @@
   components:
   - type: PDA
     id: LibrarianIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-library
   - type: Icon
     state: pda-library
 
@@ -495,10 +471,6 @@
   components:
   - type: PDA
     id: ChemistIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-chemistry
   - type: PDABorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#B34200"
@@ -513,10 +485,6 @@
   components:
   - type: PDA
     id: RDIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-rd
   - type: Icon
     state: pda-rd
 
@@ -528,10 +496,6 @@
   components:
   - type: PDA
     id: ResearchIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-science
   - type: Icon
     state: pda-science
 
@@ -698,10 +662,6 @@
   components:
   - type: PDA
     id: ZookeeperIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-zookeeper
   - type: Icon
     state: pda-zookeeper
 
@@ -728,10 +688,6 @@
   components:
   - type: PDA
     id: DetectiveIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-detective
   - type: PDABorderColor
     borderColor: "#774705"
   - type: Icon
