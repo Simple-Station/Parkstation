@@ -67,12 +67,6 @@ public sealed class MeleeWeaponComponent : Component
     public float HeavyMinStamina = 0.2f;
 
     /// <summary>
-    /// Minimum stamina % for heavy attack.
-    /// </summary>
-    [DataField("heavyMinStamina")]
-    public float HeavyMinStamina = 0.2f;
-
-    /// <summary>
     /// Base damage for this weapon. Can be modified via heavy damage or other means.
     /// </summary>
     [DataField("damage", required:true)]
