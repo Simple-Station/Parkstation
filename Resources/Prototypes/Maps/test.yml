@@ -10,3 +10,16 @@
         - Passenger
       availableJobs:
         Passenger: [ -1, -1 ]
+
+- type: gameMap
+  id: Admin
+  mapName: Admin
+  mapPath: /Maps/Test/admin_test_arena.yml
+  minPlayers: 0
+  stations:
+    Admin:
+      mapNameTemplate: "Admin"
+      overflowJobs:
+        - Passenger
+      availableJobs:
+        Passenger: [ -1, -1 ]

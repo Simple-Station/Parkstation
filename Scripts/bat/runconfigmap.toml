@@ -8,7 +8,7 @@ lobbyenabled = false
 lobbyduration = 180
 role_timers = false
 fallbackpreset = "extended"
-map_pool = "MappingMapPool"
+map_pool = "DevMapPool"
 
 [server]
 rules_file = "Park_Rules.txt"

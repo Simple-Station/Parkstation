@@ -725,6 +725,8 @@ entities:
   - pos: 0.43750095,0.583333
     parent: null
     type: Transform
+  - type: BecomesStation
+    id: Admin
   - chunks:
       -1,-1:
         ind: -1,-1
@@ -1339,6 +1341,12 @@ entities:
   type: GravityGeneratorMini
   components:
   - pos: -7.5,6.5
+    parent: 104
+    type: Transform
+- uid: 160
+  type: SpawnPointLatejoin
+  components:
+  - pos: 0,0
     parent: 104
     type: Transform
 ...
