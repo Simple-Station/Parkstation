@@ -61,20 +61,6 @@ namespace Content.Shared.Roles
                 if (slot == "back" && profile.Backpack == BackpackPreference.Duffelbag && !string.IsNullOrEmpty(_duffelbag))
                     return _duffelbag;
 
-                // Trait things, very low priority (for now)
-                if (slot == "eyes")
-                {
-                    // Awful solution, do something shorter if possible :)
-                    var booleanthing = false;
-
-                    foreach (var trait in profile.TraitPreferences)
-                    {
-                        if (trait == "Nearsighted") booleanthing = true;
-                    }
-
-                    if (booleanthing == true) return "ClothingEyesGlasses";
-                }
-                // Commando no longer, underwear shall be worn.
 
                 // Handles equipping all crew with underwear without putting it in every file.
                 // Checks for skirt settings, if skirt = true, equip with panties and bra
