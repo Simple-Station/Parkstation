@@ -43,6 +43,8 @@
     sprite: Clothing/OuterClothing/Misc/chef.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/chef.rsi
+  - type: TemperatureProtection
+    coefficient: 0.6
 
 - type: entity
   parent: ClothingOuterBase
@@ -237,7 +239,7 @@
     sprite: Clothing/OuterClothing/Misc/nunrobe.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/nunrobe.rsi
-    
+
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterGhostSheet
