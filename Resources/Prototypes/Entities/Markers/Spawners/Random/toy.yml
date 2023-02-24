@@ -31,7 +31,8 @@
         - PlushieSharkGrey
         - ToyAmongPequeno
         - ToyMouse
-      chance: 0.8
+        - PlushieMoff
+      chance: 0.5
       offset: 0.2
 
 - type: entity
