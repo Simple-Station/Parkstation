@@ -1,0 +1,135 @@
+# - type: entity
+#   id: HoloChamber
+#   parent: BaseMachinePowered
+#   name: holo pod
+#   description: A Cloning Pod. 50% reliable.
+#   components:
+#   - type: CloningPod
+#   - type: DeviceList
+#   - type: DeviceNetwork
+#     deviceNetId: Wired
+#   - type: Sprite
+#     netsync: false
+#     sprite: Structures/Machines/cloning.rsi
+#     snapCardinals: true
+#     layers:
+#       - state: pod_0
+#   - type: Physics
+#     bodyType: Static
+#   - type: Fixtures
+#     fixtures:
+#     - shape:
+#         !type:PhysShapeAabb
+#         bounds: "-0.25,-0.5,0.25,0.5"
+#       density: 190
+#       mask:
+#       - MachineMask
+#       layer:
+#       - MachineLayer
+#   - type: Construction
+#     graph: Machine
+#     node: machine
+#     containers:
+#      - machine_board
+#      - machine_parts
+#      - clonepod-bodyContainer
+#   - type: SignalReceiver
+#     inputs:
+#       CloningPodReceiver: []
+#   - type: EmptyOnMachineDeconstruct
+#     containers:
+#       - clonepod-bodyContainer
+#   - type: Destructible
+#     thresholds:
+#     - trigger:
+#         !type:DamageTrigger
+#         damage: 100
+#       behaviors:
+#       - !type:ChangeConstructionNodeBehavior
+#         node: machineFrame
+#       - !type:DoActsBehavior
+#         acts: ["Destruction"]
+#   - type: Machine
+#     board: CloningPodMachineCircuitboard
+#   - type: MaterialStorage
+#     materialWhiteList:
+#     - Biomass
+#   - type: Wires
+#     BoardName: "CloningPod"
+#     LayoutId: CloningPod
+#   - type: ApcPowerReceiver
+#     powerLoad: 200 #Receives most of its power from the console
+#   - type: Appearance
+#     visuals:
+#       - type: GenericEnumVisualizer
+#         key: enum.CloningPodVisuals.Status
+#         layer: 0
+#         states:
+#           enum.CloningPodStatus.Cloning: pod_1
+#           enum.CloningPodStatus.NoMind: pod_e
+#           enum.CloningPodStatus.Gore: pod_g
+#           enum.CloningPodStatus.Idle: pod_0
+#   - type: Climbable
+#   - type: DynamicPrice
+#     price: 1000
+#   - type: ContainerContainer
+#     containers:
+#       machine_board: !type:Container
+#       machine_parts: !type:Container
+#       clonepod-bodyContainer: !type:ContainerSlot
+
+- type: entity
+  id: HologramServer
+  parent: BaseMachinePowered
+  name: hologram server
+  description: Contains the collective knowledge of holo
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi
+    state: server
+  - type: ApcPowerReceiver
+    powerLoad: 200
+    priority: Low
+  - type: ExtensionCableReceiver
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metalbreak.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/server_fans.ogg
+  - type: HologramServer
+  - type: ItemSlots
+    slots:
+      holo_disk: #this slot name is important
+        name: Disk
+        whitelist:
+          requireAll: true
+          components:
+          - HoloDisk
+  - type: CloningPod
+
+- type: entity
+  parent: BaseItem
+  id: HologramDisk
+  name: holo disk
+  description: A disk for the holo
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Research/researchdisk.rsi
+    state: icon
+  - tpye: HologramDisk
