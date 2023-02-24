@@ -45,3 +45,76 @@
     attributes:
       proper: true
       gender: male
+
+- type: entity
+  name: holo corgi
+  description: "A hologramatic projection of a corgi, computed by the AI and rendered by the station's cameras."
+  id: MobCorgiHolo22
+  suffix: AI
+  components:
+  - type: LagCompensation
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Input
+    context: "human"
+  - type: Faction
+    factions:
+    - Pet
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.5
+    baseSprintSpeed : 3
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    sprite: SimpleStation14/Mobs/Pets/corgi.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: holo_corgi
+    netsync: false
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: KinematicController # Same for all inheritors
+  - type: Fixtures
+    fixtures:
+    - shape:
+        # Circles, cuz rotation of rectangles looks very bad
+        !type:PhysShapeCircle
+        radius: 0.35
+      density: 50
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+  - type: MobState
+  - type: Body
+    prototype: Animal
+  - type: Examiner
+  - type: Appearance
+  - type: RotationVisuals
+  - type: Actions
+  - type: DoAfter
+  - type: Polymorphable
+  - type: StandingState
+  - type: Alerts
+  - type: FloatingVisuals
+  - type: NoSlip
+  - type: TypingIndicator
+    proto: holo
+  - type: ReplacementAccent
+    accent: dog
+  - type: InteractionPopup
+    interactSuccessString: hugging-success-hologram-others
+    interactSuccessSound:
+      path: /Audio/SimpleStation14/Effects/Hologram/holo_on.ogg
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: DogVision
+  - type: RandomBark
+  - type: Hologram

@@ -4,6 +4,7 @@
   name: cloning pod
   description: A Cloning Pod. 50% reliable.
   components:
+  - type: Holopod
   - type: CloningPod
   - type: DeviceList
   - type: DeviceNetwork
