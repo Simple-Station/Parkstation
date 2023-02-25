@@ -2,12 +2,12 @@
   id: Nukeops
   name: roles-antag-nuclear-operative-name
   antagonist: true
-  setPreference: true
+  setPreference: false
   objective: roles-antag-nuclear-operative-objective
 
 - type: antag
   id: NukeopsCommander
   name: roles-antag-nuclear-operative-commander-name
   antagonist: true
-  setPreference: true
+  setPreference: false
   objective: roles-antag-nuclear-operative-commander-objective
