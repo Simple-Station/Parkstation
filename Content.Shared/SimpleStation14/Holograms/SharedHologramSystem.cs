@@ -8,6 +8,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Serialization;
+using Robust.Shared.Containers;
 
 namespace Content.Shared.SimpleStation14.Hologram;
 
@@ -19,6 +20,7 @@ public class SharedHologramSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    private const string DiskSlot = "holo_disk";
 
     public override void Initialize()
     {
@@ -46,9 +48,9 @@ public class SharedHologramSystem : EntitySystem
     private void OnEntInserted(EntityUid uid, HologramServerComponent component, EntInsertedIntoContainerMessage args)
     {
         if (args.Container.ID != DiskSlot ||
-            !_entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var disk)) return;
+            !_tagSystem.HasTag(args.Entity, "HoloDisk")) return;
 
-        TryHoloGenerate(component.Owner, disk.HoloData!, _entityManager.GetComponent<CloningPodComponent>(component.Owner));
+        RaiseNetworkEvent(new HologramDiskInsertedEvent(uid, component));
     }
 }
 

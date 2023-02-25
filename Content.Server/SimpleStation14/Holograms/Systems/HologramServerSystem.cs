@@ -68,18 +68,24 @@ public class HologramServerSystem : EntitySystem
         base.Initialize();
         // SubscribeLocalEvent<HologramServerComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<HologramDiskComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeNetworkEvent<HologramDiskInsertedEvent>(TryHoloGenerate);
     }
 
-    public bool TryHoloGenerate(EntityUid uid, Mind.Mind mind, CloningPodComponent? clonePod)
+    public void TryHoloGenerate(HologramDiskInsertedEvent args)
     {
+        var uid = args.ServerComponent.Owner;
+        var clonePod = _entityManager.GetComponent<CloningPodComponent>(uid);
+        var disk = _entityManager.GetComponent<HologramDiskComponent>(args.Uid);
+        var mind = disk.HoloData!;
+
         CloningSystem cloneSys = new();
         Logger.Info("Trying to clone");
 
         if (!Resolve(uid, ref clonePod))
-            return false;
+            return;
 
         if (HasComp<ActiveCloningPodComponent>(uid))
-            return false;
+            return;
 
         Logger.Info("Clone pod is active");
 
@@ -89,25 +95,25 @@ public class HologramServerSystem : EntitySystem
                 !_mobStateSystem.IsDead(clone) &&
                 TryComp<MindComponent>(clone, out var cloneMindComp) &&
                 (cloneMindComp.Mind == null || cloneMindComp.Mind == mind))
-                return false; // Mind already has clone
+                return; // Mind already has clone
 
             ClonesWaitingForMind.Remove(mind);
         }
         Logger.Info("Waiting something something");
 
         if (mind.OwnedEntity != null && !_mobStateSystem.IsDead(mind.OwnedEntity.Value))
-            return false; // Body controlled by mind is not dead
+            return; // Body controlled by mind is not dead
         Logger.Info("Not alive still");
 
         // Yes, we still need to track down the client because we need to open the Eui
         if (mind.UserId == null || !_playerManager.TryGetSessionById(mind.UserId.Value, out var client))
-            return false; // If we can't track down the client, we can't offer transfer. That'd be quite bad.
+            return; // If we can't track down the client, we can't offer transfer. That'd be quite bad.
         Logger.Info("Got client");
 
         var pref = (HumanoidCharacterProfile) _prefs.GetPreferences(mind.UserId.Value).SelectedCharacter;
 
         if (pref == null)
-            return false;
+            return;
         Logger.Info("Got prefs");
 
         var mob = HoloFetchAndSpawn(clonePod, pref);
@@ -136,7 +142,7 @@ public class HologramServerSystem : EntitySystem
             }
         }
 
-        return true;
+        return;
     }
 
     public void UpdateStatus(CloningPodStatus status, CloningPodComponent cloningPod)
