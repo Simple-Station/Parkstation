@@ -23,7 +23,6 @@
   cost: 2
   category: Negative
   components:
-    - type: TraitRegenReagent
     - type: EasyDrunk
       reagent:
         solutionName: chemicals

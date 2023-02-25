@@ -8,7 +8,6 @@
     species:
       - Reptilian
   components:
-    - type: TraitRegenReagent
     - type: DraconicBloodstream
       reagent:
         solutionName: chemicals
