@@ -133,3 +133,6 @@
     sprite: Objects/Specific/Research/researchdisk.rsi
     state: icon
   - tpye: HologramDisk
+  - type: Tag
+    tags:
+    - HoloDisk

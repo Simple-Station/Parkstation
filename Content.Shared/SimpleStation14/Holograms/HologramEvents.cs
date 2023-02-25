@@ -1,4 +1,7 @@
-// namespace Content.Shared.SimpleStation14.Hologram;
+using Content.Shared.SimpleStation14.Hologram;
+using Robust.Shared.Serialization;
+
+namespace Content.Shared.SimpleStation14.Hologram;
 
 // /// <summary>
 // /// Raised when a hologram is being returned to its last visited projector.
@@ -25,3 +28,19 @@
 //         Component = component;
 //     }
 // }
+
+/// <summary>
+/// Raised when a hologram is being killed and removed from the game world.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class HologramDiskInsertedEvent : EntityEventArgs
+{
+    public EntityUid Uid;
+    public HologramServerComponent ServerComponent;
+
+    public HologramDiskInsertedEvent(EntityUid uid, HologramServerComponent serverComponent)
+    {
+        Uid = uid;
+        ServerComponent = serverComponent;
+    }
+}
