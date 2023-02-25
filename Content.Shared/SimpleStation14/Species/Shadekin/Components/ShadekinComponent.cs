@@ -20,5 +20,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
 
         [ViewVariables(VVAccess.ReadOnly)]
         public float Accumulator = 0f;
+
+
+        [DataField("tint"), ViewVariables(VVAccess.ReadWrite)]
+        public Vector3 Tint = new(0.5f, 0f, 0.5f);
+
+        [DataField("tintIntensity"), ViewVariables(VVAccess.ReadWrite)]
+        public float TintIntensity = 0.5f;
     }
 }

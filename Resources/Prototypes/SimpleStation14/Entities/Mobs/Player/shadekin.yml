@@ -139,6 +139,8 @@
         Slash: 3
         Piercing: 1
   - type: Shadekin
+    tint: 0.5,0,0
+    tintIntensity: 0.5
   - type: ShadekinTeleport
   - type: ShadekinDarkSwap
   - type: Vocal

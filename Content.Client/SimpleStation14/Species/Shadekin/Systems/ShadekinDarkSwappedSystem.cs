@@ -6,7 +6,7 @@ using Content.Shared.SimpleStation14.Species.Shadekin.Events;
 using Robust.Client.GameObjects;
 using Content.Shared.GameTicking;
 
-namespace Content.Client.SimpleStation14.Magic.Systems
+namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
 {
     public sealed class ShadekinDarkSwappedSystem : EntitySystem
     {
@@ -54,7 +54,7 @@ namespace Content.Client.SimpleStation14.Magic.Systems
 
         private void OnPlayerAttached(EntityUid uid, ShadekinDarkSwappedComponent component, PlayerAttachedEvent args)
         {
-            ToggleInvisibility(uid, true); // TODO: Why doesn't this event emit?
+            ToggleInvisibility(uid, true);
         }
 
         private void OnPlayerDetached(EntityUid uid, ShadekinDarkSwappedComponent component, PlayerDetachedEvent args)

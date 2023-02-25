@@ -7,3 +7,8 @@
   id: GreyscaleFullscreen
   kind: source
   path: "/Textures/Shaders/greyscale_fullscreen.swsl"
+
+- type: shader
+  id: ShadekinTint
+  kind: source
+  path: "/Textures/Shaders/shadekin_tint.swsl"
