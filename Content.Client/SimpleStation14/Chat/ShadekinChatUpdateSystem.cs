@@ -1,6 +1,6 @@
 using Content.Client.Chat.Managers;
 using Robust.Client.Player;
-using Content.Shared.SimpleStation14.Magic.Components;
+using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 
 namespace Content.Client.SimpleStation14.Chat
 {

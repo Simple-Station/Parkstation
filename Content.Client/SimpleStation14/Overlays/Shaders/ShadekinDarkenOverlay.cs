@@ -2,7 +2,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Content.Shared.SimpleStation14.Magic.Components;
+using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Robust.Client.GameObjects;
 using Content.Shared.Humanoid;
 

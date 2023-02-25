@@ -1,8 +1,8 @@
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Content.Client.SimpleStation14.Overlays;
-using Content.Shared.SimpleStation14.Magic.Components;
-using Content.Shared.SimpleStation14.Magic.Events;
+using Content.Shared.SimpleStation14.Species.Shadekin.Components;
+using Content.Shared.SimpleStation14.Species.Shadekin.Events;
 using Robust.Client.GameObjects;
 using Content.Shared.GameTicking;
 

@@ -1,7 +1,7 @@
-using Content.Shared.SimpleStation14.Magic.Components;
 using Content.Shared.Interaction.Events;
+using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 
-namespace Content.Shared.SimpleStation14.Magic.Systems
+namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 {
     public sealed class ShadekinDarken : EntitySystem
     {

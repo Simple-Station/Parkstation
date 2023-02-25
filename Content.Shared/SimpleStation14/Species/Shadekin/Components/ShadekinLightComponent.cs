@@ -1,4 +1,4 @@
-namespace Content.Shared.SimpleStation14.Magic.Components
+namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
 {
     [RegisterComponent]
     public sealed class ShadekinLightComponent : Component

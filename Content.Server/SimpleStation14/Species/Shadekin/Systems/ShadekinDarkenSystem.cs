@@ -1,5 +1,5 @@
 using Content.Server.Light.Components;
-using Content.Shared.SimpleStation14.Magic.Components;
+using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.SimpleStation14.Magic.Systems

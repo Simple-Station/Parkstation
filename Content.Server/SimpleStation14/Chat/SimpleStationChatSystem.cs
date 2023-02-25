@@ -12,7 +12,7 @@ using Content.Server.Chat.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Content.Shared.SimpleStation14.Magic.Components;
+using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Robust.Shared.Utility;
 using Content.Server.SimpleStation14.Speech.EntitySystems;
 

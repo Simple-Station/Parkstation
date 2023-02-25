@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.SimpleStation14.Magic.Events
+namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
 {
     /// <summary>
     ///     Raised when the shadekin teleport action is used.

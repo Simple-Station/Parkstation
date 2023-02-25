@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.SimpleStation14.Magic.Components
+namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
 {
     [RegisterComponent, NetworkedComponent]
     public sealed class ShadekinComponent : Component
