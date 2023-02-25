@@ -523,6 +523,16 @@
     Plasma: 200
 
 - type: latheRecipe
+  id: ClothingEyesHudMedicalPrescription
+  icon: { sprite: Clothing/Eyes/Hud/med.rsi, state: icon }
+  result: ClothingEyesHudMedicalPrescription
+  completetime: 4
+  materials:
+    Steel: 150
+    Glass: 350
+    Plasma: 250
+
+- type: latheRecipe
   id: ClothingEyesHudDiagnostic
   icon: { sprite: Clothing/Eyes/Hud/diag.rsi, state: icon }
   result: ClothingEyesHudDiagnostic
@@ -530,3 +540,12 @@
   materials:
     Steel: 300
     Glass: 300
+
+- type: latheRecipe
+  id: ClothingEyesHudDiagnosticPrescription
+  icon: { sprite: Clothing/Eyes/Hud/diag.rsi, state: icon }
+  result: ClothingEyesHudDiagnosticPrescription
+  completetime: 4
+  materials:
+    Steel: 350
+    Glass: 350

@@ -2204,8 +2204,6 @@ entities:
       - 0
       - 0
     type: GridAtmosphere
-  - id: SyndieComms
-    type: BecomesStation
   - type: RadiationGridResistance
 - uid: 2
   type: WallPlastitanium

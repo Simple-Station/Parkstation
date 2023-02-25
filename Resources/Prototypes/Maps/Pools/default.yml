@@ -1,12 +1,4 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-  - Angle
-  - Arena
-  - Glacier
-  - Hammurabi
-  - Lighthouse
-  - Ovni
-  - Pebble
-  - Shoukou
-  - Tortuga
+  - ParkStation

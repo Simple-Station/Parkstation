@@ -62,6 +62,10 @@
   components:
   - type: ClothingGrantTag
     tag: GlassesNearsight
+  - type: ReverseEngineering
+    difficulty: 3
+    recipes:
+      - ClothingEyesHudDiagnosticPrescription
 
 - type: entity
   parent: ClothingEyesHudMedical
@@ -71,6 +75,10 @@
   components:
   - type: ClothingGrantTag
     tag: GlassesNearsight
+  - type: ReverseEngineering
+    difficulty: 3
+    recipes:
+      - ClothingEyesHudMedicalPrescription
 
 - type: entity
   parent: ClothingEyesHudSecurity

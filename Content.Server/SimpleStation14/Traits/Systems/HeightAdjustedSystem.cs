@@ -23,7 +23,7 @@ public sealed class HeightAdjustedSystem : EntitySystem
     /// </summary>
     private void Startup(EntityUid uid, HeightAdjustedComponent component, ComponentStartup args)
     {
-        var sprite = _entityManager.GetComponent<SpriteComponent>(uid);
+        if (!_entityManager.TryGetComponent<SpriteComponent>(uid, out var sprite)) return;
         EnsureComp<ScaleVisualsComponent>(uid);
 
         var oldScale = GetScale(uid, sprite);
