@@ -35,5 +35,6 @@ chat-manager-send-telepathic-chat-wrap-message = {$telepathicChannelName}: {$mes
 chat-manager-send-telepathic-chat-wrap-message-admin = {$source} (Ψ): {$message}
 chat-manager-telepathic-channel-name = TELEPATHIC
 
-chat-manager-send-empathy-chat-wrap-message = {$empathyChannelName} - {$source}: {$message}
+chat-manager-send-empathy-chat-wrap-message = {$empathyChannelName}: {$message}
+chat-manager-send-empathy-chat-wrap-message-admin = {$empathyChannelName} - {$source}: {$message}
 chat-manager-empathy-channel-name = EMPATHY

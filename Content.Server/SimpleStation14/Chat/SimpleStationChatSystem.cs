@@ -1,7 +1,4 @@
 using System.Linq;
-using Content.Shared.Abilities.Psionics;
-using Content.Shared.Bed.Sleep;
-using Content.Shared.Drugs;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Psionics.Glimmer;
@@ -56,8 +53,8 @@ namespace Content.Server.SimpleStation14.Chat
             string adminMessageWrap;
 
             localMessageWrap = Loc.GetString("chat-manager-entity-say-wrap-message", ("entityName", source), ("message", FormattedMessage.EscapeText(message)));
-            messageWrap = Loc.GetString("chat-manager-send-empathy-chat-wrap-message", ("empathyChannelName", Loc.GetString("chat-manager-empathy-channel-name")),("source", source), ("message", message));
-            adminMessageWrap = Loc.GetString("chat-manager-send-empathy-chat-wrap-message", ("empathyChannelName", Loc.GetString("chat-manager-empathy-channel-name")),("source", source), ("message", message));
+            messageWrap = Loc.GetString("chat-manager-send-empathy-chat-wrap-message", ("empathyChannelName", Loc.GetString("chat-manager-empathy-channel-name")), ("message", message));
+            adminMessageWrap = Loc.GetString("chat-manager-send-empathy-chat-wrap-message-admin", ("empathyChannelName", Loc.GetString("chat-manager-empathy-channel-name")), ("source", source), ("message", message));
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Empathy chat from {ToPrettyString(source):Player}: {message}");
 
