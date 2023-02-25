@@ -33,7 +33,6 @@
       - BackpackOfHolding
       - SatchelOfHolding
       - DuffelbagOfHolding
-      - NormalityCrystal
       - AnomalyScanner
       - ChemicalPayload #Below = shared
       - FlashlightLantern
@@ -205,6 +204,7 @@
       - RPED
       - PowerDrill
       - MiningDrill
+      - ClothingEyesHudDiagnostic
       - RCDAmmo # Below is shared with other lathes
       - FlashlightLantern
       - Bucket

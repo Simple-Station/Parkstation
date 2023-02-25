@@ -28,6 +28,8 @@
         amount: 1
       - id: PlushieSharkBlue
         amount: 1
+      - id: PlushieMoff
+        amount: 1
       - id: PlushieRGBee
         amount: 1
         prob: 0.20
@@ -173,7 +175,7 @@
         amount: 4
       - id: KnifePlastic
         amount: 1
-        
+
 - type: entity
   id: CrateFunSyndicateSegway
   parent: CrateLivestock

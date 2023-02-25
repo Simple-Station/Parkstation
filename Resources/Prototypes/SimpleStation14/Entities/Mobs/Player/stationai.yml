@@ -1,14 +1,14 @@
 - type: body
   id: AI
-  name: "routerai" # Thanks for the idea, and a base to go off
+  name: "routerai" # :)
   root: hand 1
-  slots: # Thanks for reminding me to fix this Faye
+  slots:
     hand 1:
       part: LeftArmBorg
       connections:
       - hand 2
     hand 2:
-      part: RightArmBorg # LeftArmBorg
+      part: RightArmBorg
       # connections:
       # - hand 3
     # hand 3:
@@ -30,6 +30,7 @@
   abstract: true
   id: AIbase
   components:
+    - type: StationAI
     - type: Visibility
     - type: Psionic
     - type: UserInterface
@@ -44,7 +45,7 @@
           toggleAction:
             name: action-name-show-laws
             description: action-description-show-laws
-            icon: Structures/Wallmounts/posters.rsi/poster11_legit.png #someone wanna make new icons?
+            icon: Structures/Wallmounts/posters.rsi/poster11_legit.png
             iconOn: Structures/Wallmounts/posters.rsi/poster11_legit.png
             keywords: ["AI", "console", "interface", "laws", "borg"]
             priority: -3
@@ -141,6 +142,7 @@
   id: AIeye
   parent: AIbase
   name: Invalid AI name
+  noSpawn: true
   components:
     - type: Visibility
       layer: 2
@@ -175,13 +177,6 @@
       energy: 1
       color: "#9dc5c9"
     - type: MovementIgnoreGravity
-    - type: MobState
-    - type: MobThresholds
-      thresholds:
-        0: Alive
-        100000: Dead
-    - type: Damageable
-      damageContainer: Inorganic
 
 - type: entity
   parent: AIbase
@@ -259,3 +254,14 @@
         - Structure
     - type: StaticPrice
       price: 50000
+
+- type: instantAction
+  id: AIHealthOverlay
+  name: Health Overlay
+  description: Toggles the AI's health overlay.
+  useDelay: 2.5
+  itemIconStyle: NoItem
+  icon:
+    sprite: Interface/Alerts/human_alive.rsi
+    state: health0
+  event: !type:AIHealthOverlayEvent

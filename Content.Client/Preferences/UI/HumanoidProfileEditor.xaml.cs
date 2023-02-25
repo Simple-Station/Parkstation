@@ -1484,7 +1484,7 @@ namespace Content.Client.Preferences.UI
         private sealed class AntagPreferenceSelector : Control
         {
             public AntagPrototype Antag { get; }
-            private readonly CheckBox _checkBox;
+            private readonly Button _checkBox;
 
             public bool Preference
             {
@@ -1498,7 +1498,10 @@ namespace Content.Client.Preferences.UI
             {
                 Antag = antag;
 
-                _checkBox = new CheckBox {Text = Loc.GetString(antag.Name)};
+                _checkBox = new Button {
+                    Text = Loc.GetString(antag.Name),
+                    ToggleMode = true
+                };
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
                 if (antag.Description != null)
@@ -1526,7 +1529,7 @@ namespace Content.Client.Preferences.UI
         private sealed class TraitPreferenceSelector : Control
         {
             public TraitPrototype Trait { get; }
-            private readonly CheckBox _checkBox;
+            private readonly Button _checkBox;
 
             public bool Preference
             {
@@ -1540,7 +1543,10 @@ namespace Content.Client.Preferences.UI
             {
                 Trait = trait;
 
-                _checkBox = new CheckBox { Text = $"[{trait.Cost}] {Loc.GetString(trait.Name)}" };
+                _checkBox = new Button {
+                    Text = $"[{trait.Cost}] {Loc.GetString(trait.Name)}",
+                    ToggleMode = true
+                };
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
                 var tooltip = "";
@@ -1598,7 +1604,7 @@ namespace Content.Client.Preferences.UI
         private sealed class LoadoutPreferenceSelector : Control
         {
             public LoadoutPrototype Loadout { get; }
-            private readonly CheckBox _checkBox;
+            private readonly Button _checkBox;
 
             public bool Preference
             {
@@ -1625,10 +1631,11 @@ namespace Content.Client.Preferences.UI
                     SizeFlagsStretchRatio = 1
                 };
 
-                _checkBox = new CheckBox
+                _checkBox = new Button
                 {
                     Text = $"[{loadout.Cost}] {Loc.GetString(loadout.Name)}",
-                    VerticalAlignment = VAlignment.Center
+                    VerticalAlignment = VAlignment.Center,
+                    ToggleMode = true
                 };
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
