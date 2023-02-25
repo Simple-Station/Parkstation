@@ -1152,9 +1152,18 @@ Entries:
   - author: "Pspritechologist"
     changes:
       - { message: "Merged Upstream", type: Add }
-      - { message: "Mobs will no longer bark when controlled by players.", type: Tweak }
-      - { message: "Prescription glasses now break if thrown, hit, or stepped on.", type: Add }
-      - { message: "Careful when you fall over, and keep an eye on your pockets.", type: Add }
+      - {
+          message: "Mobs will no longer bark when controlled by players.",
+          type: Tweak,
+        }
+      - {
+          message: "Prescription glasses now break if thrown, hit, or stepped on.",
+          type: Add,
+        }
+      - {
+          message: "Careful when you fall over, and keep an eye on your pockets.",
+          type: Add,
+        }
       - { message: "You wouldn't slip a guy with glasses!", type: Tweak }
     id: 87
     time: "2023-01-31T23:25:45.0000000+00:00"
@@ -1170,8 +1179,14 @@ Entries:
   - author: "Pspritechologist"
     changes:
       - { message: "Added several Parkstation specific guidebooks.", type: Add }
-      - { message: "Updated Parkstation with several fixes and Anomaly equipment!", type: Add }
-      - { message: "Resized several material and part sprites so they look not dumb.", type: Tweak }
+      - {
+          message: "Updated Parkstation with several fixes and Anomaly equipment!",
+          type: Add,
+        }
+      - {
+          message: "Resized several material and part sprites so they look not dumb.",
+          type: Tweak,
+        }
     id: 89
     time: "2023-02-02T06:17:50.0000000+00:00"
   - author: "BlitzGunner225"
@@ -1182,26 +1197,71 @@ Entries:
   - author: "Pspritechologist"
     changes:
       - { message: "Parkstation has a third solar array!", type: Add }
-      - { message: "Added actual guidebooks in game! Find them in Atmos, Command, or Epistemics!", type: Add }
+      - {
+          message: "Added actual guidebooks in game! Find them in Atmos, Command, or Epistemics!",
+          type: Add,
+        }
       - { message: "Updated Parkstation with various tweaks.", type: Tweak }
     id: 91
     time: "2023-02-03T06:01:23.0000000+00:00"
   - author: "Pspritechologist"
     changes:
       - { message: "Parkstation has a third solar array!", type: Add }
-      - { message: "Added actual guidebooks in game! Find them in Atmos, Command, or Epistemics!", type: Add }
+      - {
+          message: "Added actual guidebooks in game! Find them in Atmos, Command, or Epistemics!",
+          type: Add,
+        }
       - { message: "Updated Parkstation with various tweaks.", type: Tweak }
     id: 92
     time: "2023-02-10T23:47:50.0000000+00:00"
   - author: "Pspritechologist"
     changes:
-      - { message: "Character loadouts are a go! Find them in the new tab, with items specific to traits, jobs, or just fashion!", type: Add }
+      - {
+          message: "Character loadouts are a go! Find them in the new tab, with items specific to traits, jobs, or just fashion!",
+          type: Add,
+        }
       - { message: "Character editor UI has been redone.", type: Tweak }
-      - { message: "The scream action is no longer present, since screaming can be done through emotes.", type: Remove }
+      - {
+          message: "The scream action is no longer present, since screaming can be done through emotes.",
+          type: Remove,
+        }
     id: 93
     time: "2023-02-12T21:43:11.0000000+00:00"
   - author: "DEATHB4DEFEAT"
     changes:
-      - { message: 'Add guidebooks for every species, quickly explaining their mechanics.', type: Add }
+      - {
+          message: "Add guidebooks for every species, quickly explaining their mechanics.",
+          type: Add,
+        }
     id: 94
     time: "2023-02-18T00:09:30.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Species guidebooks have localizations.", type: Fix }
+      - {
+          message: "Character preference checkboxes are now togglebuttons.",
+          type: Tweak,
+        }
+      - { message: "Station AI has a health overlay toggle action.", type: Add }
+      - {
+          message: "Station AI disallowed actions predict correctly.",
+          type: Fix,
+        }
+    id: 95
+    time: "2023-02-19T13:53:18.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Height Adjust traits affect player mass, making you do better or worse in masscontests.",
+          type: Add,
+        }
+      - {
+          message: "Mute trait won't show the can't speak popup for nearby people.",
+          type: Fix,
+        }
+      - {
+          message: "Mute trait muted alert goes away on component shutdown.",
+          type: Fix,
+        }
+    id: 96
+    time: "2023-02-25T01:45:13.0000000+00:00"
