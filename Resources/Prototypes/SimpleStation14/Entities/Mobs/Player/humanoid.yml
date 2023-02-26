@@ -106,6 +106,7 @@
         180: 0.4
         240: 0.2
     - type: MobState
+    - type: MobThresholds
       thresholds:
         0: Alive
         300: Dead
@@ -155,6 +156,7 @@
         180: 0.4
         240: 0.2
     - type: MobState
+    - type: MobThresholds
       thresholds:
         0: Alive
         300: Dead
