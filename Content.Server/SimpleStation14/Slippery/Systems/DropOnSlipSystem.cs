@@ -6,7 +6,7 @@ using Robust.Shared.Random;
 using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Shared.Slippery;
-using Content.Server.Interaction.Components;
+using Content.Shared.Interaction.Components;
 
 namespace Content.Server.Slippery;
 public sealed class DropOnSlipSystem : EntitySystem

@@ -1,7 +1,7 @@
 - type: species
   id: Skeleton
   name: Skeleton
-  roundStart: false # Plasma man soon:tm:
+  roundStart: false
   prototype: MobSkeletonPerson
   sprites: MobSkeletonSprites
   markingLimits: MobHumanMarkingLimits

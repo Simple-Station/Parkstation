@@ -1776,8 +1776,6 @@ entities:
       - 0
       - 0
     type: GridAtmosphere
-  - id: SyndieComms
-    type: BecomesStation
   - type: OccluderTree
   - type: GridPathfinding
   - type: RadiationGridResistance

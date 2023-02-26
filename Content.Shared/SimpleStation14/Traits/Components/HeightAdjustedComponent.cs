@@ -1,11 +1,26 @@
-namespace Content.Shared.Traits.Assorted;
-
-/// <summary>
-/// This is used for adjusting something's height.
-/// </summary>
-[RegisterComponent]
-public sealed class HeightAdjustedComponent : Component
+namespace Content.Shared.SimpleStation14.Traits
 {
-    [DataField("height", required: true)]
-    public float Height { get; }
+    /// <summary>
+    ///     Adjusts an entities height and zoom.
+    /// </summary>
+    [RegisterComponent]
+    public sealed class HeightAdjustedComponent : Component
+    {
+        [ViewVariables(VVAccess.ReadWrite)]
+        public Vector2 OriginalScale { get; set; } = Vector2.One;
+        [ViewVariables(VVAccess.ReadOnly)]
+        public Vector2 NewScale { get; set; } = Vector2.One;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float OriginalDensity { get; set; } = 1f;
+        [ViewVariables(VVAccess.ReadOnly)]
+        public float NewDensity { get; set; } = 1f;
+
+
+        [DataField("width", required: true), ViewVariables(VVAccess.ReadWrite)]
+        public float Width { get; set; }
+
+        [DataField("height", required: true), ViewVariables(VVAccess.ReadWrite)]
+        public float Height { get; set; }
+    }
 }

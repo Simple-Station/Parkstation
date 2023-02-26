@@ -4,7 +4,7 @@ using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.Abilities;
+using Content.Shared.SimpleStation14.Traits;
 
 
 namespace Content.Client.SimpleStation14.Overlays;
@@ -20,9 +20,6 @@ public sealed class NearsightedOverlay : Overlay
 
     private readonly ShaderInstance _nearsightShader;
 
-    /// <summary>
-    /// Handles the darkening overlay.
-    /// </summary>
     public float OxygenLevel = 0f;
     private float _oldOxygenLevel = 0f;
     public float outerDarkness = 1f;

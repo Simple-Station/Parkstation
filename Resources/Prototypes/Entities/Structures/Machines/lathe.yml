@@ -489,6 +489,7 @@
       - MedkitRadiation
       - MedkitCombat
       - ClothingEyesHudMedical
+      - ClothingEyesHudMedicalPrescription
       - FlashlightLantern
       - Bucket
       - MopItem
