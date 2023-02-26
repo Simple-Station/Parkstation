@@ -16,6 +16,10 @@
       state: alert-2
     - map: ["computerLayerKeys"]
       state: atmos_key
+  - type: Tag
+    tags:
+    - Hardlight
+
 
 - type: entity
   parent: BaseComputer
