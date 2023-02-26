@@ -92,18 +92,19 @@
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
+    fixtures:
       - shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 50
+        density: 25
         mask:
-          - MobMask
+          - FlyingMobMask
         layer:
-          - MobLayer
+          - FlyingMobLayer
   - type: MovementSpeedModifier
     baseWalkSpeed : 5
     baseSprintSpeed : 3.5
+  - type: MovementIgnoreGravity
   - type: Hands
     showInHands: false
   - type: Body
@@ -123,8 +124,7 @@
   - type: TypingIndicator
     proto: holo
   - type: RotationVisuals
-  - type: FloatingVisuals
-    force: true
+  # - type: FloatingVisuals
   - type: Speech
     speechSounds: Tenor
   - type: Vocal
@@ -148,6 +148,8 @@
   components:
   # - type: CombatMode
   #   disarm: null
+  - type: Stealth
+    lastVisibility: 0.83
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-hologram
@@ -193,5 +195,7 @@
     - Service
     - Binary
   - type: PointLight
-    radius: 3.5
+    radius: 1.3
     softness: 1
+    color: "#00FFFF"
+    energy: 3

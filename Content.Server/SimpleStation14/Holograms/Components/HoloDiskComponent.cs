@@ -1,4 +1,4 @@
-using static Content.Server.SimpleStation14.Hologram.HologramSystem;
+// using static Content.Server.SimpleStation14.Hologram.HologramSystem;
 
 namespace Content.Server.SimpleStation14.Hologram;
 

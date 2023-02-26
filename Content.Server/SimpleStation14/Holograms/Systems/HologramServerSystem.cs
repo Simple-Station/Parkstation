@@ -1,28 +1,7 @@
-using Content.Server.SurveillanceCamera;
-using Content.Server.GameTicking;
+using System.Linq;
 using Content.Server.Mind.Components;
-using Content.Shared.Tag;
-using Content.Shared.Popups;
-using Content.Shared.Interaction.Helpers;
-using Content.Shared.SimpleStation14.Hologram;
-using Content.Shared.Actions;
-using Content.Shared.Actions.ActionTypes;
-using Content.Shared.Pulling;
-using Content.Shared.Pulling.Components;
-using Content.Shared.Administration.Logs;
-using Content.Shared.Database;
-using Robust.Server.Player;
-using Robust.Shared.Player;
-using Robust.Shared.Timing;
-using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
 using Content.Server.Cloning;
 using Content.Server.Cloning.Components;
-
-using Content.Shared.Cloning;
-using Content.Shared.Speech;
-using Content.Shared.Preferences;
-using Content.Shared.Emoting;
 using Content.Server.Psionics;
 using Content.Server.Speech.Components;
 using Content.Server.StationEvents.Components;
@@ -32,12 +11,28 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Jobs;
 using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
+using Content.Server.Power.Components;
+using Content.Server.Administration.Commands;
+using Content.Shared.Tag;
+using Content.Shared.Popups;
+using Content.Shared.SimpleStation14.Hologram;
+using Content.Shared.Pulling;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
+using Content.Shared.Speech;
+using Content.Shared.Preferences;
+using Content.Shared.Emoting;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Systems;
-using Robust.Shared.GameObjects.Components.Localization;
-using System.Linq;
-using Robust.Shared.Containers;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Access.Components;
+using Content.Shared.Clothing.Components;
+using Robust.Server.Player;
+using Robust.Shared.Player;
+using Robust.Shared.Containers;
+using Robust.Shared.GameObjects.Components.Localization;
 
 namespace Content.Server.SimpleStation14.Hologram;
 
@@ -59,6 +54,7 @@ public class HologramServerSystem : EntitySystem
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     private const string DiskSlot = "holo_disk";
     public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
@@ -66,28 +62,91 @@ public class HologramServerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        // SubscribeLocalEvent<HologramServerComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
+        SubscribeLocalEvent<HologramServerComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
+        SubscribeLocalEvent<HologramServerComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<HologramDiskComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeNetworkEvent<HologramDiskInsertedEvent>(TryHoloGenerate);
+        SubscribeLocalEvent<HologramServerComponent, PowerChangedEvent>(OnPowerChanged);
     }
 
-    public void TryHoloGenerate(HologramDiskInsertedEvent args)
+    /// <summary>
+    /// Handles generating a hologram from an inserted disk
+    /// </summary>
+    private void OnEntInserted(EntityUid uid, HologramServerComponent component, EntInsertedIntoContainerMessage args)
     {
-        var uid = args.ServerComponent.Owner;
-        var clonePod = _entityManager.GetComponent<CloningPodComponent>(uid);
-        var disk = _entityManager.GetComponent<HologramDiskComponent>(args.Uid);
-        var mind = disk.HoloData!;
+        if (args.Container.ID != DiskSlot || !_tagSystem.HasTag(args.Entity, "HoloDisk") ||
+            (_entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var diskComp) && diskComp.HoloData == null)) return;
 
+        if (component.LinkedHologram != EntityUid.Invalid && _entityManager.EntityExists(component.LinkedHologram))
+        {
+            RaiseLocalEvent(new HologramKillEvent(component.LinkedHologram.Value));
+        }
+
+        if (TryHoloGenerate(component.Owner, _entityManager.GetComponent<HologramDiskComponent>(args.Entity).HoloData!, component, out var holo))
+        {
+            var holoComp = _entityManager.GetComponent<HologramComponent>(holo);
+            component.LinkedHologram = holo;
+            holoComp.LinkedServer = component.Owner;
+        }
+    }
+
+    /// <summary>
+    /// Handles killing a hologram when a disk is removed
+    /// </summary>
+    private void OnEntRemoved(EntityUid uid, HologramServerComponent component, EntRemovedFromContainerMessage args)
+    {
+        if (args.Container.ID != DiskSlot || !_tagSystem.HasTag(args.Entity, "HoloDisk") ||
+            (_entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var diskComp) && diskComp.HoloData == null)) return;
+
+        if (component.LinkedHologram != EntityUid.Invalid && _entityManager.EntityExists(component.LinkedHologram))
+        {
+            RaiseLocalEvent(new HologramKillEvent(component.LinkedHologram.Value));
+        }
+    }
+
+    /// <summary>
+    /// Called when the server's power state changes
+    /// </summary>
+    /// <param name="uid">The entity uid of the server</param>
+    /// <param name="component">The HologramServerComponent</param>
+    /// <param name="args">The PowerChangedEvent</param>
+    private void OnPowerChanged(EntityUid uid, HologramServerComponent component, ref PowerChangedEvent args)
+    {
+        // If the server is no longer powered
+        if (!args.Powered && component.LinkedHologram != null && component.LinkedHologram != EntityUid.Invalid)
+        {
+            // If the hologram exists
+            if (component != null && _entityManager.EntityExists(component.LinkedHologram))
+            {
+                // Kill the Holgram
+                RaiseLocalEvent(new HologramKillEvent(component.LinkedHologram.Value));
+            }
+        }
+        // If the server is powered
+        else if (args.Powered && component.LinkedHologram == EntityUid.Invalid)
+        {
+            var serverContainer = _entityManager.GetComponent<ContainerManagerComponent>(component.Owner);
+            if (serverContainer.GetContainer(DiskSlot).ContainedEntities.Count <= 0)
+            {
+                return; // No disk in the server
+            }
+            var disk = serverContainer.GetContainer(DiskSlot).ContainedEntities.First();
+            var diskData = _entityManager.GetComponent<HologramDiskComponent>(disk).HoloData;
+
+            // If the hologram is generated successfully
+            if (diskData != null && TryHoloGenerate(component.Owner, diskData, component, out var holo))
+            {
+                // Set the linked hologram to the generated hologram
+                var holoComp = _entityManager.GetComponent<HologramComponent>(holo);
+                component.LinkedHologram = holo;
+                holoComp.LinkedServer = component.Owner;
+            }
+        }
+    }
+
+    public bool TryHoloGenerate(EntityUid uid, Mind.Mind mind, HologramServerComponent? holoServer, out EntityUid holo)
+    {
         CloningSystem cloneSys = new();
-        Logger.Info("Trying to clone");
-
-        if (!Resolve(uid, ref clonePod))
-            return;
-
-        if (HasComp<ActiveCloningPodComponent>(uid))
-            return;
-
-        Logger.Info("Clone pod is active");
+        holo = EntityUid.Invalid;
 
         if (ClonesWaitingForMind.TryGetValue(mind, out var clone))
         {
@@ -95,44 +154,30 @@ public class HologramServerSystem : EntitySystem
                 !_mobStateSystem.IsDead(clone) &&
                 TryComp<MindComponent>(clone, out var cloneMindComp) &&
                 (cloneMindComp.Mind == null || cloneMindComp.Mind == mind))
-                return; // Mind already has clone
+                return false; // Mind already has clone
 
             ClonesWaitingForMind.Remove(mind);
         }
-        Logger.Info("Waiting something something");
 
-        if (mind.OwnedEntity != null && !_mobStateSystem.IsDead(mind.OwnedEntity.Value))
-            return; // Body controlled by mind is not dead
-        Logger.Info("Not alive still");
+        if (mind.OwnedEntity != null && (_mobStateSystem.IsAlive(mind.OwnedEntity.Value) || _mobStateSystem.IsCritical(mind.OwnedEntity.Value)))
+            return false; // Body controlled by mind is not dead
 
         // Yes, we still need to track down the client because we need to open the Eui
         if (mind.UserId == null || !_playerManager.TryGetSessionById(mind.UserId.Value, out var client))
-            return; // If we can't track down the client, we can't offer transfer. That'd be quite bad.
-        Logger.Info("Got client");
+            return false; // If we can't track down the client, we can't offer transfer. That'd be quite bad.
 
         var pref = (HumanoidCharacterProfile) _prefs.GetPreferences(mind.UserId.Value).SelectedCharacter;
 
         if (pref == null)
-            return;
-        Logger.Info("Got prefs");
+            return false;
 
-        var mob = HoloFetchAndSpawn(clonePod, pref);
+        var mob = HoloFetchAndSpawn(holoServer!, pref);
 
         var cloneMindReturn = EntityManager.AddComponent<BeingClonedComponent>(mob);
         cloneMindReturn.Mind = mind;
-        cloneMindReturn.Parent = clonePod.Owner;
-        // clonePod.BodyContainer.Insert(mob);
         ClonesWaitingForMind.Add(mind, mob);
-        UpdateStatus(CloningPodStatus.NoMind, clonePod);
-        _euiManager.OpenEui(new AcceptCloningEui(mind, cloneSys), client);
+        TransferMindToClone(mind);
 
-        Logger.Warning("Cloned");
-
-        AddComp<ActiveCloningPodComponent>(uid);
-
-        // TODO: Ideally, components like this should be on a mind entity so this isn't neccesary.
-        // Remove this when 'mind entities' are added.
-        // Add on special job components to the mob.
         if (mind.CurrentJob != null)
         {
             foreach (var special in mind.CurrentJob.Prototype.Special)
@@ -140,26 +185,69 @@ public class HologramServerSystem : EntitySystem
                 if (special is AddComponentSpecial)
                     special.AfterEquip(mob);
             }
+
+            // Get each access from the job prototype and add it to the mob
+            foreach (var access in mind.CurrentJob.Prototype.Access)
+            {
+                var accessComp = EntityManager.EnsureComponent<AccessComponent>(mob);
+                accessComp.Tags.Add(access);
+            }
+
+            // Get the loadout from the job prototype and add it to the Hologram
+            // making each item unremovable and hardlight.
+            if (mind.CurrentJob.Prototype.StartingGear != null)
+            {
+                SetOutfitCommand.SetOutfit(mob, mind.CurrentJob.Prototype.StartingGear, _entityManager, (_, item) =>
+                {
+                    if (_entityManager.TryGetComponent<ClothingComponent>(item, out var clothing))
+                    {
+                        if (clothing.InSlot == "back" || clothing.InSlot == "pocket1" || clothing.InSlot == "pocket2" ||
+                            clothing.InSlot == "belt" || clothing.InSlot == "suitstorage" || clothing.InSlot == "id")
+                        {
+                            _entityManager.DeleteEntity(item);
+                            return;
+                        }
+                    }
+                    _tagSystem.AddTag(item, "Hardlight");
+                    _entityManager.EnsureComponent<UnremoveableComponent>(item);
+                });
+            }
+
         }
 
-        return;
+        _adminLogger.Add(LogType.Unknown, LogImpact.Medium,
+            $"{ToPrettyString(mob):mob} was generated at {ToPrettyString((EntityUid) uid):entity}");
+
+        holo = mob;
+        return true;
     }
 
-    public void UpdateStatus(CloningPodStatus status, CloningPodComponent cloningPod)
+    internal void TransferMindToClone(Mind.Mind mind)
     {
-        cloningPod.Status = status;
+        if (!ClonesWaitingForMind.TryGetValue(mind, out var entity) ||
+            !EntityManager.EntityExists(entity) ||
+            !TryComp<MindComponent>(entity, out var mindComp) ||
+            mindComp.Mind != null)
+            return;
+
+        mind.TransferTo(entity, ghostCheckOverride: true);
+        mind.UnVisit();
+        ClonesWaitingForMind.Remove(mind);
     }
 
     /// <summary>
     /// Handles fetching the mob and any appearance stuff...
     /// </summary>
-    private EntityUid HoloFetchAndSpawn(CloningPodComponent clonePod, HumanoidCharacterProfile pref)
+    private EntityUid HoloFetchAndSpawn(HologramServerComponent holoServer, HumanoidCharacterProfile pref)
     {
+
         List<Sex> sexes = new();
         var name = pref.Name;
         var toSpawn = "MobHologram";
 
-        var mob = Spawn(toSpawn, Transform(clonePod.Owner).MapPosition);
+        var mob = Spawn(toSpawn, Transform(holoServer.Owner).MapPosition);
+        _entityManager.GetComponent<TransformComponent>(mob).AttachToGridOrMap();
+
         _humanoidSystem.LoadProfile(mob, pref);
 
         MetaData(mob).EntityName = name;
@@ -171,27 +259,35 @@ public class HologramServerSystem : EntitySystem
         grammar.Gender = Robust.Shared.Enums.Gender.Neuter;
         Dirty(grammar);
 
-        RemComp<PotentialPsionicComponent>(mob);
+        var meta = _entityManager.GetComponent<MetaDataComponent>(mob);
+        var popupAppearOther = Loc.GetString("system-hologram-phasing-appear-others", ("name", meta.EntityName));
+        var popupAppearSelf = Loc.GetString("system-hologram-phasing-appear-self");
+
+        Popup.PopupEntity(popupAppearOther, mob, Filter.PvsExcept((EntityUid) mob), false, PopupType.Medium);
+        Popup.PopupEntity(popupAppearSelf, mob, mob, PopupType.Large);
+        _audio.PlayPvs("/Audio/SimpleStation14/Effects/Hologram/holo_on.ogg", mob);
+
         EnsureComp<SpeechComponent>(mob);
         EnsureComp<EmotingComponent>(mob);
-        RemComp<ReplacementAccentComponent>(mob);
-        RemComp<MonkeyAccentComponent>(mob);
-        RemComp<SentienceTargetComponent>(mob);
-        RemComp<GhostTakeoverAvailableComponent>(mob);
+        EnsureComp<HologramComponent>(mob);
+        RemComp<PotentialPsionicComponent>(mob);
 
         _tag.AddTag(mob, "DoorBumpOpener");
 
         return mob;
     }
 
-
     private void OnAfterInteract(EntityUid uid, HologramDiskComponent component, AfterInteractEvent args)
     {
-        if (args.Target == null || !TryComp<MindComponent>(args.Target, out var targetMind) || targetMind.Mind == null)
+        if (args.Target == null || !TryComp<MindComponent>(args.Target, out var targetMind))
             return;
+        if (targetMind.Mind == null)
+        {
+            Popup.PopupEntity(Loc.GetString("system-hologram-disk-mind-none"), args.Target.Value, args.User);
+            return;
+        }
 
         component.HoloData = targetMind.Mind;
-        Popup.PopupEntity(Loc.GetString("Data saved, boi"), args.Target.Value, args.User);
+        Popup.PopupEntity(Loc.GetString("system-hologram-disk-mind-saved"), args.Target.Value, args.User);
     }
-
 }
