@@ -3,4 +3,6 @@ namespace Content.Shared.SimpleStation14.Hologram;
 [RegisterComponent]
 public sealed class HologramServerComponent : Component
 {
+    [ViewVariables]
+    public EntityUid? LinkedHologram;
 }

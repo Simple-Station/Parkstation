@@ -4,6 +4,9 @@ namespace Content.Shared.SimpleStation14.Hologram;
 public sealed class HologramComponent : Component
 {
     [ViewVariables]
+    public EntityUid? LinkedServer;
+
+    [ViewVariables]
     public EntityUid? CurProjector;
 
     // Counter
