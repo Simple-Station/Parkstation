@@ -29,16 +29,25 @@ void fragment() {
     highp vec4 color = zTextureSpec(SCREEN_TEXTURE, FRAGCOORD.xy * SCREEN_PIXEL_SIZE);
 
     // convert color to HSV
-    highp vec3 hsv = rgb2hsv(color.rgb);
+    highp vec3 hsvTint = rgb2hsv(tint_color);
+    highp vec3 hsvColor = rgb2hsv(color.rgb);
+
+    // work out shortest angle
+    highp float angleDif = (hsvTint.x - hsvColor.x);
 
     // apply tint color hue
-    hsv.x = mix(hsv.x, tint_color.x, tint_amount);
+    if (hsvTint.y != 0.0 && hsvTint.z != 0.0)
+    {
+        hsvColor.x = hsvColor.x + (angleDif * tint_amount);
+    }
 
     // modify saturation based on tint color value
-    hsv.y = mix(hsv.y, 1.0 - tint_color.z, tint_amount);
+    hsvColor.y = mix(hsvColor.y, hsvTint.y, tint_amount);
+    highp float mixValue = (mix(hsvColor.z, hsvTint.z, tint_amount));
+    hsvColor.z = (mixValue <= hsvColor.z) ? mixValue : hsvColor.z;
 
     // convert back to RGB
-    color.rgb = hsv2rgb(hsv);
+    color.rgb = hsv2rgb(hsvColor);
 
     COLOR = color;
 }
