@@ -26,19 +26,16 @@ highp vec3 hsv2rgb(highp vec3 c)
 }
 
 void fragment() {
-    lowp vec3 tint_color = vec3(0.7, 0.1, 0.7);
-    lowp float tint_amount = 0.8;
-
     highp vec4 color = zTextureSpec(SCREEN_TEXTURE, FRAGCOORD.xy * SCREEN_PIXEL_SIZE);
 
     // convert color to HSV
     highp vec3 hsv = rgb2hsv(color.rgb);
 
     // apply tint color hue
-    hsv.x = mix(hsv.x, tint_color.x ,tint_amount);
+    hsv.x = mix(hsv.x, tint_color.x, tint_amount);
 
     // modify saturation based on tint color value
-    hsv.y = mix(hsv.y, 1.0 - tint_color.z ,tint_amount);
+    hsv.y = mix(hsv.y, 1.0 - tint_color.z, tint_amount);
 
     // convert back to RGB
     color.rgb = hsv2rgb(hsv);

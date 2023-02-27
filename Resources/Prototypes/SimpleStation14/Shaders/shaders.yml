@@ -1,9 +1,9 @@
 ﻿- type: shader
   id: ColorTint
   kind: source
-  path: "/SimpleStation14/Textures/Shaders/color_tint.swsl"
+  path: "/Textures/SimpleStation14/Shaders/color_tint.swsl"
 
 - type: shader
   id: NightVision
   kind: source
-  path: "/SimpleStation14/Textures/Shaders/nightvision.swsl"
+  path: "/Textures/SimpleStation14/Shaders/nightvision.swsl"
