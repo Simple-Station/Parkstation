@@ -125,3 +125,5 @@
   - type: BibleUser
   - type: SpellbookUser1
   - type: SpellbookUser2
+  - type: Inventory
+    templateId: aghost
