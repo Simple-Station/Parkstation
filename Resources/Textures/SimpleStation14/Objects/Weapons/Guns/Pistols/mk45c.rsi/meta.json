@@ -1,0 +1,40 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "ShockOmega",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+	{
+		"name": "icon"
+	},
+	{
+		"name": "base",
+      "delays": [
+        [
+          0.7,
+          0.7
+        ]
+      ]
+	},
+	{
+		"name": "mag-unshaded-0",
+      "delays": [
+        [
+          0.7,
+          0.7
+        ]
+      ]
+	},
+	{
+		"name": "inhand-left",
+		"directions": 4
+	},
+	{
+		"name": "inhand-right",
+		"directions": 4
+	}
+    ]
+}

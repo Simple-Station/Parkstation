@@ -22,3 +22,41 @@
     magState: mag
     steps: 4
     zeroVisible: true
+
+- type: entity
+  name: mk45c
+  parent: BaseWeaponPistol
+  id: WeaponPistolMk45C
+  description: "Incredibly Robust 'Sidearm'. Good against most anything. Certified Anti-Clown Device"
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Weapons/Guns/Pistols/mk45c.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: SimpleStation14/Objects/Weapons/Guns/Pistols/mk45c.rsi
+  - type: Gun
+    fireRate: 5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMagnum12
+        whitelist:
+          tags:
+            - MagazineMagnum
+      gun_chamber:
+        startingItem: CartridgeMagnum
+        whitelist:
+          tags:
+            - CartridgeMagnum
