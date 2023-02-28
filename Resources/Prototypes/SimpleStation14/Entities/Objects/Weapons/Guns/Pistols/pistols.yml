@@ -45,7 +45,7 @@
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
   - type: MagazineVisuals
     magState: mag
-    steps: 1
+    steps: 5
     zeroVisible: true
   - type: ItemSlots
     slots:

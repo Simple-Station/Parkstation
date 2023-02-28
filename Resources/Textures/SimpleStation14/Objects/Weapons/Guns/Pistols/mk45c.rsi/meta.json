@@ -10,7 +10,7 @@
 	{
 		"name": "icon"
 	},
-	{
+    {
 		"name": "base",
       "delays": [
         [
@@ -21,6 +21,42 @@
 	},
 	{
 		"name": "mag-unshaded-0",
+      "delays": [
+        [
+          0.7,
+          0.7
+        ]
+      ]
+	},
+	{
+		"name": "mag-unshaded-1",
+      "delays": [
+        [
+          0.7,
+          0.7
+        ]
+      ]
+	},
+	{
+		"name": "mag-unshaded-2",
+      "delays": [
+        [
+          0.7,
+          0.7
+        ]
+      ]
+	},
+	{
+		"name": "mag-unshaded-3",
+      "delays": [
+        [
+          0.7,
+          0.7
+        ]
+      ]
+	},
+    {
+		"name": "mag-unshaded-4",
       "delays": [
         [
           0.7,
