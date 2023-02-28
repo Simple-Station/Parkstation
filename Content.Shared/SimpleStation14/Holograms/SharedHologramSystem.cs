@@ -32,7 +32,7 @@ public class SharedHologramSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<HologramComponent, InteractionAttemptEvent>(OnInteractionAttempt);
-        SubscribeNetworkEvent<HologramReturnEvent>(HoloReturn);
+        SubscribeAllEvent<HologramReturnEvent>(HoloReturn);
     }
 
     // Stops the Hologram from interacting with anything they shouldn't.
@@ -63,27 +63,26 @@ public class SharedHologramSystem : EntitySystem
         var popupDeathSelf = Loc.GetString("system-hologram-phasing-death-self");
 
         // If the Hologram's last projector isn't valid, try to find a new one.
-        if (component.CurProjector != null && _entityManager.TryGetComponent<TransformComponent>(component.CurProjector, out var _))
+        if (component.CurProjector == null)
         {
-            var curProjEvent = new HologramProjectorValidEvent(uid, component.CurProjector.Value);
-            RaiseNetworkEvent(curProjEvent);
-            if (!curProjEvent.Valid)
-            {
-                var getProj = new HologramGetProjectorEvent(uid, false);
-                component.CurProjector = getProj.Projector;
-            }
+            return;
         }
-        else
+
+        var curProjCheck = new HologramProjectorTestEvent(uid, component.CurProjector.Value);
+        RaiseLocalEvent(curProjCheck);
+        if (!curProjCheck.CanProject)
         {
             var getProj = new HologramGetProjectorEvent(uid, false);
+            RaiseLocalEvent(getProj);
             component.CurProjector = getProj.Projector;
         }
 
         // If the Hologram's last projector is still invalid, kill them.
         if (component.CurProjector == EntityUid.Invalid)
         {
+            // if (_timing.InPrediction) return;
 
-            RaiseNetworkEvent(new HologramKillEvent(uid));
+            RaiseLocalEvent(new HologramKillEvent(uid));
             return;
         }
 
