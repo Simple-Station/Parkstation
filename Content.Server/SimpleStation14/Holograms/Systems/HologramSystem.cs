@@ -64,6 +64,7 @@ public class HologramSystem : EntitySystem
         base.Initialize();
         SubscribeAllEvent<HologramKillEvent>(HoloKill);
         SubscribeAllEvent<HologramGetProjectorEvent>(HoloGetProjector);
+        SubscribeAllEvent<HologramProjectorTestEvent>(HoloProjectorTest);
         // SubscribeLocalEvent<HologramComponent, ComponentStartup>(Startup);
         // SubscribeLocalEvent<HologramComponent, ComponentShutdown>(Shutdown);
         // SubscribeLocalEvent<HoloTeleportEvent>(HoloTeleport);
@@ -89,17 +90,32 @@ public class HologramSystem : EntitySystem
 
         foreach (var component in _entityManager.EntityQuery<HologramComponent>().ToList())
         {
-            var projectorEvent = new HologramGetProjectorEvent(component.Owner);
-            RaiseLocalEvent(component.Owner, projectorEvent);
-            Logger.DebugS("holo", "Hologram {0} has projector {1}", component.Owner, projectorEvent.Projector);
-            if (projectorEvent.Projector == EntityUid.Invalid || !projectorEvent.Projector.IsValid())
+            var nearProj = HoloGetProjector(component);
+            if (!nearProj.IsValid())
             {
-                RaiseNetworkEvent(new HologramReturnEvent(component.Owner));
-                Logger.Debug("wawawah");
+                if (component.Accumulator > 0)
+                {
+                    component.Accumulator -= frameTime;
+                    continue;
+                }
+                RaiseLocalEvent(new HologramReturnEvent(component.Owner));
                 continue;
             }
-            component.CurProjector = projectorEvent.Projector;
+            component.Accumulator = 0.24f;
+            component.CurProjector = nearProj;
         }
+    }
+
+    /// <summary>
+    /// Tests if the given projector is valid.
+    /// </summary>
+    /// <param name="args">Event arguments.</param>
+    public void HoloProjectorTest(HologramProjectorTestEvent args)
+    {
+        var curProjector = args.Projector;
+        if (curProjector == EntityUid.Invalid || !_entityManager.TryGetComponent<TransformComponent>(curProjector, out var _)) return;
+        if (_entityManager.TryGetComponent<SurveillanceCameraComponent>(curProjector, out var camComp) && !camComp.Active) return;
+        args.CanProject = true;
     }
 
     /// <summary>

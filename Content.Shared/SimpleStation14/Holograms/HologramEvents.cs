@@ -35,13 +35,13 @@ public sealed class HologramKillEvent : EntityEventArgs
 /// Raised to return a bool if a given projector is valid for a given hologram.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class HologramProjectorValidEvent : EntityEventArgs
+public sealed class HologramProjectorTestEvent : EntityEventArgs
 {
     public EntityUid Hologram;
     public EntityUid Projector;
-    public bool Valid = false;
+    public bool CanProject = false;
 
-    public HologramProjectorValidEvent(EntityUid hologram, EntityUid projector)
+    public HologramProjectorTestEvent(EntityUid hologram, EntityUid projector)
     {
         Hologram = hologram;
         Projector = projector;
