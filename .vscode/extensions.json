@@ -1,6 +1,10 @@
 {
     "recommendations": [
         "ms-dotnettools.csharp",
-        "editorconfig.editorconfig"
+        "editorconfig.editorconfig",
+        "redhat.vscode-yaml",
+        "dotjoshjohnson.xml",
+        "slevesque.shader",
+        "formulahendry.auto-rename-tag"
     ]
 }
