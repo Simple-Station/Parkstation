@@ -20,6 +20,7 @@ public sealed partial class GhostGui : UIWidget
     private float _minTimeToRespawn;
 
     public GhostTargetWindow TargetWindow { get; }
+    public GhostRespawnRulesWindow RulesWindow { get; }
 
     public event Action? RequestWarpsPressed;
     public event Action? ReturnToBodyPressed;
@@ -31,13 +32,15 @@ public sealed partial class GhostGui : UIWidget
         RobustXamlLoader.Load(this);
 
         TargetWindow = new GhostTargetWindow();
+        RulesWindow = new GhostRespawnRulesWindow();
+        RulesWindow.RespawnButton.OnPressed += _ => GhostRolesRespawnPressed?.Invoke();
 
         MouseFilter = MouseFilterMode.Ignore;
 
         GhostWarpButton.OnPressed += _ => RequestWarpsPressed?.Invoke();
         ReturnToBodyButton.OnPressed += _ => ReturnToBodyPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesPressed?.Invoke();
-        GhostRolesRespawnButton.OnPressed += _ => GhostRolesRespawnPressed?.Invoke();
+        GhostRolesRespawnButton.OnPressed += _ => RulesWindow.OpenCentered();
     }
 
     public void Hide()
