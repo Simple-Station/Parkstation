@@ -48,7 +48,7 @@ public sealed class ClientClothingSystem : ClothingSystem
 
     [Dependency] private readonly IResourceCache _cache = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -68,9 +68,8 @@ public sealed class ClientClothingSystem : ClothingSystem
         if (!TryComp(uid, out SpriteComponent? sprite) || !sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out var layer))
             return;
 
-        if (!args.AppearanceData.TryGetValue(HumanoidVisualizerKey.Key, out object? obj)
-            || obj is not HumanoidVisualizerData data
-            || data.Sex != Sex.Female
+        if (!TryComp(uid, out HumanoidAppearanceComponent? humanoid)
+            || humanoid.Sex != Sex.Female
             || !_inventorySystem.TryGetSlotEntity(uid, "jumpsuit", out var suit, component)
             || !TryComp(suit, out ClothingComponent? clothing))
         {
@@ -222,8 +221,7 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         if (slot == "jumpsuit" && sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out var suitLayer))
         {
-            if (_appearance.TryGetData<HumanoidVisualizerData>(equipee, HumanoidVisualizerKey.Key, out var data)
-                && data.Sex == Sex.Female)
+            if (TryComp(equipee, out HumanoidAppearanceComponent? humanoid) && humanoid.Sex == Sex.Female)
             {
                 sprite.LayerSetState(suitLayer, clothingComponent.FemaleMask switch
                 {

@@ -1,0 +1,35 @@
+# - type: guideEntry
+#   id: Server
+#   name: guide-entry-server
+#   text: "/Server Info/SimpleStation14/Guidebook/AlertProcedure/Server.xml"
+#   children:
+#     - AlertProcedure
+
+- type: guideEntry
+  id: StandardOperatingProcedure
+  name: guide-entry-standardoperatingprocedure
+  text: "/Server Info/SimpleStation14/Guidebook/AlertProcedure/StandardOperatingProcedure.xml"
+
+- type: guideEntry
+  id: AlertProcedure
+  name: guide-entry-alertprocedure
+  text: "/Server Info/SimpleStation14/Guidebook/AlertProcedure/AlertProcedure.xml"
+  children:
+    - CommonAlerts
+    - SpecificAlerts
+    - CentCommAlerts
+
+- type: guideEntry
+  id: CommonAlerts
+  name: guide-entry-commonalerts
+  text: "/Server Info/SimpleStation14/Guidebook/AlertProcedure/CommonAlerts.xml"
+
+- type: guideEntry
+  id: SpecificAlerts
+  name: guide-entry-specificalerts
+  text: "/Server Info/SimpleStation14/Guidebook/AlertProcedure/SpecificAlerts.xml"
+
+- type: guideEntry
+  id: CentCommAlerts
+  name: guide-entry-centcommalerts
+  text: "/Server Info/SimpleStation14/Guidebook/AlertProcedure/CentCommAlerts.xml"

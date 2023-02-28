@@ -13,6 +13,7 @@
   - type: Ghost
     canInteract: true
   - type: Hands
+  - type: Puller
   - type: DoAfter
   - type: CombatMode
     canDisarm: true
@@ -124,3 +125,5 @@
   - type: BibleUser
   - type: SpellbookUser1
   - type: SpellbookUser2
+  - type: Inventory
+    templateId: aghost

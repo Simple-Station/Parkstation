@@ -2788,7 +2788,7 @@ entities:
     parent: 15
     type: Transform
 - uid: 358
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: -4.5,-6.5
     parent: 15

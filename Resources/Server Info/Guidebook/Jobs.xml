@@ -1,41 +1,59 @@
 ﻿<Document>
 # Jobs
 
-SS14 has a large number of jobs, divided into seven major departments:
+SS14 has a large number of jobs, divided into six major departments:
 
 ## Service
-This department includes the janitor, passengers, clown, mime, musician, chef, bartender, the head of personnel, and other jobs who exist to serve the station.
+The Service department is split into four primary sections: Theatre, Cargo, Food Service, and Public Service, defined below. It's led by the Chief Service Supervisor.
 
-It primarily functions as folks who entertain, clean, and serve the rest of the crew, with the exception of passengers who have no particular job beyond getting lost in maintenance.
+The Theatre troupe includes the Mime, the Clown, Musicians, and Boxers, all of whom serve the purpose of entertaining the crew and, each in their own way, raising morale, often by putting on shows.
+The theatre troupe are essentially equal in ranking, although Clowns are usually looked to as they are the loudest. Although some stations have a reputation of a rowdy Theatre troupe, remember; a good Clown is always the butt of the joke.
 
-## Cargo
-Cargo consists of the cargo technicians, salvage technicians, and the quartermaster. As a department, it responsible resource distribution and trade, capable of buying and selling things on the galactic market.
+Cargo is comprised of Quartermasters and Mail Carriers. QMs serve to supply the station will the materials required in their day to day by taking orders, placing them, piloting the shuttle, and eventually delivering them.
+The Mail Carrier collects and delivers mail throughout the station, and often performs deliveries.
 
-For the most part, this means they scrounge around the station and assorted wrecks to find materials to sell and redistribute, and purchase materials other departments request.
+Food Service holds the Bartender, the Chef, and the Botanists, all of whom take part in the delicate dance that is satiating the crew of the station.
+The Bartender is generally considered the face of Food Service, and should often consider hosting events or parties for the crew.
+
+Finally, Public Service is home of the Reporter, the Janitor, the Lawyer, and the lowly Valets. Reporters serve to bring the news of station events to the crew, and alert them of local happenings.
+The Janitor keeps dirt off the streets literally, cleaning up spills and other messes. Lawyers ensure Security is following their duties correctly, and argue for prisoners if needed. Finally, Valets do pretty much anything they're told.
+
 
 ## Security
-Security consists of the security cadets, lawyers, detective, security officers, warden, and the head of security. As a department it is responsible for dealing with troublemakers and non-humanoid threats like giant rats and carp.
+Security consists of the Peacekeepers, the Security Officers, and the Warden. It is led by the Head of Security. As a department, it is responsible for dealing with troublemakers and non-humanoid threats, like giant rats, or carp.
 
-As a result of this, and the need to walk a fine line, security sometimes is overwhelmed by angry crew (don't kill the clown), and it is important for members of it to try and stay on their best behavior.
+Peacekeeprs are your day to day beat cops, patrolling the halls, and warding off the ne'er-do-wells. They're issued basic disabling equipment, and require a higher level officer present to brig detainees.
+Security Officers are fewer and further between, expected to be very skilled and issued basic lethal weaponry. They respond to imminent threats, take on the dangerous law breakers, and station themselves for defensive purposes.
+The Warden is a supervisor role, managing the Brig and the prisoners within. Expected to manage sentences and releases for the inmates, they should have a close eye on the cells.
+
 
 ## Medical
-Medical consists of the medical interns, chemists, medical doctors, and the chief medical officer. As a department it is responsible for taking care of the crew, treat and/or clone the wounded and dead, treat disease, and prevent everyone from dying a horrible, bloody death in a closet somewhere.
-
+Medical consists of medical doctors, and is led by the chief medical officer. As a department it is responsible for taking care of the crew, treating and/or cloning the wounded and dead, treating diseases, and preventing everyone from dying a horrible, bloody death in a closet somewhere.
 Medical is one of the more well-equipped departments, with the ability to locate injured crew using the crew monitor, a nigh infinite supply of chems should chemistry be on-par, and the ability to rapidly diagnose and vaccinate contagious diseases.
 
-## Science
-Science consists of scientists, and the research director. As a department it is responsible for researching technologies and artifacts, upgrading machines, and printing new and useful dev ices.
+Medical Doctors are an anyman in a way, and fill every role in Medical, be it Virology, Genetics, Chemistry, EMT, general treatment, or just manning the counter.
 
-Scientists should seek out new artifacts to study, as well as solicit departments to help upgrade their machines.
+
+## Epistemics
+Epistemics consists of Epistemologists, the Cleric, and is led the Mystagogue. As a department it is responsible for researching technologies and artifacts, upgrading machines, tracking down and securing anomalies, and providing spirituality to the crew.
+They manage Psionics on the station.
+
+Epistemologists should seek out new artifacts to study, or artifacts to contain. The Cleric is a spiritual counselor for the crew, as well as a lead for Psionics.
+
 
 ## Engineering
-Engineering consists of technical assistants, station engineers, atmospheric technicians, and the chief engineer. As a department it is responsible for keeping the station powered, its structure intact and its air supply working.
+Engineering consists of station engineers, Salvage Technicians, and atmospheric technicians, run by the chief engineer. As a department it is responsible for keeping the station powered, its structure intact, and its air supply working.
+Engineering is readily equipped to go safely into space, and as such they should always attempt to repair uninhabitable parts of the station, ensuring things are safe for other crew.
 
-Engineering is readily equipped to go safely into space, and as such they should always attempt to repair uninhabitable parts of the station.
+Station Engineers handle everything from powering the AME to flicking the switch when the Lawyer can't get into their office. Atmos Techs are high ranking Engineers dedicated to managing the air supply and responding to atmos related emergencies.
+Salvage technicians are high ranking Engineers dedicated to collecting and looting debris found in space, bringing them back to be utilized, researched, or sold.
+
 
 ## Command
-Command consists of the captain, the head of personnel, the head of security, the chief engineer, the chief medical officer, the research director, and the quartermaster. As a department it is responsible for keeping the station and its departments running efficiently.
+Command consists of all the previous Heads of Departments, as well as the Head of Personnel. The Board of Heads, being the Chief Engineer, Chief Medical Officer, Chief Service Supervisor, Head of Security, Head of Personnel, and Mystagogue
+all rank all rank equal to each other and are intended to hold equal responsibility in the integrity of the station, focusing on their department's condition.
 
-Command members should always be relatively competent in their respective departments and attempt to delegate responsibility and direct work.
+The Head of Personnel serves as an interconnect between the other members of Command, communicating between them, ensuring they're all doing their job, and often organizing things for them. They also serve as an HR of the station, communicating with the crew
+and swapping accesses on IDs- although never without the Head's permission.
 
 </Document>

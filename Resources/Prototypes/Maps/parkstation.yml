@@ -5,7 +5,7 @@
   minPlayers: 0
   stations:
     parkstation:
-      mapNameTemplate: '{0} NT Arborum {1}'
+      mapNameTemplate: '{0} Arborum {1}'
       emergencyShuttlePath: /Maps/Shuttles/NTES_Kaeri.yml
       nameGenerator:
         !type:NanotrasenNameGenerator

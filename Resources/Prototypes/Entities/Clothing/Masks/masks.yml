@@ -107,7 +107,6 @@
   id: ClothingMaskGasVoiceMasker
   name: gas mask
   suffix: Voice Mask
-  description: A face-covering mask that can be connected to an air supply. There are switches and knobs underneath the mask.
   components:
     - type: VoiceMasker
 
@@ -160,6 +159,8 @@
     sprite: Clothing/Mask/clown.rsi
   - type: BreathMask
   - type: IdentityBlocker
+  - type: DropOnSlip
+    chance: 5
 
 - type: entity
   parent: ClothingMaskBase

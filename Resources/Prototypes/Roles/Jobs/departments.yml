@@ -73,6 +73,7 @@
   color: "#DE3A3A"
   roles:
   - HeadOfSecurity
+  - PrisonGuard
   - SecurityCadet
   - SecurityOfficer
   - Detective

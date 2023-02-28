@@ -1,5 +1,6 @@
 using Content.Shared.DragDrop;
 using Content.Shared.Emoting;
+using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Robust.Shared.Serialization;

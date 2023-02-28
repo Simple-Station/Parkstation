@@ -86,3 +86,4 @@ reagent-physical-desc-roaring = roaring and bubbling furiously
 reagent-physical-desc-smokey = smokey
 reagent-physical-desc-porous = porous
 reagent-physical-desc-exotic-smelling = exotic smelling
+reagent-physical-desc-ethereal = ethereal

@@ -2,6 +2,9 @@ using Robust.Shared.Random;
 
 namespace Content.Server.SimpleStation14.Speech.RandomBark
 {
+    /// <summary>
+    ///     Sends a random message from a list with a provided min/max time.
+    /// </summary>
     [RegisterComponent]
     public sealed class RandomBarkComponent : Component
     {

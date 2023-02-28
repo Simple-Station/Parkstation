@@ -1,6 +1,7 @@
 - type: entity
   name: golem
   id: MobGolemBase
+  save: false
   abstract: true
   description: An artificial construct imitating life. This one has no soul installed yet.
   components:
@@ -65,6 +66,10 @@
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
+    - map: [ "clownedon" ]
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
   - type: LagCompensation
   - type: RangedDamageSound
     soundGroups:
@@ -155,9 +160,6 @@
       60: 0.7
       80: 0.5
   - type: Appearance
-    visuals:
-      - type: CreamPiedVisualizer
-        state: creampie_human
   - type: RotationVisuals
   - type: CombatMode
     canDisarm: true
@@ -224,6 +226,7 @@
   - type: Faction
     factions:
     - NanoTrasen
+    - PsionicInterloper
   - type: ItemSlots
     slots:
       crystal_slot:
@@ -232,10 +235,14 @@
   - type: Golem
   - type: GenericVisualizer
     visuals:
-     enum.ToggleVisuals.Toggled:
+      enum.ToggleVisuals.Toggled:
         enum.ToggleVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
+      enum.CreamPiedVisuals.Creamed:
+        clownedon:
+          True: {visible: true}
+          False: {visible: false}
   - type: Psionic
     removable: false
   - type: Laws

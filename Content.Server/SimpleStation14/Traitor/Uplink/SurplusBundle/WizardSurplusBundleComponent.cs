@@ -4,7 +4,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server.Traitor.Uplink.SurplusBundle;
 
 /// <summary>
-///     Fill crate with a random uplink items.
+///     Fill crate with a random wizard items.
 /// </summary>
 [RegisterComponent]
 public sealed class WizardSurplusBundleComponent : Component

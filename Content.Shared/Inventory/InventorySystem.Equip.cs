@@ -80,6 +80,9 @@ public abstract partial class InventorySystem
         if(!TryGetSlot(uid, args.Container.ID, out var slotDef, inventory: component))
             return;
 
+        if (!_gameTiming.IsFirstTimePredicted)
+            return;
+
         var unequippedEvent = new DidUnequipEvent(uid, args.Entity, slotDef);
         RaiseLocalEvent(uid, unequippedEvent, true);
 
@@ -90,7 +93,10 @@ public abstract partial class InventorySystem
     private void OnEntInserted(EntityUid uid, InventoryComponent component, EntInsertedIntoContainerMessage args)
     {
         if(!TryGetSlot(uid, args.Container.ID, out var slotDef, inventory: component))
-           return;
+            return;
+
+        if (!_gameTiming.IsFirstTimePredicted)
+            return;
 
         var equippedEvent = new DidEquipEvent(uid, args.Entity, slotDef);
         RaiseLocalEvent(uid, equippedEvent, true);
@@ -243,8 +249,8 @@ public abstract partial class InventorySystem
         // that requires server/client specific code.
         // Uhhh TODO, fix this. This doesn't even fucking check if the target item is IN the targets inventory.
         return actor != target &&
-            HasComp<SharedStrippableComponent>(target) &&
-            HasComp<SharedStrippingComponent>(actor) &&
+            HasComp<StrippableComponent>(target) &&
+            HasComp<StrippingComponent>(actor) &&
             HasComp<SharedHandsComponent>(actor);
     }
 

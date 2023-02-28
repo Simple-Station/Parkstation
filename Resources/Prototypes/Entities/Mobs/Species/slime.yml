@@ -12,7 +12,7 @@
   - type: Body
     prototype: Slime
     requiredLegs: 2
-  - type: Humanoid
+  - type: HumanoidAppearance
     species: SlimePerson
   - type: Speech
     speechSounds: Slime
@@ -72,6 +72,13 @@
     naturalImmunities:
     - Ultragigacancer
     - BleedersBite
+  - type: BodyEmotes
+    soundsId: GeneralSlimeEmotes
+  - type: Vocal
+    sounds:
+      Male: MaleSlime
+      Female: FemaleSlime
+      Unsexed: UnisexSlime
 
 - type: entity
   save: false
@@ -81,5 +88,5 @@
   noSpawn: true
   description: A dummy slime meant to be used in character setup.
   components:
-    - type: Humanoid
+    - type: HumanoidAppearance
       species: SlimePerson
