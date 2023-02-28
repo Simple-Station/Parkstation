@@ -24,7 +24,7 @@
     zeroVisible: true
 
 - type: entity
-  name: mk45c
+  name: Mk.45C
   parent: BaseWeaponPistol
   id: WeaponPistolMk45C
   description: "Incredibly Robust 'Sidearm'. Good against most anything. Certified Anti-Clown Device"
@@ -42,7 +42,7 @@
   - type: Gun
     fireRate: 5
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+      path: /Audio/Weapons/Guns/Gunshots/mk45c.ogg
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -52,6 +52,9 @@
       gun_magazine:
         name: Magazine
         startingItem: MagazineMagnum12
+        insertSound: /Audio/Weapons/Guns/MagIn/m45c_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/m45c_magout.ogg
+        priority: 2
         whitelist:
           tags:
             - MagazineMagnum
