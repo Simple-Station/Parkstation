@@ -1,0 +1,46 @@
+﻿- type: inventoryTemplate
+  id: aghost
+  slots:
+    - name: head
+      slotTexture: head
+      slotFlags: HEAD
+      slotGroup: MainHotbar
+      uiWindowPos: 1,0
+      strippingWindowPos: 1,0
+      displayName: Head
+    - name: mask
+      slotTexture: mask
+      slotFlags: MASK
+      slotGroup: MainHotbar
+      uiWindowPos: 1,1
+      strippingWindowPos: 1,1
+      displayName: Mask
+    - name: undershirt
+      slotTexture: undershirt
+      slotFlags: UNDERSHIRT
+      slotGroup: MainHotbar
+      stripTime: 8
+      uiWindowPos: 4,1
+      strippingWindowPos: 3,1
+      displayName: Undershirt
+    - name: pocket1
+      slotTexture: pocket
+      slotFlags: POCKET
+      slotGroup: MainHotbar
+      uiWindowPos: 0,3
+      strippingWindowPos: 0,4
+      displayName: Pocket 1
+    - name: pocket2
+      slotTexture: pocket
+      slotFlags: POCKET
+      slotGroup: MainHotbar
+      uiWindowPos: 2,3
+      strippingWindowPos: 1,4
+      displayName: Pocket 2
+    - name: pocket3
+      slotTexture: pocket
+      slotFlags: POCKET
+      slotGroup: MainHotbar
+      uiWindowPos: 4,3
+      strippingWindowPos: 2,4
+      displayName: Pocket 3
