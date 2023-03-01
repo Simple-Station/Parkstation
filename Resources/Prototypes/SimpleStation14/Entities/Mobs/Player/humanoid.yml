@@ -258,5 +258,4 @@
     - type: PsionicInvisibilityPower
     - type: PsionicRegenerationPower
     - type: PyrokinesisPower
-    - type: RFSensitivityPower
     - type: TelegnosisPower

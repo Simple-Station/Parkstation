@@ -108,7 +108,7 @@ namespace Content.Server.Chapel
 
             while (i > 0)
             {
-                Spawn("MaterialBluespace", Transform(args.Altar).Coordinates);
+                Spawn("MaterialBluespace1", Transform(args.Altar).Coordinates);
                 i--;
             }
 

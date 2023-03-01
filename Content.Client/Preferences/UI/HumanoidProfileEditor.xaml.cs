@@ -883,10 +883,16 @@ namespace Content.Client.Preferences.UI
 
                         var color = SkinColor.TintedHues(_rgbSkinColorSelector.Color);
 
-                        CMarkings.CurrentSkinColor = color;
-                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-                        break;
-                    }
+                    CMarkings.CurrentSkinColor = color;
+                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+                    break;
+                }
+                case HumanoidSkinColor.None:
+                {
+                    CMarkings.CurrentSkinColor = Color.White;
+                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(Color.White));
+                    break;
+                }
             }
 
             IsDirty = true;

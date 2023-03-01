@@ -36,6 +36,8 @@
       - id: PlushieLizardRGB
         amount: 1
         prob: 0.20
+      - id: PlushieAtmosian
+        amount: 1
 
 - type: entity
   id: CrateFunCrewmates

@@ -140,7 +140,6 @@
       - id: ClothingNeckCloakRd
       - id: ClothingHeadsetMedicalScience
       - id: ClothingOuterHardsuitRd
-      - id: HandTeleporter
       - id: PlushieSlime
         prob: 0.1
       - id: DoorRemoteResearch
@@ -185,7 +184,6 @@
       - id: RubberStampHos
       - id: JetpackSecurityFilled
       - id: HyperlinkBookSpaceLaw
-    #  - id: PonderingOrbTelepathicHOS
-    # Captain items
+      # Captain items
       - id: ClothingNeckBronzeheart
       - id: NukeDisk
