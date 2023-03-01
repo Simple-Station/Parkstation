@@ -5,6 +5,8 @@
   id: Hardlight
 
 - type: Tag
+  id: Light
+- type: Tag
   id: HoloDisk
 
 - type: Tag

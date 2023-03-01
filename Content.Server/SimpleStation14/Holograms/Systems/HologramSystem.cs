@@ -83,28 +83,28 @@ public class HologramSystem : EntitySystem
     // }
 
 
-    // Anything that needs to be regularly run, like handling exiting a projector's range
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
+    // // Anything that needs to be regularly run, like handling exiting a projector's range
+    // public override void Update(float frameTime)
+    // {
+    //     base.Update(frameTime);
 
-        foreach (var component in _entityManager.EntityQuery<HologramComponent>().ToList())
-        {
-            var nearProj = HoloGetProjector(component);
-            if (!nearProj.IsValid())
-            {
-                if (component.Accumulator > 0)
-                {
-                    component.Accumulator -= frameTime;
-                    continue;
-                }
-                RaiseLocalEvent(new HologramReturnEvent(component.Owner));
-                continue;
-            }
-            component.Accumulator = 0.24f;
-            component.CurProjector = nearProj;
-        }
-    }
+    //     foreach (var component in _entityManager.EntityQuery<HologramComponent>().ToList())
+    //     {
+    //         var nearProj = HoloGetProjector(component);
+    //         if (!nearProj.IsValid())
+    //         {
+    //             if (component.Accumulator > 0)
+    //             {
+    //                 component.Accumulator -= frameTime;
+    //                 continue;
+    //             }
+    //             RaiseLocalEvent(new HologramReturnEvent(component.Owner));
+    //             continue;
+    //         }
+    //         component.Accumulator = 0.24f;
+    //         component.CurProjector = nearProj;
+    //     }
+    // }
 
     /// <summary>
     /// Tests if the given projector is valid.

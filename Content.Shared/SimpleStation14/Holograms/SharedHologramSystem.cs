@@ -14,6 +14,7 @@ using Content.Shared.Pulling.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Pulling;
+using System.Linq;
 
 namespace Content.Shared.SimpleStation14.Hologram;
 
@@ -27,12 +28,36 @@ public class SharedHologramSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedPullingSystem _pulling = default!;
-    private const string DiskSlot = "holo_disk";
 
     public override void Initialize()
     {
         SubscribeLocalEvent<HologramComponent, InteractionAttemptEvent>(OnInteractionAttempt);
         SubscribeAllEvent<HologramReturnEvent>(HoloReturn);
+    }
+
+    // Anything that needs to be regularly run, like handling exiting a projector's range
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        foreach (var component in _entityManager.EntityQuery<HologramComponent>().ToList())
+        {
+            var getProj = new HologramGetProjectorEvent(component.Owner);
+            RaiseLocalEvent(getProj);
+            var nearProj = getProj.Projector;
+            if (!nearProj.IsValid())
+            {
+                if (component.Accumulator > 0)
+                {
+                    component.Accumulator -= frameTime;
+                    continue;
+                }
+                RaiseLocalEvent(new HologramReturnEvent(component.Owner));
+                continue;
+            }
+            component.Accumulator = 0.24f;
+            component.CurProjector = nearProj;
+        }
     }
 
     // Stops the Hologram from interacting with anything they shouldn't.
@@ -42,7 +67,7 @@ public class SharedHologramSystem : EntitySystem
             return;
 
         if (HasComp<TransformComponent>(args.Target) && !HasComp<UnremoveableComponent>(args.Target)
-            && !_tagSystem.HasAnyTag(args.Target.Value, "Hardlight")) args.Cancel();
+            && !_tagSystem.HasAnyTag(args.Target.Value, "Hardlight", "Light")) args.Cancel();
     }
 
     /// <summary>
@@ -106,6 +131,25 @@ public class SharedHologramSystem : EntitySystem
             $"{ToPrettyString(uid):mob} was returned to projector {ToPrettyString((EntityUid) component.CurProjector):entity}");
     }
 }
+
+public enum HoloType
+{
+    Projected,
+    Lightbee
+}
+
+public struct HoloData
+{
+    public HoloType Type { get; set; }
+    public bool IsHardlight { get; set; }
+
+    public HoloData(HoloType type, bool isHardlight = false)
+    {
+        Type = type;
+        IsHardlight = isHardlight;
+    }
+}
+
 
 
 // [Serializable, NetSerializable]
