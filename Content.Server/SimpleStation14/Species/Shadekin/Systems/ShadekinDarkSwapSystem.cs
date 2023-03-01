@@ -21,6 +21,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly StaminaSystem _staminaSystem = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private readonly ShadekinDarkenSystem _darkenSystem = default!;
 
         public override void Initialize()
         {
@@ -129,6 +130,21 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             }
 
             SetCanSeeInvisibility(uid, false);
+
+            //////////////////////////////////////////
+
+            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var shadekin)) return;
+
+            foreach (var light in shadekin.DarkenedLights.ToArray())
+            {
+                if (!_entityManager.TryGetComponent<PointLightComponent>(light, out var pointLight) ||
+                    !_entityManager.TryGetComponent<ShadekinLightComponent>(light, out var shadekinLight))
+                    continue;
+
+                _darkenSystem.ResetLight(pointLight, shadekinLight);
+            }
+
+            shadekin.DarkenedLights.Clear();
         }
 
         public void SetCanSeeInvisibility(EntityUid uid, bool set)
