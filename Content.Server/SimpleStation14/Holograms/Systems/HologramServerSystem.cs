@@ -74,14 +74,14 @@ public class HologramServerSystem : EntitySystem
     private void OnEntInserted(EntityUid uid, HologramServerComponent component, EntInsertedIntoContainerMessage args)
     {
         if (args.Container.ID != DiskSlot || !_tagSystem.HasTag(args.Entity, "HoloDisk") ||
-            (_entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var diskComp) && diskComp.HoloData == null)) return;
+            (_entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var diskComp) && diskComp.HoloMind == null)) return;
 
         if (component.LinkedHologram != EntityUid.Invalid && _entityManager.EntityExists(component.LinkedHologram))
         {
             RaiseLocalEvent(new HologramKillEvent(component.LinkedHologram.Value));
         }
 
-        if (TryHoloGenerate(component.Owner, _entityManager.GetComponent<HologramDiskComponent>(args.Entity).HoloData!, component, out var holo))
+        if (TryHoloGenerate(component.Owner, _entityManager.GetComponent<HologramDiskComponent>(args.Entity).HoloMind!, component, out var holo))
         {
             var holoComp = _entityManager.GetComponent<HologramComponent>(holo);
             component.LinkedHologram = holo;
@@ -95,7 +95,7 @@ public class HologramServerSystem : EntitySystem
     private void OnEntRemoved(EntityUid uid, HologramServerComponent component, EntRemovedFromContainerMessage args)
     {
         if (args.Container.ID != DiskSlot || !_tagSystem.HasTag(args.Entity, "HoloDisk") ||
-            (_entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var diskComp) && diskComp.HoloData == null)) return;
+            (_entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var diskComp) && diskComp.HoloMind == null)) return;
 
         if (component.LinkedHologram != EntityUid.Invalid && _entityManager.EntityExists(component.LinkedHologram))
         {
@@ -130,7 +130,7 @@ public class HologramServerSystem : EntitySystem
                 return; // No disk in the server
             }
             var disk = serverContainer.GetContainer(DiskSlot).ContainedEntities.First();
-            var diskData = _entityManager.GetComponent<HologramDiskComponent>(disk).HoloData;
+            var diskData = _entityManager.GetComponent<HologramDiskComponent>(disk).HoloMind;
 
             // If the hologram is generated successfully
             if (diskData != null && TryHoloGenerate(component.Owner, diskData, component, out var holo))
@@ -243,7 +243,7 @@ public class HologramServerSystem : EntitySystem
 
         List<Sex> sexes = new();
         var name = pref.Name;
-        var toSpawn = "MobHologram";
+        var toSpawn = "MobHologramProjected";
 
         var mob = Spawn(toSpawn, Transform(holoServer.Owner).MapPosition);
         _entityManager.GetComponent<TransformComponent>(mob).AttachToGridOrMap();
@@ -287,7 +287,7 @@ public class HologramServerSystem : EntitySystem
             return;
         }
 
-        component.HoloData = targetMind.Mind;
+        component.HoloMind = targetMind.Mind;
         Popup.PopupEntity(Loc.GetString("system-hologram-disk-mind-saved"), args.Target.Value, args.User);
     }
 }
