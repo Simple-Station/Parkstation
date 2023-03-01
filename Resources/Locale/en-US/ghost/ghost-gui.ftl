@@ -29,4 +29,10 @@ ghost-roles-window-redirect = Connect
 
 ghost-respawn-rules-window-title = Ghost Respawn Rules
 ghost-respawn-rules-window-confirm-button = I understand, respawn me
-ghost-respawn-rules-window-rules = placeholder
+ghost-respawn-rules-window-rules =
+    placeholder
+    another placeholder
+    some more placeholder
+    with a side of placeholder
+    maybe some extra placeholder too
+    can I also get some placeholder to go with that
