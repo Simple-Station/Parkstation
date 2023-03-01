@@ -5,14 +5,8 @@ namespace Content.Server.SimpleStation14.Hologram;
 [RegisterComponent]
 public sealed class HologramDiskComponent : Component
 {
-    // [ViewVariables]
-    // public HoloDataEntry? HoloData = null;
-
-    // [DataField("active"), ViewVariables(VVAccess.ReadWrite)]
-    // public bool Active = true;
-
     [ViewVariables]
-    public Mind.Mind? HoloData = null;
+    public Mind.Mind? HoloMind = null;
 
     [DataField("active"), ViewVariables(VVAccess.ReadWrite)]
     public bool Active = true;
