@@ -99,7 +99,6 @@
         - Science
         - Security
         - Service
-        - Supply
         - Binary
     - type: IntrinsicRadioTransmitter
       channels:
@@ -111,7 +110,6 @@
         - Science
         - Security
         - Service
-        - Supply
         - Binary
     - type: ActiveRadio
       channels:
@@ -123,7 +121,6 @@
         - Science
         - Security
         - Service
-        - Supply
         - Binary
     - type: Eye
       drawFov: false

@@ -17,7 +17,7 @@
 # Funny
 - type: entity
   id: FunnySpawnSpellbook
-  name: libro divertido de spawn
+  name: funny spawn
   parent: BaseSpellbook
   components:
     - type: Spellbook
@@ -29,7 +29,7 @@
 
 - type: entity
   id: FunnyForceWallSpellbook
-  name: libro divertido de force wall
+  name: funny force wall
   parent: BaseSpellbook
   components:
     - type: Sprite
@@ -44,7 +44,7 @@
 
 - type: entity
   id: FunnyBlinkBook
-  name: libro divertido de blink
+  name: funny blink
   parent: BaseSpellbook
   components:
     - type: Sprite
@@ -59,7 +59,7 @@
 
 - type: entity
   id: FunnySmiteBook
-  name: libro divertido de smite
+  name: funny smite
   parent: BaseSpellbook
   components:
   - type: Sprite
@@ -74,7 +74,7 @@
 
 - type: entity
   id: FunnyKnockSpellbook
-  name: libro divertido de knock
+  name: funny knock
   parent: BaseSpellbook
   components:
     - type: Sprite
@@ -89,7 +89,7 @@
 
 - type: entity
   id: FunnyFireballSpellbook
-  name: libro divertido de fireball
+  name: funny fireball
   parent: BaseSpellbook
   components:
   - type: Sprite
@@ -104,7 +104,7 @@
 
 - type: entity
   id: FunnyHealingSpellbook
-  name: libro divertido de healing
+  name: funny healing
   parent: BaseSpellbook
   components:
   - type: Sprite
@@ -120,7 +120,7 @@
 # Super funny
 - type: entity
   id: SuperFunnyBook
-  name: libro muy divertido
+  name: very funny spellbook
   parent: BaseSpellbook
   components:
   - type: Sprite
@@ -143,7 +143,7 @@
 
 - type: entity
   id: SuperFunnyKnockSpellbook
-  name: libro muy divertido de knock
+  name: very funny de knock
   parent: BaseSpellbook
   components:
     - type: Sprite

@@ -89,7 +89,7 @@
     - state: default
     - state: idintern-service
   - type: PresetIdCard
-    job: Valet
+    job: ServiceWorker
 
 - type: entity
   parent: IDCardStandard

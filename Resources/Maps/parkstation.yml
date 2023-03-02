@@ -57539,8 +57539,6 @@ entities:
   - pos: 56.5,-29.5
     parent: 1
     type: Transform
-  missingComponents:
-  - GhostTakeoverAvailable
 - uid: 5418
   type: WallReinforced
   components:

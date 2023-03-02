@@ -7,9 +7,9 @@
   - type: Sprite
     netsync: false
     sprite: Objects/Materials/ingots.rsi
+    scale: 0.65, 0.65
   - type: Item
     sprite: Objects/Materials/ingots.rsi
-    scale: 0.65, 0.65
   - type: DynamicPrice
     price: 0
   - type: ItemStatus

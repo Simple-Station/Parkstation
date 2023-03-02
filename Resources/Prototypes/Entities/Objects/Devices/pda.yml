@@ -340,8 +340,6 @@
       whitelist:
         tags:
         - Write
-
-      state: pda-lawyer
   - type: Icon
     state: pda-lawyer
 

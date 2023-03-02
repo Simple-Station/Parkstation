@@ -202,6 +202,7 @@
   - StasisBedMachineCircuitboard
   - CloningConsoleComputerCircuitboard
   - ClothingEyesHudMedical
+  - ClothingEyesHudMedicalPrescription
 
 - type: technology
   name: technologies-cloning
@@ -599,6 +600,7 @@
   - Drone
   - ExosuitFabricatorMachineCircuitboard
   - ClothingEyesHudDiagnostic
+  - ClothingEyesHudDiagnosticPrescription
 
 # Entertainment Technology Tree
 

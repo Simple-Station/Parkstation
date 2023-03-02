@@ -205,6 +205,7 @@
       - PowerDrill
       - MiningDrill
       - ClothingEyesHudDiagnostic
+      - ClothingEyesHudDiagnosticPrescription
       - RCDAmmo # Below is shared with other lathes
       - FlashlightLantern
       - Bucket

@@ -10,10 +10,6 @@
               amount: 20
             - material: Bluespace
               amount: 5
-              icon:
-                sprite: Nyanotrasen/Objects/Materials/materials.rsi
-                state: bluespace
-              name: a bluespace crystal
               doAfter: 1
 
     - node: golem

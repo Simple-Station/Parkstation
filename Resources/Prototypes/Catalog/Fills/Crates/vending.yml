@@ -23,6 +23,7 @@
     contents:
       - id: VendingMachineRestockClothes
       - id: VendingMachineRestockCostumes
+      - id: VendingMachineRestockUnderwear
 
 - type: entity
   id: CrateVendingMachineRestockCondimentStationFilled

@@ -44,6 +44,9 @@ public sealed class TraitSystem : EntitySystem
                 var comp = (Component) _serializationManager.CreateCopy(entry.Component, notNullableOverride: true);
                 comp.Owner = args.Mob;
                 EntityManager.AddComponent(args.Mob, comp, true);
+
+                // Tell the client to add the trait clientsided too
+                RaiseNetworkEvent(new TraitAddedEvent(args.Mob, traitId));
             }
         }
     }

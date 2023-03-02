@@ -4,24 +4,24 @@
 
 
 /Content.*/ @DEATHB4DEFEAT
-/Content.*/SimpleStation14/ @Pspritechologist
+/Content.*/SimpleStation14/ @Pspritechologist @DEATHB4DEFEAT
 
 
 /Resources/ @DEATHB4DEFEAT
 
-/Resources/Audio/SimpleStation14 @Pspritechologist
+/Resources/Audio/SimpleStation14 @Pspritechologist @DEATHB4DEFEAT
 
-/Resources/Maps/ @Pspritechologist
+/Resources/Maps/ @Pspritechologist @DEATHB4DEFEAT
 
-/Resources/Prototypes/Maps @Pspritechologist
-/Resources/Prototypes/SimpleStation14/ @Pspritechologist
+/Resources/Prototypes/Maps @Pspritechologist @DEATHB4DEFEAT
+/Resources/Prototypes/SimpleStation14/ @Pspritechologist @DEATHB4DEFEAT
 
-/Resources/Textures/SimpleStation14/ @Pspritechologist
+/Resources/Textures/SimpleStation14/ @Pspritechologist @DEATHB4DEFEAT
 
-*.ftl @DEATHB4DEFEAT @Pspritechologist
+*.ftl @Pspritechologist @DEATHB4DEFEAT
 
 
 /Scripts/ @DEATHB4DEFEAT
 /Scripts/sh/ @AriaMoradi
 
-/sloth.txt @Pspritechologist @TemporalPrdx
+/sloth.txt @Pspritechologist @DEATHB4DEFEAT @TemporalPrdx

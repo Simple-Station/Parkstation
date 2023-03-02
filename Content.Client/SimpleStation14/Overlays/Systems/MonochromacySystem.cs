@@ -27,16 +27,6 @@ public sealed class MonochromacySystem : EntitySystem
         _overlay = new();
     }
 
-    private void OnPlayerAttached(EntityUid uid, MonochromacyComponent component, PlayerAttachedEvent args)
-    {
-        _overlayMan.AddOverlay(_overlay);
-    }
-
-    private void OnPlayerDetached(EntityUid uid, MonochromacyComponent component, PlayerDetachedEvent args)
-    {
-        _overlayMan.RemoveOverlay(_overlay);
-    }
-
     private void OnMonochromacyStartup(EntityUid uid, MonochromacyComponent component, ComponentStartup args)
     {
         if (_player.LocalPlayer?.ControlledEntity == uid)
@@ -49,5 +39,15 @@ public sealed class MonochromacySystem : EntitySystem
         {
             _overlayMan.RemoveOverlay(_overlay);
         }
+    }
+
+    private void OnPlayerAttached(EntityUid uid, MonochromacyComponent component, PlayerAttachedEvent args)
+    {
+        _overlayMan.AddOverlay(_overlay);
+    }
+
+    private void OnPlayerDetached(EntityUid uid, MonochromacyComponent component, PlayerDetachedEvent args)
+    {
+        _overlayMan.RemoveOverlay(_overlay);
     }
 }
