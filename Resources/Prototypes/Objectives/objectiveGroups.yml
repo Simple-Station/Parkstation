@@ -34,6 +34,7 @@
     EscapeShuttleObjective: 1
     BecomePsionicObjective: 1
     BecomeGolemObjective: 0.67
+    HijackShuttleObjective: 0.02 # Corvax-Hijack
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial
