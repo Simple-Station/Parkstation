@@ -17,7 +17,6 @@
     - map: ["computerLayerKeys"]
       state: atmos_key
 
-
 - type: entity
   parent: BaseComputer
   id: ComputerEmergencyShuttle

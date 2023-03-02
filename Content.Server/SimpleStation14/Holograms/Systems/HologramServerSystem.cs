@@ -29,6 +29,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Clothing.Components;
+using Content.Shared.Roles;
 using Robust.Server.Player;
 using Robust.Shared.Player;
 using Robust.Shared.Containers;
@@ -208,11 +209,11 @@ public class HologramServerSystem : EntitySystem
                             return;
                         }
                     }
-                    _tagSystem.AddTag(item, "Hardlight");
+                    _tagSystem.AddTag(item, "Softlight");
                     _entityManager.EnsureComponent<UnremoveableComponent>(item);
                 });
+                // HoloEquip(mob, mind.CurrentJob.Prototype);
             }
-
         }
 
         _adminLogger.Add(LogType.Unknown, LogImpact.Medium,
@@ -277,6 +278,40 @@ public class HologramServerSystem : EntitySystem
         return mob;
     }
 
+
+    /// <summary>
+    /// WiP for equipping unique items based on job.
+    /// </summary>
+//     private void HoloEquip(EntityUid mob, JobPrototype job)
+//     {
+//         // Check what job they are against a list, and output a hardcoded item for each.
+
+
+
+
+//         var mobTransform = EntityManager.GetComponent<TransformComponent>(mob);
+//         var mobPos = mobTransform.WorldPosition;
+
+//         if (!_entityManager.TryGetComponent<InventoryComponent>(mob, out var mobInv))
+//             return;
+//         var mobHands = EntityManager.EnsureComponent<HandsComponent>(mob);
+
+//         foreach (var item in job.StartingGear.Items)
+//         {
+//             var itemEnt = Spawn(item.Prototype, mobPos);
+//             _entityManager.GetComponent<TransformComponent>(itemEnt).AttachToGridOrMap();
+
+//             if (item.Slot == null)
+//             {
+//                 mobInv.TryPutInHandOrAny(itemEnt, out var _);
+//             }
+//             else
+//             {
+//                 mobInv.TryPutInSlot(itemEnt, item.Slot);
+//             }
+//         }
+//     }
+
     private void OnAfterInteract(EntityUid uid, HologramDiskComponent component, AfterInteractEvent args)
     {
         if (args.Target == null || !TryComp<MindComponent>(args.Target, out var targetMind))
@@ -290,4 +325,13 @@ public class HologramServerSystem : EntitySystem
         component.HoloMind = targetMind.Mind;
         Popup.PopupEntity(Loc.GetString("system-hologram-disk-mind-saved"), args.Target.Value, args.User);
     }
+
+
+//     // List of jobs with hardcoded items for Holograms, like a Clown's horn.
+//     static readonly Dictionary<string, string> HoloJobItems = new Dictionary<string, string>
+//     {
+//         { "Clown", "BikeHorn" },
+//         { "value2", "output2" },
+//         { "value3", "output3" }
+//     };
 }

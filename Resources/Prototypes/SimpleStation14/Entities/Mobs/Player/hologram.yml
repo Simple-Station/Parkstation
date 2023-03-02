@@ -119,6 +119,7 @@
   - type: Alerts
   - type: Tag
     tags:
+      - DoorBumpOpener
       - ShoesRequiredStepTriggerImmune
   - type: NoSlip
   - type: TypingIndicator
@@ -145,6 +146,7 @@
   - type: Inventory
   - type: Actions
   - type: Eye
+  - type: Access
 
 - type: entity
   save: false

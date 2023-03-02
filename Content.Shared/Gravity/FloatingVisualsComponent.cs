@@ -24,10 +24,6 @@ public sealed class FloatingVisualsComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool CanFloat = false;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("force")]
-    public bool Force = false;
     public readonly string AnimationKey = "gravity";
 }
 
