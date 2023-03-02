@@ -212,7 +212,6 @@
   speciesRestriction:
     [
       Reptilian,
-      Shadekin,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -226,7 +225,6 @@
   speciesRestriction:
     [
       Reptilian,
-      Shadekin,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi

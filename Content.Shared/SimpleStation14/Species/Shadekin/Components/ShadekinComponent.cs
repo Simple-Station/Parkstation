@@ -16,10 +16,10 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
 
 
         [ViewVariables(VVAccess.ReadWrite)]
-        public float AccumulatorTime = 1f;
+        public float DarkenRate = 0.084f; // 1/12th of a second
 
-        [ViewVariables(VVAccess.ReadOnly)]
-        public float Accumulator = 0f;
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float DarkenAccumulator = 0f;
 
 
         [ViewVariables(VVAccess.ReadOnly)]
