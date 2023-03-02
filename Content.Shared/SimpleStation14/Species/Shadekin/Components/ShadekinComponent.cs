@@ -26,6 +26,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
         public Vector3 TintColor = new(0.5f, 0f, 0.5f);
 
         [ViewVariables(VVAccess.ReadWrite)]
-        public float TintIntensity = 0.35f;
+        public float TintIntensity = 0.65f;
     }
 }

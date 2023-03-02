@@ -2,9 +2,9 @@ light_mode unshaded;
 
 uniform sampler2D SCREEN_TEXTURE;
 uniform lowp vec3 tint_color; // RGB color between 0 and 1
-uniform lowp float tint_amount; // number between 0 and 1
+uniform lowp float tint_amount; // Number between 0 and 1
 
-// function to convert RGB to HSV
+// Function to convert RGB to HSV.
 highp vec3 rgb2hsv(highp vec3 c)
 {
     highp vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
@@ -17,7 +17,7 @@ highp vec3 rgb2hsv(highp vec3 c)
     return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
 }
 
-// function to convert HSV to RGB
+// Function to convert HSV to RGB.
 highp vec3 hsv2rgb(highp vec3 c)
 {
     highp vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
@@ -28,26 +28,33 @@ highp vec3 hsv2rgb(highp vec3 c)
 void fragment() {
     highp vec4 color = zTextureSpec(SCREEN_TEXTURE, FRAGCOORD.xy * SCREEN_PIXEL_SIZE);
 
-    // convert color to HSV
+    // Convert color to HSV.
     highp vec3 hsvTint = rgb2hsv(tint_color);
     highp vec3 hsvColor = rgb2hsv(color.rgb);
 
-    // work out shortest angle
+    // Work out hue difference.
     highp float angleDif = (hsvTint.x - hsvColor.x);
 
-    // apply tint color hue
-    if (hsvTint.y != 0.0 && hsvTint.z != 0.0)
+    // Apply tint color hue as long as it's not greyscale.
+    if (hsvTint.y > 0.05 && hsvTint.z != 0.0)
     {
-        hsvColor.x = hsvColor.x + (angleDif * tint_amount);
+        hsvColor.x = hsvColor.x + (angleDif);
     }
 
-    // modify saturation based on tint color value
-    hsvColor.y = mix(hsvColor.y, hsvTint.y, tint_amount);
-    highp float mixValue = (mix(hsvColor.z, hsvTint.z, tint_amount));
-    hsvColor.z = (mixValue <= hsvColor.z) ? mixValue : hsvColor.z;
+    // Modify saturation based on tint color saturation,
+    // Halving it if it's higher and capping it at the original.
+    hsvColor.y = (hsvColor.y < hsvTint.y) ?
+        mix(hsvColor.y, hsvTint.y, 0.75) : mix(hsvColor.y, hsvTint.y, 0.35);
 
-    // convert back to RGB
-    color.rgb = hsv2rgb(hsvColor);
+    // Modify value based on tint color value, but only if it's darker.
+    hsvColor.z = (mix(hsvColor.z, hsvTint.z, 0.85) <= hsvColor.z) ?
+        mix(hsvColor.z, hsvTint.z, 0.85) : hsvColor.z;
+
+    // Convert back to RGB.
+    highp vec3 rgbColorMod = hsv2rgb(hsvColor);
+
+    // Mix the final RGB product with the original color to the intensity of the tint.
+    color.rgb = mix(color.rgb, rgbColorMod, tint_amount);
 
     COLOR = color;
 }
