@@ -31,8 +31,38 @@ public class SharedHologramSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<HologramComponent, InteractionAttemptEvent>(OnInteractionAttempt);
+        SubscribeLocalEvent<HologramComponent, InteractionAttemptEvent>(OnHoloInteractionAttempt);
+        SubscribeLocalEvent<InteractionAttemptEvent>(OnInteractionAttempt);
         SubscribeAllEvent<HologramReturnEvent>(HoloReturn);
+    }
+
+    // Stops the Hologram from interacting with anything they shouldn't.
+    private void OnHoloInteractionAttempt(EntityUid uid, HologramComponent component, InteractionAttemptEvent args)
+    {
+        if (args.Target == null)
+            return;
+
+        if (HasComp<TransformComponent>(args.Target) && !HasComp<UnremoveableComponent>(args.Target)
+            && !_tagSystem.HasAnyTag(args.Target.Value, "Hardlight", "Softlight")) args.Cancel();
+    }
+
+    // Stops everyone else from interacting with the Holograms.
+    private void OnInteractionAttempt(InteractionAttemptEvent args)
+    {
+        if (args.Target == null || _tagSystem.HasAnyTag(args.Uid, "Hardlight", "Softlight") ||
+            _entityManager.TryGetComponent<HologramComponent>(args.Uid, out var _))
+            return;
+
+        if (_tagSystem.HasAnyTag(args.Target.Value, "Softlight") && !_tagSystem.HasAnyTag(args.Target.Value, "Hardlight")){
+            args.Cancel();
+
+            // Send a popup to the player about the interaction, and play a sound.
+            var meta = _entityManager.GetComponent<MetaDataComponent>(args.Target.Value);
+            var popup = Loc.GetString("system-hologram-light-interaction-fail", ("item", meta.EntityName));
+            var sound = "/Audio/SimpleStation14/Effects/Hologram/holo_on.ogg";
+            Popup.PopupEntity(popup, args.Target.Value, Filter.Entities(args.Uid), false);
+            _audio.Play(sound, Filter.Entities(args.Uid), args.Uid, false);
+        }
     }
 
     // Anything that needs to be regularly run, like handling exiting a projector's range
@@ -58,16 +88,6 @@ public class SharedHologramSystem : EntitySystem
             component.Accumulator = 0.24f;
             component.CurProjector = nearProj;
         }
-    }
-
-    // Stops the Hologram from interacting with anything they shouldn't.
-    private void OnInteractionAttempt(EntityUid uid, HologramComponent component, InteractionAttemptEvent args)
-    {
-        if (args.Target == null)
-            return;
-
-        if (HasComp<TransformComponent>(args.Target) && !HasComp<UnremoveableComponent>(args.Target)
-            && !_tagSystem.HasAnyTag(args.Target.Value, "Hardlight", "Light")) args.Cancel();
     }
 
     /// <summary>
