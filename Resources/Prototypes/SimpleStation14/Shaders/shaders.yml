@@ -9,6 +9,6 @@
   path: "/Textures/SimpleStation14/Shaders/nightvision.swsl"
 
 - type: shader
-  id: EtherealRealm
+  id: Ethereal
   kind: source
-  path: "/Textures/SimpleStation14/Shaders/ethereal_realm.swsl"
+  path: "/Textures/SimpleStation14/Shaders/ethereal.swsl"

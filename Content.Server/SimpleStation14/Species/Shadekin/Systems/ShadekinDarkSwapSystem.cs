@@ -72,6 +72,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             if (!HasComp<ShadekinDarkSwappedComponent>(uid))
             {
                 EnsureComp<ShadekinDarkSwappedComponent>(uid);
+                SetCanSeeInvisibility(uid, true);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, true));
 
                 _staminaSystem.TakeStaminaDamage(uid, args.StaminaCostOn);
@@ -79,6 +80,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             else
             {
                 RemComp<ShadekinDarkSwappedComponent>(uid);
+                SetCanSeeInvisibility(uid, false);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, false));
 
                 _staminaSystem.TakeStaminaDamage(uid, args.StaminaCostOff);
@@ -101,12 +103,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
             //////////////////////////////////////////
 
-            var visibility = EntityManager.EnsureComponent<VisibilityComponent>(uid);
-
-            _visibilitySystem.AddLayer(visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
-            _visibilitySystem.RemoveLayer(visibility, (int) VisibilityFlags.Normal, false);
-            _visibilitySystem.RefreshVisibility(visibility);
-
             SetCanSeeInvisibility(uid, true);
         }
 
@@ -118,16 +114,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             RemComp<PacifiedComponent>(uid);
             SoundSystem.Play("/Audio/Effects/toss.ogg", Filter.Pvs(uid), uid);
 
-            Dirty(uid);
-
             //////////////////////////////////////////
-
-            if (TryComp<VisibilityComponent>(uid, out var visibility))
-            {
-                _visibilitySystem.RemoveLayer(visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
-                _visibilitySystem.AddLayer(visibility, (int) VisibilityFlags.Normal, false);
-                _visibilitySystem.RefreshVisibility(visibility);
-            }
 
             SetCanSeeInvisibility(uid, false);
 
@@ -147,24 +134,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             shadekin.DarkenedLights.Clear();
         }
 
-        public void SetCanSeeInvisibility(EntityUid uid, bool set)
-        {
-            if (set == true)
-            {
-                if (EntityManager.TryGetComponent(uid, out EyeComponent? eye))
-                {
-                    eye.VisibilityMask |= (uint) VisibilityFlags.DarkSwapInvisibility;
-                }
-            }
-            else
-            {
-                if (EntityManager.TryGetComponent(uid, out EyeComponent? eye))
-                {
-                    eye.VisibilityMask &= ~(uint) VisibilityFlags.DarkSwapInvisibility;
-                }
-            }
-        }
-
         private void OnEntInserted(EntityUid uid, ShadekinDarkSwappedComponent component, EntInsertedIntoContainerMessage args)
         {
             Dirty(args.Entity);
@@ -173,6 +142,35 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         private void OnEntRemoved(EntityUid uid, ShadekinDarkSwappedComponent component, EntRemovedFromContainerMessage args)
         {
             Dirty(args.Entity);
+        }
+
+
+        public void SetCanSeeInvisibility(EntityUid uid, bool set)
+        {
+            var visibility = EntityManager.EnsureComponent<VisibilityComponent>(uid);
+
+            if (set == true)
+            {
+                if (EntityManager.TryGetComponent(uid, out EyeComponent? eye))
+                {
+                    eye.VisibilityMask |= (uint) VisibilityFlags.DarkSwapInvisibility;
+                }
+
+                _visibilitySystem.AddLayer(visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
+                _visibilitySystem.RemoveLayer(visibility, (int) VisibilityFlags.Normal, false);
+                _visibilitySystem.RefreshVisibility(visibility);
+            }
+            else
+            {
+                if (EntityManager.TryGetComponent(uid, out EyeComponent? eye))
+                {
+                    eye.VisibilityMask &= ~(uint) VisibilityFlags.DarkSwapInvisibility;
+                }
+
+                _visibilitySystem.RemoveLayer(visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
+                _visibilitySystem.AddLayer(visibility, (int) VisibilityFlags.Normal, false);
+                _visibilitySystem.RefreshVisibility(visibility);
+            }
         }
     }
 }

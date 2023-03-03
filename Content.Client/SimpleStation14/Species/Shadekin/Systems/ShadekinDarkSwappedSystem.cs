@@ -5,6 +5,7 @@ using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Content.Shared.SimpleStation14.Species.Shadekin.Events;
 using Robust.Client.GameObjects;
 using Content.Shared.GameTicking;
+using Content.Shared.Humanoid;
 
 namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
 {
@@ -14,13 +15,17 @@ namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
         [Dependency] private readonly IOverlayManager _overlayMan = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
 
-        private ShadekinDarkenOverlay _overlay = default!;
+        private IgnoreHumanoidWithComponentOverlay _ignoreOverlay = default!;
+        private EtherealOverlay _etherealOverlay = default!;
 
         public override void Initialize()
         {
             base.Initialize();
 
-            _overlay = new();
+            _ignoreOverlay = new();
+            _ignoreOverlay.ignoredComponents.Add(new HumanoidAppearanceComponent());
+            _ignoreOverlay.allowAnywayComponents.Add(new ShadekinDarkSwappedComponent());
+            _etherealOverlay = new();
 
             SubscribeNetworkEvent<ShadekinDarkSwappedEvent>(DarkSwap);
 
@@ -41,25 +46,30 @@ namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
         {
             if (_player.LocalPlayer?.ControlledEntity != uid) return;
 
-            _overlayMan.AddOverlay(_overlay);
+            _overlayMan.AddOverlay(_ignoreOverlay);
+            _overlayMan.AddOverlay(_etherealOverlay);
         }
 
         private void OnShutdown(EntityUid uid, ShadekinDarkSwappedComponent component, ComponentShutdown args)
         {
             if (_player.LocalPlayer?.ControlledEntity != uid) return;
 
-            _overlay.Reset();
-            _overlayMan.RemoveOverlay(_overlay);
+            _ignoreOverlay.Reset();
+            _overlayMan.RemoveOverlay(_ignoreOverlay);
+            _overlayMan.RemoveOverlay(_etherealOverlay);
         }
 
         private void OnPlayerAttached(EntityUid uid, ShadekinDarkSwappedComponent component, PlayerAttachedEvent args)
         {
-            ToggleInvisibility(uid, true);
+            _overlayMan.AddOverlay(_ignoreOverlay);
+            _overlayMan.AddOverlay(_etherealOverlay);
         }
 
         private void OnPlayerDetached(EntityUid uid, ShadekinDarkSwappedComponent component, PlayerDetachedEvent args)
         {
-            ToggleInvisibility(uid, false);
+            _ignoreOverlay.Reset();
+            _overlayMan.RemoveOverlay(_ignoreOverlay);
+            _overlayMan.RemoveOverlay(_etherealOverlay);
         }
 
         private void OnRoundRestart(RoundRestartCleanupEvent args)
