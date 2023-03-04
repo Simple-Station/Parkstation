@@ -12,19 +12,19 @@ namespace Content.Client.SimpleStation14.Chat
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<ShadekinComponent, ComponentInit>(OnInit);
-            SubscribeLocalEvent<ShadekinComponent, ComponentRemove>(OnRemove);
+            SubscribeLocalEvent<EmpathyChatComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<EmpathyChatComponent, ComponentRemove>(OnRemove);
         }
 
-        public ShadekinComponent? Player => CompOrNull<ShadekinComponent>(_playerManager.LocalPlayer?.ControlledEntity);
+        public EmpathyChatComponent? Player => CompOrNull<EmpathyChatComponent>(_playerManager.LocalPlayer?.ControlledEntity);
         public bool IsShadekin => Player != null;
 
-        private void OnInit(EntityUid uid, ShadekinComponent component, ComponentInit args)
+        private void OnInit(EntityUid uid, EmpathyChatComponent component, ComponentInit args)
         {
             _chatManager.UpdatePermissions();
         }
 
-        private void OnRemove(EntityUid uid, ShadekinComponent component, ComponentRemove args)
+        private void OnRemove(EntityUid uid, EmpathyChatComponent component, ComponentRemove args)
         {
             _chatManager.UpdatePermissions();
         }

@@ -30,7 +30,7 @@ namespace Content.Server.SimpleStation14.Chat
         private IEnumerable<INetChannel> GetShadekinChatClients()
         {
             return Filter.Empty()
-                .AddWhereAttachedEntity(entity => HasComp<ShadekinComponent>(entity))
+                .AddWhereAttachedEntity(entity => HasComp<EmpathyChatComponent>(entity))
                 .Recipients
                 .Select(p => p.ConnectedClient);
         }
@@ -43,7 +43,7 @@ namespace Content.Server.SimpleStation14.Chat
 
         public void SendEmpathyChat(EntityUid source, string message, bool hideChat)
         {
-            if (!HasComp<ShadekinComponent>(source)) return;
+            if (!HasComp<EmpathyChatComponent>(source)) return;
 
             var clients = GetShadekinChatClients();
             var admins = GetAdminClients();
