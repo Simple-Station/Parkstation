@@ -9,6 +9,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
+using Robust.Shared.Network;
 
 namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 {
@@ -22,6 +23,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
         [Dependency] private readonly SharedHumanoidAppearanceSystem _sharedHumanoidAppearance = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+        [Dependency] private readonly INetManager _net = default!;
 
         public override void Initialize()
         {
@@ -33,7 +35,8 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         private void OnBlackeye(ShadekinBlackeyeEvent ev)
         {
             // Set eyes to black
-            _sharedHumanoidAppearance.SetBaseLayerColor(ev.Euid, HumanoidVisualLayers.Eyes, new Color(0, 0, 0));
+            // Doesn't work, figure this out later
+            // _sharedHumanoidAppearance.SetBaseLayerColor(ev.Euid, HumanoidVisualLayers.Eyes, new Color(0, 0, 0));
 
             // Remove powers
             _entityManager.RemoveComponent<ShadekinDarkSwapComponent>(ev.Euid);
@@ -41,7 +44,10 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             _entityManager.RemoveComponent<ShadekinTeleportComponent>(ev.Euid);
 
             // Popup
-            _popupSystem.PopupEntity(Loc.GetString("shadekin-blackeye"), ev.Euid, ev.Euid, PopupType.Large);
+            if (_net.IsClient)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("shadekin-blackeye"), ev.Euid, ev.Euid, PopupType.Large);
+            }
 
             // Stop gaining power
             if (_entityManager.TryGetComponent<ShadekinComponent>(ev.Euid, out var component))
@@ -56,7 +62,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
                 _staminaSystem.TakeStaminaDamage(ev.Euid, 100, null, ev.Euid);
             }
 
-            // Take enough damage to be just barely out of critical
+            // Near damage crit
             if (_entityManager.TryGetComponent<DamageableComponent>(ev.Euid, out var damageable) &&
                 _mobThresholdSystem.TryGetThresholdForState(ev.Euid, MobState.Critical, out var key))
             {

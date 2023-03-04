@@ -56,7 +56,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             // Update power level for all shadekin
             foreach (var component in EntityManager.EntityQuery<ShadekinComponent>())
             {
-                if (!component.PowerLevelGainEnabled) continue;
+                if (!component.PowerLevelGainEnabled) continue; // Myabe make a check for if blackeyed
 
                 TryBlackeye(component);
                 UpdatePowerLevel(component, frameTime);
@@ -175,7 +175,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         /// </summary>
         public void Blackeye(ShadekinComponent component)
         {
-            RaiseLocalEvent(new ShadekinBlackeyeEvent(component.Owner));
             RaiseNetworkEvent(new ShadekinBlackeyeEvent(component.Owner));
         }
     }
