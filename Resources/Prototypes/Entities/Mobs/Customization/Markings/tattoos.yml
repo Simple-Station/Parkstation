@@ -177,11 +177,6 @@
       Reptilian,
       SlimePerson,
       Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
-      Shadekin,
     ]
   sprites:
     - sprite: Mobs/Customization/tattoos.rsi
@@ -198,11 +193,6 @@
       Reptilian,
       SlimePerson,
       Oni,
-      Lamia,
-      Arachne,
-      Diona,
-      Moth,
-      Shadekin,
     ]
   sprites:
     - sprite: Mobs/Customization/tattoos.rsi
