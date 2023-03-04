@@ -138,6 +138,7 @@
         Blunt: 2
         Slash: 3
         Piercing: 1
+  - type: EmpathyChat
   - type: Shadekin
   - type: ShadekinTeleport
   - type: ShadekinDarkSwap

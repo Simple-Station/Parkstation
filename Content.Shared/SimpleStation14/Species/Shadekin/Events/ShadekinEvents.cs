@@ -39,7 +39,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
     }
 
     /// <summary>
-    ///     Raised over network to notify the client that they're going in/out of the dark.
+    ///     Raised over network to notify the client that they're going in/out of The Dark.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class ShadekinDarkSwappedEvent : EntityEventArgs
