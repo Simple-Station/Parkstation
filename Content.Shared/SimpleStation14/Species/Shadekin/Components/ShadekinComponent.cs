@@ -42,6 +42,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
         [ViewVariables(VVAccess.ReadWrite)]
         public float PowerLevel {
             get => _powerLevel;
+            [Obsolete("Use ShadekinSystemPowerSystem.SetPowerLevel instead.")]
             set => _powerSystem.SetPowerLevel(this, value);
         }
         public float _powerLevel = 0f;

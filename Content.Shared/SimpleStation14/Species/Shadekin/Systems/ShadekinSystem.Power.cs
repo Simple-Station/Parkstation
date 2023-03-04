@@ -2,6 +2,7 @@ using Content.Shared.Examine;
 using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Robust.Shared.Network;
 using Content.Shared.IdentityManagement;
+using Content.Shared.SimpleStation14.Species.Shadekin.Events;
 
 namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 {
@@ -53,9 +54,15 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             base.Update(frameTime);
 
             // Update power level for all shadekin
-            foreach (var component in EntityManager.EntityQuery<ShadekinComponent>(true))
+            foreach (var component in EntityManager.EntityQuery<ShadekinComponent>())
             {
                 UpdatePowerLevel(component, frameTime);
+
+                if (component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min])
+                {
+                    RaiseLocalEvent(new ShadekinBlackeyeEvent(component.Owner, component));
+                    RaiseNetworkEvent(new ShadekinBlackeyeEvent(component.Owner, component));
+                }
             }
         }
 
@@ -112,6 +119,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             return powerType;
         }
 
+        // Very dumb
         /// <remarks> For viewing purposes. </remarks>
         /// <param name="PowerLevel">The current power level.</param>
         /// <returns>Power level as an integer.</returns>

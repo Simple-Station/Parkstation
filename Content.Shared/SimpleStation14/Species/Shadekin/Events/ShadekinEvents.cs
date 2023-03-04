@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 
@@ -54,6 +55,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
         }
     }
 
+
     /// <summary>
     ///     Raised when someone gains or loses access to empathy chat.
     /// </summary>
@@ -65,6 +67,23 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
         public ShadekinChangedEvent(EntityUid euid)
         {
             Euid = euid;
+        }
+    }
+
+
+    /// <summary>
+    ///     Raised when a shadekin becomes a blackeye.
+    /// </summary>
+    [Serializable, NetSerializable]
+    public sealed class ShadekinBlackeyeEvent : EntityEventArgs
+    {
+        public readonly EntityUid Euid;
+        public readonly ShadekinComponent Component;
+
+        public ShadekinBlackeyeEvent(EntityUid euid, ShadekinComponent component)
+        {
+            Euid = euid;
+            Component = component;
         }
     }
 }
