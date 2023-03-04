@@ -3,12 +3,14 @@ using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Robust.Shared.Network;
 using Content.Shared.IdentityManagement;
 using Content.Shared.SimpleStation14.Species.Shadekin.Events;
+using System.Threading.Tasks;
 
 namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 {
     public sealed class ShadekinSystemPowerSystem : EntitySystem
     {
         [Dependency] private readonly INetManager _net = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         public override void Initialize()
         {
@@ -44,7 +46,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
         private void OnInit(EntityUid uid, ShadekinComponent component, ComponentInit args)
         {
-            if (component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min])
+            if (component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min] + 1f)
                 SetPowerLevel(component, ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Okay]);
         }
 
@@ -56,8 +58,8 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             // Update power level for all shadekin
             foreach (var component in EntityManager.EntityQuery<ShadekinComponent>())
             {
-                TryBlackeye(component);
                 TryUpdatePowerLevel(component, frameTime);
+                TryBlackeye(component);
             }
         }
 
@@ -113,6 +115,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             return powerType;
         }
 
+
         /// <remarks> For viewing purposes. </remarks>
         /// <param name="PowerLevel">The current power level.</param>
         /// <returns>Power level as an integer.</returns>
@@ -122,13 +125,14 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             return (int) Math.Round(PowerLevel);
         }
 
+
         public bool TryUpdatePowerLevel(ShadekinComponent component, float frameTime)
         {
             // Check if power gain is enabled
             if (!component.PowerLevelGainEnabled) return false;
 
             // Set the new power level
-            SetPowerLevel(component, frameTime);
+            UpdatePowerLevel(component, frameTime);
 
             return true;
         }
@@ -150,6 +154,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             SetPowerLevel(component, newPowerLevel);
         }
 
+
         /// <summary>
         ///     Sets the power level of a shadekin.
         /// </summary>
@@ -163,6 +168,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             // Set the new power level
             component._powerLevel = newPowerLevel;
         }
+
 
         /// <summary>
         ///     Tries to blackeye a shadekin.
@@ -187,6 +193,47 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         {
             component.Blackeye = true;
             RaiseNetworkEvent(new ShadekinBlackeyeEvent(component.Owner));
+        }
+
+
+        /// <summary>
+        ///     Tries to add a power multiplier.
+        /// </summary>
+        /// <param name="uid">The entity uid.</param>
+        /// <param name="multiplier">The multiplier to add.</param>
+        /// <param name="time">The time in seconds to wait before removing the multiplier.</param>
+        public bool TryAddMultiplier(EntityUid uid, float multiplier = 1f, float? time = null)
+        {
+            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var _)) return false;
+
+            AddMultiplier(uid, multiplier, time);
+
+            return true;
+        }
+
+        /// <summary>
+        ///     Adds a power multiplier.
+        /// </summary>
+        /// <param name="uid">The entity uid.</param>
+        /// <param name="multiplier">The multiplier to add.</param>
+        /// <param name="time">The time in seconds to wait before removing the multiplier.</param>
+        public void AddMultiplier(EntityUid uid, float multiplier = 1f, float? time = null)
+        {
+            // Get the shadekin component
+            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component)) return;
+
+            // Add the multiplier
+            component.PowerLevelGainMultiplier += multiplier;
+
+            // Remove the multiplier after a certain amount of time
+            if (time != null)
+            {
+                Task.Run(async () =>
+                {
+                    await Task.Delay((int) time * 1000);
+                    component.PowerLevelGainMultiplier -= multiplier;
+                });
+            }
         }
     }
 }
