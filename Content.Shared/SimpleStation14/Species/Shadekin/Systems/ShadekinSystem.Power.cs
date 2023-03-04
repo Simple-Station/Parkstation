@@ -57,7 +57,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             foreach (var component in EntityManager.EntityQuery<ShadekinComponent>())
             {
                 TryBlackeye(component);
-                UpdatePowerLevel(component, frameTime);
+                TryUpdatePowerLevel(component, frameTime);
             }
         }
 
@@ -83,7 +83,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             }
 
             // Get the name of the threshold
-            // TODO: Localize this
             switch (result)
             {
                 case ShadekinPowerThreshold.Max:
@@ -114,13 +113,24 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             return powerType;
         }
 
-        // Very dumb
         /// <remarks> For viewing purposes. </remarks>
         /// <param name="PowerLevel">The current power level.</param>
         /// <returns>Power level as an integer.</returns>
         public int GetLevelInt(float PowerLevel)
         {
+            // Very dumb
             return (int) Math.Round(PowerLevel);
+        }
+
+        public bool TryUpdatePowerLevel(ShadekinComponent component, float frameTime)
+        {
+            // Check if power gain is enabled
+            if (!component.PowerLevelGainEnabled) return false;
+
+            // Set the new power level
+            SetPowerLevel(component, frameTime);
+
+            return true;
         }
 
         /// <summary>
@@ -130,10 +140,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         /// <param name="frameTime">The time since the last update in seconds.</param>
         public void UpdatePowerLevel(ShadekinComponent component, float frameTime)
         {
-            // Check if power gain is enabled
-            if (!component.PowerLevelGainEnabled) return;
-
-            // Calculate new power level using the formula (P = P + t * G * M)
+            // Calculate new power level (P = P + t * G * M)
             var newPowerLevel = component.PowerLevel + frameTime * component.PowerLevelGain * component.PowerLevelGainMultiplier;
 
             // Clamp power level using clamp function
@@ -160,13 +167,17 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         /// <summary>
         ///     Tries to blackeye a shadekin.
         /// </summary>
-        public void TryBlackeye(ShadekinComponent component)
+        public bool TryBlackeye(ShadekinComponent component)
         {
             if (!component.Blackeye &&
                 component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min] + 1f)
             {
                 Blackeye(component);
+
+                return true;
             }
+
+            return false;
         }
 
         /// <summary>
