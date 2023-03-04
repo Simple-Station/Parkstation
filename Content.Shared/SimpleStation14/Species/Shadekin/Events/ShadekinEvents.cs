@@ -17,8 +17,8 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
         public float BlinkVolume = 5f;
 
 
-        [DataField("staminaCost")]
-        public float StaminaCost = 35f;
+        [DataField("powerCost")]
+        public float PowerCost = 35f;
     }
 
     /// <summary>
@@ -29,14 +29,14 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
         /// <summary>
         ///     How much stamina to drain when darkening.
         /// </summary>
-        [DataField("staminaCostOn")]
-        public float StaminaCostOn = 45f;
+        [DataField("powerCostOn")]
+        public float PowerCostOn = 45f;
 
         /// <summary>
         ///     How much stamina to drain when lightening.
         /// </summary>
-        [DataField("staminaCostOff")]
-        public float StaminaCostOff = 35f;
+        [DataField("powerCostOff")]
+        public float PowerCostOff = 35f;
     }
 
     /// <summary>

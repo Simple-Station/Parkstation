@@ -2,7 +2,7 @@
   id: ShadekinTeleport
   name: action-name-shadekin-teleport
   description: action-description-shadekin-teleport
-  useDelay: 30
+  useDelay: 3
   range: 32
   speech: Aarammra!
   itemIconStyle: NoItem
@@ -12,18 +12,18 @@
     sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
     state: teleport
   serverEvent: !type:ShadekinTeleportEvent
-    staminaCost: 35
+    powerCost: 35
 
 - type: instantAction
   id: ShadekinDarkSwap
   name: action-name-shadekin-darkswap
   description: action-description-shadekin-darkswap
-  useDelay: 20
+  useDelay: 5
   speech: Mmra Mamm!
   itemIconStyle: NoItem
   icon:
     sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
     state: darkswap
   serverEvent: !type:ShadekinDarkSwapEvent
-    staminaCostOn: 45
-    staminaCostOff: 35
+    powerCostOn: 45
+    powerCostOff: 35

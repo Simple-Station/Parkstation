@@ -57,7 +57,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                 SetCanSeeInvisibility(uid, true);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, true));
 
-                _staminaSystem.TakeStaminaDamage(uid, args.StaminaCostOn);
+                _staminaSystem.TakeStaminaDamage(uid, args.PowerCostOn);
             }
             else
             {
@@ -65,7 +65,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                 SetCanSeeInvisibility(uid, false);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, false));
 
-                _staminaSystem.TakeStaminaDamage(uid, args.StaminaCostOff);
+                _staminaSystem.TakeStaminaDamage(uid, args.PowerCostOff);
             }
         }
 
