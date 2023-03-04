@@ -52,6 +52,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             if (_entityManager.TryGetComponent<DamageableComponent>(ev.Euid, out var damageable) &&
                 _mobThresholdSystem.TryGetThresholdForState(ev.Euid, MobState.Critical, out var key))
             {
+                // I am aware this removes all other damage, though I am adding cellular in place of it
                 _damageableSystem.SetAllDamage(damageable, 0);
 
                 _damageableSystem.TryChangeDamage(

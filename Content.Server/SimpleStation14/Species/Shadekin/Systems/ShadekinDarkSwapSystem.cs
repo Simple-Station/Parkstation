@@ -1,9 +1,9 @@
 using Content.Server.Psionics;
 using Content.Server.Visible;
 using Content.Shared.CombatMode.Pacification;
-using Content.Shared.Damage.Systems;
 using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Content.Shared.SimpleStation14.Species.Shadekin.Events;
+using Content.Shared.SimpleStation14.Species.Shadekin.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -14,9 +14,9 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 {
     public sealed class ShadekinDarkSwapSystem : EntitySystem
     {
+        ShadekinSystemPowerSystem _powerSystem = new();
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
-        [Dependency] private readonly StaminaSystem _staminaSystem = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly ShadekinDarkenSystem _darkenSystem = default!;
 
@@ -51,13 +51,15 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
         public void ToggleInvisibility(EntityUid uid, ShadekinDarkSwapEvent args)
         {
+            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var comp)) return;
+
             if (!HasComp<ShadekinDarkSwappedComponent>(uid))
             {
                 EnsureComp<ShadekinDarkSwappedComponent>(uid);
                 SetCanSeeInvisibility(uid, true);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, true));
 
-                _staminaSystem.TakeStaminaDamage(uid, args.PowerCostOn);
+                _powerSystem.SetPowerLevel(comp, comp.PowerLevel - args.PowerCostOn);
             }
             else
             {
@@ -65,7 +67,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                 SetCanSeeInvisibility(uid, false);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, false));
 
-                _staminaSystem.TakeStaminaDamage(uid, args.PowerCostOff);
+                _powerSystem.SetPowerLevel(comp, comp.PowerLevel - args.PowerCostOff);
             }
         }
 
