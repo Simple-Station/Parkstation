@@ -45,7 +45,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         private void OnInit(EntityUid uid, ShadekinComponent component, ComponentInit args)
         {
             if (component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min])
-                SetPowerLevel(component, ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Great]);
+                SetPowerLevel(component, ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Okay]);
         }
 
 
