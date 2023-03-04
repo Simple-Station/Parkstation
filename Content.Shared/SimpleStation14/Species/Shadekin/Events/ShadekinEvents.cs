@@ -78,12 +78,10 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
     public sealed class ShadekinBlackeyeEvent : EntityEventArgs
     {
         public readonly EntityUid Euid;
-        public readonly ShadekinComponent Component;
 
-        public ShadekinBlackeyeEvent(EntityUid euid, ShadekinComponent component)
+        public ShadekinBlackeyeEvent(EntityUid euid)
         {
             Euid = euid;
-            Component = component;
         }
     }
 }

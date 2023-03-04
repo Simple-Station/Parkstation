@@ -9,3 +9,6 @@ shadekin-power-good = good
 shadekin-power-okay = okay
 shadekin-power-tired = exhausted
 shadekin-power-min = a blackeye
+
+# shadekin-blackeye = You feel your power draining away, you are [color=mediumpurple]exhausted[/color]!
+shadekin-blackeye = You feel your power draining away, you are exhausted!

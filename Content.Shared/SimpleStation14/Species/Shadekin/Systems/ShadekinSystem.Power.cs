@@ -58,10 +58,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             {
                 UpdatePowerLevel(component, frameTime);
 
-                if (component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min])
+                if (!component.PowerLevelGainEnabled) continue;
+
+                if (component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min] + 1f)
                 {
-                    RaiseLocalEvent(new ShadekinBlackeyeEvent(component.Owner, component));
-                    RaiseNetworkEvent(new ShadekinBlackeyeEvent(component.Owner, component));
+                    RaiseLocalEvent(new ShadekinBlackeyeEvent(component.Owner));
+                    RaiseNetworkEvent(new ShadekinBlackeyeEvent(component.Owner));
                 }
             }
         }
