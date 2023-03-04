@@ -56,15 +56,10 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             // Update power level for all shadekin
             foreach (var component in EntityManager.EntityQuery<ShadekinComponent>())
             {
-                UpdatePowerLevel(component, frameTime);
-
                 if (!component.PowerLevelGainEnabled) continue;
 
-                if (component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min] + 1f)
-                {
-                    RaiseLocalEvent(new ShadekinBlackeyeEvent(component.Owner));
-                    RaiseNetworkEvent(new ShadekinBlackeyeEvent(component.Owner));
-                }
+                TryBlackeye(component);
+                UpdatePowerLevel(component, frameTime);
             }
         }
 
@@ -162,6 +157,26 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
             // Set the new power level
             component._powerLevel = newPowerLevel;
+        }
+
+        /// <summary>
+        ///     Tries to blackeye a shadekin.
+        /// </summary>
+        public void TryBlackeye(ShadekinComponent component)
+        {
+            if (component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min] + 1f)
+            {
+                Blackeye(component);
+            }
+        }
+
+        /// <summary>
+        ///     Blackeyes a shadekin.
+        /// </summary>
+        public void Blackeye(ShadekinComponent component)
+        {
+            RaiseLocalEvent(new ShadekinBlackeyeEvent(component.Owner));
+            RaiseNetworkEvent(new ShadekinBlackeyeEvent(component.Owner));
         }
     }
 }

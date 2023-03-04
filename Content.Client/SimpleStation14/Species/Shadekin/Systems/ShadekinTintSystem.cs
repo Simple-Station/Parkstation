@@ -48,7 +48,9 @@ namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
                 {
                     if (sprite.TryGetLayer(index, out var layer))
                     {
-                        UpdateShader(new Vector3(layer.Color.R, layer.Color.G, layer.Color.B), comp.TintIntensity);
+                        var color = new Vector3(layer.Color.R, layer.Color.G, layer.Color.B);
+                        UpdateShader(color, comp.TintIntensity);
+                        comp.TintColor = color;
                     }
                 }
             }
