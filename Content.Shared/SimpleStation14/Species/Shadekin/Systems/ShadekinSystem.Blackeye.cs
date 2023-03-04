@@ -3,12 +3,12 @@ using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
-using System.Linq;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Humanoid;
+using Content.Shared.Popups;
 
 namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 {
@@ -20,20 +20,28 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
+        [Dependency] private readonly SharedHumanoidAppearanceSystem _sharedHumanoidAppearance = default!;
+        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
         public override void Initialize()
         {
             base.Initialize();
 
-            SubscribeLocalEvent<ShadekinBlackeyeEvent>(OnBlackeye);
+            SubscribeAllEvent<ShadekinBlackeyeEvent>(OnBlackeye);
         }
 
         private void OnBlackeye(ShadekinBlackeyeEvent ev)
         {
+            // Set eyes to black
+            _sharedHumanoidAppearance.SetBaseLayerColor(ev.Euid, HumanoidVisualLayers.Eyes, new Color(0, 0, 0));
+
             // Remove powers
             _entityManager.RemoveComponent<ShadekinDarkSwapComponent>(ev.Euid);
             _entityManager.RemoveComponent<ShadekinDarkSwappedComponent>(ev.Euid);
             _entityManager.RemoveComponent<ShadekinTeleportComponent>(ev.Euid);
+
+            // Popup
+            _popupSystem.PopupEntity(Loc.GetString("shadekin-blackeye"), ev.Euid, ev.Euid, PopupType.Large);
 
             // Stop gaining power
             if (_entityManager.TryGetComponent<ShadekinComponent>(ev.Euid, out var component))
