@@ -9,7 +9,7 @@
   - type: Hunger
   - type: Thirst
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: full
   - type: Body
     prototype: Shadekin

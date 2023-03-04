@@ -9,7 +9,7 @@
   checkCanAccess: true
   repeat: true
   icon:
-    sprite: SimpleStation14/Mobs/Species/shadekin_icons.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
     state: teleport
   serverEvent: !type:ShadekinTeleportEvent
     staminaCost: 35
@@ -22,7 +22,7 @@
   speech: Mmra Mamm!
   itemIconStyle: NoItem
   icon:
-    sprite: SimpleStation14/Mobs/Species/shadekin_icons.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
     state: darkswap
   serverEvent: !type:ShadekinDarkSwapEvent
     staminaCostOn: 45

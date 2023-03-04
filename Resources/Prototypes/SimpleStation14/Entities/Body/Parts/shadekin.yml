@@ -19,10 +19,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "torso_m"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "torso_m"
   - type: BodyPart
     partType: Torso
@@ -34,10 +34,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "head_m"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "head_m"
   - type: BodyPart
     partType: Head
@@ -56,10 +56,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "l_arm"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "l_arm"
   - type: BodyPart
     partType: Arm
@@ -72,10 +72,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "r_arm"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "r_arm"
   - type: BodyPart
     partType: Arm
@@ -88,10 +88,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "l_hand"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "l_hand"
   - type: BodyPart
     partType: Hand
@@ -104,10 +104,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "r_hand"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "r_hand"
   - type: BodyPart
     partType: Hand
@@ -120,10 +120,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "l_leg"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "l_leg"
   - type: BodyPart
     partType: Leg
@@ -139,10 +139,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "r_leg"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "r_leg"
   - type: BodyPart
     partType: Leg
@@ -158,10 +158,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "l_foot"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "l_foot"
   - type: BodyPart
     partType: Foot
@@ -174,10 +174,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "r_foot"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
     state: "r_foot"
   - type: BodyPart
     partType: Foot
