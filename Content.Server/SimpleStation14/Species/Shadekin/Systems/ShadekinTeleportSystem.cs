@@ -1,7 +1,4 @@
-using Content.Shared.Actions;
-using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Damage.Systems;
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Content.Shared.SimpleStation14.Species.Shadekin.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -10,7 +7,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 {
     public sealed class ShadekinTeleportSystem : EntitySystem
     {
-        [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -20,22 +16,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<ShadekinTeleportComponent, ComponentStartup>(Startup);
-            SubscribeLocalEvent<ShadekinTeleportComponent, ComponentShutdown>(Shutdown);
-
             SubscribeLocalEvent<ShadekinTeleportEvent>(Teleport);
-        }
-
-        private void Startup(EntityUid uid, ShadekinTeleportComponent component, ComponentStartup args)
-        {
-            var action = new WorldTargetAction(_prototypeManager.Index<WorldTargetActionPrototype>("ShadekinTeleport"));
-            _actionsSystem.AddAction(uid, action, uid);
-        }
-
-        private void Shutdown(EntityUid uid, ShadekinTeleportComponent component, ComponentShutdown args)
-        {
-            var action = new WorldTargetAction(_prototypeManager.Index<WorldTargetActionPrototype>("ShadekinTeleport"));
-            _actionsSystem.RemoveAction(uid, action);
         }
 
         private void Teleport(ShadekinTeleportEvent args)

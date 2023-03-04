@@ -1,7 +1,5 @@
 using Content.Server.Psionics;
 using Content.Server.Visible;
-using Content.Shared.Actions;
-using Content.Shared.Actions.ActionTypes;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage.Systems;
 using Content.Shared.SimpleStation14.Species.Shadekin.Components;
@@ -16,7 +14,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 {
     public sealed class ShadekinDarkSwapSystem : EntitySystem
     {
-        [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly StaminaSystem _staminaSystem = default!;
@@ -26,9 +23,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         public override void Initialize()
         {
             base.Initialize();
-
-            SubscribeLocalEvent<ShadekinDarkSwapComponent, ComponentStartup>(Startup);
-            SubscribeLocalEvent<ShadekinDarkSwapComponent, ComponentShutdown>(Shutdown);
 
             SubscribeLocalEvent<ShadekinDarkSwapComponent, ShadekinDarkSwapEvent>(DarkSwap);
 
@@ -44,18 +38,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             // PVS Stuff
             SubscribeLocalEvent<ShadekinDarkSwappedComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
             SubscribeLocalEvent<ShadekinDarkSwappedComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
-        }
-
-        private void Startup(EntityUid uid, ShadekinDarkSwapComponent component, ComponentStartup args)
-        {
-            var action = new InstantAction(_prototypeManager.Index<InstantActionPrototype>("ShadekinDarkSwap"));
-            _actionsSystem.AddAction(uid, action, uid);
-        }
-
-        private void Shutdown(EntityUid uid, ShadekinDarkSwapComponent component, ComponentShutdown args)
-        {
-            var action = new InstantAction(_prototypeManager.Index<InstantActionPrototype>("ShadekinDarkSwap"));
-            _actionsSystem.RemoveAction(uid, action);
         }
 
 
