@@ -56,8 +56,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             // Update power level for all shadekin
             foreach (var component in EntityManager.EntityQuery<ShadekinComponent>())
             {
-                if (!component.PowerLevelGainEnabled) continue; // Myabe make a check for if blackeyed
-
                 TryBlackeye(component);
                 UpdatePowerLevel(component, frameTime);
             }
@@ -164,7 +162,8 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         /// </summary>
         public void TryBlackeye(ShadekinComponent component)
         {
-            if (component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min] + 1f)
+            if (!component.Blackeye &&
+                component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min] + 1f)
             {
                 Blackeye(component);
             }
@@ -175,6 +174,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         /// </summary>
         public void Blackeye(ShadekinComponent component)
         {
+            component.Blackeye = true;
             RaiseNetworkEvent(new ShadekinBlackeyeEvent(component.Owner));
         }
     }

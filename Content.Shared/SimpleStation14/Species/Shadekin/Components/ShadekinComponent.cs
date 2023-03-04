@@ -79,6 +79,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
         [ViewVariables(VVAccess.ReadWrite)]
         public bool PowerLevelGainEnabled = true;
 
+        /// <summary>
+        ///     Whether they are a blackeye.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public bool Blackeye = false;
+
 
         public static readonly Dictionary<ShadekinPowerThreshold, float> PowerThresholds = new()
         {
