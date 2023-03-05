@@ -61,7 +61,7 @@ namespace Content.Client.SimpleStation14.Overlays
                 }
             }
 
-            foreach (var humanoid in _nonvisibleList)
+            foreach (var humanoid in _nonvisibleList.ToArray())
             {
                 if (_entityManager.Deleted(humanoid))
                 {

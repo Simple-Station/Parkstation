@@ -35,6 +35,8 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
             foreach (var shadekin in shadekins.Where(x => x.Darken))
             {
+                if (!_entityManager.TryGetComponent(shadekin.Owner, out ShadekinDarkSwappedComponent? __)) continue;
+
                 shadekin.DarkenAccumulator += frameTime;
                 if (shadekin.DarkenAccumulator < shadekin.DarkenRate) continue;
                 shadekin.DarkenAccumulator = 0f;
@@ -48,7 +50,8 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                     xformQuery.TryGetComponent(shadekin.Owner, out var xform) &&
                     xformQuery.TryGetComponent(x.Item2.Owner, out var yform) &&
                     xform.MapID == yform.MapID &&
-                    (yform.WorldPosition - xform.WorldPosition).Length < shadekin.DarkenRange))
+                    (yform.WorldPosition - xform.WorldPosition).Length < shadekin.DarkenRange)
+                )
                 {
                     if (_darkened.Contains(light.Owner)) continue;
                     _darkened.Add(light.Owner);
@@ -57,25 +60,16 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                 _random.Shuffle(_darkened);
                 shadekin.DarkenedLights = _darkened;
 
+                var playerPos = _entityManager.GetComponent<TransformComponent>(shadekin.Owner).WorldPosition;
+
                 foreach (var light in shadekin.DarkenedLights.ToArray())
                 {
-                    var playerPos = _entityManager.GetComponent<TransformComponent>(shadekin.Owner).WorldPosition;
                     var lightPos = _entityManager.GetComponent<TransformComponent>(light).WorldPosition;
                     var pointLight = _entityManager.GetComponent<PointLightComponent>(light);
 
 
                     if (!_entityManager.TryGetComponent(light, out ShadekinLightComponent? shadekinLight)) continue;
-                    if (!_entityManager.TryGetComponent(light, out PoweredLightComponent? powered)
-                        || !_entityManager.TryGetComponent(shadekin.Owner, out ShadekinDarkSwappedComponent? __)
-                        || !powered.On)
-                    {
-                        ResetLight(pointLight, shadekinLight);
-                        continue;
-                    }
-
-
-                    var distance = (lightPos - playerPos).Length;
-                    if (distance > shadekin.DarkenRange) // If somehow..
+                    if (!_entityManager.TryGetComponent(light, out PoweredLightComponent? powered) || !powered.On)
                     {
                         ResetLight(pointLight, shadekinLight);
                         continue;
@@ -92,6 +86,8 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                         shadekinLight.OldEnergy = pointLight.Energy;
                         shadekinLight.OldEnergyEdited = true;
                     }
+
+                    var distance = (lightPos - playerPos).Length;
 
                     var radius = distance * 2f;
                     if (shadekinLight.OldRadiusEdited && radius > shadekinLight.OldRadius) radius = shadekinLight.OldRadius;
