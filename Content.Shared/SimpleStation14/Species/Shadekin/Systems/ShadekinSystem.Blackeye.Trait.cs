@@ -25,6 +25,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             // Remove powers
             _entityManager.RemoveComponent<ShadekinDarkSwapComponent>(uid);
             _entityManager.RemoveComponent<ShadekinDarkSwappedComponent>(uid);
+            _entityManager.RemoveComponent<ShadekinRestComponent>(uid);
             _entityManager.RemoveComponent<ShadekinTeleportComponent>(uid);
 
             // Popup
