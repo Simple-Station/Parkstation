@@ -4,7 +4,7 @@
   description: action-description-shadekin-teleport
   useDelay: 3
   range: 32
-  speech: Aarammra!
+  speech: action-description-shadekin-teleport
   itemIconStyle: NoItem
   checkCanAccess: true
   repeat: true
@@ -19,7 +19,7 @@
   name: action-name-shadekin-darkswap
   description: action-description-shadekin-darkswap
   useDelay: 5
-  speech: Mmra Mamm!
+  speech: action-description-shadekin-darkswap
   itemIconStyle: NoItem
   icon:
     sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
@@ -27,3 +27,14 @@
   serverEvent: !type:ShadekinDarkSwapEvent
     powerCostOn: 45
     powerCostOff: 35
+
+- type: instantAction
+  id: ShadekinRest
+  name: action-name-shadekin-rest
+  description: action-description-shadekin-rest
+  useDelay: 5
+  itemIconStyle: NoItem
+  icon:
+    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
+    state: rest
+  serverEvent: !type:ShadekinRestEvent

@@ -9,6 +9,8 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.SimpleStation14.Species.Shadekin.Components;
+using Content.Shared.SimpleStation14.Species.Shadekin.Events;
 using Content.Shared.Slippery;
 using Content.Shared.Stunnable;
 using Content.Shared.Verbs;
@@ -28,6 +30,7 @@ namespace Content.Server.Bed.Sleep
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
         [Dependency] private readonly ActionsSystem _actionsSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         public override void Initialize()
         {
@@ -99,6 +102,14 @@ namespace Content.Server.Bed.Sleep
         {
             if (!TryWakeCooldown(uid))
                 return;
+
+            // Can't figure out a better way
+            if (_entityManager.TryGetComponent<ShadekinComponent>(uid, out var shadekin) &&
+                _entityManager.TryGetComponent<ShadekinRestComponent>(uid, out var shadekinRest) &&
+                shadekinRest.IsResting)
+            {
+                RaiseLocalEvent(new ShadekinRestEventResponse(uid, !shadekinRest.IsResting));
+            }
 
             if (TryWaking(uid))
                 args.Handled = true;

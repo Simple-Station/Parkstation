@@ -55,6 +55,24 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
         }
     }
 
+    public sealed class ShadekinRestEvent: InstantActionEvent
+    {
+
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ShadekinRestEventResponse : EntityEventArgs
+    {
+        public EntityUid Performer { get; }
+        public bool IsResting { get; }
+
+        public ShadekinRestEventResponse(EntityUid performer, bool isResting)
+        {
+            Performer = performer;
+            IsResting = isResting;
+        }
+    }
+
 
     /// <summary>
     ///     Raised when someone gains or loses access to empathy chat.

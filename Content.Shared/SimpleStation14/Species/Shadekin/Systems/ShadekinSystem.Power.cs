@@ -222,6 +222,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         public bool TryAddMultiplier(EntityUid uid, float multiplier = 1f, float? time = null)
         {
             if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var _)) return false;
+            if (multiplier == float.NaN) return false;
 
             AddMultiplier(uid, multiplier, time);
 

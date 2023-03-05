@@ -8,11 +8,15 @@
     },
     "states": [
         {
-            "name": "teleport",
+            "name": "darkswap",
             "directions": 1
         },
         {
-            "name": "darkswap",
+            "name": "rest",
+            "directions": 1
+        },
+        {
+            "name": "teleport",
             "directions": 1
         }
     ]

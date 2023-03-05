@@ -140,8 +140,9 @@
         Piercing: 1
   - type: EmpathyChat
   - type: Shadekin
-  - type: ShadekinTeleport
   - type: ShadekinDarkSwap
+  - type: ShadekinRest
+  - type: ShadekinTeleport
   - type: Vocal
     sounds:
       Male: UnisexSlime
