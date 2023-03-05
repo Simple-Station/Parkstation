@@ -57,7 +57,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             foreach (var component in EntityManager.EntityQuery<ShadekinComponent>())
             {
                 _powerSystem.TryUpdatePowerLevel(component.Owner, frameTime);
-                _powerSystem.TryBlackeye(component.Owner);
+                if (!component.Blackeye) _powerSystem.TryBlackeye(component.Owner);
             }
         }
     }

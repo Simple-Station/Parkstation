@@ -37,6 +37,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             // Stop gaining power
             if (_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
             {
+                component.Blackeye = true;
                 component.PowerLevelGainEnabled = false;
                 _powerSystem.SetPowerLevel(component.Owner, ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min]);
             }
