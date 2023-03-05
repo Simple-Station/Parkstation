@@ -7,7 +7,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 {
     public sealed class ShadekinSystem : EntitySystem
     {
-        [Dependency] private readonly ShadekinSystemPowerSystem _powerSystem = default!;
+        [Dependency] private readonly ShadekinPowerSystem _powerSystem = default!;
         [Dependency] private readonly INetManager _net = default!;
 
         public override void Initialize()

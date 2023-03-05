@@ -6,7 +6,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
     [RegisterComponent]
     public sealed class ShadekinComponent : Component
     {
-        ShadekinSystemPowerSystem _powerSystem = new();
+        ShadekinPowerSystem _powerSystem = new();
 
 
         // Darkening
@@ -42,7 +42,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
         [ViewVariables(VVAccess.ReadWrite)]
         public float PowerLevel {
             get => _powerLevel;
-            [Obsolete("Use ShadekinSystemPowerSystem.SetPowerLevel instead.")]
+            [Obsolete("Use ShadekinPowerSystem.SetPowerLevel instead.")]
             set => _powerSystem.SetPowerLevel(this.Owner, value);
         }
         public float _powerLevel = 0f;

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 {
-    public sealed class ShadekinSystemPowerSystem : EntitySystem
+    public class ShadekinPowerSystem : EntitySystem
     {
         [Dependency] private readonly IEntityManager _entityManager = default!;
 
