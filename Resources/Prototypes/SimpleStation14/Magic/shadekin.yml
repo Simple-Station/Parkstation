@@ -2,7 +2,7 @@
   id: ShadekinTeleport
   name: action-name-shadekin-teleport
   description: action-description-shadekin-teleport
-  useDelay: 3
+  useDelay: 2
   range: 32
   speech: action-description-shadekin-teleport
   itemIconStyle: NoItem
@@ -12,27 +12,27 @@
     sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
     state: teleport
   serverEvent: !type:ShadekinTeleportEvent
-    powerCost: 35
+    powerCost: 30
 
 - type: instantAction
   id: ShadekinDarkSwap
   name: action-name-shadekin-darkswap
   description: action-description-shadekin-darkswap
-  useDelay: 5
+  useDelay: 3
   speech: action-description-shadekin-darkswap
   itemIconStyle: NoItem
   icon:
     sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
     state: darkswap
   serverEvent: !type:ShadekinDarkSwapEvent
-    powerCostOn: 45
-    powerCostOff: 35
+    powerCostOn: 55
+    powerCostOff: 40
 
 - type: instantAction
   id: ShadekinRest
   name: action-name-shadekin-rest
   description: action-description-shadekin-rest
-  useDelay: 5
+  useDelay: 1
   itemIconStyle: NoItem
   icon:
     sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
