@@ -1,7 +1,4 @@
-using Content.Shared.Examine;
 using Content.Shared.SimpleStation14.Species.Shadekin.Components;
-using Robust.Shared.Network;
-using Content.Shared.IdentityManagement;
 using Content.Shared.SimpleStation14.Species.Shadekin.Events;
 using System.Threading.Tasks;
 
@@ -9,60 +6,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 {
     public sealed class ShadekinSystemPowerSystem : EntitySystem
     {
-        [Dependency] private readonly INetManager _net = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
-
-        public override void Initialize()
-        {
-            base.Initialize();
-
-            SubscribeLocalEvent<ShadekinComponent, ExaminedEvent>(OnExamine);
-            SubscribeLocalEvent<ShadekinComponent, ComponentInit>(OnInit);
-        }
-
-        private void OnExamine(EntityUid uid, ShadekinComponent component, ExaminedEvent args)
-        {
-            if (args.IsInDetailsRange && !_net.IsClient)
-            {
-                var powerType = GetLevelName(component.PowerLevel);
-
-                if (args.Examined == args.Examiner)
-                {
-                    args.PushMarkup(Loc.GetString("shadekin-power-examined-self",
-                        ("power", GetLevelInt(component.PowerLevel)),
-                        ("powerMax", component.PowerLevelMax),
-                        ("powerType", powerType)
-                    ));
-                }
-                else
-                {
-                    args.PushMarkup(Loc.GetString("shadekin-power-examined-other",
-                        ("target", Identity.Entity(uid, EntityManager)),
-                        ("powerType", powerType)
-                    ));
-                }
-            }
-        }
-
-        private void OnInit(EntityUid uid, ShadekinComponent component, ComponentInit args)
-        {
-            if (component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min] + 1f)
-                SetPowerLevel(component.Owner, ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Okay]);
-        }
-
-
-        public override void Update(float frameTime)
-        {
-            base.Update(frameTime);
-
-            // Update power level for all shadekin
-            foreach (var component in EntityManager.EntityQuery<ShadekinComponent>())
-            {
-                TryUpdatePowerLevel(component.Owner, frameTime);
-                TryBlackeye(component.Owner);
-            }
-        }
-
 
 
         /// <param name="PowerLevel">The current power level.</param>

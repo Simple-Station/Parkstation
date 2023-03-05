@@ -8,7 +8,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 {
     public sealed class ShadekinTeleportSystem : EntitySystem
     {
-        ShadekinSystemPowerSystem _powerSystem = new();
+        [Dependency] private readonly ShadekinSystemPowerSystem _powerSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;

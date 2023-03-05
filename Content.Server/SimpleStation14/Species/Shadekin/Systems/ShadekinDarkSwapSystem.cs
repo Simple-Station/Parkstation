@@ -14,7 +14,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 {
     public sealed class ShadekinDarkSwapSystem : EntitySystem
     {
-        ShadekinSystemPowerSystem _powerSystem = new();
+        [Dependency] private readonly ShadekinSystemPowerSystem _powerSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;

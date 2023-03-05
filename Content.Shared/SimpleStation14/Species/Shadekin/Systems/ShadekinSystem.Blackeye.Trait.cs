@@ -7,7 +7,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 {
     public sealed class ShadekinSystemBlackeyeTraitSystem : EntitySystem
     {
-        ShadekinSystemPowerSystem _powerSystem = new();
+        [Dependency] private readonly ShadekinSystemPowerSystem _powerSystem = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly SharedHumanoidAppearanceSystem _sharedHumanoidAppearance = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
