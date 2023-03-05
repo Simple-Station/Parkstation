@@ -22,10 +22,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
         private void OnStartup(EntityUid uid, ShadekinBlackeyeTraitComponent _, ComponentStartup args)
         {
-            // Set eyes to black
-            // Doesn't work, figure this out later
-            // _sharedHumanoidAppearance.SetBaseLayerColor(uid, HumanoidVisualLayers.Eyes, new Color(0, 0, 0));
-
             // Remove powers
             _entityManager.RemoveComponent<ShadekinDarkSwapComponent>(uid);
             _entityManager.RemoveComponent<ShadekinDarkSwappedComponent>(uid);
@@ -41,7 +37,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             if (_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
             {
                 component.PowerLevelGainEnabled = false;
-                _powerSystem.SetPowerLevel(component, ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min]);
+                _powerSystem.SetPowerLevel(component.Owner, ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min]);
             }
         }
     }

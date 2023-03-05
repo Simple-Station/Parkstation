@@ -47,7 +47,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         private void OnInit(EntityUid uid, ShadekinComponent component, ComponentInit args)
         {
             if (component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min] + 1f)
-                SetPowerLevel(component, ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Okay]);
+                SetPowerLevel(component.Owner, ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Okay]);
         }
 
 
@@ -58,8 +58,8 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             // Update power level for all shadekin
             foreach (var component in EntityManager.EntityQuery<ShadekinComponent>())
             {
-                TryUpdatePowerLevel(component, frameTime);
-                TryBlackeye(component);
+                TryUpdatePowerLevel(component.Owner, frameTime);
+                TryBlackeye(component.Owner);
             }
         }
 
@@ -121,18 +121,26 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         /// <returns>Power level as an integer.</returns>
         public int GetLevelInt(float PowerLevel)
         {
-            // Very dumb
+            // Very dumb, round and convert to int
             return (int) Math.Round(PowerLevel);
         }
 
 
-        public bool TryUpdatePowerLevel(ShadekinComponent component, float frameTime)
+        /// <summary>
+        ///     Tries to update the power level of a shadekin based on an amount of seconds.
+        /// </summary>
+        /// <param name="uid">The entity uid.</param>
+        /// <param name="frameTime">The time since the last update in seconds.</param>
+        public bool TryUpdatePowerLevel(EntityUid uid, float frameTime)
         {
+            // Check if the entity has a shadekin component
+            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component)) return false;
+
             // Check if power gain is enabled
             if (!component.PowerLevelGainEnabled) return false;
 
             // Set the new power level
-            UpdatePowerLevel(component, frameTime);
+            UpdatePowerLevel(uid, frameTime);
 
             return true;
         }
@@ -140,10 +148,17 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         /// <summary>
         ///     Updates the power level of a shadekin based on an amount of seconds.
         /// </summary>
-        /// <param name="component">The shadekin component.</param>
+        /// <param name="uid">The entity uid.</param>
         /// <param name="frameTime">The time since the last update in seconds.</param>
-        public void UpdatePowerLevel(ShadekinComponent component, float frameTime)
+        public void UpdatePowerLevel(EntityUid uid, float frameTime)
         {
+            // Get shadekin component
+            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
+            {
+                Logger.Error("Tried to update power level of entity without shadekin component.");
+                throw new InvalidOperationException("Tried to update power level of entity without shadekin component.");
+            }
+
             // Calculate new power level (P = P + t * G * M)
             var newPowerLevel = component.PowerLevel + frameTime * component.PowerLevelGain * component.PowerLevelGainMultiplier;
 
@@ -151,17 +166,24 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             newPowerLevel = Math.Clamp(newPowerLevel, component.PowerLevelMin, component.PowerLevelMax);
 
             // Set the new power level
-            SetPowerLevel(component, newPowerLevel);
+            SetPowerLevel(uid, newPowerLevel);
         }
 
 
         /// <summary>
         ///     Sets the power level of a shadekin.
         /// </summary>
-        /// <param name="component">The shadekin component.</param>
+        /// <param name="uid">The entity uid.</param>
         /// <param name="newPowerLevel">The new power level.</param>
-        public void SetPowerLevel(ShadekinComponent component, float newPowerLevel)
+        public void SetPowerLevel(EntityUid uid, float newPowerLevel)
         {
+            // Get shadekin component
+            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
+            {
+                Logger.Error("Tried to set power level of entity without shadekin component.");
+                throw new InvalidOperationException("Tried to set power level of entity without shadekin component.");
+            }
+
             // Clamp power level using clamp function
             newPowerLevel = Math.Clamp(newPowerLevel, component.PowerLevelMin, component.PowerLevelMax);
 
@@ -173,12 +195,15 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         /// <summary>
         ///     Tries to blackeye a shadekin.
         /// </summary>
-        public bool TryBlackeye(ShadekinComponent component)
+        public bool TryBlackeye(EntityUid uid)
         {
+            // Check if the entity has a shadekin component
+            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component)) return false;
+
             if (!component.Blackeye &&
                 component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min] + 1f)
             {
-                Blackeye(component);
+                Blackeye(uid);
 
                 return true;
             }
@@ -189,8 +214,15 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         /// <summary>
         ///     Blackeyes a shadekin.
         /// </summary>
-        public void Blackeye(ShadekinComponent component)
+        public void Blackeye(EntityUid uid)
         {
+            // Get shadekin component
+            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
+            {
+                Logger.Error("Tried to blackeye entity without shadekin component.");
+                throw new InvalidOperationException("Tried to blackeye entity without shadekin component.");
+            }
+
             component.Blackeye = true;
             RaiseNetworkEvent(new ShadekinBlackeyeEvent(component.Owner));
         }
@@ -219,8 +251,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         /// <param name="time">The time in seconds to wait before removing the multiplier.</param>
         public void AddMultiplier(EntityUid uid, float multiplier = 1f, float? time = null)
         {
-            // Get the shadekin component
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component)) return;
+            // Get shadekin component
+            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
+            {
+                Logger.Error("Tried to add multiplier to entity without shadekin component.");
+                throw new InvalidOperationException("Tried to add multiplier to entity without shadekin component.");
+            }
 
             // Add the multiplier
             component.PowerLevelGainMultiplier += multiplier;

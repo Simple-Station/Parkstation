@@ -24,7 +24,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         private void Teleport(ShadekinTeleportEvent args)
         {
             if (args.Handled) return;
-            
+
             if (!_entityManager.TryGetComponent<ShadekinComponent>(args.Performer, out var comp)) return;
 
             var transform = Transform(args.Performer);
@@ -35,7 +35,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
             _audio.PlayPvs(args.BlinkSound, args.Performer, AudioParams.Default.WithVolume(args.BlinkVolume));
 
-            _powerSystem.SetPowerLevel(comp, comp.PowerLevel - args.PowerCost);
+            _powerSystem.SetPowerLevel(comp.Owner, comp.PowerLevel - args.PowerCost);
 
             args.Handled = true;
         }

@@ -59,7 +59,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                 SetCanSeeInvisibility(uid, true);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, true));
 
-                _powerSystem.SetPowerLevel(comp, comp.PowerLevel - args.PowerCostOn);
+                _powerSystem.SetPowerLevel(comp.Owner, comp.PowerLevel - args.PowerCostOn);
             }
             else
             {
@@ -67,7 +67,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                 SetCanSeeInvisibility(uid, false);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, false));
 
-                _powerSystem.SetPowerLevel(comp, comp.PowerLevel - args.PowerCostOff);
+                _powerSystem.SetPowerLevel(comp.Owner, comp.PowerLevel - args.PowerCostOff);
             }
         }
 

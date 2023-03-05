@@ -43,7 +43,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
         public float PowerLevel {
             get => _powerLevel;
             [Obsolete("Use ShadekinSystemPowerSystem.SetPowerLevel instead.")]
-            set => _powerSystem.SetPowerLevel(this, value);
+            set => _powerSystem.SetPowerLevel(this.Owner, value);
         }
         public float _powerLevel = 0f;
 
