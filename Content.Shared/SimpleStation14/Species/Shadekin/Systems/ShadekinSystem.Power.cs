@@ -115,6 +115,47 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
 
         /// <summary>
+        ///     Tries to add to the power level of a shadekin.
+        /// </summary>
+        /// <param name="uid">The entity uid.</param>
+        /// <param name="amount">The amount to add to the power level.</param>
+        public bool TryAddPowerLevel(EntityUid uid, float amount)
+        {
+            // Check if the entity has a shadekin component
+            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component)) return false;
+
+            // Set the new power level
+            AddPowerLevel(uid, amount);
+
+            return true;
+        }
+
+        /// <summary>
+        ///     Adds to the power level of a shadekin.
+        /// </summary>
+        /// <param name="uid">The entity uid.</param>
+        /// <param name="amount">The amount to add to the power level.</param>
+        public void AddPowerLevel(EntityUid uid, float amount)
+        {
+            // Get shadekin component
+            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
+            {
+                Logger.Error("Tried to add to power level of entity without shadekin component.");
+                throw new InvalidOperationException("Tried to add to power level of entity without shadekin component.");
+            }
+
+            // Get new power level
+            var newPowerLevel = component.PowerLevel + amount;
+
+            // Clamp power level using clamp function
+            newPowerLevel = Math.Clamp(newPowerLevel, component.PowerLevelMin, component.PowerLevelMax);
+
+            // Set the new power level
+            SetPowerLevel(uid, newPowerLevel);
+        }
+
+
+        /// <summary>
         ///     Sets the power level of a shadekin.
         /// </summary>
         /// <param name="uid">The entity uid.</param>

@@ -35,7 +35,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
             _audio.PlayPvs(args.BlinkSound, args.Performer, AudioParams.Default.WithVolume(args.BlinkVolume));
 
-            _powerSystem.SetPowerLevel(comp.Owner, comp.PowerLevel - args.PowerCost);
+            _powerSystem.TryAddPowerLevel(comp.Owner, -args.PowerCost);
 
             args.Handled = true;
         }
