@@ -67,8 +67,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
                 _damageableSystem.TryChangeDamage(
                     ev.Euid,
-                    new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Cellular"), key.Value - 1),
-                    true
+                    new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Cellular"), key.Value - 10),
+                    true,
+                    true,
+                    null,
+                    null,
+                    false
                 );
             }
         }

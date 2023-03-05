@@ -148,7 +148,7 @@ namespace Content.Shared.Damage
         ///     null if the user had no applicable components that can take damage.
         /// </returns>
         public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
-            bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null)
+            bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null, bool variance = true)
         {
             if (!uid.HasValue || !Resolve(uid.Value, ref damageable, false))
             {
@@ -169,7 +169,7 @@ namespace Content.Shared.Damage
 
             // Apply universal variance
             var multiplier = (1f + Variance) - (_random.NextFloat(0, Variance * 2f));
-            damage *= multiplier;
+            if (variance) damage *= multiplier;
 
             // Apply resistances
             if (!ignoreResistances)
