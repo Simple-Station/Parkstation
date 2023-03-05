@@ -13,3 +13,14 @@
         damage:
           groups:
             Airloss: 1
+      - !type:SmokeAreaReactionEffect
+        rangeConstant: 0
+        rangeMultiplier: 1.1 #Range formula: rangeConstant + rangeMultiplier*sqrt(ReactionUnits)
+        maxRange: 1000
+        duration: 7.5
+        spreadDelay: 0.25
+        removeDelay: 0.25
+        diluteReagents: true
+        prototypeId: Smoke
+        sound:
+          path: /Audio/Effects/smoke.ogg
