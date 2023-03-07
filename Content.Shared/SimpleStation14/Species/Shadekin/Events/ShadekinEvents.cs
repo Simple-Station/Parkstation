@@ -75,21 +75,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
 
 
     /// <summary>
-    ///     Raised when someone gains or loses access to empathy chat.
-    /// </summary>
-    [Serializable, NetSerializable]
-    public sealed class ShadekinChangedEvent : EntityEventArgs
-    {
-        public readonly EntityUid Euid;
-
-        public ShadekinChangedEvent(EntityUid euid)
-        {
-            Euid = euid;
-        }
-    }
-
-
-    /// <summary>
     ///     Raised when a shadekin becomes a blackeye.
     /// </summary>
     [Serializable, NetSerializable]
