@@ -40,22 +40,41 @@ void fragment() {
     // Increase the contrast of the image if the luminance is low enough.
     highp float luminance = dot(color.rgb, vec3(0.2126, 0.7152, 0.0722));
     if (luminance < 0.06) {
-        color.rgb = vec3(0.0, 0.0, 0.0);
+        color.rgb *= 0.5;
     }
 
     // Convert to HSV.
     highp vec3 hsvColor = rgb2hsv(color.rgb);
 
     // Apply a breathing effect to the value of the image.
-    hsvColor.z *= mix(0.4, 0.7, (sin(TIME) * 0.65));
+    hsvColor.z *= mix(0.35, 0.7, (sin(TIME) * 0.65));
 
     // Increase the saturation of the color, incorperating a random value, as long as the value is above 0.1.
     if (hsvColor.z > 0.065) {
-        hsvColor.y *= (rand(FRAGCOORD.xy * (TIME * 0.05)) * 1.5) + 1.5;
+        hsvColor.y *= (rand(FRAGCOORD.xy * (TIME * 0.15)) * 1.5) + 1.0;
     }
 
     // Convert back to RGB.
     color.rgb = hsv2rgb(hsvColor);
+
+
+
+    // get distortion magnitude. hand crafted from a random jumble of trig functions
+    highp float w = sin(TIME + (FRAGCOORD.x + FRAGCOORD.y + 2.0*sin(TIME*0.3) * sin(TIME*0.3 + FRAGCOORD.x - FRAGCOORD.y)) );
+
+    // visualize distortion via:
+    // COLOR = vec4(w,w,w,1.0);
+
+    w *= (3.0 + 1 * 2.0);
+
+    highp vec4 background = zTextureSpec(SCREEN_TEXTURE, ( FRAGCOORD.xy + vec2(w) ) * SCREEN_PIXEL_SIZE );
+    highp vec3 hsvBg = rgb2hsv(background.rgb);
+    hsvBg.x *= -1;
+    background.rgb = hsv2rgb(hsvBg);
+
+    color.xyz = mix(background.xyz, color.xyz, 0.75);
+
+
 
     COLOR = color;
 }
