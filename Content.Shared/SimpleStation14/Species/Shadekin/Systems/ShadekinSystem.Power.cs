@@ -83,9 +83,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             }
 
             // Get the power as a short from 0-5
-            var power = GetLevelInt((float) PowerLevel);
-            power = ContentHelpers.RoundToLevels(power, component.PowerLevelMax, 5);
-            power = Math.Clamp(power, 0, 5);
+            var power = ContentHelpers.RoundToLevels((double) PowerLevel, component.PowerLevelMax, 5);
 
             // Set the alert level
             _alertsSystem.ShowAlert(uid, AlertType.ShadekinPower, (short) power);
@@ -242,6 +240,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
             component.Blackeye = true;
             RaiseNetworkEvent(new ShadekinBlackeyeEvent(component.Owner));
+            RaiseLocalEvent(new ShadekinBlackeyeEvent(component.Owner));
         }
 
 

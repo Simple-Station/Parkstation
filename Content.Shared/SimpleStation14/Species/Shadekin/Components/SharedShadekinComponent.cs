@@ -9,8 +9,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
     {
         ShadekinPowerSystem _powerSystem = new();
 
+        // Dirty
         [ViewVariables(VVAccess.ReadOnly)]
         public float Accumulator = 0f;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float AccumulatorRate = 5f;
 
 
         // Darkening

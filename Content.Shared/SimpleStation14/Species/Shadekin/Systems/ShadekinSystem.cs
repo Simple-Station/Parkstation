@@ -92,28 +92,28 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         {
             base.Update(frameTime);
 
+            var query = _entityManager.EntityQuery<ShadekinComponent>();
+
             // Update power level for all shadekin
             if (_net.IsServer)
             {
-                foreach (var component in _entityManager.EntityQuery<ShadekinComponent>())
+                foreach (var component in query)
                 {
                     // These MUST be  TryUpdatePowerLevel  THEN  TryBlackeye  or else init will always blackeye
                     _powerSystem.TryUpdatePowerLevel(component.Owner, frameTime);
                     if (!component.Blackeye) _powerSystem.TryBlackeye(component.Owner);
 
                     component.Accumulator += frameTime;
-                    if (component.Accumulator < 5f) continue;
+                    if (component.Accumulator < component.AccumulatorRate) continue;
                     component.Accumulator = 0f;
 
                     Dirty(component);
                 }
             }
-            if (_net.IsClient)
+
+            foreach (var component in query)
             {
-                foreach (var component in _entityManager.EntityQuery<ShadekinComponent>())
-                {
-                    _powerSystem.UpdateAlert(component.Owner, true, component.PowerLevel);
-                }
+                _powerSystem.UpdateAlert(component.Owner, true, component.PowerLevel);
             }
         }
     }
