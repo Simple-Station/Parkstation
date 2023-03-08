@@ -2800,3 +2800,68 @@ Entries:
   - {message: Oracle will no longer request hand teleporters., type: Fix}
   id: 442
   time: '2023-02-28T00:15:08.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: Added 10 new drinks., type: Add}
+  id: 443
+  time: '2023-03-01T00:15:08.0000000+00:00'
+- author: Leander
+  changes:
+  - {message: Burning yourself on lightbulbs now has a cooldown and deals less damage., type: Tweak}
+  id: 444
+  time: '2023-03-02T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Rats do not trigger door deny sounds when they walk under them., type: Fix}
+  id: 445
+  time: '2023-03-02T00:15:08.0000000+00:00'
+- author: Velcroboy
+  changes:
+  - {message: 'Updated Arena, Hammurabi, and Tortuga.', type: Add}
+  id: 446
+  time: '2023-03-03T00:15:08.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Added 3 new asteroid salvages experimenting with further randomization., type: Add}
+  - {message: Totally designed Shoukou's medical department layout., type: Add}
+  id: 447
+  time: '2023-03-03T00:15:08.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: Added a new painting., type: Add}
+  id: 448
+  time: '2023-03-03T00:15:08.0000000+00:00'
+- author: Velcroboy
+  changes:
+  - {message: 'Shuttle walls and windows are constructible. This means you can repair meteor damage to the cargo shuttle, etc.', type: Add}
+  id: 449
+  time: '2023-03-04T00:15:08.0000000+00:00'
+- author: Dorragon
+  changes:
+  - {message: 'Added a new vending machine to contain all of the pride items.', type: Add}
+  id: 450
+  time: '2023-03-04T00:15:08.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Added a seal for the forensic mantis documentation work., type: Add}
+  - {message: Changed the mystagogue's stamp to a signet ring., type: Tweak}
+  - {message: 'Forensic pads now only take up 1 space instead of 3.', type: Tweak}
+  - {message: The forensic mantis' satchel and duffel starting gear now properly match the backpacks., type: Fix}
+  id: 451
+  time: '2023-03-05T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Merged a huge refactor of doafters (progress bars for delayed actions.) It took me like 6 hours. The upstream one has needed 5 bugfix PRs and counting. Please report any bugs with our progress bars.', type: Add}
+  - {message: 'Merged a bunch of other stuff. A highlight, by request, is some new traits.', type: Add}
+  id: 452
+  time: '2023-03-07T00:15:08.0000000+00:00'
+- author: PowerfulAtom111
+  changes:
+    - {message: 'Added a chemistry guidebook.', type: Add}
+  id: 453
+  time: '2023-03-07T00:15:08.0000000+00:00'
+- author: Vordenburg
+  changes:
+    - {message: 'Enhanced intrusion defenses have been deployed in electrical systems.', type: Add}
+  id: 453
+  time: '2023-03-07T00:15:08.0000000+00:00'
