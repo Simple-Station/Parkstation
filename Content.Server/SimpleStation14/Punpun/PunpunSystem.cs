@@ -89,8 +89,8 @@ public sealed class PunpunSystem : EntitySystem
 
         if (_entityManager.TryGetComponent<InventoryComponent>(uid, out var invComp))
         {
-            punpunData.Item2 = checkSlot(uid, "head");
-            punpunData.Item3 = checkSlot(uid, "mask");
+            punpunData.Item2 = CheckSlot(uid, "head");
+            punpunData.Item3 = CheckSlot(uid, "mask");
         }
     }
 
