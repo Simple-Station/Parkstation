@@ -35,6 +35,7 @@ public class PunpunSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        
         SubscribeLocalEvent<PunpunComponent, ComponentStartup>(OnRoundStart);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
     }
