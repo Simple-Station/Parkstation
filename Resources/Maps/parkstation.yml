@@ -101,7 +101,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 69
+  - index: 5
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -176,7 +176,7 @@ entities:
         tiles: MgAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWAAAAFgAAAFYAAABWAAAAVsAAABbAAAAWwAAAFsAAABMAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFgAAANYAAAAWAAAAlgAAAJbAAAAWwAAAEwAAABOAAADGwAAAhsAAAIbAAABHAAAABwAAANbAAAAWwAAAFsAAABYAAAAWAAAAFgAAABYAAAAWwAAAFsAAABbAAAATgAAAhsAAAAbAAADGwAAAhwAAAEcAAADWwAAAEwAAABbAAAAWAAAAVgAAANbAAAAWwAAAFsAAABbAAAAWwAAAE4AAAIbAAAAGwAAABsAAAMcAAAAHAAAA1sAAABbAAAAWwAAAEwAAABbAAAAWwAAADIAAAAyAAAAWwAAADIAAABOAAACGwAAABsAAAIbAAADHAAAABwAAABbAAAAWwAAAFsAAABbAAAAWwAAAEwAAABbAAAAWwAAAFsAAABbAAAATgAAAxsAAAAbAAAAGwAAAhwAAAEcAAACWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAE4AAAEbAAACGwAAAhsAAAIcAAAAHAAAA1sAAABbAAAAWwAAAFMAAANTAAABUwAAAlMAAABTAAADWwAAAFsAAABbAAAAGwAAABsAAAAbAAADTgAAAlsAAABbAAAAWwAAAFsAAABTAAADUwAAA1MAAABTAAAAUwAAA0wAAABbAAAATgAAAU4AAANOAAACWwAAAFsAAAAyAAAAMgAAADIAAABbAAAAUwAAAlMAAAFTAAABUwAAA1MAAAFbAAAAWwAAAE4AAANOAAAATgAAA1sAAAAyAAAAMgAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABOAAADTgAAAU4AAAJbAAAAMgAAAFsAAABbAAAAWwAAAFsAAABZAAACWQAAAlkAAANZAAABWQAAAFsAAABbAAAATgAAAE4AAAJOAAAAWwAAADIAAABbAAAAWwAAAFsAAABZAAAAWQAAAFkAAAJZAAACWQAAAVkAAAFZAAACWwAAAE4AAABOAAACTgAAAkwAAABbAAAAWwAAAFsAAABZAAADWQAAAVkAAAFZAAACWQAAAlkAAANZAAAAWQAAA1kAAABbAAAATgAAAE4AAAFbAAAAMgAAAFsAAABMAAAAWQAAAVkAAABZAAABWQAAAVkAAAFZAAACWQAAA1kAAAJZAAACVwAAA1cAAANXAAAAWwAAADIAAABbAAAAWwAAAFkAAAJZAAABWQAAAlkAAAJZAAADWQAAAlkAAAJZAAABWQAAAQ==
       -1,-3:
         ind: -1,-3
-        tiles: WwAAADIAAABbAAAATAAAAFsAAABbAAAAWwAAAFsAAABbAAAAMgAAAFsAAABbAAAAWwAAAFsAAAAyAAAAMgAAAFsAAABbAAAAWwAAABcAAAIXAAAAFwAAAhcAAAEXAAADWwAAAFsAAABbAAAAWgAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAABcAAAAcAAAAFwAAARwAAAEXAAABFwAAARcAAABbAAAAWgAAAFoAAABbAAAAWwAAAFsAAABOAAADWwAAAFsAAAAXAAABHAAAARcAAAMcAAABFwAAABcAAAIXAAADWwAAAFoAAABaAAAAWwAAAFsAAABbAAAATgAAAlsAAABbAAAAFwAAAxwAAAAXAAAAHAAAAVsAAABTAAADWwAAAFsAAABbAAAAWwAAAFsAAABMAAAAWwAAAE4AAAJbAAAAWwAAABcAAAIcAAADFwAAAhwAAANbAAAATgAAAU4AAAFOAAADTgAAAFsAAAAlAAAAJQAAAFsAAABOAAACWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAE4AAANOAAADTgAAAE4AAAJTAAABJQAAACUAAABTAAABTgAAA1sAAAAyAAAAWwAAAE4AAANOAAADTgAAAlsAAABOAAACTgAAA04AAAFOAAAAWwAAACUAAAAlAAAAWwAAAE4AAABbAAAAMgAAAFsAAABOAAACTgAAAE4AAABTAAAATgAAAk4AAAFOAAAATgAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAATgAAAk4AAAJOAAADWwAAAE4AAAFOAAADTgAAAk4AAABOAAACTgAAAFsAAABOAAABTgAAAFsAAABbAAAATwAAAE8AAABPAAABTwAAA1sAAABOAAAATgAAA04AAAFOAAACTgAAAE4AAABbAAAATgAAAU4AAANbAAAATAAAAE8AAAJPAAADTwAAAk8AAANbAAAATgAAAk4AAANOAAACTgAAA04AAAFOAAACUwAAAk4AAAJOAAABMgAAAFsAAABPAAACTwAAAU8AAANPAAADWwAAAE4AAAFOAAADTgAAA04AAANOAAAATgAAAFsAAABOAAABTgAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABTAAAAWwAAAFsAAABbAAAATgAAA04AAAE5AAAAOQAAADkAAAA5AAAAWwAAAE4AAANOAAAATgAAAk4AAANOAAADTgAAAE4AAABOAAABWwAAAFsAAABbAAAAOQAAAFIAAABSAAACUgAAAlsAAABOAAABTgAAAk4AAABOAAADTgAAAk4AAANOAAADTgAAAU4AAAJOAAACVwAAAQ==
+        tiles: WwAAADIAAABbAAAATAAAAFsAAABbAAAAWwAAAFsAAABbAAAAMgAAAFsAAABbAAAAWwAAAFsAAAAyAAAAMgAAAFsAAABbAAAAWwAAABcAAAIXAAAAFwAAAhcAAAEXAAADWwAAAFsAAABbAAAAWgAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAABcAAAAcAAAAFwAAARwAAAEXAAABFwAAARcAAABbAAAAWgAAAFoAAABbAAAAWwAAAFsAAABOAAADWwAAAFsAAAAXAAABHAAAARcAAAMcAAABFwAAABcAAAIXAAADWwAAAAAAAABaAAAAWwAAAFsAAABbAAAATgAAAlsAAABbAAAAFwAAAxwAAAAXAAAAHAAAAVsAAABTAAADWwAAAFsAAABbAAAAWwAAAFsAAABMAAAAWwAAAE4AAAJbAAAAWwAAABcAAAIcAAADFwAAAhwAAANbAAAATgAAAU4AAAFOAAADTgAAAFsAAAAlAAAAJQAAAFsAAABOAAACWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAE4AAANOAAADTgAAAE4AAAJTAAABJQAAACUAAABTAAABTgAAA1sAAAAyAAAAWwAAAE4AAANOAAADTgAAAlsAAABOAAACTgAAA04AAAFOAAAAWwAAACUAAAAlAAAAWwAAAE4AAABbAAAAMgAAAFsAAABOAAACTgAAAE4AAABTAAAATgAAAk4AAAFOAAAATgAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAATgAAAk4AAAJOAAADWwAAAE4AAAFOAAADTgAAAk4AAABOAAACTgAAAFsAAABOAAABTgAAAFsAAABbAAAATwAAAE8AAABPAAABTwAAA1sAAABOAAAATgAAA04AAAFOAAACTgAAAE4AAABbAAAATgAAAU4AAANbAAAATAAAAE8AAAJPAAADTwAAAk8AAANbAAAATgAAAk4AAANOAAACTgAAA04AAAFOAAACUwAAAk4AAAJOAAABMgAAAFsAAABPAAACTwAAAU8AAANPAAADWwAAAE4AAAFOAAADTgAAA04AAANOAAAATgAAAFsAAABOAAABTgAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABTAAAAWwAAAFsAAABbAAAATgAAA04AAAE5AAAAOQAAADkAAAA5AAAAWwAAAE4AAANOAAAATgAAAk4AAANOAAADTgAAAE4AAABOAAABWwAAAFsAAABbAAAAOQAAAFIAAABSAAACUgAAAlsAAABOAAABTgAAAk4AAABOAAADTgAAAk4AAANOAAADTgAAAU4AAAJOAAACVwAAAQ==
       -2,-3:
         ind: -2,-3
         tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAWgAAAFsAAABbAAAAWwAAAFsAAABbAAAAMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAABbAAAAWwAAAFsAAABbAAAATAAAADIAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAWwAAAFsAAABbAAAAWwAAAFsAAAAyAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFsAAABEAAAAWwAAAFsAAABbAAAAWwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAFoAAAAAAAAAAAAAAFoAAABbAAAAWwAAAEQAAABbAAAANwAAAFsAAABaAAAAAAAAAFoAAAAAAAAAWgAAAFoAAAAAAAAAAAAAAFoAAABaAAAAWwAAAEQAAABEAAAATAAAADcAAAA3AAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFsAAABEAAAAWwAAAEwAAAA3AAAAWwAAAFoAAABaAAAAWgAAAFoAAABaAAAAAAAAAFoAAABaAAAAWgAAAAAAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAFoAAABaAAAAWwAAAAAAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAADIAAAAyAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAMgAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAEwAAABbAAAAMgAAAFsAAABbAAAAWwAAAFsAAABbAAAATAAAAFsAAAAyAAAAMgAAADIAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAC0AAAMtAAAATAAAAFsAAAAyAAAAMgAAADIAAABbAAAAWwAAADIAAABbAAAATAAAAA==
@@ -212,10 +212,10 @@ entities:
         tiles: WwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAAAEXAAACFwAAA1sAAABbAAAAWwAAACcAAAAnAAAAJwAAAFsAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAAAFwAAAxcAAAFbAAAAWwAAAFsAAAAnAAAASwAAAEsAAABbAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFwAAAxcAAANbAAAAWwAAAFsAAABbAAAAJwAAACcAAAAnAAAAWwAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAAAEXAAABWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAADFwAAAFsAAABMAAAAWwAAAFsAAABaAAAAWgAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATAAAAFsAAABbAAAAWwAAAFsAAABaAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABbAAAAWwAAAFsAAABbAAAAWwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAFoAAABaAAAAAAAAAAAAAAAAAAAAWwAAAAAAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAFoAAAAAAAAAAAAAAFsAAABaAAAAWgAAAFoAAABbAAAAWwAAAFsAAABbAAAAWwAAAAAAAAAAAAAAAAAAAAAAAABaAAAAWgAAAAAAAAAAAAAAWgAAAFsAAABbAAAAWwAAACUAAAAlAAAAJQAAAFsAAABbAAAAWwAAAAAAAAAAAAAAAAAAAFoAAAAAAAAAWgAAAFsAAABbAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAJQAAAFsAAABbAAAAAAAAAAAAAABaAAAAWgAAAFsAAABbAAAAJQAAACUAAABOAAAATgAAAk4AAAFOAAAATgAAAiUAAAAlAAAAWwAAAFsAAAAAAAAAAAAAAFoAAABbAAAAJQAAACUAAABOAAAATgAAA04AAAJOAAABTgAAA04AAANOAAADJQAAACUAAABbAAAAWgAAAAAAAABaAAAAWwAAACUAAABOAAABTgAAAU4AAABGAAAARgAAAUYAAABOAAADTgAAAk4AAAElAAAAWwAAAFsAAAAAAAAAWgAAAA==
       3,-1:
         ind: 3,-1
-        tiles: JQAAACUAAABOAAACTgAAA04AAAFGAAADRgAAAUYAAAFGAAACTgAAAU4AAAMlAAAAJQAAAFsAAAAAAAAAWgAAACUAAAAlAAAATgAAA04AAANOAAACRgAAAUYAAABGAAADRgAAAE4AAANOAAAAJQAAACUAAABbAAAAAAAAAFoAAAAlAAAAJQAAAE4AAANOAAABTgAAAUYAAAFGAAABRgAAAUYAAAFOAAABTgAAASUAAAAlAAAAWwAAAAAAAABaAAAAJQAAACUAAABOAAACTgAAAk4AAABGAAAARgAAA0YAAAJOAAADTgAAA04AAAIlAAAAWwAAAFsAAAAAAAAAWgAAACUAAAAlAAAAJQAAAE4AAAFOAAADTgAAAU4AAABOAAABTgAAA04AAAMlAAAAJQAAAFsAAAAAAAAAAAAAAFoAAAAlAAAAJQAAACUAAAAlAAAATgAAAk4AAABOAAACTgAAA04AAAElAAAAJQAAAFsAAABbAAAAAAAAAAAAAABaAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAJQAAAFsAAABbAAAAWgAAAAAAAABaAAAAWgAAAFsAAABMAAAAWwAAAFsAAABbAAAAJQAAACUAAAAlAAAAWwAAAFsAAABbAAAAWgAAAAAAAAAAAAAAWgAAAAAAAABbAAAAWwAAAFsAAAAAAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAWgAAAAAAAAAAAAAAWgAAAFoAAAAAAAAAWwAAAFsAAABbAAAAWgAAAFoAAABaAAAAAAAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAFoAAAAAAAAAAAAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAAAAAAAAAAAAAAAAAAAAAABaAAAAWgAAAFoAAAAAAAAAAAAAAAAAAABbAAAAWwAAADIAAAAyAAAAWwAAAFoAAAAAAAAAWgAAAFoAAAAAAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWwAAAFsAAABbAAAATAAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAWgAAAFsAAABbAAAAWwAAADcAAAA3AAAANwAAADcAAAA3AAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAAAAAAAAAAABbAAAAWwAAAFsAAAA3AAAANwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFoAAAAAAAAAWwAAAFsAAABbAAAANwAAADcAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAAAAAAA==
+        tiles: JQAAACUAAABOAAACTgAAA04AAAFGAAADRgAAAUYAAAFGAAACTgAAAU4AAAMlAAAAJQAAAFsAAAAAAAAAWgAAACUAAAAlAAAATgAAA04AAANOAAACRgAAAUYAAABGAAADRgAAAE4AAANOAAAAJQAAACUAAABbAAAAAAAAAFoAAAAlAAAAJQAAAE4AAANOAAABTgAAAUYAAAFGAAABRgAAAUYAAAFOAAABTgAAASUAAAAlAAAAWwAAAAAAAABaAAAAJQAAACUAAABOAAACTgAAAk4AAABGAAAARgAAA0YAAAJOAAADTgAAA04AAAIlAAAAWwAAAFsAAAAAAAAAWgAAACUAAAAlAAAAJQAAAE4AAAFOAAADTgAAAU4AAABOAAABTgAAA04AAAMlAAAAJQAAAFsAAAAAAAAAAAAAAFoAAAAlAAAAJQAAACUAAAAlAAAATgAAAk4AAABOAAACTgAAA04AAAElAAAAJQAAAFsAAABbAAAAAAAAAAAAAABaAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAJQAAAFsAAABbAAAAWgAAAAAAAABaAAAAWgAAAFsAAABMAAAAWwAAAFsAAABbAAAAJQAAACUAAAAlAAAAWwAAAFsAAABbAAAAWgAAAAAAAAAAAAAAWgAAAAAAAABbAAAAWwAAAFsAAAAAAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAWgAAAAAAAAAAAAAAWgAAAFoAAAAAAAAAWwAAAFsAAABbAAAAWgAAAFoAAABaAAAAAAAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAFoAAAAAAAAAAAAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAAAAAAAAAAAAAAAAAAAAAABaAAAAWgAAAFoAAAAAAAAAAAAAAAAAAABbAAAAWwAAADIAAAAyAAAAWwAAAFoAAAAAAAAAWgAAAFoAAAAAAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWwAAAFsAAABbAAAATAAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAWgAAAFsAAABbAAAAWwAAADcAAAA3AAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAAAAAAAAAAABbAAAAWwAAAFsAAAA3AAAANwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFoAAAAAAAAAWwAAAFsAAABbAAAANwAAADcAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAAAAAAA==
       3,0:
         ind: 3,0
-        tiles: MgAAAFsAAABbAAAANwAAADcAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAAA3AAAAWwAAAFsAAABaAAAAAAAAAFsAAABbAAAAWwAAADcAAAA3AAAANwAAAFsAAABbAAAAWwAAADcAAABbAAAANwAAAFsAAABaAAAAWgAAAAAAAABbAAAAWwAAAFsAAAA3AAAANwAAAFsAAABbAAAAWwAAAFsAAAA3AAAANwAAADcAAAA3AAAAWgAAAFoAAAAAAAAAWwAAAFsAAABbAAAANwAAADcAAAA3AAAAWwAAAFsAAABbAAAANwAAAFsAAABbAAAAWwAAAFoAAAAAAAAAAAAAAFsAAABbAAAAWwAAADcAAAA3AAAANwAAAFsAAABbAAAAWwAAADcAAABbAAAAWgAAAFoAAABaAAAAAAAAAAAAAABbAAAAWwAAAFsAAAA3AAAANwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAFoAAAAAAAAAWwAAAFsAAABbAAAAWwAAABwAAANbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAWgAAAFsAAABbAAAAWwAAAA8AAAAPAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAAAAAAAPAAAADwAAAA8AAAAPAAAADwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAAAAAAAAAAAADwAAAA8AAAAPAAAADwAAAA8AAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAAAAAAAAAAAAAA8AAAAPAAAADwAAAA8AAAAPAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAAAAAAAAAAAAPAAAADwAAAA8AAAAPAAAADwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFoAAAAAAAAADwAAAFsAAABbAAAAWwAAAA8AAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAAAAAAA8AAABbAAAAWwAAAFsAAAAPAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAAAAAAAPAAAADwAAAA8AAAAPAAAADwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFoAAAAAAAAAHQAAAB0AAAAcAAABWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAAAAAAA==
+        tiles: MgAAAFsAAABbAAAANwAAADcAAAA3AAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAAAAAAFsAAABbAAAAWwAAADcAAAA3AAAANwAAAFsAAABbAAAAWwAAADcAAABbAAAANwAAAFsAAABaAAAAWgAAAAAAAABbAAAAWwAAAFsAAAA3AAAANwAAAFsAAABbAAAAWwAAAFsAAAA3AAAANwAAADcAAAA3AAAAWgAAAFoAAAAAAAAAWwAAAFsAAABbAAAANwAAADcAAABbAAAAWwAAAFsAAABbAAAANwAAAFsAAABbAAAAWwAAAFoAAAAAAAAAAAAAAFsAAABbAAAAWwAAADcAAAA3AAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAFoAAABaAAAAAAAAAAAAAABbAAAAWwAAAFsAAAA3AAAANwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAFoAAAAAAAAAWwAAAFsAAABbAAAAWwAAABwAAANbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAWgAAAFsAAABbAAAAWwAAAA8AAAAPAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAAAAAAAPAAAADwAAAA8AAAAPAAAADwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAAAAAAAAAAAADwAAAA8AAAAPAAAADwAAAA8AAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAAAAAAAAAAAAAA8AAAAPAAAADwAAAA8AAAAPAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAAAAAAAAAAAAPAAAADwAAAA8AAAAPAAAADwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFoAAAAAAAAADwAAAFsAAABbAAAAWwAAAA8AAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAAAAAAA8AAABbAAAAWwAAAFsAAAAPAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAAAAAAAPAAAADwAAAA8AAAAPAAAADwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFoAAAAAAAAAHQAAAB0AAAAcAAABWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAAAAAAA==
       2,1:
         ind: 2,1
         tiles: MgAAAFsAAAAyAAAAMgAAAFsAAABBAAAAQQAAAEEAAANBAAADQQAAAh0AAAAdAAAAHwAAAh8AAAMfAAADWwAAADIAAABbAAAAMgAAADIAAABbAAAAHQAAAB0AAABbAAAAQQAAAEEAAABbAAAAHwAAAB8AAAMfAAADHwAAAlsAAABbAAAAWwAAADIAAAAyAAAAFwAAAhcAAAAXAAAAWwAAAEEAAANBAAADHQAAAB8AAAAfAAACHwAAAh8AAANbAAAATAAAABcAAAEXAAABFwAAAxcAAAEXAAAAFwAAAB0AAABBAAAAQQAAAh0AAAAfAAADHwAAAB8AAAMfAAAAWwAAAFsAAAAXAAADTAAAAEwAAABMAAAAFwAAAhcAAABbAAAAQQAAAkEAAANbAAAAHwAAAx8AAAAfAAABHwAAAVsAAABbAAAAFwAAA0wAAABMAAAATAAAABcAAAEXAAAAHAAAAUEAAAJBAAABWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAABcAAAEXAAABFwAAAhcAAAEXAAABFwAAAlsAAABBAAACQQAAARwAAAFBAAAAQQAAAkEAAAJBAAADQQAAAFsAAAAXAAACFwAAARcAAAIXAAACFwAAABcAAAJbAAAAQQAAA0EAAAIcAAABQQAAAUEAAAJBAAACQQAAA0EAAAFbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAEEAAAJBAAAAWwAAAEEAAABBAAACQQAAA0EAAAFBAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFsAAAA3AAAANwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABbAAAANwAAADcAAABbAAAAAAAAAAAAAAAAAAAAAAAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWwAAADcAAAA3AAAAWwAAAAAAAAAAAAAAAAAAAAAAAABbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFsAAAA3AAAANwAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAWwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAWwAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAFsAAABbAAAAWgAAAFoAAABaAAAAAAAAAAAAAABbAAAAWwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAABbAAAAWwAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAA==
@@ -17703,8 +17703,8 @@ entities:
       34,15: 0
       35,2: 0
       35,3: 0
-      35,4: 4
-      35,5: 11
+      35,4: 0
+      35,5: 1
       35,6: 0
       35,7: 0
       35,8: 0
@@ -17718,7 +17718,7 @@ entities:
       36,1: 0
       36,2: 0
       36,3: 0
-      36,4: 12
+      36,4: 0
       36,5: 1
       36,6: 0
       36,7: 0
@@ -18462,9 +18462,9 @@ entities:
       58,4: 0
       58,5: 0
       58,6: 0
-      58,7: 13
+      58,7: 11
       58,8: 0
-      58,9: 14
+      58,9: 12
       58,10: 0
       58,11: 0
       58,12: 0
@@ -18478,9 +18478,9 @@ entities:
       59,4: 0
       59,5: 0
       59,6: 0
-      59,7: 13
+      59,7: 11
       59,8: 0
-      59,9: 14
+      59,9: 12
       59,10: 0
       59,11: 0
       59,12: 0
@@ -22232,36 +22232,6 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 12.021078
-      - 45.22215
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 293.15
-      moles:
-      - 20.619795
-      - 77.56971
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 293.15
-      moles:
       - 6666.982
       - 0
       - 0
@@ -23896,8 +23866,6 @@ entities:
 - uid: 259
   type: TwoWayLever
   components:
-  - name: conveyor lever
-    type: MetaData
   - pos: -28.5,31.5
     parent: 1
     type: Transform
@@ -26315,9 +26283,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 636
-  type: WeaponCapacitorRecharger
+  type: PowerCellMedium
   components:
-  - pos: -8.5,5.5
+  - pos: -8.419733,6.6608214
     parent: 1
     type: Transform
 - uid: 637
@@ -26405,9 +26373,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 651
-  type: DrinkBottleBeer
+  type: PowerCellMedium
   components:
-  - pos: -23.752556,35.21644
+  - pos: -8.419733,6.796332
     parent: 1
     type: Transform
 - uid: 652
@@ -27173,9 +27141,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 770
-  type: DrinkBottleBeer
+  type: WallWeaponCapacitorRecharger
   components:
-  - pos: -23.518515,35.102962
+  - pos: -15.5,9.5
     parent: 1
     type: Transform
 - uid: 771
@@ -28026,20 +27994,19 @@ entities:
     parent: 1
     type: Transform
 - uid: 889
-  type: SignalButtonDirectional
+  type: SignalButton
   components:
-  - rot: 3.141592653589793 rad
-    pos: 26.5,10.5
+  - pos: 22.5,10.5
     parent: 1
     type: Transform
   - outputs:
       Pressed:
       - port: Toggle
-        uid: 1805
+        uid: 1925
       - port: Toggle
         uid: 1807
       - port: Toggle
-        uid: 1925
+        uid: 1805
     type: SignalTransmitter
   - fixtures: []
     type: Fixtures
@@ -28422,9 +28389,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 949
-  type: RandomSpawner
+  type: DrinkGlass
   components:
-  - pos: 9.5,14.5
+  - pos: 9.711947,15.883211
     parent: 1
     type: Transform
 - uid: 950
@@ -32470,13 +32437,6 @@ entities:
   - pos: 29.5,-6.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 4075
-    type: SignalReceiver
 - uid: 1587
   type: AirlockBrigGlassLocked
   components:
@@ -33423,104 +33383,48 @@ entities:
     pos: 61.5,-14.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1743
   type: ShuttersNormalOpen
   components:
   - pos: 53.5,-7.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1744
   type: ShuttersNormalOpen
   components:
   - pos: 56.5,-7.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1745
   type: ShuttersNormalOpen
   components:
   - pos: 56.5,-8.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1746
   type: ShuttersNormalOpen
   components:
   - pos: 58.5,-9.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1747
   type: ShuttersNormalOpen
   components:
   - pos: 59.5,-9.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1748
   type: ShuttersNormalOpen
   components:
   - pos: 60.5,-11.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1749
   type: ShuttersNormalOpen
   components:
   - pos: 60.5,-12.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1750
   type: ShuttersNormalOpen
   components:
@@ -33528,13 +33432,6 @@ entities:
     pos: 61.5,-16.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1751
   type: ShuttersNormalOpen
   components:
@@ -33542,13 +33439,6 @@ entities:
     pos: 55.5,-21.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1752
   type: ShuttersNormalOpen
   components:
@@ -33556,13 +33446,6 @@ entities:
     pos: 58.5,-19.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1753
   type: ShuttersNormalOpen
   components:
@@ -33570,13 +33453,6 @@ entities:
     pos: 58.5,-20.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1754
   type: ShuttersNormalOpen
   components:
@@ -33584,13 +33460,6 @@ entities:
     pos: 60.5,-16.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1755
   type: ShuttersNormalOpen
   components:
@@ -33598,13 +33467,6 @@ entities:
     pos: 60.5,-17.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1756
   type: ShuttersNormalOpen
   components:
@@ -33612,13 +33474,6 @@ entities:
     pos: 53.5,-21.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1757
   type: ShuttersNormalOpen
   components:
@@ -33626,13 +33481,6 @@ entities:
     pos: 59.5,-19.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 1758
   type: Poweredlight
   components:
@@ -33933,9 +33781,9 @@ entities:
       Close: []
       Toggle:
       - port: Pressed
-        uid: 889
-      - port: Pressed
         uid: 5646
+      - port: Pressed
+        uid: 889
     type: SignalReceiver
 - uid: 1806
   type: WallSolid
@@ -33954,9 +33802,9 @@ entities:
       Close: []
       Toggle:
       - port: Pressed
-        uid: 889
-      - port: Pressed
         uid: 5646
+      - port: Pressed
+        uid: 889
     type: SignalReceiver
 - uid: 1808
   type: WallSolid
@@ -34253,18 +34101,17 @@ entities:
     parent: 1
     type: Transform
 - uid: 1854
-  type: SignalButtonDirectional
+  type: SignalButton
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 33.5,18.5
+  - pos: 36.5,15.5
     parent: 1
     type: Transform
   - outputs:
       Pressed:
       - port: Toggle
-        uid: 5684
-      - port: Toggle
         uid: 5683
+      - port: Toggle
+        uid: 5684
     type: SignalTransmitter
   - fixtures: []
     type: Fixtures
@@ -34699,9 +34546,9 @@ entities:
       Close: []
       Toggle:
       - port: Pressed
-        uid: 889
-      - port: Pressed
         uid: 5646
+      - port: Pressed
+        uid: 889
     type: SignalReceiver
 - uid: 1926
   type: WallSolid
@@ -35178,75 +35025,6 @@ entities:
     pos: 50.5,-19.5
     parent: 1
     type: Transform
-  - outputs:
-      Pressed:
-      - port: Toggle
-        uid: 2473
-      - port: Toggle
-        uid: 3092
-      - port: Toggle
-        uid: 3094
-      - port: Toggle
-        uid: 1756
-      - port: Toggle
-        uid: 3093
-      - port: Toggle
-        uid: 1751
-      - port: Toggle
-        uid: 3099
-      - port: Toggle
-        uid: 3098
-      - port: Toggle
-        uid: 3097
-      - port: Toggle
-        uid: 1753
-      - port: Toggle
-        uid: 1752
-      - port: Toggle
-        uid: 1757
-      - port: Toggle
-        uid: 3096
-      - port: Toggle
-        uid: 3095
-      - port: Toggle
-        uid: 1755
-      - port: Toggle
-        uid: 1754
-      - port: Toggle
-        uid: 1750
-      - port: Toggle
-        uid: 3100
-      - port: Toggle
-        uid: 1742
-      - port: Toggle
-        uid: 3102
-      - port: Toggle
-        uid: 3101
-      - port: Toggle
-        uid: 1749
-      - port: Toggle
-        uid: 3104
-      - port: Toggle
-        uid: 1747
-      - port: Toggle
-        uid: 1746
-      - port: Toggle
-        uid: 3108
-      - port: Toggle
-        uid: 3105
-      - port: Toggle
-        uid: 1745
-      - port: Toggle
-        uid: 1744
-      - port: Toggle
-        uid: 3107
-      - port: Toggle
-        uid: 3106
-      - port: Toggle
-        uid: 1743
-      - port: Toggle
-        uid: 1748
-    type: SignalTransmitter
   - fixtures: []
     type: Fixtures
 - uid: 2004
@@ -35298,7 +35076,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 2012
-  type: AirlockAtmosphericsLocked
+  type: AirlockMaintAtmoLocked
   components:
   - pos: 51.5,-3.5
     parent: 1
@@ -35699,6 +35477,13 @@ entities:
   - pos: 43.5,15.5
     parent: 1
     type: Transform
+  - inputs:
+      Open: []
+      Close: []
+      Toggle:
+      - port: Pressed
+        uid: 5788
+    type: SignalReceiver
 - uid: 2079
   type: ShuttersNormalOpen
   components:
@@ -38292,13 +38077,6 @@ entities:
     pos: 51.5,-20.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 2474
   type: WallReinforced
   components:
@@ -39410,7 +39188,7 @@ entities:
   - desc: An iconic weapon of war.
     name: Broken AKMS
     type: MetaData
-  - pos: 28.590277,35.28824
+  - pos: 28.74379,35.321686
     parent: 1
     type: Transform
   missingComponents:
@@ -41604,9 +41382,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 2980
-  type: AirlockExternalGlass
+  type: AirlockExternalGlassLocked
   components:
-  - pos: 8.5,52.5
+  - pos: -1.5,52.5
     parent: 1
     type: Transform
 - uid: 2981
@@ -41722,9 +41500,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 2999
-  type: AirlockExternalGlass
+  type: AirlockExternalGlassLocked
   components:
-  - pos: 6.5,52.5
+  - pos: 0.5,52.5
     parent: 1
     type: Transform
 - uid: 3000
@@ -41844,9 +41622,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 3019
-  type: AirlockExternalGlass
+  type: AirlockExternalGlassLocked
   components:
-  - pos: 0.5,52.5
+  - pos: 6.5,52.5
     parent: 1
     type: Transform
 - uid: 3020
@@ -41862,9 +41640,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 3022
-  type: AirlockExternalGlass
+  type: AirlockExternalGlassLocked
   components:
-  - pos: -1.5,52.5
+  - pos: 8.5,52.5
     parent: 1
     type: Transform
 - uid: 3023
@@ -42288,13 +42066,6 @@ entities:
     pos: 52.5,-20.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3093
   type: ShuttersNormalOpen
   components:
@@ -42302,13 +42073,6 @@ entities:
     pos: 54.5,-21.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3094
   type: ShuttersNormalOpen
   components:
@@ -42316,13 +42080,6 @@ entities:
     pos: 52.5,-21.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3095
   type: ShuttersNormalOpen
   components:
@@ -42330,13 +42087,6 @@ entities:
     pos: 60.5,-18.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3096
   type: ShuttersNormalOpen
   components:
@@ -42344,13 +42094,6 @@ entities:
     pos: 59.5,-18.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3097
   type: ShuttersNormalOpen
   components:
@@ -42358,13 +42101,6 @@ entities:
     pos: 57.5,-20.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3098
   type: ShuttersNormalOpen
   components:
@@ -42372,13 +42108,6 @@ entities:
     pos: 56.5,-20.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3099
   type: ShuttersNormalOpen
   components:
@@ -42386,13 +42115,6 @@ entities:
     pos: 56.5,-21.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3100
   type: ShuttersNormalOpen
   components:
@@ -42400,13 +42122,6 @@ entities:
     pos: 61.5,-15.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3101
   type: ShuttersNormalOpen
   components:
@@ -42414,13 +42129,6 @@ entities:
     pos: 61.5,-12.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3102
   type: ShuttersNormalOpen
   components:
@@ -42428,13 +42136,6 @@ entities:
     pos: 61.5,-13.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3103
   type: ShuttersNormalOpen
   components:
@@ -42447,65 +42148,30 @@ entities:
   - pos: 60.5,-10.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3105
   type: ShuttersNormalOpen
   components:
   - pos: 57.5,-8.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3106
   type: ShuttersNormalOpen
   components:
   - pos: 54.5,-7.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3107
   type: ShuttersNormalOpen
   components:
   - pos: 55.5,-7.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3108
   type: ShuttersNormalOpen
   components:
   - pos: 58.5,-8.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 2003
-    type: SignalReceiver
 - uid: 3109
   type: ReinforcedWindow
   components:
@@ -43063,9 +42729,12 @@ entities:
     parent: 1
     type: Transform
 - uid: 3196
-  type: ClothingUnderpanties_alt
+  type: CrateEngineeringSecure
   components:
-  - pos: -0.4746561,-31.759054
+  - desc: The control unit of an antimatter reactor.
+    name: Antimatter control unit crate
+    type: MetaData
+  - pos: 35.5,5.5
     parent: 1
     type: Transform
 - uid: 3197
@@ -43118,11 +42787,12 @@ entities:
     parent: 1
     type: Transform
 - uid: 3205
-  type: WeaponTurretNanoTrasen
+  type: CrateEngineeringSecure
   components:
-  - flags: SessionSpecific
+  - desc: 9 parts for the main body of an antimatter reactor, or for expanding an existing one.
+    name: Packaged antimatter reactor crate
     type: MetaData
-  - pos: 25.5,33.5
+  - pos: 36,5
     parent: 1
     type: Transform
 - uid: 3206
@@ -43710,7 +43380,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 3291
-  type: AirlockExternalCargoLocked
+  type: AirlockExternalGlassLocked
   components:
   - pos: -29.5,30.5
     parent: 1
@@ -43776,7 +43446,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 3301
-  type: AirlockExternalCargoLocked
+  type: AirlockExternalGlassLocked
   components:
   - pos: -29.5,32.5
     parent: 1
@@ -48513,13 +48183,6 @@ entities:
   - pos: 29.5,-4.5
     parent: 1
     type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 4075
-    type: SignalReceiver
 - uid: 4004
   type: SignEVA
   components:
@@ -48914,9 +48577,9 @@ entities:
     id: Medical Seating Area
     type: SurveillanceCamera
 - uid: 4058
-  type: ClothingHeadHatAnimalMonkey
+  type: LockerBotanistFilled
   components:
-  - pos: 45.54248,-14.247299
+  - pos: -0.5,34.5
     parent: 1
     type: Transform
 - uid: 4059
@@ -49020,27 +48683,18 @@ entities:
     parent: 1
     type: Transform
 - uid: 4074
-  type: ExtinguisherCabinetFilled
+  type: WindowReinforcedDirectional
   components:
-  - pos: -18.5,-0.5
+  - pos: 37.5,-5.5
     parent: 1
     type: Transform
 - uid: 4075
-  type: SignalButton
+  type: WindowReinforcedDirectional
   components:
-  - rot: -1.5707963267948966 rad
+  - rot: 3.141592653589793 rad
     pos: 37.5,-5.5
     parent: 1
     type: Transform
-  - outputs:
-      Pressed:
-      - port: Toggle
-        uid: 4003
-      - port: Toggle
-        uid: 1586
-    type: SignalTransmitter
-  - fixtures: []
-    type: Fixtures
 - uid: 4076
   type: TableReinforced
   components:
@@ -49048,9 +48702,10 @@ entities:
     parent: 1
     type: Transform
 - uid: 4077
-  type: RandomSpawner
+  type: WindowDirectional
   components:
-  - pos: 4.5,40.5
+  - rot: -1.5707963267948966 rad
+    pos: 37.5,-5.5
     parent: 1
     type: Transform
 - uid: 4078
@@ -49080,11 +48735,14 @@ entities:
     parent: 1
     type: Transform
 - uid: 4082
-  type: RandomSpawner
+  type: SignalButton
   components:
-  - pos: 2.5,48.5
+  - rot: -1.5707963267948966 rad
+    pos: 37.725044,-5.46749
     parent: 1
     type: Transform
+  - fixtures: []
+    type: Fixtures
 - uid: 4083
   type: OxygenCanister
   components:
@@ -49477,9 +49135,12 @@ entities:
     parent: 1
     type: Transform
 - uid: 4141
-  type: BarSign
+  type: BarSignEmergencyRumParty
   components:
-  - pos: 23.5,26.5
+  - desc: Recently reunlicensed after a short opening.
+    type: MetaData
+  - rot: 3.141592653589793 rad
+    pos: 24.5,26.5
     parent: 1
     type: Transform
 - uid: 4142
@@ -49624,9 +49285,10 @@ entities:
     parent: 1
     type: Transform
 - uid: 4163
-  type: SignalButtonDirectional
+  type: SignalButton
   components:
-  - pos: 36.5,15.5
+  - rot: 1.5707963267948966 rad
+    pos: 33.5,18.5
     parent: 1
     type: Transform
   - outputs:
@@ -49710,20 +49372,16 @@ entities:
     parent: 1
     type: Transform
 - uid: 4175
-  type: SignalButtonDirectional
+  type: SignalButton
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -12.5,29.5
+  - rot: 3.141592653589793 rad
+    pos: -15.490155,27.441269
     parent: 1
     type: Transform
   - outputs:
       Pressed:
       - port: Toggle
         uid: 4127
-      - port: Toggle
-        uid: 16799
-      - port: Toggle
-        uid: 16800
     type: SignalTransmitter
   - fixtures: []
     type: Fixtures
@@ -50203,7 +49861,7 @@ entities:
 - uid: 4245
   type: ClothingOuterWinterCentcom
   components:
-  - pos: -26.492855,10.55686
+  - pos: -26.615812,10.77092
     parent: 1
     type: Transform
 - uid: 4246
@@ -50213,15 +49871,15 @@ entities:
     parent: 1
     type: Transform
 - uid: 4247
-  type: ClothingUndershortsleeve
+  type: ClothingUnderboxer_briefs
   components:
-  - pos: -0.2751521,-32.67395
+  - pos: -0.30404687,-31.173445
     parent: 1
     type: Transform
 - uid: 4248
-  type: ClothingUnderljont
+  type: ClothingUnderboxer_briefs
   components:
-  - pos: -0.68649936,-32.61721
+  - pos: -0.6479678,-31.090054
     parent: 1
     type: Transform
 - uid: 4249
@@ -50231,63 +49889,63 @@ entities:
     parent: 1
     type: Transform
 - uid: 4250
-  type: ClothingUndershortsleeve
+  type: ClothingUnderboxer_briefs
   components:
-  - pos: -0.2609675,-32.376076
+  - pos: -0.61670196,-31.26726
     parent: 1
     type: Transform
 - uid: 4251
-  type: ClothingUnderundershirt
+  type: ClothingUnderboxer_briefs
   components:
-  - pos: -0.7148684,-32.34771
+  - pos: -0.32489097,-31.350653
     parent: 1
     type: Transform
 - uid: 4252
-  type: ClothingUnderbra
+  type: ClothingUnderbra_alt
   components:
-  - pos: 2.7164774,-32.390263
+  - pos: 2.698945,-32.38354
     parent: 1
     type: Transform
 - uid: 4253
-  type: ClothingUndersports_bra
+  type: ClothingUnderbra_alt
   components:
-  - pos: 2.2838535,-32.723595
+  - pos: 2.3862896,-32.477356
     parent: 1
     type: Transform
 - uid: 4254
-  type: ClothingUnderbra
+  type: ClothingUnderbra_alt
   components:
-  - pos: 2.347683,-32.376076
+  - pos: 2.698945,-32.602444
     parent: 1
     type: Transform
 - uid: 4255
-  type: ClothingUnderbra_strapless
+  type: ClothingUnderbra_alt
   components:
-  - pos: 2.6952004,-32.766148
+  - pos: 2.3758678,-32.67541
     parent: 1
     type: Transform
 - uid: 4256
-  type: ClothingUnderboxers
+  type: ClothingUnderundershirt
   components:
-  - pos: -0.70068383,-31.418629
+  - pos: -0.62562037,-32.26888
     parent: 1
     type: Transform
 - uid: 4257
-  type: ClothingUnderboxer_briefs
+  type: ClothingUnderundershirt
   components:
-  - pos: -0.2751521,-31.666857
+  - pos: -0.27127755,-32.373116
     parent: 1
     type: Transform
 - uid: 4258
-  type: ClothingUnderboxers
+  type: ClothingUnderundershirt
   components:
-  - pos: -0.30352044,-31.45409
+  - pos: -0.60477686,-32.550323
     parent: 1
     type: Transform
 - uid: 4259
-  type: ClothingUnderbra_alt
+  type: ClothingUnderundershirt
   components:
-  - pos: 2.638463,-32.61012
+  - pos: -0.29212165,-32.633713
     parent: 1
     type: Transform
 - uid: 4260
@@ -51670,10 +51328,11 @@ entities:
     parent: 1
     type: Transform
 - uid: 4468
-  type: DisposalBend
+  type: PersonalAI
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 49.5,-15.5
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 56.40506,-16.178392
     parent: 1
     type: Transform
 - uid: 4469
@@ -52069,9 +51728,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 4529
-  type: WindowReinforcedDirectional
+  type: DrinkNuclearColaGlass
   components:
-  - pos: 28.5,34.5
+  - pos: 45.22133,-4.335264
     parent: 1
     type: Transform
 - uid: 4530
@@ -52788,21 +52447,21 @@ entities:
     parent: 1
     type: Transform
 - uid: 4632
-  type: DrinkGlass
+  type: DrinkIceCreamGlass
   components:
-  - pos: 8.525567,15.628742
+  - pos: 10.968248,16.018978
     parent: 1
     type: Transform
 - uid: 4633
-  type: DrinkGlass
+  type: DrinkIceCreamGlass
   components:
-  - pos: 9.667411,15.706757
+  - pos: 12.214165,15.998129
     parent: 1
     type: Transform
 - uid: 4634
-  type: RandomSpawner
+  type: DrinkIceCreamGlass
   components:
-  - pos: 14.5,16.5
+  - pos: 13.47362,15.987705
     parent: 1
     type: Transform
 - uid: 4635
@@ -55911,7 +55570,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 5107
-  type: AirlockExternalGlass
+  type: AirlockExternalGlassLocked
   components:
   - pos: 21.5,-50.5
     parent: 1
@@ -55923,7 +55582,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 5109
-  type: AirlockExternalGlass
+  type: AirlockExternalGlassLocked
   components:
   - pos: 19.5,-50.5
     parent: 1
@@ -56254,7 +55913,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 5159
-  type: AirlockExternalGlass
+  type: AirlockExternalGlassLocked
   components:
   - pos: 27.5,-50.5
     parent: 1
@@ -56278,7 +55937,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 5163
-  type: AirlockExternalGlass
+  type: AirlockExternalGlassLocked
   components:
   - pos: 29.5,-50.5
     parent: 1
@@ -58186,7 +57845,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 5464
-  type: ChairCursed
+  type: ChairRitual
   components:
   - rot: 3.141592653589793 rad
     pos: 33.5,-35.5
@@ -59524,8 +59183,7 @@ entities:
 - uid: 5642
   type: ClothingHeadHatCardborg
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 24.064497,16.571974
+  - pos: 23.619696,16.891632
     parent: 1
     type: Transform
 - uid: 5643
@@ -59547,19 +59205,20 @@ entities:
     parent: 1
     type: Transform
 - uid: 5646
-  type: SignalButtonDirectional
+  type: SignalButton
   components:
-  - pos: 26.5,10.5
+  - rot: 3.141592653589793 rad
+    pos: 26.5,10.5
     parent: 1
     type: Transform
   - outputs:
       Pressed:
       - port: Toggle
-        uid: 1925
+        uid: 1805
       - port: Toggle
         uid: 1807
       - port: Toggle
-        uid: 1805
+        uid: 1925
     type: SignalTransmitter
   - fixtures: []
     type: Fixtures
@@ -59833,9 +59492,9 @@ entities:
       Close: []
       Toggle:
       - port: Pressed
-        uid: 4163
-      - port: Pressed
         uid: 1854
+      - port: Pressed
+        uid: 4163
     type: SignalReceiver
 - uid: 5684
   type: ShuttersNormal
@@ -59848,9 +59507,9 @@ entities:
       Close: []
       Toggle:
       - port: Pressed
-        uid: 4163
-      - port: Pressed
         uid: 1854
+      - port: Pressed
+        uid: 4163
     type: SignalReceiver
 - uid: 5685
   type: FoodButter
@@ -60450,11 +60109,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 5776
-  type: WeaponTurretNanoTrasen
+  type: PartRodMetal
   components:
-  - flags: SessionSpecific
-    type: MetaData
-  - pos: 25.5,37.5
+  - pos: 41.6324,13.038727
     parent: 1
     type: Transform
 - uid: 5777
@@ -60472,7 +60129,7 @@ entities:
 - uid: 5779
   type: IngotGold1
   components:
-  - pos: 41.24131,12.761797
+  - pos: 41.608055,12.6321945
     parent: 1
     type: Transform
 - uid: 5780
@@ -60545,7 +60202,7 @@ entities:
   - color: '#FFBB00FF'
     type: AtmosPipeColor
 - uid: 5788
-  type: SignalButtonDirectional
+  type: SignalButton
   components:
   - rot: 3.141592653589793 rad
     pos: 44.5,15.5
@@ -60553,6 +60210,8 @@ entities:
     type: Transform
   - outputs:
       Pressed:
+      - port: Toggle
+        uid: 2078
       - port: Toggle
         uid: 2079
       - port: Toggle
@@ -60786,19 +60445,23 @@ entities:
   - color: '#BBBB33FF'
     type: AtmosPipeColor
 - uid: 5814
-  type: GasPipeTJunction
+  type: GasPassiveVent
   components:
   - rot: -1.5707963267948966 rad
-    pos: 53.5,12.5
+    pos: 58.5,12.5
     parent: 1
     type: Transform
+  - color: '#00FFFFFF'
+    type: AtmosPipeColor
 - uid: 5815
-  type: GasPipeStraight
+  type: GasOutletInjector
   components:
   - rot: -1.5707963267948966 rad
-    pos: 56.5,12.5
+    pos: 58.5,11.5
     parent: 1
     type: Transform
+  - color: '#00FFFFFF'
+    type: AtmosPipeColor
 - uid: 5816
   type: GasPipeStraight
   components:
@@ -60824,6 +60487,8 @@ entities:
     pos: 57.5,11.5
     parent: 1
     type: Transform
+  - color: '#00FFFFFF'
+    type: AtmosPipeColor
 - uid: 5819
   type: GasPipeStraight
   components:
@@ -60831,6 +60496,8 @@ entities:
     pos: 57.5,12.5
     parent: 1
     type: Transform
+  - color: '#00FFFFFF'
+    type: AtmosPipeColor
 - uid: 5820
   type: GasPipeStraight
   components:
@@ -60868,17 +60535,23 @@ entities:
   - color: '#BBBB33FF'
     type: AtmosPipeColor
 - uid: 5824
-  type: AtmosFixBlockerMarker
-  components:
-  - pos: 58.5,11.5
-    parent: 1
-    type: Transform
-- uid: 5825
   type: GasPipeStraight
   components:
-  - pos: 53.5,11.5
+  - rot: -1.5707963267948966 rad
+    pos: 56.5,12.5
     parent: 1
     type: Transform
+  - color: '#00FFFFFF'
+    type: AtmosPipeColor
+- uid: 5825
+  type: GasPipeBend
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 53.5,11.5
+    parent: 1
+    type: Transform
+  - color: '#00FFFFFF'
+    type: AtmosPipeColor
 - uid: 5826
   type: GasPipeTJunction
   components:
@@ -60898,11 +60571,14 @@ entities:
   - color: '#66AACCFF'
     type: AtmosPipeColor
 - uid: 5828
-  type: AtmosFixBlockerMarker
+  type: GasPipeStraight
   components:
-  - pos: 59.5,12.5
+  - rot: -1.5707963267948966 rad
+    pos: 55.5,12.5
     parent: 1
     type: Transform
+  - color: '#00FFFFFF'
+    type: AtmosPipeColor
 - uid: 5829
   type: GasPipeStraight
   components:
@@ -60951,11 +60627,14 @@ entities:
   - color: '#FFBBFFFF'
     type: AtmosPipeColor
 - uid: 5834
-  type: AtmosFixBlockerMarker
+  type: GasPipeStraight
   components:
-  - pos: 58.5,12.5
+  - rot: 1.5707963267948966 rad
+    pos: 56.5,11.5
     parent: 1
     type: Transform
+  - color: '#00FFFFFF'
+    type: AtmosPipeColor
 - uid: 5835
   type: GasPipeBend
   components:
@@ -60975,14 +60654,13 @@ entities:
   - color: '#66AACCFF'
     type: AtmosPipeColor
 - uid: 5837
-  type: GasMixerFlipped
+  type: GasPipeStraight
   components:
-  - name: storage tank 3 mixer
-    type: MetaData
-  - rot: 3.141592653589793 rad
-    pos: 54.5,12.5
+  - pos: 54.5,12.5
     parent: 1
     type: Transform
+  - color: '#FFBBFFFF'
+    type: AtmosPipeColor
 - uid: 5838
   type: GasPipeStraight
   components:
@@ -61003,14 +60681,14 @@ entities:
   - color: '#FFBBFFFF'
     type: AtmosPipeColor
 - uid: 5840
-  type: GasFilterFlipped
+  type: GasPipeStraight
   components:
-  - name: storage tank 3 filter
-    type: MetaData
   - rot: 3.141592653589793 rad
     pos: 55.5,11.5
     parent: 1
     type: Transform
+  - color: '#FFBB00FF'
+    type: AtmosPipeColor
 - uid: 5841
   type: GasPipeStraight
   components:
@@ -61057,19 +60735,23 @@ entities:
   - color: '#66AACCFF'
     type: AtmosPipeColor
 - uid: 5846
-  type: GasPassiveVent
+  type: GasPipeStraight
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 58.5,12.5
+  - rot: 1.5707963267948966 rad
+    pos: 54.5,11.5
     parent: 1
     type: Transform
+  - color: '#00FFFFFF'
+    type: AtmosPipeColor
 - uid: 5847
-  type: GasOutletInjector
+  type: GasPipeStraight
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 58.5,11.5
+  - rot: 1.5707963267948966 rad
+    pos: 55.5,11.5
     parent: 1
     type: Transform
+  - color: '#00FFFFFF'
+    type: AtmosPipeColor
 - uid: 5848
   type: GasPipeStraight
   components:
@@ -61149,11 +60831,14 @@ entities:
   - color: '#66AACCFF'
     type: AtmosPipeColor
 - uid: 5857
-  type: AtmosFixBlockerMarker
+  type: GasPipeStraight
   components:
-  - pos: 59.5,11.5
+  - rot: 1.5707963267948966 rad
+    pos: 54.5,12.5
     parent: 1
     type: Transform
+  - color: '#00FFFFFF'
+    type: AtmosPipeColor
 - uid: 5858
   type: GasMixer
   components:
@@ -61166,12 +60851,14 @@ entities:
   - color: '#00FFFFFF'
     type: AtmosPipeColor
 - uid: 5859
-  type: GasPipeStraight
+  type: GasPipeTJunction
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 56.5,11.5
+  - rot: 3.141592653589793 rad
+    pos: 53.5,12.5
     parent: 1
     type: Transform
+  - color: '#00FFFFFF'
+    type: AtmosPipeColor
 - uid: 5860
   type: GasPipeBend
   components:
@@ -61329,13 +61016,13 @@ entities:
 - uid: 5877
   type: Catwalk
   components:
-  - pos: 49.5,12.5
+  - pos: 51.5,12.5
     parent: 1
     type: Transform
 - uid: 5878
   type: Catwalk
   components:
-  - pos: 49.5,13.5
+  - pos: 51.5,13.5
     parent: 1
     type: Transform
 - uid: 5879
@@ -61353,13 +61040,13 @@ entities:
 - uid: 5881
   type: Catwalk
   components:
-  - pos: 51.5,13.5
+  - pos: 49.5,12.5
     parent: 1
     type: Transform
 - uid: 5882
   type: Catwalk
   components:
-  - pos: 51.5,12.5
+  - pos: 49.5,13.5
     parent: 1
     type: Transform
 - uid: 5883
@@ -78766,22 +78453,21 @@ entities:
     parent: 1
     type: Transform
 - uid: 7898
-  type: DrinkIceCreamGlass
+  type: Catwalk
   components:
-  - pos: 10.979467,15.664204
+  - pos: 53.5,15.5
     parent: 1
     type: Transform
 - uid: 7899
-  type: GasPipeStraight
+  type: Catwalk
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 55.5,12.5
+  - pos: 53.5,14.5
     parent: 1
     type: Transform
 - uid: 7900
-  type: HolofanProjector
+  type: Catwalk
   components:
-  - pos: 51.685135,0.87258196
+  - pos: 53.5,13.5
     parent: 1
     type: Transform
 - uid: 7901
@@ -78794,35 +78480,33 @@ entities:
     parent: 1
     type: Transform
 - uid: 7902
-  type: RandomSpawner
+  type: Catwalk
   components:
-  - pos: 14.5,-20.5
+  - pos: 53.5,11.5
     parent: 1
     type: Transform
 - uid: 7903
-  type: WarpPoint
+  type: Catwalk
   components:
-  - pos: 52.5,10.5
+  - pos: 53.5,10.5
     parent: 1
     type: Transform
-  - location: Atmospherics
-    type: WarpPoint
 - uid: 7904
-  type: ClothingUnderboxer_briefs
+  type: Catwalk
   components:
-  - pos: -0.70068383,-31.610119
+  - pos: 53.5,9.5
     parent: 1
     type: Transform
 - uid: 7905
-  type: ClothingUnderpanties
+  type: Catwalk
   components:
-  - pos: -0.7033193,-31.801609
+  - pos: 53.5,8.5
     parent: 1
     type: Transform
 - uid: 7906
-  type: ClothingUnderpanties
+  type: Catwalk
   components:
-  - pos: -0.24232686,-31.844162
+  - pos: 53.5,7.5
     parent: 1
     type: Transform
 - uid: 7907
@@ -79367,7 +79051,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 7985
-  type: AirlockExternalAtmosphericsLocked
+  type: AirlockExternalLocked
   components:
   - pos: 60.5,2.5
     parent: 1
@@ -81164,16 +80848,15 @@ entities:
     parent: 1
     type: Transform
 - uid: 8237
-  type: ClothingHandsGlovesLeather
+  type: ClothingHandsDispelGloves
   components:
-  - pos: 22.851732,16.763464
+  - pos: 22.919847,16.758402
     parent: 1
     type: Transform
 - uid: 8238
-  type: ClothingOuterCardborg
+  type: ClothingHandsDispelGloves
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 23.582228,16.550697
+  - pos: 23.076176,16.667765
     parent: 1
     type: Transform
 - uid: 8239
@@ -84422,60 +84105,24 @@ entities:
   - pos: -32.5,33.5
     parent: 1
     type: Transform
-  - inputs:
-      Open:
-      - port: Right
-        uid: 16798
-      Close:
-      - port: Left
-        uid: 16798
-      Toggle: []
-    type: SignalReceiver
 - uid: 8617
   type: BlastDoor
   components:
   - pos: -32.5,29.5
     parent: 1
     type: Transform
-  - inputs:
-      Open:
-      - port: Left
-        uid: 16798
-      Close:
-      - port: Right
-        uid: 16798
-      Toggle: []
-    type: SignalReceiver
 - uid: 8618
   type: BlastDoor
   components:
   - pos: -29.5,29.5
     parent: 1
     type: Transform
-  - inputs:
-      Open:
-      - port: Right
-        uid: 16798
-      Close:
-      - port: Left
-        uid: 16798
-      Toggle: []
-    type: SignalReceiver
 - uid: 8619
   type: BlastDoor
   components:
   - pos: -29.5,33.5
     parent: 1
     type: Transform
-  - inputs:
-      Open:
-      - port: Left
-        uid: 16798
-      Close:
-      - port: Right
-        uid: 16798
-      Toggle: []
-    type: SignalReceiver
 - uid: 8620
   type: FirelockEdge
   components:
@@ -85160,7 +84807,7 @@ entities:
   - pos: 30.5,35.5
     parent: 1
     type: Transform
-  - location: AI_Core
+  - location: AI Core
     type: WarpPoint
 - uid: 8723
   type: Catwalk
@@ -85260,9 +84907,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 8737
-  type: CrateNPCHamlet
+  type: ExtinguisherCabinetFilled
   components:
-  - pos: -26.5,22.5
+  - pos: -25.5,-7.5
     parent: 1
     type: Transform
 - uid: 8738
@@ -85343,9 +84990,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 8749
-  type: DrinkIceCreamGlass
+  type: Catwalk
   components:
-  - pos: 12.263155,15.657112
+  - pos: 50.5,13.5
     parent: 1
     type: Transform
 - uid: 8750
@@ -87119,9 +86766,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 9036
-  type: DrinkIceCreamGlass
+  type: Catwalk
   components:
-  - pos: 13.454644,15.657112
+  - pos: 50.5,12.5
     parent: 1
     type: Transform
 - uid: 9037
@@ -87657,7 +87304,7 @@ entities:
   - pos: -5.5,-14.5
     parent: 1
     type: Transform
-  - location: Common_Room
+  - location: Common Room
     type: WarpPoint
 - uid: 9116
   type: Catwalk
@@ -88174,21 +87821,21 @@ entities:
     parent: 1
     type: Transform
 - uid: 9193
-  type: RandomSpawner
+  type: Catwalk
   components:
-  - pos: 15.5,1.5
+  - pos: 53.5,-2.5
     parent: 1
     type: Transform
 - uid: 9194
-  type: RandomSpawner
+  type: Catwalk
   components:
-  - pos: 9.5,-12.5
+  - pos: 53.5,-1.5
     parent: 1
     type: Transform
 - uid: 9195
-  type: RandomSpawner
+  type: Catwalk
   components:
-  - pos: 16.5,10.5
+  - pos: 53.5,-0.5
     parent: 1
     type: Transform
 - uid: 9196
@@ -88204,21 +87851,21 @@ entities:
     parent: 1
     type: Transform
 - uid: 9198
-  type: RandomSpawner
+  type: Catwalk
   components:
-  - pos: 10.5,8.5
+  - pos: 53.5,2.5
     parent: 1
     type: Transform
 - uid: 9199
-  type: AirlockMaintAtmoLocked
+  type: Catwalk
   components:
-  - pos: 50.5,-4.5
+  - pos: 53.5,3.5
     parent: 1
     type: Transform
 - uid: 9200
-  type: SignAtmos
+  type: Catwalk
   components:
-  - pos: 50.5,-3.5
+  - pos: 53.5,4.5
     parent: 1
     type: Transform
 - uid: 9201
@@ -88234,9 +87881,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 9203
-  type: RandomSpawner
+  type: Catwalk
   components:
-  - pos: 16.5,-8.5
+  - pos: 57.5,4.5
     parent: 1
     type: Transform
 - uid: 9204
@@ -88351,10 +87998,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 9222
-  type: DrinkBottleBeer
+  type: WallWeaponCapacitorRecharger
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -23.305748,35.094173
+  - pos: -12.5,9.5
     parent: 1
     type: Transform
 - uid: 9223
@@ -88379,7 +88025,7 @@ entities:
   - pos: -10.5,25.5
     parent: 1
     type: Transform
-  - location: Service_Hall
+  - location: Service Hall
     type: WarpPoint
 - uid: 9226
   type: Catwalk
@@ -89899,7 +89545,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 9472
-  type: PlasmaWindow
+  type: ReinforcedWindow
   components:
   - pos: 51.5,6.5
     parent: 1
@@ -90041,7 +89687,7 @@ entities:
         uid: 9493
     type: SignalReceiver
 - uid: 9493
-  type: SignalButtonDirectional
+  type: SignalButton
   components:
   - rot: -1.5707963267948966 rad
     pos: 44.5,50.5
@@ -90053,12 +89699,6 @@ entities:
         uid: 9492
       - port: Toggle
         uid: 9491
-      - port: Toggle
-        uid: 16804
-      - port: Toggle
-        uid: 16805
-      - port: Toggle
-        uid: 16806
     type: SignalTransmitter
   - fixtures: []
     type: Fixtures
@@ -92037,9 +91677,9 @@ entities:
   - color: '#00FFFFFF'
     type: AtmosPipeColor
 - uid: 9777
-  type: NukeDiskFake
+  type: ComputerTelevision
   components:
-  - pos: 13.3343315,-51.304966
+  - pos: 40.5,51.5
     parent: 1
     type: Transform
 - uid: 9778
@@ -93314,9 +92954,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 9970
-  type: RandomSpawner
+  type: CrateNPCHamlet
   components:
-  - pos: 5.5,24.5
+  - pos: -29.5,18.5
     parent: 1
     type: Transform
 - uid: 9971
@@ -94630,11 +94270,13 @@ entities:
   - location: Hydroponics
     type: WarpPoint
 - uid: 10133
-  type: RandomSpawner
+  type: WarpPoint
   components:
-  - pos: 17.5,-32.5
+  - pos: 53.5,11.5
     parent: 1
     type: Transform
+  - location: Atmospherics
+    type: WarpPoint
 - uid: 10134
   type: WarpPoint
   components:
@@ -98227,9 +97869,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 10618
-  type: PaperOffice
+  type: FoodDonkpocketBerryWarm
   components:
-  - pos: 11.072275,-34.43667
+  - pos: -8.223662,-37.051727
     parent: 1
     type: Transform
 - uid: 10619
@@ -106757,16 +106399,17 @@ entities:
     parent: 1
     type: Transform
 - uid: 11982
-  type: ClothingHeadAreopagite
+  type: FoodMeatClown
   components:
-  - pos: -3.5273905,44.64903
+  - name: john
+    type: MetaData
+  - pos: -3.526416,44.484043
     parent: 1
     type: Transform
 - uid: 11983
-  type: IntercomAll
+  type: ClothingHeadAreopagite
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 26.5,35.5
+  - pos: -3.3179798,44.890575
     parent: 1
     type: Transform
 - uid: 11984
@@ -122001,7 +121644,7 @@ entities:
 - uid: 14438
   type: Syringe
   components:
-  - pos: 2.9893484,-39.402843
+  - pos: 0.32541132,-43.023075
     parent: 1
     type: Transform
   - tags: []
@@ -122022,7 +121665,7 @@ entities:
 - uid: 14440
   type: PillCanister
   components:
-  - pos: 0.34648705,-42.81457
+  - pos: 0.30956793,-42.608696
     parent: 1
     type: Transform
 - uid: 14441
@@ -126887,9 +126530,10 @@ entities:
     parent: 1
     type: Transform
 - uid: 15154
-  type: PlushieNuke
+  type: DisposalBend
   components:
-  - pos: 13.759863,-51.51064
+  - rot: -1.5707963267948966 rad
+    pos: 49.5,-15.5
     parent: 1
     type: Transform
 - uid: 15155
@@ -128680,9 +128324,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 15425
-  type: PaperOffice
+  type: DisposalBend
   components:
-  - pos: 11.455255,-34.47922
+  - pos: -10.5,30.5
     parent: 1
     type: Transform
 - uid: 15426
@@ -135265,9 +134909,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 16212
-  type: RandomSpawner
+  type: Catwalk
   components:
-  - pos: 7.5,-19.5
+  - pos: 53.5,12.5
     parent: 1
     type: Transform
 - uid: 16213
@@ -136239,9 +135883,9 @@ entities:
     type: Physics
   - type: InsideEntityStorage
 - uid: 16344
-  type: Welder
+  type: CapacitorStockPart
   components:
-  - pos: 43.12313,-27.418215
+  - pos: 43.024223,-27.36719
     parent: 1
     type: Transform
 - uid: 16345
@@ -136357,9 +136001,11 @@ entities:
     parent: 1
     type: Transform
 - uid: 16363
-  type: ClothingUnderpanties_alt
+  type: WeaponTurretNanoTrasen
   components:
-  - pos: -0.48174834,-31.54629
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 28.5,37.5
     parent: 1
     type: Transform
 - uid: 16364
@@ -136443,7 +136089,7 @@ entities:
   components:
   - flags: SessionSpecific
     type: MetaData
-  - pos: 29.5,37.5
+  - pos: 28.5,33.5
     parent: 1
     type: Transform
 - uid: 16374
@@ -138595,13 +138241,13 @@ entities:
 - uid: 16726
   type: WallWeaponCapacitorRecharger
   components:
-  - pos: -12.5,9.5
+  - pos: -8.5,9.5
     parent: 1
     type: Transform
 - uid: 16727
   type: WallWeaponCapacitorRecharger
   components:
-  - pos: -15.5,9.5
+  - pos: -16.5,5.5
     parent: 1
     type: Transform
 - uid: 16728
@@ -138940,769 +138586,21 @@ entities:
     parent: 1
     type: Transform
 - uid: 16774
-  type: GoldenBikeHorn
+  type: SpawnMobPunpun
   components:
-  - pos: 19.300352,44.388943
+  - pos: 14.5,12.5
     parent: 1
     type: Transform
 - uid: 16775
-  type: TraitorDMRedemptionMachineSpawner
+  type: FoodPlateSmallTrash
   components:
-  - pos: 11.5,-5.5
+  - pos: 14.949965,12.297186
     parent: 1
     type: Transform
 - uid: 16776
-  type: SpawnPointLocationMidRoundAntag
+  type: DrinkHotCoffee
   components:
-  - pos: 31.5,2.5
+  - pos: 14.971941,12.271715
     parent: 1
     type: Transform
-- uid: 16777
-  type: SpawnPointLocationMidRoundAntag
-  components:
-  - pos: 59.5,-1.5
-    parent: 1
-    type: Transform
-- uid: 16778
-  type: SpawnPointLocationMidRoundAntag
-  components:
-  - pos: 22.5,22.5
-    parent: 1
-    type: Transform
-- uid: 16779
-  type: CapacitorStockPart
-  components:
-  - pos: 42.917458,-27.645164
-    parent: 1
-    type: Transform
-- uid: 16780
-  type: DrinkBeer
-  components:
-  - pos: -23.73128,36.313084
-    parent: 1
-    type: Transform
-- uid: 16781
-  type: WeaponTurretNanoTrasen
-  components:
-  - flags: SessionSpecific
-    type: MetaData
-  - pos: 29.5,33.5
-    parent: 1
-    type: Transform
-- uid: 16782
-  type: PartRodMetal
-  components:
-  - pos: 41.610107,12.662508
-    parent: 1
-    type: Transform
-- uid: 16783
-  type: CrateEngineering
-  components:
-  - pos: 35.5,4.5
-    parent: 1
-    type: Transform
-- uid: 16784
-  type: CrateEngineeringSecure
-  components:
-  - pos: 35.5,5.5
-    parent: 1
-    type: Transform
-- uid: 16785
-  type: RandomSpawner
-  components:
-  - pos: 3.5,-11.5
-    parent: 1
-    type: Transform
-- uid: 16786
-  type: RandomSpawner
-  components:
-  - pos: -5.5,-23.5
-    parent: 1
-    type: Transform
-- uid: 16787
-  type: RandomSpawner
-  components:
-  - pos: -1.5,-22.5
-    parent: 1
-    type: Transform
-- uid: 16788
-  type: RandomSpawner
-  components:
-  - pos: -8.5,-46.5
-    parent: 1
-    type: Transform
-- uid: 16789
-  type: RandomSpawner
-  components:
-  - pos: -13.5,-31.5
-    parent: 1
-    type: Transform
-- uid: 16790
-  type: RipleyCentralElectronics
-  components:
-  - pos: -19.460363,15.6020775
-    parent: 1
-    type: Transform
-- uid: 16791
-  type: ComputerCrewMonitoring
-  components:
-  - pos: 27.5,36.5
-    parent: 1
-    type: Transform
-- uid: 16792
-  type: ComputerStationRecords
-  components:
-  - pos: 26.5,36.5
-    parent: 1
-    type: Transform
-- uid: 16793
-  type: ComputerComms
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 26.5,34.5
-    parent: 1
-    type: Transform
-- uid: 16794
-  type: ComputerCriminalRecords
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 27.5,34.5
-    parent: 1
-    type: Transform
-- uid: 16795
-  type: ComputerSurveillanceCameraMonitor
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 28.5,34.5
-    parent: 1
-    type: Transform
-- uid: 16796
-  type: ComputerBroken
-  components:
-  - pos: 28.5,36.5
-    parent: 1
-    type: Transform
-- uid: 16797
-  type: PosterLegitJustAWeekAway
-  components:
-  - pos: 38.5,34.5
-    parent: 1
-    type: Transform
-- uid: 16798
-  type: TwoWayLever
-  components:
-  - name: blast door lever
-    type: MetaData
-  - pos: -27.5,31.5
-    parent: 1
-    type: Transform
-  - outputs:
-      Left:
-      - port: Open
-        uid: 8619
-      - port: Close
-        uid: 8616
-      - port: Open
-        uid: 8617
-      - port: Close
-        uid: 8618
-      Right:
-      - port: Close
-        uid: 8619
-      - port: Open
-        uid: 8616
-      - port: Close
-        uid: 8617
-      - port: Open
-        uid: 8618
-      Middle: []
-    type: SignalTransmitter
-- uid: 16799
-  type: ShuttersNormalOpen
-  components:
-  - pos: -14.5,27.5
-    parent: 1
-    type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 4175
-    type: SignalReceiver
-- uid: 16800
-  type: ShuttersNormalOpen
-  components:
-  - pos: -15.5,27.5
-    parent: 1
-    type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 4175
-    type: SignalReceiver
-- uid: 16801
-  type: SignDirectionalBar
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 29.5,20.5
-    parent: 1
-    type: Transform
-- uid: 16802
-  type: SignDirectionalBar
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 27.5,20.5
-    parent: 1
-    type: Transform
-- uid: 16803
-  type: SpaceCash100
-  components:
-  - pos: 60.60852,34.680416
-    parent: 1
-    type: Transform
-- uid: 16804
-  type: ShuttersNormalOpen
-  components:
-  - pos: 41.5,53.5
-    parent: 1
-    type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 9493
-    type: SignalReceiver
-- uid: 16805
-  type: ShuttersNormalOpen
-  components:
-  - pos: 40.5,53.5
-    parent: 1
-    type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 9493
-    type: SignalReceiver
-- uid: 16806
-  type: ShuttersNormalOpen
-  components:
-  - pos: 39.5,53.5
-    parent: 1
-    type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 9493
-    type: SignalReceiver
-- uid: 16807
-  type: ComputerTelevision
-  components:
-  - pos: 40.5,50.5
-    parent: 1
-    type: Transform
-- uid: 16808
-  type: DrinkMugOne
-  components:
-  - pos: 4.6992393,53.5115
-    parent: 1
-    type: Transform
-- uid: 16809
-  type: Lighter
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 3.3151698,-30.312
-    parent: 1
-    type: Transform
-- uid: 16810
-  type: DrinkNuclearColaGlass
-  components:
-  - pos: 45.602066,-4.3356647
-    parent: 1
-    type: Transform
-- uid: 16811
-  type: WindowReinforcedDirectional
-  components:
-  - pos: 27.5,34.5
-    parent: 1
-    type: Transform
-- uid: 16812
-  type: WindowReinforcedDirectional
-  components:
-  - pos: 26.5,34.5
-    parent: 1
-    type: Transform
-- uid: 16813
-  type: WindowReinforcedDirectional
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 26.5,34.5
-    parent: 1
-    type: Transform
-- uid: 16814
-  type: WindowReinforcedDirectional
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 26.5,35.5
-    parent: 1
-    type: Transform
-- uid: 16815
-  type: WindowReinforcedDirectional
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 26.5,36.5
-    parent: 1
-    type: Transform
-- uid: 16816
-  type: WindowReinforcedDirectional
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 26.5,36.5
-    parent: 1
-    type: Transform
-- uid: 16817
-  type: WindowReinforcedDirectional
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 27.5,36.5
-    parent: 1
-    type: Transform
-- uid: 16818
-  type: WindowReinforcedDirectional
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 28.5,36.5
-    parent: 1
-    type: Transform
-- uid: 16819
-  type: WindowReinforcedDirectional
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 28.5,34.5
-    parent: 1
-    type: Transform
-- uid: 16820
-  type: WindowReinforcedDirectional
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 28.5,36.5
-    parent: 1
-    type: Transform
-- uid: 16821
-  type: WindoorCommandLocked
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 28.5,35.5
-    parent: 1
-    type: Transform
-- uid: 16822
-  type: Telecrystal1
-  components:
-  - pos: 67.501945,-1.4992403
-    parent: 1
-    type: Transform
-- uid: 16823
-  type: ClothingHandsGlovesLeather
-  components:
-  - pos: 22.936838,16.59325
-    parent: 1
-    type: Transform
-- uid: 16824
-  type: PersonalAI
-  components:
-  - flags: SessionSpecific
-    type: MetaData
-  - pos: 56.526558,-16.440956
-    parent: 1
-    type: Transform
-- uid: 16825
-  type: RevolverCapGun
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 13.6960335,-51.83688
-    parent: 1
-    type: Transform
-- uid: 16826
-  type: SpaceCash500
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 21.861425,44.314617
-    parent: 1
-    type: Transform
-- uid: 16827
-  type: CartridgeCap
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 13.279484,-51.602837
-    parent: 1
-    type: Transform
-- uid: 16828
-  type: CartridgeCap
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 13.258206,-51.737587
-    parent: 1
-    type: Transform
-- uid: 16829
-  type: CartridgeCap
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 13.095085,-51.780144
-    parent: 1
-    type: Transform
-- uid: 16830
-  type: DrinkBananaHonkGlass
-  components:
-  - pos: -4.4891562,-45.310642
-    parent: 1
-    type: Transform
-- uid: 16831
-  type: PosterLegitNoTouching
-  components:
-  - pos: 29.5,1.5
-    parent: 1
-    type: Transform
-- uid: 16832
-  type: BlastDoorOpen
-  components:
-  - pos: 35.5,35.5
-    parent: 1
-    type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 16836
-    type: SignalReceiver
-- uid: 16833
-  type: Implanter
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -4.0569124,-38.520596
-    parent: 1
-    type: Transform
-- uid: 16834
-  type: BlastDoorOpen
-  components:
-  - pos: 38.5,35.5
-    parent: 1
-    type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 16836
-    type: SignalReceiver
-- uid: 16835
-  type: Implanter
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -4.0994654,-38.49223
-    parent: 1
-    type: Transform
-- uid: 16836
-  type: SignalButtonDirectional
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 26.5,35.5
-    parent: 1
-    type: Transform
-  - outputs:
-      Pressed:
-      - port: Toggle
-        uid: 16832
-      - port: Toggle
-        uid: 16834
-    type: SignalTransmitter
-  - fixtures: []
-    type: Fixtures
-- uid: 16837
-  type: FoodDonkpocketBerryWarm
-  components:
-  - pos: -8.509281,-37.35447
-    parent: 1
-    type: Transform
-- uid: 16838
-  type: SpaceCash100
-  components:
-  - pos: 19.372065,45.598305
-    parent: 1
-    type: Transform
-- uid: 16839
-  type: Implanter
-  components:
-  - pos: -3.347692,-38.47095
-    parent: 1
-    type: Transform
-- uid: 16840
-  type: DisposalPipe
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -8.5,35.5
-    parent: 1
-    type: Transform
-- uid: 16841
-  type: Implanter
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -3.3406005,-38.513504
-    parent: 1
-    type: Transform
-- uid: 16842
-  type: ClothingOuterSuitMonkey
-  components:
-  - pos: 45.549576,-14.545172
-    parent: 1
-    type: Transform
-- uid: 16843
-  type: PaintingMonkey
-  components:
-  - pos: 45.5,-14.5
-    parent: 1
-    type: Transform
-- uid: 16844
-  type: DisposalBend
-  components:
-  - pos: -10.5,30.5
-    parent: 1
-    type: Transform
-- uid: 16845
-  type: PaperOffice
-  components:
-  - pos: 12.554544,-35.08915
-    parent: 1
-    type: Transform
-- uid: 16846
-  type: SignSmoking
-  components:
-  - pos: 29.5,-18.5
-    parent: 1
-    type: Transform
-- uid: 16847
-  type: SpawnMobMedibot
-  components:
-  - pos: 33.5,22.5
-    parent: 1
-    type: Transform
-- uid: 16848
-  type: SpawnMobCleanBot
-  components:
-  - pos: 35.5,19.5
-    parent: 1
-    type: Transform
-- uid: 16849
-  type: SpawnPointLatejoin
-  components:
-  - pos: 11.5,-5.5
-    parent: 1
-    type: Transform
-- uid: 16850
-  type: SpawnPointLatejoin
-  components:
-  - pos: 3.5,42.5
-    parent: 1
-    type: Transform
-- uid: 16851
-  type: SpawnPointLatejoin
-  components:
-  - pos: -1.5,51.5
-    parent: 1
-    type: Transform
-- uid: 16852
-  type: SpawnPointLatejoin
-  components:
-  - pos: 0.5,41.5
-    parent: 1
-    type: Transform
-- uid: 16853
-  type: TechDiskComputerCircuitboard
-  components:
-  - pos: 48.884163,-35.698715
-    parent: 1
-    type: Transform
-- uid: 16854
-  type: RandomSpawner
-  components:
-  - pos: 56.5,-12.5
-    parent: 1
-    type: Transform
-- uid: 16855
-  type: RandomSpawner
-  components:
-  - pos: 57.5,-16.5
-    parent: 1
-    type: Transform
-- uid: 16856
-  type: RandomSpawner
-  components:
-  - pos: 53.5,-17.5
-    parent: 1
-    type: Transform
-- uid: 16857
-  type: RandomSpawner
-  components:
-  - pos: 59.5,11.5
-    parent: 1
-    type: Transform
-- uid: 16858
-  type: RandomSpawner
-  components:
-  - pos: 55.5,1.5
-    parent: 1
-    type: Transform
-- uid: 16859
-  type: RandomSpawner
-  components:
-  - pos: 51.5,30.5
-    parent: 1
-    type: Transform
-- uid: 16860
-  type: RandomSpawner
-  components:
-  - pos: -0.5,34.5
-    parent: 1
-    type: Transform
-- uid: 16861
-  type: RandomSpawner
-  components:
-  - pos: -0.5,30.5
-    parent: 1
-    type: Transform
-- uid: 16862
-  type: RandomSpawner
-  components:
-  - pos: -2.5,31.5
-    parent: 1
-    type: Transform
-- uid: 16863
-  type: RandomSpawner
-  components:
-  - pos: -4.5,28.5
-    parent: 1
-    type: Transform
-- uid: 16864
-  type: ShuttersNormalOpen
-  components:
-  - pos: 1.5,6.5
-    parent: 1
-    type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 16874
-    type: SignalReceiver
-- uid: 16865
-  type: RandomSpawner
-  components:
-  - pos: -9.5,35.5
-    parent: 1
-    type: Transform
-- uid: 16866
-  type: AppraisalTool
-  components:
-  - pos: -23.243076,35.833744
-    parent: 1
-    type: Transform
-- uid: 16867
-  type: AppraisalTool
-  components:
-  - pos: -23.505487,35.968494
-    parent: 1
-    type: Transform
-- uid: 16868
-  type: AppraisalTool
-  components:
-  - pos: -23.682793,36.72027
-    parent: 1
-    type: Transform
-- uid: 16869
-  type: WeaponCapacitorRecharger
-  components:
-  - pos: -15.5,8.5
-    parent: 1
-    type: Transform
-- uid: 16870
-  type: ShuttersNormalOpen
-  components:
-  - pos: 1.5,7.5
-    parent: 1
-    type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 16874
-    type: SignalReceiver
-- uid: 16871
-  type: ShuttersNormalOpen
-  components:
-  - pos: -1.5,6.5
-    parent: 1
-    type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 16874
-    type: SignalReceiver
-- uid: 16872
-  type: ShuttersNormalOpen
-  components:
-  - pos: -1.5,7.5
-    parent: 1
-    type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 16874
-    type: SignalReceiver
-- uid: 16873
-  type: ShuttersNormalOpen
-  components:
-  - pos: -1.5,5.5
-    parent: 1
-    type: Transform
-  - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 16874
-    type: SignalReceiver
-- uid: 16874
-  type: SignalButtonDirectional
-  components:
-  - pos: -3.5,4.5
-    parent: 1
-    type: Transform
-  - outputs:
-      Pressed:
-      - port: Toggle
-        uid: 16873
-      - port: Toggle
-        uid: 16871
-      - port: Toggle
-        uid: 16872
-      - port: Toggle
-        uid: 16870
-      - port: Toggle
-        uid: 16864
-    type: SignalTransmitter
-  - fixtures: []
-    type: Fixtures
 ...

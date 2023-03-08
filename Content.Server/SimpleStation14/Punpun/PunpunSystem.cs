@@ -37,16 +37,17 @@ public class PunpunSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<PunpunComponent, ComponentStartup>(OnRoundStart);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
-
     }
 
+    // Checks if the Punpun data has any itemss to eqiup, and names the Punpun upon initialization.
     private void OnRoundStart(EntityUid uid, PunpunComponent component, ComponentStartup args)
     {
         component.owner = uid;
 
         if (punpunData.Item1 > 13)
         {
-            _entityManager.DeleteEntity(uid);
+            _entityManager.SpawnEntity("PaperWrittenPunpunNote", EntityManager.GetComponent<TransformComponent>(uid).Coordinates);
+            _entityManager.QueueDeleteEntity(uid);
             punpunData = (0, String.Empty, String.Empty);
             return;
         }
@@ -57,38 +58,13 @@ public class PunpunSystem : EntitySystem
 
         if (_entityManager.TryGetComponent<InventoryComponent>(uid, out var invComp))
         {
-            if (punpunData.Item2 != String.Empty)
-            {
-                var hat = _entityManager.SpawnEntity(punpunData.Item2, EntityManager.GetComponent<TransformComponent>(uid).Coordinates);
-                if (_inventorySystem.TryEquip(uid, hat, "head", true))
-                {
-                    var metaCompHat = _entityManager.GetComponent<MetaDataComponent>(hat);
-                    var hatName = metaCompHat.EntityName;
-                    metaCompHat.EntityName = name + "'s " + hatName;
-                }
-                else
-                {
-                    _entityManager.DeleteEntity(hat);
-                }
-            }
-
-            if (punpunData.Item3 != String.Empty)
-            {
-                var mask = EntityManager.SpawnEntity(punpunData.Item3, EntityManager.GetComponent<TransformComponent>(uid).Coordinates);
-                if (_inventorySystem.TryEquip(uid, mask, "mask", true))
-                {
-                    var metaCompMask = _entityManager.GetComponent<MetaDataComponent>(mask);
-                    var maskName = metaCompMask.EntityName;
-                    metaCompMask.EntityName = name + "'s " + maskName;
-                }
-                else
-                {
-                    _entityManager.DeleteEntity(mask);
-                }
-            }
+            EquipItem(uid, "head", punpunData.Item2);
+            EquipItem(uid, "mask", punpunData.Item3);
         }
     }
 
+    // Checks if Punpun exists, and is alive at round end.
+    // If so, stores the items and increments the Punpun count.
     private void OnRoundEnd(RoundEndTextAppendEvent ev)
     {
         // Do an entity query to get all the punpun components
@@ -117,6 +93,26 @@ public class PunpunSystem : EntitySystem
         }
     }
 
+    // Equips an item to a slot, and names it.
+    private void EquipItem(EntityUid uid, string slot, string item)
+    {
+        if (item == String.Empty)
+            return;
+
+        var itemEnt = EntityManager.SpawnEntity(item, EntityManager.GetComponent<TransformComponent>(uid).Coordinates);
+        if (_inventorySystem.TryEquip(uid, itemEnt, slot, true))
+        {
+            var metaCompItem = _entityManager.GetComponent<MetaDataComponent>(itemEnt);
+            var itemName = metaCompItem.EntityName;
+            metaCompItem.EntityName = EntityManager.GetComponent<MetaDataComponent>(uid).EntityName + "'s " + itemName;
+        }
+        else
+        {
+            _entityManager.DeleteEntity(itemEnt);
+        }
+    }
+
+    // Checks if an item exists in a slot, and returns its name.
     public string checkSlot(EntityUid uid, string slot)
     {
         if (_inventorySystem.TryGetSlotEntity(uid, slot, out var item) && item != null)
