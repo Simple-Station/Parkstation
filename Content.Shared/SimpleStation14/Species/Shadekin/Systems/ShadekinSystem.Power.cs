@@ -83,7 +83,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             }
 
             // Get the power as a short from 0-5
-            var power = ContentHelpers.RoundToLevels((double) PowerLevel, component.PowerLevelMax, 5);
+            var power = ContentHelpers.RoundToLevels((double) PowerLevel, component.PowerLevelMax, 8);
 
             // Set the alert level
             _alertsSystem.ShowAlert(uid, AlertType.ShadekinPower, (short) power);
