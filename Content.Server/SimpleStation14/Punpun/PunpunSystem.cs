@@ -113,7 +113,7 @@ public class PunpunSystem : EntitySystem
     }
 
     // Checks if an item exists in a slot, and returns its name.
-    public string checkSlot(EntityUid uid, string slot)
+    private string checkSlot(EntityUid uid, string slot)
     {
         if (_inventorySystem.TryGetSlotEntity(uid, slot, out var item) && item != null)
         {
