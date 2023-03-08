@@ -1,3 +1,4 @@
+using Content.Shared.Damage.Systems;
 using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Content.Shared.SimpleStation14.Species.Shadekin.Events;
 using Content.Shared.SimpleStation14.Species.Shadekin.Systems;
@@ -13,6 +14,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private readonly StaminaSystem _staminaSystem = default!;
 
         public override void Initialize()
         {
@@ -36,6 +38,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             _audio.PlayPvs(args.BlinkSound, args.Performer, AudioParams.Default.WithVolume(args.BlinkVolume));
 
             _powerSystem.TryAddPowerLevel(comp.Owner, -args.PowerCost);
+            _staminaSystem.TakeStaminaDamage(args.Performer, args.StaminaCost);
 
             args.Handled = true;
         }

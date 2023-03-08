@@ -1,6 +1,7 @@
 using Content.Server.Psionics;
 using Content.Server.Visible;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Damage.Systems;
 using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Content.Shared.SimpleStation14.Species.Shadekin.Events;
 using Content.Shared.SimpleStation14.Species.Shadekin.Systems;
@@ -19,6 +20,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly ShadekinDarkenSystem _darkenSystem = default!;
+        [Dependency] private readonly StaminaSystem _staminaSystem = default!;
 
         public override void Initialize()
         {
@@ -60,6 +62,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, true));
 
                 _powerSystem.TryAddPowerLevel(comp.Owner, -args.PowerCostOn);
+                _staminaSystem.TakeStaminaDamage(comp.Owner, args.StaminaCost);
             }
             else
             {
@@ -68,6 +71,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, false));
 
                 _powerSystem.TryAddPowerLevel(comp.Owner, -args.PowerCostOff);
+                _staminaSystem.TakeStaminaDamage(comp.Owner, args.StaminaCost);
             }
         }
 

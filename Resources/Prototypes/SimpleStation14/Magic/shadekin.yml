@@ -12,7 +12,8 @@
     sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
     state: teleport
   serverEvent: !type:ShadekinTeleportEvent
-    powerCost: 30
+    powerCost: 35
+    staminaCost: 30
 
 - type: instantAction
   id: ShadekinDarkSwap
@@ -27,6 +28,7 @@
   serverEvent: !type:ShadekinDarkSwapEvent
     powerCostOn: 55
     powerCostOff: 40
+    staminaCost: 25
 
 - type: instantAction
   id: ShadekinRest

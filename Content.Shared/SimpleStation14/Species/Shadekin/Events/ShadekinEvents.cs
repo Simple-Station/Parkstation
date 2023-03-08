@@ -19,6 +19,9 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
 
         [DataField("powerCost")]
         public float PowerCost = 35f;
+
+        [DataField("staminaCost")]
+        public float StaminaCost = 30f;
     }
 
     /// <summary>
@@ -37,6 +40,9 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
         /// </summary>
         [DataField("powerCostOff")]
         public float PowerCostOff = 35f;
+
+        [DataField("staminaCost")]
+        public float StaminaCost = 25f;
     }
 
     /// <summary>
