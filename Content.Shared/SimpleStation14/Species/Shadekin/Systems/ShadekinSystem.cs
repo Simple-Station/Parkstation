@@ -9,6 +9,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
     {
         [Dependency] private readonly ShadekinPowerSystem _powerSystem = default!;
         [Dependency] private readonly INetManager _net = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         public override void Initialize()
         {
@@ -35,7 +36,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
                 else
                 {
                     args.PushMarkup(Loc.GetString("shadekin-power-examined-other",
-                        ("target", Identity.Entity(uid, EntityManager)),
+                        ("target", Identity.Entity(uid, _entityManager)),
                         ("powerType", powerType)
                     ));
                 }
@@ -54,8 +55,9 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             base.Update(frameTime);
 
             // Update power level for all shadekin
-            foreach (var component in EntityManager.EntityQuery<ShadekinComponent>())
+            foreach (var component in _entityManager.EntityQuery<ShadekinComponent>())
             {
+                // These MUST be  TryUpdatePowerLevel  THEN  TryBlackeye  or else init will always blackeye
                 _powerSystem.TryUpdatePowerLevel(component.Owner, frameTime);
                 if (!component.Blackeye) _powerSystem.TryBlackeye(component.Owner);
             }

@@ -34,7 +34,7 @@
   id: ShadekinRest
   name: action-name-shadekin-rest
   description: action-description-shadekin-rest
-  useDelay: 1
+  useDelay: 60
   itemIconStyle: NoItem
   icon:
     sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
