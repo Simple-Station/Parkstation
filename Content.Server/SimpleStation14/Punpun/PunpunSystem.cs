@@ -107,10 +107,7 @@ public sealed class PunpunSystem : EntitySystem
             var itemName = metaCompItem.EntityName;
             metaCompItem.EntityName = EntityManager.GetComponent<MetaDataComponent>(uid).EntityName + "'s " + itemName;
         }
-        else
-        {
-            _entityManager.DeleteEntity(itemEnt);
-        }
+        else _entityManager.DeleteEntity(itemEnt);
     }
 
     // Checks if an item exists in a slot, and returns its name.
