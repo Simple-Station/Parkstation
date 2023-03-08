@@ -95,7 +95,7 @@ namespace Content.Server.Bed.Sleep
 
         private void OnSleepAction(EntityUid uid, MobStateComponent component, SleepActionEvent args)
         {
-            TrySleeping(uid);
+            if (TrySleeping(uid)) args.Handled = true;
         }
 
         private void OnWakeAction(EntityUid uid, MobStateComponent component, WakeActionEvent args)
