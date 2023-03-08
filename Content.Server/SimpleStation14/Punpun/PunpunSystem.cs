@@ -6,7 +6,7 @@ using Content.Shared.Mobs.Components;
 
 namespace Content.Server.SimpleStation14.Punpun;
 
-public class PunpunSystem : EntitySystem
+public sealed class PunpunSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
