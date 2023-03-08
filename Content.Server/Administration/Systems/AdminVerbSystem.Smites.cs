@@ -830,7 +830,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = "Bookify",
             Category = VerbCategory.Smite,
-            IconTexture = "/Textures/Objects/Misc/books.rsi/book_boneworking.png",
+            Icon = new SpriteSpecifier.Rsi(new ResourcePath("/Textures/Objects/Misc/books.rsi"), "book_boneworking"),
             Act = () =>
             {
                 SoundSystem.Play("/Audio/SimpleStation14/Admin/Smites/bookify.ogg", Filter.Pvs(args.Target), args.Target);
@@ -845,7 +845,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = "Smite",
             Category = VerbCategory.Smite,
-            IconTexture = "/Textures/Effects/lightning.rsi/lightning_2.png",
+            Icon = new SpriteSpecifier.Rsi(new ResourcePath("/Textures/Effects/lightning.rsi"), "lightning_2"),
             Act = async () =>
             {
                 SoundSystem.Play("/Audio/SimpleStation14/Admin/Smites/smite.ogg", Filter.Pvs(args.Target), args.Target);
@@ -861,7 +861,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = "Roleplay",
             Category = VerbCategory.Smite,
-            IconTexture = "/Textures/Markers/jobs.rsi/centcom.png",
+            Icon = new SpriteSpecifier.Rsi(new ResourcePath("/Textures/Markers/jobs.rsi"), "centcom"),
             Act = () =>
             {
                 SoundSystem.Play("/Audio/SimpleStation14/Admin/Smites/pleaseroleplay.ogg", Filter.Entities(args.Target), args.Target);
@@ -875,7 +875,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = "Man up",
             Category = VerbCategory.Smite,
-            IconTexture = "/Textures/Markers/jobs.rsi/centcom.png",
+            Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Markers/jobs.rsi/centcom.png")),
             Act = () =>
             {
                 SoundSystem.Play("/Audio/SimpleStation14/Admin/Smites/manup.ogg", Filter.Entities(args.Target), args.Target);

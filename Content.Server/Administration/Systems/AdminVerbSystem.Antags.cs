@@ -55,7 +55,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = "Make Minor",
             Category = VerbCategory.Antag,
-            IconTexture = "/Textures/Structures/Wallmounts/posters.rsi/poster5_contraband.png",
+            Icon = new SpriteSpecifier.Rsi((new ResourcePath("/Textures/Structures/Wallmounts/posters.rsi")), "poster5_contraband"),
             Act = () =>
             {
                 if (targetMindComp.Mind == null || targetMindComp.Mind.Session == null)
@@ -72,7 +72,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = "Make Wizard",
             Category = VerbCategory.Antag,
-            IconTexture = "/Textures/Structures/Wallmounts/posters.rsi/poster5_contraband.png",
+            Icon = new SpriteSpecifier.Rsi((new ResourcePath("/Textures/Structures/Wallmounts/posters.rsi")), "poster5_contraband"),
             Act = () =>
             {
                 if (targetMindComp.Mind == null || targetMindComp.Mind.Session == null)
