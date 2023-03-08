@@ -3,6 +3,7 @@ using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Robust.Shared.Network;
 using Content.Shared.IdentityManagement;
 using Content.Shared.SimpleStation14.Species.Shadekin.Events;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 {
@@ -18,6 +19,10 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
             SubscribeLocalEvent<ShadekinComponent, ExaminedEvent>(OnExamine);
             SubscribeLocalEvent<ShadekinComponent, ComponentInit>(OnInit);
+
+            SubscribeLocalEvent<ShadekinComponent, ComponentGetState>(GetCompState);
+            SubscribeLocalEvent<ShadekinComponent, ComponentHandleState>(HandleCompState);
+
             // Due to duplicate subscriptions, removal of the alert is in ShadekinDarkenSystem
         }
 
@@ -52,18 +57,63 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         }
 
 
+        private void GetCompState(EntityUid uid, ShadekinComponent component, ref ComponentGetState args)
+        {
+            args.State = new ShadekinComponentState
+            {
+                PowerLevel = component.PowerLevel,
+                PowerLevelMax = component.PowerLevelMax,
+                PowerLevelMin = component.PowerLevelMin,
+                PowerLevelGain = component.PowerLevelGain,
+                PowerLevelGainMultiplier = component.PowerLevelGainMultiplier,
+                PowerLevelGainEnabled = component.PowerLevelGainEnabled,
+                Blackeye = component.Blackeye
+            };
+        }
+
+        private void HandleCompState(EntityUid uid, ShadekinComponent component, ref ComponentHandleState args)
+        {
+            if (args.Current is not ShadekinComponentState shadekin)
+            {
+                return;
+            }
+
+            component.PowerLevel = shadekin.PowerLevel;
+            component.PowerLevelMax = shadekin.PowerLevelMax;
+            component.PowerLevelMin = shadekin.PowerLevelMin;
+            component.PowerLevelGain = shadekin.PowerLevelGain;
+            component.PowerLevelGainMultiplier = shadekin.PowerLevelGainMultiplier;
+            component.PowerLevelGainEnabled = shadekin.PowerLevelGainEnabled;
+            component.Blackeye = shadekin.Blackeye;
+        }
+
+
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
 
             // Update power level for all shadekin
-            foreach (var component in _entityManager.EntityQuery<ShadekinComponent>())
+            if (_net.IsServer)
             {
-                // These MUST be  TryUpdatePowerLevel  THEN  TryBlackeye  or else init will always blackeye
-                _powerSystem.TryUpdatePowerLevel(component.Owner, _net.IsClient ? frameTime / 10 : frameTime);
-                if (!component.Blackeye) _powerSystem.TryBlackeye(component.Owner);
+                foreach (var component in _entityManager.EntityQuery<ShadekinComponent>())
+                {
+                    // These MUST be  TryUpdatePowerLevel  THEN  TryBlackeye  or else init will always blackeye
+                    _powerSystem.TryUpdatePowerLevel(component.Owner, frameTime);
+                    if (!component.Blackeye) _powerSystem.TryBlackeye(component.Owner);
 
-                _powerSystem.UpdateAlert(component.Owner, true, component.PowerLevel);
+                    component.Accumulator += frameTime;
+                    if (component.Accumulator < 5f) continue;
+                    component.Accumulator = 0f;
+
+                    Dirty(component);
+                }
+            }
+            if (_net.IsClient)
+            {
+                foreach (var component in _entityManager.EntityQuery<ShadekinComponent>())
+                {
+                    _powerSystem.UpdateAlert(component.Owner, true, component.PowerLevel);
+                }
             }
         }
     }

@@ -1,12 +1,16 @@
 using Content.Shared.SimpleStation14.Species.Shadekin.Systems;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
 {
-    [RegisterComponent]
-    public sealed class SharedShadekinComponent : Component
+    [RegisterComponent, NetworkedComponent()]
+    public sealed class ShadekinComponent : Component
     {
         ShadekinPowerSystem _powerSystem = new();
+
+        [ViewVariables(VVAccess.ReadOnly)]
+        public float Accumulator = 0f;
 
 
         // Darkening
@@ -42,8 +46,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
         [ViewVariables(VVAccess.ReadWrite)]
         public float PowerLevel {
             get => _powerLevel;
-            [Obsolete("Use ShadekinPowerSystem.SetPowerLevel instead.")]
-            set => _powerSystem.SetPowerLevel(this.Owner, value);
+            set => _powerLevel = Math.Clamp(value, PowerLevelMin, PowerLevelMax);
         }
         public float _powerLevel = 0f;
 
@@ -95,30 +98,18 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
             { ShadekinPowerThreshold.Tired, 50.0f },
             { ShadekinPowerThreshold.Min, 0.0f },
         };
+    }
 
-
-        [Serializable, NetSerializable]
-        protected sealed class ShadekinComponentState : ComponentState
-        {
-            public float PowerLevel { get; }
-            public float PowerLevelMax { get; }
-            public float PowerLevelMin { get; }
-            public float PowerLevelGain { get; }
-            public float PowerLevelGainMultiplier { get; }
-            public bool PowerLevelGainEnabled { get; }
-            public bool Blackeye { get; }
-
-            public ShadekinComponentState(float powerLevel, float powerLevelMax, float powerLevelMin, float powerLevelGain, float powerLevelGainMultiplier, bool powerLevelGainEnabled, bool blackeye)
-            {
-                PowerLevel = powerLevel;
-                PowerLevelMax = powerLevelMax;
-                PowerLevelMin = powerLevelMin;
-                PowerLevelGain = powerLevelGain;
-                PowerLevelGainMultiplier = powerLevelGainMultiplier;
-                PowerLevelGainEnabled = powerLevelGainEnabled;
-                Blackeye = blackeye;
-            }
-        }
+    [Serializable, NetSerializable]
+    public sealed class ShadekinComponentState : ComponentState
+    {
+        public float PowerLevel { get; init; }
+        public float PowerLevelMax { get; init; }
+        public float PowerLevelMin { get; init; }
+        public float PowerLevelGain { get; init; }
+        public float PowerLevelGainMultiplier { get; init; }
+        public bool PowerLevelGainEnabled { get; init; }
+        public bool Blackeye { get; init; }
     }
 
     [Serializable, NetSerializable]
