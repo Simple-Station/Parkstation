@@ -2,6 +2,7 @@ using Content.Shared.Examine;
 using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Robust.Shared.Network;
 using Content.Shared.IdentityManagement;
+using Content.Shared.SimpleStation14.Species.Shadekin.Events;
 
 namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 {
@@ -17,6 +18,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
             SubscribeLocalEvent<ShadekinComponent, ExaminedEvent>(OnExamine);
             SubscribeLocalEvent<ShadekinComponent, ComponentInit>(OnInit);
+            // Due to duplicate subscriptions, removal of the alert is in ShadekinDarkenSystem
         }
 
         private void OnExamine(EntityUid uid, ShadekinComponent component, ExaminedEvent args)
@@ -58,8 +60,10 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             foreach (var component in _entityManager.EntityQuery<ShadekinComponent>())
             {
                 // These MUST be  TryUpdatePowerLevel  THEN  TryBlackeye  or else init will always blackeye
-                _powerSystem.TryUpdatePowerLevel(component.Owner, frameTime);
+                _powerSystem.TryUpdatePowerLevel(component.Owner, _net.IsClient ? frameTime / 10 : frameTime);
                 if (!component.Blackeye) _powerSystem.TryBlackeye(component.Owner);
+
+                _powerSystem.UpdateAlert(component.Owner, true, component.PowerLevel);
             }
         }
     }

@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Light.Components;
 using Content.Shared.SimpleStation14.Species.Shadekin.Components;
+using Content.Shared.SimpleStation14.Species.Shadekin.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 
@@ -8,6 +9,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 {
     public sealed class ShadekinDarkenSystem : EntitySystem
     {
+        [Dependency] private readonly ShadekinPowerSystem _powerSystem = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IEntitySystemManager _systemManager = default!;
         [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
@@ -121,6 +123,8 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             }
 
             component.DarkenedLights.Clear();
+
+            _powerSystem.UpdateAlert(component.Owner, false);
         }
 
 

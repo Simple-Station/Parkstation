@@ -1,3 +1,5 @@
+using Content.Shared.Alert;
+using Content.Shared.Rounding;
 using Content.Shared.SimpleStation14.Species.Shadekin.Components;
 using Content.Shared.SimpleStation14.Species.Shadekin.Events;
 using System.Threading.Tasks;
@@ -7,6 +9,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
     public class ShadekinPowerSystem : EntitySystem
     {
         [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private readonly AlertsSystem _alertsSystem = default!;
 
 
         /// <param name="PowerLevel">The current power level.</param>
@@ -57,6 +60,35 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
             // Return the name of the threshold
             return powerType;
+        }
+
+        /// <summary>
+        ///    Sets the alert level of a shadekin.
+        /// </summary>
+        /// <param name="uid">The entity uid.</param>
+        /// <param name="PowerLevel">The current power level.</param>
+        public void UpdateAlert(EntityUid uid, bool enabled, float? PowerLevel = null)
+        {
+            if (!enabled || PowerLevel == null)
+            {
+                _alertsSystem.ClearAlert(uid, AlertType.ShadekinPower);
+                return;
+            }
+
+            // Get shadekin component
+            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
+            {
+                Logger.Error("Tried to update alert of entity without shadekin component.");
+                throw new InvalidOperationException("Tried to update alert of entity without shadekin component.");
+            }
+
+            // Get the power as a short from 0-5
+            var power = GetLevelInt((float) PowerLevel);
+            power = ContentHelpers.RoundToLevels(power, component.PowerLevelMax, 5);
+            power = Math.Clamp(power, 0, 5);
+
+            // Set the alert level
+            _alertsSystem.ShowAlert(uid, AlertType.ShadekinPower, (short) power);
         }
 
 

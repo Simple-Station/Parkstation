@@ -4,7 +4,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
 {
     [RegisterComponent]
-    public sealed class ShadekinComponent : Component
+    public sealed class SharedShadekinComponent : Component
     {
         ShadekinPowerSystem _powerSystem = new();
 
@@ -95,6 +95,30 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
             { ShadekinPowerThreshold.Tired, 50.0f },
             { ShadekinPowerThreshold.Min, 0.0f },
         };
+
+
+        [Serializable, NetSerializable]
+        protected sealed class ShadekinComponentState : ComponentState
+        {
+            public float PowerLevel { get; }
+            public float PowerLevelMax { get; }
+            public float PowerLevelMin { get; }
+            public float PowerLevelGain { get; }
+            public float PowerLevelGainMultiplier { get; }
+            public bool PowerLevelGainEnabled { get; }
+            public bool Blackeye { get; }
+
+            public ShadekinComponentState(float powerLevel, float powerLevelMax, float powerLevelMin, float powerLevelGain, float powerLevelGainMultiplier, bool powerLevelGainEnabled, bool blackeye)
+            {
+                PowerLevel = powerLevel;
+                PowerLevelMax = powerLevelMax;
+                PowerLevelMin = powerLevelMin;
+                PowerLevelGain = powerLevelGain;
+                PowerLevelGainMultiplier = powerLevelGainMultiplier;
+                PowerLevelGainEnabled = powerLevelGainEnabled;
+                Blackeye = blackeye;
+            }
+        }
     }
 
     [Serializable, NetSerializable]

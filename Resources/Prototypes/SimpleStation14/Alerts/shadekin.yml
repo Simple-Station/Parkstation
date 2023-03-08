@@ -1,0 +1,20 @@
+- type: alert
+  id: ShadekinPower
+  category: ShadekinPower
+  icons:
+  - sprite: /Textures/Interface/Alerts/stamina.rsi
+    state: stamina0
+  - sprite: /Textures/Interface/Alerts/stamina.rsi
+    state: stamina1
+  - sprite: /Textures/Interface/Alerts/stamina.rsi
+    state: stamina2
+  - sprite: /Textures/Interface/Alerts/stamina.rsi
+    state: stamina3
+  - sprite: /Textures/Interface/Alerts/stamina.rsi
+    state: stamina4
+  - sprite: /Textures/Interface/Alerts/stamina.rsi
+    state: stamina5
+  name: alerts-shadekin-power-name
+  description: alerts-shadekin-power-desc
+  minSeverity: 0
+  maxSeverity: 5
