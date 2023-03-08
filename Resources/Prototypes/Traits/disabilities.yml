@@ -39,6 +39,8 @@
   id: Paracusia
   name: trait-paracusia-name
   description: trait-paracusia-desc
+  cost: 2
+  category: Negative
   components:
     - type: Paracusia
       minTimeBetweenIncidents: 0.1
@@ -47,9 +49,9 @@
       sounds:
         collection: Paracusia
 
-- type: trait
-  id: Muted
-  name: trait-muted-name
-  description: trait-muted-desc
-  components:
-    - type: Muted
+# - type: trait
+#   id: Muted
+#   name: trait-muted-name
+#   description: trait-muted-desc
+#   components:
+#     - type: Muted
