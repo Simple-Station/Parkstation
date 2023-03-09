@@ -62,8 +62,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             args.State = new ShadekinComponentState
             {
                 PowerLevel = component.PowerLevel,
-                PowerLevelMax = component.PowerLevelMax,
-                PowerLevelMin = component.PowerLevelMin,
                 PowerLevelGain = component.PowerLevelGain,
                 PowerLevelGainMultiplier = component.PowerLevelGainMultiplier,
                 PowerLevelGainEnabled = component.PowerLevelGainEnabled,
@@ -79,8 +77,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             }
 
             component.PowerLevel = shadekin.PowerLevel;
-            component.PowerLevelMax = shadekin.PowerLevelMax;
-            component.PowerLevelMin = shadekin.PowerLevelMin;
             component.PowerLevelGain = shadekin.PowerLevelGain;
             component.PowerLevelGainMultiplier = shadekin.PowerLevelGainMultiplier;
             component.PowerLevelGainEnabled = shadekin.PowerLevelGainEnabled;

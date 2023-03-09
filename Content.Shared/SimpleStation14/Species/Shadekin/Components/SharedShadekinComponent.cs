@@ -58,13 +58,13 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
         ///     Don't let PowerLevel go above this value.
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
-        public float PowerLevelMax = (float) PowerThresholds[ShadekinPowerThreshold.Max];
+        public readonly float PowerLevelMax = (float) PowerThresholds[ShadekinPowerThreshold.Max];
 
         /// <summary>
         ///     Blackeyes if PowerLevel is below this value.
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
-        public float PowerLevelMin = (float) PowerThresholds[ShadekinPowerThreshold.Min];
+        public readonly float PowerLevelMin = (float) PowerThresholds[ShadekinPowerThreshold.Min];
 
         /// <summary>
         ///     How much energy is gained per second.
@@ -108,8 +108,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
     public sealed class ShadekinComponentState : ComponentState
     {
         public float PowerLevel { get; init; }
-        public float PowerLevelMax { get; init; }
-        public float PowerLevelMin { get; init; }
         public float PowerLevelGain { get; init; }
         public float PowerLevelGainMultiplier { get; init; }
         public bool PowerLevelGainEnabled { get; init; }
