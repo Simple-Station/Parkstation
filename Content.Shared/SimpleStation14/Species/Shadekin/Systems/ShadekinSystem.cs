@@ -28,7 +28,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
         private void OnExamine(EntityUid uid, ShadekinComponent component, ExaminedEvent args)
         {
-            if (args.IsInDetailsRange && !_net.IsClient)
+            if (args.IsInDetailsRange)
             {
                 var powerType = _powerSystem.GetLevelName(component.PowerLevel);
 
