@@ -6,7 +6,7 @@ soft_max_players = 48
 type = 1
 lobbyenabled = true
 lobbyduration = 180
-role_timers = true
+role_timers = false
 fallbackpreset = "extended"
 map_pool = "ParkMapPool"
 

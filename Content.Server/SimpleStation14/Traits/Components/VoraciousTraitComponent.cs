@@ -1,5 +1,8 @@
 namespace Content.Shared.SimpleStation14.Traits
 {
+    /// <summary>
+    ///     Owner entity can eat/drink much faster.
+    /// </summary>
     [RegisterComponent]
     public sealed class VoraciousTraitComponent : Component
     {

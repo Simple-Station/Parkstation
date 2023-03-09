@@ -10,7 +10,7 @@ namespace Content.Server.Objectives.Conditions
 {
     [UsedImplicitly]
     [DataDefinition]
-    public sealed class GenericFreewillCondition : IObjectiveCondition, ISerializationHooks
+    public sealed class GenericFlawedCondition : IObjectiveCondition, ISerializationHooks
     {
         private Mind.Mind? _mind;
 
@@ -25,7 +25,7 @@ namespace Content.Server.Objectives.Conditions
 
         public IObjectiveCondition GetAssigned(Mind.Mind mind)
         {
-            return new GenericFreewillCondition
+            return new GenericFlawedCondition
             {
                 _mind = mind,
                 _title = _title,
@@ -89,7 +89,7 @@ namespace Content.Server.Objectives.Conditions
 
         public bool Equals(IObjectiveCondition? other)
         {
-            return other is GenericFreewillCondition esc && Equals(_mind, esc._mind);
+            return other is GenericFlawedCondition esc && Equals(_mind, esc._mind);
         }
 
         public override bool Equals(object? obj)
@@ -100,7 +100,7 @@ namespace Content.Server.Objectives.Conditions
                 return true;
             if (obj.GetType() != GetType())
                 return false;
-            return Equals((GenericFreewillCondition) obj);
+            return Equals((GenericFlawedCondition) obj);
         }
 
         public override int GetHashCode()

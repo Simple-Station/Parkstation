@@ -13,7 +13,7 @@ public sealed partial class AdminVerbSystem
 {
     [Dependency] private readonly ZombifyOnDeathSystem _zombify = default!;
     [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
-    [Dependency] private readonly MinorRuleSystem _minorRule = default!;
+    [Dependency] private readonly FlawedRuleSystem _flawedRule = default!;
     [Dependency] private readonly WizardRuleSystem _wizardRule = default!;
     [Dependency] private readonly NukeopsRuleSystem _nukeopsRule = default!;
     [Dependency] private readonly PiratesRuleSystem _piratesRule = default!;
@@ -50,9 +50,9 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(traitor);
 
-        Verb minor = new()
+        Verb flawed = new()
         {
-            Text = "Make Minor",
+            Text = "Make Flawed",
             Category = VerbCategory.Antag,
             IconTexture = "/Textures/Structures/Wallmounts/posters.rsi/poster5_contraband.png",
             Act = () =>
@@ -60,12 +60,12 @@ public sealed partial class AdminVerbSystem
                 if (targetMindComp.Mind == null || targetMindComp.Mind.Session == null)
                     return;
 
-                _minorRule.MakeMinor(targetMindComp.Mind.Session);
+                _flawedRule.MakeFlawed(targetMindComp.Mind.Session);
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-minor"),
+            Message = Loc.GetString("admin-verb-make-flawed"),
         };
-        args.Verbs.Add(minor);
+        args.Verbs.Add(flawed);
 
         Verb wizard = new()
         {

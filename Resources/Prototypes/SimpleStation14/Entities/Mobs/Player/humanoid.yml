@@ -1,15 +1,3 @@
-- type: entity
-  name: Urist McBelt
-  id: UristMcBelt
-  noSpawn: true
-  parent: MobHuman
-  components:
-    - type: Item
-    - type: GhostTakeoverAvailable
-      name: Urist McBelt
-      description: |
-        You (probably) came from a belt, you are now a human that can be picked up, do things.
-
 # Oldstation
 - type: entity
   parent: MobHuman
@@ -118,6 +106,7 @@
         180: 0.4
         240: 0.2
     - type: MobState
+    - type: MobThresholds
       thresholds:
         0: Alive
         300: Dead
@@ -167,6 +156,7 @@
         180: 0.4
         240: 0.2
     - type: MobState
+    - type: MobThresholds
       thresholds:
         0: Alive
         300: Dead

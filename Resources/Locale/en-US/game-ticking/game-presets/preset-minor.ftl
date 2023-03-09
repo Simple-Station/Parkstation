@@ -1,32 +1,32 @@
-## minor
+## flawed
 
-# Shown at the end of a round of minor antags
-minor-round-end-result = {$minorCount ->
-    [one] There was one minor antag.
-    *[other] There were {$minorCount} minor antags.
+# Shown at the end of a round of flawed antags
+flawed-round-end-result = {$flawedCount ->
+    [one] There was one flawed antag.
+    *[other] There were {$flawedCount} flawed antags.
 }
 
-# Shown at the end of a round of minor antags
-minor-user-was-a-minor = [color=gray]{$user}[/color] was a minor antag.
-minor-user-was-a-minor-named = [color=White]{$name}[/color] ([color=gray]{$user}[/color]) was a minor antag.
-minor-was-a-minor-named = [color=White]{$name}[/color] was a minor antag.
+# Shown at the end of a round of flawed antags
+flawed-user-was-a-flawed = [color=gray]{$user}[/color] was a flawed antag.
+flawed-user-was-a-flawed-named = [color=White]{$name}[/color] ([color=gray]{$user}[/color]) was a flawed antag.
+flawed-was-a-flawed-named = [color=White]{$name}[/color] was a flawed antag.
 
-minor-user-was-a-minor-with-objectives = [color=gray]{$user}[/color] was a minor antag who had the following objective:
-minor-user-was-a-minor-with-objectives-named = [color=White]{$name}[/color] ([color=gray]{$user}[/color]) was a minor antag who had the following objectives:
-minor-was-a-minor-with-objectives-named = [color=White]{$name}[/color] was a minor antag who had the following objectives:
+flawed-user-was-a-flawed-with-objectives = [color=gray]{$user}[/color] was a flawed antag who had the following objective:
+flawed-user-was-a-flawed-with-objectives-named = [color=White]{$name}[/color] ([color=gray]{$user}[/color]) was a flawed antag who had the following objectives:
+flawed-was-a-flawed-with-objectives-named = [color=White]{$name}[/color] was a flawed antag who had the following objectives:
 
-preset-minor-objective-issuer-freewill = [color=#87cefa]Free Will[/color]
+preset-flawed-objective-issuer-flawed = [color=#87cefa]Their own flaws[/color]
 
-minor-objective-condition-success = {$condition} | [color={$markupColor}]Success![/color]
-minor-objective-condition-fail = {$condition} | [color={$markupColor}]Failure![/color] ({$progress}%)
+flawed-objective-condition-success = {$condition} | [color={$markupColor}]Success![/color]
+flawed-objective-condition-fail = {$condition} | [color={$markupColor}]Failure![/color] ({$progress}%)
 
-minor-title = minor antag
-minor-description = This gamemode shouldn't be used..
-minor-not-enough-ready-players = Not enough players readied up for the game! There were {$readyPlayersCount} players readied up out of {$minimumPlayers} needed.
-minor-no-one-ready = No players readied up! Can't start minor antag.
+flawed-title = flawed antag
+flawed-description = This gamemode shouldn't be used..
+flawed-not-enough-ready-players = Not enough players readied up for the game! There were {$readyPlayersCount} players readied up out of {$minimumPlayers} needed.
+flawed-no-one-ready = No players readied up! Can't start flawed antag.
 
-## minorRole
+## flawedRole
 
-# minorRole
-minor-role-greeting =
-    You are an agent of your free will.
+# flawedRole
+flawed-role-greeting =
+    You are an agent of your own flaws.

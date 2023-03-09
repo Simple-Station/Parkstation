@@ -9,6 +9,10 @@
   - type: Faction
     factions:
     - Pet
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
 
 - type: entity
   name: Randall
@@ -21,6 +25,10 @@
   - type: Faction
     factions:
     - Pet
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
 
 - type: entity
   name: Terrance
@@ -33,3 +41,7 @@
   - type: Faction
     factions:
     - Pet
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male

@@ -79,10 +79,10 @@
     id: Wizard
 
 - type: gameRule
-  id: Minor
+  id: Flawed
   config:
     !type:GenericGameRuleConfiguration
-    id: Minor
+    id: Flawed
 
 # event schedulers
 - type: gameRule

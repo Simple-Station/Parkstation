@@ -2,7 +2,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Content.Shared.Abilities;
+using Content.Shared.SimpleStation14.Traits;
 
 namespace Content.Client.SimpleStation14.Overlays
 {

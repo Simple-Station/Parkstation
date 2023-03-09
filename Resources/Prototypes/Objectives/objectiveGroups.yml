@@ -17,7 +17,7 @@
     IDComputerBoardStealObjective: 1
     MagbootsStealObjective: 1
     SupplyConsoleBoardStealObjective: 1
-    MantisKnifeStealObjective: 1
+    # MantisKnifeStealObjective: 1
     # PonderingOrbTelepathicHOSStealObjective: 0.5
     # CaptainGunStealObjective: 0.5
     # CaptainJetpackStealObjective: 0.5
@@ -32,8 +32,8 @@
   id: TraitorObjectiveGroupState
   weights:
     EscapeShuttleObjective: 1
-    BecomePsionicObjective: 1
-    BecomeGolemObjective: 0.67
+    # BecomePsionicObjective: 1
+    # BecomeGolemObjective: 0.67
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial

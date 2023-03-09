@@ -1,69 +1,188 @@
 - type: objective
-  id: FreewillAddictObjective
-  issuer: Your free will
+  id: FlawedAddictObjective
+  issuer: Your own personal flaws
   difficultyOverride: 2.75
+  requirements:
+    # Command
+    - !type:NotRoleRequirement
+      roleId: HeadOfSecurity
+    - !type:NotRoleRequirement
+      roleId: HeadOfPersonnel
+    - !type:NotRoleRequirement
+      roleId: ChiefMedicalOfficer
+    - !type:NotRoleRequirement
+      roleId: ChiefEngineer
+    - !type:NotRoleRequirement
+      roleId: ResearchDirector
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
+    - !type:NotRoleRequirement
+      roleId: ChiefServiceSupervisor
+    - !type:NotRoleRequirement
+      roleId: Captain
+    # Misc
+    - !type:NotRoleRequirement
+      roleId: Warden
+    - !type:NotRoleRequirement
+      roleId: Chaplain
   conditions:
-    - !type:GenericFreewillCondition
+    - !type:GenericFlawedCondition
       title: objective-condition-addict-title
       description: objective-condition-addict-description
       icon:
-        sprite: Clothing/Hands/Gloves/fingerless.rsi
-        state: icon
+        sprite: Objects/Specific/Chemistry/pills.rsi
+        state: pill
 
 - type: objective
-  id: FreewillDealerObjective
-  issuer: Your free will
+  id: FlawedDealerObjective
+  issuer: Your own personal flaws
   difficultyOverride: 2.75
+  requirements:
+    # Command
+    - !type:NotRoleRequirement
+      roleId: HeadOfSecurity
+    - !type:NotRoleRequirement
+      roleId: HeadOfPersonnel
+    - !type:NotRoleRequirement
+      roleId: ChiefMedicalOfficer
+    - !type:NotRoleRequirement
+      roleId: ChiefEngineer
+    - !type:NotRoleRequirement
+      roleId: ResearchDirector
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
+    - !type:NotRoleRequirement
+      roleId: ChiefServiceSupervisor
+    - !type:NotRoleRequirement
+      roleId: Captain
+    # Security
+    - !type:NotRoleRequirement
+      roleId: Warden
+    - !type:NotRoleRequirement
+      roleId: SecurityOfficer
   conditions:
-    - !type:GenericFreewillCondition
+    - !type:GenericFlawedCondition
       title: objective-condition-dealer-title
       description: objective-condition-dealer-description
       icon:
-        sprite: Clothing/Hands/Gloves/fingerless.rsi
-        state: icon
+        sprite: Objects/Economy/cash.rsi
+        state: cash
 
 - type: objective
-  id: FreewillGraffitiArtistObjective
-  issuer: Your free will
+  id: FlawedGraffitiArtistObjective
+  issuer: Your own personal flaws
   difficultyOverride: 2.75
+  requirements:
+    # Command
+    - !type:NotRoleRequirement
+      roleId: HeadOfSecurity
+    - !type:NotRoleRequirement
+      roleId: HeadOfPersonnel
+    - !type:NotRoleRequirement
+      roleId: ChiefMedicalOfficer
+    - !type:NotRoleRequirement
+      roleId: ChiefEngineer
+    - !type:NotRoleRequirement
+      roleId: ResearchDirector
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
+    - !type:NotRoleRequirement
+      roleId: ChiefServiceSupervisor
+    - !type:NotRoleRequirement
+      roleId: Captain
+    # Misc
+    - !type:NotRoleRequirement
+      roleId: Janitor
   conditions:
-    - !type:GenericFreewillCondition
+    - !type:GenericFlawedCondition
       title: objective-condition-graffiti-artist-title
       description: objective-condition-graffiti-artist-description
       icon:
-        sprite: Clothing/Hands/Gloves/fingerless.rsi
-        state: icon
+        sprite: Objects/Fun/spraycans.rsi
+        state: rainbow2
 
 - type: objective
-  id: FreewillLitterbugObjective
-  issuer: Your free will
+  id: FlawedLitterbugObjective
+  issuer: Your own personal flaws
   difficultyOverride: 2.75
+  requirements:
+    - !type:NotRoleRequirement
+      roleId: Janitor
   conditions:
-    - !type:GenericFreewillCondition
+    - !type:GenericFlawedCondition
       title: objective-condition-litterbug-title
       description: objective-condition-litterbug-description
       icon:
-        sprite: Clothing/Hands/Gloves/fingerless.rsi
-        state: icon
+        sprite: Objects/Consumable/Food/snacks.rsi
+        state: chips-trash
 
 - type: objective
-  id: FreewillObsessedObjective
-  issuer: Your free will
+  id: FlawedObsessedObjective
+  issuer: Your own personal flaws
   difficultyOverride: 2.75
+  requirements:
+    # Command
+    - !type:NotRoleRequirement
+      roleId: HeadOfSecurity
+    - !type:NotRoleRequirement
+      roleId: HeadOfPersonnel
+    - !type:NotRoleRequirement
+      roleId: ChiefMedicalOfficer
+    - !type:NotRoleRequirement
+      roleId: ChiefEngineer
+    - !type:NotRoleRequirement
+      roleId: ResearchDirector
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
+    - !type:NotRoleRequirement
+      roleId: ChiefServiceSupervisor
+    - !type:NotRoleRequirement
+      roleId: Captain
+    # Security
+    - !type:NotRoleRequirement
+      roleId: Warden
+    - !type:NotRoleRequirement
+      roleId: SecurityOfficer
+    - !type:NotRoleRequirement
+      roleId: SecurityCadet
   conditions:
-    - !type:GenericFreewillCondition
+    - !type:GenericFlawedCondition
       title: objective-condition-obsessed-title
       description: objective-condition-obsessed-description
       icon:
-        sprite: Clothing/Hands/Gloves/fingerless.rsi
+        sprite: Clothing/Eyes/Misc/blindfold.rsi
         state: icon
 
 - type: objective
-  id: FreewillPickpocketObjective
-  issuer: Your free will
+  id: FlawedPickpocketObjective
+  issuer: Your own personal flaws
   difficultyOverride: 2.75
+    # Command
+    - !type:NotRoleRequirement
+      roleId: HeadOfSecurity
+    - !type:NotRoleRequirement
+      roleId: HeadOfPersonnel
+    - !type:NotRoleRequirement
+      roleId: ChiefMedicalOfficer
+    - !type:NotRoleRequirement
+      roleId: ChiefEngineer
+    - !type:NotRoleRequirement
+      roleId: ResearchDirector
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
+    - !type:NotRoleRequirement
+      roleId: ChiefServiceSupervisor
+    - !type:NotRoleRequirement
+      roleId: Captain
+    # Security
+    - !type:NotRoleRequirement
+      roleId: Warden
+    - !type:NotRoleRequirement
+      roleId: SecurityOfficer
+    - !type:NotRoleRequirement
+      roleId: SecurityCadet
   conditions:
-    - !type:GenericFreewillCondition
+    - !type:GenericFlawedCondition
       title: objective-condition-pickpocket-title
       description: objective-condition-pickpocket-description
       icon:
@@ -71,36 +190,87 @@
         state: icon
 
 - type: objective
-  id: FreewillPoorWorkerObjective
-  issuer: Your free will
+  id: FlawedPoorWorkerObjective
+  issuer: Your own personal flaws
   difficultyOverride: 2.75
+    # Command
+    - !type:NotRoleRequirement
+      roleId: HeadOfSecurity
+    - !type:NotRoleRequirement
+      roleId: HeadOfPersonnel
+    - !type:NotRoleRequirement
+      roleId: ChiefMedicalOfficer
+    - !type:NotRoleRequirement
+      roleId: ChiefEngineer
+    - !type:NotRoleRequirement
+      roleId: ResearchDirector
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
+    - !type:NotRoleRequirement
+      roleId: ChiefServiceSupervisor
+    - !type:NotRoleRequirement
+      roleId: Captain
+    # Security
+    - !type:NotRoleRequirement
+      roleId: Warden
+    - !type:NotRoleRequirement
+      roleId: SecurityOfficer
   conditions:
-    - !type:GenericFreewillCondition
+    - !type:GenericFlawedCondition
       title: objective-condition-poor-worker-title
       description: objective-condition-poor-worker-description
       icon:
-        sprite: Clothing/Hands/Gloves/fingerless.rsi
-        state: icon
+        sprite: Objects/Consumable/Food/Baked/donut.rsi
+        state: jelly-homer
 
 - type: objective
-  id: FreewillSyndicateEnthusiastObjective
-  issuer: Your free will
+  id: FlawedSyndicateEnthusiastObjective
+  issuer: Your own personal flaws
   difficultyOverride: 2.75
+    # Command
+    - !type:NotRoleRequirement
+      roleId: HeadOfSecurity
+    - !type:NotRoleRequirement
+      roleId: HeadOfPersonnel
+    - !type:NotRoleRequirement
+      roleId: ChiefMedicalOfficer
+    - !type:NotRoleRequirement
+      roleId: ChiefEngineer
+    - !type:NotRoleRequirement
+      roleId: ResearchDirector
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
+    - !type:NotRoleRequirement
+      roleId: ChiefServiceSupervisor
+    - !type:NotRoleRequirement
+      roleId: Captain
+    # Security
+    - !type:NotRoleRequirement
+      roleId: Warden
+    - !type:NotRoleRequirement
+      roleId: SecurityOfficer
   conditions:
-    - !type:GenericFreewillCondition
+    - !type:GenericFlawedCondition
       title: objective-condition-syndicate-enthusiast-title
       description: objective-condition-syndicate-enthusiast-description
       icon:
-        sprite: Clothing/Hands/Gloves/fingerless.rsi
-        state: icon
+        sprite: Objects/Fun/toys.rsi
+        state: synb
 
 - type: objective
-  id: FreewillTwitchyObjective
+  id: FlawedTwitchyObjective
   difficultyOverride: 2.75
+    # Security
+    - !type:NotRoleRequirement
+      roleId: Warden
+    - !type:NotRoleRequirement
+      roleId: SecurityOfficer
+    - !type:NotRoleRequirement
+      roleId: HeadOfSecurity
   conditions:
-    - !type:GenericFreewillCondition
+    - !type:GenericFlawedCondition
       title: objective-condition-twitchy-title
       description: objective-condition-twitchy-description
       icon:
-        sprite: Clothing/Hands/Gloves/fingerless.rsi
-        state: icon
+        sprite: Effects/fire.rsi
+        state: fire

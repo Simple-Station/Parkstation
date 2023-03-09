@@ -67,7 +67,7 @@
 
 - type: humanoidBaseSprite
   id: MobSlimeMarking
-  layerAlpha: 0.68 # I fixed alpha for you wizden, but I'm not gonna PR it, fuck you
+  layerAlpha: 0.68 # I fixed alpha not applying to markings.
 
 - type: humanoidBaseSprite
   id: MobSlimeMarkingFollowSkin

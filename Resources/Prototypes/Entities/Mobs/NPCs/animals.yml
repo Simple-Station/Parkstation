@@ -734,7 +734,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.2
-      density: 100
+      density: 5
       mask:
       - SmallMobMask
       layer:
@@ -1614,9 +1614,12 @@
         Slash: 5
   - type: InputMover
   - type: MobMover
+  - type: Psionic
+    removable: false
   - type: Faction
     factions:
     - SimpleHostile
+    - PsionicInterloper
   - type: InteractionPopup
     successChance: 0 # Override the automatic success that would normally be inherited from MobCorgi.
     interactSuccessString: petting-success-corrupted-corgi # Normally impossible but added an easter egg just in case.
@@ -1635,7 +1638,7 @@
         Bloodloss:
           -0.25
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: CorporealSpirit
     damageModifierSet: Infernal
   - type: Temperature
     heatDamageThreshold: 4000 #They come from hell, so...
@@ -1959,13 +1962,13 @@
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
-  - type: GhostTakeoverAvailable
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    whitelistRequired: false
-    name: ghost-role-information-hamster-name
-    description: ghost-role-information-hamster-description
+  # - type: GhostTakeoverAvailable
+  #   makeSentient: true
+  #   allowSpeech: true
+  #   allowMovement: true
+  #   whitelistRequired: false
+  #   name: ghost-role-information-hamster-name
+  #   description: ghost-role-information-hamster-description
   - type: Speech
     speechSounds: Squeak
   - type: Sprite
@@ -2075,6 +2078,8 @@
   - type: Faction
     factions:
     - Pet
+  - type: RandomBark
+    barkMultiplier: 0.45
 
 - type: entity
   name: pig

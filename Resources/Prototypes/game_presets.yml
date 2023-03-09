@@ -6,7 +6,7 @@
   showInVote: false # secret
   description: survival-description
   rules:
-    - Minor
+    - Flawed
     - RampingStationEventScheduler
 
 - type: gamePreset
@@ -18,7 +18,7 @@
   showInVote: true
   description: extended-description
   rules:
-  - Minor
+  - Flawed
   - BasicStationEventScheduler
 
 - type: gamePreset
@@ -51,7 +51,7 @@
   showInVote: false
   rules:
     - Traitor
-    - Minor
+    - Flawed
     - BasicStationEventScheduler
 
 - type: gamePreset
@@ -97,7 +97,7 @@
   showInVote: false
   rules:
     - Nukeops
-    - Minor
+    - Flawed
     - BasicStationEventScheduler
 
 - type: gamePreset
@@ -113,7 +113,7 @@
   showInVote: false
   rules:
     - Zombie
-    - Minor
+    - Flawed
     - BasicStationEventScheduler
 
 - type: gamePreset
@@ -125,7 +125,7 @@
   showInVote: false
   rules:
     - Pirates
-    - Minor
+    - Flawed
     - BasicStationEventScheduler
 
 # - type: gamePreset
@@ -146,16 +146,16 @@
   showInVote: false
   rules:
     - Wizard
-    - Minor
+    - Flawed
     - BasicStationEventScheduler
 
 - type: gamePreset
-  id: Minor
-  name: minor-title
+  id: Flawed
+  name: flawed-title
   alias:
-    - minor
-  description: minor-description
+    - flawed
+  description: flawed-description
   showInVote: false
   rules:
-    - Minor
+    - Flawed
     - BasicStationEventScheduler

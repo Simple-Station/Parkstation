@@ -3,7 +3,7 @@ using System.Linq;
 using Content.Server.Database;
 using Content.Server.Chat.Managers;
 using Content.Server.Players;
-using Content.Server.SimpleStation14.Minor;
+using Content.Server.SimpleStation14.Flawed;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Roles;
@@ -18,7 +18,7 @@ using Content.Server.Objectives.Interfaces;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class MinorRuleSystem : GameRuleSystem
+public sealed class FlawedRuleSystem : GameRuleSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -28,18 +28,19 @@ public sealed class MinorRuleSystem : GameRuleSystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
 
-    private readonly SoundSpecifier _addedSound = new SoundPathSpecifier("/Audio/Misc/tatoralert.ogg");
-    public List<MinorRole> Minors = new();
+    private readonly SoundSpecifier _addedSound = new SoundPathSpecifier("/Audio/Animals/pig_oink.ogg");
+    public List<FlawedRole> Flawed = new();
 
-    public override string Prototype => "Minor";
-    private const string MinorPrototypeID = "Minor";
+    public override string Prototype => "Flawed";
+    private const string FlawedPrototypeID = "Flawed";
 
-    public int TotalMinors => Minors.Count;
+    public int TotalFlawed => Flawed.Count;
 
-    private int _playersPerMinor => _cfg.GetCVar(CCVars.MinorPlayersPerMinor);
-    private int _maxMinors => _cfg.GetCVar(CCVars.MinorMaxMinors);
+    private int _playersPerFlawed => _cfg.GetCVar(CCVars.FlawedPlayersPerFlawed);
+    private int _maxFlawed => _cfg.GetCVar(CCVars.FlawedMaxFlawed);
 
     private bool cont = true;
 
@@ -57,24 +58,24 @@ public sealed class MinorRuleSystem : GameRuleSystem
 
     public override void Ended()
     {
-        Minors.Clear();
+        Flawed.Clear();
     }
 
     private void OnStartAttempt(RoundStartAttemptEvent ev)
     {
         if (!RuleAdded) return;
 
-        var minPlayers = _cfg.GetCVar(CCVars.MinorMinPlayers);
+        var minPlayers = _cfg.GetCVar(CCVars.FlawedMinPlayers);
         if (!ev.Forced && ev.Players.Length < minPlayers)
         {
-            _chatManager.DispatchServerAnnouncement(Loc.GetString("minor-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
+            _chatManager.DispatchServerAnnouncement(Loc.GetString("flawed-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
             cont = false;
             return;
         }
 
         if (ev.Players.Length == 0)
         {
-            _chatManager.DispatchServerAnnouncement(Loc.GetString("minor-no-one-ready"));
+            _chatManager.DispatchServerAnnouncement(Loc.GetString("flawed-no-one-ready"));
             cont = false;
             return;
         }
@@ -85,15 +86,15 @@ public sealed class MinorRuleSystem : GameRuleSystem
         if (!RuleAdded) return;
         if (cont == false) return;
 
-        var numMinors = MathHelper.Clamp(ev.Players.Length / _playersPerMinor, 1, _maxMinors);
+        var numFlawed = MathHelper.Clamp(ev.Players.Length / _playersPerFlawed, 1, _maxFlawed);
 
-        var minorPool = FindPotentialMinors(ev);
-        var selectedMinors = PickMinors(numMinors, minorPool);
+        var flawedPool = FindPotentialFlawed(ev);
+        var selectedFlawed = PickFlawed(numFlawed, flawedPool);
 
-        foreach (var minor in selectedMinors) MakeMinor(minor);
+        foreach (var flawed in selectedFlawed) MakeFlawed(flawed);
     }
 
-    public List<IPlayerSession> FindPotentialMinors(RulePlayerJobsAssignedEvent ev)
+    public List<IPlayerSession> FindPotentialFlawed(RulePlayerJobsAssignedEvent ev)
     {
         var list = new List<IPlayerSession>(ev.Players).Where(x =>
             x.Data.ContentData()?.Mind?.AllRoles.All(role => role is not Content.Server.Roles.Job { CanBeAntag: false }) ?? false
@@ -109,79 +110,73 @@ public sealed class MinorRuleSystem : GameRuleSystem
             }
 
             var profile = ev.Profiles[player.UserId];
-            if (profile.AntagPreferences.Contains(MinorPrototypeID))
+            if (profile.AntagPreferences.Contains(FlawedPrototypeID))
             {
                 prefList.Add(player);
             }
         }
         if (prefList.Count == 0)
         {
-            Logger.InfoS("preset", "Insufficient preferred minors, picking at random.");
+            Logger.InfoS("preset", "Insufficient preferred flawed, picking at random.");
             prefList = list;
         }
         return prefList;
     }
 
-    public List<IPlayerSession> PickMinors(int minorCount, List<IPlayerSession> prefList)
+    public List<IPlayerSession> PickFlawed(int flawedCount, List<IPlayerSession> prefList)
     {
-        var results = new List<IPlayerSession>(minorCount);
+        var results = new List<IPlayerSession>(flawedCount);
         if (prefList.Count == 0)
         {
-            Logger.InfoS("preset", "Insufficient ready players to fill up with minors, stopping the selection.");
+            Logger.InfoS("preset", "Insufficient ready players to fill up with flawed, stopping the selection.");
             return results;
         }
 
-        for (var i = 0; i < minorCount; i++)
+        for (var i = 0; i < flawedCount; i++)
         {
-            var minor = _random.PickAndTake(prefList);
-            results.Add(minor);
-            Logger.InfoS("preset", $"Selected {minor.ConnectedClient.UserName} as a minor.");
+            var flawed = _random.PickAndTake(prefList);
+            results.Add(flawed);
+            Logger.InfoS("preset", $"Selected {flawed.ConnectedClient.UserName} as a flawed.");
         }
         return results;
     }
 
-    public async void MakeMinor(IPlayerSession minor)
+    public async void MakeFlawed(IPlayerSession flawed)
     {
-        Logger.InfoS("preset", $"Making {minor.ConnectedClient.UserName} a minor.");
-        var mind = minor.Data.ContentData()?.Mind;
+        Logger.InfoS("preset", $"Making {flawed.ConnectedClient.UserName} a flawed.");
+        var mind = flawed.Data.ContentData()?.Mind;
         if (mind == null)
         {
-            Logger.ErrorS("preset", "Failed getting mind for picked minor.");
+            Logger.ErrorS("preset", "Failed getting mind for picked flawed.");
             return;
         }
 
-        if (!await _db.GetWhitelistStatusAsync(minor.UserId))
+        if (_cfg.GetCVar(CCVars.WhitelistEnabled) && !await _db.GetWhitelistStatusAsync(flawed.UserId))
         {
-            Logger.ErrorS("preset", "Selected minor is not whitelisted, preventing their selection.");
+            Logger.ErrorS("preset", "Selected flawed is not whitelisted, preventing their selection.");
             return;
         }
 
-        if (mind.AllRoles.Count() > 1)
-        {
-            Logger.InfoS("preset", $"{minor.ConnectedClient.UserName} is already another antagonist.");
-            return;
-        }
+        var antagPrototype = _prototypeManager.Index<AntagPrototype>(FlawedPrototypeID);
+        var flawedRole = new FlawedRole(mind, antagPrototype);
+        mind.AddRole(flawedRole);
+        Flawed.Add(flawedRole);
+        flawedRole.GreetFlawed();
 
-        var antagPrototype = _prototypeManager.Index<AntagPrototype>(MinorPrototypeID);
-        var minorRole = new MinorRole(mind, antagPrototype);
-        mind.AddRole(minorRole);
-        Minors.Add(minorRole);
-        minorRole.GreetMinor();
+        var maxDifficulty = _cfg.GetCVar(CCVars.FlawedMaxDifficulty);
+        var maxPicks = _cfg.GetCVar(CCVars.FlawedMaxPicks);
 
-        var maxDifficulty = _cfg.GetCVar(CCVars.MinorMaxDifficulty);
-        var maxPicks = _cfg.GetCVar(CCVars.MinorMaxPicks);
-
-        // give minor antag their objective
+        // give flawed antag their objective
         var difficulty = 0f;
         for (var pick = 0; pick < maxPicks && maxDifficulty > difficulty; pick++)
         {
-            var objective = _objectivesManager.GetRandomObjective(minorRole.Mind, "MinorantagObjectiveGroup");
+            var objective = _objectivesManager.GetRandomObjective(flawedRole.Mind, "FlawedObjectiveGroups");
             if (objective == null) continue;
-            if (minorRole.Mind.TryAddObjective(objective)) difficulty += objective.Difficulty;
+            if (flawedRole.Mind.TryAddObjective(objective)) difficulty += objective.Difficulty;
         }
 
-        SoundSystem.Play(_addedSound.GetSound(), Filter.Empty().AddPlayer(minor), AudioParams.Default);
-        Logger.InfoS("preset", $"Made {minor.ConnectedClient.UserName} a minor.");
+        _audioSystem.PlayGlobal(_audioSystem.GetSound(_addedSound), flawed, AudioParams.Default);
+        Logger.InfoS("preset", $"Made {flawed.ConnectedClient.UserName} a flawed.");
         return;
     }
 
@@ -189,11 +184,11 @@ public sealed class MinorRuleSystem : GameRuleSystem
     {
         if (!RuleAdded)
             return;
-        if (TotalMinors >= _maxMinors)
+        if (TotalFlawed >= _maxFlawed)
             return;
         if (!ev.LateJoin)
             return;
-        if (!ev.Profile.AntagPreferences.Contains(MinorPrototypeID))
+        if (!ev.Profile.AntagPreferences.Contains(FlawedPrototypeID))
             return;
 
 
@@ -204,11 +199,11 @@ public sealed class MinorRuleSystem : GameRuleSystem
             return;
 
         // the nth player we adjust our probabilities around
-        int target = ((_playersPerMinor * TotalMinors) + 1);
+        int target = ((_playersPerFlawed * TotalFlawed) + 1);
 
-        float chance = (1f / _playersPerMinor);
+        float chance = (1f / _playersPerFlawed);
 
-        /// If we have too many minors, divide by how many players below target for next minor we are.
+        /// If we have too many flawed, divide by how many players below target for next flawed we are.
         if (ev.JoinOrder < target)
         {
             chance /= (target - ev.JoinOrder);
@@ -220,11 +215,11 @@ public sealed class MinorRuleSystem : GameRuleSystem
         if (chance > 1)
             chance = 1;
 
-        // Now that we've calculated our chance, roll and make them a minor if we roll under.
+        // Now that we've calculated our chance, roll and make them a flawed if we roll under.
         // You get one shot.
         if (_random.Prob((float) chance))
         {
-            MakeMinor(ev.Player);
+            MakeFlawed(ev.Player);
         }
     }
 
@@ -233,32 +228,32 @@ public sealed class MinorRuleSystem : GameRuleSystem
         if (!RuleAdded)
             return;
 
-        var result = Loc.GetString("minor-round-end-result", ("minorCount", Minors.Count));
+        var result = Loc.GetString("flawed-round-end-result", ("flawedCount", Flawed.Count));
 
-        foreach (var minor in Minors)
+        foreach (var flawed in Flawed)
         {
-            // var name = minor.Mind.CharacterName;
-            // minor.Mind.TryGetSession(out var session);
+            // var name = flawed.Mind.CharacterName;
+            // flawed.Mind.TryGetSession(out var session);
             // var username = session?.Name;
 
-            // result += $"\n- {name}, {username} was a minor antagonist, their objective was; '{minor.Mind.Briefing}'";
+            // result += $"\n- {name}, {username} was a flawed antagonist, their objective was; '{flawed.Mind.Briefing}'";
 
-            var name = minor.Mind.CharacterName;
-            minor.Mind.TryGetSession(out var session);
+            var name = flawed.Mind.CharacterName;
+            flawed.Mind.TryGetSession(out var session);
             var username = session?.Name;
 
-            var objectives = minor.Mind.AllObjectives.ToArray();
+            var objectives = flawed.Mind.AllObjectives.ToArray();
             if (objectives.Length == 0)
             {
                 if (username != null)
                 {
                     if (name == null)
-                        result += "\n" + Loc.GetString("minor-user-was-a-minor", ("user", username));
+                        result += "\n" + Loc.GetString("flawed-user-was-a-flawed", ("user", username));
                     else
-                        result += "\n" + Loc.GetString("minor-user-was-a-minor-named", ("user", username), ("name", name));
+                        result += "\n" + Loc.GetString("flawed-user-was-a-flawed-named", ("user", username), ("name", name));
                 }
                 else if (name != null)
-                    result += "\n" + Loc.GetString("minor-was-a-minor-named", ("name", name));
+                    result += "\n" + Loc.GetString("flawed-was-a-flawed-named", ("name", name));
 
                 continue;
             }
@@ -266,23 +261,23 @@ public sealed class MinorRuleSystem : GameRuleSystem
             if (username != null)
             {
                 if (name == null)
-                    result += "\n" + Loc.GetString("minor-user-was-a-minor-with-objectives", ("user", username));
+                    result += "\n" + Loc.GetString("flawed-user-was-a-flawed-with-objectives", ("user", username));
                 else
-                    result += "\n" + Loc.GetString("minor-user-was-a-minor-with-objectives-named", ("user", username), ("name", name));
+                    result += "\n" + Loc.GetString("flawed-user-was-a-flawed-with-objectives-named", ("user", username), ("name", name));
             }
             else if (name != null)
-                result += "\n" + Loc.GetString("minor-was-a-minor-with-objectives-named", ("name", name));
+                result += "\n" + Loc.GetString("flawed-was-a-flawed-with-objectives-named", ("name", name));
 
             foreach (var objectiveGroup in objectives.GroupBy(o => o.Prototype.Issuer))
             {
-                result += "\n" + Loc.GetString($"preset-minor-objective-issuer-{objectiveGroup.Key}");
+                result += "\n" + Loc.GetString($"preset-flawed-objective-issuer-{objectiveGroup.Key}");
 
                 foreach (var objective in objectiveGroup)
                 {
                     foreach (var condition in objective.Conditions)
                     {
                         result += "\n- " + Loc.GetString(
-                            "minor-objective-condition-success",
+                            "flawed-objective-condition-success",
                             ("condition", condition.Title),
                             ("markupColor", "green")
                         );
@@ -293,12 +288,12 @@ public sealed class MinorRuleSystem : GameRuleSystem
         ev.AddLine(result);
     }
 
-    public IEnumerable<MinorRole> GetOtherMinorsAliveAndConnected(Mind.Mind ourMind)
+    public IEnumerable<FlawedRole> GetOtherFlawedAliveAndConnected(Mind.Mind ourMind)
     {
-        var minors = Minors;
-        List<MinorRole> removeList = new();
+        var flawed = Flawed;
+        List<FlawedRole> removeList = new();
 
-        return Minors // don't want
+        return Flawed // don't want
             .Where(t => t.Mind is not null) // no mind
             .Where(t => t.Mind.OwnedEntity is not null) // no entity
             .Where(t => t.Mind.Session is not null) // player disconnected

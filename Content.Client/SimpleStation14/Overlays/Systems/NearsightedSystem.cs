@@ -1,9 +1,8 @@
-using Content.Shared.Abilities;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Network;
 using Content.Shared.Tag;
-using Content.Client.Inventory;
+using Content.Shared.SimpleStation14.Traits;
 
 namespace Content.Client.SimpleStation14.Overlays;
 public sealed class NearsightedSystem : EntitySystem

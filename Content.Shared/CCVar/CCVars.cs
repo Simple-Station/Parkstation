@@ -287,6 +287,12 @@ namespace Content.Shared.CCVar
 #endif
 
         /*
+         * Damage
+         */
+        public static readonly CVarDef<float> DamageVariance =
+            CVarDef.Create("damage.variance", 0.15f, CVar.SERVER | CVar.REPLICATED);
+
+        /*
          * Discord
          */
 
@@ -327,6 +333,16 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<int> SuspicionMaxTimeSeconds =
             CVarDef.Create("suspicion.max_time_seconds", 300);
+
+
+        /*
+         * Survival
+         */
+        /// <summary>
+        /// Survival mode goal, in minutes.
+        /// </summary>
+        public static readonly CVarDef<int>
+            SurvivalGoal = CVarDef.Create("survival.goal_time", 120, CVar.ARCHIVE | CVar.SERVERONLY);
 
         /*
          * Traitor
@@ -393,23 +409,23 @@ namespace Content.Shared.CCVar
             CVarDef.Create("pirates.players_per_pirate", 5);
 
         /*
-         * Minor
+         * Flawed
          */
 
-        public static readonly CVarDef<int> MinorMinPlayers =
-            CVarDef.Create("minor.min_players", 3);
+        public static readonly CVarDef<int> FlawedMinPlayers =
+            CVarDef.Create("flawed.min_players", 3);
 
-        public static readonly CVarDef<int> MinorMaxMinors =
-            CVarDef.Create("minor.max_minors", 50);
+        public static readonly CVarDef<int> FlawedMaxFlawed =
+            CVarDef.Create("flawed.max_flawed", 50);
 
-        public static readonly CVarDef<int> MinorPlayersPerMinor =
-            CVarDef.Create("minor.players_per_minor", 6);
+        public static readonly CVarDef<int> FlawedPlayersPerFlawed =
+            CVarDef.Create("flawed.players_per_flawed", 6);
 
-        public static readonly CVarDef<int> MinorMaxDifficulty =
-            CVarDef.Create("minor.max_difficulty", 5);
+        public static readonly CVarDef<int> FlawedMaxDifficulty =
+            CVarDef.Create("flawed.max_difficulty", 5);
 
-        public static readonly CVarDef<int> MinorMaxPicks =
-            CVarDef.Create("minor.max_picks", 1);
+        public static readonly CVarDef<int> FlawedMaxPicks =
+            CVarDef.Create("flawed.max_picks", 1);
 
         /*
          * Wizard
@@ -1083,6 +1099,12 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> CargoShuttles =
             CVarDef.Create("shuttle.cargo", true, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Whether the Shipyard is enabled.
+        /// </summary>
+        public static readonly CVarDef<bool> Shipyard =
+            CVarDef.Create("shuttle.shipyard", true, CVar.SERVERONLY);
 
         /*
          * Emergency

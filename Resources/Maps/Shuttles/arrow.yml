@@ -2175,4 +2175,10 @@ entities:
   - pos: 4.5,-26.5
     parent: 0
     type: Transform
+- uid: 212
+  type: SpawnPointLatejoin
+  components:
+  - pos: 1,-10
+    parent: 0
+    type: Transform
 ...

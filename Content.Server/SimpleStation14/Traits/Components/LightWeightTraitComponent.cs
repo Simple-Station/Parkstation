@@ -1,5 +1,9 @@
 namespace Content.Shared.SimpleStation14.Traits
 {
+    /// <summary>
+    ///     Speeds up movement.
+    ///     Speeds up climbing.
+    /// </summary>
     [RegisterComponent]
     public sealed class LightWeightTraitComponent : Component
     {

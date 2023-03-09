@@ -18,7 +18,7 @@ namespace Content.Server.Damage.Systems
 
         private void DamageOnTrigger(EntityUid uid, DamageOnTriggerComponent component, TriggerEvent args)
         {
-           _damageableSystem.TryChangeDamage(uid, component.Damage, component.IgnoreResistances);
+            _damageableSystem.TryChangeDamage(uid, component.Damage, component.IgnoreResistances);
         }
     }
 }

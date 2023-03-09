@@ -29,7 +29,7 @@ roles-antag-fugitive-description = Survive. Escape.
 roles-antag-evil-twin-name = Evil twin
 roles-antag-evil-twin-description = Replace your twin.
 
-roles-antag-minor-antag-name = Minor Antag
-roles-antag-minor-antag-objective = Make your way through a normal shift, considering your ulterior motives.
+roles-antag-flawed-antag-name = Flawed Antag
+roles-antag-flawed-antag-objective = Make your way through a normal shift, considering your ulterior motives.
 
 roles-antag-not-whitelisted = You need to be whitelisted to play antagonists.
