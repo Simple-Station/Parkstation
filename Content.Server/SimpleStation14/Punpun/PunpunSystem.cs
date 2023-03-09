@@ -107,6 +107,7 @@ public sealed class PunpunSystem : EntitySystem
         {
             var metaCompItem = _entityManager.GetComponent<MetaDataComponent>(itemEnt);
             var itemName = metaCompItem.EntityName;
+
             metaCompItem.EntityName = EntityManager.GetComponent<MetaDataComponent>(uid).EntityName + "'s " + itemName;
         }
         else _entityManager.DeleteEntity(itemEnt);
