@@ -17,7 +17,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         public string GetLevelName(float PowerLevel)
         {
             // Placeholders
-            var powerType = Loc.GetString("shadekin-power-okay");
             ShadekinPowerThreshold result = ShadekinPowerThreshold.Min;
             var value = ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Max];
 
@@ -31,32 +30,19 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
                 }
             }
 
-            // Get the name of the threshold
-            switch (result)
+            var powerDictionary = new Dictionary<ShadekinPowerThreshold, string>
             {
-                case ShadekinPowerThreshold.Max:
-                    powerType = Loc.GetString("shadekin-power-max");
-                    break;
-                case ShadekinPowerThreshold.Great:
-                    powerType = Loc.GetString("shadekin-power-great");
-                    break;
-                case ShadekinPowerThreshold.Good:
-                    powerType = Loc.GetString("shadekin-power-good");
-                    break;
-                case ShadekinPowerThreshold.Okay:
-                    powerType = Loc.GetString("shadekin-power-okay");
-                    break;
-                case ShadekinPowerThreshold.Tired:
-                    powerType = Loc.GetString("shadekin-power-tired");
-                    break;
-                case ShadekinPowerThreshold.Min:
-                    powerType = Loc.GetString("shadekin-power-min");
-                    break;
+                {ShadekinPowerThreshold.Max, Loc.GetString("shadekin-power-max")},
+                {ShadekinPowerThreshold.Great, Loc.GetString("shadekin-power-great")},
+                {ShadekinPowerThreshold.Good, Loc.GetString("shadekin-power-good")},
+                {ShadekinPowerThreshold.Okay, Loc.GetString("shadekin-power-okay")},
+                {ShadekinPowerThreshold.Tired, Loc.GetString("shadekin-power-tired")},
+                {ShadekinPowerThreshold.Min, Loc.GetString("shadekin-power-min")}
+            };
 
-                default:
-                    powerType = Loc.GetString("shadekin-power-okay");
-                    break;
-            }
+            // Get the name of the threshold
+            powerDictionary.TryGetValue(result, out var powerType);
+            if (powerType == null) powerType = Loc.GetString("shadekin-power-okay");
 
             // Return the name of the threshold
             return powerType;
