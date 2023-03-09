@@ -56,6 +56,7 @@ public sealed class PunpunSystem : EntitySystem
 
         var metaCompEnt = _entityManager.GetComponent<MetaDataComponent>(uid);
         var name = metaCompEnt.EntityName;
+
         metaCompEnt.EntityName = name + " " + numerals[punpunData.Item1];
 
         if (_entityManager.TryGetComponent<InventoryComponent>(uid, out var invComp))
