@@ -28,7 +28,7 @@
   serverEvent: !type:ShadekinDarkSwapEvent
     powerCostOn: 55
     powerCostOff: 40
-    staminaCost: 25
+    staminaCost: 0
 
 - type: instantAction
   id: ShadekinRest

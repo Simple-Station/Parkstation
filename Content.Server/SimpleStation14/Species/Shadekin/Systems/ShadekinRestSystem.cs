@@ -14,10 +14,10 @@ namespace Content.Server.SimpleStation14.Species.Shadekin.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<ShadekinRestComponent, ShadekinRestEvent>(Rest);
+            SubscribeLocalEvent<ShadekinRestPowerComponent, ShadekinRestEvent>(Rest);
         }
 
-        private void Rest(EntityUid uid, ShadekinRestComponent component, ShadekinRestEvent args)
+        private void Rest(EntityUid uid, ShadekinRestPowerComponent component, ShadekinRestEvent args)
         {
             if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var shadekin)) return;
 

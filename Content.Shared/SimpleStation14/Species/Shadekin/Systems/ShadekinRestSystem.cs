@@ -28,14 +28,14 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
             SubscribeLocalEvent<ShadekinRestEventResponse>(Rest);
 
-            SubscribeLocalEvent<ShadekinRestComponent, ComponentStartup>(OnStartup);
-            SubscribeLocalEvent<ShadekinRestComponent, ComponentShutdown>(OnShutdown);
+            SubscribeLocalEvent<ShadekinRestPowerComponent, ComponentStartup>(OnStartup);
+            SubscribeLocalEvent<ShadekinRestPowerComponent, ComponentShutdown>(OnShutdown);
         }
 
         private void Rest(ShadekinRestEventResponse args)
         {
             if (!_entityManager.TryGetComponent<ShadekinComponent>(args.Performer, out var shadekin)) return;
-            if (!_entityManager.TryGetComponent<ShadekinRestComponent>(args.Performer, out var rest)) return;
+            if (!_entityManager.TryGetComponent<ShadekinRestPowerComponent>(args.Performer, out var rest)) return;
             rest.IsResting = args.IsResting;
 
             if (args.IsResting)
@@ -53,12 +53,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         }
 
 
-        private void OnStartup(EntityUid uid, ShadekinRestComponent component, ComponentStartup args)
+        private void OnStartup(EntityUid uid, ShadekinRestPowerComponent component, ComponentStartup args)
         {
             _actionsSystem.AddAction(uid, action, uid);
         }
 
-        private void OnShutdown(EntityUid uid, ShadekinRestComponent component, ComponentShutdown args)
+        private void OnShutdown(EntityUid uid, ShadekinRestPowerComponent component, ComponentShutdown args)
         {
             _actionsSystem.RemoveAction(uid, action);
         }

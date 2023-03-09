@@ -18,16 +18,16 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
             action = new WorldTargetAction(_prototypeManager.Index<WorldTargetActionPrototype>("ShadekinTeleport"));
 
-            SubscribeLocalEvent<ShadekinTeleportComponent, ComponentStartup>(Startup);
-            SubscribeLocalEvent<ShadekinTeleportComponent, ComponentShutdown>(Shutdown);
+            SubscribeLocalEvent<ShadekinTeleportPowerComponent, ComponentStartup>(Startup);
+            SubscribeLocalEvent<ShadekinTeleportPowerComponent, ComponentShutdown>(Shutdown);
         }
 
-        private void Startup(EntityUid uid, ShadekinTeleportComponent component, ComponentStartup args)
+        private void Startup(EntityUid uid, ShadekinTeleportPowerComponent component, ComponentStartup args)
         {
             _actionsSystem.AddAction(uid, action, uid);
         }
 
-        private void Shutdown(EntityUid uid, ShadekinTeleportComponent component, ComponentShutdown args)
+        private void Shutdown(EntityUid uid, ShadekinTeleportPowerComponent component, ComponentShutdown args)
         {
             _actionsSystem.RemoveAction(uid, action);
         }

@@ -38,7 +38,7 @@ namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
 
         private void DarkSwap(ShadekinDarkSwappedEvent args)
         {
-            ToggleInvisibility(args.Performer, args.IsDark);
+            ToggleInvisibility(args.Performer, args.DarkSwapped);
         }
 
 

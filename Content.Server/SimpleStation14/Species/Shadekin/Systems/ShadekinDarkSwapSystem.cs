@@ -26,7 +26,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<ShadekinDarkSwapComponent, ShadekinDarkSwapEvent>(DarkSwap);
+            SubscribeLocalEvent<ShadekinDarkSwapPowerComponent, ShadekinDarkSwapEvent>(DarkSwap);
 
             //////////////////////////////////////////
 
@@ -43,7 +43,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         }
 
 
-        private void DarkSwap(EntityUid uid, ShadekinDarkSwapComponent component, ShadekinDarkSwapEvent args)
+        private void DarkSwap(EntityUid uid, ShadekinDarkSwapPowerComponent component, ShadekinDarkSwapEvent args)
         {
             ToggleInvisibility(args.Performer, args);
 

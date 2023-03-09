@@ -1,7 +1,7 @@
 namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
 {
     [RegisterComponent]
-    public sealed class ShadekinTeleportComponent : Component
+    public sealed class ShadekinTeleportPowerComponent : Component
     {
 
     }

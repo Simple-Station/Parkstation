@@ -42,7 +42,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
         public float PowerCostOff = 35f;
 
         [DataField("staminaCost")]
-        public float StaminaCost = 25f;
+        public float StaminaCost = 0f;
     }
 
     /// <summary>
@@ -52,12 +52,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
     public sealed class ShadekinDarkSwappedEvent : EntityEventArgs
     {
         public EntityUid Performer { get; }
-        public bool IsDark { get; }
+        public bool DarkSwapped { get; }
 
-        public ShadekinDarkSwappedEvent(EntityUid performer, bool isDark)
+        public ShadekinDarkSwappedEvent(EntityUid performer, bool darkSwapped)
         {
             Performer = performer;
-            IsDark = isDark;
+            DarkSwapped = darkSwapped;
         }
     }
 

@@ -5,7 +5,7 @@ using Robust.Shared.Network;
 
 namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 {
-    public sealed class ShadekinSystemBlackeyeTraitSystem : EntitySystem
+    public sealed class ShadekinBlackeyeTraitSystem : EntitySystem
     {
         [Dependency] private readonly ShadekinPowerSystem _powerSystem = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
@@ -23,10 +23,10 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         private void OnStartup(EntityUid uid, ShadekinBlackeyeTraitComponent _, ComponentStartup args)
         {
             // Remove powers
-            _entityManager.RemoveComponent<ShadekinDarkSwapComponent>(uid);
+            _entityManager.RemoveComponent<ShadekinDarkSwapPowerComponent>(uid);
             _entityManager.RemoveComponent<ShadekinDarkSwappedComponent>(uid);
-            _entityManager.RemoveComponent<ShadekinRestComponent>(uid);
-            _entityManager.RemoveComponent<ShadekinTeleportComponent>(uid);
+            _entityManager.RemoveComponent<ShadekinRestPowerComponent>(uid);
+            _entityManager.RemoveComponent<ShadekinTeleportPowerComponent>(uid);
 
             // Popup
             if (_net.IsClient)

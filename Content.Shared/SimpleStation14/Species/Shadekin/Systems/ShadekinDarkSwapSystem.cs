@@ -23,18 +23,18 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
             action = new InstantAction(_prototypeManager.Index<InstantActionPrototype>("ShadekinDarkSwap"));
 
-            SubscribeLocalEvent<ShadekinDarkSwapComponent, ComponentStartup>(Startup);
-            SubscribeLocalEvent<ShadekinDarkSwapComponent, ComponentShutdown>(Shutdown);
+            SubscribeLocalEvent<ShadekinDarkSwapPowerComponent, ComponentStartup>(Startup);
+            SubscribeLocalEvent<ShadekinDarkSwapPowerComponent, ComponentShutdown>(Shutdown);
 
             SubscribeLocalEvent<ShadekinDarkSwappedComponent, InteractionAttemptEvent>(OnInteractionAttempt);
         }
 
-        private void Startup(EntityUid uid, ShadekinDarkSwapComponent component, ComponentStartup args)
+        private void Startup(EntityUid uid, ShadekinDarkSwapPowerComponent component, ComponentStartup args)
         {
             _actionsSystem.AddAction(uid, action, uid);
         }
 
-        private void Shutdown(EntityUid uid, ShadekinDarkSwapComponent component, ComponentShutdown args)
+        private void Shutdown(EntityUid uid, ShadekinDarkSwapPowerComponent component, ComponentShutdown args)
         {
             _actionsSystem.RemoveAction(uid, action);
         }
