@@ -32,18 +32,10 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
             SubscribeLocalEvent<ShadekinDarkSwapPowerComponent, ShadekinDarkSwapEvent>(DarkSwap);
 
-            //////////////////////////////////////////
-
-            /// Masking
             SubscribeLocalEvent<EyeComponent, ComponentStartup>(OnEyeStartup);
 
-            /// Layer
             SubscribeLocalEvent<ShadekinDarkSwappedComponent, ComponentStartup>(OnInvisStartup);
             SubscribeLocalEvent<ShadekinDarkSwappedComponent, ComponentShutdown>(OnInvisShutdown);
-
-            // PVS Stuff
-            SubscribeLocalEvent<ShadekinDarkSwappedComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
-            SubscribeLocalEvent<ShadekinDarkSwappedComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         }
 
 
@@ -62,7 +54,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             if (!HasComp<ShadekinDarkSwappedComponent>(uid))
             {
                 EnsureComp<ShadekinDarkSwappedComponent>(uid);
-                SetCanSeeInvisibility(uid, true);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, true));
 
                 _powerSystem.TryAddPowerLevel(comp.Owner, -args.PowerCostOn);
@@ -71,7 +62,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             else
             {
                 RemComp<ShadekinDarkSwappedComponent>(uid);
-                SetCanSeeInvisibility(uid, false);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, false));
 
                 _powerSystem.TryAddPowerLevel(comp.Owner, -args.PowerCostOff);
@@ -79,7 +69,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             }
         }
 
-        //////////////////////////////////////////
 
         private void OnEyeStartup(EntityUid uid, EyeComponent component, ComponentStartup args)
         {
@@ -91,12 +80,9 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
         private void OnInvisStartup(EntityUid uid, ShadekinDarkSwappedComponent component, ComponentStartup args)
         {
-            EnsureComp<PsionicallyInvisibleComponent>(uid);
             EnsureComp<PacifiedComponent>(uid);
 
             SoundSystem.Play("/Audio/Effects/toss.ogg", Filter.Pvs(uid), uid);
-
-            //////////////////////////////////////////
 
             SetCanSeeInvisibility(uid, true);
         }
@@ -105,15 +91,10 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         {
             if (Terminating(uid)) return;
 
-            RemComp<PsionicallyInvisibleComponent>(uid);
             RemComp<PacifiedComponent>(uid);
             SoundSystem.Play("/Audio/Effects/toss.ogg", Filter.Pvs(uid), uid);
 
-            //////////////////////////////////////////
-
             SetCanSeeInvisibility(uid, false);
-
-            //////////////////////////////////////////
 
             if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var shadekin)) return;
 
@@ -127,16 +108,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             }
 
             shadekin.DarkenedLights.Clear();
-        }
-
-        private void OnEntInserted(EntityUid uid, ShadekinDarkSwappedComponent component, EntInsertedIntoContainerMessage args)
-        {
-            Dirty(args.Entity);
-        }
-
-        private void OnEntRemoved(EntityUid uid, ShadekinDarkSwappedComponent component, EntRemovedFromContainerMessage args)
-        {
-            Dirty(args.Entity);
         }
 
 

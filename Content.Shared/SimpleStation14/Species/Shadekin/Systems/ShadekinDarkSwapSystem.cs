@@ -15,6 +15,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
+
         private InstantAction action = default!;
 
         public override void Initialize()
@@ -41,8 +42,8 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
         private void OnInteractionAttempt(EntityUid uid, ShadekinDarkSwappedComponent component, InteractionAttemptEvent args)
         {
-            if (args.Target != null && _entityManager.TryGetComponent<TransformComponent>(args.Target, out var __)
-            && !_entityManager.TryGetComponent<ShadekinDarkSwappedComponent>(args.Target, out var _))
+            if (args.Target != null && _entityManager.TryGetComponent<TransformComponent>(args.Target, out var __) &&
+                !_entityManager.TryGetComponent<ShadekinDarkSwappedComponent>(args.Target, out var _))
             {
                 args.Cancel();
                 if (!_gameTiming.InPrediction)
