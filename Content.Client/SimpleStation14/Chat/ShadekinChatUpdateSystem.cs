@@ -12,6 +12,7 @@ namespace Content.Client.SimpleStation14.Chat
         public override void Initialize()
         {
             base.Initialize();
+
             SubscribeLocalEvent<EmpathyChatComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<EmpathyChatComponent, ComponentRemove>(OnRemove);
         }
