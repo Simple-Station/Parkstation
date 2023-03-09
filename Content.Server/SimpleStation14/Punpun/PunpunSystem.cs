@@ -50,6 +50,7 @@ public sealed class PunpunSystem : EntitySystem
             _entityManager.SpawnEntity("PaperWrittenPunpunNote", EntityManager.GetComponent<TransformComponent>(uid).Coordinates);
             _entityManager.QueueDeleteEntity(uid);
             punpunData = (0, String.Empty, String.Empty);
+
             return;
         }
 
