@@ -7,7 +7,7 @@
       time: 60000
   icon: "StationAI"
   supervisors: "all crew"
-  accessGroup:
+  accessGroups:
     - AllAccess
   canBeAntag: false
   jobEntity: AI

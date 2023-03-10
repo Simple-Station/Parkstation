@@ -2,12 +2,18 @@
 - type: weightedRandom
   id: MinorantagObjectiveGroup
   weights:
-    MinorantagObjectiveGroupTheft: 1
+    MinorantagObjectiveGroupHarmless: 1
+    MinorantagObjectiveGroupDangerous: 0.3
 
 - type: weightedRandom
-  id: MinorantagObjectiveGroupTheft
+  id: MinorantagObjectiveGroupHarmless
   weights:
     MinorPickpocketObjective: 1
+
+- type: weightedRandom
+  id: MinorantagObjectiveGroupDangerous
+  weights:
+    MinorTwitchyObjective: 1
 
 # Wizard
 - type: weightedRandom

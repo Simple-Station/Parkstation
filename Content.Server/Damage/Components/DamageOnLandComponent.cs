@@ -12,5 +12,9 @@ namespace Content.Server.Damage.Components
         [DataField("damage", required: true)]
         [ViewVariables(VVAccess.ReadWrite)]
         public DamageSpecifier Damage = default!;
+
+        [DataField("chance")]
+        [ViewVariables(VVAccess.ReadWrite)]
+        public int Chance = 100;
     }
 }

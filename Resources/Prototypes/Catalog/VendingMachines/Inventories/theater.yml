@@ -43,5 +43,8 @@
     UniformGeisha: 1
     ClothingCostumeArcDress: 1
     ClothingOuterCoatPirateBlack: 1
+    ClothingUniformJumpsuitDameDane: 1
+    ClothingShoesDameDane: 1
+    ClothingOuterDameDane: 1
   emaggedInventory:
     ClothingShoesBling: 1

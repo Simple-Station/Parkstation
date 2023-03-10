@@ -91,6 +91,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
 
             _window.AddDenied(denied);
 
+            if (ghostState.EnableRedirect)
+                _window.SetRedirect();
+
             var closeRulesWindow = ghostState.GhostRoles.All(role => role.Identifier != _windowRulesId);
             if (closeRulesWindow)
             {

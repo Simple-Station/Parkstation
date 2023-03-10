@@ -1,5 +1,4 @@
 using Content.Server.Chemistry.EntitySystems;
-using Content.Server.Popups;
 
 namespace Content.Server.SimpleStation14.Traits
 {
@@ -18,12 +17,6 @@ namespace Content.Server.SimpleStation14.Traits
 
             foreach (var autoComp in EntityQuery<TraitRegenReagentComponent>())
             {
-                // bad solution
-                if (TryComp<DraconicBloodstreamComponent>(autoComp.Owner, out var Draconic) && !autoComp.Reagents.Contains(Draconic.Reagent))
-                    autoComp.Reagents.Add(Draconic.Reagent);
-                if (TryComp<EasyDrunkComponent>(autoComp.Owner, out var EasyDrunk) && !autoComp.Reagents.Contains(EasyDrunk.Reagent))
-                    autoComp.Reagents.Add(EasyDrunk.Reagent);
-
                 foreach (var regens in autoComp.Reagents)
                 {
                     regens.Accumulator += frameTime;

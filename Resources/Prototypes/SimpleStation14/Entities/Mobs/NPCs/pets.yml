@@ -1,5 +1,5 @@
 - type: entity
-  name: lois
+  name: Lois
   parent: MobLizard
   id: MobLizardLois
   description: A lizard with a love of life, and a fear of justice.
@@ -9,9 +9,13 @@
   - type: Faction
     factions:
     - Pet
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
 
 - type: entity
-  name: randall
+  name: Randall
   parent: MobFrog
   id: MobFrogRandall
   description: Ayooo, it's Randall hoppin' round!
@@ -21,9 +25,13 @@
   - type: Faction
     factions:
     - Pet
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
 
 - type: entity
-  name: terrance
+  name: Terrance
   parent: MobSlug
   id: MobSlugTerrance
   description: Tis Terrance.
@@ -33,3 +41,7 @@
   - type: Faction
     factions:
     - Pet
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male

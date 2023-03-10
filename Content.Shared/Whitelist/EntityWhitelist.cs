@@ -100,7 +100,7 @@ namespace Content.Shared.Whitelist
                 return RequireAll ? tagSystem.HasAllTags(tags, Tags) : tagSystem.HasAnyTag(tags, Tags);
             }
 
-            if (Species != null && entityManager.TryGetComponent(uid, out HumanoidComponent? humanoid))
+            if (Species != null && entityManager.TryGetComponent(uid, out HumanoidAppearanceComponent? humanoid))
             {
                 foreach (var species in Species)
                 {

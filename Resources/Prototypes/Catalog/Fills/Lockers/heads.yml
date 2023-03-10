@@ -115,6 +115,7 @@
       - id: MedkitFilled
       - id: ClothingHandsGlovesNitrile
       - id: ClothingEyesHudMedical
+      - id: ClothingEyesHudMedicalPrescription
       - id: ClothingHeadsetAltMedical
       - id: ClothingCloakCmo
       - id: ClothingBackpackDuffelSurgeryFilled

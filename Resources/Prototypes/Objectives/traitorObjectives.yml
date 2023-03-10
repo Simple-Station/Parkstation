@@ -124,7 +124,7 @@
   conditions:
   - !type:StealCondition
     prototype: HandTeleporter
-    owner: job-name-rd
+    owner: job-name-mystagogue
 
 - type: objective
   id: NukeDiskStealObjective

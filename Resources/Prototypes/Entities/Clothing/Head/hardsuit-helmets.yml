@@ -284,7 +284,8 @@
     highPressureMultiplier: 0.27
     lowPressureMultiplier: 1000
   - type: ClothingGrantComponent
-    component: SpellbookUser2
+    component:
+      - type: SpellbookUser2
 
 - type: entity
   parent: ClothingHeadHardsuitBase
@@ -409,7 +410,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetCBURN
   noSpawn: true
-  name: syndicate elite helmet
+  name: CBURN exosuit helmet
   description: A pressure resistant and fireproof hood worn by special cleanup units.
   components:
   - type: Sprite

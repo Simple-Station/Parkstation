@@ -95,6 +95,7 @@ flavor-complex-bungo = like bungo
 flavor-complex-raisins = like dried grapes
 flavor-complex-orange = like oranges
 flavor-complex-watermelon = like watermelon
+flavor-complex-nuggie = like "chicken"
 
 ## Complex foodstuffs (cooked foods, joke flavors, etc)
 
@@ -134,6 +135,7 @@ flavor-complex-cola = like cola
 flavor-complex-vodka = like fermented grain
 flavor-complex-tequila = like fermented death
 flavor-complex-sake = like sweet, alcoholic rice
+flavor-complex-soju = like bold, alcoholic rice
 flavor-complex-rum = like fermented sugar
 flavor-complex-coffee-liquor = like strong, bitter coffee
 flavor-complex-whiskey = like molasses
@@ -177,3 +179,5 @@ flavor-complex-sax = like jazz
 
 ## Nyano???
 flavor-complex-enthralling = enthralling
+flavor-complex-sublime = sublime
+flavor-complex-holy = heavenly

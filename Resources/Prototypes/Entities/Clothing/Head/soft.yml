@@ -8,6 +8,8 @@
     sprite: Clothing/Head/Soft/bluesoft.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/bluesoft.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -19,6 +21,8 @@
     sprite: Clothing/Head/Soft/bluesoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/bluesoft_flipped.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -30,6 +34,8 @@
     sprite: Clothing/Head/Soft/cargosoft.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/cargosoft.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -41,6 +47,8 @@
     sprite: Clothing/Head/Soft/cargosoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/cargosoft_flipped.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -52,6 +60,8 @@
     sprite: Clothing/Head/Soft/qmsoft.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/qmsoft.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -63,7 +73,7 @@
     sprite: Clothing/Head/Soft/qmsoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/qmsoft_flipped.rsi
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCorpsoft
@@ -74,6 +84,8 @@
     sprite: Clothing/Head/Soft/corpsoft.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/corpsoft.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -85,6 +97,8 @@
     sprite: Clothing/Head/Soft/corpsoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/corpsoft_flipped.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -96,6 +110,8 @@
     sprite: Clothing/Head/Soft/greensoft.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/greensoft.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -107,6 +123,8 @@
     sprite: Clothing/Head/Soft/greensoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/greensoft_flipped.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -118,6 +136,8 @@
     sprite: Clothing/Head/Soft/greysoft.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/greysoft.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -129,6 +149,8 @@
     sprite: Clothing/Head/Soft/greysoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/greysoft_flipped.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -140,6 +162,8 @@
     sprite: Clothing/Head/Soft/mimesoft.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/mimesoft.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -151,6 +175,8 @@
     sprite: Clothing/Head/Soft/mimesoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/mimesoft_flipped.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -162,6 +188,8 @@
     sprite: Clothing/Head/Soft/orangesoft.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/orangesoft.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -173,6 +201,8 @@
     sprite: Clothing/Head/Soft/orangesoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/orangesoft_flipped.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -184,6 +214,8 @@
     sprite: Clothing/Head/Soft/purplesoft.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/purplesoft.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -195,6 +227,8 @@
     sprite: Clothing/Head/Soft/purplesoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/purplesoft_flipped.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -206,6 +240,8 @@
     sprite: Clothing/Head/Soft/redsoft.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/redsoft.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -217,6 +253,8 @@
     sprite: Clothing/Head/Soft/redsoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/redsoft_flipped.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -228,6 +266,8 @@
     sprite: Clothing/Head/Soft/secsoft.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/secsoft.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -239,6 +279,8 @@
     sprite: Clothing/Head/Soft/secsoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/secsoft_flipped.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -250,6 +292,8 @@
     sprite: Clothing/Head/Soft/yellowsoft.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/yellowsoft.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -261,6 +305,8 @@
     sprite: Clothing/Head/Soft/yellowsoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/yellowsoft_flipped.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -272,6 +318,8 @@
     sprite: Clothing/Head/Soft/bizarresoft.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/bizarresoft.rsi
+  - type: DropOnSlip
+    chance: 20
 
 - type: entity
   parent: ClothingHeadBase
@@ -283,3 +331,5 @@
     sprite: Clothing/Head/Soft/bizarresoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/bizarresoft_flipped.rsi
+  - type: DropOnSlip
+    chance: 20
