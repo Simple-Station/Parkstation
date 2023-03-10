@@ -42,6 +42,10 @@
   name: counter
   abstract: true
   components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: PlaceableSurface
   - type: Fixtures
     fixtures:
     - shape:
@@ -52,3 +56,18 @@
       - TableMask
       layer:
       - TableLayer
+  - type: SpriteFade
+  - type: Sprite
+    netsync: false
+  - type: Icon
+    state: full
+  - type: IconSmooth
+    key: state
+    base: state_
+  - type: Bonkable
+    bonkDamage:
+      types:
+        Blunt: 4
+    bonkSound: !type:SoundCollectionSpecifier
+      collection: TrayHit
+  - type: Clickable

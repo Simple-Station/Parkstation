@@ -150,15 +150,9 @@ public sealed class MinorRuleSystem : GameRuleSystem
             return;
         }
 
-        if (!await _db.GetWhitelistStatusAsync(minor.UserId))
+        if (_cfg.GetCVar(CCVars.WhitelistEnabled) && !await _db.GetWhitelistStatusAsync(minor.UserId))
         {
             Logger.ErrorS("preset", "Selected minor is not whitelisted, preventing their selection.");
-            return;
-        }
-
-        if (mind.AllRoles.Count() > 1)
-        {
-            Logger.InfoS("preset", $"{minor.ConnectedClient.UserName} is already another antagonist.");
             return;
         }
 

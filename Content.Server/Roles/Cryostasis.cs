@@ -12,11 +12,13 @@ using Robust.Shared.Audio;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Physics;
 using Content.Shared.Inventory;
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;
+using Content.Server.StationRecords;
+using Content.Shared.StationRecords;
+using Content.Shared.PDA;
+using Content.Shared.Access.Components;
 
 namespace Content.Server.Administration.Commands.Cryostasis
 {
@@ -26,6 +28,7 @@ namespace Content.Server.Administration.Commands.Cryostasis
         [Dependency] private readonly IEntityManager _entities = default!;
         [Dependency] private readonly IEntitySystemManager _entitysys = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         public string Command => "cryostasis";
         public string Description => "Deletes you and opens up a new job slot. Do this in a secure area or put your belongings in a secure area. MISUSE WILL BE MODERATED";
@@ -55,7 +58,7 @@ namespace Content.Server.Administration.Commands.Cryostasis
                 return;
             }
 
-            // No job (unemployed people are not allowed to go into cryogenics).
+            // No job (unemployed people are not allowed to go into cryostasis).
             if (!mind.HasRole<Job>())
             {
                 shell.WriteLine("You do not have a job, you are not accessible by Nanotrasen, therefore unable to cryo.");
@@ -84,10 +87,10 @@ namespace Content.Server.Administration.Commands.Cryostasis
                 if (role.Antagonist == true)
                 {
                     isantag = true;
-                    continue;
+                    break;
                 }
                 // A job has been found, stop looking.
-                if (job != null) continue;
+                if (job != null) break;
 
                 // A job has been found, remove it from the mind (you are passing this job onto a latejoiner).
                 job = role;
@@ -155,9 +158,9 @@ namespace Content.Server.Administration.Commands.Cryostasis
             EntityUid? station = null;
             station = EntitySystem.Get<StationSystem>().Stations.ToList()[0];
 
-            // Send a cryostasis announcement to the station, if any.
             if (station != null)
             {
+                // Send a cryostasis announcement to the station, if any.
                 var statio = (EntityUid) station;
 
                 EntitySystem.Get<ChatSystem>().DispatchStationAnnouncement(statio,
