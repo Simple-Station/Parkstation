@@ -9,8 +9,7 @@
   skinColoration: TintedHues
   maleFirstNames: DionaFirst
   femaleFirstNames: DionaFirst
-  maleLastNames: DionaLast # Corvax-LastnameGender
-  femaleLastNames: DionaLast # Corvax-LastnameGender
+  lastNames: DionaLast
   naming: TheFirstofLast
 
 - type: speciesBaseSprites
@@ -31,12 +30,10 @@
 
 - type: markingPoints
   id: MobDionaMarkingLimits
+  onlyWhitelisted: true
   points:
-    Hair:
-      points: 1
-      required: false
-    FacialHair:
-      points: 1
+    Head:
+      points: 2
       required: false
     HeadTop:
       points: 1

@@ -34,14 +34,9 @@ namespace Content.Tests.Server.Preferences
   - Aaliyah
 
 - type: dataset
-  id: names_last_male
+  id: names_last
   values:
-  - Ackerley
-
-- type: dataset
-  id: names_last_female
-  values:
-  - Ackerla";  // Corvax-LastnameGender
+  - Ackerley";
 
         private static HumanoidCharacterProfile CharlieCharlieson()
         {
