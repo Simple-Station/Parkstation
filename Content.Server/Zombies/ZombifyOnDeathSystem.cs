@@ -113,11 +113,6 @@ namespace Content.Server.Zombies
             var combat = AddComp<CombatModeComponent>(target);
             combat.IsInCombatMode = true;
 
-            // Corvax-DionaPacifist-Start: Allow dionas zombies to harm
-            RemComp<PacifistComponent>(target);
-            RemComp<PacifiedComponent>(target);
-            // Corvax-DionaPacifist-End
-
             //This is the actual damage of the zombie. We assign the visual appearance
             //and range here because of stuff we'll find out later
             var melee = EnsureComp<MeleeWeaponComponent>(target);

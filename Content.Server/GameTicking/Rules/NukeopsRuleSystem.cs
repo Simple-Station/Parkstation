@@ -182,11 +182,6 @@ public sealed class NukeopsRuleSystem : GameRuleSystem
         if (session != null)
             _operativePlayers.Add(name, session);
 
-        // Corvax-DionaPacifist-Start: Allow dionas nukes to harm
-        RemComp<PacifistComponent>(uid);
-        RemComp<PacifiedComponent>(uid);
-        // Corvax-DionaPacifist-End
-
         RemCompDeferred<MailReceiverComponent>(uid);
     }
 
