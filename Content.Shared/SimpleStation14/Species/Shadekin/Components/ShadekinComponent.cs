@@ -1,6 +1,7 @@
 using Content.Shared.SimpleStation14.Species.Shadekin.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Random;
 
 namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
 {
@@ -11,10 +12,45 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
 
         // Dirty
         [ViewVariables(VVAccess.ReadOnly)]
-        public float Accumulator = 0f;
+        public float DirtyAccumulator = 0f;
 
         [ViewVariables(VVAccess.ReadWrite)]
-        public float AccumulatorRate = 3f;
+        public float DirtyAccumulatorRate = 3f;
+
+
+        // Random occurences
+        [ViewVariables(VVAccess.ReadOnly)]
+        public float ForceSwapAccumulator = 0f;
+
+        /// <summary>
+        ///     Default value.
+        ///     Gets randomly set after activated.
+        ///     Forces DarkSwap ability.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float ForceSwapRate;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float ForceSwapRateMin = 30f;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float ForceSwapRateMax = 90f;
+
+        [ViewVariables(VVAccess.ReadOnly)]
+        public float TiredAccumulator = 0f;
+
+        /// <summary>
+        ///     Default value.
+        ///     Forces the rest ability.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float TiredRate;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float TiredRateMin = 15f;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float TiredRateMax = 50f;
 
 
         // Darkening
@@ -36,9 +72,18 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
 
 
         // Shader
+        /// <summary>
+        ///     Automatically set to eye color.
+        /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
         public Vector3 TintColor = new(0.5f, 0f, 0.5f);
 
+        /// <summary>
+        ///     Based on PowerLevel.
+        /// </summary>
+        /// <remarks>
+        ///     *Will be based on PowerLevel.
+        /// </remarks>
         [ViewVariables(VVAccess.ReadWrite)]
         public float TintIntensity = 0.65f;
 
@@ -61,7 +106,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
         public readonly float PowerLevelMax = (float) PowerThresholds[ShadekinPowerThreshold.Max];
 
         /// <summary>
-        ///     Blackeyes if PowerLevel is below this value.
+        ///     Blackeyes if PowerLevel is this value.
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
         public readonly float PowerLevelMin = (float) PowerThresholds[ShadekinPowerThreshold.Min];
@@ -74,14 +119,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
 
         /// <summary>
         ///     Power gain multiplier
-        ///     Modified by chems and while in The Dark.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         public float PowerLevelGainMultiplier = 1f;
 
         /// <summary>
         ///     Whether to gain power or not.
-        ///     Disabled by chems.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         public bool PowerLevelGainEnabled = true;
