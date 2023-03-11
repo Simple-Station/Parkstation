@@ -281,10 +281,10 @@
     - !type:DiseaseGenericStatusEffect
       key: Stutter
       component: OwOAccent
-    - !type:DiseaseAdjustReagent ## 20 / 0.013 / 60 is around 25 minutes before overdose (0.5u metabolize each tick)
-      probability: 0.513
+    - !type:DiseaseAdjustReagent ## 20 / 0.05 / 60 is around 25 minutes before overdose (0.2u metabolize each tick)
+      probability: 0.25
       reagent: Ephedrine
-      amount: 1
+      amount: 0.5
     - !type:DiseaseSnough
       probability: 0.01
       snoughMessage: disease-meow
