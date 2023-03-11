@@ -222,10 +222,10 @@ namespace Content.Server.GameTicking
                 EntityManager.AddComponent<OwOAccentComponent>(mob);
             }
 
-            if (player.UserId == new Guid("{887E5422-C0B4-4BAA-AF1B-D8DD5501E991}"))
-            {
-                EntityManager.AddComponent<OwOAccentComponent>(mob);
-            }
+            // if (player.UserId == new Guid("{887E5422-C0B4-4BAA-AF1B-D8DD5501E991}"))
+            // {
+            //     EntityManager.AddComponent<OwOAccentComponent>(mob);
+            // }
 
             // Parkstation-loadouts start
             var invSystem = EntitySystem.Get<InventorySystem>();
