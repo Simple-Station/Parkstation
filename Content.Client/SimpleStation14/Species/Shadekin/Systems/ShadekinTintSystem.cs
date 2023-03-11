@@ -41,19 +41,22 @@ namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
             if (uid == null) return;
 
             if (!_entityManager.TryGetComponent(uid, out ShadekinComponent? comp)) return;
+            if (!_entityManager.TryGetComponent(uid, out SpriteComponent? sprite)) return;
+            if (!sprite.LayerMapTryGet(HumanoidVisualLayers.Eyes, out var index)) return;
+            if (!sprite.TryGetLayer(index, out var layer)) return;
 
-            if (_entityManager.TryGetComponent(uid, out SpriteComponent? sprite))
-            {
-                if (sprite.LayerMapTryGet(HumanoidVisualLayers.Eyes, out var index))
-                {
-                    if (sprite.TryGetLayer(index, out var layer))
-                    {
-                        var color = new Vector3(layer.Color.R, layer.Color.G, layer.Color.B);
-                        UpdateShader(color, comp.TintIntensity);
-                        comp.TintColor = color;
-                    }
-                }
-            }
+            // Eye color
+            comp.TintColor = new Vector3(layer.Color.R, layer.Color.G, layer.Color.B);
+
+            // 1/3 = 0.333...
+            // intensity = min + (power / max)
+            // intensity = intensity / 0.333
+            // intensity = clamp intensity min, max
+            var min = 0.45f;
+            var max = 0.75f;
+            comp.TintIntensity = Math.Clamp(min + (comp.PowerLevel / comp.PowerLevelMax) * 0.333f, min, max);
+
+            UpdateShader(comp.TintColor, comp.TintIntensity);
         }
 
 
