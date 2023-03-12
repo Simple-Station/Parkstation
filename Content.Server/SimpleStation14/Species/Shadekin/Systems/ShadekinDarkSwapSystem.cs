@@ -80,9 +80,13 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         private void OnEyeStartup(EntityUid uid, EyeComponent component, ComponentStartup args)
         {
             if (!_entityManager.TryGetComponent<GhostComponent>(uid, out var _))
+            {
                 SetCanSeeInvisibility(uid, false);
+            }
             else
+            {
                 SetCanSeeInvisibility(uid, true);
+            }
         }
 
         private void OnInvisStartup(EntityUid uid, ShadekinDarkSwappedComponent component, ComponentStartup args)
