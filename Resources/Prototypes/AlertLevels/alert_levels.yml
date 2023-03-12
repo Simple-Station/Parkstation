@@ -52,7 +52,7 @@
       sound:
         path: /Audio/Corvax/Announcements/epsilon_music.ogg
         params:
-          volume: -5
+          volume: -8
       disableSelection: true
       color: DarkViolet
       emergencyLightColor: DarkViolet
