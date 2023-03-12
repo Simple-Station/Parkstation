@@ -13,7 +13,7 @@
     state: teleport
   serverEvent: !type:ShadekinTeleportEvent
     powerCost: 35
-    staminaCost: 30
+    staminaCost: 15
 
 - type: instantAction
   id: ShadekinDarkSwap
