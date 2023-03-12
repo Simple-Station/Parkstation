@@ -15,7 +15,7 @@
     FlawedPoorWorkerObjective: 0.7
 
 - type: weightedRandom
-  id: FlawedObjevtiveGroupDanger
+  id: FlawedObjectiveGroupDanger
   weights:
     FlawedDealerObjective: 1
     FlawedObsessedObjective: 0.4
