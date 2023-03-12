@@ -1,10 +1,8 @@
-using Content.Shared.Abilities;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
-using Content.Shared.Examine;
-using Content.Shared.IdentityManagement;
 using Robust.Shared.Network;
+using Content.Shared.SimpleStation14.Traits;
 
 namespace Content.Client.SimpleStation14.Overlays;
 public sealed class MonochromacySystem : EntitySystem
@@ -29,16 +27,6 @@ public sealed class MonochromacySystem : EntitySystem
         _overlay = new();
     }
 
-    private void OnPlayerAttached(EntityUid uid, MonochromacyComponent component, PlayerAttachedEvent args)
-    {
-        _overlayMan.AddOverlay(_overlay);
-    }
-
-    private void OnPlayerDetached(EntityUid uid, MonochromacyComponent component, PlayerDetachedEvent args)
-    {
-        _overlayMan.RemoveOverlay(_overlay);
-    }
-
     private void OnMonochromacyStartup(EntityUid uid, MonochromacyComponent component, ComponentStartup args)
     {
         if (_player.LocalPlayer?.ControlledEntity == uid)
@@ -51,5 +39,15 @@ public sealed class MonochromacySystem : EntitySystem
         {
             _overlayMan.RemoveOverlay(_overlay);
         }
+    }
+
+    private void OnPlayerAttached(EntityUid uid, MonochromacyComponent component, PlayerAttachedEvent args)
+    {
+        _overlayMan.AddOverlay(_overlay);
+    }
+
+    private void OnPlayerDetached(EntityUid uid, MonochromacyComponent component, PlayerDetachedEvent args)
+    {
+        _overlayMan.RemoveOverlay(_overlay);
     }
 }

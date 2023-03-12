@@ -1,4 +1,13 @@
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairAfricanPigtails
   bodyPart: Hair
   markingCategory: Hair
@@ -7,6 +16,15 @@
       state: africanpigtails
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairAfropuffdouble
   bodyPart: Hair
   markingCategory: Hair
@@ -15,6 +33,15 @@
       state: afropuffdouble
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairAfropuffleft
   bodyPart: Hair
   markingCategory: Hair
@@ -23,6 +50,15 @@
       state: afropuffleft
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairAfropuffright
   bodyPart: Hair
   markingCategory: Hair
@@ -31,6 +67,15 @@
       state: afropuffright
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairAmazon
   bodyPart: Hair
   markingCategory: Hair
@@ -39,6 +84,15 @@
       state: amazon
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairAstolfo
   bodyPart: Hair
   markingCategory: Hair
@@ -47,6 +101,15 @@
       state: astolfo
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairBaum
   bodyPart: Hair
   markingCategory: Hair
@@ -55,6 +118,15 @@
       state: baum
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairBeachwave
   bodyPart: Hair
   markingCategory: Hair
@@ -63,6 +135,15 @@
       state: beachwave
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairBluntbangs
   bodyPart: Hair
   markingCategory: Hair
@@ -71,6 +152,15 @@
       state: bluntbangs
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairBluntbangsAlt
   bodyPart: Hair
   markingCategory: Hair
@@ -79,6 +169,15 @@
       state: bluntbangs_alt
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairBobcutAlt
   bodyPart: Hair
   markingCategory: Hair
@@ -87,6 +186,15 @@
       state: bobcutalt
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairBunhead4
   bodyPart: Hair
   markingCategory: Hair
@@ -95,6 +203,15 @@
       state: bunhead4
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairCombed
   bodyPart: Hair
   markingCategory: Hair
@@ -103,6 +220,15 @@
       state: combed
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairCombedbob
   bodyPart: Hair
   markingCategory: Hair
@@ -111,6 +237,15 @@
       state: combedbob
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairCotton
   bodyPart: Hair
   markingCategory: Hair
@@ -120,6 +255,15 @@
       state: cotton
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairCurly
   bodyPart: Hair
   markingCategory: Hair
@@ -128,6 +272,15 @@
       state: curly
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairDave
   bodyPart: Hair
   markingCategory: Hair
@@ -136,6 +289,15 @@
       state: dave
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairDiagonalBangs
   bodyPart: Hair
   markingCategory: Hair
@@ -144,6 +306,15 @@
       state: diagonal_bangs
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairEmoshort
   bodyPart: Hair
   markingCategory: Hair
@@ -152,6 +323,15 @@
       state: emoshort
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairFingerwave
   bodyPart: Hair
   markingCategory: Hair
@@ -161,6 +341,15 @@
       state: fingerwave
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairFluffyShort
   bodyPart: Hair
   markingCategory: Hair
@@ -169,6 +358,15 @@
       state: fluffy_short
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairFortuneteller
   bodyPart: Hair
   markingCategory: Hair
@@ -178,6 +376,15 @@
       state: fortuneteller
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairFortunetellerAlt
   bodyPart: Hair
   markingCategory: Hair
@@ -187,6 +394,15 @@
       state: fortuneteller_alt
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairFroofylong
   bodyPart: Hair
   markingCategory: Hair
@@ -195,6 +411,15 @@
       state: froofylong
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairGeisha
   bodyPart: Hair
   markingCategory: Hair
@@ -203,6 +428,15 @@
       state: geisha
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairGentle21
   bodyPart: Hair
   markingCategory: Hair
@@ -211,6 +445,15 @@
       state: gentle21
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairGlammetal
   bodyPart: Hair
   markingCategory: Hair
@@ -219,6 +462,15 @@
       state: glammetal
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairGloomyLong
   bodyPart: Hair
   markingCategory: Hair
@@ -227,6 +479,15 @@
       state: gloomy_long
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairGloomyMedium
   bodyPart: Hair
   markingCategory: Hair
@@ -235,6 +496,15 @@
       state: gloomy_medium
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairGrande
   bodyPart: Hair
   markingCategory: Hair
@@ -243,6 +513,15 @@
       state: grande
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairHalfshave
   bodyPart: Hair
   markingCategory: Hair
@@ -251,6 +530,15 @@
       state: halfshave
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairHalfshaveglamorous
   bodyPart: Hair
   markingCategory: Hair
@@ -259,6 +547,15 @@
       state: halfshave_glamorous
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairHalfshaveLong
   bodyPart: Hair
   markingCategory: Hair
@@ -267,6 +564,15 @@
       state: halfshave_long
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairHalfshaveMessy
   bodyPart: Hair
   markingCategory: Hair
@@ -275,6 +581,15 @@
       state: halfshave_messy
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairHalfshaveMessyLong
   bodyPart: Hair
   markingCategory: Hair
@@ -283,6 +598,15 @@
       state: halfshave_messylong
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairHalfshaveSnout
   bodyPart: Hair
   markingCategory: Hair
@@ -291,6 +615,15 @@
       state: halfshave_snout
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairHightight
   bodyPart: Hair
   markingCategory: Hair
@@ -299,6 +632,15 @@
       state: hightight
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairHyenamane
   bodyPart: Hair
   markingCategory: Hair
@@ -307,6 +649,15 @@
       state: hyenamane
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairJessica
   bodyPart: Hair
   markingCategory: Hair
@@ -315,6 +666,15 @@
       state: jessica
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairLong4
   bodyPart: Hair
   markingCategory: Hair
@@ -323,6 +683,15 @@
       state: long4
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairLongdtails
   bodyPart: Hair
   markingCategory: Hair
@@ -332,6 +701,15 @@
       state: longdtails
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairLongerAlt
   bodyPart: Hair
   markingCategory: Hair
@@ -340,6 +718,15 @@
       state: longeralt
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairLongovereyeAlt
   bodyPart: Hair
   markingCategory: Hair
@@ -348,6 +735,15 @@
       state: longovereye_alt
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairLongsidepartstraight
   bodyPart: Hair
   markingCategory: Hair
@@ -356,6 +752,15 @@
       state: longsidepartstraight
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairLooseSlicked
   bodyPart: Hair
   markingCategory: Hair
@@ -365,6 +770,15 @@
       state: loose_slicked
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairMediumbraid
   bodyPart: Hair
   markingCategory: Hair
@@ -373,6 +787,15 @@
       state: mediumbraid
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairNewyou
   bodyPart: Hair
   markingCategory: Hair
@@ -381,6 +804,15 @@
       state: newyou
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairPonytailAlt
   bodyPart: Hair
   markingCategory: Hair
@@ -389,6 +821,15 @@
       state: ponytailalt
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairPonytailF
   bodyPart: Hair
   markingCategory: Hair
@@ -397,6 +838,15 @@
       state: ponytailf
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairPoofy2
   bodyPart: Hair
   markingCategory: Hair
@@ -405,6 +855,15 @@
       state: poofy2
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairQuadcurls
   bodyPart: Hair
   markingCategory: Hair
@@ -414,6 +873,15 @@
       state: quadcurls
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairSabitsuki
   bodyPart: Hair
   markingCategory: Hair
@@ -422,6 +890,15 @@
       state: sabitsuki
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairScully
   bodyPart: Hair
   markingCategory: Hair
@@ -430,6 +907,15 @@
       state: scully
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairShorthair4
   bodyPart: Hair
   markingCategory: Hair
@@ -438,6 +924,15 @@
       state: shorthair4
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairShy
   bodyPart: Hair
   markingCategory: Hair
@@ -447,6 +942,15 @@
       state: shy
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairSimplePonytail
   bodyPart: Hair
   markingCategory: Hair
@@ -455,6 +959,15 @@
       state: simple_ponytail
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairSleaze
   bodyPart: Hair
   markingCategory: Hair
@@ -463,6 +976,15 @@
       state: sleaze
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairSlightlyMessy
   bodyPart: Hair
   markingCategory: Hair
@@ -471,6 +993,15 @@
       state: slightlymessy
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairSlimedroplet
   bodyPart: Hair
   markingCategory: Hair
@@ -479,6 +1010,15 @@
       state: slimedroplet
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairSlimedropletAlt
   bodyPart: Hair
   markingCategory: Hair
@@ -487,6 +1027,15 @@
       state: slimedroplet_alt
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairSlimespikes
   bodyPart: Hair
   markingCategory: Hair
@@ -495,6 +1044,15 @@
       state: slimespikes
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairSlimetendrils
   bodyPart: Hair
   markingCategory: Hair
@@ -503,6 +1061,15 @@
       state: slimetendrils
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairSlimetendrilsAlt
   bodyPart: Hair
   markingCategory: Hair
@@ -511,6 +1078,15 @@
       state: slimetendrils_alt
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairSpicy
   bodyPart: Hair
   markingCategory: Hair
@@ -520,6 +1096,15 @@
       state: spicy
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairTwintailFloor
   bodyPart: Hair
   markingCategory: Hair
@@ -528,6 +1113,15 @@
       state: twintail_floor
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairVeryshortovereye
   bodyPart: Hair
   markingCategory: Hair
@@ -536,6 +1130,15 @@
       state: veryshortovereye
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairVictory
   bodyPart: Hair
   markingCategory: Hair
@@ -544,6 +1147,15 @@
       state: victory
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairViper
   bodyPart: Hair
   markingCategory: Hair
@@ -552,6 +1164,15 @@
       state: viper
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairWife
   bodyPart: Hair
   markingCategory: Hair
@@ -561,6 +1182,15 @@
       state: wife
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanHairZiegler
   bodyPart: Hair
   markingCategory: Hair

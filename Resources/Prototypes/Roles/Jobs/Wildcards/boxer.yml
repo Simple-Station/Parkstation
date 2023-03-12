@@ -23,12 +23,12 @@
 - type: startingGear
   id: BoxerGear
   equipment:
-   # jumpsuit: UniformShortsRed
+    # jumpsuit: UniformShortsRed
     back: ClothingBackpackFilled
     belt: BoxerPDA
     ears: ClothingHeadsetService
     gloves: ClothingHandsGlovesBoxingRed
- # innerclothingskirt: UniformShortsRedWithTop
+  # innerclothingskirt: UniformShortsRedWithTop
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
   underpants: ClothingUnderboxers_assblastusa

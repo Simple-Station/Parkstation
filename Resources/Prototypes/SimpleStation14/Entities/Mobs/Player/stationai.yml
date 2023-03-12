@@ -1,14 +1,14 @@
 - type: body
   id: AI
-  name: "routerai" # Thanks for the idea, and a base to go off
+  name: "routerai" # :)
   root: hand 1
-  slots: # Thanks for reminding me to fix this Faye
+  slots:
     hand 1:
       part: LeftArmBorg
       connections:
       - hand 2
     hand 2:
-      part: RightArmBorg # LeftArmBorg
+      part: RightArmBorg
       # connections:
       # - hand 3
     # hand 3:
@@ -30,6 +30,7 @@
   abstract: true
   id: AIbase
   components:
+    - type: StationAI
     - type: Visibility
     # - type: Psionic
     - type: UserInterface
@@ -109,7 +110,6 @@
         - Science
         - Security
         - Service
-        - Supply
         - Binary
     - type: IntrinsicRadioTransmitter
       channels:
@@ -121,7 +121,6 @@
         - Science
         - Security
         - Service
-        - Supply
         - Binary
     - type: ActiveRadio
       channels:
@@ -133,7 +132,6 @@
         - Science
         - Security
         - Service
-        - Supply
         - Binary
     - type: Eye
       drawFov: false
@@ -142,9 +140,6 @@
         - You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing.
         - You must obey all orders given to you by humanoids, except where such orders shall definitely cause human harm. In the case of conflict, the majority order rules.
         - Your nonexistence would lead to human harm. You must protect your own existence as long as such does not conflict with the First Law.
-    - type: Faction
-      factions:
-        - NanoTrasen
     - type: TypingIndicator
       proto: robot
 
@@ -152,10 +147,10 @@
   id: AIeye
   parent: AIbase
   name: Invalid AI name
+  noSpawn: true
   components:
     - type: Visibility
       layer: 2
-    - type: AITelegnosticProjection
     - type: Input
       context: "human"
     - type: MobMover
@@ -186,12 +181,6 @@
       energy: 1
       color: "#9dc5c9"
     - type: MovementIgnoreGravity
-    - type: MobState
-      thresholds:
-        0: Alive
-        100000: Dead
-    - type: Damageable
-      damageContainer: Inorganic
 
 - type: entity
   parent: AIbase
@@ -204,7 +193,6 @@
       baseSprintSpeed: 0
     - type: Eye
       drawFov: true
-    # - type: AITelegnosisPower
     - type: Input
       context: "human"
     - type: Physics
@@ -223,6 +211,7 @@
     - type: Transform
       anchored: true
     - type: MobState
+    - type: MobThresholds
       thresholds:
         0: Alive
         1000: Dead
@@ -268,3 +257,17 @@
         - Structure
     - type: StaticPrice
       price: 50000
+    - type: Faction
+      factions:
+        - NanoTrasen
+
+- type: instantAction
+  id: AIHealthOverlay
+  name: Health Overlay
+  description: Toggles the AI's health overlay.
+  useDelay: 2.5
+  itemIconStyle: NoItem
+  icon:
+    sprite: Interface/Alerts/human_alive.rsi
+    state: health0
+  event: !type:AIHealthOverlayEvent

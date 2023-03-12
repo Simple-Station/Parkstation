@@ -5367,19 +5367,19 @@ entities:
     parent: 1
     type: Transform
 - uid: 425
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: -25.5,-8.5
     parent: 1
     type: Transform
 - uid: 426
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: -25.5,14.5
     parent: 1
     type: Transform
 - uid: 427
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: -24.5,15.5
     parent: 1
@@ -5421,25 +5421,25 @@ entities:
     parent: 1
     type: Transform
 - uid: 434
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: -2.5,25.5
     parent: 1
     type: Transform
 - uid: 435
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: 1.5,25.5
     parent: 1
     type: Transform
 - uid: 436
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: 24.5,15.5
     parent: 1
     type: Transform
 - uid: 437
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: 25.5,14.5
     parent: 1
@@ -5481,13 +5481,13 @@ entities:
     parent: 1
     type: Transform
 - uid: 444
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: 25.5,-8.5
     parent: 1
     type: Transform
 - uid: 445
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: 10.5,-16.5
     parent: 1
@@ -5517,31 +5517,31 @@ entities:
     parent: 1
     type: Transform
 - uid: 450
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: 9.5,-17.5
     parent: 1
     type: Transform
 - uid: 451
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: 24.5,-9.5
     parent: 1
     type: Transform
 - uid: 452
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: -10.5,-17.5
     parent: 1
     type: Transform
 - uid: 453
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: -11.5,-16.5
     parent: 1
     type: Transform
 - uid: 454
-  type: WeaponTurretBroken
+  type: WeaponTurretSyndicateBroken
   components:
   - pos: -24.5,-9.5
     parent: 1

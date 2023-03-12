@@ -21,9 +21,9 @@
     jumpsuit: ClothingUniformJumpsuitMedicalDoctor
     back: ClothingBackpackMedicalFilled
     shoes: ClothingShoesColorWhite
-    outerClothing: ClothingOuterCoatLab
+    # outerClothing: ClothingOuterCoatLab
     id: MedicalPDA
-    neck: ClothingNeckStethoscope
+    # neck: ClothingNeckStethoscope
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
   innerclothingskirt: ClothingUniformJumpskirtMedicalDoctor

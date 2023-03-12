@@ -1,0 +1,15 @@
+- type: entity
+  noSpawn: true
+  parent: Clothing
+  id: empty
+  components:
+    - type: Clothing
+      slots:
+        - UNDERSHIRT
+        - UNDERPANTS
+        - SOCKS
+    - type: Sprite
+      # noRot: true
+      state: icon
+    - type: TemperatureProtection
+      coefficient: 0.75

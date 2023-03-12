@@ -95,6 +95,7 @@ flavor-complex-bungo = like bungo
 flavor-complex-raisins = like dried grapes
 flavor-complex-orange = like oranges
 flavor-complex-watermelon = like watermelon
+flavor-complex-nuggie = like "chicken"
 
 ## Complex foodstuffs (cooked foods, joke flavors, etc)
 
@@ -178,3 +179,5 @@ flavor-complex-sax = like jazz
 
 ## Nyano???
 flavor-complex-enthralling = enthralling
+flavor-complex-sublime = sublime
+flavor-complex-holy = heavenly

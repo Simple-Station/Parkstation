@@ -235,12 +235,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         // PDA should be in place already
         DebugTools.AssertNotNull(mind.OwnedEntity);
 
-        if (mind.AllRoles.Count() > 1)
-        {
-            Logger.InfoS("preset", $"{traitor.ConnectedClient.UserName} is already another antagonist.");
-            return;
-        }
-
         var startingBalance = _cfg.GetCVar(CCVars.TraitorStartingBalance);
 
         if (mind.CurrentJob != null)

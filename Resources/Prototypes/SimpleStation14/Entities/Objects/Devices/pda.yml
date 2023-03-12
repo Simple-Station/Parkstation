@@ -5,11 +5,8 @@
   description: Your integrated personal computer, inside the personal computer!
   components:
   - type: PDA
+    state: pda-ai
     id: AIIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-ai
   - type: Sprite
     sprite: SimpleStation14/Objects/Devices/pda.rsi
     netsync: false
@@ -18,11 +15,6 @@
   - type: Icon
     sprite: SimpleStation14/Objects/Devices/pda.rsi
     state: pda-ai
-# - type: entity
-#   parent: AIPDA
-#   id: AIPDAur
-#   components:
-#     - type: Unremoveable
 
 - type: entity
   parent: BasePDA
@@ -31,6 +23,7 @@
   description: Smells like pine and Febreze.
   components:
   - type: PDA
+    state: pda-css
     id: CSSIDCard
     penSlot:
       startingItem: PenCSS
@@ -38,10 +31,6 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-css
   - type: Sprite
     sprite: SimpleStation14/Objects/Devices/pda.rsi
     netsync: false

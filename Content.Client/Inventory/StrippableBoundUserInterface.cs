@@ -28,7 +28,7 @@ namespace Content.Client.Inventory
     public sealed class StrippableBoundUserInterface : BoundUserInterface
     {
         private const int ButtonSeparation = 4;
-        
+
         [Dependency] private readonly IPrototypeManager _protoMan = default!;
         [Dependency] private readonly IEntityManager _entMan = default!;
         private ExamineSystem _examine = default!;
@@ -93,7 +93,7 @@ namespace Content.Client.Inventory
             if (_entMan.TryGetComponent(Owner.Owner, out HandsComponent? handsComp))
             {
                 // good ol hands shit code. there is a GuiHands comparer that does the same thing... but these are hands
-                // and not gui hands... which are different... 
+                // and not gui hands... which are different...
                 foreach (var hand in handsComp.Hands.Values)
                 {
                     if (hand.Location != HandLocation.Right)
@@ -142,7 +142,7 @@ namespace Content.Client.Inventory
             // for now: shit-code
             // this breaks for drones (too many hands, lots of empty vertical space), and looks shit for monkeys and the like.
             // but the window is realizable, so eh.
-            _strippingMenu.SetSize = (220, snare?.IsEnsnared == true ? 550 : 530);
+            _strippingMenu.SetSize = (294, snare?.IsEnsnared == true ? 550 : 530);
         }
 
         private void AddHandButton(Hand hand)
@@ -157,7 +157,7 @@ namespace Content.Client.Inventory
                 if (_entMan.TryGetComponent(Owner.Owner, out CuffableComponent? cuff) && cuff.Container.Contains(virt.BlockingEntity))
                     button.BlockedRect.MouseFilter = MouseFilterMode.Ignore;
             }
-            
+
             UpdateEntityIcon(button, hand.HeldEntity);
             _strippingMenu!.HandsContainer.AddChild(button);
         }
