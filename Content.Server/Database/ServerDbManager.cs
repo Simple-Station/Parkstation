@@ -254,6 +254,7 @@ namespace Content.Server.Database
             });
 
             _synchronous = _cfg.GetCVar(CCVars.DatabaseSynchronous);
+            _cfg.OnValueChanged(CCVars.DatabaseSynchronous, enabled => { _synchronous = enabled; });
 
             var engine = _cfg.GetCVar(CCVars.DatabaseEngine).ToLower();
             switch (engine)
