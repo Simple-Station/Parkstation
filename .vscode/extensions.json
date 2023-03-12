@@ -5,6 +5,7 @@
         "redhat.vscode-yaml",
         "dotjoshjohnson.xml",
         "slevesque.shader",
-        "formulahendry.auto-rename-tag"
+        "formulahendry.auto-rename-tag",
+        "macabeus.vscode-fluent"
     ]
 }
