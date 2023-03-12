@@ -1,0 +1,52 @@
+- type: entity
+  name: fragmentation grenade
+  description: A grenade that explodes into a cloud of shrapnel.
+  parent: GrenadeBase
+  id: GrenadeFragThrown
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/flashbang.rsi
+    - type: SpawnEntitiesOnTrigger
+      prototype: BaseBulletTrigger
+      count: 30
+      minCount: 20
+      velocity: 20
+      despawnTime: 1.5
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default
+      totalIntensity: 40
+      intensitySlope: 45
+      maxIntensity: 10
+      canCreateVacuum: false
+    - type: DeleteOnTrigger
+    # - type: Appearance
+    #   visuals:
+    #   - type: TimerTriggerVisualizer
+    #     countdown_sound:
+    #       path: /Audio/Effects/countdown.ogg
+    - type: OnUseTimerTrigger
+      delay: 1.5
+
+- type: entity
+  name: beenade
+  description: A grenade that explodes into a cloud of bees... Nightmarish.
+  parent: GrenadeBase
+  id: GrenadeBees
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/flashbang.rsi
+    - type: SpawnEntitiesOnTrigger
+      prototype: MobAngryBee
+      count: 5
+      minCount: 3
+      despawnTime: 30
+      # velocity: 2
+    - type: DeleteOnTrigger
+    # - type: Appearance
+    #   visuals:
+    #   - type: TimerTriggerVisualizer
+    #     countdown_sound:
+    #       path: /Audio/Effects/countdown.ogg
+    - type: OnUseTimerTrigger
+      delay: 2
