@@ -10,11 +10,11 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
     /// </summary>
     public sealed class ShadekinTeleportEvent : WorldTargetActionEvent
     {
-        [DataField("blinkSound")]
-        public SoundSpecifier BlinkSound = new SoundPathSpecifier("/Audio/Magic/blink.ogg");
+        [DataField("sound")]
+        public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/SimpleStation14/Effects/Shadekin/Powers/base.ogg");
 
-        [DataField("blinkVolume")]
-        public float BlinkVolume = 5f;
+        [DataField("volume")]
+        public float Volume = 5f;
 
 
         [DataField("powerCost")]
@@ -29,6 +29,19 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Events
     /// </summary>
     public sealed class ShadekinDarkSwapEvent : InstantActionEvent
     {
+        [DataField("soundOn")]
+        public SoundSpecifier SoundOn = new SoundPathSpecifier("/Audio/SimpleStation14/Effects/Shadekin/Powers/disappearance-gradual.ogg");
+
+        [DataField("volumeOn")]
+        public float VolumeOn = 5f;
+
+        [DataField("soundOff")]
+        public SoundSpecifier SoundOff = new SoundPathSpecifier("/Audio/SimpleStation14/Effects/Shadekin/Powers/futuristic-ufo.ogg");
+
+        [DataField("volumeOff")]
+        public float VolumeOff = 5f;
+
+
         /// <summary>
         ///     How much stamina to drain when darkening.
         /// </summary>

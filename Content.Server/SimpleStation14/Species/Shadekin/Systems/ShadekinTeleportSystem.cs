@@ -36,7 +36,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             _transformSystem.SetCoordinates(args.Performer, args.Target);
             transform.AttachToGridOrMap();
 
-            _audio.PlayPvs(args.BlinkSound, args.Performer, AudioParams.Default.WithVolume(args.BlinkVolume));
+            _audio.PlayPvs(args.Sound, args.Performer, AudioParams.Default.WithVolume(args.Volume));
 
             _powerSystem.TryAddPowerLevel(comp.Owner, -args.PowerCost);
             _staminaSystem.TakeStaminaDamage(args.Performer, args.StaminaCost);

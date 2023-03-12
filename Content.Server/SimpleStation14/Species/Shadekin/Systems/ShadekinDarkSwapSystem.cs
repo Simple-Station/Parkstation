@@ -25,6 +25,9 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         [Dependency] private readonly ShadekinDarkenSystem _darkenSystem = default!;
         [Dependency] private readonly StaminaSystem _staminaSystem = default!;
         [Dependency] private readonly SharedStealthSystem _stealthSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
+
+        public SharedAudioSystem Audio => _audio;
 
         public override void Initialize()
         {
@@ -56,6 +59,8 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                 EnsureComp<ShadekinDarkSwappedComponent>(uid);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, true));
 
+                _audio.PlayPvs(args.SoundOn, args.Performer, AudioParams.Default.WithVolume(args.VolumeOn));
+
                 _powerSystem.TryAddPowerLevel(comp.Owner, -args.PowerCostOn);
                 _staminaSystem.TakeStaminaDamage(comp.Owner, args.StaminaCost);
             }
@@ -63,6 +68,8 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             {
                 RemComp<ShadekinDarkSwappedComponent>(uid);
                 RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, false));
+
+                _audio.PlayPvs(args.SoundOff, args.Performer, AudioParams.Default.WithVolume(args.VolumeOff));
 
                 _powerSystem.TryAddPowerLevel(comp.Owner, -args.PowerCostOff);
                 _staminaSystem.TakeStaminaDamage(comp.Owner, args.StaminaCost);
@@ -82,8 +89,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         {
             EnsureComp<PacifiedComponent>(uid);
 
-            SoundSystem.Play("/Audio/Effects/toss.ogg", Filter.Pvs(uid), uid);
-
             SetCanSeeInvisibility(uid, true);
         }
 
@@ -92,7 +97,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             if (Terminating(uid)) return;
 
             RemComp<PacifiedComponent>(uid);
-            SoundSystem.Play("/Audio/Effects/toss.ogg", Filter.Pvs(uid), uid);
 
             SetCanSeeInvisibility(uid, false);
 
