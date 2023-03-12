@@ -3,7 +3,7 @@
   id: FlawedObjectiveGroups
   weights:
     FlawedObjectiveGroupMild: 1
-    FlawedObjevtiveGroupDanger: 0.6
+    FlawedObjectiveGroupDanger: 0.6
 
 - type: weightedRandom
   id: FlawedObjectiveGroupMild
