@@ -1268,7 +1268,7 @@ Entries:
   - author: "Pspritechologist and ArMor"
     changes:
       - {
-          message: "Finally properly implemented Minor Antags in the form of Flawed!",
+          message: "Finally properly implemented the 'Minor Antags', now with the name 'Flawed'!",
           type: Add,
         }
     id: 97
