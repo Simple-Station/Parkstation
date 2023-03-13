@@ -63,8 +63,8 @@
   parent: MarkerBase
   components:
   - type: GhostRoleMobSpawner
-    prototype: MobHumanSyndicateCommsAgent
-    name: Olstation crew Scientist
+    prototype: MobHumanOldstationCrewScientist
+    name: Oldstation crew Scientist
     description: Live on the oldstation after repairing it.
     rules: |
       Repair the station and live as if you were a part of the nanotrasen crew.
@@ -82,7 +82,7 @@
   parent: MarkerBase
   components:
   - type: GhostRoleMobSpawner
-    prototype: MobHumanSyndicateCommsAgent
+    prototype: MobHumanOldstationCrewEngineer
     name: Oldstation crew Engineer
     description: Live on the oldstation after repairing it.
     rules: |
@@ -101,8 +101,8 @@
   parent: MarkerBase
   components:
   - type: GhostRoleMobSpawner
-    prototype: MobHumanSyndicateCommsAgent
-    name: Olstation crew Security
+    prototype: MobHumanOldstationCrewSecurity
+    name: Oldstation crew Security
     description: Live on the oldstation after repairing it.
     rules: |
       Repair the station and live as if you were a part of the nanotrasen crew.
