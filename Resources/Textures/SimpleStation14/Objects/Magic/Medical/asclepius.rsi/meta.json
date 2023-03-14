@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "copyright": "Sprites taken from TGStation at commit https://github.com/tgstation/tgstation/commit/f4e0f567efae1f6db4281b0b5f026431151e2476   Sprite 'stick' made by DEATHB4DEFEAT#4404 (801294818839756811)",
+    "license": "CC-BY-SA-3.0",
+    "states": [
+        {
+            "name": "active",
+            "delays": [
+                [
+                    0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025,
+                    0.025, 0.025, 0.025, 0.025, 0.025, 5
+                ]
+            ]
+        },
+        {
+            "name": "dormant"
+        },
+        {
+            "name": "stick"
+        }
+    ]
+}
