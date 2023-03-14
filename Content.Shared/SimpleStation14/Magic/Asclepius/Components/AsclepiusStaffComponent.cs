@@ -1,8 +1,18 @@
+using System.Threading;
+using Robust.Shared.Serialization;
+
 namespace Content.Shared.SimpleStation14.Magic.Asclepius.Components
 {
     [RegisterComponent]
     public class AsclepiusStaffComponent : Component
     {
+        /// <summary>
+        ///     Token for interrupting a do-after action (e.g., injection another player). If not null, implies
+        ///     component is currently "in use".
+        /// </summary>
+        public CancellationTokenSource? CancelToken;
+
+
         /// <summary>
         ///     Who owns this?
         ///     Who to give extra benefits to?
@@ -36,5 +46,14 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Components
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         public bool SnakeOnDeath = true;
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class AsclepiusStaffComponentState : ComponentState
+    {
+        public EntityUid BoundTo { get; init; }
+        public bool PacifyBound { get; init; }
+        public bool RegenerateOnRemoval { get; init; }
+        public bool PermanentOath { get; init; }
     }
 }
