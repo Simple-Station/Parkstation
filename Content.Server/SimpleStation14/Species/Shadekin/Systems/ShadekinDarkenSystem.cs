@@ -14,6 +14,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         [Dependency] private readonly IEntitySystemManager _systemManager = default!;
         [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
 
         public override void Initialize()
         {
@@ -23,12 +24,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             SubscribeLocalEvent<ShadekinComponent, ComponentShutdown>(OnShutdown);
         }
 
-        /// <summary>
-        ///     This kinda sucks.
-        /// </summary>
-        /// <remarks>
-        ///     It's way better than the original iterations though.
-        /// </remarks>
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
@@ -37,7 +32,9 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
             foreach (var shadekin in shadekins.Where(x => x.Darken))
             {
-                if (!_entityManager.TryGetComponent(shadekin.Owner, out ShadekinDarkSwappedComponent? __)) continue;
+                if (!_entityManager.TryGetComponent(shadekin.Owner, out ShadekinDarkSwappedComponent? __) ||
+                    !_entityManager.TryGetComponent<TransformComponent>(shadekin.Owner, out var transform))
+                    continue;
 
                 shadekin.DarkenAccumulator += frameTime;
                 if (shadekin.DarkenAccumulator < shadekin.DarkenRate) continue;
@@ -45,18 +42,12 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
 
                 var _darkened = new List<EntityUid>();
-                var lightQuery = _entityManager.EntityQuery<ShadekinLightComponent, PointLightComponent>();
-                var xformQuery = _entityManager.GetEntityQuery<TransformComponent>();
+                var lightQuery = _lookupSystem.GetEntitiesInRange(transform.MapID, transform.WorldPosition, shadekin.DarkenRange, flags: LookupFlags.StaticSundries)
+                    .Where(x => _entityManager.HasComponent<ShadekinLightComponent>(x) && _entityManager.HasComponent<PointLightComponent>(x));
 
-                foreach (var (slight, light) in lightQuery.Where(x =>
-                    xformQuery.TryGetComponent(shadekin.Owner, out var xform) &&
-                    xformQuery.TryGetComponent(x.Item2.Owner, out var yform) &&
-                    xform.MapID == yform.MapID &&
-                    (yform.WorldPosition - xform.WorldPosition).Length < shadekin.DarkenRange)
-                )
+                foreach (var entity in lightQuery)
                 {
-                    if (_darkened.Contains(light.Owner)) continue;
-                    _darkened.Add(light.Owner);
+                    if (!_darkened.Contains(entity)) _darkened.Add(entity);
                 }
 
                 _random.Shuffle(_darkened);
@@ -124,6 +115,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
             component.DarkenedLights.Clear();
 
+            // I hate duplicate subscriptions
             _powerSystem.UpdateAlert(component.Owner, false);
         }
 
