@@ -24,6 +24,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Physics.Components;
 using static Content.Shared.Examine.ExamineSystemShared;
+using Content.Shared.SimpleStation14.Magic.Asclepius.Components;
 
 namespace Content.Server.Body.Systems
 {
@@ -251,7 +252,7 @@ namespace Content.Server.Body.Systems
             respirator.BreatheInCritCounter = respirator.BreatheInCritCounter + 3;
             respirator.CPRPlayingStream?.Stop();
 
-            if (!HasComp<MedicalTrainingComponent>(ev.Performer) && TryComp<PhysicsComponent>(ev.Patient, out var patientPhysics) && TryComp<PhysicsComponent>(ev.Performer, out var perfPhysics))
+            if (!HasComp<MedicalTrainingComponent>(ev.Performer) && !HasComp<HippocraticOathComponent>(ev.Performer) && TryComp<PhysicsComponent>(ev.Patient, out var patientPhysics) && TryComp<PhysicsComponent>(ev.Performer, out var perfPhysics))
             {
                 if (perfPhysics.FixturesMass >= patientPhysics.FixturesMass && _random.Prob(0.15f * perfPhysics.FixturesMass / patientPhysics.FixturesMass))
                 {
