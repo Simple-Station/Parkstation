@@ -97,8 +97,8 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             // Bind the staff to the user
             component.BoundTo = args.User;
 
-            // Tell the user
-            _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-hippocratic-oath-complete"), args.User, PopupType.MediumCaution);
+            // Tell the user (and nearby people)
+            if (_net.IsServer) _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-hippocratic-oath-complete"), args.User, PopupType.MediumCaution);
 
             Dirty(args.Staff);
         }
@@ -124,8 +124,8 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             component.CancelToken?.Cancel();
             component.CancelToken = null;
 
-            // Tell the user
-            _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-hippocratic-oath-cancelled"), args.User, PopupType.Medium);
+            // Tell the user (and nearby people)
+            if (_net.IsServer) _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-hippocratic-oath-cancelled"), args.User, PopupType.Medium);
         }
     }
 }

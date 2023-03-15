@@ -18,8 +18,6 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             base.Initialize();
 
             SubscribeLocalEvent<AsclepiusStaffComponent, UseInHandEvent>(OnUseInHand);
-
-            // SubscribeLocalEvent<HippocraticOathProgressingEvent>(Progress);
         }
 
         private async void OnUseInHand(EntityUid uid, AsclepiusStaffComponent component, UseInHandEvent args)
