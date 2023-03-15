@@ -64,9 +64,6 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
                 User = args.User,
             });
 
-            // Clear the cancel token
-            component.CancelToken = null;
-
 
             // Bind the staff to the user
             component.BoundTo = args.User;
@@ -103,12 +100,10 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
                 User = args.User,
             });
 
-            // Clear the cancel token
-            component.CancelToken?.Cancel();
-            component.CancelToken = null;
-
             // Tell the user (and nearby people)
             if (_net.IsServer) _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-hippocratic-oath-cancelled"), args.User, PopupType.Medium);
+
+            Dirty(args.Staff);
         }
     }
 }

@@ -12,6 +12,18 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Components
         /// </summary>
         public CancellationTokenSource? CancelToken;
 
+        /// <summary>
+        ///     Is the oath being taken on this?
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public bool Active = false;
+
+        /// <summary>
+        ///     Did the oath fail?
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public bool Failed = false;
+
 
         /// <summary>
         ///     Who owns this?

@@ -22,6 +22,9 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             base.Initialize();
 
             SubscribeLocalEvent<AsclepiusStaffComponent, UseInHandEvent>(OnUseInHand);
+
+            SubscribeLocalEvent<HippocraticOathCancelledEvent>(OnHippocraticOathCancelled);
+            SubscribeLocalEvent<HippocraticOathCompleteEvent>(OnHippocraticOathComplete);
         }
 
         private async void OnUseInHand(EntityUid uid, AsclepiusStaffComponent component, UseInHandEvent args)
@@ -40,6 +43,12 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
                 return;
             }
 
+            // Oath being taken, ignore
+            if (component.Active)
+            {
+                return;
+            }
+
             // Only humanoids can bind
             if (!_entityManager.TryGetComponent<HumanoidAppearanceComponent>(args.User, out var _))
             {
@@ -49,8 +58,39 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
 
 
             // Begin the oath
+            component.Active = true;
+            component.Failed = false;
             Progress(uid, args.User, 0);
         }
+
+        private void OnHippocraticOathCancelled(HippocraticOathCancelledEvent args)
+        {
+            if (_entityManager.TryGetComponent<AsclepiusStaffComponent>(args.Staff, out var component))
+            {
+                // Clear the cancel token
+                component.CancelToken?.Cancel();
+                component.CancelToken = null;
+
+                // Reset the staff
+                component.Active = false;
+                component.Failed = true;
+            }
+        }
+
+        private void OnHippocraticOathComplete(HippocraticOathCompleteEvent args)
+        {
+            if (_entityManager.TryGetComponent<AsclepiusStaffComponent>(args.Staff, out var component))
+            {
+                // Clear the cancel token
+                component.CancelToken?.Cancel();
+                component.CancelToken = null;
+
+                // Reset the staff
+                component.Active = false;
+                component.Failed = false;
+            }
+        }
+
 
         private async void Progress(EntityUid staff, EntityUid user, int progress)
         {
@@ -66,6 +106,15 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
                 return;
             }
 
+            // The user broke the oath
+            if (component.Failed)
+            {
+                component.Active = false;
+                component.Failed = false;
+
+                return;
+            }
+
             // The user is already bound, ignore
             if (_entityManager.TryGetComponent<HippocraticOathComponent>(user, out var oath))
             {
@@ -73,7 +122,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
                 return;
             }
 
-            // How many times to progress (needs this many locs)
+            // How many times to progress
             int maxProgress = 10;
             // If the oath is done, raise the completion event
             if (progress >= maxProgress)
@@ -94,12 +143,14 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
 
             component.CancelToken = new();
             // Time = 20.791 (average time in ms to read each character (for me)) * length of verse / 1000 (ms to s)
-            DoAfterEventArgs doafter = new(user, (float) (20.791 * verse.Length ) / 1000, component.CancelToken.Token)
+            DoAfterEventArgs doafter = new(user, (float) (20.791 * verse.Length ) / 1000, component.CancelToken.Token, staff)
             {
-                BreakOnUserMove = true,
                 BreakOnDamage = true,
                 BreakOnStun = true,
-                MovementThreshold = 0.25f,
+                BreakOnTargetMove = true,
+                BreakOnUserMove = true,
+                MovementThreshold = 0.05f,
+                NeedHand = true,
                 BroadcastCancelledEvent = new HippocraticOathCancelledEvent()
                 {
                     Staff = staff,
@@ -108,7 +159,8 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             };
             await _doAfter.WaitDoAfter(doafter);
 
-            if (component.CancelToken != null) Progress(staff, user, progress + 1);
+            if (doafter.CancelToken.IsCancellationRequested || component.CancelToken == null) return;
+            Progress(staff, user, progress + 1);
         }
     }
 }
