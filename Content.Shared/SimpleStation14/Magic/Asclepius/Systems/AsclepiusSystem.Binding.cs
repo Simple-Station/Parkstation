@@ -71,7 +71,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
 
             // Set description
             var meta = _entityManager.GetComponent<MetaDataComponent>(args.Staff);
-            meta.EntityDescription = Loc.GetString("asclepius-bound-staff-description");
+            meta.EntityDescription = Loc.GetString("asclepius-staff-description-bound");
 
             // Set the inhand sprite prefix
             _itemSystem.SetHeldPrefix(args.Staff, "active");

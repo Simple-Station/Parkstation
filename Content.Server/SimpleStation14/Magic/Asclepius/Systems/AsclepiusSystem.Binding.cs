@@ -39,7 +39,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             // The user is already bound, ignore
             if (_entityManager.TryGetComponent<HippocraticOathComponent>(args.User, out var oath))
             {
-                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-bound"), args.User, args.User, PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-fail-bound"), args.User, args.User, PopupType.MediumCaution);
                 return;
             }
 
@@ -52,7 +52,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             // Only humanoids can bind
             if (!_entityManager.TryGetComponent<HumanoidAppearanceComponent>(args.User, out var _))
             {
-                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-inhuman"), args.User, args.User, PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-fail-inhuman"), args.User, args.User, PopupType.MediumCaution);
                 return;
             }
 
@@ -60,7 +60,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             // Begin the oath
             component.Active = true;
             component.Failed = false;
-            Progress(uid, args.User, 0);
+            ProgressOath(uid, args.User, 0);
         }
 
         private void OnHippocraticOathCancelled(HippocraticOathCancelledEvent args)
@@ -92,7 +92,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
         }
 
 
-        private async void Progress(EntityUid staff, EntityUid user, int progress)
+        private async void ProgressOath(EntityUid staff, EntityUid user, int progress)
         {
             // Why did you break the staff?
             if (!_entityManager.TryGetComponent<AsclepiusStaffComponent>(staff, out var component))
@@ -118,7 +118,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             // The user is already bound, ignore
             if (_entityManager.TryGetComponent<HippocraticOathComponent>(user, out var oath))
             {
-                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-bound"), user, user, PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-fail-bound"), user, user, PopupType.MediumCaution);
                 return;
             }
 
@@ -143,7 +143,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
 
             component.CancelToken = new();
             // Time = 20.791 (average time in ms to read each character (for me)) * length of verse / 1000 (ms to s)
-            DoAfterEventArgs doafter = new(user, (float) (20.791 * verse.Length ) / 1000, component.CancelToken.Token, staff)
+            DoAfterEventArgs doafter = new(user, (float) (20.791 * verse.Length) / 1000, component.CancelToken.Token, staff)
             {
                 BreakOnDamage = true,
                 BreakOnStun = true,
@@ -160,7 +160,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             await _doAfter.WaitDoAfter(doafter);
 
             if (doafter.CancelToken.IsCancellationRequested || component.CancelToken == null) return;
-            Progress(staff, user, progress + 1);
+            ProgressOath(staff, user, progress + 1);
         }
     }
 }

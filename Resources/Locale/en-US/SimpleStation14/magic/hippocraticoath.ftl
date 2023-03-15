@@ -29,7 +29,6 @@ asclepius-binding-hippocratic-oath-progress-9 = If I do not violate this oath, m
 # Average time for the whole oath:
 ## 20.791
 
-asclepius-binding-inhuman = The snake carving seems to come alive, if only for a moment, before returning to it's dormant state, almost as if it finds you incapable of holding it's oath.
-asclepius-binding-bound = You can't possibly handle the responsibility of more than one rod!
-asclepius-binding-hippocratic-oath-complete = The wooden snake that was carved into the rod seems to suddenly come alive and begins to slither down your arm! The compulsion to help others grows abnormally strong...
+asclepius-binding-fail-inhuman = The snake carving seems to come alive, if only for a moment, before returning to it's dormant state, almost as if it finds you incapable of holding it's oath.
+asclepius-binding-fail-bound = You can't possibly handle the responsibility of more than one rod!asclepius-binding-hippocratic-oath-complete = The wooden snake that was carved into the rod seems to suddenly come alive and begins to slither down your arm! The compulsion to help others grows abnormally strong...
 asclepius-binding-hippocratic-oath-cancelled = The snake seems unsatisfied with your incomplete oath and returns to it's previous place on the rod, returning to its dormant, wooden state.
