@@ -1,3 +1,4 @@
+using Content.Shared.Item;
 using Content.Shared.Popups;
 using Content.Shared.SimpleStation14.Magic.Asclepius.Components;
 using Content.Shared.SimpleStation14.Magic.Asclepius.Events;
@@ -11,6 +12,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly INetManager _net = default!;
+        [Dependency] private readonly SharedItemSystem _itemSystem = default!;
 
         public override void Initialize()
         {
@@ -64,11 +66,18 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
 
             // Clear the cancel token
             component.CancelToken = null;
+
+
             // Bind the staff to the user
             component.BoundTo = args.User;
 
+            // Set description
             var meta = _entityManager.GetComponent<MetaDataComponent>(args.Staff);
             meta.EntityDescription = Loc.GetString("asclepius-bound-staff-description");
+
+            // Set the inhand sprite prefix
+            _itemSystem.SetHeldPrefix(args.Staff, "active");
+
 
             // Tell the user (and nearby people)
             if (_net.IsServer) _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-hippocratic-oath-complete"), args.User, PopupType.MediumCaution);
