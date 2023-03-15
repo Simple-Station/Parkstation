@@ -1,8 +1,6 @@
-using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.SimpleStation14.Magic.Asclepius.Components;
 using Content.Shared.SimpleStation14.Magic.Asclepius.Events;
-using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 
@@ -20,10 +18,6 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
 
             SubscribeLocalEvent<AsclepiusStaffComponent, ComponentGetState>(GetCompState);
             SubscribeLocalEvent<AsclepiusStaffComponent, ComponentHandleState>(HandleCompState);
-
-            // Move these to AsclepiusSystem.Staff
-            SubscribeLocalEvent<AsclepiusStaffComponent, ContainerGettingRemovedAttemptEvent>(OnRemoveAttempt);
-            SubscribeLocalEvent<AsclepiusStaffComponent, DroppedEvent>(OnDropped);
 
             SubscribeAllEvent<HippocraticOathCompleteEvent>(OnHippocraticOathComplete);
             SubscribeAllEvent<HippocraticOathCancelledEvent>(OnHippocraticOathCancelled);
@@ -48,30 +42,6 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             component.PacifyBound = state.PacifyBound;
             component.RegenerateOnRemoval = state.RegenerateOnRemoval;
             component.PermanentOath = state.PermanentOath;
-        }
-
-
-        private void OnRemoveAttempt(EntityUid uid, AsclepiusStaffComponent component, ContainerGettingRemovedAttemptEvent args)
-        {
-            // Cancel the oath if it's in progress
-            if (component.CancelToken != null)
-            {
-                component.CancelToken.Cancel();
-                component.CancelToken = null;
-            }
-
-            // Don't allow dropping the staff if bound
-            if (component.BoundTo != EntityUid.Invalid) args.Cancel();
-        }
-
-        private void OnDropped(EntityUid uid, AsclepiusStaffComponent component, DroppedEvent args)
-        {
-            // Cancel the oath if it's in progress
-            if (component.CancelToken != null)
-            {
-                component.CancelToken.Cancel();
-                component.CancelToken = null;
-            }
         }
 
 
