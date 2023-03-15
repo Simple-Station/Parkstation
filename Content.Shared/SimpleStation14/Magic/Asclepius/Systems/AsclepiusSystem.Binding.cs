@@ -67,6 +67,9 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             // Bind the staff to the user
             component.BoundTo = args.User;
 
+            var meta = _entityManager.GetComponent<MetaDataComponent>(args.Staff);
+            meta.EntityDescription = Loc.GetString("asclepius-bound-staff-description");
+
             // Tell the user (and nearby people)
             if (_net.IsServer) _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-hippocratic-oath-complete"), args.User, PopupType.MediumCaution);
 

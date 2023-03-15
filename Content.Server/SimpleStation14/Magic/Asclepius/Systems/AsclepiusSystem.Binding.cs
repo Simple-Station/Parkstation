@@ -1,7 +1,10 @@
 using System.Threading;
+using System.Threading.Tasks;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
+using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Popups;
 using Content.Shared.SimpleStation14.Magic.Asclepius.Components;
 using Content.Shared.SimpleStation14.Magic.Asclepius.Events;
 
@@ -12,6 +15,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
+        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
         public override void Initialize()
         {
@@ -26,10 +30,19 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             // TODO: Do something to the user?
             if (component.BoundTo != EntityUid.Invalid)
             {
+                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-bound"), args.User, PopupType.MediumCaution);
+                return;
+            }
+
+            // Only humanoids can bind
+            if (!_entityManager.TryGetComponent<HumanoidAppearanceComponent>(args.User, out var _))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-inhuman"), args.User, PopupType.MediumCaution);
                 return;
             }
 
 
+            // Begin the oath
             Progress(uid, args.User, 0);
         }
 
@@ -48,7 +61,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             }
 
             // How many times to progress (needs this many locs)
-            int maxProgress = 5;
+            int maxProgress = 4;
             // If the oath is done, raise the completion event
             if (progress >= maxProgress)
             {
@@ -63,21 +76,15 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
 
             // Continue the oath
             _chatSystem.TrySendInGameICMessage(user, Loc.GetString($"asclepius-binding-hippocratic-oath-progress-{progress}"), InGameICChatType.Speak, false);
+            await Task.Delay(1000);
 
             component.CancelToken = new();
-            DoAfterEventArgs doafter = new(user, 3f, component.CancelToken.Token)
+            DoAfterEventArgs doafter = new(user, 2.25f * (progress + 1), component.CancelToken.Token)
             {
                 BreakOnUserMove = true,
                 BreakOnDamage = true,
                 BreakOnStun = true,
                 MovementThreshold = 0.25f,
-                BroadcastFinishedEvent = progress + 1 >= maxProgress ?
-                new HippocraticOathCompleteEvent()
-                {
-                    Staff = staff,
-                    User = user,
-                } :
-                null,
                 BroadcastCancelledEvent = new HippocraticOathCancelledEvent()
                 {
                     Staff = staff,

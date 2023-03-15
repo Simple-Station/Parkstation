@@ -3,7 +3,6 @@
   id: StaffAsclepius
   name: staff of Asclepius
   description: A wooden rod about the size of your forearm with a snake carved around it, winding it's way up the sides of the rod. Something about it seems to inspire in you the responsibilty and duty to help others.
-  # description: A short wooden rod with a mystical snake inseparably gripping itself and the rod to your forearm. It flows with a healing energy that disperses amongst yourself and those around you.
   components:
     - type: AsclepiusStaff
     - type: Sprite
@@ -22,26 +21,3 @@
             - ItemMask
           restitution: 0.3
           friction: 0.2
-
-#
-# Not human:
-# The snake carving seems to come alive, if only for a moment, before returning to it's dormant state, almost as if it finds you incapable of holding it's oath.
-#
-# Already taken the oath:
-# You can't possibly handle the responsibility of more than one rod!
-#
-# Disrupted oath:
-# The snake seems unsatisfied with your incomplete oath and returns to it's previous place on the rod, returning to its dormant, wooden state. You must stand still while completing your oath!
-#
-# Starting oath:
-# The wooden snake that was carved into the rod seems to suddenly come alive and begins to slither down your arm! The compulsion to help others grows abnormally strong...
-#
-# Custom hippocratic oath:
-# I swear to fulfill, to the best of my ability and judgment, this covenant:
-# I will apply, for the benefit of the sick, all measures that are required, avoiding those twin traps of overtreatment and therapeutic nihilism.
-# I will remember that I remain a member of society, with special obligations to all my fellow human beings, those sound of mind and body as well as the infirm.
-# If I do not violate this oath, may I enjoy life and art, respected while I live and remembered with affection thereafter. May I always act so as to preserve the finest traditions of my calling and may I long experience the joy of healing those who seek my help.
-#
-# Successful oath:
-# The snake, satisfied with your oath, attaches itself and the rod to your forearm with an inseparable grip. Your thoughts seem to only revolve around the core idea of helping others, and harm is nothing more than a distant, wicked memory...
-#
