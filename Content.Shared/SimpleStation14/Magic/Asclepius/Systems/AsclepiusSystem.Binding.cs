@@ -70,6 +70,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
 
             // Bind the staff to the user
             component.BoundTo = args.User;
+            _entityManager.AddComponent<HippocraticOathComponent>(args.User);
 
             // Set description
             var meta = _entityManager.GetComponent<MetaDataComponent>(args.Staff);

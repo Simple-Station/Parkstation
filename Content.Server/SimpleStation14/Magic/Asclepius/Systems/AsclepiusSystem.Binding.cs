@@ -26,9 +26,15 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
 
         private async void OnUseInHand(EntityUid uid, AsclepiusStaffComponent component, UseInHandEvent args)
         {
-            // Already bound, ignore
+            // This staff is already bound, ignore
             // TODO: Do something to the user?
             if (component.BoundTo != EntityUid.Invalid)
+            {
+                return;
+            }
+
+            // The user is already bound, ignore
+            if (_entityManager.TryGetComponent<HippocraticOathComponent>(args.User, out var oath))
             {
                 _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-bound"), args.User, PopupType.MediumCaution);
                 return;
@@ -57,6 +63,13 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
                     User = user,
                 });
 
+                return;
+            }
+
+            // The user is already bound, ignore
+            if (_entityManager.TryGetComponent<HippocraticOathComponent>(user, out var oath))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-bound"), user, PopupType.MediumCaution);
                 return;
             }
 
