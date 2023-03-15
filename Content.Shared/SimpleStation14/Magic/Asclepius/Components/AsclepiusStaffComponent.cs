@@ -39,6 +39,12 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Components
         [ViewVariables(VVAccess.ReadOnly)]
         public bool PacifyBound = true;
 
+        /// <summary>
+        ///     Instantly bind the entity to the staff.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public bool InstantBind = false;
+
 
         /// <summary>
         ///     Refuse deletion or removal of this staff, keep it in hand at all costs.

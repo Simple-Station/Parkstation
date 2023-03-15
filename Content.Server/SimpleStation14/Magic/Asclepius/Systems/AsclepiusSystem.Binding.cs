@@ -60,6 +60,16 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             // Begin the oath
             component.Active = true;
             component.Failed = false;
+            if (component.InstantBind)
+            {
+                RaiseLocalEvent<HippocraticOathCompleteEvent>(new()
+                {
+                    Staff = uid,
+                    User = args.User,
+                });
+
+                return;
+            }
             ProgressOath(uid, args.User, 0);
         }
 
