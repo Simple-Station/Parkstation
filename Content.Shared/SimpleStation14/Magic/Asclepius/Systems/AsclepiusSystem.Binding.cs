@@ -77,8 +77,8 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             _itemSystem.SetHeldPrefix(args.Staff, "active");
 
 
-            // Tell the user (and nearby people)
-            if (_net.IsServer) _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-hippocratic-oath-complete"), args.User, PopupType.MediumCaution);
+            // Tell the user
+            if (_net.IsServer) _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-hippocratic-oath-complete"), args.User, args.User, PopupType.MediumCaution);
 
             Dirty(args.Staff);
         }
@@ -100,8 +100,8 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
                 User = args.User,
             });
 
-            // Tell the user (and nearby people)
-            if (_net.IsServer) _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-hippocratic-oath-cancelled"), args.User, PopupType.Medium);
+            // Tell the user
+            if (_net.IsServer) _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-hippocratic-oath-cancelled"), args.User, args.User, PopupType.Medium);
 
             Dirty(args.Staff);
         }

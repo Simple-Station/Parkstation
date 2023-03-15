@@ -39,7 +39,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             // The user is already bound, ignore
             if (_entityManager.TryGetComponent<HippocraticOathComponent>(args.User, out var oath))
             {
-                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-bound"), args.User, PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-bound"), args.User, args.User, PopupType.MediumCaution);
                 return;
             }
 
@@ -52,7 +52,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             // Only humanoids can bind
             if (!_entityManager.TryGetComponent<HumanoidAppearanceComponent>(args.User, out var _))
             {
-                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-inhuman"), args.User, PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-inhuman"), args.User, args.User, PopupType.MediumCaution);
                 return;
             }
 
@@ -118,7 +118,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             // The user is already bound, ignore
             if (_entityManager.TryGetComponent<HippocraticOathComponent>(user, out var oath))
             {
-                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-bound"), user, PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("asclepius-binding-bound"), user, user, PopupType.MediumCaution);
                 return;
             }
 
