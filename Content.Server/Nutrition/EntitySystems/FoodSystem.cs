@@ -142,7 +142,7 @@ namespace Content.Server.Nutrition.EntitySystems
             var doAfterEventArgs = new DoAfterEventArgs(user, foodComp.ForceFeed ? foodComp.ForceFeedDelay : VoraciousDelay, target: target, used: food)
             {
                 RaiseOnTarget = foodComp.ForceFeed,
-                RaiseOnUser = !foodComp.ForceFeed,
+                RaiseOnUser = false, //causes a crash if mice eat if true
                 BreakOnUserMove = foodComp.ForceFeed,
                 BreakOnDamage = true,
                 BreakOnStun = true,
@@ -168,7 +168,7 @@ namespace Content.Server.Nutrition.EntitySystems
                 return;
             }
 
-            if (args.Cancelled || args.Handled || component.Deleted || args.Args.Target == null)
+            if (args.Handled || component.Deleted || args.Args.Target == null)
                 return;
 
             if (!TryComp<BodyComponent>(args.Args.Target.Value, out var body))
@@ -210,10 +210,11 @@ namespace Content.Server.Nutrition.EntitySystems
 
                 // log successful force feed
                 _adminLogger.Add(LogType.ForceFeed, LogImpact.Medium, $"{ToPrettyString(uid):user} forced {ToPrettyString(args.Args.User):target} to eat {ToPrettyString(uid):food}");
+                component.ForceFeed = false;
             }
             else
             {
-                _popupSystem.PopupEntity(Loc.GetString(component.EatMessage, ("foodComp", uid), ("flavors", flavors)), args.Args.User, args.Args.User);
+                _popupSystem.PopupEntity(Loc.GetString(component.EatMessage, ("food", uid), ("flavors", flavors)), args.Args.User, args.Args.User);
 
                 // log successful voluntary eating
                 _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(args.Args.User):target} ate {ToPrettyString(uid):food}");
