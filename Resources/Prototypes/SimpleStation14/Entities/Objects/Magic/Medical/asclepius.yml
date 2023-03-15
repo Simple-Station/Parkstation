@@ -2,7 +2,7 @@
   parent: BaseItem
   id: StaffAsclepius
   name: staff of Asclepius
-  description: A wooden rod about the size of your forearm with a snake carved around it, winding it's way up the sides of the rod. Something about it seems to inspire in you the responsibilty and duty to help others.
+  description: A wooden rod with a snake carved around it, winding it's way up the sides of the rod. Something about it seems to inspire in you the responsibilty and duty to help others.
   components:
     - type: AsclepiusStaff
     - type: Sprite
@@ -10,14 +10,14 @@
       state: dormant
     - type: Item
       heldPrefix: dormant
-      size: 45
-    - type: DynamicPrice
-      price: 10000
+      size: 20
+    - type: StaticPrice
+      price: 2500
     - type: Fixtures
       fixtures:
         - shape: !type:PhysShapeAabb
             bounds: "-0.25,-0.25,0.25,0.25"
-          density: 50
+          density: 35
           mask:
             - ItemMask
           restitution: 0.3
