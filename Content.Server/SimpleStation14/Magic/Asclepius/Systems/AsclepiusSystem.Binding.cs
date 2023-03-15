@@ -74,7 +74,7 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             }
 
             // How many times to progress (needs this many locs)
-            int maxProgress = 4;
+            int maxProgress = 10;
             // If the oath is done, raise the completion event
             if (progress >= maxProgress)
             {
@@ -88,11 +88,13 @@ namespace Content.Shared.SimpleStation14.Magic.Asclepius.Systems
             }
 
             // Continue the oath
-            _chatSystem.TrySendInGameICMessage(user, Loc.GetString($"asclepius-binding-hippocratic-oath-progress-{progress}"), InGameICChatType.Speak, false);
+            var verse = Loc.GetString($"asclepius-binding-hippocratic-oath-progress-{progress}");
+            _chatSystem.TrySendInGameICMessage(user, verse, InGameICChatType.Speak, false);
             await Task.Delay(1000);
 
             component.CancelToken = new();
-            DoAfterEventArgs doafter = new(user, 2.25f * (progress + 1), component.CancelToken.Token)
+            // Time = 20.791 (average time in ms to read each character (for me)) * length of verse / 1000 (ms to s)
+            DoAfterEventArgs doafter = new(user, (float) (20.791 * verse.Length ) / 1000, component.CancelToken.Token)
             {
                 BreakOnUserMove = true,
                 BreakOnDamage = true,
