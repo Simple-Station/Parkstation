@@ -9,6 +9,7 @@
       sprite: SimpleStation14/Objects/Magic/Medical/asclepius.rsi
       state: dormant
     - type: Item
+      heldPrefix: dormant
       size: 45
     - type: DynamicPrice
       price: 10000

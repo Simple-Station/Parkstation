@@ -4,9 +4,17 @@
         "x": 32,
         "y": 32
     },
-    "copyright": "Sprites taken from TGStation at commit https://github.com/tgstation/tgstation/commit/f4e0f567efae1f6db4281b0b5f026431151e2476   Sprite 'stick' made by DEATHB4DEFEAT#4404 (801294818839756811)",
+    "copyright": "Sprites 'active', 'dormant' taken from https://github.com/tgstation/tgstation/commit/f4e0f567efae1f6db4281b0b5f026431151e2476   Other Sprites made by DEATHB4DEFEAT#4404 (801294818839756811)",
     "license": "CC-BY-SA-3.0",
     "states": [
+        {
+            "name": "active-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "active-inhand-right",
+            "directions": 4
+        },
         {
             "name": "active",
             "delays": [
@@ -16,9 +24,28 @@
                 ]
             ]
         },
+
+        {
+            "name": "dormant-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "dormant-inhand-right",
+            "directions": 4
+        },
         {
             "name": "dormant"
         },
+
+        {
+            "name": "icon-inhand-active",
+            "directions": 4
+        },
+        {
+            "name": "icon-inhand-dormant",
+            "directions": 4
+        },
+
         {
             "name": "stick"
         }
