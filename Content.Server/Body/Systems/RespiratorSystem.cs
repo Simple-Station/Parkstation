@@ -252,9 +252,9 @@ namespace Content.Server.Body.Systems
             respirator.BreatheInCritCounter = respirator.BreatheInCritCounter + 3;
             respirator.CPRPlayingStream?.Stop();
 
-            if (!HasComp<MedicalTrainingComponent>(ev.Performer) && !HasComp<HippocraticOathComponent>(ev.Performer) && TryComp<PhysicsComponent>(ev.Patient, out var patientPhysics) && TryComp<PhysicsComponent>(ev.Performer, out var perfPhysics))
+            if (!HasComp<MedicalTrainingComponent>(ev.Performer) && TryComp<PhysicsComponent>(ev.Patient, out var patientPhysics) && TryComp<PhysicsComponent>(ev.Performer, out var perfPhysics))
             {
-                if (perfPhysics.FixturesMass >= patientPhysics.FixturesMass && _random.Prob(0.15f * perfPhysics.FixturesMass / patientPhysics.FixturesMass))
+                if (perfPhysics.FixturesMass >= patientPhysics.FixturesMass && _random.Prob(Math.Min(0.15f * perfPhysics.FixturesMass / patientPhysics.FixturesMass, 1f)))
                 {
                     _popupSystem.PopupEntity(Loc.GetString("cpr-end-pvs-crack", ("user", ev.Performer), ("target", ev.Patient)), ev.Patient, Shared.Popups.PopupType.MediumCaution);
 
@@ -300,7 +300,11 @@ namespace Content.Server.Body.Systems
 
             component.CancelToken = new CancellationTokenSource();
             component.CPRPlayingStream = _audio.PlayPvs(component.CPRSound, uid, audioParams: AudioParams.Default.WithVolume(-3f));
-            _doAfter.DoAfter(new DoAfterEventArgs(user, Math.Min(component.CycleDelay * 2, 6f), component.CancelToken.Token, uid)
+
+            var doAfterTime = Math.Min(component.CycleDelay * 2, 6f);
+            if (HasComp<HippocraticOathComponent>(user)) doAfterTime /= 2;
+
+            _doAfter.DoAfter(new DoAfterEventArgs(user, doAfterTime, component.CancelToken.Token, uid)
             {
                 BroadcastFinishedEvent = new CPRSuccessfulEvent(user, uid),
                 BroadcastCancelledEvent = new CPRCancelledEvent(uid),
