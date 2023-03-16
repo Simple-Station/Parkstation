@@ -8,63 +8,62 @@
   id: names_shadekin
   values:
   # Mar
-  - Mar # Mar
+  # - Mar
 
   # Sad
+  - Fragile
+  - Heartbreak
+  - Inferior
   - Lone
+  - Lonesome
+  - Loss
   - Solitary
   - Solitude
-  - Lonesome
   - Sorrow
-  - Heartbreak
   - Shade
-  - Loss
-  - Inferior
-  - Fragile
-  - Fear
 
   # Angry
-  - Rage
-  - Wrath
-  - Fury
-  - Pain
   - Fear
   - Fearful
+  - Fury
+  - Pain
+  - Rage
   - Rush
+  - Wrath
 
   # Happy
-  - Happy
-  - Joyous
+  - Calm
   - Content
   - Contented
-  - Calm
+  - Happy
+  - Hope
+  - Joyous
+  - Lovely
   - Peace
   - Peaceful
   - Quiet
-  - Tranquil
-  - Tranquility
   - Serene
   - Serenity
-  - Hope
-  - Lovely
+  - Tranquil
+  - Tranquility
 
   # Memory
+  - Dillusioned
+  - Forgotten
+  - Focusless
+  - Lost
   - Memory
+  - Recollection
   - Remembrance
   - Reminisce
   - Reminiscence
-  - Recollection
-  - Forgotten
-  - Lost
-  - Dillusioned
-  - Focusless
 
   # Other
+  - Apathy
   - Collected
-  - Unbound
+  - Curiosity
   - Free
   - Interest
-  - Curiosity
-  - Still
   - Jax # White eye (jack of all trades) :)
-  - Apathy
+  - Still
+  - Unbound
