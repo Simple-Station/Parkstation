@@ -32,15 +32,11 @@ void fragment() {
     highp vec3 hsvTint = rgb2hsv(tint_color);
     highp vec3 hsvColor = rgb2hsv(color.rgb);
 
-    // Work out hue difference.
-    highp float angleDif = (hsvTint.x - hsvColor.x);
-
-    // Apply tint color hue as long as it's not greyscale.
+    // Set the original hue to the tint hue as long as it's not greyscale.
     if (hsvTint.y > 0.05 && hsvTint.z != 0.0)
     {
-        hsvColor.x = hsvColor.x + (angleDif);
+        hsvColor.x = hsvTint.x;
     }
-
     // Modify saturation based on tint color saturation,
     // Halving it if it's higher and capping it at the original.
     hsvColor.y = (hsvColor.y < hsvTint.y) ?

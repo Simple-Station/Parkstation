@@ -23,11 +23,6 @@ highp vec3 hsv2rgb(highp vec3 c)
     return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
 }
 
-// Darken only function.
-highp vec3 darkenOnly(highp vec3 baseColor, highp vec3 overlayColor) {
-    return min(baseColor, overlayColor);
-}
-
 // Random number function with potential negative values.
 highp float rand(highp vec2 n) {
     highp float r = 2.0 * (0.5 + 0.5 * fract (sin (dot (n.xy, vec2(12.9898, 78.233)))* 43758.5453)) - 1.0;
