@@ -835,7 +835,7 @@ public sealed partial class AdminVerbSystem
             Act = () =>
             {
                 SoundSystem.Play("/Audio/SimpleStation14/Admin/Smites/bookify.ogg", Filter.Pvs(args.Target), args.Target);
-                _polymorphableSystem.PolymorphEntity(args.Target, "BookifyMorph");
+                _polymorphSystem.PolymorphEntity(args.Target, "BookifyMorph");
             },
             Impact = LogImpact.Extreme,
             Message = Loc.GetString("admin-smite-bookify-description"),
