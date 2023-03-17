@@ -32,24 +32,24 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 
             var powerDictionary = new Dictionary<ShadowkinPowerThreshold, string>
             {
-                {ShadowkinPowerThreshold.Max, Loc.GetString("shadekin-power-max")},
-                {ShadowkinPowerThreshold.Great, Loc.GetString("shadekin-power-great")},
-                {ShadowkinPowerThreshold.Good, Loc.GetString("shadekin-power-good")},
-                {ShadowkinPowerThreshold.Okay, Loc.GetString("shadekin-power-okay")},
-                {ShadowkinPowerThreshold.Tired, Loc.GetString("shadekin-power-tired")},
-                {ShadowkinPowerThreshold.Min, Loc.GetString("shadekin-power-min")}
+                {ShadowkinPowerThreshold.Max, Loc.GetString("shadowkin-power-max")},
+                {ShadowkinPowerThreshold.Great, Loc.GetString("shadowkin-power-great")},
+                {ShadowkinPowerThreshold.Good, Loc.GetString("shadowkin-power-good")},
+                {ShadowkinPowerThreshold.Okay, Loc.GetString("shadowkin-power-okay")},
+                {ShadowkinPowerThreshold.Tired, Loc.GetString("shadowkin-power-tired")},
+                {ShadowkinPowerThreshold.Min, Loc.GetString("shadowkin-power-min")}
             };
 
             // Get the name of the threshold
             powerDictionary.TryGetValue(result, out var powerType);
-            if (powerType == null) powerType = Loc.GetString("shadekin-power-okay");
+            if (powerType == null) powerType = Loc.GetString("shadowkin-power-okay");
 
             // Return the name of the threshold
             return powerType;
         }
 
         /// <summary>
-        ///    Sets the alert level of a shadekin.
+        ///    Sets the alert level of a shadowkin.
         /// </summary>
         /// <param name="uid">The entity uid.</param>
         /// <param name="PowerLevel">The current power level.</param>
@@ -61,11 +61,11 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
                 return;
             }
 
-            // Get shadekin component
+            // Get shadowkin component
             if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
             {
-                Logger.Error("Tried to update alert of entity without shadekin component.");
-                throw new InvalidOperationException("Tried to update alert of entity without shadekin component.");
+                Logger.Error("Tried to update alert of entity without shadowkin component.");
+                throw new InvalidOperationException("Tried to update alert of entity without shadowkin component.");
             }
 
             // Get the power as a short from 0-5
@@ -87,13 +87,13 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 
 
         /// <summary>
-        ///     Tries to update the power level of a shadekin based on an amount of seconds.
+        ///     Tries to update the power level of a shadowkin based on an amount of seconds.
         /// </summary>
         /// <param name="uid">The entity uid.</param>
         /// <param name="frameTime">The time since the last update in seconds.</param>
         public bool TryUpdatePowerLevel(EntityUid uid, float frameTime)
         {
-            // Check if the entity has a shadekin component
+            // Check if the entity has a shadowkin component
             if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component)) return false;
 
             // Check if power gain is enabled
@@ -106,17 +106,17 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
         }
 
         /// <summary>
-        ///     Updates the power level of a shadekin based on an amount of seconds.
+        ///     Updates the power level of a shadowkin based on an amount of seconds.
         /// </summary>
         /// <param name="uid">The entity uid.</param>
         /// <param name="frameTime">The time since the last update in seconds.</param>
         public void UpdatePowerLevel(EntityUid uid, float frameTime)
         {
-            // Get shadekin component
+            // Get shadowkin component
             if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
             {
-                Logger.Error("Tried to update power level of entity without shadekin component.");
-                throw new InvalidOperationException("Tried to update power level of entity without shadekin component.");
+                Logger.Error("Tried to update power level of entity without shadowkin component.");
+                throw new InvalidOperationException("Tried to update power level of entity without shadowkin component.");
             }
 
             // Calculate new power level (P = P + t * G * M)
@@ -131,13 +131,13 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 
 
         /// <summary>
-        ///     Tries to add to the power level of a shadekin.
+        ///     Tries to add to the power level of a shadowkin.
         /// </summary>
         /// <param name="uid">The entity uid.</param>
         /// <param name="amount">The amount to add to the power level.</param>
         public bool TryAddPowerLevel(EntityUid uid, float amount)
         {
-            // Check if the entity has a shadekin component
+            // Check if the entity has a shadowkin component
             if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component)) return false;
 
             // Set the new power level
@@ -147,17 +147,17 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
         }
 
         /// <summary>
-        ///     Adds to the power level of a shadekin.
+        ///     Adds to the power level of a shadowkin.
         /// </summary>
         /// <param name="uid">The entity uid.</param>
         /// <param name="amount">The amount to add to the power level.</param>
         public void AddPowerLevel(EntityUid uid, float amount)
         {
-            // Get shadekin component
+            // Get shadowkin component
             if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
             {
-                Logger.Error("Tried to add to power level of entity without shadekin component.");
-                throw new InvalidOperationException("Tried to add to power level of entity without shadekin component.");
+                Logger.Error("Tried to add to power level of entity without shadowkin component.");
+                throw new InvalidOperationException("Tried to add to power level of entity without shadowkin component.");
             }
 
             // Get new power level
@@ -172,17 +172,17 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 
 
         /// <summary>
-        ///     Sets the power level of a shadekin.
+        ///     Sets the power level of a shadowkin.
         /// </summary>
         /// <param name="uid">The entity uid.</param>
         /// <param name="newPowerLevel">The new power level.</param>
         public void SetPowerLevel(EntityUid uid, float newPowerLevel)
         {
-            // Get shadekin component
+            // Get shadowkin component
             if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
             {
-                Logger.Error("Tried to set power level of entity without shadekin component.");
-                throw new InvalidOperationException("Tried to set power level of entity without shadekin component.");
+                Logger.Error("Tried to set power level of entity without shadowkin component.");
+                throw new InvalidOperationException("Tried to set power level of entity without shadowkin component.");
             }
 
             // Clamp power level using clamp function
@@ -194,11 +194,11 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 
 
         /// <summary>
-        ///     Tries to blackeye a shadekin.
+        ///     Tries to blackeye a shadowkin.
         /// </summary>
         public bool TryBlackeye(EntityUid uid)
         {
-            // Check if the entity has a shadekin component
+            // Check if the entity has a shadowkin component
             if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component)) return false;
 
             if (!component.Blackeye &&
@@ -213,15 +213,15 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
         }
 
         /// <summary>
-        ///     Blackeyes a shadekin.
+        ///     Blackeyes a shadowkin.
         /// </summary>
         public void Blackeye(EntityUid uid)
         {
-            // Get shadekin component
+            // Get shadowkin component
             if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
             {
-                Logger.Error("Tried to blackeye entity without shadekin component.");
-                throw new InvalidOperationException("Tried to blackeye entity without shadekin component.");
+                Logger.Error("Tried to blackeye entity without shadowkin component.");
+                throw new InvalidOperationException("Tried to blackeye entity without shadowkin component.");
             }
 
             component.Blackeye = true;
@@ -254,11 +254,11 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
         /// <param name="time">The time in seconds to wait before removing the multiplier.</param>
         public void AddMultiplier(EntityUid uid, float multiplier = 1f, float? time = null)
         {
-            // Get shadekin component
+            // Get shadowkin component
             if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
             {
-                Logger.Error("Tried to add multiplier to entity without shadekin component.");
-                throw new InvalidOperationException("Tried to add multiplier to entity without shadekin component.");
+                Logger.Error("Tried to add multiplier to entity without shadowkin component.");
+                throw new InvalidOperationException("Tried to add multiplier to entity without shadowkin component.");
             }
 
             // Add the multiplier

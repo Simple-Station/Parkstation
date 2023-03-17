@@ -104,18 +104,18 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
             SetCanSeeInvisibility(uid, false);
 
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadekin)) return;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadowkin)) return;
 
-            foreach (var light in shadekin.DarkenedLights.ToArray())
+            foreach (var light in shadowkin.DarkenedLights.ToArray())
             {
                 if (!_entityManager.TryGetComponent<PointLightComponent>(light, out var pointLight) ||
-                    !_entityManager.TryGetComponent<ShadowkinLightComponent>(light, out var shadekinLight))
+                    !_entityManager.TryGetComponent<ShadowkinLightComponent>(light, out var shadowkinLight))
                     continue;
 
-                _darkenSystem.ResetLight(pointLight, shadekinLight);
+                _darkenSystem.ResetLight(pointLight, shadowkinLight);
             }
 
-            shadekin.DarkenedLights.Clear();
+            shadowkin.DarkenedLights.Clear();
         }
 
 

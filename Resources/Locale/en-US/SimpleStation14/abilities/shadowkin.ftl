@@ -1,10 +1,10 @@
-action-name-shadekin-teleport=Teleport
-action-description-shadekin-teleport=Aaramrra!
+action-name-shadowkin-teleport=Teleport
+action-description-shadowkin-teleport=Aaramrra!
 
-action-name-shadekin-darkswap=Dark Swap
-action-description-shadekin-darkswap=Mmra Mamm!
+action-name-shadowkin-darkswap=Dark Swap
+action-description-shadowkin-darkswap=Mmra Mamm!
 
-action-name-shadekin-rest=Rest
-action-description-shadekin-rest=Rama
+action-name-shadowkin-rest=Rest
+action-description-shadowkin-rest=Rama
 
 ethereal-pickup-fail=Your hand sizzles as it passes through...

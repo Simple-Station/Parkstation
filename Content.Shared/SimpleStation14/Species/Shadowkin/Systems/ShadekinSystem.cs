@@ -36,7 +36,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 
                 if (args.Examined == args.Examiner)
                 {
-                    args.PushMarkup(Loc.GetString("shadekin-power-examined-self",
+                    args.PushMarkup(Loc.GetString("shadowkin-power-examined-self",
                         ("power", _powerSystem.GetLevelInt(component.PowerLevel)),
                         ("powerMax", component.PowerLevelMax),
                         ("powerType", powerType)
@@ -44,7 +44,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
                 }
                 else
                 {
-                    args.PushMarkup(Loc.GetString("shadekin-power-examined-other",
+                    args.PushMarkup(Loc.GetString("shadowkin-power-examined-other",
                         ("target", Identity.Entity(uid, _entityManager)),
                         ("powerType", powerType)
                     ));
@@ -76,16 +76,16 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 
         private void HandleCompState(EntityUid uid, ShadowkinComponent component, ref ComponentHandleState args)
         {
-            if (args.Current is not ShadowkinComponentState shadekin)
+            if (args.Current is not ShadowkinComponentState shadowkin)
             {
                 return;
             }
 
-            component.PowerLevel = shadekin.PowerLevel;
-            component.PowerLevelGain = shadekin.PowerLevelGain;
-            component.PowerLevelGainMultiplier = shadekin.PowerLevelGainMultiplier;
-            component.PowerLevelGainEnabled = shadekin.PowerLevelGainEnabled;
-            component.Blackeye = shadekin.Blackeye;
+            component.PowerLevel = shadowkin.PowerLevel;
+            component.PowerLevelGain = shadowkin.PowerLevelGain;
+            component.PowerLevelGainMultiplier = shadowkin.PowerLevelGainMultiplier;
+            component.PowerLevelGainEnabled = shadowkin.PowerLevelGainEnabled;
+            component.Blackeye = shadowkin.Blackeye;
         }
 
 
@@ -95,7 +95,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 
             var query = _entityManager.EntityQuery<ShadowkinComponent>();
 
-            // Update power level for all shadekin
+            // Update power level for all shadowkin
             // Prediction won't work, client updates ~10x faster with the same given frameTime (~0.3333... in my testing)
             if (_net.IsServer)
             {

@@ -1,11 +1,11 @@
-# Names for the shadekin,
+# Names for the shadowkin,
 # Shadowkin names are descriptive of
 # Their Primary Emotion,
 # A State of Being,
 # Or past Memories.
 
 - type: dataset
-  id: names_shadekin
+  id: names_shadowkin
   values:
   # Mar
   # - Mar

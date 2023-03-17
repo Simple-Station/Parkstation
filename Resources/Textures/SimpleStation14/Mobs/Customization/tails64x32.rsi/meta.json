@@ -3,11 +3,11 @@
     "size": { "x": 64, "y": 32 },
     "states": [
         {
-            "name": "shadekin",
+            "name": "shadowkin",
             "directions": 4
         },
         {
-            "name": "shadekin_big",
+            "name": "shadowkin_big",
             "directions": 4
         }
     ]

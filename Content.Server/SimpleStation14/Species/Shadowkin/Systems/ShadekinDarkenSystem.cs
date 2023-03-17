@@ -28,21 +28,21 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         {
             base.Update(frameTime);
 
-            var shadekins = _entityManager.EntityQuery<ShadowkinComponent>();
+            var shadowkins = _entityManager.EntityQuery<ShadowkinComponent>();
 
-            foreach (var shadekin in shadekins.Where(x => x.Darken))
+            foreach (var shadowkin in shadowkins.Where(x => x.Darken))
             {
-                if (!_entityManager.TryGetComponent(shadekin.Owner, out ShadowkinDarkSwappedComponent? __) ||
-                    !_entityManager.TryGetComponent<TransformComponent>(shadekin.Owner, out var transform))
+                if (!_entityManager.TryGetComponent(shadowkin.Owner, out ShadowkinDarkSwappedComponent? __) ||
+                    !_entityManager.TryGetComponent<TransformComponent>(shadowkin.Owner, out var transform))
                     continue;
 
-                shadekin.DarkenAccumulator += frameTime;
-                if (shadekin.DarkenAccumulator < shadekin.DarkenRate) continue;
-                shadekin.DarkenAccumulator = 0f;
+                shadowkin.DarkenAccumulator += frameTime;
+                if (shadowkin.DarkenAccumulator < shadowkin.DarkenRate) continue;
+                shadowkin.DarkenAccumulator = 0f;
 
 
                 var _darkened = new List<EntityUid>();
-                var lightQuery = _lookupSystem.GetEntitiesInRange(transform.MapID, transform.WorldPosition, shadekin.DarkenRange, flags: LookupFlags.StaticSundries)
+                var lightQuery = _lookupSystem.GetEntitiesInRange(transform.MapID, transform.WorldPosition, shadowkin.DarkenRange, flags: LookupFlags.StaticSundries)
                     .Where(x => _entityManager.HasComponent<ShadowkinLightComponent>(x) && _entityManager.HasComponent<PointLightComponent>(x));
 
                 foreach (var entity in lightQuery)
@@ -51,44 +51,44 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                 }
 
                 _random.Shuffle(_darkened);
-                shadekin.DarkenedLights = _darkened;
+                shadowkin.DarkenedLights = _darkened;
 
-                var playerPos = _entityManager.GetComponent<TransformComponent>(shadekin.Owner).WorldPosition;
+                var playerPos = _entityManager.GetComponent<TransformComponent>(shadowkin.Owner).WorldPosition;
 
-                foreach (var light in shadekin.DarkenedLights.ToArray())
+                foreach (var light in shadowkin.DarkenedLights.ToArray())
                 {
                     var lightPos = _entityManager.GetComponent<TransformComponent>(light).WorldPosition;
                     var pointLight = _entityManager.GetComponent<PointLightComponent>(light);
 
 
-                    if (!_entityManager.TryGetComponent(light, out ShadowkinLightComponent? shadekinLight)) continue;
+                    if (!_entityManager.TryGetComponent(light, out ShadowkinLightComponent? shadowkinLight)) continue;
                     if (!_entityManager.TryGetComponent(light, out PoweredLightComponent? powered) || !powered.On)
                     {
-                        ResetLight(pointLight, shadekinLight);
+                        ResetLight(pointLight, shadowkinLight);
                         continue;
                     }
 
 
-                    if (!shadekinLight.OldRadiusEdited)
+                    if (!shadowkinLight.OldRadiusEdited)
                     {
-                        shadekinLight.OldRadius = pointLight.Radius;
-                        shadekinLight.OldRadiusEdited = true;
+                        shadowkinLight.OldRadius = pointLight.Radius;
+                        shadowkinLight.OldRadiusEdited = true;
                     }
-                    if (!shadekinLight.OldEnergyEdited)
+                    if (!shadowkinLight.OldEnergyEdited)
                     {
-                        shadekinLight.OldEnergy = pointLight.Energy;
-                        shadekinLight.OldEnergyEdited = true;
+                        shadowkinLight.OldEnergy = pointLight.Energy;
+                        shadowkinLight.OldEnergyEdited = true;
                     }
 
                     var distance = (lightPos - playerPos).Length;
 
                     var radius = distance * 2f;
-                    if (shadekinLight.OldRadiusEdited && radius > shadekinLight.OldRadius) radius = shadekinLight.OldRadius;
-                    if (shadekinLight.OldRadiusEdited && radius < shadekinLight.OldRadius * 0.20f) radius = shadekinLight.OldRadius * 0.20f;
+                    if (shadowkinLight.OldRadiusEdited && radius > shadowkinLight.OldRadius) radius = shadowkinLight.OldRadius;
+                    if (shadowkinLight.OldRadiusEdited && radius < shadowkinLight.OldRadius * 0.20f) radius = shadowkinLight.OldRadius * 0.20f;
 
                     var energy = distance * 0.8f;
-                    if (shadekinLight.OldEnergyEdited && energy > shadekinLight.OldEnergy) energy = shadekinLight.OldEnergy;
-                    if (shadekinLight.OldEnergyEdited && energy < shadekinLight.OldEnergy * 0.20f) energy = shadekinLight.OldEnergy * 0.20f;
+                    if (shadowkinLight.OldEnergyEdited && energy > shadowkinLight.OldEnergy) energy = shadowkinLight.OldEnergy;
+                    if (shadowkinLight.OldEnergyEdited && energy < shadowkinLight.OldEnergy * 0.20f) energy = shadowkinLight.OldEnergy * 0.20f;
 
                     _lightSystem.SetRadius(pointLight.Owner, radius);
                     pointLight.Energy = energy;
@@ -108,9 +108,9 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             foreach (var light in component.DarkenedLights.ToArray())
             {
                 var pointLight = _entityManager.GetComponent<PointLightComponent>(light);
-                var shadekinLight = _entityManager.GetComponent<ShadowkinLightComponent>(light);
+                var shadowkinLight = _entityManager.GetComponent<ShadowkinLightComponent>(light);
 
-                ResetLight(pointLight, shadekinLight);
+                ResetLight(pointLight, shadowkinLight);
             }
 
             component.DarkenedLights.Clear();

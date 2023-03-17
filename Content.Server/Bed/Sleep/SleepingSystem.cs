@@ -104,11 +104,11 @@ namespace Content.Server.Bed.Sleep
                 return;
 
             // Can't figure out a better way
-            if (_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadekin) &&
-                _entityManager.TryGetComponent<ShadowkinRestPowerComponent>(uid, out var shadekinRest) &&
-                shadekinRest.IsResting)
+            if (_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadowkin) &&
+                _entityManager.TryGetComponent<ShadowkinRestPowerComponent>(uid, out var shadowkinRest) &&
+                shadowkinRest.IsResting)
             {
-                RaiseLocalEvent(new ShadowkinRestEventResponse(uid, !shadekinRest.IsResting));
+                RaiseLocalEvent(new ShadowkinRestEventResponse(uid, !shadowkinRest.IsResting));
             }
 
             if (TryWaking(uid))

@@ -34,7 +34,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 
         private void Rest(ShadowkinRestEventResponse args)
         {
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(args.Performer, out var shadekin)) return;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(args.Performer, out var shadowkin)) return;
             if (!_entityManager.TryGetComponent<ShadowkinRestPowerComponent>(args.Performer, out var rest)) return;
             rest.IsResting = args.IsResting;
 

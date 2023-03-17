@@ -19,7 +19,7 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
 
         private void Rest(EntityUid uid, ShadowkinRestPowerComponent component, ShadowkinRestEvent args)
         {
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadekin)) return;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadowkin)) return;
 
             component.IsResting = !component.IsResting;
             RaiseLocalEvent(new ShadowkinRestEventResponse(args.Performer, component.IsResting));

@@ -47,7 +47,7 @@ public sealed class ChatUIController : UIController
     [UISystemDependency] private readonly ExamineSystem? _examine = default;
     [UISystemDependency] private readonly GhostSystem? _ghost = default;
     [UISystemDependency] private readonly PsionicChatUpdateSystem? _psionic = default!;
-    [UISystemDependency] private readonly ShadowkinChatUpdateSystem? _shadekin = default!;
+    [UISystemDependency] private readonly ShadowkinChatUpdateSystem? _shadowkin = default!;
     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
 
     private ISawmill _sawmill = default!;
@@ -444,7 +444,7 @@ public sealed class ChatUIController : UIController
         }
 
         // Shadowkin
-        if (_shadekin != null && _shadekin.IsShadowkin)
+        if (_shadowkin != null && _shadowkin.IsShadowkin)
         {
             FilterableChannels |= ChatChannel.Empathy;
             CanSendChannels |= ChatSelectChannel.Empathy;

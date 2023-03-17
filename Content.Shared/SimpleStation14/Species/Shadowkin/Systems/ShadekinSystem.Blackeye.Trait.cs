@@ -31,7 +31,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
             // Popup
             if (_net.IsClient)
             {
-                _popupSystem.PopupEntity(Loc.GetString("shadekin-blackeye"), uid, uid, PopupType.Medium);
+                _popupSystem.PopupEntity(Loc.GetString("shadowkin-blackeye"), uid, uid, PopupType.Medium);
             }
 
             // Stop gaining power

@@ -6,7 +6,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.SimpleStation14.Species.Shadowkin.Events
 {
     /// <summary>
-    ///     Raised when the shadekin teleport action is used.
+    ///     Raised when the shadowkin teleport action is used.
     /// </summary>
     public sealed class ShadowkinTeleportEvent : WorldTargetActionEvent
     {
@@ -25,7 +25,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Events
     }
 
     /// <summary>
-    ///     Raised when the shadekin darkSwap action is used.
+    ///     Raised when the shadowkin darkSwap action is used.
     /// </summary>
     public sealed class ShadowkinDarkSwapEvent : InstantActionEvent
     {
@@ -94,7 +94,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Events
 
 
     /// <summary>
-    ///     Raised when a shadekin becomes a blackeye.
+    ///     Raised when a shadowkin becomes a blackeye.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class ShadowkinBlackeyeEvent : EntityEventArgs
