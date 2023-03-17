@@ -1265,3 +1265,16 @@ Entries:
         }
     id: 96
     time: "2023-02-25T01:45:13.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "Breaking negative trait whitelist/blacklist doesn't add any traits to you.", type: Fix }
+      - { message: 'AIeye no longer gets targeted by hostile mobs.', type: Fix }
+      - { message: 'OwOnavirus gives less ephedrine, to balance the overdose with our digestion rates.', type: Tweak }
+      - { message: 'Slimes can get drunk (at half the rate of humans).', type: Add }
+      - { message: 'Rename the Apply for Whitelist button in the escape menu to Discord.', type: Tweak }
+      - { message: 'Tons of improvements to the Parkstation map.', type: Tweak }
+      - { message: 'Lower epsilon music volume.', type: Tweak }
+      - { message: 'Emitters can be bought by cargo again.', type: Tweak }
+      - { message: 'New logo.', type: Add }
+    id: 97
+    time: "2023-03-12T13:14:53.0000000+00:00"

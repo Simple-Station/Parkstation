@@ -32,15 +32,18 @@ namespace Content.Server.SimpleStation14.StationAI
 
             SubscribeLocalEvent<AITelegnosisPowerComponent, AITelegnosisPowerActionEvent>(OnPowerUsed);
 
-            SubscribeLocalEvent<AITelegnosisPowerComponent, MobStateChangedEvent>(OnMobStateChanged);
+            SubscribeLocalEvent<StationAIComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
         private void OnInit(EntityUid uid, AITelegnosisPowerComponent component, ComponentInit args)
         {
-            if (!_prototypeManager.TryIndex<InstantActionPrototype>("AIeye", out var metapsionic))
+            if (!_prototypeManager.TryIndex<InstantActionPrototype>("AIeye", out var mindswap))
                 return;
 
-            component.TelegnosisPowerAction = new InstantAction(metapsionic);
+            if (_entityManager.TryGetComponent<AITelegnosticProjectionComponent>(uid, out var _))
+                return;
+
+            component.TelegnosisPowerAction = new InstantAction(mindswap);
             _actions.AddAction(uid, component.TelegnosisPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
@@ -49,13 +52,19 @@ namespace Content.Server.SimpleStation14.StationAI
 
         private void OnShutdown(EntityUid uid, AITelegnosisPowerComponent component, ComponentShutdown args)
         {
-            if (_prototypeManager.TryIndex<InstantActionPrototype>("AIeye", out var metapsionic))
-                _actions.RemoveAction(uid, new InstantAction(metapsionic), null);
+            if (_entityManager.TryGetComponent<AITelegnosticProjectionComponent>(uid, out var _))
+                return;
+
+            if (_prototypeManager.TryIndex<InstantActionPrototype>("AIeye", out var mindswap))
+                _actions.RemoveAction(uid, new InstantAction(mindswap), null);
         }
 
         private void OnPowerUsed(EntityUid uid, AITelegnosisPowerComponent component, AITelegnosisPowerActionEvent args)
         {
+            var ai = _entityManager.EnsureComponent<StationAIComponent>(uid);
+
             var projection = Spawn(component.Prototype, Transform(uid).Coordinates);
+            ai.ActiveEye = projection;
             var core = _entityManager.GetComponent<MetaDataComponent>(uid);
 
             if (core.EntityName != "") _entityManager.GetComponent<MetaDataComponent>(projection).EntityName = core.EntityName;
@@ -64,24 +73,24 @@ namespace Content.Server.SimpleStation14.StationAI
             Transform(projection).AttachToGridOrMap();
             _mindSwap.Swap(uid, projection);
 
+
             _psionics.LogPowerUsed(uid, "aieye");
+
             args.Handled = true;
         }
+
         private void OnMindRemoved(EntityUid uid, AITelegnosticProjectionComponent component, MindRemovedMessage args)
         {
             QueueDel(uid);
         }
 
-        private void OnMobStateChanged(EntityUid uid, AITelegnosisPowerComponent component, MobStateChangedEvent args)
+        private void OnMobStateChanged(EntityUid uid, StationAIComponent component, MobStateChangedEvent args)
         {
             if (!_mobState.IsDead(uid)) return;
 
-            TryComp<MindSwappedComponent>(component.Owner, out var mindSwapped);
-            if (mindSwapped == null) return;
-
-            _mindSwap.Swap(component.Owner, mindSwapped.OriginalEntity);
-            // SoundSystem.Play("/Audio/SimpleStation14/Machines/AI/borg_death.ogg", Filter.Pvs(component.Owner), component.Owner); // Eye shouldn't emit the sound
-            SoundSystem.Play("/Audio/SimpleStation14/Machines/AI/borg_death.ogg", Filter.Pvs(mindSwapped.OriginalEntity), mindSwapped.OriginalEntity);
+            if (component.ActiveEye != EntityUid.Invalid) _mindSwap.Swap(component.ActiveEye, uid);
+            else Logger.Error("AI died without an active eye");
+            SoundSystem.Play("/Audio/SimpleStation14/Machines/AI/borg_death.ogg", Filter.Pvs(uid), uid);
         }
     }
 
