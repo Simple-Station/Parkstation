@@ -1,18 +1,18 @@
 - type: entity
   save: false
   parent: BaseMobHuman
-  id: BaseMobShadekin
+  id: BaseMobShadowkin
   abstract: true
   components:
   - type: HumanoidAppearance
-    species: Shadekin
+    species: Shadowkin
   - type: Hunger
   - type: Thirst
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: full
   - type: Body
-    prototype: Shadekin
+    prototype: Shadowkin
     requiredLegs: 2
   - type: DiseaseCarrier
     diseaseResist: 0.1
@@ -31,8 +31,8 @@
       48: 0.85
       64: 0.65
   - type: Damageable
-    damageContainer: Shadekin
-    damageModifierSet: Shadekin
+    damageContainer: Shadowkin
+    damageModifierSet: Shadowkin
   - type: Barotrauma
     damage:
       types:
@@ -139,10 +139,10 @@
         Slash: 3
         Piercing: 1
   - type: EmpathyChat
-  - type: Shadekin
-  - type: ShadekinDarkSwapPower
-  - type: ShadekinRestPower
-  - type: ShadekinTeleportPower
+  - type: Shadowkin
+  - type: ShadowkinDarkSwapPower
+  - type: ShadowkinRestPower
+  - type: ShadowkinTeleportPower
   - type: Vocal
     sounds:
       Male: UnisexSlime
@@ -152,12 +152,12 @@
 - type: entity
   save: false
   parent: MobHumanDummy
-  id: MobShadekinDummy
+  id: MobShadowkinDummy
   noSpawn: true
   description: A dummy shadekin meant to be used in character setup.
   components:
   - type: HumanoidAppearance
-    species: Shadekin
+    species: Shadowkin
   - type: Sprite # sprite again because we want different layer ordering
     netsync: false
     noRot: true
@@ -216,8 +216,8 @@
 - type: entity
   save: false
   name: Urist McFluff
-  parent: BaseMobShadekin
-  id: MobShadekin
+  parent: BaseMobShadowkin
+  id: MobShadowkin
   components:
   - type: CombatMode
     canDisarm: true

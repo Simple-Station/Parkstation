@@ -9,7 +9,7 @@ using Content.Server.Chat.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Robust.Shared.Utility;
 using Content.Server.SimpleStation14.Speech.EntitySystems;
 
@@ -27,7 +27,7 @@ namespace Content.Server.SimpleStation14.Chat
         [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
 
-        private IEnumerable<INetChannel> GetShadekinChatClients()
+        private IEnumerable<INetChannel> GetShadowkinChatClients()
         {
             return Filter.Empty()
                 .AddWhereAttachedEntity(entity => HasComp<EmpathyChatComponent>(entity))
@@ -45,9 +45,9 @@ namespace Content.Server.SimpleStation14.Chat
         {
             if (!HasComp<EmpathyChatComponent>(source)) return;
 
-            var clients = GetShadekinChatClients();
+            var clients = GetShadowkinChatClients();
             var admins = GetAdminClients();
-            string localMessage = EntitySystem.Get<ShadekinAccentSystem>().Accentuate(message);
+            string localMessage = EntitySystem.Get<ShadowkinAccentSystem>().Accentuate(message);
             string localMessageWrap;
             string messageWrap;
             string adminMessageWrap;

@@ -76,13 +76,13 @@
     - type: StutteringAccent
 
 - type: trait
-  id: ShadekinBlackeye
+  id: ShadowkinBlackeye
   name: Blackeye
   description: You lose your special Shadowkin powers, in return for some points.
   cost: 5
   category: Negative
   whitelist:
     species:
-      - Shadekin
+      - Shadowkin
   components:
-    - type: ShadekinBlackeyeTrait
+    - type: ShadowkinBlackeyeTrait

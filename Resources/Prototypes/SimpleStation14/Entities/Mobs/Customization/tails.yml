@@ -147,19 +147,19 @@
       state: tentacle
 
 - type: marking
-  id: TailShadekin
+  id: TailShadowkin
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Shadekin]
+  speciesRestriction: [Shadowkin]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/tails64x32.rsi
       state: shadekin
 
 - type: marking
-  id: TailShadekinBig
+  id: TailShadowkinBig
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Shadekin]
+  speciesRestriction: [Shadowkin]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/tails64x32.rsi
       state: shadekin_big

@@ -1,4 +1,4 @@
-namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
+namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
 {
     [RegisterComponent]
     public sealed class EmpathyChatComponent : Component

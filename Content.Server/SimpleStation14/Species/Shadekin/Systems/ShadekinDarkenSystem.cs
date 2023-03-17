@@ -1,15 +1,15 @@
 using System.Linq;
 using Content.Server.Light.Components;
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
-using Content.Shared.SimpleStation14.Species.Shadekin.Systems;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 
 namespace Content.Server.SimpleStation14.Magic.Systems
 {
-    public sealed class ShadekinDarkenSystem : EntitySystem
+    public sealed class ShadowkinDarkenSystem : EntitySystem
     {
-        [Dependency] private readonly ShadekinPowerSystem _powerSystem = default!;
+        [Dependency] private readonly ShadowkinPowerSystem _powerSystem = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IEntitySystemManager _systemManager = default!;
         [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
@@ -20,19 +20,19 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<ShadekinComponent, ComponentStartup>(OnStartup);
-            SubscribeLocalEvent<ShadekinComponent, ComponentShutdown>(OnShutdown);
+            SubscribeLocalEvent<ShadowkinComponent, ComponentStartup>(OnStartup);
+            SubscribeLocalEvent<ShadowkinComponent, ComponentShutdown>(OnShutdown);
         }
 
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
 
-            var shadekins = _entityManager.EntityQuery<ShadekinComponent>();
+            var shadekins = _entityManager.EntityQuery<ShadowkinComponent>();
 
             foreach (var shadekin in shadekins.Where(x => x.Darken))
             {
-                if (!_entityManager.TryGetComponent(shadekin.Owner, out ShadekinDarkSwappedComponent? __) ||
+                if (!_entityManager.TryGetComponent(shadekin.Owner, out ShadowkinDarkSwappedComponent? __) ||
                     !_entityManager.TryGetComponent<TransformComponent>(shadekin.Owner, out var transform))
                     continue;
 
@@ -43,7 +43,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
                 var _darkened = new List<EntityUid>();
                 var lightQuery = _lookupSystem.GetEntitiesInRange(transform.MapID, transform.WorldPosition, shadekin.DarkenRange, flags: LookupFlags.StaticSundries)
-                    .Where(x => _entityManager.HasComponent<ShadekinLightComponent>(x) && _entityManager.HasComponent<PointLightComponent>(x));
+                    .Where(x => _entityManager.HasComponent<ShadowkinLightComponent>(x) && _entityManager.HasComponent<PointLightComponent>(x));
 
                 foreach (var entity in lightQuery)
                 {
@@ -61,7 +61,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                     var pointLight = _entityManager.GetComponent<PointLightComponent>(light);
 
 
-                    if (!_entityManager.TryGetComponent(light, out ShadekinLightComponent? shadekinLight)) continue;
+                    if (!_entityManager.TryGetComponent(light, out ShadowkinLightComponent? shadekinLight)) continue;
                     if (!_entityManager.TryGetComponent(light, out PoweredLightComponent? powered) || !powered.On)
                     {
                         ResetLight(pointLight, shadekinLight);
@@ -96,19 +96,19 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             }
         }
 
-        private void OnStartup(EntityUid uid, ShadekinComponent component, ComponentStartup args)
+        private void OnStartup(EntityUid uid, ShadowkinComponent component, ComponentStartup args)
         {
             component.Darken = true;
         }
 
-        private void OnShutdown(EntityUid uid, ShadekinComponent component, ComponentShutdown args)
+        private void OnShutdown(EntityUid uid, ShadowkinComponent component, ComponentShutdown args)
         {
             component.Darken = false;
 
             foreach (var light in component.DarkenedLights.ToArray())
             {
                 var pointLight = _entityManager.GetComponent<PointLightComponent>(light);
-                var shadekinLight = _entityManager.GetComponent<ShadekinLightComponent>(light);
+                var shadekinLight = _entityManager.GetComponent<ShadowkinLightComponent>(light);
 
                 ResetLight(pointLight, shadekinLight);
             }
@@ -120,7 +120,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         }
 
 
-        public void ResetLight(PointLightComponent light, ShadekinLightComponent sLight)
+        public void ResetLight(PointLightComponent light, ShadowkinLightComponent sLight)
         {
             if (sLight.OldRadiusEdited) _lightSystem.SetRadius(light.Owner, sLight.OldRadius);
             sLight.OldRadiusEdited = false;

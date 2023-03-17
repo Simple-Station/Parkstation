@@ -1,14 +1,14 @@
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Content.Client.SimpleStation14.Overlays;
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Robust.Client.GameObjects;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 
-namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
+namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
 {
-    public sealed class ShadekinTintSystem : EntitySystem
+    public sealed class ShadowkinTintSystem : EntitySystem
     {
         [Dependency] private readonly IPlayerManager _player = default!;
         [Dependency] private readonly IOverlayManager _overlayMan = default!;
@@ -23,12 +23,12 @@ namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
             _overlay = new();
             _overlay.tintColor = new(0.5f, 0f, 0.5f);
             _overlay.tintAmount = 0.25f;
-            _overlay.comp = new ShadekinComponent();
+            _overlay.comp = new ShadowkinComponent();
 
-            SubscribeLocalEvent<ShadekinComponent, ComponentStartup>(OnStartup);
-            SubscribeLocalEvent<ShadekinComponent, ComponentShutdown>(OnShutdown);
-            SubscribeLocalEvent<ShadekinComponent, PlayerAttachedEvent>(OnPlayerAttached);
-            SubscribeLocalEvent<ShadekinComponent, PlayerDetachedEvent>(OnPlayerDetached);
+            SubscribeLocalEvent<ShadowkinComponent, ComponentStartup>(OnStartup);
+            SubscribeLocalEvent<ShadowkinComponent, ComponentShutdown>(OnShutdown);
+            SubscribeLocalEvent<ShadowkinComponent, PlayerAttachedEvent>(OnPlayerAttached);
+            SubscribeLocalEvent<ShadowkinComponent, PlayerDetachedEvent>(OnPlayerDetached);
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         }
 
@@ -40,7 +40,7 @@ namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
             var uid = _player.LocalPlayer?.ControlledEntity;
             if (uid == null) return;
 
-            if (!_entityManager.TryGetComponent(uid, out ShadekinComponent? comp)) return;
+            if (!_entityManager.TryGetComponent(uid, out ShadowkinComponent? comp)) return;
             if (!_entityManager.TryGetComponent(uid, out SpriteComponent? sprite)) return;
             if (!sprite.LayerMapTryGet(HumanoidVisualLayers.Eyes, out var index)) return;
             if (!sprite.TryGetLayer(index, out var layer)) return;
@@ -60,26 +60,26 @@ namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
         }
 
 
-        private void OnStartup(EntityUid uid, ShadekinComponent component, ComponentStartup args)
+        private void OnStartup(EntityUid uid, ShadowkinComponent component, ComponentStartup args)
         {
             if (_player.LocalPlayer?.ControlledEntity != uid) return;
 
             _overlayMan.AddOverlay(_overlay);
         }
 
-        private void OnShutdown(EntityUid uid, ShadekinComponent component, ComponentShutdown args)
+        private void OnShutdown(EntityUid uid, ShadowkinComponent component, ComponentShutdown args)
         {
             if (_player.LocalPlayer?.ControlledEntity != uid) return;
 
             _overlayMan.RemoveOverlay(_overlay);
         }
 
-        private void OnPlayerAttached(EntityUid uid, ShadekinComponent component, PlayerAttachedEvent args)
+        private void OnPlayerAttached(EntityUid uid, ShadowkinComponent component, PlayerAttachedEvent args)
         {
             _overlayMan.AddOverlay(_overlay);
         }
 
-        private void OnPlayerDetached(EntityUid uid, ShadekinComponent component, PlayerDetachedEvent args)
+        private void OnPlayerDetached(EntityUid uid, ShadowkinComponent component, PlayerDetachedEvent args)
         {
             _overlayMan.RemoveOverlay(_overlay);
         }

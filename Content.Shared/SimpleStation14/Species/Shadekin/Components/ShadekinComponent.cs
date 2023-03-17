@@ -1,14 +1,14 @@
-using Content.Shared.SimpleStation14.Species.Shadekin.Systems;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Random;
 
-namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
+namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
 {
     [RegisterComponent, NetworkedComponent()]
-    public sealed class ShadekinComponent : Component
+    public sealed class ShadowkinComponent : Component
     {
-        ShadekinPowerSystem _powerSystem = new();
+        ShadowkinPowerSystem _powerSystem = new();
 
         // Dirty
         [ViewVariables(VVAccess.ReadOnly)]
@@ -103,13 +103,13 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
         ///     Don't let PowerLevel go above this value.
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
-        public readonly float PowerLevelMax = (float) PowerThresholds[ShadekinPowerThreshold.Max];
+        public readonly float PowerLevelMax = (float) PowerThresholds[ShadowkinPowerThreshold.Max];
 
         /// <summary>
         ///     Blackeyes if PowerLevel is this value.
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
-        public readonly float PowerLevelMin = (float) PowerThresholds[ShadekinPowerThreshold.Min];
+        public readonly float PowerLevelMin = (float) PowerThresholds[ShadowkinPowerThreshold.Min];
 
         /// <summary>
         ///     How much energy is gained per second.
@@ -136,19 +136,19 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
         public bool Blackeye = false;
 
 
-        public static readonly Dictionary<ShadekinPowerThreshold, float> PowerThresholds = new()
+        public static readonly Dictionary<ShadowkinPowerThreshold, float> PowerThresholds = new()
         {
-            { ShadekinPowerThreshold.Max, 250.0f },
-            { ShadekinPowerThreshold.Great, 200.0f },
-            { ShadekinPowerThreshold.Good, 150.0f },
-            { ShadekinPowerThreshold.Okay, 100.0f },
-            { ShadekinPowerThreshold.Tired, 50.0f },
-            { ShadekinPowerThreshold.Min, 0.0f },
+            { ShadowkinPowerThreshold.Max, 250.0f },
+            { ShadowkinPowerThreshold.Great, 200.0f },
+            { ShadowkinPowerThreshold.Good, 150.0f },
+            { ShadowkinPowerThreshold.Okay, 100.0f },
+            { ShadowkinPowerThreshold.Tired, 50.0f },
+            { ShadowkinPowerThreshold.Min, 0.0f },
         };
     }
 
     [Serializable, NetSerializable]
-    public sealed class ShadekinComponentState : ComponentState
+    public sealed class ShadowkinComponentState : ComponentState
     {
         public float PowerLevel { get; init; }
         public float PowerLevelGain { get; init; }
@@ -158,7 +158,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
     }
 
     [Serializable, NetSerializable]
-    public enum ShadekinPowerThreshold : byte
+    public enum ShadowkinPowerThreshold : byte
     {
         Max = 1 << 4,
         Great = 1 << 3,

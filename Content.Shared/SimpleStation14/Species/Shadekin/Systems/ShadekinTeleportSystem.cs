@@ -1,11 +1,11 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
+namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 {
-    public sealed class ShadekinTeleportSystem : EntitySystem
+    public sealed class ShadowkinTeleportSystem : EntitySystem
     {
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -16,18 +16,18 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         {
             base.Initialize();
 
-            action = new WorldTargetAction(_prototypeManager.Index<WorldTargetActionPrototype>("ShadekinTeleport"));
+            action = new WorldTargetAction(_prototypeManager.Index<WorldTargetActionPrototype>("ShadowkinTeleport"));
 
-            SubscribeLocalEvent<ShadekinTeleportPowerComponent, ComponentStartup>(Startup);
-            SubscribeLocalEvent<ShadekinTeleportPowerComponent, ComponentShutdown>(Shutdown);
+            SubscribeLocalEvent<ShadowkinTeleportPowerComponent, ComponentStartup>(Startup);
+            SubscribeLocalEvent<ShadowkinTeleportPowerComponent, ComponentShutdown>(Shutdown);
         }
 
-        private void Startup(EntityUid uid, ShadekinTeleportPowerComponent component, ComponentStartup args)
+        private void Startup(EntityUid uid, ShadowkinTeleportPowerComponent component, ComponentStartup args)
         {
             _actionsSystem.AddAction(uid, action, uid);
         }
 
-        private void Shutdown(EntityUid uid, ShadekinTeleportPowerComponent component, ComponentShutdown args)
+        private void Shutdown(EntityUid uid, ShadowkinTeleportPowerComponent component, ComponentShutdown args)
         {
             _actionsSystem.RemoveAction(uid, action);
         }

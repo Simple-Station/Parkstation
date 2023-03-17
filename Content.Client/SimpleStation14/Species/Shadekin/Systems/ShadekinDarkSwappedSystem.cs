@@ -1,15 +1,15 @@
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Content.Client.SimpleStation14.Overlays;
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
-using Content.Shared.SimpleStation14.Species.Shadekin.Events;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
 using Robust.Client.GameObjects;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 
-namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
+namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
 {
-    public sealed class ShadekinDarkSwappedSystem : EntitySystem
+    public sealed class ShadowkinDarkSwappedSystem : EntitySystem
     {
         [Dependency] private readonly IPlayerManager _player = default!;
         [Dependency] private readonly IOverlayManager _overlayMan = default!;
@@ -24,25 +24,25 @@ namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
 
             _ignoreOverlay = new();
             _ignoreOverlay.ignoredComponents.Add(new HumanoidAppearanceComponent());
-            _ignoreOverlay.allowAnywayComponents.Add(new ShadekinDarkSwappedComponent());
+            _ignoreOverlay.allowAnywayComponents.Add(new ShadowkinDarkSwappedComponent());
             _etherealOverlay = new();
 
-            SubscribeNetworkEvent<ShadekinDarkSwappedEvent>(DarkSwap);
+            SubscribeNetworkEvent<ShadowkinDarkSwappedEvent>(DarkSwap);
 
-            SubscribeLocalEvent<ShadekinDarkSwappedComponent, ComponentStartup>(OnStartup);
-            SubscribeLocalEvent<ShadekinDarkSwappedComponent, ComponentShutdown>(OnShutdown);
-            SubscribeLocalEvent<ShadekinDarkSwappedComponent, PlayerAttachedEvent>(OnPlayerAttached);
-            SubscribeLocalEvent<ShadekinDarkSwappedComponent, PlayerDetachedEvent>(OnPlayerDetached);
+            SubscribeLocalEvent<ShadowkinDarkSwappedComponent, ComponentStartup>(OnStartup);
+            SubscribeLocalEvent<ShadowkinDarkSwappedComponent, ComponentShutdown>(OnShutdown);
+            SubscribeLocalEvent<ShadowkinDarkSwappedComponent, PlayerAttachedEvent>(OnPlayerAttached);
+            SubscribeLocalEvent<ShadowkinDarkSwappedComponent, PlayerDetachedEvent>(OnPlayerDetached);
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         }
 
-        private void DarkSwap(ShadekinDarkSwappedEvent args)
+        private void DarkSwap(ShadowkinDarkSwappedEvent args)
         {
             ToggleInvisibility(args.Performer, args.DarkSwapped);
         }
 
 
-        private void OnStartup(EntityUid uid, ShadekinDarkSwappedComponent component, ComponentStartup args)
+        private void OnStartup(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentStartup args)
         {
             if (_player.LocalPlayer?.ControlledEntity != uid) return;
 
@@ -50,7 +50,7 @@ namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
             _overlayMan.AddOverlay(_etherealOverlay);
         }
 
-        private void OnShutdown(EntityUid uid, ShadekinDarkSwappedComponent component, ComponentShutdown args)
+        private void OnShutdown(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentShutdown args)
         {
             if (_player.LocalPlayer?.ControlledEntity != uid) return;
 
@@ -59,13 +59,13 @@ namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
             _overlayMan.RemoveOverlay(_etherealOverlay);
         }
 
-        private void OnPlayerAttached(EntityUid uid, ShadekinDarkSwappedComponent component, PlayerAttachedEvent args)
+        private void OnPlayerAttached(EntityUid uid, ShadowkinDarkSwappedComponent component, PlayerAttachedEvent args)
         {
             _overlayMan.AddOverlay(_ignoreOverlay);
             _overlayMan.AddOverlay(_etherealOverlay);
         }
 
-        private void OnPlayerDetached(EntityUid uid, ShadekinDarkSwappedComponent component, PlayerDetachedEvent args)
+        private void OnPlayerDetached(EntityUid uid, ShadowkinDarkSwappedComponent component, PlayerDetachedEvent args)
         {
             _ignoreOverlay.Reset();
             _overlayMan.RemoveOverlay(_ignoreOverlay);
@@ -82,11 +82,11 @@ namespace Content.Client.SimpleStation14.Species.Shadekin.Systems
         {
             if (isDark)
             {
-                EnsureComp<ShadekinDarkSwappedComponent>(uid);
+                EnsureComp<ShadowkinDarkSwappedComponent>(uid);
             }
             else
             {
-                RemComp<ShadekinDarkSwappedComponent>(uid);
+                RemComp<ShadowkinDarkSwappedComponent>(uid);
             }
         }
     }

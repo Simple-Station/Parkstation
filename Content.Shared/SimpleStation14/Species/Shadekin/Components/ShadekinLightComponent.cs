@@ -1,7 +1,7 @@
-namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
+namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
 {
     [RegisterComponent]
-    public sealed class ShadekinLightComponent : Component
+    public sealed class ShadowkinLightComponent : Component
     {
         [ViewVariables(VVAccess.ReadOnly)]
         public float OldRadius = 0f;

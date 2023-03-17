@@ -9,8 +9,8 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
-using Content.Shared.SimpleStation14.Species.Shadekin.Events;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
 using Content.Shared.Slippery;
 using Content.Shared.Stunnable;
 using Content.Shared.Verbs;
@@ -104,11 +104,11 @@ namespace Content.Server.Bed.Sleep
                 return;
 
             // Can't figure out a better way
-            if (_entityManager.TryGetComponent<ShadekinComponent>(uid, out var shadekin) &&
-                _entityManager.TryGetComponent<ShadekinRestPowerComponent>(uid, out var shadekinRest) &&
+            if (_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadekin) &&
+                _entityManager.TryGetComponent<ShadowkinRestPowerComponent>(uid, out var shadekinRest) &&
                 shadekinRest.IsResting)
             {
-                RaiseLocalEvent(new ShadekinRestEventResponse(uid, !shadekinRest.IsResting));
+                RaiseLocalEvent(new ShadowkinRestEventResponse(uid, !shadekinRest.IsResting));
             }
 
             if (TryWaking(uid))

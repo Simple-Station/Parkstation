@@ -3,9 +3,9 @@ using Content.Server.Psionics;
 using Content.Server.Visible;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage.Systems;
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
-using Content.Shared.SimpleStation14.Species.Shadekin.Events;
-using Content.Shared.SimpleStation14.Species.Shadekin.Systems;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Robust.Server.GameObjects;
@@ -16,13 +16,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.SimpleStation14.Magic.Systems
 {
-    public sealed class ShadekinDarkSwapSystem : EntitySystem
+    public sealed class ShadowkinDarkSwapSystem : EntitySystem
     {
-        [Dependency] private readonly ShadekinPowerSystem _powerSystem = default!;
+        [Dependency] private readonly ShadowkinPowerSystem _powerSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly ShadekinDarkenSystem _darkenSystem = default!;
+        [Dependency] private readonly ShadowkinDarkenSystem _darkenSystem = default!;
         [Dependency] private readonly StaminaSystem _staminaSystem = default!;
         [Dependency] private readonly SharedStealthSystem _stealthSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -33,16 +33,16 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<ShadekinDarkSwapPowerComponent, ShadekinDarkSwapEvent>(DarkSwap);
+            SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ShadowkinDarkSwapEvent>(DarkSwap);
 
             SubscribeLocalEvent<EyeComponent, ComponentStartup>(OnEyeStartup);
 
-            SubscribeLocalEvent<ShadekinDarkSwappedComponent, ComponentStartup>(OnInvisStartup);
-            SubscribeLocalEvent<ShadekinDarkSwappedComponent, ComponentShutdown>(OnInvisShutdown);
+            SubscribeLocalEvent<ShadowkinDarkSwappedComponent, ComponentStartup>(OnInvisStartup);
+            SubscribeLocalEvent<ShadowkinDarkSwappedComponent, ComponentShutdown>(OnInvisShutdown);
         }
 
 
-        private void DarkSwap(EntityUid uid, ShadekinDarkSwapPowerComponent component, ShadekinDarkSwapEvent args)
+        private void DarkSwap(EntityUid uid, ShadowkinDarkSwapPowerComponent component, ShadowkinDarkSwapEvent args)
         {
             ToggleInvisibility(args.Performer, args);
 
@@ -50,14 +50,14 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         }
 
 
-        public void ToggleInvisibility(EntityUid uid, ShadekinDarkSwapEvent args)
+        public void ToggleInvisibility(EntityUid uid, ShadowkinDarkSwapEvent args)
         {
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var comp)) return;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var comp)) return;
 
-            if (!HasComp<ShadekinDarkSwappedComponent>(uid))
+            if (!HasComp<ShadowkinDarkSwappedComponent>(uid))
             {
-                EnsureComp<ShadekinDarkSwappedComponent>(uid);
-                RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, true));
+                EnsureComp<ShadowkinDarkSwappedComponent>(uid);
+                RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(uid, true));
 
                 _audio.PlayPvs(args.SoundOn, args.Performer, AudioParams.Default.WithVolume(args.VolumeOn));
 
@@ -66,8 +66,8 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             }
             else
             {
-                RemComp<ShadekinDarkSwappedComponent>(uid);
-                RaiseNetworkEvent(new ShadekinDarkSwappedEvent(uid, false));
+                RemComp<ShadowkinDarkSwappedComponent>(uid);
+                RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(uid, false));
 
                 _audio.PlayPvs(args.SoundOff, args.Performer, AudioParams.Default.WithVolume(args.VolumeOff));
 
@@ -89,14 +89,14 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             }
         }
 
-        private void OnInvisStartup(EntityUid uid, ShadekinDarkSwappedComponent component, ComponentStartup args)
+        private void OnInvisStartup(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentStartup args)
         {
             EnsureComp<PacifiedComponent>(uid);
 
             SetCanSeeInvisibility(uid, true);
         }
 
-        private void OnInvisShutdown(EntityUid uid, ShadekinDarkSwappedComponent component, ComponentShutdown args)
+        private void OnInvisShutdown(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentShutdown args)
         {
             if (Terminating(uid)) return;
 
@@ -104,12 +104,12 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
             SetCanSeeInvisibility(uid, false);
 
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var shadekin)) return;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadekin)) return;
 
             foreach (var light in shadekin.DarkenedLights.ToArray())
             {
                 if (!_entityManager.TryGetComponent<PointLightComponent>(light, out var pointLight) ||
-                    !_entityManager.TryGetComponent<ShadekinLightComponent>(light, out var shadekinLight))
+                    !_entityManager.TryGetComponent<ShadowkinLightComponent>(light, out var shadekinLight))
                     continue;
 
                 _darkenSystem.ResetLight(pointLight, shadekinLight);

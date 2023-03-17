@@ -12,7 +12,7 @@ public enum AlertCategory
     Health,
     Internals,
     Stamina,
-    ShadekinPower,
+    ShadowkinPower,
     Piloting,
     Hunger,
     Thirst,

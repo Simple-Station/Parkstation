@@ -1,5 +1,5 @@
 - type: worldTargetAction
-  id: ShadekinTeleport
+  id: ShadowkinTeleport
   name: action-name-shadekin-teleport
   description: action-description-shadekin-teleport
   useDelay: 2
@@ -9,34 +9,34 @@
   checkCanAccess: true
   repeat: true
   icon:
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin_icons.rsi
     state: teleport
-  serverEvent: !type:ShadekinTeleportEvent
+  serverEvent: !type:ShadowkinTeleportEvent
     powerCost: 35
     staminaCost: 15
 
 - type: instantAction
-  id: ShadekinDarkSwap
+  id: ShadowkinDarkSwap
   name: action-name-shadekin-darkswap
   description: action-description-shadekin-darkswap
   useDelay: 3
   speech: action-description-shadekin-darkswap
   itemIconStyle: NoItem
   icon:
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin_icons.rsi
     state: darkswap
-  serverEvent: !type:ShadekinDarkSwapEvent
+  serverEvent: !type:ShadowkinDarkSwapEvent
     powerCostOn: 55
     powerCostOff: 40
     staminaCost: 0
 
 - type: instantAction
-  id: ShadekinRest
+  id: ShadowkinRest
   name: action-name-shadekin-rest
   description: action-description-shadekin-rest
   useDelay: 60
   itemIconStyle: NoItem
   icon:
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin_icons.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin_icons.rsi
     state: rest
-  serverEvent: !type:ShadekinRestEvent
+  serverEvent: !type:ShadowkinRestEvent

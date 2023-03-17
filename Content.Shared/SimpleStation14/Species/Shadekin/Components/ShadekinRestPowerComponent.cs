@@ -1,7 +1,7 @@
-namespace Content.Shared.SimpleStation14.Species.Shadekin.Components
+namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
 {
     [RegisterComponent]
-    public sealed class ShadekinRestPowerComponent : Component
+    public sealed class ShadowkinRestPowerComponent : Component
     {
         [ViewVariables(VVAccess.ReadWrite)]
         public bool IsResting = false;

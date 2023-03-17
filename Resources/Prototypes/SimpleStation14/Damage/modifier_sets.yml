@@ -1,5 +1,5 @@
 - type: damageModifierSet
-  id: Shadekin
+  id: Shadowkin
   coefficients:
     Blunt: 0.95
     Slash: 1.2

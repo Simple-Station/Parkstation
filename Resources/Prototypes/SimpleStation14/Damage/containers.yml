@@ -1,5 +1,5 @@
 - type: damageContainer
-  id: Shadekin
+  id: Shadowkin
   supportedGroups:
     - Brute
     - Burn

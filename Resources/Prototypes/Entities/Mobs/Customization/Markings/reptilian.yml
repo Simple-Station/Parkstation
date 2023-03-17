@@ -238,7 +238,7 @@
   speciesRestriction:
     [
       Reptilian,
-      Shadekin,
+      Shadowkin,
     ]
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi

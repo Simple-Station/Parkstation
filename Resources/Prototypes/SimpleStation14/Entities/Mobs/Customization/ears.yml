@@ -90,10 +90,10 @@
       state: mouse
 
 - type: marking
-  id: EarsShadekin
+  id: EarsShadowkin
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Shadekin]
+  speciesRestriction: [Shadowkin]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: shadekin

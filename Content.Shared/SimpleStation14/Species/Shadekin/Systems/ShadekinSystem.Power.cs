@@ -1,12 +1,12 @@
 using Content.Shared.Alert;
 using Content.Shared.Rounding;
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
-using Content.Shared.SimpleStation14.Species.Shadekin.Events;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
 using System.Threading.Tasks;
 
-namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
+namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 {
-    public class ShadekinPowerSystem : EntitySystem
+    public class ShadowkinPowerSystem : EntitySystem
     {
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly AlertsSystem _alertsSystem = default!;
@@ -17,11 +17,11 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         public string GetLevelName(float PowerLevel)
         {
             // Placeholders
-            ShadekinPowerThreshold result = ShadekinPowerThreshold.Min;
-            var value = ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Max];
+            ShadowkinPowerThreshold result = ShadowkinPowerThreshold.Min;
+            var value = ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Max];
 
             // Find the highest threshold that is lower than the current power level
-            foreach (var threshold in ShadekinComponent.PowerThresholds)
+            foreach (var threshold in ShadowkinComponent.PowerThresholds)
             {
                 if (threshold.Value <= value && threshold.Value >= PowerLevel)
                 {
@@ -30,14 +30,14 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
                 }
             }
 
-            var powerDictionary = new Dictionary<ShadekinPowerThreshold, string>
+            var powerDictionary = new Dictionary<ShadowkinPowerThreshold, string>
             {
-                {ShadekinPowerThreshold.Max, Loc.GetString("shadekin-power-max")},
-                {ShadekinPowerThreshold.Great, Loc.GetString("shadekin-power-great")},
-                {ShadekinPowerThreshold.Good, Loc.GetString("shadekin-power-good")},
-                {ShadekinPowerThreshold.Okay, Loc.GetString("shadekin-power-okay")},
-                {ShadekinPowerThreshold.Tired, Loc.GetString("shadekin-power-tired")},
-                {ShadekinPowerThreshold.Min, Loc.GetString("shadekin-power-min")}
+                {ShadowkinPowerThreshold.Max, Loc.GetString("shadekin-power-max")},
+                {ShadowkinPowerThreshold.Great, Loc.GetString("shadekin-power-great")},
+                {ShadowkinPowerThreshold.Good, Loc.GetString("shadekin-power-good")},
+                {ShadowkinPowerThreshold.Okay, Loc.GetString("shadekin-power-okay")},
+                {ShadowkinPowerThreshold.Tired, Loc.GetString("shadekin-power-tired")},
+                {ShadowkinPowerThreshold.Min, Loc.GetString("shadekin-power-min")}
             };
 
             // Get the name of the threshold
@@ -57,12 +57,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         {
             if (!enabled || PowerLevel == null)
             {
-                _alertsSystem.ClearAlert(uid, AlertType.ShadekinPower);
+                _alertsSystem.ClearAlert(uid, AlertType.ShadowkinPower);
                 return;
             }
 
             // Get shadekin component
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
             {
                 Logger.Error("Tried to update alert of entity without shadekin component.");
                 throw new InvalidOperationException("Tried to update alert of entity without shadekin component.");
@@ -72,7 +72,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             var power = ContentHelpers.RoundToLevels((double) PowerLevel, component.PowerLevelMax, 8);
 
             // Set the alert level
-            _alertsSystem.ShowAlert(uid, AlertType.ShadekinPower, (short) power);
+            _alertsSystem.ShowAlert(uid, AlertType.ShadowkinPower, (short) power);
         }
 
 
@@ -94,7 +94,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         public bool TryUpdatePowerLevel(EntityUid uid, float frameTime)
         {
             // Check if the entity has a shadekin component
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component)) return false;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component)) return false;
 
             // Check if power gain is enabled
             if (!component.PowerLevelGainEnabled) return false;
@@ -113,7 +113,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         public void UpdatePowerLevel(EntityUid uid, float frameTime)
         {
             // Get shadekin component
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
             {
                 Logger.Error("Tried to update power level of entity without shadekin component.");
                 throw new InvalidOperationException("Tried to update power level of entity without shadekin component.");
@@ -138,7 +138,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         public bool TryAddPowerLevel(EntityUid uid, float amount)
         {
             // Check if the entity has a shadekin component
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component)) return false;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component)) return false;
 
             // Set the new power level
             AddPowerLevel(uid, amount);
@@ -154,7 +154,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         public void AddPowerLevel(EntityUid uid, float amount)
         {
             // Get shadekin component
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
             {
                 Logger.Error("Tried to add to power level of entity without shadekin component.");
                 throw new InvalidOperationException("Tried to add to power level of entity without shadekin component.");
@@ -179,7 +179,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         public void SetPowerLevel(EntityUid uid, float newPowerLevel)
         {
             // Get shadekin component
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
             {
                 Logger.Error("Tried to set power level of entity without shadekin component.");
                 throw new InvalidOperationException("Tried to set power level of entity without shadekin component.");
@@ -199,10 +199,10 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         public bool TryBlackeye(EntityUid uid)
         {
             // Check if the entity has a shadekin component
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component)) return false;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component)) return false;
 
             if (!component.Blackeye &&
-                component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min] + 1f)
+                component.PowerLevel <= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min] + 1f)
             {
                 Blackeye(uid);
 
@@ -218,15 +218,15 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         public void Blackeye(EntityUid uid)
         {
             // Get shadekin component
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
             {
                 Logger.Error("Tried to blackeye entity without shadekin component.");
                 throw new InvalidOperationException("Tried to blackeye entity without shadekin component.");
             }
 
             component.Blackeye = true;
-            RaiseNetworkEvent(new ShadekinBlackeyeEvent(component.Owner));
-            RaiseLocalEvent(new ShadekinBlackeyeEvent(component.Owner));
+            RaiseNetworkEvent(new ShadowkinBlackeyeEvent(component.Owner));
+            RaiseLocalEvent(new ShadowkinBlackeyeEvent(component.Owner));
         }
 
 
@@ -238,7 +238,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         /// <param name="time">The time in seconds to wait before removing the multiplier.</param>
         public bool TryAddMultiplier(EntityUid uid, float multiplier = 1f, float? time = null)
         {
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var _)) return false;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var _)) return false;
             if (multiplier == float.NaN) return false;
 
             AddMultiplier(uid, multiplier, time);
@@ -255,7 +255,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         public void AddMultiplier(EntityUid uid, float multiplier = 1f, float? time = null)
         {
             // Get shadekin component
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
             {
                 Logger.Error("Tried to add multiplier to entity without shadekin component.");
                 throw new InvalidOperationException("Tried to add multiplier to entity without shadekin component.");

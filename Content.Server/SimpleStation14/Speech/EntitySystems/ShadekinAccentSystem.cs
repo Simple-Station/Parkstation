@@ -5,7 +5,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.SimpleStation14.Speech.EntitySystems
 {
-    public sealed class ShadekinAccentSystem : EntitySystem
+    public sealed class ShadowkinAccentSystem : EntitySystem
     {
         [Dependency] private readonly IRobustRandom _random = default!;
 
@@ -15,7 +15,7 @@ namespace Content.Server.SimpleStation14.Speech.EntitySystems
 
         public override void Initialize()
         {
-            SubscribeLocalEvent<ShadekinAccentComponent, AccentGetEvent>(OnAccent);
+            SubscribeLocalEvent<ShadowkinAccentComponent, AccentGetEvent>(OnAccent);
         }
 
         public string Accentuate(string message)
@@ -30,7 +30,7 @@ namespace Content.Server.SimpleStation14.Speech.EntitySystems
             return message;
         }
 
-        private void OnAccent(EntityUid uid, ShadekinAccentComponent component, AccentGetEvent args)
+        private void OnAccent(EntityUid uid, ShadowkinAccentComponent component, AccentGetEvent args)
         {
             args.Message = Accentuate(args.Message);
         }

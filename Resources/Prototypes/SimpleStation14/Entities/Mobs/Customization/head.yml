@@ -1,17 +1,17 @@
 # - type: marking
-#   id: EyesShadekinRight
+#   id: EyesShadowkinRight
 #   bodyPart: Eyes
 #   markingCategory: Head
-#   speciesRestriction: [Shadekin]
+#   speciesRestriction: [Shadowkin]
 #   sprites:
-#     - sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+#     - sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
 #       state: r_eye
 
 # - type: marking
-#   id: EyesShadekinLeft
+#   id: EyesShadowkinLeft
 #   bodyPart: Eyes
 #   markingCategory: Head
-#   speciesRestriction: [Shadekin]
+#   speciesRestriction: [Shadowkin]
 #   sprites:
-#     - sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+#     - sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
 #       state: l_eye

@@ -80,7 +80,7 @@ namespace Content.Shared.Chat
         Telepathic = 1 << 13,
 
         /// <summary>
-        ///     Empathy channel for Shadekin.
+        ///     Empathy channel for Shadowkin.
         /// </summary>
         Empathy = 1 << 14,
 

@@ -75,11 +75,11 @@ namespace Content.Client.Chat.Managers
                     _consoleHost.ExecuteCommand($"tsay \"{CommandParsing.Escape(str)}\"");
                     break;
 
-                // Parkstation-Shadekin chat start
+                // Parkstation-Shadowkin chat start
                 case ChatSelectChannel.Empathy:
                     _consoleHost.ExecuteCommand($"esay \"{CommandParsing.Escape(str)}\"");
                     break;
-                // Parkstation-Shadekin chat end
+                // Parkstation-Shadowkin chat end
 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(channel), channel, null);

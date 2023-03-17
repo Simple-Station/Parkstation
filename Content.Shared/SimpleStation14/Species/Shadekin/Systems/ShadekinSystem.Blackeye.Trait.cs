@@ -1,13 +1,13 @@
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
 
-namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
+namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 {
-    public sealed class ShadekinBlackeyeTraitSystem : EntitySystem
+    public sealed class ShadowkinBlackeyeTraitSystem : EntitySystem
     {
-        [Dependency] private readonly ShadekinPowerSystem _powerSystem = default!;
+        [Dependency] private readonly ShadowkinPowerSystem _powerSystem = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly SharedHumanoidAppearanceSystem _sharedHumanoidAppearance = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -17,16 +17,16 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<ShadekinBlackeyeTraitComponent, ComponentStartup>(OnStartup);
+            SubscribeLocalEvent<ShadowkinBlackeyeTraitComponent, ComponentStartup>(OnStartup);
         }
 
-        private void OnStartup(EntityUid uid, ShadekinBlackeyeTraitComponent _, ComponentStartup args)
+        private void OnStartup(EntityUid uid, ShadowkinBlackeyeTraitComponent _, ComponentStartup args)
         {
             // Remove powers
-            _entityManager.RemoveComponent<ShadekinDarkSwapPowerComponent>(uid);
-            _entityManager.RemoveComponent<ShadekinDarkSwappedComponent>(uid);
-            _entityManager.RemoveComponent<ShadekinRestPowerComponent>(uid);
-            _entityManager.RemoveComponent<ShadekinTeleportPowerComponent>(uid);
+            _entityManager.RemoveComponent<ShadowkinDarkSwapPowerComponent>(uid);
+            _entityManager.RemoveComponent<ShadowkinDarkSwappedComponent>(uid);
+            _entityManager.RemoveComponent<ShadowkinRestPowerComponent>(uid);
+            _entityManager.RemoveComponent<ShadowkinTeleportPowerComponent>(uid);
 
             // Popup
             if (_net.IsClient)
@@ -35,11 +35,11 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             }
 
             // Stop gaining power
-            if (_entityManager.TryGetComponent<ShadekinComponent>(uid, out var component))
+            if (_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
             {
                 component.Blackeye = true;
                 component.PowerLevelGainEnabled = false;
-                _powerSystem.SetPowerLevel(component.Owner, ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min]);
+                _powerSystem.SetPowerLevel(component.Owner, ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min]);
             }
         }
     }

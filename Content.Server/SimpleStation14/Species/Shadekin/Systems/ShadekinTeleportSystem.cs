@@ -1,16 +1,16 @@
 
 using Content.Shared.Damage.Systems;
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
-using Content.Shared.SimpleStation14.Species.Shadekin.Events;
-using Content.Shared.SimpleStation14.Species.Shadekin.Systems;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.SimpleStation14.Magic.Systems
 {
-    public sealed class ShadekinTeleportSystem : EntitySystem
+    public sealed class ShadowkinTeleportSystem : EntitySystem
     {
-        [Dependency] private readonly ShadekinPowerSystem _powerSystem = default!;
+        [Dependency] private readonly ShadowkinPowerSystem _powerSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -21,14 +21,14 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<ShadekinTeleportEvent>(Teleport);
+            SubscribeLocalEvent<ShadowkinTeleportEvent>(Teleport);
         }
 
-        private void Teleport(ShadekinTeleportEvent args)
+        private void Teleport(ShadowkinTeleportEvent args)
         {
             if (args.Handled) return;
 
-            if (!_entityManager.TryGetComponent<ShadekinComponent>(args.Performer, out var comp)) return;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(args.Performer, out var comp)) return;
 
             var transform = Transform(args.Performer);
             if (transform.MapID != args.Target.GetMapId(EntityManager)) return;

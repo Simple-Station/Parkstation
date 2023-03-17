@@ -1,10 +1,10 @@
 using Content.Client.Chat.Managers;
 using Robust.Client.Player;
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 
 namespace Content.Client.SimpleStation14.Chat
 {
-    public sealed class ShadekinChatUpdateSystem : EntitySystem
+    public sealed class ShadowkinChatUpdateSystem : EntitySystem
     {
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -18,7 +18,7 @@ namespace Content.Client.SimpleStation14.Chat
         }
 
         public EmpathyChatComponent? Player => CompOrNull<EmpathyChatComponent>(_playerManager.LocalPlayer?.ControlledEntity);
-        public bool IsShadekin => Player != null;
+        public bool IsShadowkin => Player != null;
 
         private void OnInit(EntityUid uid, EmpathyChatComponent component, ComponentInit args)
         {

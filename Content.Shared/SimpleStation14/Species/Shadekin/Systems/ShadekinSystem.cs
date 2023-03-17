@@ -1,16 +1,16 @@
 using Content.Shared.Examine;
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Robust.Shared.Network;
 using Content.Shared.IdentityManagement;
-using Content.Shared.SimpleStation14.Species.Shadekin.Events;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
 using Robust.Shared.GameStates;
 using Robust.Shared.Random;
 
-namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
+namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 {
-    public sealed class ShadekinSystem : EntitySystem
+    public sealed class ShadowkinSystem : EntitySystem
     {
-        [Dependency] private readonly ShadekinPowerSystem _powerSystem = default!;
+        [Dependency] private readonly ShadowkinPowerSystem _powerSystem = default!;
         [Dependency] private readonly INetManager _net = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
@@ -19,16 +19,16 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<ShadekinComponent, ExaminedEvent>(OnExamine);
-            SubscribeLocalEvent<ShadekinComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<ShadowkinComponent, ExaminedEvent>(OnExamine);
+            SubscribeLocalEvent<ShadowkinComponent, ComponentInit>(OnInit);
 
-            SubscribeLocalEvent<ShadekinComponent, ComponentGetState>(GetCompState);
-            SubscribeLocalEvent<ShadekinComponent, ComponentHandleState>(HandleCompState);
+            SubscribeLocalEvent<ShadowkinComponent, ComponentGetState>(GetCompState);
+            SubscribeLocalEvent<ShadowkinComponent, ComponentHandleState>(HandleCompState);
 
-            // Due to duplicate subscriptions, removal of the alert on shutdown is in ShadekinDarkenSystem
+            // Due to duplicate subscriptions, removal of the alert on shutdown is in ShadowkinDarkenSystem
         }
 
-        private void OnExamine(EntityUid uid, ShadekinComponent component, ExaminedEvent args)
+        private void OnExamine(EntityUid uid, ShadowkinComponent component, ExaminedEvent args)
         {
             if (args.IsInDetailsRange)
             {
@@ -52,19 +52,19 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             }
         }
 
-        private void OnInit(EntityUid uid, ShadekinComponent component, ComponentInit args)
+        private void OnInit(EntityUid uid, ShadowkinComponent component, ComponentInit args)
         {
-            if (component.PowerLevel <= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Min] + 1f)
-                _powerSystem.SetPowerLevel(component.Owner, ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Okay]);
+            if (component.PowerLevel <= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min] + 1f)
+                _powerSystem.SetPowerLevel(component.Owner, ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Okay]);
 
             component.ForceSwapRate = _random.NextFloat(component.ForceSwapRateMin, component.ForceSwapRateMax);
             component.TiredRate = _random.NextFloat(component.TiredRateMin, component.TiredRateMax);
         }
 
 
-        private void GetCompState(EntityUid uid, ShadekinComponent component, ref ComponentGetState args)
+        private void GetCompState(EntityUid uid, ShadowkinComponent component, ref ComponentGetState args)
         {
-            args.State = new ShadekinComponentState
+            args.State = new ShadowkinComponentState
             {
                 PowerLevel = component.PowerLevel,
                 PowerLevelGain = component.PowerLevelGain,
@@ -74,9 +74,9 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
             };
         }
 
-        private void HandleCompState(EntityUid uid, ShadekinComponent component, ref ComponentHandleState args)
+        private void HandleCompState(EntityUid uid, ShadowkinComponent component, ref ComponentHandleState args)
         {
-            if (args.Current is not ShadekinComponentState shadekin)
+            if (args.Current is not ShadowkinComponentState shadekin)
             {
                 return;
             }
@@ -93,7 +93,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         {
             base.Update(frameTime);
 
-            var query = _entityManager.EntityQuery<ShadekinComponent>();
+            var query = _entityManager.EntityQuery<ShadowkinComponent>();
 
             // Update power level for all shadekin
             // Prediction won't work, client updates ~10x faster with the same given frameTime (~0.3333... in my testing)
@@ -119,7 +119,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
 
                     #region ForceSwap
                     // Check if they're at max power
-                    if (component.PowerLevel >= ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Max])
+                    if (component.PowerLevel >= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Max])
                     {
                         // If so, start the timer
                         component.ForceSwapAccumulator += frameTime;
@@ -133,15 +133,15 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
                             component.ForceSwapRate = _random.NextFloat(component.ForceSwapRateMin, component.ForceSwapRateMax);
 
                             // Add/Remove DarkSwapped component, which will handle the rest
-                            if (_entityManager.TryGetComponent<ShadekinDarkSwappedComponent>(component.Owner, out var _))
+                            if (_entityManager.TryGetComponent<ShadowkinDarkSwappedComponent>(component.Owner, out var _))
                             {
-                                RaiseNetworkEvent(new ShadekinDarkSwappedEvent(component.Owner, false));
-                                _entityManager.RemoveComponent<ShadekinDarkSwappedComponent>(component.Owner);
+                                RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(component.Owner, false));
+                                _entityManager.RemoveComponent<ShadowkinDarkSwappedComponent>(component.Owner);
                             }
                             else
                             {
-                                RaiseNetworkEvent(new ShadekinDarkSwappedEvent(component.Owner, true));
-                                _entityManager.AddComponent<ShadekinDarkSwappedComponent>(component.Owner);
+                                RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(component.Owner, true));
+                                _entityManager.AddComponent<ShadowkinDarkSwappedComponent>(component.Owner);
                             }
                         }
                     }
@@ -158,8 +158,8 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
                     // Just Tired is too little, and Okay is too much
                     if (component.PowerLevel <=
                         (
-                            ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Tired] +
-                            ShadekinComponent.PowerThresholds[ShadekinPowerThreshold.Okay]
+                            ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Tired] +
+                            ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Okay]
                         ) / 2f
                     )
                     {
@@ -175,7 +175,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
                             component.TiredRate = _random.NextFloat(component.TiredRateMin, component.TiredRateMax);
 
                             // Send event to rest
-                            RaiseLocalEvent(new ShadekinRestEventResponse(component.Owner, true));
+                            RaiseLocalEvent(new ShadowkinRestEventResponse(component.Owner, true));
                         }
                     }
                     else

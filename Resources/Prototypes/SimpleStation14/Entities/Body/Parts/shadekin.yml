@@ -1,7 +1,7 @@
 - type: entity
-  id: PartShadekin
+  id: PartShadowkin
   parent: BaseItem
-  name: "Shadekin body part"
+  name: "Shadowkin body part"
   abstract: true
   components:
   - type: Damageable
@@ -13,31 +13,31 @@
         ents: []
 
 - type: entity
-  id: TorsoShadekin
-  name: "Shadekin torso"
-  parent: PartShadekin
+  id: TorsoShadowkin
+  name: "Shadowkin torso"
+  parent: PartShadowkin
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "torso_m"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "torso_m"
   - type: BodyPart
     partType: Torso
 
 - type: entity
-  id: HeadShadekin
-  name: "Shadekin head"
-  parent: PartShadekin
+  id: HeadShadowkin
+  name: "Shadowkin head"
+  parent: PartShadowkin
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "head_m"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "head_m"
   - type: BodyPart
     partType: Head
@@ -50,80 +50,80 @@
   - type: GhostOnMove
 
 - type: entity
-  id: LeftArmShadekin
-  name: "left Shadekin arm"
-  parent: PartShadekin
+  id: LeftArmShadowkin
+  name: "left Shadowkin arm"
+  parent: PartShadowkin
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "l_arm"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "l_arm"
   - type: BodyPart
     partType: Arm
     symmetry: Left
 
 - type: entity
-  id: RightArmShadekin
-  name: "right Shadekin arm"
-  parent: PartShadekin
+  id: RightArmShadowkin
+  name: "right Shadowkin arm"
+  parent: PartShadowkin
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "r_arm"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "r_arm"
   - type: BodyPart
     partType: Arm
     symmetry: Right
 
 - type: entity
-  id: LeftHandShadekin
-  name: "left Shadekin hand"
-  parent: PartShadekin
+  id: LeftHandShadowkin
+  name: "left Shadowkin hand"
+  parent: PartShadowkin
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "l_hand"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "l_hand"
   - type: BodyPart
     partType: Hand
     symmetry: Left
 
 - type: entity
-  id: RightHandShadekin
-  name: "right Shadekin hand"
-  parent: PartShadekin
+  id: RightHandShadowkin
+  name: "right Shadowkin hand"
+  parent: PartShadowkin
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "r_hand"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "r_hand"
   - type: BodyPart
     partType: Hand
     symmetry: Right
 
 - type: entity
-  id: LeftLegShadekin
-  name: "left Shadekin leg"
-  parent: PartShadekin
+  id: LeftLegShadowkin
+  name: "left Shadowkin leg"
+  parent: PartShadowkin
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "l_leg"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "l_leg"
   - type: BodyPart
     partType: Leg
@@ -133,16 +133,16 @@
     baseSprintSpeed : 2.7
 
 - type: entity
-  id: RightLegShadekin
-  name: "right Shadekin leg"
-  parent: PartShadekin
+  id: RightLegShadowkin
+  name: "right Shadowkin leg"
+  parent: PartShadowkin
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "r_leg"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "r_leg"
   - type: BodyPart
     partType: Leg
@@ -152,32 +152,32 @@
     baseSprintSpeed : 2.7
 
 - type: entity
-  id: LeftFootShadekin
-  name: "left Shadekin foot"
-  parent: PartShadekin
+  id: LeftFootShadowkin
+  name: "left Shadowkin foot"
+  parent: PartShadowkin
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "l_foot"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "l_foot"
   - type: BodyPart
     partType: Foot
     symmetry: Left
 
 - type: entity
-  id: RightFootShadekin
-  name: "right Shadekin foot"
-  parent: PartShadekin
+  id: RightFootShadowkin
+  name: "right Shadowkin foot"
+  parent: PartShadowkin
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "r_foot"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadekin/shadekin.rsi
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadekin.rsi
     state: "r_foot"
   - type: BodyPart
     partType: Foot

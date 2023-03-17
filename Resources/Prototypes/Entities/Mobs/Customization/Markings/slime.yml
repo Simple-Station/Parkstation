@@ -6,7 +6,7 @@
     [
       Reptilian,
       SlimePerson,
-      Shadekin,
+      Shadowkin,
     ]
   sprites:
     - sprite: Mobs/Customization/slime_parts.rsi
@@ -20,7 +20,7 @@
     [
       Reptilian,
       SlimePerson,
-      Shadekin,
+      Shadowkin,
     ]
   sprites:
     - sprite: Mobs/Customization/slime_parts.rsi
@@ -34,7 +34,7 @@
     [
       Reptilian,
       SlimePerson,
-      Shadekin,
+      Shadowkin,
     ]
   sprites:
     - sprite: Mobs/Customization/slime_parts.rsi
@@ -48,7 +48,7 @@
     [
       Reptilian,
       SlimePerson,
-      Shadekin,
+      Shadowkin,
     ]
   sprites:
     - sprite: Mobs/Customization/slime_parts.rsi
@@ -62,7 +62,7 @@
     [
       Reptilian,
       SlimePerson,
-      Shadekin,
+      Shadowkin,
     ]
   sprites:
     - sprite: Mobs/Customization/slime_parts.rsi
@@ -76,7 +76,7 @@
     [
       Reptilian,
       SlimePerson,
-      Shadekin,
+      Shadowkin,
     ]
   sprites:
     - sprite: Mobs/Customization/slime_parts.rsi

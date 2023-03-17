@@ -1,14 +1,14 @@
 using Content.Shared.Interaction.Events;
-using Content.Shared.SimpleStation14.Species.Shadekin.Components;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Robust.Shared.Prototypes;
 using Content.Shared.Popups;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
+namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 {
-    public sealed class ShadekinDarken : EntitySystem
+    public sealed class ShadowkinDarken : EntitySystem
     {
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
@@ -22,28 +22,28 @@ namespace Content.Shared.SimpleStation14.Species.Shadekin.Systems
         {
             base.Initialize();
 
-            action = new InstantAction(_prototypeManager.Index<InstantActionPrototype>("ShadekinDarkSwap"));
+            action = new InstantAction(_prototypeManager.Index<InstantActionPrototype>("ShadowkinDarkSwap"));
 
-            SubscribeLocalEvent<ShadekinDarkSwapPowerComponent, ComponentStartup>(Startup);
-            SubscribeLocalEvent<ShadekinDarkSwapPowerComponent, ComponentShutdown>(Shutdown);
+            SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ComponentStartup>(Startup);
+            SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ComponentShutdown>(Shutdown);
 
-            SubscribeLocalEvent<ShadekinDarkSwappedComponent, InteractionAttemptEvent>(OnInteractionAttempt);
+            SubscribeLocalEvent<ShadowkinDarkSwappedComponent, InteractionAttemptEvent>(OnInteractionAttempt);
         }
 
-        private void Startup(EntityUid uid, ShadekinDarkSwapPowerComponent component, ComponentStartup args)
+        private void Startup(EntityUid uid, ShadowkinDarkSwapPowerComponent component, ComponentStartup args)
         {
             _actionsSystem.AddAction(uid, action, uid);
         }
 
-        private void Shutdown(EntityUid uid, ShadekinDarkSwapPowerComponent component, ComponentShutdown args)
+        private void Shutdown(EntityUid uid, ShadowkinDarkSwapPowerComponent component, ComponentShutdown args)
         {
             _actionsSystem.RemoveAction(uid, action);
         }
 
-        private void OnInteractionAttempt(EntityUid uid, ShadekinDarkSwappedComponent component, InteractionAttemptEvent args)
+        private void OnInteractionAttempt(EntityUid uid, ShadowkinDarkSwappedComponent component, InteractionAttemptEvent args)
         {
             if (args.Target != null && _entityManager.TryGetComponent<TransformComponent>(args.Target, out var __) &&
-                !_entityManager.TryGetComponent<ShadekinDarkSwappedComponent>(args.Target, out var _))
+                !_entityManager.TryGetComponent<ShadowkinDarkSwappedComponent>(args.Target, out var _))
             {
                 args.Cancel();
                 if (!_gameTiming.InPrediction)

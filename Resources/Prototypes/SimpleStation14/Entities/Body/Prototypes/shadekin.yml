@@ -1,17 +1,17 @@
 - type: body
-  id: Shadekin
-  name: "Shadekin"
+  id: Shadowkin
+  name: "Shadowkin"
   root: torso
   slots:
     head:
-      part: HeadShadekin
+      part: HeadShadowkin
       connections:
       - torso
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
     torso:
-      part: TorsoShadekin
+      part: TorsoShadowkin
       connections:
       - left arm
       - right arm
@@ -24,26 +24,26 @@
         liver:  OrganHumanLiver
         kidneys: OrganHumanKidneys
     right arm:
-      part: RightArmShadekin
+      part: RightArmShadowkin
       connections:
       - right hand
     left arm:
-      part: LeftArmShadekin
+      part: LeftArmShadowkin
       connections:
       - left hand
     right hand:
-      part: RightHandShadekin
+      part: RightHandShadowkin
     left hand:
-      part: LeftHandShadekin
+      part: LeftHandShadowkin
     right leg:
-      part: RightLegShadekin
+      part: RightLegShadowkin
       connections:
       - right foot
     left leg:
-      part: LeftLegShadekin
+      part: LeftLegShadowkin
       connections:
       - left foot
     right foot:
-      part: RightFootShadekin
+      part: RightFootShadowkin
     left foot:
-      part: LeftFootShadekin
+      part: LeftFootShadowkin
