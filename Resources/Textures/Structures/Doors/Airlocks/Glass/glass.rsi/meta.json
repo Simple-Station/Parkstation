@@ -253,9 +253,6 @@
     },
     {
       "name": "emergency_open_unlit"
-    },
-    {
-      "name": "panel_closed"
     }
   ]
 }
