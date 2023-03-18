@@ -59,8 +59,8 @@ namespace Content.Server.SimpleStation14.Chat
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Empathy chat from {ToPrettyString(source):Player}: {message}");
 
             _chatSystem.TrySendInGameICMessage(source, localMessage, InGameICChatType.Speak, hideChat);
-            _chatManager.ChatMessageToMany(ChatChannel.Empathy, message, messageWrap, source, hideChat, true, clients.ToList(), Color.MediumPurple);
-            _chatManager.ChatMessageToMany(ChatChannel.Empathy, message, adminMessageWrap, source, hideChat, true, admins, Color.MediumPurple);
+            _chatManager.ChatMessageToMany(ChatChannel.Empathy, message, messageWrap, source, hideChat, true, clients.ToList(), Color.PaleVioletRed);
+            _chatManager.ChatMessageToMany(ChatChannel.Empathy, message, adminMessageWrap, source, hideChat, true, admins, Color.PaleVioletRed);
         }
     }
 }
