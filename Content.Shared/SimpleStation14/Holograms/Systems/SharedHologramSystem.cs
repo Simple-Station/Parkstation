@@ -158,18 +158,20 @@ public enum HoloType
     Lightbee
 }
 
-public struct HoloData
-{
-    public HoloType Type { get; set; }
-    public bool IsHardlight { get; set; }
+// public struct HoloData
+// {
+//     [DataField("type")]
+//     public HoloType Type { get; set; }
 
-    public HoloData(HoloType type, bool isHardlight = false)
-    {
-        Type = type;
-        IsHardlight = isHardlight;
-    }
-}
+//     [DataField("isHardlight")]
+//     public bool IsHardlight { get; set; }
 
+//     public HoloData(HoloType type, bool isHardlight = false)
+//     {
+//         Type = type;
+//         IsHardlight = isHardlight;
+//     }
+// }
 
 
 // [Serializable, NetSerializable]
