@@ -34,6 +34,8 @@ using Robust.Server.Player;
 using Robust.Shared.Player;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects.Components.Localization;
+using Content.Shared.Movement.Systems;
+using System.Threading.Tasks;
 
 namespace Content.Server.SimpleStation14.Hologram;
 
@@ -56,6 +58,7 @@ public class HologramServerSystem : EntitySystem
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedMoverController _mover = default!;
 
     private const string DiskSlot = "holo_disk";
     public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
@@ -249,6 +252,8 @@ public class HologramServerSystem : EntitySystem
         var mob = Spawn(toSpawn, Transform(holoServer.Owner).MapPosition);
         _entityManager.GetComponent<TransformComponent>(mob).AttachToGridOrMap();
 
+        ResetCamera(mob);
+
         _humanoidSystem.LoadProfile(mob, pref);
 
         MetaData(mob).EntityName = name;
@@ -276,6 +281,13 @@ public class HologramServerSystem : EntitySystem
         _tag.AddTag(mob, "DoorBumpOpener");
 
         return mob;
+    }
+
+    private async void ResetCamera(EntityUid mob)
+    {
+        await Task.Delay(500);
+
+        _mover.ResetCamera(mob);
     }
 
 

@@ -156,9 +156,8 @@
   id: MobHologramProjected
   components:
   - type: Hologram
-    # holoData:
-    #   Type: HoloType.Projected
-    #   IsHardLight: false
+    holoType: HoloType.Projected
+    isHardLight: false
   - type: Stealth
     lastVisibility: 0.80
   - type: InteractionPopup
@@ -186,6 +185,19 @@
     # holoData: !HoloData
     #   Type: Lightbee
     #   IsHardLight: false
+  - type: Fixtures
+    fixtures:
+      - shape:
+          !type:PhysShapeCircle
+          radius: 0.05
+        density: 25
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: FlimsyMetallic
   - type: Stealth
     lastVisibility: 0.85
   - type: InteractionPopup
@@ -214,14 +226,25 @@
     # holoData:
     #   Type: HoloType.Lightbee
     #   IsHardLight: true
+  - type: Fixtures
+    fixtures:
+      - shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 25
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hardlight
   - type: DamageOnHighSpeedImpact
     damage:
       types:
-        Blunt: 5
+        Blunt: 6 # To get past the 5 damage threshold
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
-  - type: Damageable
-    damageContainer: Inorganic
   - type: Pullable
   - type: Puller
   - type: CombatMode
