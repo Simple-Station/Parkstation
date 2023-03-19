@@ -16,9 +16,9 @@
   youngAge: 20
   oldAge: 250
   sexes:
-  - Male
-  - Female
-  - Unsexed
+    - Male
+    - Female
+    - Unsexed
 
 - type: speciesBaseSprites
   id: MobShadowkinSprites
@@ -46,11 +46,11 @@
     Tail:
       points: 1
       required: true
-      defaultMarkings: [ TailShadowkin ]
+      defaultMarkings: [TailShadowkin]
     HeadTop:
       points: 1
       required: true
-      defaultMarkings: [ EarsShadowkin ]
+      defaultMarkings: [EarsShadowkin]
     Head:
       # points: 2
       points: 0

@@ -53,7 +53,22 @@
       - shader: StencilMask
         map: ["enum.HumanoidVisualLayers.StencilMask"]
         sprite: Mobs/Customization/masking_helpers.rsi
+        state: full
+        visible: false
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.MaleStencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: male_full
+        visible: false
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.FemaleStencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
         state: female_full
+        visible: false
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.UnisexStencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
         visible: false
       - map: ["enum.HumanoidVisualLayers.LFoot"]
         color: "#e8b59b"
@@ -180,7 +195,22 @@
       - shader: StencilMask
         map: ["enum.HumanoidVisualLayers.StencilMask"]
         sprite: Mobs/Customization/masking_helpers.rsi
+        state: full
+        visible: false
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.MaleStencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: male_full
+        visible: false
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.FemaleStencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
         state: female_full
+        visible: false
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.UnisexStencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
         visible: false
       - map: ["jumpsuit"]
         shader: StencilDraw

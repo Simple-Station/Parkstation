@@ -1,7 +1,7 @@
 - type: species
   id: Arachne
   name: species-name-arachne
-  roundStart: false
+  roundStart: true
   prototype: MobArachne
   sprites: MobArachneSprites
   markingLimits: MobArachneMarkingLimits

@@ -40,10 +40,25 @@
       sprite: Mobs/Species/Human/parts.rsi
       state: l_leg
     - shader: StencilMask
-      map: [ "enum.HumanoidVisualLayers.StencilMask" ]
+      map: ["enum.HumanoidVisualLayers.StencilMask"]
+      sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
+      state: full
+      visible: false
+    - shader: StencilMask
+      map: ["enum.HumanoidVisualLayers.MaleStencilMask"]
+      sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
+      state: male_full
+      visible: false
+    - shader: StencilMask
+      map: ["enum.HumanoidVisualLayers.FemaleStencilMask"]
       sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
       state: female_full
-      visible: true
+      visible: false
+    - shader: StencilMask
+      map: ["enum.HumanoidVisualLayers.UnisexStencilMask"]
+      sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
+      state: unisex_full
+      visible: false
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
       color: "#e8b59b"
@@ -197,10 +212,25 @@
       sprite: Mobs/Species/Human/parts.rsi
       state: l_leg
     - shader: StencilMask
-      map: [ "enum.HumanoidVisualLayers.StencilMask" ]
+      map: ["enum.HumanoidVisualLayers.StencilMask"]
+      sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
+      state: full
+      visible: false
+    - shader: StencilMask
+      map: ["enum.HumanoidVisualLayers.MaleStencilMask"]
+      sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
+      state: male_full
+      visible: false
+    - shader: StencilMask
+      map: ["enum.HumanoidVisualLayers.FemaleStencilMask"]
       sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
       state: female_full
-      visible: true
+      visible: false
+    - shader: StencilMask
+      map: ["enum.HumanoidVisualLayers.UnisexStencilMask"]
+      sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
+      state: unisex_full
+      visible: false
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
       color: "#e8b59b"
