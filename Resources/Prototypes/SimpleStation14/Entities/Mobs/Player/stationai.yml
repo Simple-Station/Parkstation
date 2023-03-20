@@ -221,7 +221,7 @@
     - type: AIEye
     # Only ghosts can see the eye
     - type: Visibility
-      layer: 2
+      layer: 4
     - type: Input
       context: "human"
     - type: MobMover

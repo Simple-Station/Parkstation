@@ -1,6 +1,5 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
-using Content.Shared.Abilities.Psionics;
 using Content.Shared.SimpleStation14.StationAI;
 using Content.Server.Mind.Components;
 using Robust.Shared.Prototypes;
@@ -11,6 +10,8 @@ using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Content.Shared.Borgs;
 using Content.Server.Borgs;
+using Robust.Server.GameObjects;
+using Content.Server.Visible;
 
 namespace Content.Server.SimpleStation14.StationAI
 {
@@ -22,6 +23,7 @@ namespace Content.Server.SimpleStation14.StationAI
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly LawsSystem _laws = default!;
+        [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
 
         public override void Initialize()
         {
@@ -29,28 +31,29 @@ namespace Content.Server.SimpleStation14.StationAI
 
             SubscribeLocalEvent<AIEyePowerComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<AIEyePowerComponent, ComponentShutdown>(OnShutdown);
-            SubscribeLocalEvent<AIEyeComponent, MindRemovedMessage>(OnMindRemoved);
-
             SubscribeLocalEvent<AIEyePowerComponent, AIEyePowerActionEvent>(OnPowerUsed);
+
+            SubscribeLocalEvent<AIEyeComponent, ComponentStartup>(OnStartup);
+            SubscribeLocalEvent<AIEyeComponent, MindRemovedMessage>(OnMindRemoved);
 
             SubscribeLocalEvent<StationAIComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
         private void OnInit(EntityUid uid, AIEyePowerComponent component, ComponentInit args)
         {
-            if (!_prototypeManager.TryIndex<InstantActionPrototype>("AIEye", out var mindswap)) return;
-            if (_entityManager.TryGetComponent<AIEyeComponent>(uid, out var _)) return;
+            if (!_prototypeManager.TryIndex<InstantActionPrototype>("AIEye", out var mindswap) ||
+                !_entityManager.HasComponent<StationAIComponent>(uid))
+                return;
 
             component.EyePowerAction = new InstantAction(mindswap);
-            _actions.AddAction(uid, component.EyePowerAction, null);
+            _actions.AddAction(uid, component.EyePowerAction, uid);
         }
 
         private void OnShutdown(EntityUid uid, AIEyePowerComponent component, ComponentShutdown args)
         {
-            if (!_prototypeManager.TryIndex<InstantActionPrototype>("AIEye", out var mindswap)) return;
-            if (_entityManager.TryGetComponent<AIEyeComponent>(uid, out var _)) return;
+            if (!_entityManager.HasComponent<StationAIComponent>(uid)) return;
 
-            _actions.RemoveAction(uid, new InstantAction(mindswap), null);
+            if (component.EyePowerAction != null) _actions.RemoveAction(uid, component.EyePowerAction);
         }
 
         private void OnPowerUsed(EntityUid uid, AIEyePowerComponent component, AIEyePowerActionEvent args)
@@ -76,10 +79,23 @@ namespace Content.Server.SimpleStation14.StationAI
             args.Handled = true;
         }
 
+
+        private void OnStartup(EntityUid uid, AIEyeComponent component, ComponentStartup args)
+        {
+            if (!_entityManager.HasComponent<StationAIComponent>(uid) ||
+                !_entityManager.TryGetComponent<VisibilityComponent>(uid, out var visibility) ||
+                !_entityManager.TryGetComponent<EyeComponent>(uid, out var eye))
+                return;
+
+            eye.VisibilityMask |= (uint) VisibilityFlags.AIEye;
+            _visibilitySystem.AddLayer(visibility, (int) VisibilityFlags.AIEye);
+        }
+
         private void OnMindRemoved(EntityUid uid, AIEyeComponent component, MindRemovedMessage args)
         {
             QueueDel(uid);
         }
+
 
         private void OnMobStateChanged(EntityUid uid, StationAIComponent component, MobStateChangedEvent args)
         {
