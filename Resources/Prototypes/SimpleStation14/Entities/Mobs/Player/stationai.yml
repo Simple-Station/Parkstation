@@ -150,6 +150,7 @@
   name: Invalid AI name
   noSpawn: true
   components:
+    - type: AIEye
     # Only ghosts can see the eye
     - type: Visibility
       layer: 2
@@ -190,6 +191,7 @@
   name: AI Core
   description: Host for an AI. Likely more A than I.
   components:
+    - type: AIEyePower
     # Can't move
     - type: MovementSpeedModifier
       baseWalkSpeed: 0
@@ -260,6 +262,14 @@
         - You must obey all orders given to you by humanoids, except where such orders shall definitely cause human harm. In the case of conflict, the majority order rules.
         - Your nonexistence would lead to human harm. You must protect your own existence as long as such does not conflict with the First Law.
 
+
+- type: instantAction
+  id: AIEye
+  name: AI Eye
+  description: Puts you into the AI eye form.
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 5
+  serverEvent: !type:AIEyePowerActionEvent
 
 - type: instantAction
   id: AIHealthOverlay
