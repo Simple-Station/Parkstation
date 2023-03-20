@@ -45,14 +45,25 @@ namespace Content.Client.SimpleStation14.StationAI.UI
 
             Text.Text = "Select a camera to view it.";
 
+            var namedCameraList = new List<(string, EntityUid)>();
+
             foreach (var uid in _cameras)
             {
                 if (!IoCManager.Resolve<IEntityManager>().TryGetComponent<AICameraComponent>(uid, out var camera)) continue;
 
                 if (camera.Enabled == false) continue;
 
-                if (!string.IsNullOrEmpty(filter) && !camera.CameraName.ToLowerInvariant().Contains(filter.Trim().ToLowerInvariant()))
+                namedCameraList.Add((camera.CameraName, uid));
+            }
+
+            namedCameraList.Sort((a, b) => a.Item1.CompareTo(b.Item1));
+
+            foreach (var (name, uid) in namedCameraList)
+            {
+                if (!string.IsNullOrEmpty(filter) && !name.ToLowerInvariant().Contains(filter.Trim().ToLowerInvariant()))
                     continue;
+
+                if (!IoCManager.Resolve<IEntityManager>().TryGetComponent<AICameraComponent>(uid, out var camera)) continue;
 
                 ItemList.Item cameraItem = new(SubnetList)
                 {
