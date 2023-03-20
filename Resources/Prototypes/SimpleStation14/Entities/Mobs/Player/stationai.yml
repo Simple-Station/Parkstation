@@ -165,7 +165,6 @@
     - type: Physics
       bodyType: KinematicController
       fixedRotation: true
-      status: OnGround
     - type: Fixtures
       fixtures:
         - shape: !type:PhysShapeCircle
@@ -173,7 +172,7 @@
           density: 1000
           mask:
             - GhostImpassable
-          layers:
+          layer:
             - GhostImpassable
     - type: Sprite
       drawdepth: Mobs
