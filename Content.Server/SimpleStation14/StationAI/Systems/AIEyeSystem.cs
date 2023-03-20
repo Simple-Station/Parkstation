@@ -9,6 +9,8 @@ using Content.Shared.Mobs.Systems;
 using Content.Server.Abilities.Psionics;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using Content.Shared.Borgs;
+using Content.Server.Borgs;
 
 namespace Content.Server.SimpleStation14.StationAI
 {
@@ -19,6 +21,7 @@ namespace Content.Server.SimpleStation14.StationAI
         [Dependency] private readonly MindSwapPowerSystem _mindSwap = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
+        [Dependency] private readonly LawsSystem _laws = default!;
 
         public override void Initialize()
         {
@@ -40,9 +43,6 @@ namespace Content.Server.SimpleStation14.StationAI
 
             component.EyePowerAction = new InstantAction(mindswap);
             _actions.AddAction(uid, component.EyePowerAction, null);
-
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.EyePowerAction;
         }
 
         private void OnShutdown(EntityUid uid, AIEyePowerComponent component, ComponentShutdown args)
@@ -57,15 +57,21 @@ namespace Content.Server.SimpleStation14.StationAI
         {
             var ai = _entityManager.EnsureComponent<StationAIComponent>(uid);
 
+            // Mindswap
             var projection = Spawn(component.Prototype, Transform(uid).Coordinates);
             ai.ActiveEye = projection;
             var core = _entityManager.GetComponent<MetaDataComponent>(uid);
 
+            Transform(projection).AttachToGridOrMap();
+            _mindSwap.Swap(uid, projection);
+
+            // Consistent name
             if (core.EntityName != "") _entityManager.GetComponent<MetaDataComponent>(projection).EntityName = core.EntityName;
             else _entityManager.GetComponent<MetaDataComponent>(projection).EntityName = "Invalid AI";
 
-            Transform(projection).AttachToGridOrMap();
-            _mindSwap.Swap(uid, projection);
+            // Consistent laws
+            var laws = _entityManager.GetComponent<LawsComponent>(uid);
+            foreach (var law in laws.Laws) _laws.AddLaw(projection, law);
 
             args.Handled = true;
         }
