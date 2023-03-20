@@ -7,5 +7,8 @@ namespace Content.Server.Borgs
 
         [DataField("afterInteract")]
         public bool AfterInteract = true;
+
+        [DataField("startingPriority")]
+        public int? StartingPriority = null;
     }
 }

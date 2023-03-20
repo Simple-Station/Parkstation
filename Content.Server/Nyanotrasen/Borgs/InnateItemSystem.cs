@@ -24,33 +24,32 @@ namespace Content.Server.Borgs
         private void OnMindAdded(EntityUid uid, InnateItemComponent component, MindAddedMessage args)
         {
             if (!component.AlreadyInitialized)
-                RefreshItems(uid, component.AfterInteract);
+                RefreshItems(uid, component);
 
             component.AlreadyInitialized = true;
         }
 
-        private void RefreshItems(EntityUid uid, bool AfterInteract)
+        private void RefreshItems(EntityUid uid, InnateItemComponent component)
         {
             if (!TryComp<ItemSlotsComponent>(uid, out var slotsComp))
                 return;
 
+            int priority = component.StartingPriority ?? 0;
             foreach (var slot in slotsComp.Slots.Values)
             {
-                Logger.Error(slot.ContainerSlot?.ContainedEntity.ToString() ?? "null");
-
                 if (slot.ContainerSlot?.ContainedEntity is not { Valid: true } sourceItem)
                     continue;
                 if (_tagSystem.HasTag(sourceItem, "NoAction"))
                     continue;
 
-                if (AfterInteract) _actionsSystem.AddAction(uid, CreateAfterInteractAction(sourceItem), uid);
-                else _actionsSystem.AddAction(uid, CreateBeforeInteractAction(sourceItem), uid);
+                if (component.AfterInteract) _actionsSystem.AddAction(uid, CreateAfterInteractAction(sourceItem, priority), uid);
+                else _actionsSystem.AddAction(uid, CreateBeforeInteractAction(sourceItem, priority), uid);
 
-                Logger.Error("Added action for " + sourceItem.ToString() + " to " + uid.ToString() + ".");
+                priority--;
             }
         }
 
-        private EntityTargetAction CreateAfterInteractAction(EntityUid uid)
+        private EntityTargetAction CreateAfterInteractAction(EntityUid uid, int priority)
         {
             EntityTargetAction action = new()
             {
@@ -58,12 +57,13 @@ namespace Content.Server.Borgs
                 Description = MetaData(uid).EntityDescription,
                 EntityIcon = uid,
                 Event = new InnateAfterInteractActionEvent(uid),
+                Priority = priority,
             };
 
             return action;
         }
 
-        private EntityTargetAction CreateBeforeInteractAction(EntityUid uid)
+        private EntityTargetAction CreateBeforeInteractAction(EntityUid uid, int priority)
         {
             EntityTargetAction action = new()
             {
@@ -71,6 +71,7 @@ namespace Content.Server.Borgs
                 Description = MetaData(uid).EntityDescription,
                 EntityIcon = uid,
                 Event = new InnateBeforeInteractActionEvent(uid),
+                Priority = priority,
                 CheckCanAccess = false,
                 Range = 25f,
             };

@@ -9,22 +9,6 @@
       - hand 2
     hand 2:
       part: RightArmBorg
-      # connections:
-      # - hand 3
-    # hand 3:
-    #   part: LeftArmBorg
-    #   connections:
-    #   - hand 4
-    # hand 4:
-    #   part: LeftArmBorg
-    #   connections:
-    #   - hand 5
-    # hand 5:
-    #   part: RightArmBorg
-    #   connections:
-    #   - hand 6
-    # hand 6:
-    #   part: RightArmBorg
 
 - type: entity
   abstract: true
@@ -81,6 +65,7 @@
     # Innate door remotes (bolting, emergency access, etc)
     - type: InnateItem
       afterInteract: false
+      startingPriority: 25
     - type: ItemSlots
       slots:
         opencloseremote:
