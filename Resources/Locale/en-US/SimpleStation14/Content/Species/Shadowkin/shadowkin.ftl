@@ -1,5 +1,3 @@
-species-name-shadowkin = Shadowkin
-
 shadowkin-power-examined-other = {CAPITALIZE(SUBJECT($target))} seems to be {$powerType}.
 shadowkin-power-examined-self = You have {$power}/{$powerMax} energy, you are {$powerType}.
 

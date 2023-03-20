@@ -1,21 +1,10 @@
-# alert_procedure.yml
-guide-entry-alertprocedure = Alert Procedure
-guide-entry-commonalerts = Common Alerts
-guide-entry-specificalerts = Specific Alerts
-guide-entry-centcommalerts = Central Command Alerts
-
-# server.yml
-# guide-entry-server = Server Information
-guide-entry-standardoperatingprocedure = Standard Operating Procedure
-guide-entry-gettingstarted = Getting Started
-guide-entry-serverdifferences = Server Differences
-guide-entry-inworldinfo = In World Information
-
-# species.yml
+# species_categories.yml
 guide-entry-species = Species
 guide-entry-wizden-species = Wizard Den Species
 guide-entry-nyano-species = Nyanotrasen Species
 guide-entry-simplestation-species = ParkStation Species
+
+# species_specific.yml
 # wizden-species
 guide-entry-diona = Diona
 guide-entry-dwarf = Dwarf
