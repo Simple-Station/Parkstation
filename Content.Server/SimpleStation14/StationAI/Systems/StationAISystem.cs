@@ -1,5 +1,4 @@
 using Content.Shared.Actions;
-using Content.Shared.EntityHealthBar;
 using Content.Shared.Actions.ActionTypes;
 using Robust.Shared.Prototypes;
 using Content.Shared.SimpleStation14.StationAI.Events;

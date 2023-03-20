@@ -1,12 +1,13 @@
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.SimpleStation14.StationAI
 {
-    [RegisterComponent]
+    [RegisterComponent, NetworkedComponent]
     public sealed class AICameraComponent : Component
     {
         [DataField("enabled"), ViewVariables(VVAccess.ReadWrite)]
-        public bool Enabled = true;
+        public bool Enabled = false;
 
         [DataField("cameraName"), ViewVariables(VVAccess.ReadWrite)]
         public string CameraName = "Error";

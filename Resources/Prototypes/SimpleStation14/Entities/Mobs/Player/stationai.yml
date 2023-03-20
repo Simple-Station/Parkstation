@@ -190,7 +190,6 @@
   name: AI Core
   description: Host for an AI. Likely more A than I.
   components:
-    - type: AITelegnosisPower
     # Can't move
     - type: MovementSpeedModifier
       baseWalkSpeed: 0
