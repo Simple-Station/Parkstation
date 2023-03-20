@@ -35,6 +35,19 @@ namespace Content.Shared.SimpleStation14.StationAI.Events
     }
 
     [Serializable, NetSerializable]
+    public sealed class AICameraWarpMessage : BoundUserInterfaceMessage
+    {
+        public EntityUid Owner;
+        public EntityUid Camera;
+
+        public AICameraWarpMessage(EntityUid owner, EntityUid camera)
+        {
+            Owner = owner;
+            Camera = camera;
+        }
+    }
+
+    [Serializable, NetSerializable]
     public sealed class AIBoundUserInterfaceState : BoundUserInterfaceState
     {
         public List<EntityUid> Cameras = new List<EntityUid>();

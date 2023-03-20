@@ -9,30 +9,28 @@ namespace Content.Client.SimpleStation14.StationAI.UI
     [GenerateTypedNameReferences]
     public sealed partial class AICameraList : FancyWindow
     {
-        private AICameraComponent? _selectedCamera;
         private List<EntityUid> _cameras = new();
         public event Action? TryUpdateCameraList;
+        public event Action<EntityUid>? WarpToCamera;
 
         public AICameraList()
         {
             RobustXamlLoader.Load(this);
 
-            SubnetList.OnItemSelected += ItemSelected;
-            SubnetList.OnItemDeselected += ItemDeselected;
+            SubnetList.OnItemSelected += (args) => ItemSelected(args);
             SearchBar.OnTextChanged += (_) => FillCameraList(SearchBar.Text);
-            Refresh.OnPressed += (_) => TryUpdateCameraList?.Invoke();
+            Refresh.OnPressed += (_) => UpdateCameraList();
         }
 
-        private void ItemSelected(ItemList.ItemListSelectedEventArgs obj)
+        public void ItemSelected(ItemList.ItemListSelectedEventArgs obj)
         {
-            _selectedCamera = (AICameraComponent) obj.ItemList[obj.ItemIndex].Metadata!;
-            FillCameraList();
-        }
+            var meta = obj.ItemList[obj.ItemIndex].Metadata;
+            if (meta == null ||
+                meta is not AICameraComponent camera ||
+                camera.Enabled == false)
+                return;
 
-        private void ItemDeselected(ItemList.ItemListDeselectedEventArgs obj)
-        {
-            _selectedCamera = null;
-            FillCameraList();
+            WarpToCamera?.Invoke(camera.Owner);
         }
 
         public void FillCameraList(string? filter = null)
