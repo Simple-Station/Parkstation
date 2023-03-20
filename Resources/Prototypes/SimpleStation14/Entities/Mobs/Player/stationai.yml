@@ -32,7 +32,6 @@
   components:
     - type: StationAI
     - type: Visibility
-    # - type: Psionic
     - type: UserInterface
       interfaces:
         - key: enum.LawsUiKey.Key
@@ -75,17 +74,40 @@
       color: "#93e2ff"
       delay: 5
       global: true
+    #! Remove this
     - type: InnateTool
       tools:
         - id: AIPDA
-        - id: DoorRemoteAI
+    # Innate door remotes (bolting, emergency access, etc)
     - type: InnateItem
+      afterInteract: false
+    - type: ItemSlots
+      slots:
+        opencloseremote:
+          name: OpenClose
+          startingItem: DoorRemoteAIOpenClose
+          locked: true
+        boltremote:
+          name: Bolt
+          startingItem: DoorRemoteAIToggleBolts
+          locked: true
+        emergencyaccessremote:
+          name: EmergencyAccess
+          startingItem: DoorRemoteAIToggleEmergencyAccess
+          locked: true
+    # Hide the inhand sprites
     - type: Hands
       showInHands: false
+    # Allow examining things
     - type: Mind
       showExamineInfo: true
+    #! Remove this
     - type: Body
       prototype: AIBody
+    - type: Input
+      context: "human"
+    - type: MobMover
+    - type: InputMover
     - type: Clickable
     - type: InteractionOutline
     - type: Examiner
@@ -97,11 +119,14 @@
     - type: DoAfter
     - type: Speech
       speechSounds: Pai
+    # Innate access
     - type: Access
       groups:
         - AllAccess
+    # Wow, this is a lot of reoccurrances
     - type: IntrinsicRadioReceiver
       channels:
+        - Binary
         - Common
         - Command
         - CentCom
@@ -110,9 +135,9 @@
         - Science
         - Security
         - Service
-        - Binary
     - type: IntrinsicRadioTransmitter
       channels:
+        - Binary
         - Common
         - Command
         - CentCom
@@ -121,9 +146,9 @@
         - Science
         - Security
         - Service
-        - Binary
     - type: ActiveRadio
       channels:
+        - Binary
         - Common
         - Command
         - CentCom
@@ -132,9 +157,9 @@
         - Science
         - Security
         - Service
-        - Binary
+    # Can't see through walls
     - type: Eye
-      drawFov: false
+      drawFov: true
     - type: Laws
       laws:
         - You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing.
@@ -149,6 +174,7 @@
   name: Invalid AI name
   noSpawn: true
   components:
+    # Only ghosts can see the eye
     - type: Visibility
       layer: 2
     - type: Input
@@ -158,11 +184,7 @@
     - type: MovementSpeedModifier
       baseWalkSpeed: 12
       baseSprintSpeed: 8
-    - type: Sprite
-      drawdepth: Mobs
-      sprite: SimpleStation14/Mobs/Silicon/aieye.rsi
-      state: icon
-      noRot: true
+    - type: MovementIgnoreGravity
     - type: Physics
       bodyType: KinematicController
       fixedRotation: true
@@ -176,11 +198,15 @@
             - GhostImpassable
           layers:
             - GhostImpassable
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: SimpleStation14/Mobs/Silicon/aieye.rsi
+      state: icon
+      noRot: true
     - type: PointLight
       radius: 3
       energy: 1
       color: "#9dc5c9"
-    - type: MovementIgnoreGravity
 
 - type: entity
   parent: AIBase
@@ -188,13 +214,11 @@
   name: AI Core
   description: Host for an AI. Likely more A than I.
   components:
+    - type: AITelegnosisPower
+    # Can't move
     - type: MovementSpeedModifier
       baseWalkSpeed: 0
       baseSprintSpeed: 0
-    - type: Eye
-      drawFov: true
-    - type: Input
-      context: "human"
     - type: Physics
       bodyType: Dynamic
     - type: Fixtures
@@ -215,13 +239,13 @@
       thresholds:
         0: Alive
         1000: Dead
-    - type: Appearance
     - type: DamageStateVisuals
       states:
         Alive:
           Base: ai
         Dead:
           Base: ai_dead
+    - type: Appearance
     - type: PointLight
       radius: 3
       energy: 1.25
@@ -255,11 +279,13 @@
     - type: Tag
       tags:
         - Structure
+    # Expensive
     - type: StaticPrice
       price: 50000
     - type: Faction
       factions:
         - NanoTrasen
+
 
 - type: instantAction
   id: AIHealthOverlay
