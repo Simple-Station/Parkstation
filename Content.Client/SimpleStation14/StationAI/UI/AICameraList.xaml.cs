@@ -39,11 +39,11 @@ namespace Content.Client.SimpleStation14.StationAI.UI
 
             if (_cameras.Count == 0)
             {
-                Text.Text = "No cameras found.";
+                Text.Text = Loc.GetString("ai-warp-menu-no-cameras");
                 return;
             }
 
-            Text.Text = "Select a camera to view it.";
+            Text.Text = Loc.GetString("ai-warp-menu-select-camera");
 
             var namedCameraList = new List<(string, EntityUid)>();
 
