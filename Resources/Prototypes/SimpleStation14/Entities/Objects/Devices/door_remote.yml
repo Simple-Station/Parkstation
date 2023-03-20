@@ -5,18 +5,18 @@
   id: DoorRemoteAIBase
   name: ai door remote
   components:
-  - type: Sprite
-    layers:
-    - state: door_remotebase
-    - state: door_remotelightscolour
-      color: "#e6e600"
-    - state: door_remotescreencolour
-      color: "#9f9f00"
-  - type: Access
-    groups:
-    - AllAccess
-  - type: DoorRemote
-    defaultMode: enum.OperatingMode.OpenClose
+    - type: Sprite
+      layers:
+        - state: door_remotebase
+        - state: door_remotelightscolour
+          color: "#e6e600"
+        - state: door_remotescreencolour
+          color: "#9f9f00"
+    - type: Access
+      groups:
+        - AllAccess
+    - type: DoorRemote
+      defaultMode: enum.OperatingMode.OpenClose
 
 # Innate items, not meant to be spawned as there isn't any functional difference between them and the parent
 - type: entity
@@ -26,8 +26,15 @@
   description: Opens or closes a door.
   noSpawn: true
   components:
-  - type: DoorRemote
-    defaultMode: enum.OperatingMode.OpenClose
+  - type: Sprite
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#00FF5F"
+    - state: door_remotescreencolour
+      color: "#00FF00"
+    - type: DoorRemote
+      defaultMode: enum.OperatingMode.OpenClose
 
 - type: entity
   parent: DoorRemoteAIBase
@@ -36,8 +43,15 @@
   description: Bolts a door.
   noSpawn: true
   components:
-  - type: DoorRemote
-    defaultMode: enum.OperatingMode.ToggleBolts
+    - type: Sprite
+      layers:
+      - state: door_remotebase
+      - state: door_remotelightscolour
+        color: "#FF5F00"
+      - state: door_remotescreencolour
+        color: "#FF0000"
+    - type: DoorRemote
+      defaultMode: enum.OperatingMode.ToggleBolts
 
 - type: entity
   parent: DoorRemoteAIBase
@@ -46,7 +60,13 @@
   description: Toggles emergency access on a door.
   noSpawn: true
   components:
-  - type: DoorRemote
-    defaultMode: enum.OperatingMode.ToggleEmergencyAccess
-
+    - type: Sprite
+      layers:
+      - state: door_remotebase
+      - state: door_remotelightscolour
+        color: "#FF5F00"
+      - state: door_remotescreencolour
+        color: "#FFFF00"
+    - type: DoorRemote
+      defaultMode: enum.OperatingMode.ToggleEmergencyAccess
 # Random separator
