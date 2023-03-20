@@ -1,5 +1,5 @@
 - type: body
-  id: AI
+  id: AIBody
   name: "routerai" # :)
   root: hand 1
   slots:
@@ -28,7 +28,7 @@
 
 - type: entity
   abstract: true
-  id: AIbase
+  id: AIBase
   components:
     - type: StationAI
     - type: Visibility
@@ -85,7 +85,7 @@
     - type: Mind
       showExamineInfo: true
     - type: Body
-      prototype: AI
+      prototype: AIBody
     - type: Clickable
     - type: InteractionOutline
     - type: Examiner
@@ -145,7 +145,7 @@
 
 - type: entity
   id: AIeye
-  parent: AIbase
+  parent: AIBase
   name: Invalid AI name
   noSpawn: true
   components:
@@ -183,9 +183,9 @@
     - type: MovementIgnoreGravity
 
 - type: entity
-  parent: AIbase
-  id: AI
-  name: AI
+  parent: AIBase
+  id: AICore
+  name: AI Core
   description: Host for an AI. Likely more A than I.
   components:
     - type: MovementSpeedModifier
