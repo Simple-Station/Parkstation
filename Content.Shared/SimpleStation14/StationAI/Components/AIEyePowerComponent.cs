@@ -6,7 +6,7 @@ namespace Content.Shared.SimpleStation14.StationAI
     public sealed class AIEyePowerComponent : Component
     {
         [DataField("prototype")]
-        public string Prototype = "AIeye";
+        public string Prototype = "AIEye";
 
         public InstantAction? EyePowerAction = null;
     }
