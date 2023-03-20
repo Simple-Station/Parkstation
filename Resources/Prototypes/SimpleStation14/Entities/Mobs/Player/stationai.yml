@@ -39,10 +39,10 @@
           toggleAction:
             name: action-name-show-communications-console
             description: action-description-show-communications-console
-            icon: Structures/Machines/parts.rsi/box_0.png
-            iconOn: Structures/Machines/parts.rsi/box_2.png
+            icon: SimpleStation14/Mobs/Silicon/ai.rsi/icon-comms.png
+            iconOn: SimpleStation14/Mobs/Silicon/ai.rsi/icon-comms.png
             keywords: ["AI", "console", "interface"]
-            priority: -10
+            priority: -2
             event: !type:ToggleIntrinsicUIEvent
     - type: CommunicationsConsole
       title: Station AI
@@ -182,7 +182,7 @@
       noRot: true
       layers:
         - map: ["enum.DamageStateVisualLayers.Base"]
-          sprite: SimpleStation14/Mobs/Silicon/aieye.rsi
+          sprite: SimpleStation14/Mobs/Silicon/ai.rsi
           state: ai
     - type: Damageable
       damageContainer: Inorganic
@@ -244,8 +244,8 @@
             - GhostImpassable
     - type: Sprite
       drawdepth: Mobs
-      sprite: SimpleStation14/Mobs/Silicon/aieye.rsi
-      state: icon
+      sprite: SimpleStation14/Mobs/Silicon/ai.rsi
+      state: aieye
       noRot: true
     - type: PointLight
       radius: 3
@@ -266,17 +266,17 @@
           toggleAction:
             name: action-name-show-communications-console
             description: action-description-show-communications-console
-            icon: Structures/Machines/parts.rsi/box_0.png
-            iconOn: Structures/Machines/parts.rsi/box_2.png
+            icon: SimpleStation14/Mobs/Silicon/ai.rsi/icon-comms.png
+            iconOn: SimpleStation14/Mobs/Silicon/ai.rsi/icon-comms.png
             keywords: ["AI", "console", "interface"]
-            priority: -10
+            priority: -2
             event: !type:ToggleIntrinsicUIEvent
         - key: enum.AICameraListUiKey.Key
           toggleAction:
             name: name
             description: description
-            icon: Structures/Machines/parts.rsi/box_0.png
-            iconOn: Structures/Machines/parts.rsi/box_2.png
+            icon: SimpleStation14/Mobs/Silicon/ai.rsi/icon-camera.png
+            iconOn: SimpleStation14/Mobs/Silicon/ai.rsi/icon-camera.png
             keywords: ["AI", "console", "interface"]
             priority: -1
             event: !type:ToggleIntrinsicUIEvent
