@@ -4,11 +4,6 @@
   path: "/Textures/SimpleStation14/Shaders/color_tint.swsl"
 
 - type: shader
-  id: NightVision
-  kind: source
-  path: "/Textures/SimpleStation14/Shaders/nightvision.swsl"
-
-- type: shader
   id: Ethereal
   kind: source
   path: "/Textures/SimpleStation14/Shaders/ethereal.swsl"
