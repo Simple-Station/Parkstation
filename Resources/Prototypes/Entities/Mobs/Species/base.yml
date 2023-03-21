@@ -112,11 +112,6 @@
         # sprite refactor when
         state: l_leg
       - shader: StencilMask
-        map: ["enum.HumanoidVisualLayers.StencilMask"]
-        sprite: Mobs/Customization/masking_helpers.rsi
-        state: full
-        visible: false
-      - shader: StencilMask
         map: ["enum.HumanoidVisualLayers.MaleStencilMask"]
         sprite: Mobs/Customization/masking_helpers.rsi
         state: male_full
@@ -355,11 +350,6 @@
           # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
           # sprite refactor when
           state: l_leg
-        - shader: StencilMask
-          map: ["enum.HumanoidVisualLayers.StencilMask"]
-          sprite: Mobs/Customization/masking_helpers.rsi
-          state: full
-          visible: false
         - shader: StencilMask
           map: ["enum.HumanoidVisualLayers.MaleStencilMask"]
           sprite: Mobs/Customization/masking_helpers.rsi
