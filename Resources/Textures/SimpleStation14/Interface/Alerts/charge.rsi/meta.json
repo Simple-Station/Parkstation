@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "taken from tg station at commit https://github.com/tgstation/tgstation/commit/7e93c2d8ff8b80d0987daf0adfbcc825f7a46d38",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "charge5"
+        },
+        {
+            "name": "charge4"
+        },
+        {
+            "name": "charge3"
+        },
+        {
+            "name": "charge2"
+        },
+        {
+            "name": "charge1",
+            "delays": [
+                [ 0.4, 0.4 ]
+            ]
+        },
+        {
+            "name": "charge0",
+            "delays": [
+                [ 0.5, 0.5 ]
+            ]
+        }
+    ]
+}
