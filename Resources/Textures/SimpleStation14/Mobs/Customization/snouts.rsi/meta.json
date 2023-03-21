@@ -4,6 +4,8 @@
         "x": 32,
         "y": 32
     },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from S.P.L.U.R.T at commit https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/02617f9b08d7767e2feb137a8c96650342bd3c0a",
     "states": [
         {
             "name": "easterndnw_primary",
