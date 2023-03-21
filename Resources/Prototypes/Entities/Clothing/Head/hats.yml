@@ -446,19 +446,6 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatWizard
-  name: fake wizard hat
-  description: It has WIZZARD written across it in sequins. Comes with a cool beard.
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Hats/wizard_fake.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hats/wizard_fake.rsi
-  - type: DropOnSlip
-    chance: 20
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatWizardReal
   name: wizard hat
   description: Strange-looking blue hat-wear that most certainly belongs to a powerful magic user.
   components:
