@@ -302,8 +302,8 @@
   time: 30
   solids:
     FoodDough: 1
-    FoodCheeseSlice: 1
-    FoodTomato: 4
+    FoodMozzarella: 2
+    FoodTomato: 3
 
 - type: microwaveMealRecipe
   id: RecipeMushroomPizza
@@ -321,7 +321,7 @@
   time: 30
   solids:
     FoodDough: 1
-    FoodMeat: 3
+    FoodMeat: 2
     FoodCheeseSlice: 1
     FoodTomato: 1
 
@@ -818,20 +818,18 @@
   name: orange cake recipe
   result: FoodCakeOrange
   time: 5
-  reagents:
-    JuiceOrange: 30
   solids:
     FoodCakePlain: 1
+    FoodOrange: 3
 
 - type: microwaveMealRecipe
   id: RecipeLimeCake
   name: lime cake recipe
   result: FoodCakeLime
   time: 5
-  reagents:
-    JuiceLime: 30
   solids:
     FoodCakePlain: 1
+    FoodLime: 3
 
 - type: microwaveMealRecipe
   id: RecipeCheeseCake
@@ -1097,8 +1095,19 @@
     FoodBowlBig: 1
     FoodOnionRedSlice: 1
     FoodBreadPlainSlice: 1
-    FoodCheeseSlice: 1
+    FoodMozzarella: 1
     FoodCabbage: 1
+
+- type: microwaveMealRecipe
+  id: RecipeCitrusSalad
+  name: citrus salad recipe
+  result: FoodSaladCitrus
+  time: 5
+  solids:
+    FoodBowlBig: 1
+    FoodOrange: 1
+    FoodLemon: 1
+    FoodLime: 1
 
 - type: microwaveMealRecipe
   id: RecipeKimchiSalad

@@ -21,6 +21,7 @@
     containers:
       key_slots:
       - EncryptionKeyCargo
+      - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/cargo.rsi
   - type: Clothing
@@ -35,6 +36,7 @@
     containers:
       key_slots:
       - EncryptionKeyCentCom
+      - EncryptionKeyStationMaster
   - type: Sprite
     sprite: Clothing/Ears/Headsets/centcom.rsi
   - type: Clothing
@@ -48,7 +50,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyCommand
+      - EncryptionKeyStationMaster
   - type: Sprite
     sprite: Clothing/Ears/Headsets/command.rsi
   - type: Clothing
@@ -62,7 +64,9 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyCE
+      - EncryptionKeyEngineering
+      - EncryptionKeyCommand
+      - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/engineering.rsi
   - type: Clothing
@@ -76,7 +80,9 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyCMO
+      - EncryptionKeyMedical
+      - EncryptionKeyCommand
+      - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/medical.rsi
   - type: Clothing
@@ -90,7 +96,9 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyHOS
+      - EncryptionKeySecurity
+      - EncryptionKeyCommand
+      - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
@@ -104,7 +112,9 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyRD
+      - EncryptionKeyScience
+      - EncryptionKeyCommand
+      - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/science.rsi
   - type: Clothing
@@ -114,11 +124,11 @@
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltSyndicate
   name: blood-red over-ear headset
-  description: An updated, modular syndicate intercom that fits over the head and takes encryption keys (there are 4 slots for them).
+  description: An updated, modular syndicate intercom that fits over the head and takes encryption keys (there are 5 key slots.).
   components:
   - type: Headset
   - type: EncryptionKeyHolder
-    keySlots: 4
+    keySlots: 5
   - type: ContainerFill
     containers:
       key_slots:
