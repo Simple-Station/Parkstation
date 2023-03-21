@@ -3,6 +3,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
 
 namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
 {
@@ -23,22 +24,7 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
 
         private void OnStartup(EntityUid uid, ShadowkinBlackeyeTraitComponent _, ComponentStartup args)
         {
-            // Remove powers
-            _entityManager.RemoveComponent<ShadowkinDarkSwapPowerComponent>(uid);
-            _entityManager.RemoveComponent<ShadowkinDarkSwappedComponent>(uid);
-            _entityManager.RemoveComponent<ShadowkinRestPowerComponent>(uid);
-            _entityManager.RemoveComponent<ShadowkinTeleportPowerComponent>(uid);
-
-            // Popup
-            _popupSystem.PopupEntity(Loc.GetString("shadowkin-blackeye"), uid, uid, PopupType.Medium);
-
-            // Stop gaining power
-            if (_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
-            {
-                component.Blackeye = true;
-                component.PowerLevelGainEnabled = false;
-                _powerSystem.SetPowerLevel(component.Owner, ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min]);
-            }
+            RaiseLocalEvent(uid, new ShadowkinBlackeyeEvent(uid, false));
         }
     }
 }

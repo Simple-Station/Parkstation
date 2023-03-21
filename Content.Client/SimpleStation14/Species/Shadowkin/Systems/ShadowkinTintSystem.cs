@@ -32,34 +32,6 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         }
 
-
-        public override void Update(float frameTime)
-        {
-            base.Update(frameTime);
-
-            var uid = _player.LocalPlayer?.ControlledEntity;
-            if (uid == null) return;
-
-            if (!_entityManager.TryGetComponent(uid, out ShadowkinComponent? comp)) return;
-            if (!_entityManager.TryGetComponent(uid, out SpriteComponent? sprite)) return;
-            if (!sprite.LayerMapTryGet(HumanoidVisualLayers.Eyes, out var index)) return;
-            if (!sprite.TryGetLayer(index, out var layer)) return;
-
-            // Eye color
-            comp.TintColor = new Vector3(layer.Color.R, layer.Color.G, layer.Color.B);
-
-            // 1/3 = 0.333...
-            // intensity = min + (power / max)
-            // intensity = intensity / 0.333
-            // intensity = clamp intensity min, max
-            var min = 0.45f;
-            var max = 0.75f;
-            comp.TintIntensity = Math.Clamp(min + (comp.PowerLevel / comp.PowerLevelMax) * 0.333f, min, max);
-
-            UpdateShader(comp.TintColor, comp.TintIntensity);
-        }
-
-
         private void OnStartup(EntityUid uid, ShadowkinComponent component, ComponentStartup args)
         {
             if (_player.LocalPlayer?.ControlledEntity != uid) return;
@@ -87,6 +59,33 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
         private void OnRoundRestart(RoundRestartCleanupEvent args)
         {
             _overlayMan.RemoveOverlay(_overlay);
+        }
+
+
+        public override void Update(float frameTime)
+        {
+            base.Update(frameTime);
+
+            var uid = _player.LocalPlayer?.ControlledEntity;
+            if (uid == null) return;
+
+            if (!_entityManager.TryGetComponent(uid, out ShadowkinComponent? comp)) return;
+            if (!_entityManager.TryGetComponent(uid, out SpriteComponent? sprite)) return;
+            if (!sprite.LayerMapTryGet(HumanoidVisualLayers.Eyes, out var index)) return;
+            if (!sprite.TryGetLayer(index, out var layer)) return;
+
+            // Eye color
+            comp.TintColor = new Vector3(layer.Color.R, layer.Color.G, layer.Color.B);
+
+            // 1/3 = 0.333...
+            // intensity = min + (power / max)
+            // intensity = intensity / 0.333
+            // intensity = clamp intensity min, max
+            var min = 0.45f;
+            var max = 0.75f;
+            comp.TintIntensity = Math.Clamp(min + (comp.PowerLevel / comp.PowerLevelMax) * 0.333f, min, max);
+
+            UpdateShader(comp.TintColor, comp.TintIntensity);
         }
 
 

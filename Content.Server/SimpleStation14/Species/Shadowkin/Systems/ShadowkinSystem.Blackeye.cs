@@ -28,17 +28,11 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<ShadowkinBlackeyeEvent>(OnBlackeye);
+            SubscribeAllEvent<ShadowkinBlackeyeEvent>(OnBlackeye);
         }
 
         private void OnBlackeye(ShadowkinBlackeyeEvent ev)
         {
-            // Remove powers
-            _entityManager.RemoveComponent<ShadowkinDarkSwapPowerComponent>(ev.Uid);
-            _entityManager.RemoveComponent<ShadowkinDarkSwappedComponent>(ev.Uid);
-            _entityManager.RemoveComponent<ShadowkinRestPowerComponent>(ev.Uid);
-            _entityManager.RemoveComponent<ShadowkinTeleportPowerComponent>(ev.Uid);
-
             // Popup
             _popupSystem.PopupEntity(Loc.GetString("shadowkin-blackeye"), ev.Uid, ev.Uid, PopupType.Large);
 
@@ -49,6 +43,9 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
                 component.PowerLevelGainEnabled = false;
                 _powerSystem.SetPowerLevel(component.Owner, ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min]);
             }
+
+
+            if (!ev.Damage) return;
 
             // Stamina crit
             if (_entityManager.TryGetComponent<StaminaComponent>(ev.Uid, out var staminaComponent))

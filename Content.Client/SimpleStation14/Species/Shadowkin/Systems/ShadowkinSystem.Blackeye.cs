@@ -15,20 +15,24 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
 
             SubscribeNetworkEvent<ShadowkinBlackeyeEvent>(OnBlackeye);
             SubscribeLocalEvent<ShadowkinBlackeyeTraitComponent, ComponentStartup>(OnStartup);
+
+            SubscribeLocalEvent<ShadowkinComponent, ComponentInit>(OnInit);
         }
 
         private void OnBlackeye(ShadowkinBlackeyeEvent ev)
         {
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(ev.Uid, out var shadowkin) ||
-                !_entityManager.TryGetComponent<SpriteComponent>(ev.Uid, out var sprite) ||
-                !sprite.LayerMapTryGet(HumanoidVisualLayers.Eyes, out var index) ||
-                !sprite.TryGetLayer(index, out var layer))
-                return;
-
-            sprite.LayerSetColor(index, Color.Black);
+            SetColor(ev.Uid, Color.Black);
         }
 
         private void OnStartup(EntityUid uid, ShadowkinBlackeyeTraitComponent component, ComponentStartup args)
+        {
+            SetColor(uid, Color.Black);
+
+            RaiseNetworkEvent(new ShadowkinBlackeyeEvent(uid, false));
+        }
+
+
+        private void OnInit(EntityUid uid, ShadowkinComponent component, ComponentInit args)
         {
             if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadowkin) ||
                 !_entityManager.TryGetComponent<SpriteComponent>(uid, out var sprite) ||
@@ -36,7 +40,21 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
                 !sprite.TryGetLayer(index, out var layer))
                 return;
 
-            sprite.LayerSetColor(index, Color.Black);
+            if (layer.Color != Color.Black) return;
+
+            RaiseNetworkEvent(new ShadowkinBlackeyeEvent(uid, false));
+        }
+
+
+        private void SetColor(EntityUid uid, Color color)
+        {
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadowkin) ||
+                !_entityManager.TryGetComponent<SpriteComponent>(uid, out var sprite) ||
+                !sprite.LayerMapTryGet(HumanoidVisualLayers.Eyes, out var index) ||
+                !sprite.TryGetLayer(index, out var layer))
+                return;
+
+            sprite.LayerSetColor(index, color);
         }
     }
 }

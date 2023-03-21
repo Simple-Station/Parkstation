@@ -100,10 +100,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Events
     public sealed class ShadowkinBlackeyeEvent : EntityEventArgs
     {
         public readonly EntityUid Uid;
+        public readonly bool Damage;
 
-        public ShadowkinBlackeyeEvent(EntityUid uid)
+        public ShadowkinBlackeyeEvent(EntityUid uid, bool damage = true)
         {
             Uid = uid;
+            Damage = damage;
         }
     }
 }
