@@ -9,6 +9,7 @@
     "states": [
         { "name": "painting0" },
         { "name": "painting1" },
-        { "name": "painting2" }
+        { "name": "painting2" },
+        { "name": "painting3" }
     ]
 }
