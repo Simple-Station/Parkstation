@@ -1,11 +1,11 @@
 {
     "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "DEATHB4DEFEAT#4404 (801294818839756811)",
     "size": {
         "x": 32,
         "y": 32
     },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "DEATHB4DEFEAT#4404 (801294818839756811)",
     "states": [
         {
             "name": "power0",
