@@ -2,8 +2,10 @@
 
 # make sure to start from script dir
 if [ "$(dirname $0)" != "." ]; then
-  cd "$(dirname $0)"
+    cd "$(dirname $0)"
 fi
 
-cd ../../bin/Content.Client
-./Content.Client
+sh -e runBuildServer.sh
+sh -e runBuildClient.sh
+
+exit
