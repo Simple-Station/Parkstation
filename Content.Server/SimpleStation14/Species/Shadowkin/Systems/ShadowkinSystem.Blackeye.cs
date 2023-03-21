@@ -9,8 +9,9 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
 
-namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
+namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
 {
     public sealed class ShadowkinBlackeyeSystem : EntitySystem
     {

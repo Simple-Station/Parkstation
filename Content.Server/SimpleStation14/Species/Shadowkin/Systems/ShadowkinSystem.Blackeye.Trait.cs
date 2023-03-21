@@ -2,8 +2,9 @@ using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
+using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
 
-namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
+namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
 {
     public sealed class ShadowkinBlackeyeTraitSystem : EntitySystem
     {
