@@ -99,11 +99,11 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Events
     [Serializable, NetSerializable]
     public sealed class ShadowkinBlackeyeEvent : EntityEventArgs
     {
-        public readonly EntityUid Euid;
+        public readonly EntityUid Uid;
 
-        public ShadowkinBlackeyeEvent(EntityUid euid)
+        public ShadowkinBlackeyeEvent(EntityUid uid)
         {
-            Euid = euid;
+            Uid = uid;
         }
     }
 }

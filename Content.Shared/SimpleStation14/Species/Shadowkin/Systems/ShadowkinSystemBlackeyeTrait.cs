@@ -29,10 +29,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
             _entityManager.RemoveComponent<ShadowkinTeleportPowerComponent>(uid);
 
             // Popup
-            if (_net.IsClient)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("shadowkin-blackeye"), uid, uid, PopupType.Medium);
-            }
+            _popupSystem.PopupEntity(Loc.GetString("shadowkin-blackeye"), uid, uid, PopupType.Medium);
 
             // Stop gaining power
             if (_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
