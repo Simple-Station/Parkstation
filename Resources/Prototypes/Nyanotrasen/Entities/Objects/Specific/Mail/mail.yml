@@ -324,7 +324,7 @@
   - type: Mail
     contents:
     - id: ClothingOuterWizard
-    - id: ClothingHeadHatWizardFake
+    - id: ClothingHeadHatWizard
     - id: ClothingShoesWizard
 
 - type: entity
