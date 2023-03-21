@@ -24,6 +24,39 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             SubscribeLocalEvent<ShadowkinComponent, ComponentShutdown>(OnShutdown);
         }
 
+        private void OnStartup(EntityUid uid, ShadowkinComponent component, ComponentStartup args)
+        {
+            component.Darken = true;
+        }
+
+        private void OnShutdown(EntityUid uid, ShadowkinComponent component, ComponentShutdown args)
+        {
+            component.Darken = false;
+
+            foreach (var light in component.DarkenedLights.ToArray())
+            {
+                var pointLight = _entityManager.GetComponent<PointLightComponent>(light);
+                var shadowkinLight = _entityManager.GetComponent<ShadowkinLightComponent>(light);
+
+                ResetLight(pointLight, shadowkinLight);
+            }
+
+            component.DarkenedLights.Clear();
+
+            // I hate duplicate subscriptions
+            _powerSystem.UpdateAlert(component.Owner, false);
+        }
+
+
+        public void ResetLight(PointLightComponent light, ShadowkinLightComponent sLight)
+        {
+            if (sLight.OldRadiusEdited) _lightSystem.SetRadius(light.Owner, sLight.OldRadius);
+            sLight.OldRadiusEdited = false;
+            if (sLight.OldEnergyEdited) light.Energy = sLight.OldEnergy;
+            sLight.OldEnergyEdited = false;
+        }
+
+
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
@@ -94,38 +127,6 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                     pointLight.Energy = energy;
                 }
             }
-        }
-
-        private void OnStartup(EntityUid uid, ShadowkinComponent component, ComponentStartup args)
-        {
-            component.Darken = true;
-        }
-
-        private void OnShutdown(EntityUid uid, ShadowkinComponent component, ComponentShutdown args)
-        {
-            component.Darken = false;
-
-            foreach (var light in component.DarkenedLights.ToArray())
-            {
-                var pointLight = _entityManager.GetComponent<PointLightComponent>(light);
-                var shadowkinLight = _entityManager.GetComponent<ShadowkinLightComponent>(light);
-
-                ResetLight(pointLight, shadowkinLight);
-            }
-
-            component.DarkenedLights.Clear();
-
-            // I hate duplicate subscriptions
-            _powerSystem.UpdateAlert(component.Owner, false);
-        }
-
-
-        public void ResetLight(PointLightComponent light, ShadowkinLightComponent sLight)
-        {
-            if (sLight.OldRadiusEdited) _lightSystem.SetRadius(light.Owner, sLight.OldRadius);
-            sLight.OldRadiusEdited = false;
-            if (sLight.OldEnergyEdited) light.Energy = sLight.OldEnergy;
-            sLight.OldEnergyEdited = false;
         }
     }
 }

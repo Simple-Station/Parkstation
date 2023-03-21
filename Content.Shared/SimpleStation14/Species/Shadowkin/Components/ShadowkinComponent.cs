@@ -1,7 +1,6 @@
 using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
-using Robust.Shared.Random;
 
 namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
 {
