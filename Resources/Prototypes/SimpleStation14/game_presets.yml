@@ -1,0 +1,39 @@
+# - type: gamePreset
+#   id: XenoOutbreak
+#   name: Xeno outbreak
+#   description: A few people have been infected with XenoVirus, one becomes a queen, the others a drone serving the queen. Kill the Xenos before they kill you.
+#   showInVote: false
+#   rules:
+#     - XenoOutbreak
+#     - RampingStationEventScheduler
+
+- type: gamePreset
+  id: Wizard
+  name: preset-wizard-name
+  alias:
+    - wizard
+  description: preset-wizard-description
+  showInVote: false
+  rules:
+    - Wizard
+    - Minor
+    - BasicStationEventScheduler
+
+- type: gamePreset
+  id: Minor
+  name: preset-minor-title
+  alias:
+    - minor
+  description: preset-minor-description
+  showInVote: false
+  rules:
+    - Minor
+    - BasicStationEventScheduler
+
+- type: gamePreset
+  id: Peaceful
+  name: preset-peaceful-name
+  alias:
+    - peaceful
+  description: preset-peaceful-description
+  showInVote: true
