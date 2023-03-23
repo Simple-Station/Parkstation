@@ -17,6 +17,12 @@
                    Text="$0" />
         </BoxContainer>
         <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc 'cargo-console-menu-debt-label'}"
+                   StyleClasses="LabelKeyText" />
+            <Label Name="DebtLabel"
+                   Text="$0" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal">
             <Label Text="{Loc 'cargo-console-menu-order-capacity-label'}"
                    StyleClasses="LabelKeyText" />
             <Label Name="ShuttleCapacityLabel"

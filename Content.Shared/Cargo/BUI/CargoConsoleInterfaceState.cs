@@ -9,14 +9,16 @@ public sealed class CargoConsoleInterfaceState : BoundUserInterfaceState
     public int Count;
     public int Capacity;
     public int Balance;
+    public int Debt;
     public List<CargoOrderData> Orders;
 
-    public CargoConsoleInterfaceState(string name, int count, int capacity, int balance, List<CargoOrderData> orders)
+    public CargoConsoleInterfaceState(string name, int count, int capacity, int balance, int debt, List<CargoOrderData> orders)
     {
         Name = name;
         Count = count;
         Capacity = capacity;
         Balance = balance;
+        Debt = debt;
         Orders = orders;
     }
 }

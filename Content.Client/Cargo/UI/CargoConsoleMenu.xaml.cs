@@ -169,10 +169,11 @@ namespace Content.Client.Cargo.UI
             ShuttleCapacityLabel.Text = $"{count}/{capacity}";
         }
 
-        public void UpdateBankData(string name, int points)
+        public void UpdateBankData(string name, int points, int debt)
         {
             AccountNameLabel.Text = name;
             PointsLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", points.ToString()));
+            DebtLabel.Text = Loc.GetString("cargo-console-menu-debt-amount", ("amount", debt.ToString()));
         }
     }
 }

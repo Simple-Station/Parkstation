@@ -30,6 +30,9 @@ namespace Content.Client.Cargo.BUI
         public int BankBalance { get; private set; }
 
         [ViewVariables]
+        public int BankDebt { get; private set; }
+
+        [ViewVariables]
         public int OrderCapacity { get; private set; }
 
         [ViewVariables]
@@ -118,12 +121,13 @@ namespace Content.Client.Cargo.BUI
             OrderCapacity = cState.Capacity;
             OrderCount = cState.Count;
             BankBalance = cState.Balance;
+            BankDebt = cState.Debt;
 
             AccountName = cState.Name;
 
             Populate(cState.Orders);
             _menu?.UpdateCargoCapacity(OrderCount, OrderCapacity);
-            _menu?.UpdateBankData(AccountName, BankBalance);
+            _menu?.UpdateBankData(AccountName, BankBalance, BankDebt);
         }
 
         protected override void Dispose(bool disposing)

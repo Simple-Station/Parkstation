@@ -222,6 +222,7 @@ namespace Content.Server.Cargo.Systems
                 GetOrderCount(orderDatabase),
                 orderDatabase.Capacity,
                 bankAccount.Balance,
+                (int) _shuttleCostSystem.GlobalDebt,
                 orderDatabase.Orders.Values.ToList());
 
             _uiSystem.GetUiOrNull(component.Owner, CargoConsoleUiKey.Orders)?.SetState(state);
@@ -312,7 +313,7 @@ namespace Content.Server.Cargo.Systems
 
         #region Station
 
-        private StationBankAccountComponent? GetBankAccount(CargoOrderConsoleComponent component)
+        public StationBankAccountComponent? GetBankAccount(CargoOrderConsoleComponent component)
         {
             var station = _station.GetOwningStation(component.Owner);
 
