@@ -8,43 +8,43 @@ namespace Content.Server.Speech.EntitySystems
     {
         [Dependency] private readonly IRobustRandom _random = default!;
 
-        private static readonly IReadOnlyList<string> Prefixes = new List<string>
+        private IReadOnlyList<string> Prefixes = new List<string>
         {
             "<3", "HIII!", "Haiiii,", "H-hewwo?", "(#o.o)", ";;w;;", ";w;", "Weh!"
-        }.AsReadOnly();
-        private static readonly IReadOnlyList<string> nPrefixes = new List<string>
+        };
+        private IReadOnlyList<string> nPrefixes = new List<string>
         {
-            "HIII!", "Haiiii,", "H-hewwo?", "Weh!"
-        }.AsReadOnly();
+            "HIII!", "Haiiii,", "Hewwo?", "Weh!"
+        };
 
-        private static readonly IReadOnlyList<string> Faces = new List<string>
+        private IReadOnlyList<string> Faces = new List<string>
         {
             "(·`ω´·)", ";;w;;", ";w;", "OwO", "UwU", ">w<", "^w^", "TwT", "-w-", "(^U^)", "✪ω✪", "(^▽^)", "(^///^)", "x3"
-        }.AsReadOnly();
+        };
 
-        private static readonly IReadOnlyList<string> CFaces = new List<string>
+        private IReadOnlyList<string> CFaces = new List<string>
         {
             ">_<", "(^///^)", "(._. )", "(⊙_⊙#)", "x3", ":3", ";3", ";-;"
-        }.AsReadOnly();
+        };
 
-        private static readonly IReadOnlyList<string> Suffixes = new List<string>
+        private IReadOnlyList<string> Suffixes = new List<string>
         {
             "Ɛ>", "baii!", "bye bye!", "ceeya! :D", "weh!"
-        }.AsReadOnly();
-        private static readonly IReadOnlyList<string> nSuffixes = new List<string>
+        };
+        private IReadOnlyList<string> nSuffixes = new List<string>
         {
             "baii!", "bye bye!", "ceeya!", "weh!"
-        }.AsReadOnly();
+        };
 
-        private static readonly IReadOnlyDictionary<string, string> SpecialWords = new Dictionary<string, string>()
+        private IReadOnlyDictionary<string, string> SpecialWords = new Dictionary<string, string>()
         {
             // TODO: Case insensitive
             { "FUCK", "WUH OH" },
             { "Fuck", "Wuh oh" },
             { "fuck", "wuh oh" },
-            // { "SHIT", "CRAP" },
-            // { "Shit", "Crap" },
-            // { "shit", "crap" },
+            { "SHIT", "CRAP" },
+            { "Shit", "Crap" },
+            { "shit", "crap" },
 
             { "YOU", "WU" },
             { "You", "Wu" },
@@ -94,17 +94,9 @@ namespace Content.Server.Speech.EntitySystems
             { "Dead", "Sleeping" },
             { "dead", "sleeping" },
 
-            // { "KILL", "HUG" },
-            // { "Kill", "Hug" },
-            // { "kill", "hug" },
-
             { "HOME", "DEN" },
             { "Home", "Den" },
             { "home", "den" },
-
-            { "PLEASE", "PLZ" },
-            { "Please", "Plz" },
-            { "please", "plz" },
         };
 
         public override void Initialize()
@@ -118,21 +110,20 @@ namespace Content.Server.Speech.EntitySystems
 
             // Replace words with other words
             foreach (var (word, repl) in SpecialWords)
-                if (Regex.IsMatch(message.ToLowerInvariant(), $"\\b{word}\\b"))
-                    message = message.Replace(word, repl);
+                message = Regex.Replace(message, $@"(?<!\w){word}(?!\w)", repl);
 
 
             // If there should be emojis in the message
             if (component.Kaomoji)
             {
                 // Random prefix
-                if (_random.Next(1, 12) == 5 && message.Length > 12)
+                if (_random.Prob(0.35f) && message.Length > 15)
                     message = $"{_random.Pick(Prefixes)} {message}";
             }
             else
             {
                 // Random prefix
-                if (_random.Next(1, 12) == 5 && message.Length > 12)
+                if (_random.Prob(0.25f) && message.Length > 15)
                     message = $"{_random.Pick(nPrefixes)} {message}";
             }
 
@@ -160,7 +151,7 @@ namespace Content.Server.Speech.EntitySystems
                 if (!message.EndsWith("!") && !message.EndsWith("?")
                     && !message.EndsWith(".") && !message.EndsWith(",")
                     && !message.EndsWith(")") && !message.EndsWith(";")
-                    && message.Length > 12 && _random.Next(1, 10) == 5)
+                    && message.Length > 15 && _random.Prob(0.3f))
                     message = $"{message}, {_random.Pick(Suffixes)}";
             }
             else
@@ -169,12 +160,13 @@ namespace Content.Server.Speech.EntitySystems
                 if (!message.EndsWith("!") && !message.EndsWith("?")
                     && !message.EndsWith(".") && !message.EndsWith(",")
                     && !message.EndsWith(")") && !message.EndsWith(";")
-                    && message.Length > 12 && _random.Next(1, 10) == 5)
+                    && message.Length > 15 && _random.Prob(0.2f))
                     message = $"{message}, {_random.Pick(nSuffixes)}";
             }
 
 
             // Slur letters
+            // Swuw wettews
             message = message
                 .Replace("r", "w").Replace("R", "W")
                 .Replace("l", "w").Replace("L", "W");
