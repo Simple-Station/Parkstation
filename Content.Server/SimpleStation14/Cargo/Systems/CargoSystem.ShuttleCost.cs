@@ -52,7 +52,7 @@ namespace Content.Server.SimpleStation14.Cargo.Systems
             }
             else if (player != null)
             {
-                _popupSystem.PopupEntity(Loc.GetString("cargo-shuttle-ftl-failed", ("needed", cost)), player.Value, player.Value, PopupType.MediumCaution
+                _popupSystem.PopupEntity(Loc.GetString("cargo-shuttle-ftl-failed", ("needed", cost)), player.Value, player.Value, PopupType.MediumCaution);
             }
 
             // Add debt if we haven't tried already.

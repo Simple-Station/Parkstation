@@ -7,7 +7,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -16,7 +15,7 @@ public sealed partial class ShuttleSystem
     /// <summary>
     /// Minimum velocity difference between 2 bodies for a shuttle "impact" to occur.
     /// </summary>
-    private const int MinimumImpactVelocity = 10;
+    private const int MinimumImpactVelocity = 9;
 
     private readonly SoundCollectionSpecifier _shuttleImpactSound = new("ShuttleImpactSound");
 
@@ -64,13 +63,13 @@ public sealed partial class ShuttleSystem
         if (type == null) type = protoMan.EnumeratePrototypes<ExplosionPrototype>().FirstOrDefault();
         if (type == null)
         {
-            Logger.Error("Couldn't find any explosion prototypes while trying to explode shuttle collision.");
-            return;
+            throw new InvalidOperationException("Couldn't find any explosion prototypes while trying to explode shuttle collision.");
         }
 
         var transform = EntityManager.GetComponent<TransformComponent>(uid);
 
-        sysMan.GetEntitySystem<ExplosionSystem>().QueueExplosion(new MapCoordinates(args.WorldPoint, transform.MapID), type.ID, volume * 100, 5, 75);
+        // Explosion power is 100 * velocity difference, which should be 900-2000 with shuttle speed limitations.
+        sysMan.GetEntitySystem<ExplosionSystem>().QueueExplosion(new MapCoordinates(args.WorldPoint, transform.MapID), type.ID, jungleDiff * 100, 5, 75);
         _audio.Play(_shuttleImpactSound, Filter.Pvs(coordinates, rangeMultiplier: 4f, entityMan: EntityManager), coordinates, true, audioParams);
     }
 }
