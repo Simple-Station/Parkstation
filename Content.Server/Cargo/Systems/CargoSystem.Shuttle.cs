@@ -18,16 +18,13 @@ using Content.Shared.GameTicking;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Server.GameObjects;
-using Robust.Server.Maps;
-using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.SimpleStation14.CCVar;
+using Content.Server.SimpleStation14.Cargo.Systems;
 
 namespace Content.Server.Cargo.Systems;
 
@@ -47,6 +44,7 @@ public sealed partial class CargoSystem
     [Dependency] private readonly PricingSystem _pricing = default!;
     [Dependency] private readonly ShuttleConsoleSystem _console = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
+    [Dependency] private readonly CargoShuttleCostSystem _shuttleCostSystem = default!;
 
     public MapId? CargoMap { get; private set; }
 
@@ -351,7 +349,7 @@ public sealed partial class CargoSystem
         }
     }
 
-    private void SendToCargoMap(EntityUid uid, CargoShuttleComponent? component = null)
+    public void SendToCargoMap(EntityUid uid, CargoShuttleComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
@@ -522,16 +520,10 @@ public sealed partial class CargoSystem
             return;
         }
 
-        var cargoCost = _configManager.GetCVar(SimpleStationCVars.CargoShuttleCost);
-        if (cargoCost >= 0)
-        {
-            var bankAccount = GetBankAccount(EntityQuery<CargoOrderConsoleComponent>().First());
-            if (bankAccount?.Balance >= cargoCost) bankAccount.Balance -= cargoCost;
-        }
 
         SellPallets(shuttle, bank);
         _console.RefreshShuttleConsoles();
-        SendToCargoMap(orderDatabase.Shuttle.Value);
+        _shuttleCostSystem.ReturnShuttle(orderDatabase, player.Value);
     }
 
     /// <summary>
@@ -566,14 +558,7 @@ public sealed partial class CargoSystem
         var stationUid = _station.GetOwningStation(args.Entity);
         if (!TryComp<StationCargoOrderDatabaseComponent>(stationUid, out var orderDatabase)) return;
 
-        var cargoCost = _configManager.GetCVar(SimpleStationCVars.CargoShuttleCost);
-        if (cargoCost >= 0)
-        {
-            var bankAccount = GetBankAccount(EntityQuery<CargoOrderConsoleComponent>().First());
-            if (bankAccount?.Balance >= cargoCost) bankAccount.Balance -= cargoCost;
-        }
-
-        CallShuttle(orderDatabase);
+        _shuttleCostSystem.CallShuttle(orderDatabase);
     }
 
     #endregion
