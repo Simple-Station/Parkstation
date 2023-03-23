@@ -523,7 +523,7 @@ public sealed partial class CargoSystem
 
         SellPallets(shuttle, bank);
         _console.RefreshShuttleConsoles();
-        _shuttleCostSystem.ReturnShuttle(orderDatabase, player.Value);
+        _shuttleCostSystem.CallShuttle(orderDatabase, player, true);
     }
 
     /// <summary>
@@ -558,7 +558,7 @@ public sealed partial class CargoSystem
         var stationUid = _station.GetOwningStation(args.Entity);
         if (!TryComp<StationCargoOrderDatabaseComponent>(stationUid, out var orderDatabase)) return;
 
-        _shuttleCostSystem.CallShuttle(orderDatabase);
+        _shuttleCostSystem.CallShuttle(orderDatabase, args.Session.AttachedEntity);
     }
 
     #endregion

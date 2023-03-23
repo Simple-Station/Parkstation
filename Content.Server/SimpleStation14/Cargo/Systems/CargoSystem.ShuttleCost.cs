@@ -26,44 +26,7 @@ namespace Content.Server.SimpleStation14.Cargo.Systems
         /// </summary>
         public bool AlreadyAttempted = false;
 
-        public void CallShuttle(StationCargoOrderDatabaseComponent orderDatabase, EntityUid? player = null)
-        {
-            AlreadyAttempted = true;
-
-            var cost = CalculateCost(orderDatabase);
-            if (cost == null)
-            {
-                _cargoSystem.CallShuttle(orderDatabase);
-                AlreadyAttempted = false;
-                return;
-            }
-
-            var sm = SubtractMoney((float) cost);
-            var success = sm.Item1;
-            var debt = sm.Item2;
-
-            if (success)
-            {
-                _cargoSystem.CallShuttle(orderDatabase);
-                AlreadyAttempted = false;
-            }
-            else if (player != null && debt != null)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("cargo-shuttle-return-failed-explain", ("needed", debt)), player.Value, player.Value, PopupType.SmallCaution);
-            }
-            else if (player != null)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("cargo-shuttle-return-failed"), player.Value, player.Value, PopupType.SmallCaution);
-            }
-
-            // Add debt if we haven't tried already.
-            if (debt != null && !AlreadyAttempted)
-            {
-                GlobalDebt += (float) debt;
-            }
-        }
-
-        public void ReturnShuttle(StationCargoOrderDatabaseComponent orderDatabase, EntityUid? player = null)
+        public void CallShuttle(StationCargoOrderDatabaseComponent orderDatabase, EntityUid? player = null, bool recall = false)
         {
             if (orderDatabase.Shuttle == null) return;
             AlreadyAttempted = true;
@@ -71,7 +34,8 @@ namespace Content.Server.SimpleStation14.Cargo.Systems
             var cost = CalculateCost(orderDatabase);
             if (cost == null)
             {
-                _cargoSystem.SendToCargoMap(orderDatabase.Shuttle.Value);
+                if (!recall) _cargoSystem.CallShuttle(orderDatabase);
+                else _cargoSystem.SendToCargoMap(orderDatabase.Shuttle.Value);
                 AlreadyAttempted = false;
                 return;
             }
@@ -82,16 +46,13 @@ namespace Content.Server.SimpleStation14.Cargo.Systems
 
             if (success)
             {
-                _cargoSystem.SendToCargoMap(orderDatabase.Shuttle.Value);
+                if (!recall) _cargoSystem.CallShuttle(orderDatabase);
+                else _cargoSystem.SendToCargoMap(orderDatabase.Shuttle.Value);
                 AlreadyAttempted = false;
-            }
-            else if (player != null && debt != null)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("cargo-shuttle-return-failed-explain", ("needed", debt)), player.Value, player.Value, PopupType.SmallCaution);
             }
             else if (player != null)
             {
-                _popupSystem.PopupEntity(Loc.GetString("cargo-shuttle-return-failed"), player.Value, player.Value, PopupType.SmallCaution);
+                _popupSystem.PopupEntity(Loc.GetString("cargo-shuttle-ftl-failed", ("needed", cost)), player.Value, player.Value, PopupType.MediumCaution
             }
 
             // Add debt if we haven't tried already.
