@@ -101,7 +101,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 69
+  - index: 5
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -17703,8 +17703,8 @@ entities:
       34,15: 0
       35,2: 0
       35,3: 0
-      35,4: 4
-      35,5: 11
+      35,4: 11
+      35,5: 12
       35,6: 0
       35,7: 0
       35,8: 0
@@ -17718,8 +17718,8 @@ entities:
       36,1: 0
       36,2: 0
       36,3: 0
-      36,4: 12
-      36,5: 1
+      36,4: 13
+      36,5: 14
       36,6: 0
       36,7: 0
       36,8: 0
@@ -18462,9 +18462,9 @@ entities:
       58,4: 0
       58,5: 0
       58,6: 0
-      58,7: 13
+      58,7: 15
       58,8: 0
-      58,9: 14
+      58,9: 16
       58,10: 0
       58,11: 0
       58,12: 0
@@ -18478,9 +18478,9 @@ entities:
       59,4: 0
       59,5: 0
       59,6: 0
-      59,7: 13
+      59,7: 15
       59,8: 0
-      59,9: 14
+      59,9: 16
       59,10: 0
       59,11: 0
       59,12: 0
@@ -19086,7 +19086,7 @@ entities:
       55,21: 0
       55,22: 0
       55,23: 0
-      55,24: 7
+      55,24: 17
       55,25: 0
       55,26: 0
       55,27: 0
@@ -22082,8 +22082,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 13.090149
-      - 49.243896
+      - 12.723625
+      - 47.865067
       - 0
       - 0
       - 0
@@ -22097,8 +22097,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 17.389294
-      - 65.41687
+      - 16.902393
+      - 63.585197
       - 0
       - 0
       - 0
@@ -22142,8 +22142,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 19.481253
-      - 73.28662
+      - 18.935778
+      - 71.2346
       - 0
       - 0
       - 0
@@ -22157,8 +22157,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 13.855177
-      - 52.121857
+      - 13.467232
+      - 50.662445
       - 0
       - 0
       - 0
@@ -22202,8 +22202,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 17.89022
-      - 67.30131
+      - 17.389294
+      - 65.41687
       - 0
       - 0
       - 0
@@ -22217,8 +22217,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 15.075529
-      - 56.712715
+      - 14.653415
+      - 55.12476
       - 0
       - 0
       - 0
@@ -22232,8 +22232,23 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 12.021078
-      - 45.22215
+      - 19.481253
+      - 73.28662
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 11.684488
+      - 43.95593
       - 0
       - 0
       - 0
@@ -22262,6 +22277,21 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
+      - 13.090149
+      - 49.243896
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
       - 6666.982
       - 0
       - 0
@@ -22279,6 +22309,21 @@ entities:
       moles:
       - 0
       - 6666.982
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 15.969111
+      - 60.07428
       - 0
       - 0
       - 0
@@ -139705,4 +139750,32 @@ entities:
     type: SignalTransmitter
   - fixtures: []
     type: Fixtures
+- uid: 16875
+  type: SpawnMobPunpun
+  components:
+  - pos: 14.5,12.5
+    parent: 1
+    type: Transform
+- uid: 16876
+  type: FoodPlateSmallTrash
+  components:
+  - pos: 15.128317,12.316429
+    parent: 1
+    type: Transform
+- uid: 16877
+  type: DrinkMug
+  components:
+  - pos: 15.138739,12.295582
+    parent: 1
+    type: Transform
+  - solutions:
+      drink:
+        canMix: True
+        maxVol: 20
+        reagents:
+        - Quantity: 17
+          ReagentId: Coffee
+        - Quantity: 3
+          ReagentId: BananaHonk
+    type: SolutionContainerManager
 ...
