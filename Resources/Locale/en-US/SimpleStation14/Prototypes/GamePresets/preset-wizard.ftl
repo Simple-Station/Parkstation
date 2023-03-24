@@ -1,5 +1,4 @@
 ## wizard
-
 # Shown at the end of a round of wizard
 wizard-round-end-result = {$wizardCount ->
     [one] There was one wizard.
@@ -20,10 +19,10 @@ preset-wizard-objective-issuer-wizfeds = [color=#87cefa]The Wizard Federation[/c
 wizard-objective-condition-success = {$condition} | [color={$markupColor}]Success![/color]
 wizard-objective-condition-fail = {$condition} | [color={$markupColor}]Failure![/color] ({$progress}%)
 
-wizard-title = wizard
-wizard-description = Wizards are hiding among the station crew, find and deal with them before they become too powerful.
-wizard-not-enough-ready-players = Not enough players readied up for the game! There were {$readyPlayersCount} players readied up out of {$minimumPlayers} needed.
-wizard-no-one-ready = No players readied up! Can't start wizard.
+preset-wizard-title = wizard
+preset-wizard-description = Wizards are hiding among the station crew, find and deal with them before they become too powerful.
+preset-wizard-not-enough-ready-players = Not enough players readied up for the game! There were {$readyPlayersCount} players readied up out of {$minimumPlayers} needed.
+preset-wizard-no-one-ready = No players readied up! Can't start wizard.
 
 ## wizardRole
 

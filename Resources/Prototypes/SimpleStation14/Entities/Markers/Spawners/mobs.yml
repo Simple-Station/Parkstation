@@ -1,4 +1,17 @@
 - type: entity
+  name: Punpun Spawner
+  id: SpawnMobPunpun
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobMonkeyPunpun
+
+- type: entity
   name: Lizard Spawner
   id: SpawnMobLizard
   parent: MarkerBase
@@ -49,7 +62,6 @@
   - type: ConditionalSpawner
     prototypes:
       - MobFrogRandall
-
 
 - type: entity
   name: Slug Spawner
