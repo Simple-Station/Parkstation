@@ -84,6 +84,13 @@ public enum ChargeState
     Dead
 }
 
+public enum StartChargedData
+{
+    False,
+    True,
+    Randomized
+}
+
 // [Serializable, NetSerializable]
 // public struct ChargeStateThresholdsData
 // {

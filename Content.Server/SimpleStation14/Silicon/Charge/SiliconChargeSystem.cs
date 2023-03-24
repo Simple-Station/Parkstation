@@ -11,6 +11,8 @@ using Content.Shared.Popups;
 using Robust.Shared.Timing;
 using Content.Shared.SimpleStation14.Silicon.Systems;
 using Content.Shared.Movement.Systems;
+using Content.Server.Body.Components;
+using Robust.Shared.Utility;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 
@@ -37,18 +39,21 @@ public sealed class SiliconChargeSystem : EntitySystem
     private void OnBatteryInit(EntityUid uid, BatteryComponent component, ComponentInit args)
     {
         if (!EntityManager.TryGetComponent<SiliconComponent>(uid, out var siliconComp) ||
-            !siliconComp.BatteryPowered ||
-            !siliconComp.StartCharged)
-        {
+            !siliconComp.BatteryPowered)
             return;
-        }
 
-        component.CurrentCharge = component.MaxCharge;
+        component.MaxCharge *= _random.NextFloat(0.85f, 1.15f);
+
+        var batteryLevelFill = component.MaxCharge;
+
+        if (siliconComp.StartCharged.Equals(StartChargedData.Randomized))
+            batteryLevelFill *= _random.NextFloat(0.40f, 0.80f);
+
+        component.CurrentCharge = batteryLevelFill;
     }
 
     public override void Update(float frameTime)
     {
-
         base.Update(frameTime);
 
         // For each siliconComp entity with a battery component, drain their charge.
@@ -66,21 +71,19 @@ public sealed class SiliconChargeSystem : EntitySystem
 
             var drainRate = 10 * (siliconComp.DrainRateMulti);
 
-            // All multipliers will be added together
-            // and then divided by the added weight, before applying to the drain rate.
-            var drainRateFinalMulti = 0f;
+            // All multipliers will be - 1, and then added together, and then multiplied by 150. This is then added to the base drain rate.
+            // This is to stop exponential increases, while still allowing for less-than-one multipliers.
+            var drainRateFinalAddi = 0f;
 
-            //TODO: Make this actually support more than one multipler. Math is hard ;-;
-            // Adding more than a couple, or a few smaller multipliers to this will cause exponential drain.
-            // Fix this before doing that.
-            drainRateFinalMulti += SiliconHeatEffects(silicon, frameTime);
+            //TODO: Devise a method of adding multis where other systems can alter the drain rate.
+            // Maybe use something similar to refreshmovespeedmodifiers, where it's stored in the component.
+            // Maybe it doesn't matter, and stuff should just use static drain?
 
-            if (drainRateFinalMulti != 0)
-            {
-                drainRate *= drainRateFinalMulti;
-            }
+            drainRateFinalAddi += SiliconHeatEffects(silicon, frameTime) - 1;
 
-            Logger.Warning($"Drain rate: {drainRate}");
+            // Ensures that the drain rate is at least 10% of normal,
+            // and would allow at least 4 minutes of life with a max charge, to prevent cheese.
+            drainRate += Math.Clamp(drainRateFinalAddi, drainRate * -0.9f, batteryComp.MaxCharge / 240);
 
             // Drain the battery.
             batteryComp.UseCharge(frameTime * drainRate);
@@ -124,58 +127,57 @@ public sealed class SiliconChargeSystem : EntitySystem
 
     private float SiliconHeatEffects(EntityUid silicon, float frameTime)
     {
-        if (!EntityManager.TryGetComponent<TemperatureComponent>(silicon, out var temperComp))
+        if (!EntityManager.TryGetComponent<TemperatureComponent>(silicon, out var temperComp) ||
+            !EntityManager.TryGetComponent<ThermalRegulatorComponent>(silicon, out var thermalComp))
         {
-            Logger.Warning("Silicon has no temperature component!");
-
+            DebugTools.Assert("Silicon has no temperature component, but is battery powered.");
             return 0;
         }
+        var siliconComp = EntityManager.GetComponent<SiliconComponent>(silicon);
 
         // If the Silicon is hot, drain the battery faster, if it's cold, drain it slower, capped.
+        var upperThresh = thermalComp.NormalBodyTemperature + (thermalComp.ThermalRegulationTemperatureThreshold);
+        var lowerThresh = thermalComp.NormalBodyTemperature - (thermalComp.ThermalRegulationTemperatureThreshold);
 
         // Check if the silicon is in a hot environment.
-        if (temperComp.CurrentTemperature > 300)
+        if (temperComp.CurrentTemperature > (upperThresh * 0.5f))
         {
-            Logger.Warning("Silicon is hot!");
 
-            // Divide the current temp by 300 capped to 4, then add that to the multiplier.
-            var hotTempMulti = Math.Min(temperComp.CurrentTemperature / 300, 4);
+            // Divide the current temp by the max comfortable temp capped to 4, then add that to the multiplier.
+            var hotTempMulti = Math.Min(temperComp.CurrentTemperature / (upperThresh * 0.5f), 4);
 
             // If the silicon is hot enough, it has a chance to catch fire.
             FlammableComponent? flamComp = null;
 
-            if (EntityManager.TryGetComponent<FlammableComponent>(silicon, out flamComp) &&
-                temperComp.CurrentTemperature > 360 &&
-                !flamComp.OnFire &&
-                _random.Prob(0.05f * frameTime + (temperComp.CurrentTemperature / 3600)))
+            siliconComp.OverheatAccumulator += frameTime;
+            if (siliconComp.OverheatAccumulator >= 10)
             {
-                Logger.Warning("Silicon is on fire!");
+                siliconComp.OverheatAccumulator =- 10;
 
-                _flammableSystem.Ignite(silicon, flamComp);
+                if (EntityManager.TryGetComponent<FlammableComponent>(silicon, out flamComp) &&
+                    temperComp.CurrentTemperature > temperComp.HeatDamageThreshold &&
+                    !flamComp.OnFire &&
+                    _random.Prob(Math.Max(temperComp.CurrentTemperature / (upperThresh * 15), 0.9f)))
+                {
+                    _flammableSystem.Ignite(silicon, flamComp);
+                }
+                else if ((flamComp == null || !flamComp.OnFire) &&
+                        _random.Prob(Math.Max(temperComp.CurrentTemperature / (upperThresh * 10), 0.45f)))
+                {
+                    _popup.PopupEntity(popupOverheating, silicon, silicon, PopupType.SmallCaution);
+                }
             }
-            else if (temperComp.CurrentTemperature > 300 &&
-                    (flamComp == null || !flamComp.OnFire) &&
-                    _random.Prob(0.085f * frameTime + (temperComp.CurrentTemperature / 36000)))
-            {
-                Logger.Warning("Silicon is overheating!");
-
-                _popup.PopupEntity(popupOverheating, silicon, silicon, PopupType.SmallCaution);
-            }
-            Logger.Warning($"Hot temp multi: {hotTempMulti}");
 
             return hotTempMulti;
         }
 
         // Check if the silicon is in a cold environment.
-        if (temperComp.CurrentTemperature < 280)
+        if (temperComp.CurrentTemperature < thermalComp.NormalBodyTemperature)
         {
-            Logger.Warning("Silicon is cold!");
+            var coldTempMulti = (0.5f + (temperComp.CurrentTemperature / thermalComp.NormalBodyTemperature) * 0.5f);
 
-            var coldTempMulti = (0.5f + temperComp.CurrentTemperature / 560);
             return coldTempMulti;
         }
-
-        Logger.Warning("Silicon is normal temp!");
 
         return 0;
     }

@@ -13,6 +13,9 @@ public sealed class SiliconComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public ChargeState ChargeState = ChargeState.Full;
 
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float OverheatAccumulator = 0.0f;
+
     /// <summary>
     ///     The owner of this component.
     /// </summary>
@@ -40,8 +43,8 @@ public sealed class SiliconComponent : Component
     /// <summary>
     ///     Should this silicon start charged?
     /// </summary>
-    [DataField("startCharged"), ViewVariables(VVAccess.ReadOnly)]
-    public bool StartCharged = true;
+    [DataField("startCharged", customTypeSerializer: typeof(EnumSerializer)), ViewVariables(VVAccess.ReadOnly)]
+    public Enum StartCharged = StartChargedData.Randomized;
 
     /// <summary>
     ///     Multiplier for the charge rate of the silicon.
@@ -77,8 +80,8 @@ public sealed class SiliconComponent : Component
     /// <remarks>
     ///     Will only occur when hitting the Dead state.
     /// </remarks>
-    [DataField("dieWhenDead"), ViewVariables(VVAccess.ReadWrite)]
-    public bool DieWhenDead = false;
+    [DataField("critwhendead"), ViewVariables(VVAccess.ReadWrite)]
+    public bool Critwhendead = false;
 
     [DataField("speedModifierThresholds", required: true)]
     public readonly Dictionary<ChargeState, float> SpeedModifierThresholds = default!;

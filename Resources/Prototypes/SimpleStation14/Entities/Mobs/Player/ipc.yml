@@ -1,0 +1,35 @@
+- type: entity
+  id: MobIPC
+  parent: PlayerSiliconHumanoidBase
+  name: Urist McPositronic
+  description: A positronic brain in a metal body.
+  components:
+  - type: Battery
+    maxCharge: 150000
+  - type: Silicon
+    entityType: enum.SiliconType.Player
+    batteryPowered: true
+    drainRateMulti: 500
+    chargeRateMulti: 50
+    chargeStateThresholdMid: 0.70
+    chargeStateThresholdLow: 0.35
+    chargeStateThresholdCritical: 0.15
+    critWhenDead: true
+    speedModifierThresholds:
+      0: 1
+      1: 1
+      2: 0.80
+      3: 0.45
+      4: 0.00
+  - type: Carriable
+
+- type: entity
+  save: false
+  name: Urist McPositronic
+  parent: MobHumanDummy
+  id: MobIPCDummy
+  noSpawn: true
+  description: A dummy IPC meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: IPC

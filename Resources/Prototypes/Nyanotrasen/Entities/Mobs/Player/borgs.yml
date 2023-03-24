@@ -190,26 +190,28 @@
           False: { visible: false }
   - type: TypingIndicator
     proto: robot
+  - type: Battery
+    maxCharge: 50000
+  - type: Silicon
+    entityType: enum.SiliconType.Player
+    batteryPowered: true
+    drainRateMulti: 4
+    chargeRateMulti: 6
+    chargeStateThresholdMid: 0.60
+    chargeStateThresholdLow: 0.30
+    chargeStateThresholdCritical: 0
+    critwhendead: false
+    speedModifierThresholds:
+      0: 1
+      1: 1
+      2: 0.75
+      3: 0.15
+
 - type: entity
   parent: PlayerCyborgBase
   id: PlayerCyborgStandard
   name: standard cyborg
   components:
-  - type: Silicon
-    batteryPowered: true
-    chargeStateThresholdMid: 0.50
-    chargeStateThresholdLow: 0.30
-    chargeStateThresholdCritical: 0.15
-    dieWhenDead: false
-    entityType: enum.SiliconType.Player
-    speedModifierThresholds:
-      0: 1
-      1: 1
-      2: 0.80
-      3: 0.60
-      4: 0.10
-  - type: Battery
-    maxCharge: 150000
   - type: InnateTool
     tools:
       - id: WelderIndustrial
@@ -262,6 +264,14 @@
     - NanoTrasen
   - type: TypingIndicator
     proto: robot
+  - type: ThermalRegulator # Better for extreme temperatures
+    metabolismHeat: 700
+    radiatedHeat: 450
+    implicitHeatRegulation: 350
+    sweatHeatRegulation: 1200
+    shiveringHeatRegulation: 1200
+    normalBodyTemperature: 350
+    thermalRegulationTemperatureThreshold: 325
 
 - type: entity
   parent: PlayerCyborgBase
