@@ -1,0 +1,22 @@
+- type: entity
+  parent: Paper
+  id: StationGoalPaper
+  name: station goal centcomm message
+  description: 'It looks like you have a lot of work to do.'
+  components:
+    - type: Paper
+      stampState: paper_stamp-cent
+      stampedBy:
+        - CentComm
+
+- type: entity
+  name: psychologist's rubber stamp
+  parent: RubberStampMime
+  id: RubberStampPsychologist
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-psychologist
+    stampState: "paper_stamp-psychologist"
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/bureaucracy.rsi
+    state: stamp-psychologist
