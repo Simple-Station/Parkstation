@@ -8,6 +8,10 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
     state: icon
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/sword_unsheath.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/sword_sheath.ogg
   - type: MeleeWeapon
     soundHit:
       path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
@@ -41,6 +45,10 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/katana.rsi
     state: icon
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/sword_unsheath.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/sword_sheath.ogg
   - type: MeleeWeapon
     soundHit:
       path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
