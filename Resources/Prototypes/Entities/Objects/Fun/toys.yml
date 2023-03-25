@@ -26,6 +26,12 @@
     - Payload # yes, you can even make re-usable plushie grenades
   - type: UseDelay
     delay: 1.0
+  - type: MeleeWeapon
+    soundHit:
+      collection: ToySqueak
+    damage:
+      types:
+        Blunt: 0
 
 - type: entity
   parent: BasePlushie
