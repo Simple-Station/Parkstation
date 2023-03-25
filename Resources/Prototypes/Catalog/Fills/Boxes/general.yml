@@ -6,6 +6,10 @@
   components:
   - type: Sprite
     state: box
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
 
 - type: entity
   name: holy water kit
