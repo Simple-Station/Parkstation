@@ -44,9 +44,11 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
         /// <summary>
         ///     Sends an announcement with a message
         /// </summary>
-        public void SendAnnouncement(string announcementId, Filter filter, string message, string sender = "Central Command", Color? colorOverride = null, AudioParams? audioParams = null)
+        public void SendAnnouncement(string announcementId, Filter filter, string message, string? sender = null, Color? colorOverride = null, AudioParams? audioParams = null)
         {
             string announcement = GetAnnouncementPath(Announcer.ID, announcementId);
+            if (sender == null) sender = Announcer.Name;
+
             _audioSystem.PlayGlobal(announcement, filter, true, audioParams);
             _chatSystem.DispatchGlobalAnnouncement(message, sender, false, colorOverride: colorOverride);
         }
