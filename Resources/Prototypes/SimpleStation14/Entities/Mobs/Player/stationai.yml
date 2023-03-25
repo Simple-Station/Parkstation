@@ -244,9 +244,12 @@
             - GhostImpassable
     - type: Sprite
       drawdepth: Mobs
-      sprite: SimpleStation14/Mobs/Silicon/ai.rsi
-      state: aieye
       noRot: true
+      layers:
+        - map: ["enum.DamageStateVisualLayers.Base"]
+          sprite: SimpleStation14/Mobs/Silicon/ai.rsi
+          state: aieye
+          shader: unshaded
     - type: PointLight
       radius: 3
       energy: 1
