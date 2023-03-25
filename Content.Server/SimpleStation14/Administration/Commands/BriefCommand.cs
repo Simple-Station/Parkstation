@@ -4,7 +4,9 @@ using Content.Server.Players;
 using Content.Shared.Administration;
 using Content.Shared.Roles;
 using Robust.Server.Player;
+using Robust.Shared.Audio;
 using Robust.Shared.Console;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Administration.Commands.Brief
@@ -18,7 +20,7 @@ namespace Content.Server.Administration.Commands.Brief
 
         public string Command => "brief";
         public string Description => "Makes you a mob of choice until the command is rerun.";
-        public string Help => $"Usage: {Command} <outfit> <name> <entity> <force>";
+        public string Help => $"Usage: {Command} <outfit> <name> <entity> <sound> <force>";
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
@@ -40,8 +42,8 @@ namespace Content.Server.Administration.Commands.Brief
             if (mind.VisitingEntity != default)
             {
                 var didYouBrief = false;
-                if (args.Length >= 4)
-                    if (args[3].ToLower() == "true")
+                if (args.Length >= 5)
+                    if (args[4].ToLower() == "true")
                         didYouBrief = true;
 
                 foreach (var officer in _entities.EntityQuery<BriefOfficerComponent>(true))
@@ -99,6 +101,10 @@ namespace Content.Server.Administration.Commands.Brief
             if (mind.CurrentEntity != null) _entities.EnsureComponent<BriefOfficerComponent>((EntityUid) mind.CurrentEntity);
             mind.Visit(brief);
             SetOutfitCommand.SetOutfit(brief, outfit, _entities);
+
+            if (args.Length >= 4)
+                if (args[3].ToLower() == "true")
+                    SoundSystem.Play("/Audio/SimpleStation14/Effects/phasein.ogg", Filter.Pvs(brief));
         }
 
         public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
@@ -132,6 +138,14 @@ namespace Content.Server.Administration.Commands.Brief
             if (args.Length == 4)
             {
                 // what a great solution 2
+                List<string> list = new();
+                list.Add("true");
+                list.Add("false");
+                return CompletionResult.FromHintOptions(list, Loc.GetString("brief-command-arg-sound"));
+            }
+            if (args.Length == 5)
+            {
+                // what a great solution 3
                 List<string> list = new();
                 list.Add("true");
                 list.Add("false");
