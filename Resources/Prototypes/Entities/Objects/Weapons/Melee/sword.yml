@@ -9,6 +9,8 @@
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
     state: icon
   - type: MeleeWeapon
+    soundHit:
+      path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
     attackRate: 1.25
     range: 1.75
     damage:
@@ -40,6 +42,8 @@
     sprite: Objects/Weapons/Melee/katana.rsi
     state: icon
   - type: MeleeWeapon
+    soundHit:
+      path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
     attackRate: 1.75
     damage:
       types:
