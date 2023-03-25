@@ -1,7 +1,7 @@
 - type: announcer
   id: VoxFem
   name: AI Female
-  basePath: Resources/Audio/SimpleStation14/Announcements/voxfem
+  basePath: Resources/Audio/SimpleStation14/Announcements/VoxFem
   announcementPaths:
     - id: aliens
       path: aliens.ogg
