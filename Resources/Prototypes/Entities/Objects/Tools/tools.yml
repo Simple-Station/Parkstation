@@ -46,6 +46,10 @@
   id: Screwdriver
   description: Industrial grade torque in a small screwdriving package.
   components:
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/screwdriver_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/screwdriver_drop.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/screwdriver_drop.ogg
