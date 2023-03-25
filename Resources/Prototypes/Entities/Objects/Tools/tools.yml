@@ -179,6 +179,10 @@
   id: Multitool
   description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines
   components:
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/multitool_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/multitool_drop.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/multitool_drop.ogg
