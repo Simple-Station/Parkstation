@@ -1,7 +1,7 @@
 - type: announcer
-  id: Nyanotrasen
-  name: Nyanotrasen
-  basePath: /Audio/SimpleStation14/Announcements/Nyanotrasen
+  id: NEIL
+  name: NEIL
+  basePath: /Audio/SimpleStation14/Announcements/NEIL
   announcementPaths:
     - id: announce
       path: announce.ogg

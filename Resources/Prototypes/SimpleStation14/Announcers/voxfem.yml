@@ -1,6 +1,6 @@
 - type: announcer
   id: VoxFem
-  name: AI Female
+  name: Female Alert AI
   basePath: /Audio/SimpleStation14/Announcements/VoxFem
   announcementPaths:
     - id: aliens
