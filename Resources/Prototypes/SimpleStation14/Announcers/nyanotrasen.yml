@@ -1,0 +1,40 @@
+- type: announcer
+  id: Nyanotrasen
+  name: Nyanotrasen
+  basePath: Resources/Audio/SimpleStation14/Announcements/nyanotrasen
+  announcementPaths:
+    - id: announce
+      path: announce.ogg
+    - id: attention
+      path: attention.ogg
+    - id: bureaucraticerror
+      path: bureaucraticerror.ogg
+    - id: gasleak
+      path: gasleak.ogg
+    - id: kudzu
+      path: kudzu.ogg
+    - id: meteors
+      path: meteors.ogg
+    - id: noosphericstorm
+      path: noosphericstorm.ogg
+    - id: outbreak7
+      path: outbreak7.ogg
+    - id: poweroff
+      path: poweroff.ogg
+    - id: poweron
+      path: poweron.ogg
+    - id: radiation
+      path: radiation.ogg
+    - id: shuttlecalled
+      path: shuttlecalled.ogg
+    - id: shuttledock
+      path: shuttledock.ogg
+    - id: shuttlerecalled
+      path: shuttlerecalled.ogg
+    - id: ventclog
+      path: ventclog.ogg
+    - id: welcome
+      path: welcome.ogg
+    # If there is no announcement for a specific event, the fallback will be played.
+    - id: fallback
+      path: fallback.ogg

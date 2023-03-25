@@ -1,0 +1,36 @@
+- type: announcer
+  id: VoxFem
+  name: AI Female
+  basePath: Resources/Audio/SimpleStation14/Announcements/voxfem
+  announcementPaths:
+    - id: aliens
+      path: aliens.ogg
+    - id: announce
+      path: announce.ogg
+    - id: attention
+      path: attention.ogg
+    - id: commandreport
+      path: commandreport.ogg
+    - id: ionstorm
+      path: ionstorm.ogg
+    - id: meteors
+      path: meteors.ogg
+    - id: outbreak7
+      path: outbreak7.ogg
+    - id: poweroff
+      path: poweroff.ogg
+    - id: poweron
+      path: poweron.ogg
+    - id: radiation
+      path: radiation.ogg
+    - id: shuttlecalled
+      path: shuttlecalled.ogg
+    - id: shuttledock
+      path: shuttledock.ogg
+    - id: shuttlerecalled
+      path: shuttlerecalled.ogg
+    - id: welcome
+      path: welcome.ogg
+    # If there is no announcement for a specific event, the fallback will be played.
+    - id: fallback
+      path: fallback.ogg
