@@ -13,12 +13,14 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
         /// <summary>
         ///     Gets an announcement path from the announcer
         /// </summary>
-        public string GetAnnouncementPath(string announcementId)
+        public string GetAnnouncementPath(string announcerId, string announcementId)
         {
-            var announcement = Announcer.AnnouncementPaths.FirstOrDefault(a => a.ID == announcementId);
-            if (announcement == null) announcement = Announcer.AnnouncementPaths.First(a => a.ID == "fallback");
+            var announcer = Announcers.First(a => a.ID == announcerId);
 
-            return announcement.Path;
+            var announcementType = Announcer.AnnouncementPaths.FirstOrDefault(a => a.ID == announcementId);
+            if (announcementType == null) announcementType = Announcer.AnnouncementPaths.First(a => a.ID == "fallback");
+
+            return $"{announcer.BasePath}/{announcementType.Path}";
         }
 
         /// <summary>
@@ -26,7 +28,7 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
         /// </summary>
         public SoundSpecifier GetAnnouncementSpecifier(string announcementId)
         {
-            return new SoundPathSpecifier(GetAnnouncementPath(announcementId));
+            return new SoundPathSpecifier(GetAnnouncementPath(Announcer.ID, announcementId));
         }
 
 
@@ -35,7 +37,7 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
         /// </summary>
         public void SendAnnouncement(string announcementId, Filter filter, AudioParams? audioParams = null)
         {
-            string announcement = GetAnnouncementPath(announcementId);
+            string announcement = GetAnnouncementPath(Announcer.ID, announcementId);
             _audioSystem.PlayGlobal(announcement, filter, true, audioParams);
         }
 
@@ -44,7 +46,7 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
         /// </summary>
         public void SendAnnouncement(string announcementId, Filter filter, string message, string sender = "Central Command", Color? colorOverride = null, AudioParams? audioParams = null)
         {
-            string announcement = GetAnnouncementPath(announcementId);
+            string announcement = GetAnnouncementPath(Announcer.ID, announcementId);
             _audioSystem.PlayGlobal(announcement, filter, true, audioParams);
             _chatSystem.DispatchGlobalAnnouncement(message, sender, false, colorOverride: colorOverride);
         }

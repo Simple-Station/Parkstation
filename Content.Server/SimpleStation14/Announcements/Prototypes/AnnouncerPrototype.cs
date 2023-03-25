@@ -14,6 +14,9 @@ namespace Content.Server.SimpleStation14.Announcements.Prototypes
         [DataField("name")]
         public string Name { get; } = default!;
 
+        [DataField("basePath")]
+        public string BasePath { get; } = default!;
+
         [DataField("announcementPaths")]
         public AnnouncementData[] AnnouncementPaths { get; } = default!;
     }
