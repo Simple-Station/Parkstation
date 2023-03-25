@@ -33,7 +33,7 @@
             icon: Structures/Wallmounts/posters.rsi/poster11_legit.png
             iconOn: Structures/Wallmounts/posters.rsi/poster11_legit.png
             keywords: ["AI", "console", "interface", "laws", "borg"]
-            priority: -3
+            priority: -2
             event: !type:ToggleIntrinsicUIEvent
         - key: enum.CommunicationsConsoleUiKey.Key
           toggleAction:
@@ -42,7 +42,7 @@
             icon: SimpleStation14/Mobs/Silicon/ai.rsi/icon-comms.png
             iconOn: SimpleStation14/Mobs/Silicon/ai.rsi/icon-comms.png
             keywords: ["AI", "console", "interface"]
-            priority: -2
+            priority: -1
             event: !type:ToggleIntrinsicUIEvent
     - type: CommunicationsConsole
       title: Station AI
@@ -260,7 +260,7 @@
             icon: Structures/Wallmounts/posters.rsi/poster11_legit.png
             iconOn: Structures/Wallmounts/posters.rsi/poster11_legit.png
             keywords: ["AI", "console", "interface", "laws", "borg"]
-            priority: -3
+            priority: -2
             event: !type:ToggleIntrinsicUIEvent
         - key: enum.CommunicationsConsoleUiKey.Key
           toggleAction:
@@ -269,34 +269,14 @@
             icon: SimpleStation14/Mobs/Silicon/ai.rsi/icon-comms.png
             iconOn: SimpleStation14/Mobs/Silicon/ai.rsi/icon-comms.png
             keywords: ["AI", "console", "interface"]
-            priority: -2
+            priority: -1
             event: !type:ToggleIntrinsicUIEvent
         - key: enum.AICameraListUiKey.Key
           toggleAction:
-            name: name
-            description: description
+            name: Warp menu
+            description: Teleport to cameras and crew
             icon: SimpleStation14/Mobs/Silicon/ai.rsi/icon-camera.png
             iconOn: SimpleStation14/Mobs/Silicon/ai.rsi/icon-camera.png
             keywords: ["AI", "console", "interface"]
-            priority: -1
+            priority: -3
             event: !type:ToggleIntrinsicUIEvent
-
-
-- type: instantAction
-  id: AIEye
-  name: AI Eye
-  description: Puts you into the AI eye form.
-  icon: Interface/VerbIcons/sentient.svg.192dpi.png
-  useDelay: 5
-  serverEvent: !type:AIEyePowerActionEvent
-
-- type: instantAction
-  id: AIHealthOverlay
-  name: Health Overlay
-  description: Toggles the AI's health overlay.
-  useDelay: 2.5
-  itemIconStyle: NoItem
-  icon:
-    sprite: Interface/Alerts/human_alive.rsi
-    state: health0
-  event: !type:AIHealthOverlayEvent

@@ -69,6 +69,7 @@
   id: MindSwap
   name: action-name-mind-swap
   description: action-description-mind-swap
+  priority: 17
   icon: Nyanotrasen/Interface/VerbIcons/mind_swap.png
   useDelay: 240
   checkCanAccess: false
@@ -79,6 +80,7 @@
   id: MindSwapReturn
   name: action-name-mind-swap-return
   description: action-description-mind-swap-return
+  priority: 16
   icon: Nyanotrasen/Interface/VerbIcons/mind_swap_return.png
   checkCanInteract: false
   useDelay: 20
