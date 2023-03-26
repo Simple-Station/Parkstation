@@ -11,17 +11,17 @@
       path: bureaucraticerror.ogg
     - id: gasleak
       path: gasleak.ogg
-    - id: kudzu
+    - id: kudzugrowth
       path: kudzu.ogg
-    - id: meteors
+    - id: meteorswarm
       path: meteors.ogg
     - id: noosphericstorm
       path: noosphericstorm.ogg
-    - id: outbreak7
+    - id: diseaseoutbreak
       path: outbreak7.ogg
-    - id: poweroff
+    - id: powergridcheck
       path: poweroff.ogg
-    - id: poweron
+    - id: powergridcheckcomplete
       path: poweron.ogg
     - id: radiation
       path: radiation.ogg

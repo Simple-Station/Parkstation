@@ -7,7 +7,7 @@
       path: aliens.ogg
     - id: announce
       path: announce.ogg
-    - id: anomaly
+    - id: anomalyspawn
       path: anomaly.ogg
     - id: attention
       path: attention.ogg
@@ -17,11 +17,11 @@
       path: ionstorm.ogg
     - id: meteors
       path: meteors.ogg
-    - id: outbreak7
+    - id: diseaseoutbreak
       path: outbreak7.ogg
-    - id: poweroff
+    - id: powergridcheck
       path: poweroff.ogg
-    - id: poweron
+    - id: powergridcheckcomplete
       path: poweron.ogg
     - id: radiation
       path: radiation.ogg
