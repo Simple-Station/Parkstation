@@ -112,6 +112,17 @@
     - type: MobThresholds
       thresholds:
         0: Alive
+        165: Dead
+    - type: Destructible
+      thresholds:
+        - trigger: !type:DamageTrigger
+            damage: 175
+          behaviors:
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+    - type: Repairable
+      fuelcost: 60
+      doAfterDelay: 32
     - type: Bloodstream
       damageBleedModifiers: BloodlossIPC
       bloodReagent: Water
@@ -135,8 +146,8 @@
         types:
           Heat: 0.75 #per second, scales with number of fire 'stacks'
     - type: Temperature
-      heatDamageThreshold: 340
-      coldDamageThreshold: 0
+      heatDamageThreshold: 320
+      coldDamageThreshold: 255
       currentTemperature: 320.15
       specificHeat: 50
       coldDamage:
@@ -144,7 +155,7 @@
           Cold: 0.1 #per second, scales with temperature & other constants
       heatDamage:
         types:
-          Heat: 0.25 #per second, scales with temperature & other constants
+          Heat: 0.15 #per second, scales with temperature & other constants
       atmosTemperatureTransferEfficiency: 0.4
     - type: ThermalRegulator
       metabolismHeat: 1000 # Increase once we have more ways to regulate temperature
@@ -152,46 +163,30 @@
       implicitHeatRegulation: 600
       sweatHeatRegulation: 0
       shiveringHeatRegulation: 12000
-      normalBodyTemperature: 130
-      thermalRegulationTemperatureThreshold: 130
-
+      normalBodyTemperature: 280
+      thermalRegulationTemperatureThreshold: 32
     - type: Polymorphable
     - type: Identity
     - type: MovedByPressure
-    - type: Barotrauma
-      damage:
-        types:
-          Blunt: 0.35 #per second, scales with pressure and other constants.
     - type: DamageOnHighSpeedImpact
       damage:
         types:
           Blunt: 5
       soundHit:
-        path: /Audio/Effects/hit_kick.ogg
+        path: /Audio/Effects/metalbreak.ogg
     - type: LagCompensation
     - type: RangedDamageSound
       soundGroups:
         Brute:
-          collection: MeatBulletImpact
+          collection: MetalBulletImpact
       soundTypes:
         Heat:
-          collection: MeatLaserImpact
+          collection: MetalLaserImpact
     - type: Tag
       tags:
         - CanPilot
         - FootstepSound
         - DoorBumpOpener
-    - type: Reactive
-      groups:
-        Flammable: [Touch]
-        Extinguish: [Touch]
-        Acidic: [Touch, Ingestion]
-      reactions:
-        - reagents: [Water, SpaceCleaner]
-          methods: [Touch]
-          effects:
-            - !type:WashCreamPieReaction
-
     - type: Hands
     - type: Inventory
       templateId: human
@@ -228,20 +223,49 @@
         - key: enum.StrippingUiKey.Key
           type: StrippableBoundUserInterface
     - type: Emoting
-    - type: BodyEmotes
-      soundsId: GeneralBodyEmotes
     - type: Grammar
       attributes:
         proper: true
     - type: StandingState
     - type: CanEscapeInventory
-
-      # Things that likely need to change, taken from human.
     - type: HumanoidAppearance
       species: IPC
     - type: Body
       prototype: IPC
       requiredLegs: 2
+    - type: Ensnareable
+      sprite: Objects/Misc/ensnare.rsi
+    - type: MeleeWeapon
+      hidden: true
+      soundHit:
+        collection: Punch
+      angle: 30
+      animation: WeaponArcFist
+      attackRate: 1
+      damage:
+        types:
+          Blunt: 6 # It's metal.
+    - type: MobPrice
+      price: 1500 # Kidnapping a living person and selling them for cred is a good move.
+      deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
+
+      # Things that likely need to change, taken from human.
+    - type: Barotrauma
+      damage:
+        types:
+          Blunt: 0.28 #per second, scales with pressure and other constants.
+    - type: Reactive
+      groups:
+        Flammable: [Touch]
+        Extinguish: [Touch]
+        Acidic: [Touch, Ingestion]
+      reactions:
+        - reagents: [Water, SpaceCleaner]
+          methods: [Touch]
+          effects:
+            - !type:WashCreamPieReaction
+    - type: BodyEmotes
+      soundsId: GeneralBodyEmotes
     - type: DamageVisuals
       thresholds: [20, 40, 100]
       targetLayers:
@@ -257,23 +281,8 @@
           color: "#FF0000"
         Burn:
           sprite: Mobs/Effects/burn_damage.rsi
-    - type: Ensnareable
-      sprite: Objects/Misc/ensnare.rsi
-    - type: MeleeWeapon
-      hidden: true
-      soundHit:
-        collection: Punch
-      angle: 30
-      animation: WeaponArcFist
-      attackRate: 1
-      damage:
-        types:
-          Blunt: 5
-    - type: MobPrice
-      price: 1500 # Kidnapping a living person and selling them for cred is a good move.
-      deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
     - type: Speech
-      speechSounds: Tenor
+      speechSounds: Pai
     - type: Vocal
       sounds:
         Male: MaleHuman

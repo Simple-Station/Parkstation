@@ -4,12 +4,14 @@
   name: Urist McPositronic
   description: A positronic brain in a metal body.
   components:
+  - type: Inventory
+    templateId: ipc
   - type: Battery
     maxCharge: 150000
   - type: Silicon
     entityType: enum.SiliconType.Player
     batteryPowered: true
-    drainRateMulti: 500
+    drainRateMulti: 50
     chargeRateMulti: 50
     chargeStateThresholdMid: 0.70
     chargeStateThresholdLow: 0.35
@@ -33,3 +35,5 @@
   components:
   - type: HumanoidAppearance
     species: IPC
+  - type: Inventory
+    templateId: ipc

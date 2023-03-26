@@ -138,34 +138,40 @@ public sealed class SiliconChargeSystem : EntitySystem
         // If the Silicon is hot, drain the battery faster, if it's cold, drain it slower, capped.
         var upperThresh = thermalComp.NormalBodyTemperature + (thermalComp.ThermalRegulationTemperatureThreshold);
         var lowerThresh = thermalComp.NormalBodyTemperature - (thermalComp.ThermalRegulationTemperatureThreshold);
+        var upperThreshHalf = thermalComp.NormalBodyTemperature + (thermalComp.ThermalRegulationTemperatureThreshold * 0.5f);
 
         // Check if the silicon is in a hot environment.
-        if (temperComp.CurrentTemperature > (upperThresh * 0.5f))
+        if (temperComp.CurrentTemperature > upperThreshHalf)
         {
 
             // Divide the current temp by the max comfortable temp capped to 4, then add that to the multiplier.
-            var hotTempMulti = Math.Min(temperComp.CurrentTemperature / (upperThresh * 0.5f), 4);
+            var hotTempMulti = Math.Min(temperComp.CurrentTemperature / upperThreshHalf, 4);
+
+            Logger.DebugS("silicon", $"Silicon {silicon} is overheating, multiplier is {hotTempMulti}.");
 
             // If the silicon is hot enough, it has a chance to catch fire.
             FlammableComponent? flamComp = null;
 
             siliconComp.OverheatAccumulator += frameTime;
-            if (siliconComp.OverheatAccumulator >= 10)
+            if (siliconComp.OverheatAccumulator >= 5)
             {
-                siliconComp.OverheatAccumulator =- 10;
+                siliconComp.OverheatAccumulator =- 5;
 
                 if (EntityManager.TryGetComponent<FlammableComponent>(silicon, out flamComp) &&
                     temperComp.CurrentTemperature > temperComp.HeatDamageThreshold &&
                     !flamComp.OnFire &&
-                    _random.Prob(Math.Max(temperComp.CurrentTemperature / (upperThresh * 15), 0.9f)))
+                    _random.Prob(Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 5), 0.001f, 0.9f)))
                 {
                     _flammableSystem.Ignite(silicon, flamComp);
                 }
                 else if ((flamComp == null || !flamComp.OnFire) &&
-                        _random.Prob(Math.Max(temperComp.CurrentTemperature / (upperThresh * 10), 0.45f)))
+                        _random.Prob(Math.Clamp(temperComp.CurrentTemperature / (upperThresh), 0.001f, 0.75f)))
                 {
                     _popup.PopupEntity(popupOverheating, silicon, silicon, PopupType.SmallCaution);
                 }
+
+                // Logger for the random chances.
+                Logger.WarningS("silicon", $"Silicon {silicon} has a {Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 15), 0.001f, 0.9f)} chance to catch fire, and a {Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 4), 0.001f, 0.75f)} chance to popup overheating.");
             }
 
             return hotTempMulti;

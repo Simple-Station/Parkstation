@@ -12,13 +12,11 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
     // Dictionary of ChargeState to Alert severity.
     private static readonly Dictionary<ChargeState, short> ChargeStateAlert = new()
     {
-        {ChargeState.Full, 5},
-        {ChargeState.Mid, 4},
+        {ChargeState.Full, 4},
+        {ChargeState.Mid, 3},
         {ChargeState.Low, 2},
         {ChargeState.Critical, 1},
         {ChargeState.Dead, 0},
-        // {ChargeState.Full, 5},
-        // {ChargeState.Full, 6},
     };
 
     public override void Initialize()

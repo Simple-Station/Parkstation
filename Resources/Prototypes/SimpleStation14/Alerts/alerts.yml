@@ -11,9 +11,7 @@
     state: charge3
   - sprite: /Textures/SimpleStation14/Interface/Alerts/charge.rsi
     state: charge4
-  - sprite: /Textures/SimpleStation14/Interface/Alerts/charge.rsi
-    state: charge5
   name: alerts-charge-name
   description: alerts-charge-desc
   minSeverity: 0
-  maxSeverity: 5
+  maxSeverity: 4
