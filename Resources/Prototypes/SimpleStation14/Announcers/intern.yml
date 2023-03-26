@@ -1,0 +1,68 @@
+- type: announcer
+  id: Intern
+  name: Intern
+  basePath: /Audio/SimpleStation14/Announcements/Intern
+  announcementPaths:
+    - id: aliens
+      path: aliens.ogg
+    - id: announce
+      colleciton: InternAnnouncements
+    - id: anomalyspawn
+      path: anomaly.ogg
+    - id: commandreport
+      collection: InternCommandReportAnnouncements
+    - id: diseaseoutbreak
+      path: outbreak7.ogg
+    - id: powergridcheck
+      path: poweroff.ogg
+    - id: powergridcheckcomplete
+      path: poweron.ogg
+    - id: radiation
+      path: radiation.ogg
+    - id: shuttlecalled
+      path: shuttlecalled.ogg
+    - id: shuttledock
+      path: shuttledock.ogg
+    - id: shuttlerecalled
+      path: shuttlerecalled.ogg
+    - id: welcome
+      collection: InternWelcomeAnnouncements
+    # If there is no announcement for a specific event, the fallback will be played.
+    - id: fallback
+      path: fallback.ogg
+
+
+- type: soundCollection
+  id: InternAnnouncements
+  files:
+    - /Audio/SimpleStation14/Announcements/Intern/announce/1.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/announce/2.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/announce/3.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/announce/4.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/announce/5.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/announce/6.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/announce/7.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/announce/8.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/announce/9.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/announce/10.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/announce/11.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/announce/12.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/announce/13.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/announce/14.ogg
+
+- type: soundCollection
+  id: InternCommandReportAnnouncements
+  files:
+    - /Audio/SimpleStation14/Announcements/Intern/commandreport/1.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/commandreport/2.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/commandreport/3.ogg
+
+- type: soundCollection
+  id: InternWelcomeAnnouncements
+  files:
+    - /Audio/SimpleStation14/Announcements/Intern/welcome/1.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/welcome/2.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/welcome/3.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/welcome/4.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/welcome/5.ogg
+    - /Audio/SimpleStation14/Announcements/Intern/welcome/6.ogg
