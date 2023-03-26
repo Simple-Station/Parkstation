@@ -1,10 +1,12 @@
 - type: announcer
-  id: VoxFem
-  name: Female Alert AI
-  basePath: /Audio/SimpleStation14/Announcements/VoxFem
+  id: MedBot
+  name: Male Alert AI
+  basePath: /Audio/SimpleStation14/Announcements/MedBot
   announcementPaths:
     - id: aliens
       path: aliens.ogg
+    - id: anime
+      path: animes.ogg
     - id: announce
       path: announce.ogg
     - id: anomalyspawn
@@ -13,6 +15,8 @@
       path: attention.ogg
     - id: commandreport
       path: commandreport.ogg
+    - id: intercept
+      path: intercept.ogg
     - id: ionstorm
       path: ionstorm.ogg
     - id: meteorswarm
