@@ -6,6 +6,8 @@
     - id: aliens
       path: aliens.ogg
     - id: announce
+      path: announce.ogg
+    - id: attention
       colleciton: InternAnnouncements
     - id: anomalyspawn
       path: anomaly.ogg
@@ -29,7 +31,7 @@
       collection: InternWelcomeAnnouncements
     # If there is no announcement for a specific event, the fallback will be played.
     - id: fallback
-      path: fallback.ogg
+      collection: InternAnnouncements
 
 
 - type: soundCollection
