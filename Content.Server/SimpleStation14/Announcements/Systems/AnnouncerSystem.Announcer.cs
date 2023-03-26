@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.SimpleStation14.Announcements.Prototypes;
+using Content.Shared.SimpleStation14.CCVar;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -15,7 +16,9 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
         /// </summary>
         public void PickAnnouncer()
         {
-            Announcer = _random.Pick(_prototypeManager.EnumeratePrototypes<AnnouncerPrototype>().ToArray());
+            Announcer = _random.Pick(_prototypeManager.EnumeratePrototypes<AnnouncerPrototype>()
+                .Where(x => !_configManager.GetCVar(SimpleStationCCVars.AnnouncerBlacklist).Contains(x.ID))
+                .ToArray());
         }
 
         /// <summary>
