@@ -11,19 +11,11 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         /// <summary>
-        ///     Refreshes the announcers cache
-        /// </summary>
-        public void RefreshAnnouncers()
-        {
-            Announcers = _prototypeManager.EnumeratePrototypes<AnnouncerPrototype>().ToArray();
-        }
-
-        /// <summary>
         ///     Picks a random announcer
         /// </summary>
         public void PickAnnouncer()
         {
-            Announcer = _random.Pick(Announcers);
+            Announcer = _random.Pick(_prototypeManager.EnumeratePrototypes<AnnouncerPrototype>().ToArray());
         }
 
         /// <summary>

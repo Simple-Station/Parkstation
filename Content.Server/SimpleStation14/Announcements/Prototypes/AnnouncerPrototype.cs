@@ -29,7 +29,11 @@ namespace Content.Server.SimpleStation14.Announcements.Prototypes
     {
         [DataField("id")]
         public string ID { get; set; } = default!;
+
         [DataField("path")]
-        public string Path { get; set; } = default!;
+        public string? Path { get; set; } = null;
+
+        [DataField("collection")]
+        public string? Collection { get; set; } = null;
     }
 }

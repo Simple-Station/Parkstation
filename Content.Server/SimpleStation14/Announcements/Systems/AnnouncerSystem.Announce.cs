@@ -1,7 +1,9 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
+using Content.Server.SimpleStation14.Announcements.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using Robust.Shared.Utility;
 
 namespace Content.Server.SimpleStation14.Announcements.Systems
 {
@@ -15,11 +17,13 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
         /// </summary>
         public string GetAnnouncementPath(string announcerId, string announcementId)
         {
-            var announcer = Announcers.First(a => a.ID == announcerId);
+            var announcer = _prototypeManager.EnumeratePrototypes<AnnouncerPrototype>().ToArray().First(a => a.ID == announcerId);
 
             var announcementType = Announcer.AnnouncementPaths.FirstOrDefault(a => a.ID == announcementId);
             if (announcementType == null) announcementType = Announcer.AnnouncementPaths.First(a => a.ID == "fallback");
 
+            if (announcementType.Path != null) return $"{announcer.BasePath}/{announcementType.Path}";
+            else if (announcementType.Collection != null) return $"{new SoundCollectionSpecifier(announcementType.Collection).GetSound()}";
             return $"{announcer.BasePath}/{announcementType.Path}";
         }
 

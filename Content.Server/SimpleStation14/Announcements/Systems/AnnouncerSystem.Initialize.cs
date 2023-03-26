@@ -13,16 +13,11 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
         ///     The currently selected announcer
         /// </summary>
         public AnnouncerPrototype Announcer { get; set; } = default!;
-        /// <summary>
-        ///     A cached list of all announcers
-        /// </summary>
-        public AnnouncerPrototype[] Announcers { get; set; } = default!;
 
         public override void Initialize()
         {
             base.Initialize();
 
-            RefreshAnnouncers();
             PickAnnouncer();
 
             _configManager.OnValueChanged(SimpleStationCVars.Announcer, PickAnnouncer);
@@ -33,7 +28,6 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
 
         private void OnRoundStarting(RoundStartingEvent ev)
         {
-            RefreshAnnouncers();
             PickAnnouncer(_configManager.GetCVar<string>(SimpleStationCVars.Announcer));
         }
     }
