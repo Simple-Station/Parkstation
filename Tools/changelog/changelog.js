@@ -1,0 +1,113 @@
+const fs = require("fs");
+const yaml = require("js-yaml");
+const axios = require("axios");
+
+process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER = "29";
+process.env.GITHUB_TOKEN = "";
+process.env.GITHUB_REPOSITORY = "Park-Station/ParkStation";
+
+axios.defaults.headers.common["Authorization"] = `Bearer ${process.env.GITHUB_TOKEN}`;
+
+(async () => {
+    // Get PR details
+    const pr = await axios.get(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/pulls/${process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER}`);
+    const { merged_at, body } = pr.data;
+
+    // Get author
+    const HeaderRegex = /^\s*(?::cl:|🆑) *([a-z0-9_\- ]+)?\s+/im;
+    const headerMatch = HeaderRegex.exec(body);
+    if (!headerMatch) {
+        console.log("No changelog entry found.");
+        return;
+    }
+    let author = headerMatch[1];
+    if (!author) {
+        console.log("No author found, setting it to 'Untitled'.");
+        author = "Untitled";
+    }
+
+    // Get all changes
+    entries = [];
+    getAllChanges(body).forEach((entry) => {
+        let type;
+
+        switch (entry[1].toLowerCase()) {
+            case "add":
+                type = "add";
+                break;
+            case "remove":
+                type = "remove";
+                break;
+            case "tweak":
+                type = "tweak";
+                break;
+            case "fix":
+                type = "fix";
+                break;
+            default:
+                break;
+        }
+
+        if (type) {
+            entries.push({
+                type: type,
+                message: entry[2],
+            });
+        }
+    });
+
+    // time is something like 2021-08-29T20:00:00Z
+    // time should be something like 2023-02-18T00:00:00.0000000+00:00
+    let time = merged_at;
+    time = time.split("T")[0];
+    time = time + "T00:00:00.0000000+00:00";
+
+    // Construct changelog entry
+    const entry = {
+        author: author,
+        changes: entries,
+        id: parseInt(process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER),
+        time: time,
+    };
+
+    // Read changelogs.yml file
+    const file = fs.readFileSync(
+        "../../Resources/Changelog/SimpleStationChangelog.yml",
+        "utf8"
+    );
+    const data = yaml.load(file);
+
+    const changelogs = data && data.Entries ? Array.from(data.Entries) : [];
+
+    // Check if 'Entries:' already exists and remove it
+    const index = Object.entries(changelogs).findIndex(([key, value]) => key === "Entries");
+    if (index !== -1) {
+        changelogs.splice(index, 1);
+    }
+
+    // Add the new entry to the end of the array
+    changelogs.push(entry);
+    const updatedChangelogs = changelogs;
+
+    // Write updated changelogs.yml file
+    fs.writeFileSync(
+        "../../Resources/Changelog/SimpleStationChangelog.yml",
+        "Entries:\n" +
+            yaml.dump(updatedChangelogs, { indent: 2 }).replace(/^---/, "")
+    );
+
+    console.log(`Changelog updated with changes from PR #${process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER}`);
+})();
+
+function getAllChanges(description) {
+    const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/im;
+
+    let changes = [];
+    let match;
+
+    while ((match = EntryRegex.exec(description))) {
+        changes.push(match);
+    }
+
+    return changes;
+}
