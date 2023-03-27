@@ -1,0 +1,14 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'character-sprite-examine-ui-title'}"
+    MinSize="64 64"
+    Resizable="False">
+    <GridContainer Name="SpriteContainer" Columns="2" HorizontalExpand="True" VerticalExpand="True" Margin="8">
+        <!--
+        <SpriteView Name="SpriteViewS" />
+        <SpriteView Name="SpriteViewN" />
+        <SpriteView Name="SpriteViewW" />
+        <SpriteView Name="SpriteViewE" />
+        -->
+    </GridContainer>
+</controls:FancyWindow>
