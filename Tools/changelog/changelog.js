@@ -2,13 +2,18 @@ const fs = require("fs");
 const yaml = require("js-yaml");
 const axios = require("axios");
 
-process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER = "29";
-process.env.GITHUB_TOKEN = "";
-process.env.GITHUB_REPOSITORY = "Park-Station/ParkStation";
+// process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER = "29";
+// process.env.GITHUB_TOKEN = "";
+// process.env.GITHUB_REPOSITORY = "Park-Station/ParkStation";
+// process.env.CHANGELOG_DIR = "../../Resources/Changelog/SimpleStationChangelog.yml";
 
-axios.defaults.headers.common["Authorization"] = `Bearer ${process.env.GITHUB_TOKEN}`;
+if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `Bearer ${process.env.GITHUB_TOKEN}`;
 
 (async () => {
+    console.log(process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER);
+    console.log(process.env.GITHUB_REPOSITORY);
+    console.log(process.env.CHANGELOG_DIR);
+
     // Get PR details
     const pr = await axios.get(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/pulls/${process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER}`);
     const { merged_at, body } = pr.data;
@@ -72,7 +77,7 @@ axios.defaults.headers.common["Authorization"] = `Bearer ${process.env.GITHUB_TO
 
     // Read changelogs.yml file
     const file = fs.readFileSync(
-        "../../Resources/Changelog/SimpleStationChangelog.yml",
+        process.env.CHANGELOG_DIR,
         "utf8"
     );
     const data = yaml.load(file);
@@ -91,7 +96,7 @@ axios.defaults.headers.common["Authorization"] = `Bearer ${process.env.GITHUB_TO
 
     // Write updated changelogs.yml file
     fs.writeFileSync(
-        "../../Resources/Changelog/SimpleStationChangelog.yml",
+        process.env.CHANGELOG_DIR,
         "Entries:\n" +
             yaml.dump(updatedChangelogs, { indent: 2 }).replace(/^---/, "")
     );

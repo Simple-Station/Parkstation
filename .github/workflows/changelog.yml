@@ -1,0 +1,30 @@
+name: PR Changelogs
+on: push # later change this to PR merged
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Master
+        uses: actions/checkout@v3
+        with:
+          ref: master
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: |
+          cd Tools/changelog
+          npm install
+      - name: Generate Changelog
+        run: node Tools/changelog/changelog.js
+      - name: Commit Changelog
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          # TODO: make these env variables
+          commit_message: Automatic ChangeLog Update
+          commit_user_name: SimpleStation Changelog[bot] # defaults to "github-actions[bot]"
+          commit_user_email: 77995199+DEATHB4DEFEAT@users.noreply.github.com # defaults to "41898282+github-actions[bot]@users.noreply.github.com"
+          # commit_author: Author <actions@github.com> # defaults to author of the commit that triggered the run
