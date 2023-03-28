@@ -25,7 +25,6 @@
   components:
   - type: Sprite
     state: brain
-    sprite: Mobs/Species/Human/organs.rsi
   - type: Organ
   - type: Input
     context: "ghost"
