@@ -1,12 +1,10 @@
 name: PR Changelogs
-on:
-  # pull_request:
-    push # later change this to PR merged
+on: push # later change this to PR merged somehow
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   CHANGELOG_DIR: ${{ vars.CHANGELOG_DIR }}
-  PR_NUMBER: ${{ github.event.number }}
+  # PR_NUMBER: ${{ github.event.number }}
 
 jobs:
   changelog:
@@ -19,10 +17,22 @@ jobs:
         with:
           # ref: master
           ref: changelog-action
+
+      - name: Get PR number
+        uses: jwalton/gh-find-current-pr@v1
+        id: findPr
+        with:
+          state: open
+      - run: echo "Current PR is ${PR}"
+        if: success() && steps.findPr.outputs.number
+        env:
+          PR_NUMBER: ${{ steps.findPr.outputs.pr }}
+
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: 18
+
       - name: Install Dependencies
         run: |
           cd "${{ github.action_path }}"
@@ -30,6 +40,7 @@ jobs:
           cd changelog
           npm install
         shell: bash
+
       - name: Generate Changelog
         run: |
           cd "${{ github.action_path }}"
@@ -37,10 +48,11 @@ jobs:
           cd changelog
           node changelog.js
         shell: bash
+
       - name: Commit Changelog
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          # TODO: make these env variables
+          # TODO: make these vars
           commit_message: Automatic ChangeLog Update
           commit_user_name: SimpleStation Changelog[bot] # defaults to "github-actions[bot]"
           commit_user_email: 77995199+DEATHB4DEFEAT@users.noreply.github.com # defaults to "41898282+github-actions[bot]@users.noreply.github.com"
