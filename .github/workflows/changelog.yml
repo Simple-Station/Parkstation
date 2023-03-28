@@ -1,5 +1,10 @@
 name: PR Changelogs
 on: push # later change this to PR merged
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  CHANGELOG_DIR: ${{ vars.CHANGELOG_DIR }}
+
 jobs:
   changelog:
     runs-on: ubuntu-latest
