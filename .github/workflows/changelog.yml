@@ -18,16 +18,6 @@ jobs:
           # ref: master
           ref: changelog-action
 
-      - name: Get PR number
-        uses: jwalton/gh-find-current-pr@v1
-        id: findPr
-        with:
-          state: open
-      - run: echo "Current PR is ${PR}"
-        if: success() && steps.findPr.outputs.number
-        env:
-          PR_NUMBER: ${{ steps.findPr.outputs.pr }}
-
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
