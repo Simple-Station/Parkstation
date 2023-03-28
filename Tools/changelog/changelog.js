@@ -28,10 +28,10 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     let author = headerMatch[1];
     if (!author) {
         console.log("No author found, setting it to 'Untitled'");
-        console.log("\n");
         author = "Untitled";
     }
     else console.log(`Author: ${author}`);
+    console.log("\n");
 
     // Get all changes
     entries = [];
