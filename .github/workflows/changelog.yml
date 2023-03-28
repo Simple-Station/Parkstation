@@ -17,10 +17,10 @@ jobs:
           node-version: 18
       - name: Install Dependencies
         run: |
-          cd "${{ github.action_path }}/Tools/changelog"
+          cd "${{ github.action_path }}/../../Tools/changelog"
           npm install
       - name: Generate Changelog
-        run: node "${{ github.action_path }}/Tools/changelog/changelog.js"
+        run: node "${{ github.action_path }}/../..//Tools/changelog/changelog.js"
         shell: bash
       - name: Commit Changelog
         uses: stefanzweifel/git-auto-commit-action@v4
