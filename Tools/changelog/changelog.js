@@ -3,7 +3,7 @@ const yaml = require("js-yaml");
 const axios = require("axios");
 
 // Examples of how the variables will output
-// // process.env.PR_NUMBER = "29";
+// process.env.PR_NUMBER = "29";
 // process.env.GITHUB_TOKEN = "github_pat_tokenTHINGgoesHERE111";
 // process.env.GITHUB_REPOSITORY = "Park-Station/ParkStation";
 // process.env.CHANGELOG_DIR = "../../Resources/Changelog/SimpleStationChangelog.yml";
@@ -12,8 +12,7 @@ const axios = require("axios");
 if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `Bearer ${process.env.GITHUB_TOKEN}`;
 
 (async () => {
-    // console.log(process.env.PR_NUMBER);
-    console.log(process.env.GITHUB_EVENT_PATH);
+    console.log(process.env.PR_NUMBER);
     console.log(process.env.GITHUB_TOKEN != undefined && process.env.GITHUB_TOKEN != "");
     console.log(process.env.GITHUB_REPOSITORY);
     console.log(process.env.CHANGELOG_DIR);
