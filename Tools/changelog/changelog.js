@@ -21,15 +21,17 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     const HeaderRegex = /^\s*(?::cl:|🆑) *([a-z0-9_\- ]+)?\s+/im;
     const headerMatch = HeaderRegex.exec(body);
     if (!headerMatch) {
-        console.log("No changelog entry found.");
+        console.log("No changelog entry found, skipping");
         return;
     }
+
     let author = headerMatch[1];
     if (!author) {
-        console.log("No author found, setting it to 'Untitled'.");
+        console.log("No author found, setting it to 'Untitled'");
         console.log("\n");
         author = "Untitled";
     }
+    else console.log(`Author: ${author}`);
 
     // Get all changes
     entries = [];

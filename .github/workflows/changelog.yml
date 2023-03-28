@@ -36,6 +36,7 @@ jobs:
           cd "${{ github.action_path }}"
           cd Tools
           cd changelog
+          export NODE_OPTIONS="--max-old-space-size=2048"
           node changelog.js
         shell: bash
 
