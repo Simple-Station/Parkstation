@@ -11,6 +11,7 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     console.log(`Using Token: ${process.env.GITHUB_TOKEN != undefined && process.env.GITHUB_TOKEN != ""}`);
     console.log(`Repository: ${process.env.GITHUB_REPOSITORY}`);
     console.log(`Changelog Directory: ${process.env.CHANGELOG_DIR}`);
+    console.log("\n");
 
     // Get PR details
     const pr = await axios.get(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/pulls/${process.env.PR_NUMBER}`);
@@ -26,6 +27,7 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     let author = headerMatch[1];
     if (!author) {
         console.log("No author found, setting it to 'Untitled'.");
+        console.log("\n");
         author = "Untitled";
     }
 
@@ -74,6 +76,7 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     };
 
     // Read changelogs.yml file
+    console.log("Reading changelogs file");
     const file = fs.readFileSync(
         process.env.CHANGELOG_DIR,
         "utf8"
@@ -93,6 +96,7 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     const updatedChangelogs = changelogs;
 
     // Write updated changelogs.yml file
+    console.log("Writing changelogs file");
     fs.writeFileSync(
         process.env.CHANGELOG_DIR,
         "Entries:\n" +
