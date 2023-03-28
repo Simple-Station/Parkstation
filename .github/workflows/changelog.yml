@@ -37,7 +37,7 @@ jobs:
           cd Tools
           cd changelog
           export NODE_OPTIONS="--max-old-space-size=2048"
-          node changelog.js
+          node --trace_gc changelog.js
         shell: bash
 
       - name: Commit Changelog
