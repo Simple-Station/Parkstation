@@ -116,7 +116,7 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
 
     // Instead of reading the changelogs file, just append the new changelogs entry to the end of the file
     console.log("Writing changelogs file");
-    fs.appendFileSync(
+    await fs.appendFile(
         process.env.CHANGELOG_DIR,
         yaml.dump(entry, { indent: 2 }).replace(/^---/, "")
     );
