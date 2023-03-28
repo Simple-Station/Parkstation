@@ -20,10 +20,9 @@
   id: MobIPCSprites
   sprites:
     Head: MobIPCHead
-    # Hair: MobHumanoidAnyMarking
-    # FacialHair: MobHumanoidAnyMarking
+    Hair: MobHumanoidMarkingMatchSkin
+    FacialHair: MobIPCScreen
     Chest: MobIPCTorso
-    # Eyes: MobHumanoidEyes
     LArm: MobIPCLArm
     RArm: MobIPCRArm
     LHand: MobIPCLHand
@@ -32,9 +31,6 @@
     RLeg: MobIPCRLeg
     LFoot: MobIPCLFoot
     RFoot: MobIPCRFoot
-    # Tail: MobHumanoidAnyMarking
-    # Wings: MobHumanoidAnyMarking
-    # HeadTop: MobHumanoidAnyMarking
 
 - type: markingPoints
   id: MobIPCMarkingLimits
@@ -49,18 +45,8 @@
       points: 2
       required: false
 
-# - type: humanoidBaseSprite
-#   id: MobHumanoidEyes
-#   baseSprite:
-#     sprite: Mobs/Customization/eyes.rsi
-#     state: eyes
-
-# - type: humanoidBaseSprite
-#   id: MobHumanoidAnyMarking
-
-# - type: humanoidBaseSprite
-#   id: MobHumanoidMarkingMatchSkin
-#   markingsMatchSkin: true
+- type: humanoidBaseSprite
+  id: MobIPCScreen
 
 - type: humanoidBaseSprite
   id: MobIPCHead

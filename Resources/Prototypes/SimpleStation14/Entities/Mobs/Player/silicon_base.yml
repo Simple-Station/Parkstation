@@ -45,7 +45,7 @@
       baseWalkSpeed: 4
       baseSprintSpeed: 3
     - type: Sprite
-      sprite: SimpleStation14/Mobs/Species/ipc.rsi
+      sprite: SimpleStation14/Mobs/Species/IPC/parts.rsi
       state: full
       noRot: true
       drawdepth: Mobs
@@ -65,7 +65,7 @@
     - type: Silicon
       entityType: enum.SiliconType.Player
       batteryPowered: false # Needs to also have a battery component!
-      drainRateMulti: 10
+      drainRateMulti: 4.5
       chargeRateMulti: 6
       chargeStateThresholdMid: 0.60
       chargeStateThresholdLow: 0.30

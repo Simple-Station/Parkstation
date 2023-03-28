@@ -8,21 +8,33 @@
   },
   "states": [
     {
+      "name": "icon"
+    },
+    {
+      "name": "base"
+    },
+    {
+      "name": "open"
+    },
+    {
+      "name": "closed"
+    },
+    {
+      "name": "borgcharger_open_unlit"
+    },
+    {
+      "name": "borgcharger_closed_unlit"
+    },
+    {
       "name": "borgcharger_active_unlit",
       "delays": [
         [
           0.1,
           0.1,
           0.1,
-          0.1
+          0.15
         ]
       ]
-    },
-    {
-      "name": "borgcharger_open_on_unlit"
-    },
-    {
-      "name": "borgcharger_closed_on_unlit"
     },
     {
       "name": "borgcharger_panel"
@@ -32,12 +44,6 @@
     },
     {
       "name": "borgcharger_2"
-    },
-    {
-      "name": "borgcharger_open_base"
-    },
-    {
-      "name": "borgcharger_closed_base"
     }
   ]
 }
