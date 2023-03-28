@@ -2,7 +2,7 @@ const fs = require("fs");
 const yaml = require("js-yaml");
 const axios = require("axios");
 
-// process.env.GITHUB_EVENT_NUMBER = "29";
+// process.env.PR_NUMBER = "29";
 // process.env.GITHUB_TOKEN = "";
 // process.env.GITHUB_REPOSITORY = "Park-Station/ParkStation";
 // process.env.CHANGELOG_DIR = "../../Resources/Changelog/SimpleStationChangelog.yml";
@@ -10,13 +10,13 @@ const axios = require("axios");
 if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `Bearer ${process.env.GITHUB_TOKEN}`;
 
 (async () => {
-    console.log(process.env.GITHUB_EVENT_NUMBER);
-    console.log(process.env.GITHUB_TOKEN != "");
+    console.log(process.env.PR_NUMBER);
+    console.log(process.env.GITHUB_TOKEN != undefined || process.env.GITHUB_TOKEN != "");
     console.log(process.env.GITHUB_REPOSITORY);
     console.log(process.env.CHANGELOG_DIR);
 
     // Get PR details
-    const pr = await axios.get(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/pulls/${process.env.GITHUB_EVENT_NUMBER}`);
+    const pr = await axios.get(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/pulls/${process.env.PR_NUMBER}`);
     const { merged_at, body } = pr.data;
 
     // Get author
@@ -72,7 +72,7 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     const entry = {
         author: author,
         changes: entries,
-        id: parseInt(process.env.GITHUB_EVENT_NUMBER),
+        id: parseInt(process.env.PR_NUMBER),
         time: time,
     };
 
@@ -102,7 +102,7 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
             yaml.dump(updatedChangelogs, { indent: 2 }).replace(/^---/, "")
     );
 
-    console.log(`Changelog updated with changes from PR #${process.env.GITHUB_EVENT_NUMBER}`);
+    console.log(`Changelog updated with changes from PR #${process.env.PR_NUMBER}`);
 })();
 
 function getAllChanges(description) {

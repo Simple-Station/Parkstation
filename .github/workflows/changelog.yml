@@ -1,9 +1,12 @@
 name: PR Changelogs
-on: push # later change this to PR merged
+on:
+  # pull_request:
+    push # later change this to PR merged
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   CHANGELOG_DIR: ${{ vars.CHANGELOG_DIR }}
+  PR_NUMBER: ${{ github.event.number }}
 
 jobs:
   changelog:
