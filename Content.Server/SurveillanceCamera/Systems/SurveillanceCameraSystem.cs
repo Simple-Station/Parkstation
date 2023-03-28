@@ -157,6 +157,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         var cama = _entityManager.GetComponent<SurveillanceCameraComponent>(camera);
 
         cam.CameraName = cama.CameraId;
+        cam.CameraCategories = cama.AvailableNetworks;
     }
 
     private void OnShutdown(EntityUid camera, SurveillanceCameraComponent component, ComponentShutdown args)

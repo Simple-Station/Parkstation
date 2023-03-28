@@ -19,7 +19,8 @@ namespace Content.Shared.SimpleStation14.StationAI.Systems
             args.State = new AICameraComponentState
             {
                 Enabled = component.Enabled,
-                CameraName = component.CameraName
+                CameraName = component.CameraName,
+                CameraCategories = component.CameraCategories
             };
         }
 
@@ -30,6 +31,7 @@ namespace Content.Shared.SimpleStation14.StationAI.Systems
 
             component.Enabled = camera.Enabled;
             component.CameraName = camera.CameraName;
+            component.CameraCategories = camera.CameraCategories;
         }
     }
 }

@@ -9,6 +9,6 @@
         </BoxContainer>
 
         <Label Name="Text" Text="{Loc 'ai-warp-menu-no-cameras'}" />
-        <ItemList Name="SubnetList" SelectMode="Single" VerticalExpand="True" Margin="0 5" />
+        <TabContainer Name="SubnetList" VerticalExpand="True" Margin="0 5" />
     </BoxContainer>
 </controls:FancyWindow>
