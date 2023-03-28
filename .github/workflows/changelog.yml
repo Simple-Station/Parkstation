@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: 18.x
 
       - name: Install Dependencies
         run: |
@@ -43,6 +43,7 @@ jobs:
       - name: Commit Changelog
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
+          file_pattern: '*.yml'
           # TODO: make these vars
           commit_message: Automatic ChangeLog Update
           commit_user_name: SimpleStation Changelog[bot] # defaults to "github-actions[bot]"
