@@ -9,17 +9,19 @@ jobs:
       - name: Checkout Master
         uses: actions/checkout@v3
         with:
-          ref: master
+          # ref: master
+          ref: changelog-action
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: 18
       - name: Install Dependencies
         run: |
-          cd Tools/changelog
+          cd ${{ github.action_path }}/Tools/changelog
           npm install
       - name: Generate Changelog
-        run: node Tools/changelog/changelog.js
+        run: node ${{ github.action_path }}/Tools/changelog/changelog.js
+        shell: bash
       - name: Commit Changelog
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
