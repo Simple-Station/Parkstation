@@ -125,22 +125,5 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
 function getAllChanges(description) {
     console.log("Getting all changes");
     const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/im;
-
-    let changes = [];
-
-    // This is awful, it barely works, do better
-    // let match;
-
-    // while ((match = EntryRegex.exec(description))) {
-    //     console.log(`Found change: ${match[1]}: ${match[2]}`);
-    //     changes.push(match);
-    // }
-
-    let match = EntryRegex.exec(description);
-    match.forEach((entry) => {
-        console.log(`Found change: ${entry[1]}: ${entry[2]}`);
-        changes.push(entry);
-    });
-
-    return changes;
+    return description.match(EntryRegex);
 }
