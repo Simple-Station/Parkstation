@@ -1,0 +1,52 @@
+name: PR Changelogs
+on:
+  pull_request:
+    types: [closed]
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  CHANGELOG_DIR: ${{ vars.CHANGELOG_DIR }}
+  PR_NUMBER: ${{ github.event.number }}
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Master
+        uses: actions/checkout@v3
+        with:
+          ref: "${{ vars.CHANGELOG_BRANCH }}"
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install Dependencies
+        run: |
+          cd "${{ github.action_path }}"
+          cd Tools
+          cd changelog
+          npm install
+        shell: bash
+
+      - name: Generate Changelog
+        run: |
+          cd "${{ github.action_path }}"
+          cd Tools
+          cd changelog
+          export NODE_OPTIONS="--max-old-space-size=2048"
+          node --trace_gc changelog.js
+        shell: bash
+
+      - name: Commit Changelog
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          file_pattern: '*.yml'
+          commit_message: "${{ env.PR_NUMBER }} - ${{ vars.CHANGELOG_MESSAGE }}"
+          commit_user_name: "${{ env.CHANGELOG_USER }}"
+          commit_user_email: "${{ env.CHANGELOG_EMAIL }}"
+          commit_author: "${{ env.CHANGELOG_USER }} <${{ env.CHANGELOG_EMAIL }}>"
