@@ -38,15 +38,11 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     const changes = getAllChanges(body);
     console.log(`Found ${changes.length} changes`);
     console.log("\n");
-    console.log("Changes:");
-    console.log(changes);
-    console.log("\n");
 
     changes.forEach((entry) => {
-        console.log(`Found change: ${entry[1]}`);
         let type;
 
-        switch (entry[1].toLowerCase()) {
+        switch (entry[0].toLowerCase()) {
             case "add":
                 type = "add";
                 break;
@@ -66,9 +62,8 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
         if (type) {
             entries.push({
                 type: type,
-                message: entry[2],
+                message: entry[1],
             });
-            console.log(`Found ${type} change: ${entry[2]}`);
         }
     });
 
@@ -83,8 +78,12 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
         time = time.split("T")[0];
         time = time + "T00:00:00.0000000+00:00";
     }
-    else time = "2023-03-28T00:00:00.0000000+00:00";
-    console.log(`Time: ${time}`);
+    else
+    {
+        console.log("No merge time found, setting it to 2023-03-28T00:00:00.0000000+00:00"); // Wasn't merged
+        time = "2023-03-28T00:00:00.0000000+00:00";
+    }
+    console.log(`Merge Time: ${time}`);
     console.log("\n");
 
     // Construct changelog entry
@@ -102,7 +101,7 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     // Read changelogs.yml file
     console.log("Reading changelogs file");
     const file = fs.readFileSync(
-        process.env.CHANGELOG_DIR,
+        `../../${process.env.CHANGELOG_DIR}`,
         "utf8"
     );
     const data = yaml.load(file);
@@ -122,7 +121,7 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     // Write updated changelogs.yml file
     console.log("Writing changelogs file");
     fs.writeFileSync(
-        process.env.CHANGELOG_DIR,
+        `../../${process.env.CHANGELOG_DIR}`,
         "Entries:\n" +
             yaml.dump(updatedChangelogs, { indent: 2 }).replace(/^---/, "")
     );
