@@ -19,13 +19,13 @@ GITHUB_TOKEN      = os.environ["GITHUB_TOKEN"]
 
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
-CHANGELOG_FILE = "Resources/Changelog/NyanotrasenChangelog.yml"
+CHANGELOG_FILE = "Resources/Changelog/SimpleStationChangelog.yml"
 
 TYPES_TO_EMOJI = {
-    "Fix":    "🐛",
-    "Add":    "🆕",
+    "Fix":    "🔨",
+    "Add":    "✔",
     "Remove": "❌",
-    "Tweak":  "⚒️"
+    "Tweak":  "🔧",
 }
 
 ChangelogEntry = dict[str, Any]
@@ -131,4 +131,3 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
 
 
 main()
-
