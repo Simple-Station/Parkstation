@@ -1,24 +1,91 @@
 - type: entity
+  name: impact grenade
+  description: A grenade that explodes on impact.
+  parent: GrenadeBase
+  id: GrenadeImpact
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/flashbang.rsi
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default
+      totalIntensity: 40
+      intensitySlope: 45
+      maxIntensity: 20
+      canCreateVacuum: false
+    # - type: DeleteOnTrigger
+    # - type: DamageSelfOnTrigger
+    #   damage:
+    #     types:
+    #       Brute: 10
+    - type: DamageOnLand
+      damage:
+        types:
+          Brute: 10
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 5
+        behaviors:
+        - !type:TriggerBehavior
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+
+- type: entity
   name: fragmentation grenade
   description: A grenade that explodes into a cloud of shrapnel.
   parent: GrenadeBase
   id: GrenadeFragThrown
   components:
     - type: Sprite
-      sprite: Objects/Weapons/Grenades/flashbang.rsi
+      sprite: SimpleStation14/Objects/Weapons/Grenades/frag_grenade.rsi
     - type: SpawnEntitiesOnTrigger
-      prototype: BaseBulletTrigger
-      count: 30
-      minCount: 20
+      prototype: BulletGrenadeShrapnel
+      count: 120
+      minCount: 100
       velocity: 20
+      despawnTime: 0.4
+      shoot: true
+    - type: EmitSoundOnTrigger
+      sound:
+        path: /Audio/Effects/metalbreak.ogg
+    # - type: ExplodeOnTrigger
+    # - type: Explosive
+    #   explosionType: Default
+    #   totalIntensity: 40
+    #   intensitySlope: 45
+    #   maxIntensity: 20
+    #   canCreateVacuum: false
+    - type: DeleteOnTrigger
+    - type: Appearance
+      visuals:
+      - type: TimerTriggerVisualizer
+        countdown_sound:
+          path: /Audio/Items/pop.ogg
+    - type: OnUseTimerTrigger
+      delay: 5
+
+- type: entity
+  name: rubber ball grenade
+  description:
+  parent: GrenadeBase
+  id: GrenadeRubberBall
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/grenade.rsi
+    - type: SpawnEntitiesOnTrigger
+      prototype: BulletGrenadeShrapnelRubber
+      count: 85
+      minCount: 70
+      velocity: 15
       despawnTime: 1.5
-    - type: ExplodeOnTrigger
-    - type: Explosive
-      explosionType: Default
-      totalIntensity: 40
-      intensitySlope: 45
-      maxIntensity: 10
-      canCreateVacuum: false
+      shoot: true
+    - type: EmitSoundOnTrigger
+      sound:
+        path: /Audio/Effects/metalbreak.ogg
     - type: DeleteOnTrigger
     # - type: Appearance
     #   visuals:
@@ -35,18 +102,19 @@
   id: GrenadeBees
   components:
     - type: Sprite
-      sprite: Objects/Weapons/Grenades/flashbang.rsi
+      sprite: SimpleStation14/Objects/Weapons/Grenades/beenade.rsi
     - type: SpawnEntitiesOnTrigger
       prototype: MobAngryBee
-      count: 5
-      minCount: 3
-      despawnTime: 30
+      count: 10
+      minCount: 6
+      despawnTime: 10
       # velocity: 2
+      offset: 1
     - type: DeleteOnTrigger
-    # - type: Appearance
-    #   visuals:
-    #   - type: TimerTriggerVisualizer
-    #     countdown_sound:
-    #       path: /Audio/Effects/countdown.ogg
+    - type: Appearance
+      visuals:
+      - type: TimerTriggerVisualizer
+        countdown_sound:
+          path: /Audio/SimpleStation14/Effects/Weapons/Grenades/beenade.ogg
     - type: OnUseTimerTrigger
-      delay: 2
+      delay: 3

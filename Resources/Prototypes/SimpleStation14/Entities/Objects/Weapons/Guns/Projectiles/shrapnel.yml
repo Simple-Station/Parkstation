@@ -1,0 +1,41 @@
+- type: entity
+  id: BulletGrenadeShrapnel
+  parent: BaseBullet
+  name: shrapnel
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    layers:
+    - state: shrapnel
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 14
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.3,-0.25,0.3,0.25"
+      hard: false
+      id: projectile
+      mask:
+      - Impassable
+      - BulletImpassable
+    # - *flybyfixture
+
+- type: entity
+  id: BulletGrenadeShrapnelRubber
+  parent: BaseBulletRubber
+  name: rubber ball
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 1.5
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/snap.ogg
+  - type: StaminaDamageOnCollide
+    damage: 15
