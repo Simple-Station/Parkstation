@@ -45,6 +45,7 @@ jobs:
       - name: Commit Changelog
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
+          branch: "${{ vars.CHANGELOG_BRANCH }}"
           file_pattern: '*.yml'
           commit_message: "${{ env.PR_NUMBER }} - ${{ vars.CHANGELOG_MESSAGE }}"
           commit_user_name: "${{ env.CHANGELOG_USER }}"
