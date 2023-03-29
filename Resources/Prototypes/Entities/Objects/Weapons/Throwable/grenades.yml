@@ -27,7 +27,8 @@
       behaviors:
       - !type:TriggerBehavior
       - !type:DoActsBehavior
-        acts: ["Destruction"]  - type: Appearance
+        acts: ["Destruction"]
+  - type: Appearance
     visuals:
     - type: TimerTriggerVisualizer
 
