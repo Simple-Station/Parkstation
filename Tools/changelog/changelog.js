@@ -126,8 +126,20 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     console.log(`Changelog updated with changes from PR #${process.env.PR_NUMBER}`);
 })();
 
+// function getAllChanges(description) {
+//     console.log("Getting all changes");
+//     const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/im;
+//     return description.match(EntryRegex);
+// }
+
 function getAllChanges(description) {
     console.log("Getting all changes");
-    const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/im;
-    return description.match(EntryRegex);
+    const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/img;
+    const matches = [];
+
+    for (const match of description.matchAll(EntryRegex)) {
+        matches.push([match[1], match[2]]);
+    }
+
+    return matches;
 }
