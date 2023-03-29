@@ -127,12 +127,20 @@ function getAllChanges(description) {
     const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/im;
 
     let changes = [];
-    let match;
 
-    while ((match = EntryRegex.exec(description))) {
-        console.log(`Found change: ${match[1]}: ${match[2]}`);
-        changes.push(match);
-    }
+    // This is awful, it barely works, do better
+    // let match;
+
+    // while ((match = EntryRegex.exec(description))) {
+    //     console.log(`Found change: ${match[1]}: ${match[2]}`);
+    //     changes.push(match);
+    // }
+
+    let match = EntryRegex.exec(description);
+    match.forEach((entry) => {
+        console.log(`Found change: ${entry[1]}: ${entry[2]}`);
+        changes.push(entry);
+    });
 
     return changes;
 }
