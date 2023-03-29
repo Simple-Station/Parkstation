@@ -1252,3 +1252,15 @@ Entries:
       message: Removed fun!
   id: 58
   time: '2023-03-28T00:00:00.0000000+00:00'
+- author: Untitled
+  changes:
+    - type: add
+      message: Added fun!
+    - type: tweak
+      message: Tweaked fun!
+    - type: fix
+      message: Fixed fun!
+    - type: remove
+      message: Removed fun!
+  id: 62
+  time: '2023-03-29T00:00:00.0000000+00:00'
