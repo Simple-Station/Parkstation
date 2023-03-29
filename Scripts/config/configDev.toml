@@ -18,8 +18,8 @@ id = "parkstation"
 min_players = 32
 
 [rules]
-rules.time = 60
-rules.exempt_local = false
+time = 60
+exempt_local = false
 
 [events]
 ramping_average_end_time = 120.0

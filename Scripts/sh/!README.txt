@@ -12,10 +12,6 @@ configServer
 
 runBuildAll
     Builds the client and server then runs them
-runBuildClient
-	Builds only the client and runs it
-runBuildServer
-	Builds only the server and runs it
 
 runQuickAll
     Runs the client and server without building
