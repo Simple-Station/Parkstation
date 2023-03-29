@@ -1,5 +1,7 @@
 name: PR Changelogs
-on: pull_request # later change this to PR merged somehow
+on:
+  pull_request:
+    types: [closed]
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -9,14 +11,14 @@ env:
 jobs:
   changelog:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     permissions:
       contents: write
     steps:
       - name: Checkout Master
         uses: actions/checkout@v3
         with:
-          # ref: master
-          ref: changelog-action
+          ref: master
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -45,7 +47,7 @@ jobs:
         with:
           file_pattern: '*.yml'
           # TODO: make these vars
-          commit_message: Automatic ChangeLog Update
+          commit_message: Automatic Changelog Update
           commit_user_name: SimpleStation Changelog[bot] # defaults to "github-actions[bot]"
           commit_user_email: 77995199+DEATHB4DEFEAT@users.noreply.github.com # defaults to "41898282+github-actions[bot]@users.noreply.github.com"
-          # commit_author: Author <actions@github.com> # defaults to author of the commit that triggered the run
+          commit_author: SimpleStation Changelog[bot] <77995199+DEATHB4DEFEAT@users.noreply.github.com> # defaults to author of the commit that triggered the run

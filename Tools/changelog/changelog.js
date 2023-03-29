@@ -80,8 +80,10 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     }
     else
     {
-        console.log("No merge time found, setting it to 2023-03-28T00:00:00.0000000+00:00"); // Wasn't merged
-        time = "2023-03-28T00:00:00.0000000+00:00";
+        console.log("Pull request was not merged, skipping");
+        return;
+        // console.log("No merge time found, setting it to 2023-03-28T00:00:00.0000000+00:00");
+        // time = "2023-03-28T00:00:00.0000000+00:00";
     }
     console.log(`Merge Time: ${time}`);
     console.log("\n");
