@@ -78,8 +78,12 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     // time is something like 2021-08-29T20:00:00Z
     // time should be something like 2023-02-18T00:00:00.0000000+00:00
     let time = merged_at;
-    time = time.split("T")[0];
-    time = time + "T00:00:00.0000000+00:00";
+    if (time)
+    {
+        time = time.split("T")[0];
+        time = time + "T00:00:00.0000000+00:00";
+    }
+    else time = "2023-03-28T00:00:00.0000000+00:00";
     console.log(`Time: ${time}`);
     console.log("\n");
 
@@ -125,12 +129,6 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
 
     console.log(`Changelog updated with changes from PR #${process.env.PR_NUMBER}`);
 })();
-
-// function getAllChanges(description) {
-//     console.log("Getting all changes");
-//     const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/im;
-//     return description.match(EntryRegex);
-// }
 
 function getAllChanges(description) {
     console.log("Getting all changes");
