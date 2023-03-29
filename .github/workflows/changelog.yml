@@ -48,6 +48,6 @@ jobs:
           branch: "${{ vars.CHANGELOG_BRANCH }}"
           file_pattern: '*.yml'
           commit_message: "${{ env.PR_NUMBER }} - ${{ vars.CHANGELOG_MESSAGE }}"
-          commit_user_name: "${{ env.CHANGELOG_USER }}"
-          commit_user_email: "${{ env.CHANGELOG_EMAIL }}"
-          commit_author: "${{ env.CHANGELOG_USER }} <${{ env.CHANGELOG_EMAIL }}>"
+          commit_user_name: "${{ vars.CHANGELOG_USER }}"
+          commit_user_email: "${{ vars.CHANGELOG_EMAIL }}"
+          commit_author: "${{ vars.CHANGELOG_USER }} <${{ vars.CHANGELOG_EMAIL }}>"
