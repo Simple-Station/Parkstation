@@ -37,6 +37,10 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     entries = [];
     const changes = getAllChanges(body);
     console.log(`Found ${changes.length} changes`);
+    console.log("\n");
+    console.log("Changes:");
+    console.log(changes);
+    console.log("\n");
 
     changes.forEach((entry) => {
         console.log(`Found change: ${entry[1]}`);
