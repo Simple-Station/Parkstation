@@ -46,8 +46,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           file_pattern: '*.yml'
-          # TODO: make these vars
-          commit_message: Automatic Changelog Update
-          commit_user_name: SimpleStation Changelog[bot] # defaults to "github-actions[bot]"
-          commit_user_email: 77995199+DEATHB4DEFEAT@users.noreply.github.com # defaults to "41898282+github-actions[bot]@users.noreply.github.com"
-          commit_author: SimpleStation Changelog[bot] <77995199+DEATHB4DEFEAT@users.noreply.github.com> # defaults to author of the commit that triggered the run
+          commit_message: "${{ env.PR_NUMBER }} - ${{ vars.CHANGELOG_MESSAGE }}"
+          commit_user_name: "${{ env.CHANGELOG_USER }}"
+          commit_user_email: "${{ env.CHANGELOG_EMAIL }}"
+          commit_author: "${{ env.CHANGELOG_USER }} <${{ env.CHANGELOG_EMAIL }}>"
