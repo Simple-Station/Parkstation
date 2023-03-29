@@ -58,14 +58,14 @@
     noRot: true
     drawdepth: Mobs
     layers:
-      - map: ["enum.HumanoidVisualLayers.Chest"]
-      - map: ["enum.HumanoidVisualLayers.Head"]
-      - map: ["enum.HumanoidVisualLayers.Snout"]
-      - map: ["enum.HumanoidVisualLayers.Eyes"]
-      - map: ["enum.HumanoidVisualLayers.RArm"]
-      - map: ["enum.HumanoidVisualLayers.LArm"]
-      - map: ["enum.HumanoidVisualLayers.RLeg"]
-      - map: ["enum.HumanoidVisualLayers.LLeg"]
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
       - shader: StencilClear
         sprite: Mobs/Species/Human/parts.rsi #PJB on stencil clear being on the left leg: "...this is 'fine'" -https://github.com/space-wizards/space-station-14/pull/12217#issuecomment-1291677115
         # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
@@ -76,15 +76,15 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: female_full
         visible: false
-      - map: ["enum.HumanoidVisualLayers.LFoot"]
-      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: [ "enum.HumanoidVisualLayers.LHand" ]
+      - map: [ "enum.HumanoidVisualLayers.RHand" ]
+      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
       - map: ["socks"]
       - map: ["underpants"]
       - map: ["undershirt"]
-      - map: ["jumpsuit"]
-      - map: ["enum.HumanoidVisualLayers.LHand"]
-      - map: ["enum.HumanoidVisualLayers.RHand"]
-      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      - map: [ "jumpsuit" ]
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2

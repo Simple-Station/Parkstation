@@ -11,6 +11,7 @@
           steps:
             - material: Plasteel
               amount: 5
+              doAfter: 8
             - material: Cable
               amount: 5
 
@@ -23,7 +24,7 @@
           steps:
             - material: Bluespace
               amount: 5
-              doAfter: 1
+              doAfter: 10
             - tool: Welding
               doAfter: 5
         - to: glimmerDrain
