@@ -35,7 +35,10 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
 
     // Get all changes
     entries = [];
-    getAllChanges(body).forEach((entry) => {
+    const changes = getAllChanges(body);
+    console.log(`Found ${changes.length} changes`);
+
+    changes.forEach((entry) => {
         console.log(`Found change: ${entry[1]}`);
         let type;
 
@@ -120,12 +123,14 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
 })();
 
 function getAllChanges(description) {
+    console.log("Getting all changes");
     const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/im;
 
     let changes = [];
     let match;
 
     while ((match = EntryRegex.exec(description))) {
+        console.log(`Found change: ${match[1]}: ${match[2]}`);
         changes.push(match);
     }
 
