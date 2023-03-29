@@ -79,7 +79,7 @@
     bulb: Tube
     damage:
       types:
-        Heat: 5
+        Heat: 0.2
   - type: ContainerContainer
     containers:
       light_bulb: !type:ContainerSlot
@@ -113,7 +113,7 @@
     hasLampOnSpawn: LightTube
     damage:
       types:
-        Heat: 5
+        Heat: 0.2
 
 #LED lights
 - type: entity
@@ -126,7 +126,7 @@
     hasLampOnSpawn: LedLightTube
     damage:
       types:
-        Heat: 5
+        Heat: 0.2
 
 - type: entity
   parent: AlwaysPoweredWallLight
@@ -150,7 +150,7 @@
     hasLampOnSpawn: ExteriorLightTube
     damage:
       types:
-        Heat: 5
+        Heat: 0.2
 
 - type: entity
   parent: AlwaysPoweredWallLight
@@ -174,7 +174,7 @@
     hasLampOnSpawn: SodiumLightTube
     damage:
       types:
-        Heat: 5
+        Heat: 0.2
 
 - type: entity
   parent: AlwaysPoweredWallLight
@@ -256,7 +256,7 @@
     bulb: Bulb
     damage:
       types:
-        Heat: 5
+        Heat: 0.2
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: DeviceNetwork
@@ -285,7 +285,7 @@
     hasLampOnSpawn: LightBulb
     damage:
       types:
-        Heat: 5
+        Heat: 0.2
 
 #Emergency Lights
 - type: entity

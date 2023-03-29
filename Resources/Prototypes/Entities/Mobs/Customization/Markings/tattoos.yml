@@ -9,12 +9,15 @@
       Reptilian,
       SlimePerson,
       Oni,
-      Lamia,
       Arachne,
-      Diona,
       Moth,
       Shadowkin,
     ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
     - sprite: Mobs/Customization/tattoos.rsi
       state: tattoo_hive_chest
@@ -30,12 +33,15 @@
       Reptilian,
       SlimePerson,
       Oni,
-      Lamia,
       Arachne,
-      Diona,
       Moth,
       Shadowkin,
     ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
     - sprite: Mobs/Customization/tattoos.rsi
       state: tattoo_nightling
@@ -51,12 +57,15 @@
       Reptilian,
       SlimePerson,
       Oni,
-      Lamia,
       Arachne,
-      Diona,
       Moth,
       Shadowkin,
     ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
     - sprite: Mobs/Customization/tattoos.rsi
       state: tattoo_silverburgh_l_leg
@@ -72,12 +81,15 @@
       Reptilian,
       SlimePerson,
       Oni,
-      Lamia,
       Arachne,
-      Diona,
       Moth,
       Shadowkin,
     ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
     - sprite: Mobs/Customization/tattoos.rsi
       state: tattoo_silverburgh_r_leg
@@ -93,12 +105,15 @@
       Reptilian,
       SlimePerson,
       Oni,
-      Lamia,
       Arachne,
-      Diona,
       Moth,
       Shadowkin,
     ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
     - sprite: Mobs/Customization/tattoos.rsi
       state: tattoo_campbell_l_arm
@@ -114,12 +129,15 @@
       Reptilian,
       SlimePerson,
       Oni,
-      Lamia,
       Arachne,
-      Diona,
       Moth,
       Shadowkin,
     ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
     - sprite: Mobs/Customization/tattoos.rsi
       state: tattoo_campbell_r_arm
@@ -135,12 +153,15 @@
       Reptilian,
       SlimePerson,
       Oni,
-      Lamia,
       Arachne,
-      Diona,
       Moth,
       Shadowkin,
     ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
     - sprite: Mobs/Customization/tattoos.rsi
       state: tattoo_campbell_l_leg
@@ -156,12 +177,15 @@
       Reptilian,
       SlimePerson,
       Oni,
-      Lamia,
       Arachne,
-      Diona,
       Moth,
       Shadowkin,
     ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
     - sprite: Mobs/Customization/tattoos.rsi
       state: tattoo_campbell_r_leg
@@ -178,6 +202,11 @@
       SlimePerson,
       Oni,
     ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
   sprites:
     - sprite: Mobs/Customization/tattoos.rsi
       state: tattoo_eye_r
@@ -194,6 +223,11 @@
       SlimePerson,
       Oni,
     ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
   sprites:
     - sprite: Mobs/Customization/tattoos.rsi
       state: tattoo_eye_l

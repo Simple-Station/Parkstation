@@ -67,14 +67,14 @@ public sealed class MinorRuleSystem : GameRuleSystem
         var minPlayers = _cfg.GetCVar(CCVars.MinorMinPlayers);
         if (!ev.Forced && ev.Players.Length < minPlayers)
         {
-            _chatManager.DispatchServerAnnouncement(Loc.GetString("minor-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
+            _chatManager.DispatchServerAnnouncement(Loc.GetString("preset-minor-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
             cont = false;
             return;
         }
 
         if (ev.Players.Length == 0)
         {
-            _chatManager.DispatchServerAnnouncement(Loc.GetString("minor-no-one-ready"));
+            _chatManager.DispatchServerAnnouncement(Loc.GetString("preset-minor-no-one-ready"));
             cont = false;
             return;
         }

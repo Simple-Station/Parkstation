@@ -173,6 +173,7 @@
           False: { visible: false }
   - type: TypingIndicator
     proto: robot
+
 - type: entity
   parent: PlayerCyborgBase
   id: PlayerCyborgStandard

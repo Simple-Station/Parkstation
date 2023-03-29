@@ -17,20 +17,6 @@
     - type: Nearsighted
 
 - type: trait
-  id: EasyDrunk
-  name: Weak Stomach
-  description: You take longer to metabolise, get drunk easier, and feel dizzy often.
-  cost: 2
-  category: Negative
-  components:
-    - type: EasyDrunk
-      reagent:
-        solutionName: chemicals
-        reagent: Fakethanol
-        unitsPerUpdate: 0.1
-        accumulatorTime: 2
-
-- type: trait
   id: FakeMime
   name: Mute
   description: For one reason or another you will not speak, ever, and communicate through miming or writing.
