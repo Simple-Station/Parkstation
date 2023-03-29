@@ -36,6 +36,7 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     // Get all changes
     entries = [];
     getAllChanges(body).forEach((entry) => {
+        console.log(`Found change: ${entry[1]}`);
         let type;
 
         switch (entry[1].toLowerCase()) {
@@ -60,6 +61,7 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
                 type: type,
                 message: entry[2],
             });
+            console.log(`Found ${type} change: ${entry[2]}`);
         }
     });
 
@@ -86,39 +88,32 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     console.log(entry);
     console.log("\n");
 
-    // // Read changelogs.yml file
-    // console.log("Reading changelogs file");
-    // const file = fs.readFileSync(
-    //     process.env.CHANGELOG_DIR,
-    //     "utf8"
-    // );
-    // const data = yaml.load(file);
-
-    // const changelogs = data && data.Entries ? Array.from(data.Entries) : [];
-
-    // // Check if 'Entries:' already exists and remove it
-    // const index = Object.entries(changelogs).findIndex(([key, value]) => key === "Entries");
-    // if (index !== -1) {
-    //     changelogs.splice(index, 1);
-    // }
-
-    // // Add the new entry to the end of the array
-    // changelogs.push(entry);
-    // const updatedChangelogs = changelogs;
-
-    // // Write updated changelogs.yml file
-    // console.log("Writing changelogs file");
-    // fs.writeFileSync(
-    //     process.env.CHANGELOG_DIR,
-    //     "Entries:\n" +
-    //         yaml.dump(updatedChangelogs, { indent: 2 }).replace(/^---/, "")
-    // );
-
-    // Instead of reading the changelogs file, just append the new changelogs entry to the end of the file
-    console.log("Writing changelogs file");
-    await fs.appendFile(
+    // Read changelogs.yml file
+    console.log("Reading changelogs file");
+    const file = fs.readFileSync(
         process.env.CHANGELOG_DIR,
-        yaml.dump(entry, { indent: 2 }).replace(/^---/, "")
+        "utf8"
+    );
+    const data = yaml.load(file);
+
+    const changelogs = data && data.Entries ? Array.from(data.Entries) : [];
+
+    // Check if 'Entries:' already exists and remove it
+    const index = Object.entries(changelogs).findIndex(([key, value]) => key === "Entries");
+    if (index !== -1) {
+        changelogs.splice(index, 1);
+    }
+
+    // Add the new entry to the end of the array
+    changelogs.push(entry);
+    const updatedChangelogs = changelogs;
+
+    // Write updated changelogs.yml file
+    console.log("Writing changelogs file");
+    fs.writeFileSync(
+        process.env.CHANGELOG_DIR,
+        "Entries:\n" +
+            yaml.dump(updatedChangelogs, { indent: 2 }).replace(/^---/, "")
     );
 
     console.log(`Changelog updated with changes from PR #${process.env.PR_NUMBER}`);
