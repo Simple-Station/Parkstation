@@ -101,6 +101,8 @@
     sprite: Clothing/Head/Hats/cardborg_h.rsi
   - type: TypingIndicatorClothing
     proto: robot
+  - type: IdentityBlocker
+  - type: IngestionBlocker
   - type: DropOnSlip
     chance: 20
 

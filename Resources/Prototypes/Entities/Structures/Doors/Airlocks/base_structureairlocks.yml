@@ -42,7 +42,7 @@
       layer:
       - AirlockLayer
   - type: LayerChangeOnWeld
-    unweldedLayer: AirlockLayer
+    unWeldedLayer: AirlockLayer
     weldedLayer: WallLayer
   - type: ContainerFill
     containers:
@@ -116,5 +116,6 @@
     group: Standard
   - type: DynamicPrice
     price: 150
+  - type: AccessReader
   placement:
     mode: SnapgridCenter
