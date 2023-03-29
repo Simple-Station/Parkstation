@@ -36,6 +36,11 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     // Get all changes
     entries = [];
     const changes = getAllChanges(body);
+    if (!changes)
+    {
+        console.log("No changes found, skipping");
+        return;
+    }
     console.log(`Found ${changes.length} changes`);
     console.log("\n");
 
