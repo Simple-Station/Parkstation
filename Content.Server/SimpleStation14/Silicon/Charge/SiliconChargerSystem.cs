@@ -90,7 +90,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
         // If the given entity DOESN'T have a battery, burn the fucker.
         else if (burn &&
                 EntityManager.TryGetComponent<DamageableComponent>(entity, out var damageComp) &&
-                damageComp.DamageContainerID == "Organic")
+                damageComp.DamageContainerID == "Biological")
         {
             var damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Shock"), frameTime * chargerComp.ChargeMulti / 100);
             var damageDealt = _damageableSystem.TryChangeDamage(entity, damage, false, true, damageComp, chargerComp.Owner);
