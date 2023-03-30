@@ -32,7 +32,7 @@
 
 - type: gamePreset
   id: Peaceful
-  name: preset-peaceful-name
+  name: preset-peaceful-title
   alias:
     - peaceful
   description: preset-peaceful-description

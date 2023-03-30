@@ -1,1 +1,1 @@
-character-sprite-examine-ui-title = Character Sprite View
+character-sprite-examine-ui-title = View Closely

@@ -1,2 +1,2 @@
-character-sprite-examine-verb-text = Character Sprite View
-character-sprite-examine-verb-message = Opens a large window that shows the character sprite in four directions
+character-sprite-examine-verb-text = View Closely
+character-sprite-examine-verb-message = Get a closer look...
