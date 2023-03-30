@@ -1,5 +1,6 @@
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.Gravity;
 using Content.Shared.Inventory;
 using Content.Shared.StatusEffect;
 using Content.Shared.StepTrigger.Systems;
@@ -23,6 +24,7 @@ namespace Content.Shared.Slippery
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+        [Dependency] private readonly SharedGravitySystem _gravity = default!;
         [Dependency] private readonly IEntityManager _entities = default!;
 
 
@@ -83,12 +85,17 @@ namespace Content.Shared.Slippery
             if (HasComp<KnockedDownComponent>(other))
                 return;
 
+            TryComp(other, out PhysicsComponent? physics);
+
+            if (_gravity.IsWeightless(other, physics))
+                return;
+
             var ev = new SlipAttemptEvent();
             RaiseLocalEvent(other, ev, false);
             if (ev.Cancelled)
                 return;
 
-            if (TryComp(other, out PhysicsComponent? physics))
+            if (physics != null)
                 _physics.SetLinearVelocity(other, physics.LinearVelocity * component.LaunchForwardsMultiplier, body: physics);
 
             var playSound = !_statusEffectsSystem.HasStatusEffect(other, "KnockedDown");
