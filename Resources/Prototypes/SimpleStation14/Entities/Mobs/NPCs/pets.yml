@@ -1,7 +1,30 @@
 - type: entity
-  name: Lois
+  parent: MobMonkey
+  id: MobMonkeyPunpun
+  name: Punpun
+  description: NOT FOR HUMAN CONSUMPTION.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: monkey
+      sprite: SimpleStation14/Mobs/Pets/punpun.rsi
+  - type: Faction
+    factions:
+    - Pet
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: RandomBark
+    chatlog: True
+  - type: Punpun
+
+- type: entity
   parent: MobLizard
   id: MobLizardLois
+  name: Lois
   description: A lizard with a love of life, and a fear of justice.
   components:
   - type: InteractionPopup
@@ -15,9 +38,9 @@
       gender: male
 
 - type: entity
-  name: Randall
   parent: MobFrog
   id: MobFrogRandall
+  name: Randall
   description: Ayooo, it's Randall hoppin' round!
   components:
   - type: InteractionPopup
@@ -31,9 +54,9 @@
       gender: male
 
 - type: entity
-  name: Terrance
   parent: MobSlug
   id: MobSlugTerrance
+  name: Terrance
   description: Tis Terrance.
   components:
   - type: InteractionPopup

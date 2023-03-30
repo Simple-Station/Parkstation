@@ -315,6 +315,24 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> DiscordAHelpAvatar =
             CVarDef.Create("discord.ahelp_avatar", string.Empty, CVar.SERVERONLY);
 
+        /// <summary>
+        ///     URL of the Discord webhook which will send round status notifications.
+        /// </summary>
+        public static readonly CVarDef<string> DiscordRoundWebhook =
+            CVarDef.Create("discord.round_webhook", string.Empty, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Discord ID of role which will be pinged on new round start message.
+        /// </summary>
+        public static readonly CVarDef<string> DiscordRoundRoleId =
+            CVarDef.Create("discord.round_roleid", string.Empty, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Send notifications only about a new round begins.
+        /// </summary>
+        public static readonly CVarDef<bool> DiscordRoundStartOnly =
+            CVarDef.Create("discord.round_start_only", false, CVar.SERVERONLY);
+
         /*
          * Suspicion
          */
@@ -1271,6 +1289,11 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> UILayout =
             CVarDef.Create("ui.layout", "Default", CVar.CLIENTONLY | CVar.ARCHIVE);
 
+        public static readonly CVarDef<string> DefaultScreenChatSize =
+            CVarDef.Create("ui.default_chat_size", "", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+        public static readonly CVarDef<string> SeparatedScreenChatSize =
+            CVarDef.Create("ui.separated_chat_size", "0.6,0", CVar.CLIENTONLY | CVar.ARCHIVE);
 
 
         /*
@@ -1285,6 +1308,15 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<bool> ChatShowTypingIndicator =
             CVarDef.Create("chat.show_typing_indicator", true, CVar.CLIENTONLY);
+
+        /// <summary>
+        /// A message broadcast to each player that joins the lobby.
+        /// May be changed by admins ingame through use of the "set-motd" command.
+        /// In this case the new value, if not empty, is broadcast to all connected players and saved between rounds.
+        /// May be requested by any player through use of the "get-motd" command.
+        /// </summary>
+        public static readonly CVarDef<string> MOTD =
+            CVarDef.Create("chat.motd", "", CVar.SERVER | CVar.SERVERONLY | CVar.ARCHIVE, "A message broadcast to each player that joins the lobby.");
 
         /*
          * AFK

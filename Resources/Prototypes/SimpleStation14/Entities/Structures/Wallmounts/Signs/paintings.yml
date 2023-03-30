@@ -36,4 +36,13 @@
   - type: Sprite
     state: painting2
 
+- type: entity
+  parent: PaintingBasePark
+  id: PaintingCM
+  name: Marine Painting
+  description: Featuring a parrot.
+  components:
+  - type: Sprite
+    state: painting3
+
 

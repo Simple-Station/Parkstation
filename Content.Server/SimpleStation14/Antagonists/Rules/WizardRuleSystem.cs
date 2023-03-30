@@ -72,14 +72,14 @@ public sealed class WizardRuleSystem : GameRuleSystem
         var minPlayers = _cfg.GetCVar(CCVars.WizardMinPlayers);
         if (!ev.Forced && ev.Players.Length < minPlayers)
         {
-            _chatManager.DispatchServerAnnouncement(Loc.GetString("wizard-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
+            _chatManager.DispatchServerAnnouncement(Loc.GetString("preset-wizard-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
             ev.Cancel();
             return;
         }
 
         if (ev.Players.Length == 0)
         {
-            _chatManager.DispatchServerAnnouncement(Loc.GetString("wizard-no-one-ready"));
+            _chatManager.DispatchServerAnnouncement(Loc.GetString("preset-wizard-no-one-ready"));
             ev.Cancel();
             return;
         }
