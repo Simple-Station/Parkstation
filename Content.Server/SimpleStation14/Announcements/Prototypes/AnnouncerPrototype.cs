@@ -35,5 +35,8 @@ namespace Content.Server.SimpleStation14.Announcements.Prototypes
 
         [DataField("collection")]
         public string? Collection { get; set; } = null;
+
+        [DataField("message")]
+        public string? MessageOverride { get; set; } = null;
     }
 }

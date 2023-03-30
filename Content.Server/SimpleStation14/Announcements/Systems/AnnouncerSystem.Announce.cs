@@ -3,7 +3,6 @@ using Content.Server.Chat.Systems;
 using Content.Server.SimpleStation14.Announcements.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
-using Robust.Shared.Utility;
 
 namespace Content.Server.SimpleStation14.Announcements.Systems
 {
@@ -19,20 +18,29 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
         {
             var announcer = _prototypeManager.EnumeratePrototypes<AnnouncerPrototype>().ToArray().First(a => a.ID == announcerId);
 
-            var announcementType = Announcer.AnnouncementPaths.FirstOrDefault(a => a.ID == announcementId);
-            if (announcementType == null) announcementType = Announcer.AnnouncementPaths.First(a => a.ID == "fallback");
+            var announcementType = Announcer.AnnouncementPaths.FirstOrDefault(a => a.ID == announcementId) ??
+                Announcer.AnnouncementPaths.First(a => a.ID == "fallback");
 
-            if (announcementType.Path != null) return $"{announcer.BasePath}/{announcementType.Path}";
-            else if (announcementType.Collection != null) return $"{new SoundCollectionSpecifier(announcementType.Collection).GetSound()}";
+            if (announcementType.Path != null)
+                return $"{announcer.BasePath}/{announcementType.Path}";
+            else if (announcementType.Collection != null)
+                return $"{new SoundCollectionSpecifier(announcementType.Collection).GetSound()}";
             return $"{announcer.BasePath}/{announcementType.Path}";
         }
 
-        /// <summary>
-        ///     Gets an announcement SoundSpecifier from the announcer
-        /// </summary>
-        public SoundSpecifier GetAnnouncementSpecifier(string announcementId)
+        public string? GetAnnouncementMessage(string announcerId, string announcementId)
         {
-            return new SoundPathSpecifier(GetAnnouncementPath(Announcer.ID, announcementId));
+            string? result = null;
+
+            var announcer = _prototypeManager.EnumeratePrototypes<AnnouncerPrototype>().ToArray().First(a => a.ID == announcerId);
+
+            var announcementType = Announcer.AnnouncementPaths.FirstOrDefault(a => a.ID == announcementId) ??
+                Announcer.AnnouncementPaths.First(a => a.ID == "fallback");
+
+            if (announcementType.MessageOverride != null)
+                result = Loc.GetString(announcementType.MessageOverride);
+
+            return result;
         }
 
 
@@ -41,7 +49,7 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
         /// </summary>
         public void SendAnnouncement(string announcementId, Filter filter, AudioParams? audioParams = null)
         {
-            string announcement = GetAnnouncementPath(Announcer.ID, announcementId);
+            var announcement = GetAnnouncementPath(Announcer.ID, announcementId);
             _audioSystem.PlayGlobal(announcement, filter, true, audioParams);
         }
 
@@ -50,10 +58,14 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
         /// </summary>
         public void SendAnnouncement(string announcementId, Filter filter, string message, string? sender = null, Color? colorOverride = null, AudioParams? audioParams = null)
         {
-            string announcement = GetAnnouncementPath(Announcer.ID, announcementId);
-            if (sender == null) sender = Announcer.Name;
+            var announcementPath = GetAnnouncementPath(Announcer.ID, announcementId);
+            sender ??= Announcer.Name;
 
-            _audioSystem.PlayGlobal(announcement, filter, true, audioParams);
+            var announcementMessage = GetAnnouncementMessage(Announcer.ID, announcementId);
+            if (announcementMessage != null)
+                message = announcementMessage;
+
+            _audioSystem.PlayGlobal(announcementPath, filter, true, audioParams);
             _chatSystem.DispatchGlobalAnnouncement(message, sender, false, colorOverride: colorOverride);
         }
     }
