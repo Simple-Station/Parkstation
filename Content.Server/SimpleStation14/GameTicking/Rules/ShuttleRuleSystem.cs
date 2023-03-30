@@ -1,7 +1,7 @@
 using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
 
-namespace Content.Server.SimpleStation14.GameTicking
+namespace Content.Server.SimpleStation14.GameTicking.Rules
 {
     public sealed class ShuttleRuleSystem : EntitySystem
     {
@@ -13,26 +13,26 @@ namespace Content.Server.SimpleStation14.GameTicking
             SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
         }
 
+        // TODO: Get it to show at bottom of manifest
         private void OnRoundEnd(RoundEndTextAppendEvent ev)
         {
-            // TODO: Get it to show at bottom of manifest
-            if (_roundEndSystem._autoCalled == true)
+            switch (_roundEndSystem._autoCalled)
             {
-                ev.AddLine("");
-                ev.AddLine("");
-                ev.AddLine(Loc.GetString("shift-round-end-autocall"));
-            }
-            else if (_roundEndSystem._autoCalled == false)
-            {
-                ev.AddLine("");
-                ev.AddLine("");
-                ev.AddLine(Loc.GetString("shift-round-end-emergency"));
-            }
-            else
-            {
-                ev.AddLine("");
-                ev.AddLine("");
-                ev.AddLine(Loc.GetString("shift-round-end-unknown"));
+                case true:
+                    ev.AddLine("");
+                    ev.AddLine("");
+                    ev.AddLine(Loc.GetString("shift-round-end-autocall"));
+                    break;
+                case false:
+                    ev.AddLine("");
+                    ev.AddLine("");
+                    ev.AddLine(Loc.GetString("shift-round-end-emergency"));
+                    break;
+                default:
+                    ev.AddLine("");
+                    ev.AddLine("");
+                    ev.AddLine(Loc.GetString("shift-round-end-unknown"));
+                    break;
             }
         }
     }

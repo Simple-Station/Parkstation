@@ -20,22 +20,25 @@ namespace Content.Server.SimpleStation14.Cargo.Systems
         /// <summary>
         ///     An extra amount of money to add to the cost of the shuttle.
         /// </summary>
-        public float GlobalDebt = 0f;
+        public float GlobalDebt;
         /// <summary>
         ///     If we have attempted to call the shuttle (and failed)
         /// </summary>
-        public bool AlreadyAttempted = false;
+        public bool AlreadyAttempted;
 
         public void CallShuttle(StationCargoOrderDatabaseComponent orderDatabase, EntityUid? player = null, bool recall = false)
         {
-            if (orderDatabase.Shuttle == null) return;
+            if (orderDatabase.Shuttle == null)
+                return;
             AlreadyAttempted = true;
 
             var cost = CalculateCost(orderDatabase);
             if (cost == null)
             {
-                if (!recall) _cargoSystem.CallShuttle(orderDatabase);
-                else _cargoSystem.SendToCargoMap(orderDatabase.Shuttle.Value);
+                if (!recall)
+                    _cargoSystem.CallShuttle(orderDatabase);
+                else
+                    _cargoSystem.SendToCargoMap(orderDatabase.Shuttle.Value);
                 AlreadyAttempted = false;
                 return;
             }
@@ -46,8 +49,10 @@ namespace Content.Server.SimpleStation14.Cargo.Systems
 
             if (success)
             {
-                if (!recall) _cargoSystem.CallShuttle(orderDatabase);
-                else _cargoSystem.SendToCargoMap(orderDatabase.Shuttle.Value);
+                if (!recall)
+                    _cargoSystem.CallShuttle(orderDatabase);
+                else
+                    _cargoSystem.SendToCargoMap(orderDatabase.Shuttle.Value);
                 AlreadyAttempted = false;
             }
             else if (player != null)
@@ -72,7 +77,8 @@ namespace Content.Server.SimpleStation14.Cargo.Systems
             var maxcost = _configManager.GetCVar(SimpleStationCVars.CargoShuttleMaxCost);
 
             // No methods, no cost.
-            if (SimpleStationCVars.CargoShuttleCostMethods.Count == 0) return cost;
+            if (SimpleStationCVars.CargoShuttleCostMethods.Count == 0)
+                return cost;
             // Check if method is valid, if not do the first possible method.
             if (!SimpleStationCVars.CargoShuttleCostMethods.Contains(method))
                 method = SimpleStationCVars.CargoShuttleCostMethods.First();
@@ -98,12 +104,12 @@ namespace Content.Server.SimpleStation14.Cargo.Systems
                     break;
                 case "percent":
                     var percentCost = _configManager.GetCVar(SimpleStationCVars.CargoShuttlePercentCost);
-                    cost = (float?) (bankAccount.Balance * (percentCost / 100f));
+                    cost = bankAccount.Balance * (percentCost / 100f);
                     break;
                 case "load":
                     var loadCost = _configManager.GetCVar(SimpleStationCVars.CargoShuttleLoadCost);
                     var load = orderDatabase.Orders.Count;
-                    cost = (float?) (mincost + (loadCost * load));
+                    cost = mincost + (loadCost * load);
                     break;
                 default:
                     DebugTools.Assert($"Unknown cargo shuttle cost method: {method}   Did you forget to add functionality?");
@@ -111,7 +117,8 @@ namespace Content.Server.SimpleStation14.Cargo.Systems
             }
 
             // Clamp cost
-            if (cost > maxcost) cost = maxcost;
+            if (cost > maxcost)
+                cost = maxcost;
             // Add debt to cost
             cost += GlobalDebt;
 

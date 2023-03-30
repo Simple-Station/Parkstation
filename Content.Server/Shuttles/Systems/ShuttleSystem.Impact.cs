@@ -60,7 +60,7 @@ public sealed partial class ShuttleSystem
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
 
         protoMan.TryIndex<ExplosionPrototype>("MicroBomb", out var type);
-        if (type == null) type = protoMan.EnumeratePrototypes<ExplosionPrototype>().FirstOrDefault();
+        type ??= protoMan.EnumeratePrototypes<ExplosionPrototype>().FirstOrDefault();
         if (type == null)
         {
             throw new InvalidOperationException("Couldn't find any explosion prototypes while trying to explode shuttle collision.");
