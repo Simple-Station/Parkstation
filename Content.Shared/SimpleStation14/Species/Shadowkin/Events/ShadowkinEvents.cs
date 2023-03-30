@@ -1,5 +1,4 @@
 using Content.Shared.Actions;
-using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 
@@ -55,7 +54,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Events
         public float PowerCostOff = 35f;
 
         [DataField("staminaCost")]
-        public float StaminaCost = 0f;
+        public float StaminaCost;
     }
 
     /// <summary>

@@ -1,17 +1,10 @@
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
-using Robust.Shared.Network;
 using Robust.Shared.GameStates;
-using Robust.Shared.Random;
 
 namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 {
     public sealed class ShadowkinSystem : EntitySystem
     {
-        [Dependency] private readonly ShadowkinPowerSystem _powerSystem = default!;
-        [Dependency] private readonly INetManager _net = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-
         public override void Initialize()
         {
             base.Initialize();

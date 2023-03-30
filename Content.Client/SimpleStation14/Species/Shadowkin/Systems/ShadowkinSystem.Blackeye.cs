@@ -34,13 +34,14 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
 
         private void OnInit(EntityUid uid, ShadowkinComponent component, ComponentInit args)
         {
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadowkin) ||
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out _) ||
                 !_entityManager.TryGetComponent<SpriteComponent>(uid, out var sprite) ||
                 !sprite.LayerMapTryGet(HumanoidVisualLayers.Eyes, out var index) ||
                 !sprite.TryGetLayer(index, out var layer))
                 return;
 
-            if (layer.Color != Color.Black) return;
+            if (layer.Color != Color.Black)
+                return;
 
             RaiseNetworkEvent(new ShadowkinBlackeyeEvent(uid, false));
         }
@@ -48,7 +49,7 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
 
         private void SetColor(EntityUid uid, Color color)
         {
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadowkin) ||
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out _) ||
                 !_entityManager.TryGetComponent<SpriteComponent>(uid, out var sprite) ||
                 !sprite.LayerMapTryGet(HumanoidVisualLayers.Eyes, out var index) ||
                 !sprite.TryGetLayer(index, out var layer))

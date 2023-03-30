@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 {
-    public class ShadowkinPowerSystem : EntitySystem
+    public sealed class ShadowkinPowerSystem : EntitySystem
     {
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly AlertsSystem _alertsSystem = default!;
 
 
-        /// <param name="PowerLevel">The current power level.</param>
+        /// <param name="powerLevel">The current power level.</param>
         /// <returns>The name of the power level.</returns>
-        public string GetLevelName(float PowerLevel)
+        public string GetLevelName(float powerLevel)
         {
             // Placeholders
-            ShadowkinPowerThreshold result = ShadowkinPowerThreshold.Min;
+            var result = ShadowkinPowerThreshold.Min;
             var value = ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Max];
 
             // Find the highest threshold that is lower than the current power level
             foreach (var threshold in ShadowkinComponent.PowerThresholds)
             {
-                if (threshold.Value <= value && threshold.Value >= PowerLevel)
+                if (threshold.Value <= value && threshold.Value >= powerLevel)
                 {
                     result = threshold.Key;
                     value = threshold.Value;
@@ -40,22 +40,20 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
                 {ShadowkinPowerThreshold.Min, Loc.GetString("shadowkin-power-min")}
             };
 
-            // Get the name of the threshold
-            powerDictionary.TryGetValue(result, out var powerType);
-            if (powerType == null) powerType = Loc.GetString("shadowkin-power-okay");
-
             // Return the name of the threshold
-            return powerType;
+            powerDictionary.TryGetValue(result, out var powerType);
+            return powerType ?? Loc.GetString("shadowkin-power-okay");
         }
 
         /// <summary>
         ///    Sets the alert level of a shadowkin.
         /// </summary>
         /// <param name="uid">The entity uid.</param>
-        /// <param name="PowerLevel">The current power level.</param>
-        public void UpdateAlert(EntityUid uid, bool enabled, float? PowerLevel = null)
+        /// <param name="enabled">Enable the alert or not</param>
+        /// <param name="powerLevel">The current power level.</param>
+        public void UpdateAlert(EntityUid uid, bool enabled, float? powerLevel = null)
         {
-            if (!enabled || PowerLevel == null)
+            if (!enabled || powerLevel == null)
             {
                 _alertsSystem.ClearAlert(uid, AlertType.ShadowkinPower);
                 return;
@@ -69,7 +67,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
             }
 
             // Get the power as a short from 0-5
-            var power = ContentHelpers.RoundToLevels((double) PowerLevel, component.PowerLevelMax, 8);
+            var power = ContentHelpers.RoundToLevels((double) powerLevel, component.PowerLevelMax, 8);
 
             // Set the alert level
             _alertsSystem.ShowAlert(uid, AlertType.ShadowkinPower, (short) power);
@@ -77,12 +75,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 
 
         /// <remarks> For viewing purposes. </remarks>
-        /// <param name="PowerLevel">The current power level.</param>
+        /// <param name="powerLevel">The current power level.</param>
         /// <returns>Power level as an integer.</returns>
-        public int GetLevelInt(float PowerLevel)
+        public int GetLevelInt(float powerLevel)
         {
             // Very dumb, round and convert to int
-            return (int) Math.Round(PowerLevel);
+            return (int) Math.Round(powerLevel);
         }
 
 
@@ -94,10 +92,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
         public bool TryUpdatePowerLevel(EntityUid uid, float frameTime)
         {
             // Check if the entity has a shadowkin component
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component)) return false;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
+                return false;
 
             // Check if power gain is enabled
-            if (!component.PowerLevelGainEnabled) return false;
+            if (!component.PowerLevelGainEnabled)
+                return false;
 
             // Set the new power level
             UpdatePowerLevel(uid, frameTime);
@@ -138,7 +138,8 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
         public bool TryAddPowerLevel(EntityUid uid, float amount)
         {
             // Check if the entity has a shadowkin component
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component)) return false;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out _))
+                return false;
 
             // Set the new power level
             AddPowerLevel(uid, amount);
@@ -199,7 +200,8 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
         public bool TryBlackeye(EntityUid uid)
         {
             // Check if the entity has a shadowkin component
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component)) return false;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var component))
+                return false;
 
             if (!component.Blackeye &&
                 component.PowerLevel <= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min] + 1f)
@@ -238,8 +240,10 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
         /// <param name="time">The time in seconds to wait before removing the multiplier.</param>
         public bool TryAddMultiplier(EntityUid uid, float multiplier = 1f, float? time = null)
         {
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var _)) return false;
-            if (multiplier == float.NaN) return false;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var _))
+                return false;
+            if (float.IsNaN(multiplier))
+                return false;
 
             AddMultiplier(uid, multiplier, time);
 

@@ -4,7 +4,6 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
 using Content.Shared.StatusEffect;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
@@ -16,15 +15,14 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectSystem = default!;
-        [Dependency] private readonly INetManager _net = default!;
 
-        private InstantAction action = default!;
+        private InstantAction _action = default!;
 
         public override void Initialize()
         {
             base.Initialize();
 
-            action = new InstantAction(_prototypeManager.Index<InstantActionPrototype>("ShadowkinRest"));
+            _action = new InstantAction(_prototypeManager.Index<InstantActionPrototype>("ShadowkinRest"));
 
             SubscribeLocalEvent<ShadowkinRestEventResponse>(Rest);
 
@@ -34,15 +32,17 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 
         private void Rest(ShadowkinRestEventResponse args)
         {
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(args.Performer, out var shadowkin)) return;
-            if (!_entityManager.TryGetComponent<ShadowkinRestPowerComponent>(args.Performer, out var rest)) return;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(args.Performer, out _))
+                return;
+            if (!_entityManager.TryGetComponent<ShadowkinRestPowerComponent>(args.Performer, out var rest))
+                return;
             rest.IsResting = args.IsResting;
 
             if (args.IsResting)
             {
                 _statusEffectSystem.TryAddStatusEffect<ForcedSleepingComponent>(args.Performer, "ForcedSleep", TimeSpan.FromDays(1), false);
 
-                _powerSystem.TryAddMultiplier(args.Performer, 1f);
+                _powerSystem.TryAddMultiplier(args.Performer);
             }
             else
             {
@@ -55,12 +55,12 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 
         private void OnStartup(EntityUid uid, ShadowkinRestPowerComponent component, ComponentStartup args)
         {
-            _actionsSystem.AddAction(uid, action, uid);
+            _actionsSystem.AddAction(uid, _action, uid);
         }
 
         private void OnShutdown(EntityUid uid, ShadowkinRestPowerComponent component, ComponentShutdown args)
         {
-            _actionsSystem.RemoveAction(uid, action);
+            _actionsSystem.RemoveAction(uid, _action);
         }
     }
 }

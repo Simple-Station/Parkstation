@@ -1,4 +1,3 @@
-using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -7,8 +6,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
     [RegisterComponent, NetworkedComponent()]
     public sealed class ShadowkinComponent : Component
     {
-        ShadowkinPowerSystem _powerSystem = new();
-
         // Dirty
         [ViewVariables(VVAccess.ReadOnly)]
         public float DirtyAccumulator = 0f;
@@ -17,7 +14,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
         public float DirtyAccumulatorRate = 3f;
 
 
-        // Random occurences
+        // Random occurrences
         [ViewVariables(VVAccess.ReadOnly)]
         public float ForceSwapAccumulator = 0f;
 
@@ -92,23 +89,24 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
         ///     Current amount of energy.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        public float PowerLevel {
+        public float PowerLevel
+        {
             get => _powerLevel;
             set => _powerLevel = Math.Clamp(value, PowerLevelMin, PowerLevelMax);
         }
-        public float _powerLevel = 0f;
+        public float _powerLevel;
 
         /// <summary>
         ///     Don't let PowerLevel go above this value.
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
-        public readonly float PowerLevelMax = (float) PowerThresholds[ShadowkinPowerThreshold.Max];
+        public readonly float PowerLevelMax = PowerThresholds[ShadowkinPowerThreshold.Max];
 
         /// <summary>
         ///     Blackeyes if PowerLevel is this value.
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
-        public readonly float PowerLevelMin = (float) PowerThresholds[ShadowkinPowerThreshold.Min];
+        public readonly float PowerLevelMin = PowerThresholds[ShadowkinPowerThreshold.Min];
 
         /// <summary>
         ///     How much energy is gained per second.

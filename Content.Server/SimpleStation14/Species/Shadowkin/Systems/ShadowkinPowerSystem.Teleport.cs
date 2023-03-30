@@ -1,17 +1,14 @@
-
 using Content.Shared.Damage.Systems;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 
-namespace Content.Server.SimpleStation14.Magic.Systems
+namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
 {
     public sealed class ShadowkinTeleportSystem : EntitySystem
     {
         [Dependency] private readonly ShadowkinPowerSystem _powerSystem = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
@@ -26,12 +23,15 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
         private void Teleport(ShadowkinTeleportEvent args)
         {
-            if (args.Handled) return;
+            if (args.Handled)
+                return;
 
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(args.Performer, out var comp)) return;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(args.Performer, out var comp))
+                return;
 
             var transform = Transform(args.Performer);
-            if (transform.MapID != args.Target.GetMapId(EntityManager)) return;
+            if (transform.MapID != args.Target.GetMapId(EntityManager))
+                return;
 
             _transformSystem.SetCoordinates(args.Performer, args.Target);
             transform.AttachToGridOrMap();

@@ -5,13 +5,12 @@ using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 
-namespace Content.Server.SimpleStation14.Magic.Systems
+namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
 {
     public sealed class ShadowkinDarkenSystem : EntitySystem
     {
         [Dependency] private readonly ShadowkinPowerSystem _powerSystem = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly IEntitySystemManager _systemManager = default!;
         [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
@@ -24,7 +23,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
             SubscribeLocalEvent<ShadowkinComponent, ComponentShutdown>(OnShutdown);
         }
 
-        private void OnStartup(EntityUid uid, ShadowkinComponent component, ComponentStartup args)
+        private static void OnStartup(EntityUid uid, ShadowkinComponent component, ComponentStartup args)
         {
             component.Darken = true;
         }
@@ -50,9 +49,11 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
         public void ResetLight(PointLightComponent light, ShadowkinLightComponent sLight)
         {
-            if (sLight.OldRadiusEdited) _lightSystem.SetRadius(light.Owner, sLight.OldRadius);
+            if (sLight.OldRadiusEdited)
+                _lightSystem.SetRadius(light.Owner, sLight.OldRadius);
             sLight.OldRadiusEdited = false;
-            if (sLight.OldEnergyEdited) light.Energy = sLight.OldEnergy;
+            if (sLight.OldEnergyEdited)
+                light.Energy = sLight.OldEnergy;
             sLight.OldEnergyEdited = false;
         }
 
@@ -70,21 +71,23 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                     continue;
 
                 shadowkin.DarkenAccumulator += frameTime;
-                if (shadowkin.DarkenAccumulator < shadowkin.DarkenRate) continue;
+                if (shadowkin.DarkenAccumulator < shadowkin.DarkenRate)
+                    continue;
                 shadowkin.DarkenAccumulator = 0f;
 
 
-                var _darkened = new List<EntityUid>();
+                var darkened = new List<EntityUid>();
                 var lightQuery = _lookupSystem.GetEntitiesInRange(transform.MapID, transform.WorldPosition, shadowkin.DarkenRange, flags: LookupFlags.StaticSundries)
                     .Where(x => _entityManager.HasComponent<ShadowkinLightComponent>(x) && _entityManager.HasComponent<PointLightComponent>(x));
 
                 foreach (var entity in lightQuery)
                 {
-                    if (!_darkened.Contains(entity)) _darkened.Add(entity);
+                    if (!darkened.Contains(entity))
+                        darkened.Add(entity);
                 }
 
-                _random.Shuffle(_darkened);
-                shadowkin.DarkenedLights = _darkened;
+                _random.Shuffle(darkened);
+                shadowkin.DarkenedLights = darkened;
 
                 var playerPos = _entityManager.GetComponent<TransformComponent>(shadowkin.Owner).WorldPosition;
 
@@ -94,7 +97,8 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                     var pointLight = _entityManager.GetComponent<PointLightComponent>(light);
 
 
-                    if (!_entityManager.TryGetComponent(light, out ShadowkinLightComponent? shadowkinLight)) continue;
+                    if (!_entityManager.TryGetComponent(light, out ShadowkinLightComponent? shadowkinLight))
+                        continue;
                     if (!_entityManager.TryGetComponent(light, out PoweredLightComponent? powered) || !powered.On)
                     {
                         ResetLight(pointLight, shadowkinLight);
@@ -116,12 +120,16 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                     var distance = (lightPos - playerPos).Length;
 
                     var radius = distance * 2f;
-                    if (shadowkinLight.OldRadiusEdited && radius > shadowkinLight.OldRadius) radius = shadowkinLight.OldRadius;
-                    if (shadowkinLight.OldRadiusEdited && radius < shadowkinLight.OldRadius * 0.20f) radius = shadowkinLight.OldRadius * 0.20f;
+                    if (shadowkinLight.OldRadiusEdited && radius > shadowkinLight.OldRadius)
+                        radius = shadowkinLight.OldRadius;
+                    if (shadowkinLight.OldRadiusEdited && radius < shadowkinLight.OldRadius * 0.20f)
+                        radius = shadowkinLight.OldRadius * 0.20f;
 
                     var energy = distance * 0.8f;
-                    if (shadowkinLight.OldEnergyEdited && energy > shadowkinLight.OldEnergy) energy = shadowkinLight.OldEnergy;
-                    if (shadowkinLight.OldEnergyEdited && energy < shadowkinLight.OldEnergy * 0.20f) energy = shadowkinLight.OldEnergy * 0.20f;
+                    if (shadowkinLight.OldEnergyEdited && energy > shadowkinLight.OldEnergy)
+                        energy = shadowkinLight.OldEnergy;
+                    if (shadowkinLight.OldEnergyEdited && energy < shadowkinLight.OldEnergy * 0.20f)
+                        energy = shadowkinLight.OldEnergy * 0.20f;
 
                     _lightSystem.SetRadius(pointLight.Owner, radius);
                     pointLight.Energy = energy;

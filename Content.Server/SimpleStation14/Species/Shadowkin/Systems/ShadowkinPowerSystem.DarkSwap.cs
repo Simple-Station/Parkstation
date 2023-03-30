@@ -1,5 +1,4 @@
 using Content.Server.Ghost.Components;
-using Content.Server.Psionics;
 using Content.Server.Visible;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage.Systems;
@@ -10,16 +9,12 @@ using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
-using Robust.Shared.Containers;
-using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
-namespace Content.Server.SimpleStation14.Magic.Systems
+namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
 {
     public sealed class ShadowkinDarkSwapSystem : EntitySystem
     {
         [Dependency] private readonly ShadowkinPowerSystem _powerSystem = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly ShadowkinDarkenSystem _darkenSystem = default!;
@@ -52,7 +47,8 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
         public void ToggleInvisibility(EntityUid uid, ShadowkinDarkSwapEvent args)
         {
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var comp)) return;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var comp))
+                return;
 
             if (!HasComp<ShadowkinDarkSwappedComponent>(uid))
             {
@@ -79,14 +75,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
         private void OnEyeStartup(EntityUid uid, EyeComponent component, ComponentStartup args)
         {
-            if (!_entityManager.TryGetComponent<GhostComponent>(uid, out var _))
-            {
-                SetCanSeeInvisibility(uid, false);
-            }
-            else
-            {
-                SetCanSeeInvisibility(uid, true);
-            }
+            SetCanSeeInvisibility(uid, _entityManager.TryGetComponent<GhostComponent>(uid, out var _));
         }
 
         private void OnInvisStartup(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentStartup args)
@@ -98,13 +87,15 @@ namespace Content.Server.SimpleStation14.Magic.Systems
 
         private void OnInvisShutdown(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentShutdown args)
         {
-            if (Terminating(uid)) return;
+            if (Terminating(uid))
+                return;
 
             RemComp<PacifiedComponent>(uid);
 
             SetCanSeeInvisibility(uid, false);
 
-            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadowkin)) return;
+            if (!_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadowkin))
+                return;
 
             foreach (var light in shadowkin.DarkenedLights.ToArray())
             {
@@ -123,7 +114,7 @@ namespace Content.Server.SimpleStation14.Magic.Systems
         {
             var visibility = _entityManager.EnsureComponent<VisibilityComponent>(uid);
 
-            if (set == true)
+            if (set)
             {
                 if (_entityManager.TryGetComponent(uid, out EyeComponent? eye))
                 {
@@ -134,7 +125,8 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                 _visibilitySystem.RemoveLayer(visibility, (int) VisibilityFlags.Normal, false);
                 _visibilitySystem.RefreshVisibility(visibility);
 
-                if (!_entityManager.TryGetComponent<GhostComponent>(uid, out var _)) _stealthSystem.SetVisibility(uid, 0.8f, _entityManager.EnsureComponent<StealthComponent>(uid));
+                if (!_entityManager.TryGetComponent<GhostComponent>(uid, out var _))
+                    _stealthSystem.SetVisibility(uid, 0.8f, _entityManager.EnsureComponent<StealthComponent>(uid));
             }
             else
             {
@@ -147,7 +139,8 @@ namespace Content.Server.SimpleStation14.Magic.Systems
                 _visibilitySystem.AddLayer(visibility, (int) VisibilityFlags.Normal, false);
                 _visibilitySystem.RefreshVisibility(visibility);
 
-                if (!_entityManager.TryGetComponent<GhostComponent>(uid, out var _)) _entityManager.RemoveComponent<StealthComponent>(uid);
+                if (!_entityManager.TryGetComponent<GhostComponent>(uid, out var _))
+                    _entityManager.RemoveComponent<StealthComponent>(uid);
             }
         }
     }

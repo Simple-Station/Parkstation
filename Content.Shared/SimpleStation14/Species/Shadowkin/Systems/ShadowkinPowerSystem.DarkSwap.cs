@@ -16,13 +16,13 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
 
-        private InstantAction action = default!;
+        private InstantAction _action = default!;
 
         public override void Initialize()
         {
             base.Initialize();
 
-            action = new InstantAction(_prototypeManager.Index<InstantActionPrototype>("ShadowkinDarkSwap"));
+            _action = new InstantAction(_prototypeManager.Index<InstantActionPrototype>("ShadowkinDarkSwap"));
 
             SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ComponentStartup>(Startup);
             SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ComponentShutdown>(Shutdown);
@@ -32,25 +32,24 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
 
         private void Startup(EntityUid uid, ShadowkinDarkSwapPowerComponent component, ComponentStartup args)
         {
-            _actionsSystem.AddAction(uid, action, uid);
+            _actionsSystem.AddAction(uid, _action, uid);
         }
 
         private void Shutdown(EntityUid uid, ShadowkinDarkSwapPowerComponent component, ComponentShutdown args)
         {
-            _actionsSystem.RemoveAction(uid, action);
+            _actionsSystem.RemoveAction(uid, _action);
         }
 
         private void OnInteractionAttempt(EntityUid uid, ShadowkinDarkSwappedComponent component, InteractionAttemptEvent args)
         {
-            if (args.Target != null && _entityManager.TryGetComponent<TransformComponent>(args.Target, out var __) &&
-                !_entityManager.TryGetComponent<ShadowkinDarkSwappedComponent>(args.Target, out var _))
-            {
-                args.Cancel();
-                if (!_gameTiming.InPrediction)
-                {
-                    _popupSystem.PopupEntity(Loc.GetString("ethereal-pickup-fail"), args.Target.Value, uid, PopupType.Small);
-                }
-            }
+            if (args.Target == null || !_entityManager.TryGetComponent<TransformComponent>(args.Target, out var __) ||
+                _entityManager.TryGetComponent<ShadowkinDarkSwappedComponent>(args.Target, out var _))
+                return;
+
+            args.Cancel();
+            if (_gameTiming.InPrediction)
+                return;
+            _popupSystem.PopupEntity(Loc.GetString("ethereal-pickup-fail"), args.Target.Value, uid);
         }
     }
 }

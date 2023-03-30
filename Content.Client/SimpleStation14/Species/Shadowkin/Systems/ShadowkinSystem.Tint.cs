@@ -20,10 +20,12 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
         {
             base.Initialize();
 
-            _overlay = new();
-            _overlay.tintColor = new(0.5f, 0f, 0.5f);
-            _overlay.tintAmount = 0.25f;
-            _overlay.comp = new ShadowkinComponent();
+            _overlay = new ColorTintOverlay
+            {
+                tintColor = new Vector3(0.5f, 0f, 0.5f),
+                tintAmount = 0.25f,
+                comp = new ShadowkinComponent()
+            };
 
             SubscribeLocalEvent<ShadowkinComponent, ComponentStartup>(OnStartup);
             SubscribeLocalEvent<ShadowkinComponent, ComponentShutdown>(OnShutdown);
@@ -67,12 +69,17 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
             base.Update(frameTime);
 
             var uid = _player.LocalPlayer?.ControlledEntity;
-            if (uid == null) return;
+            if (uid == null)
+                return;
 
-            if (!_entityManager.TryGetComponent(uid, out ShadowkinComponent? comp)) return;
-            if (!_entityManager.TryGetComponent(uid, out SpriteComponent? sprite)) return;
-            if (!sprite.LayerMapTryGet(HumanoidVisualLayers.Eyes, out var index)) return;
-            if (!sprite.TryGetLayer(index, out var layer)) return;
+            if (!_entityManager.TryGetComponent(uid, out ShadowkinComponent? comp))
+                return;
+            if (!_entityManager.TryGetComponent(uid, out SpriteComponent? sprite))
+                return;
+            if (!sprite.LayerMapTryGet(HumanoidVisualLayers.Eyes, out var index))
+                return;
+            if (!sprite.TryGetLayer(index, out var layer))
+                return;
 
             // Eye color
             comp.TintColor = new Vector3(layer.Color.R, layer.Color.G, layer.Color.B);
@@ -81,8 +88,8 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
             // intensity = min + (power / max)
             // intensity = intensity / 0.333
             // intensity = clamp intensity min, max
-            var min = 0.45f;
-            var max = 0.75f;
+            const float min = 0.45f;
+            const float max = 0.75f;
             comp.TintIntensity = Math.Clamp(min + (comp.PowerLevel / comp.PowerLevelMax) * 0.333f, min, max);
 
             UpdateShader(comp.TintColor, comp.TintIntensity);
@@ -91,10 +98,15 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
 
         private void UpdateShader(Vector3? color, float? intensity)
         {
-            while (_overlayMan.HasOverlay<ColorTintOverlay>()) _overlayMan.RemoveOverlay(_overlay);
+            while (_overlayMan.HasOverlay<ColorTintOverlay>())
+            {
+                _overlayMan.RemoveOverlay(_overlay);
+            }
 
-            if (color != null) _overlay.tintColor = color;
-            if (intensity != null) _overlay.tintAmount = intensity;
+            if (color != null)
+                _overlay.tintColor = color;
+            if (intensity != null)
+                _overlay.tintAmount = intensity;
 
             _overlayMan.AddOverlay(_overlay);
         }

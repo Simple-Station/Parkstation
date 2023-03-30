@@ -8,7 +8,6 @@ using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Robust.Shared.Network;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
 
 namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
@@ -22,7 +21,6 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly INetManager _net = default!;
 
         public override void Initialize()
         {
@@ -45,10 +43,11 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
             }
 
 
-            if (!ev.Damage) return;
+            if (!ev.Damage)
+                return;
 
             // Stamina crit
-            if (_entityManager.TryGetComponent<StaminaComponent>(ev.Uid, out var staminaComponent))
+            if (_entityManager.TryGetComponent<StaminaComponent>(ev.Uid, out _))
             {
                 _staminaSystem.TakeStaminaDamage(ev.Uid, 100, null, ev.Uid);
             }
@@ -58,7 +57,7 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
                 _mobThresholdSystem.TryGetThresholdForState(ev.Uid, MobState.Critical, out var key))
             {
                 // I am aware this removes all other damage, though I am adding cellular in place of it
-                _damageableSystem.SetAllDamage(damageable, 0);
+                _damageableSystem.SetAllDamage(ev.Uid, damageable, 0);
 
                 _damageableSystem.TryChangeDamage(
                     ev.Uid,

@@ -22,10 +22,10 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
         {
             base.Initialize();
 
-            _ignoreOverlay = new();
+            _ignoreOverlay = new IgnoreHumanoidWithComponentOverlay();
             _ignoreOverlay.ignoredComponents.Add(new HumanoidAppearanceComponent());
             _ignoreOverlay.allowAnywayComponents.Add(new ShadowkinDarkSwappedComponent());
-            _etherealOverlay = new();
+            _etherealOverlay = new EtherealOverlay();
 
             SubscribeNetworkEvent<ShadowkinDarkSwappedEvent>(DarkSwap);
 
@@ -44,7 +44,8 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
 
         private void OnStartup(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentStartup args)
         {
-            if (_player.LocalPlayer?.ControlledEntity != uid) return;
+            if (_player.LocalPlayer?.ControlledEntity != uid)
+                return;
 
             _overlayMan.AddOverlay(_ignoreOverlay);
             _overlayMan.AddOverlay(_etherealOverlay);
@@ -52,7 +53,8 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
 
         private void OnShutdown(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentShutdown args)
         {
-            if (_player.LocalPlayer?.ControlledEntity != uid) return;
+            if (_player.LocalPlayer?.ControlledEntity != uid)
+                return;
 
             _ignoreOverlay.Reset();
             _overlayMan.RemoveOverlay(_ignoreOverlay);

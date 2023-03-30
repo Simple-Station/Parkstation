@@ -66,7 +66,8 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
             {
                 // These MUST be  TryUpdatePowerLevel  THEN  TryBlackeye  or else init will always blackeye
                 _powerSystem.TryUpdatePowerLevel(component.Owner, frameTime);
-                if (!component.Blackeye) _powerSystem.TryBlackeye(component.Owner);
+                if (!component.Blackeye)
+                    _powerSystem.TryBlackeye(component.Owner);
 
 
                 // Sync client and server
