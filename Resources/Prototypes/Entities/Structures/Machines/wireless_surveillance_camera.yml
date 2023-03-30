@@ -5,7 +5,6 @@
   name: wireless camera
   description: A camera. It's watching you. Kinda.
   components:
-    - type: HologramProjector
     - type: InteractionOutline
     - type: Eye
     - type: WirelessNetworkConnection

@@ -58,6 +58,3 @@
         ents: []
   - type: DynamicPrice
     price: 400
-  - type: Tag
-    tags:
-    - Hardlight

@@ -11,11 +11,10 @@
   - type: Silicon
     entityType: enum.SiliconType.Player
     batteryPowered: true
-    drainRateMulti: 50
-    chargeRateMulti: 50
-    chargeStateThresholdMid: 0.70
+    drainRateMulti: 5
+    chargeStateThresholdMid: 0.80
     chargeStateThresholdLow: 0.35
-    chargeStateThresholdCritical: 0.15
+    chargeStateThresholdCritical: 0.10
     critWhenDead: true
     speedModifierThresholds:
       0: 1
