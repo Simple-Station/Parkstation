@@ -25,7 +25,7 @@ namespace Content.Client.SimpleStation14.Examine.SpriteExamine.UI
             _spriteContainer.AddChild(new SpriteView
             {
                 Sprite = sprite,
-                Scale = (8, 8),
+                Scale = (6, 6),
                 OverrideDirection = Direction.South,
                 Margin = new Thickness(8, 8, 8, 8),
             });
@@ -33,7 +33,7 @@ namespace Content.Client.SimpleStation14.Examine.SpriteExamine.UI
             _spriteContainer.AddChild(new SpriteView
             {
                 Sprite = sprite,
-                Scale = (8, 8),
+                Scale = (6, 6),
                 OverrideDirection = Direction.North,
                 Margin = new Thickness(8, 8, 8, 8),
             });
@@ -41,7 +41,7 @@ namespace Content.Client.SimpleStation14.Examine.SpriteExamine.UI
             _spriteContainer.AddChild(new SpriteView
             {
                 Sprite = sprite,
-                Scale = (8, 8),
+                Scale = (6, 6),
                 OverrideDirection = Direction.West,
                 Margin = new Thickness(8, 8, 8, 8),
             });
@@ -49,7 +49,7 @@ namespace Content.Client.SimpleStation14.Examine.SpriteExamine.UI
             _spriteContainer.AddChild(new SpriteView
             {
                 Sprite = sprite,
-                Scale = (8, 8),
+                Scale = (6, 6),
                 OverrideDirection = Direction.East,
                 Margin = new Thickness(8, 8, 8, 8),
             });
