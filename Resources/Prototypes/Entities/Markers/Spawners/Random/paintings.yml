@@ -26,6 +26,7 @@
       - PaintingSleepingGypsy
       - PaintingRedBlueYellow
       - PaintingHelloWorld
+      - PaintingMothBigCatch
       # Parkstation
       - PaintingAmericanGothic
       - PaintingEverythingsFine
@@ -37,4 +38,5 @@
       - PaintingAmogusTriptych
       # Parkstation
       - PaintingLois
+      - PaintingCM
     rareChance: 0.01
