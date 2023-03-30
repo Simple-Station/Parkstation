@@ -281,9 +281,6 @@
   id: GlassBeaker
 
 - type: Tag
-  id: GlassesNearsight
-
-- type: Tag
   id: GlassShard
 
 - type: Tag
@@ -303,6 +300,9 @@
 
 - type: Tag
   id: Hardsuit
+
+- type: Tag
+  id: HardsuitOn
 
 - type: Tag
   id: Head
@@ -431,9 +431,6 @@
 
 - type: Tag
   id: NoSpinOnThrow
-
-- type: Tag
-  id: TraitorUplink
 
 - type: Tag
   id: NoBlockAnchoring
@@ -645,9 +642,6 @@
 
 - type: Tag
   id: WizardWand # that evil vvizard vvand
-
-- type: Tag
-  id: WizardBook # those dang books..
 
 - type: Tag
   id: WizardStaff
