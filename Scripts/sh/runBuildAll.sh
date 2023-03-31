@@ -5,7 +5,16 @@ if [ "$(dirname $0)" != "." ]; then
     cd "$(dirname $0)"
 fi
 
-sh -e runBuildServer.sh
-sh -e runBuildClient.sh
+echo "will run both server and client in the same terminal so will give you both outputs at once"
+echo "dont mind fatl error relating to port 1212 does not seem to change anything"
+
+cd ../../
+
+dotnet build -c debug
+
+cd ./Scripts/sh
+
+sh -e runQuickServer.sh &
+sh -e runQuickClient.sh
 
 exit
