@@ -173,12 +173,12 @@
           False: { visible: false }
   - type: TypingIndicator
     proto: robot
+
 - type: entity
   parent: PlayerCyborgBase
   id: PlayerCyborgStandard
   name: standard cyborg
   components:
-  - type: SiliconCharge
   - type: InnateTool
     tools:
       - id: WelderIndustrial
