@@ -2,6 +2,7 @@ using Content.Shared.SimpleStation14.Examine.SpriteExamine.Components;
 using Content.Client.SimpleStation14.Examine.SpriteExamine.UI;
 using Content.Shared.Verbs;
 using Robust.Client.GameObjects;
+using Robust.Shared.Utility;
 
 namespace Content.Client.SimpleStation14.Examine.SpriteExamine.Systems
 {
@@ -35,7 +36,7 @@ namespace Content.Client.SimpleStation14.Examine.SpriteExamine.Systems
                 Text = Loc.GetString("character-sprite-examine-verb-text"),
                 Message = Loc.GetString("character-sprite-examine-verb-message"),
                 Category = VerbCategory.Examine,
-                IconTexture = "/Textures/Interface/VerbIcons/sentient.svg.192dpi.png",
+                Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Interface/VerbIcons/sentient.svg.192dpi.png")),
                 ClientExclusive = true,
             };
 
