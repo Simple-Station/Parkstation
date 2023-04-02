@@ -8,14 +8,26 @@
     - Wallmount
   components:
   - type: WallMount
-    arc: 360
+    arc: 180
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
     canCollide: false
   - type: Sprite
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    netsync: false
+    sprite: Structures/Wallmounts/timer.rsi
+    drawdepth: WallMountedItems
+    offset: 0,-0.15
+    layers:
+    - map: ["TimerOn"]
+      state: "activated"
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.VisualState:
+        TimerOn:
+          True: { state: "activated" }
+          False: { state: "complete" }
   - type: SignalTimer
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.
@@ -25,8 +37,8 @@
     node: SignalTimerNode
   - type: SignalTransmitter
     outputs:
-      On: []
-      Off: []
+      TimerOn: []
+      TimerOff: []
   - type: ActivatableUI
     key: enum.SignalTimerUiKey.Key
   - type: UserInterface
@@ -42,3 +54,7 @@
   components:
     - type: AccessReader
       access: [["Security"]]
+    - type: SignalTimer
+      endAlertChannel: Security
+    - type: Sprite
+      sprite: Structures/Wallmounts/brig_timer.rsi
