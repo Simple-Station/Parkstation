@@ -28,7 +28,7 @@ async function main() {
     const matches = [];
     entries = [];
 
-    for (const match of description.matchAll(EntryRegex)) {
+    for (const match of body.matchAll(EntryRegex)) {
         matches.push([match[1], match[2]]);
     }
 
