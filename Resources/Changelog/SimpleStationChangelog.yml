@@ -227,3 +227,11 @@ Entries:
       type: Add
   id: 25
   time: '2023-03-12T13:14:53.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: add
+      message: >-
+        Added a new examine verb to open a UI showing an 6x scale sprite view of
+        any humanoid.
+  id: 65
+  time: '2023-04-02T00:57:38Z'
