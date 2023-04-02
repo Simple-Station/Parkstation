@@ -34,13 +34,13 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd "${{ github.action_path }}/Tools/changelog"
+          cd "Tools/changelog"
           npm install
         shell: bash
 
       - name: Generate Changelog
         run: |
-          cd "${{ github.action_path }}/Tools/changelog"
+          cd "Tools/changelog"
           node changelog.js
         shell: bash
 
