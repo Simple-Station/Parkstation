@@ -30,7 +30,7 @@
   id: Colorblindness
   name: Colorblindness
   description: You are only able to see certain colors, similarly to a dog's vision.
-  cost: 3
+  cost: 2
   category: Negative
   components:
     - type: DogVision

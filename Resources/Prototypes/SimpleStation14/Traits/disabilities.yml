@@ -2,7 +2,7 @@
   id: ColorBlindnessMonochrome
   name: Monochromatic Colorblindness
   description: Your eyes have permanent damage, causing you to only see along a greyscale of color.
-  cost: 5
+  cost: 3
   category: Negative
   components:
     - type: Monochromacy
@@ -20,7 +20,7 @@
   id: FakeMime
   name: Mute
   description: For one reason or another you will not speak, ever, and communicate through miming or writing.
-  cost: 6
+  cost: 4
   category: Negative
   blacklist:
     components:
