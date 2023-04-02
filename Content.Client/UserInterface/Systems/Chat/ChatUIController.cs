@@ -69,7 +69,8 @@ public sealed class ChatUIController : UIController
         {SharedChatSystem.AdminPrefix, ChatSelectChannel.Admin},
         {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
         {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead},
-        {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic}
+        {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic},
+        {SharedChatSystem.EmpathyPrefix, ChatSelectChannel.Empathy}
     };
 
     public static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes =
