@@ -32,14 +32,14 @@ async function main() {
         matches.push([match[1], match[2]]);
     }
 
-    if (!changes)
+    if (!matches)
     {
         console.log("No changes found, skipping");
         return;
     }
 
     // Check change types and construct changelog entry
-    changes.forEach((entry) => {
+    matches.forEach((entry) => {
         let type;
 
         switch (entry[0].toLowerCase()) {
