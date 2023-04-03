@@ -28,6 +28,7 @@ using Content.Server.Materials;
 using Content.Server.Jobs;
 using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
+using Content.Server.SimpleStation14.Traits.Events;
 using Content.Server.Traits;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -240,6 +241,12 @@ namespace Content.Server.Cloning
             }
             // end of genetic damage checks
 
+            // For other systems checking if they should be getting cloned
+            var beingCloned = new BeingClonedEvent(pref, mind, clonePod.Owner);
+            RaiseLocalEvent(beingCloned);
+            if (beingCloned.Cancelled)
+                return false;
+
             var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus);
 
             var cloneMindReturn = EntityManager.AddComponent<BeingClonedComponent>(mob);
@@ -268,6 +275,11 @@ namespace Content.Server.Cloning
             {
                 _traits.AddTraits(pref, mind.CurrentJob?.Prototype.ID, mob);
             }
+
+            // For other systems adding components to the mob
+            // TODO: Make the addComponentSpecial and traitPreferences use this event instead.
+            var ev = new BeenClonedEvent(pref, mind, mob, clonePod.Owner);
+            RaiseLocalEvent(ev);
 
             return true;
         }
