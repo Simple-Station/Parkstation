@@ -74,3 +74,30 @@
   - /Audio/Voice/Zombie/zombie-2.ogg
   - /Audio/Voice/Zombie/zombie-3.ogg
   - /Audio/Voice/Vox/shriek1.ogg
+
+  # Parkstation
+  - /Audio/SimpleStation14/Effects/Hallucinations/behind_you1.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/behind_you2.ogg
+  # - /Audio/SimpleStation14/Effects/Hallucinations/far_noise.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/growl1.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/growl2.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/growl3.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/i_see_you1.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/i_see_you2.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/im_here1.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/im_here2.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/look_up1.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/look_up2.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/over_here1.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/over_here2.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/over_here3.ogg
+  # - /Audio/SimpleStation14/Effects/Hallucinations/radio_static.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/turn_around1.ogg
+  - /Audio/SimpleStation14/Effects/Hallucinations/turn_around2.ogg
+  # - /Audio/SimpleStation14/Effects/Hallucinations/veryfar_noise.ogg
+  # - /Audio/SimpleStation14/Effects/Hallucinations/wail.ogg
+
+  - /Audio/SimpleStation14/Voice/Slime/slime_scream_f1.ogg
+  - /Audio/SimpleStation14/Voice/Slime/slime_scream_f2.ogg
+  - /Audio/SimpleStation14/Voice/Slime/slime_scream_m1.ogg
+  - /Audio/SimpleStation14/Voice/Slime/slime_scream_m2.ogg
