@@ -10,6 +10,7 @@ using Content.Server.Popups;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Nyanotrasen.Chat;
+using Content.Server.SimpleStation14.Speech.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -307,8 +308,19 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
 
         name = FormattedMessage.EscapeText(name);
+
         var wrappedMessage = Loc.GetString("chat-manager-entity-say-wrap-message",
             ("entityName", name), ("message", FormattedMessage.EscapeText(message)));
+
+        // Parkstation-VoiceOfGod
+        if (TryComp<VoiceOfGodComponent>(source, out var comp))
+        {
+            wrappedMessage = Loc.GetString(comp.ChatLoc,
+                ("entityName", name),
+                ("message", FormattedMessage.EscapeText(message)),
+                ("color", comp.ChatColor)
+            );
+        }
 
         SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, source, hideChat, hideGlobalGhostChat);
 
