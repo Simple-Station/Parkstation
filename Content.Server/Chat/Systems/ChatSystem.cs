@@ -370,7 +370,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         var wrappedobfuscatedMessage = Loc.GetString(yell ? "chat-manager-entity-whisper-loud-wrap-message" : "chat-manager-entity-whisper-wrap-message",
             ("entityName", name), ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
 
-        foreach (var (session, data) in GetRecipients(source, yell ? VoiceRange + 3 : VoiceRange))
+        foreach (var (session, data) in GetRecipients(source, yell ? VoiceRange + 4 : VoiceRange))
         {
             if (session.AttachedEntity is not { Valid: true } playerEntity)
                 continue;
@@ -378,7 +378,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (hideGlobalGhostChat && data.Observer && data.Range < 0)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
-            if (data.Range <= WhisperRange)
+            if (data.Range <= (yell ? WhisperRange + 3 : WhisperRange))
                 _chatManager.ChatMessageToOne(ChatChannel.Whisper, message, wrappedMessage, source, data.HideChatOverride ?? hideChat, session.ConnectedClient);
             else
                 _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedobfuscatedMessage, source, data.HideChatOverride ?? hideChat, session.ConnectedClient);
