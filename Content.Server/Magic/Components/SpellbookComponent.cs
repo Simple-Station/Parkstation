@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using Content.Shared.Actions.ActionTypes;
+﻿using Content.Shared.Actions.ActionTypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
@@ -39,6 +38,4 @@ public sealed class SpellbookComponent : Component
     [DataField("damageOnUntrainedUse", required: true)]
     [ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier DamageOnUntrainedUse = default!;
-
-    public CancellationTokenSource? CancelToken;
 }

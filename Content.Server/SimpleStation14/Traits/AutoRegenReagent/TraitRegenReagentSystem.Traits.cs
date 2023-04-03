@@ -9,7 +9,6 @@ namespace Content.Server.SimpleStation14.Traits
             base.Initialize();
 
             SubscribeLocalEvent<DraconicBloodstreamComponent, ComponentInit>(OnTraitInit);
-            SubscribeLocalEvent<EasyDrunkComponent, ComponentInit>(OnTraitInit);
         }
 
         private void OnTraitInit(EntityUid uid, AbstractTraitRegenReagentComponent component, ComponentInit args)

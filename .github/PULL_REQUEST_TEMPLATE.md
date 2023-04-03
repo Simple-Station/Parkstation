@@ -1,11 +1,10 @@
 <!-- The text between the arrows are comments - they will not be visible on your PR. -->
 
-## About the PR
-
+# About the PR
 <!-- Describe the Pull Request here. What does it change? What other things could this impact? -->
 
 
-**Media**
+# Media
 <!--
 If applicable, add screenshots or videos to showcase your PR. Small fixes/refactors are exempt, but all PRs which make ingame changes
 (adding clothing, items, new features, etc) must include ingame media or the PR will not be merged.
@@ -17,7 +16,7 @@ If you're unsure whether your PR will require media, ask a maintainer.
 -->
 
 
-<!-- **Changelog** -->
+# Changelog
 <!--
 Here you can fill out a changelog that will automatically be added to the game when your PR is merged
 There are 4 icons for changelog entries: add, remove, tweak, fix. I trust you can figure out the rest.
@@ -32,8 +31,8 @@ bad: - add: a new tool for engineers
 good: - add: added a new tool for engineers
 -->
 
-<!-- :cl:
+:cl:
 - add: Added fun!
 - tweak: Tweaked fun!
 - fix: Fixed fun!
-- remove: Removed fun! -->
+- remove: Removed fun!

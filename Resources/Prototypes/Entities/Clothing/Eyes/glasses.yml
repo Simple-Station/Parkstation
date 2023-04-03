@@ -22,10 +22,10 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/gar.rsi
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1.1
     damage:
       types:
-        Blunt: 7
+        Blunt: 5
   - type: DropOnSlip
     chance: 30
 
@@ -46,7 +46,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 10
+        Blunt: 5
   - type: DropOnSlip
     chance: 20
 
@@ -67,7 +67,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 10
+        Blunt: 6
   - type: DropOnSlip
     chance: 10
 

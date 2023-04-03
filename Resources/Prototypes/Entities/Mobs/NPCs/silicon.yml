@@ -94,11 +94,11 @@
   - type: MobMover
   - type: Body
     prototype: Bot
-  - type: TypingIndicator
-    proto: robot
   - type: Examiner
   - type: Actions
   - type: Alerts
+  - type: TypingIndicator
+    proto: robot
 
 - type: entity
   parent: MobSiliconBase

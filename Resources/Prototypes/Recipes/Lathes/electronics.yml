@@ -549,3 +549,11 @@
   materials:
     Steel: 350
     Glass: 350
+
+- type: latheRecipe
+  id: TelecomServerCircuitboard
+  result: TelecomServerCircuitboard
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
