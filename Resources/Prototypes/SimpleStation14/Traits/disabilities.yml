@@ -2,7 +2,7 @@
   id: ColorBlindnessMonochrome
   name: Monochromatic Colorblindness
   description: Your eyes have permanent damage, causing you to only see along a greyscale of color.
-  cost: 3
+  cost: 2
   category: Negative
   components:
     - type: Monochromacy
