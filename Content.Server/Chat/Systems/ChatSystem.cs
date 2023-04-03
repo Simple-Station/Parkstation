@@ -306,11 +306,12 @@ public sealed partial class ChatSystem : SharedChatSystem
             name = nameEv.Name;
         }
 
+        var yell = originalMessage.EndsWith("!");
         name = FormattedMessage.EscapeText(name);
-        var wrappedMessage = Loc.GetString("chat-manager-entity-say-wrap-message",
+        var wrappedMessage = Loc.GetString(yell ? "chat-manager-entity-yell-wrap-message" : "chat-manager-entity-say-wrap-message",
             ("entityName", name), ("message", FormattedMessage.EscapeText(message)));
 
-        SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, source, hideChat, hideGlobalGhostChat);
+        SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, source, hideChat, hideGlobalGhostChat, yell ? 6 : 0);
 
         var ev = new EntitySpokeEvent(source, message, null, null);
         RaiseLocalEvent(source, ev, true);
@@ -346,7 +347,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (message.Length == 0)
             return;
 
-        var obfuscatedMessage = ObfuscateMessageReadability(message, 0.2f);
+        var yell = originalMessage.EndsWith("!");
+        var obfuscatedMessage = ObfuscateMessageReadability(message, yell ? 0.6f : 0.2f);
 
         // get the entity's apparent name (if no override provided).
         string name;
@@ -362,16 +364,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
         name = FormattedMessage.EscapeText(name);
 
-
-        var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
+        var wrappedMessage = Loc.GetString(yell ? "chat-manager-entity-whisper-loud-wrap-message" : "chat-manager-entity-whisper-wrap-message",
             ("entityName", name), ("message", FormattedMessage.EscapeText(message)));
 
-
-        var wrappedobfuscatedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
+        var wrappedobfuscatedMessage = Loc.GetString(yell ? "chat-manager-entity-whisper-loud-wrap-message" : "chat-manager-entity-whisper-wrap-message",
             ("entityName", name), ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
 
-
-        foreach (var (session, data) in GetRecipients(source, VoiceRange))
+        foreach (var (session, data) in GetRecipients(source, yell ? VoiceRange + 3 : VoiceRange))
         {
             if (session.AttachedEntity is not { Valid: true } playerEntity)
                 continue;
@@ -480,9 +479,9 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <summary>
     ///     Sends a chat message to the given players in range of the source entity.
     /// </summary>
-    private void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, EntityUid source, bool hideChat, bool hideGlobalGhostChat)
+    private void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, EntityUid source, bool hideChat, bool hideGlobalGhostChat, int additonalRange = 0)
     {
-        foreach (var (session, data) in GetRecipients(source, VoiceRange))
+        foreach (var (session, data) in GetRecipients(source, VoiceRange + additonalRange))
         {
             var entHideChat = data.HideChatOverride ?? (hideChat || hideGlobalGhostChat && data.Observer && data.Range < 0);
             _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.ConnectedClient);
