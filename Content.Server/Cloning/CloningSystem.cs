@@ -259,25 +259,7 @@ namespace Content.Server.Cloning
 
             AddComp<ActiveCloningPodComponent>(uid);
 
-            // TODO: Ideally, components like this should be on a mind entity so this isn't neccesary.
-            // Remove this when 'mind entities' are added.
-            // Add on special job components to the mob.
-            if (mind.CurrentJob != null)
-            {
-                foreach (var special in mind.CurrentJob.Prototype.Special)
-                {
-                    if (special is AddComponentSpecial)
-                        special.AfterEquip(mob);
-                }
-            }
-
-            if (pref.TraitPreferences.Count > 0)
-            {
-                _traits.AddTraits(pref, mind.CurrentJob?.Prototype.ID, mob);
-            }
-
             // For other systems adding components to the mob
-            // TODO: Make the addComponentSpecial and traitPreferences use this event instead.
             var ev = new BeenClonedEvent(pref, mind, mob, clonePod.Owner);
             RaiseLocalEvent(ev);
 

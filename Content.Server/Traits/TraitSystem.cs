@@ -1,4 +1,5 @@
 using Content.Server.GameTicking;
+using Content.Server.SimpleStation14.Traits.Events;
 using Content.Shared.Preferences;
 using Content.Shared.Traits;
 using Robust.Shared.Prototypes;
@@ -16,6 +17,7 @@ public sealed class TraitSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
+        SubscribeLocalEvent<BeenClonedEvent>(OnBeenCloned);
     }
 
     /// <summary>
@@ -28,11 +30,22 @@ public sealed class TraitSystem : EntitySystem
         "MedicalCyborg"
     };
 
-    // When the player is spawned in, add all trait components selected during character creation
+    /// <summary>
+    ///     When the player is spawned in, add all trait components selected during character creation
+    /// </summary>
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
     {
         AddTraits(args.Profile, args.JobId, args.Mob);
     }
+
+    /// <summary>
+    ///     When the player is cloned, add all trait components selected during character creation
+    /// </summary>
+    private void OnBeenCloned(BeenClonedEvent args)
+    {
+        AddTraits(args.Profile, args.Mind.CurrentJob?.Prototype.ID, args.Mob);
+    }
+
 
     /// <summary>
     ///     Adds all traits selected by the player during character creation to the mob.
