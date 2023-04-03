@@ -28,6 +28,7 @@ using Content.Server.Materials;
 using Content.Server.Jobs;
 using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
+using Content.Server.Traits;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mobs.Systems;
@@ -65,6 +66,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+        [Dependency] private readonly TraitSystem _traits = default!;
 
         public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -260,6 +262,11 @@ namespace Content.Server.Cloning
                     if (special is AddComponentSpecial)
                         special.AfterEquip(mob);
                 }
+            }
+
+            if (pref.TraitPreferences.Count > 0)
+            {
+                _traits.AddTraits(pref, mind.CurrentJob?.Prototype.ID, mob);
             }
 
             return true;
