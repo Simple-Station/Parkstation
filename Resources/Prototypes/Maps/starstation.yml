@@ -1,0 +1,16 @@
+- type: gameMap
+  id: StarStation
+  mapName: 'StarStation'
+  mapPath: /Maps/starstation.yml
+  minPlayers: 0
+  stations:
+    starstation:
+      mapNameTemplate: '{0} Star Station {1}'
+      emergencyShuttlePath: /Maps/Shuttles/NTES_Kaeri.yml
+      nameGenerator:
+        !type:NanotrasenNameGenerator
+        prefixCreator: '14'
+      overflowJobs:
+        - Passenger
+      availableJobs:
+        Passenger: [ -1, -1 ]
