@@ -27,7 +27,7 @@ Entries:
   changes:
     - message: Fix Brief not deleting the officer after returning to original body.
       type: Fix
-  id: 3
+  id: 4
   time: '2022-12-6T13:20:20.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -39,7 +39,7 @@ Entries:
       type: Add
     - message: Remove AI omnitool.
       type: Remove
-  id: 4
+  id: 5
   time: '2022-12-6T20:48:00.0000000+00:00'
 - author: Pspritechologist
   changes:
@@ -59,7 +59,7 @@ Entries:
         Modified the temperature coefficients of all outfits, including winter
         coats. Better start bundling up!
       type: Tweak
-  id: 5
+  id: 6
   time: '2022-12-6T20:49:00.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -79,7 +79,7 @@ Entries:
       type: Add
     - message: Xenos (spacemobs) have a Xeno hivemind radio channel (:x)
       type: Add
-  id: 6
+  id: 7
   time: '2022-12-8T12:36:09.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -87,7 +87,7 @@ Entries:
       type: Add
     - message: Add unused trait point values. (soon™)
       type: Add
-  id: 7
+  id: 8
   time: '2022-12-9T13:19:09.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -109,7 +109,7 @@ Entries:
         Underwear do not rotate when on the ground. (they're still
         off-center...)
       type: Tweak
-  id: 8
+  id: 9
   time: '2022-12-10T01:07:39.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -119,7 +119,7 @@ Entries:
       type: Remove
     - message: Modified secret gamemode weights.
       type: Tweak
-  id: 9
+  id: 10
   time: '2022-12-10T05:08:51.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -129,13 +129,13 @@ Entries:
       type: Add
     - message: AI no longer spawns in arrivals if latejoining.
       type: Fix
-  id: 10
+  id: 13
   time: '2022-12-12T23:46:44.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - message: Nerf magic medipen, 0.1 Ichor per second with a max capacity of 15u
       type: Tweak
-  id: 11
+  id: 14
   time: '2022-12-13T14:48:28.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -159,10 +159,6 @@ Entries:
       type: Fix
     - message: Give Ichor a physical description.
       type: Fix
-    - message: >-
-        Smonk reagent, instantly makes a ton of fast smoke. (for wizard spell
-        soon™)
-      type: Add
     - message: Add Doormat name to AI and borg possibilites.
       type: Add
     - message: Add Fakethanol reagent.
@@ -171,7 +167,7 @@ Entries:
       type: Fix
     - message: Fix narcolepsy Loc "decs", now spelled "desc".
       type: Fix
-  id: 12
+  id: 15
   time: '2022-12-15T00:10:37.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -189,7 +185,7 @@ Entries:
         Make prescription glasses more accessible, add to clothesmate, mediven,
         and repdrobe
       type: Tweak
-  id: 13
+  id: 17
   time: '2022-12-15T22:59:59.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -207,7 +203,7 @@ Entries:
       type: Fix
     - message: Remake Draconic and "EasyDrunk" to use traitRegenReagent
       type: Tweak
-  id: 14
+  id: 18
   time: '2022-12-16T22:30:55.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -219,7 +215,7 @@ Entries:
       type: Add
     - message: Basketball and Book polymorphs.
       type: Add
-  id: 15
+  id: 19
   time: '2022-12-17T03:52:40.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -237,7 +233,7 @@ Entries:
       type: Add
     - message: Add 5 Reptilian tails that wag.
       type: Add
-  id: 16
+  id: 21
   time: '2022-12-17T03:52:40.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -251,7 +247,7 @@ Entries:
       type: Tweak
     - message: Only very small puddles will evaporate, more for the janitor to do!
       type: Tweak
-  id: 17
+  id: 22
   time: '2022-12-18T03:31:20.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -273,7 +269,7 @@ Entries:
       type: Add
     - message: Added purple coat with toggleable hood.
       type: Add
-  id: 18
+  id: 23
   time: '2022-12-18T21:02:58.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -287,13 +283,13 @@ Entries:
       type: Add
     - message: Edited some marking whitelists.
       type: Tweak
-  id: 19
+  id: 24
   time: '2022-12-19T21:09:20.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - message: Fix AI render layer.
       type: Fix
-  id: 20
+  id: 25
   time: '2022-12-20T21:24:21.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -315,7 +311,7 @@ Entries:
       type: Tweak
     - message: AI eye inherits the name from its core.
       type: Tweak
-  id: 21
+  id: 26
   time: '2022-12-21T22:56:28.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -325,7 +321,7 @@ Entries:
       type: Fix
     - message: Minor antag is in most gamemodes now.
       type: Add
-  id: 22
+  id: 27
   time: '2022-12-22T23:26:27.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -345,13 +341,13 @@ Entries:
       type: Fix
     - message: There is no more air friction in an environment without gravity.
       type: Tweak
-  id: 23
+  id: 28
   time: '2022-12-23T00:55:39.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - message: Borgs can not have traits.
       type: Fix
-  id: 24
+  id: 29
   time: '2022-12-23T22:44:10.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -361,7 +357,7 @@ Entries:
       type: Fix
     - message: Wizard hardsuit allows usage of spells.
       type: Fix
-  id: 25
+  id: 30
   time: '2022-12-24T15:32:30.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -369,7 +365,7 @@ Entries:
       type: Tweak
     - message: Observers can view hivemind channels now.
       type: Tweak
-  id: 26
+  id: 32
   time: '2022-12-25T23:30:30.0000000+00:00'
 - author: Pspritechologist
   changes:
@@ -381,13 +377,13 @@ Entries:
       type: Fix
     - message: Fixed Scybersun and Syndie hardsuit helmets.
       type: Fix
-  id: 27
+  id: 34
   time: '2022-12-26T02:52:40.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - message: Fix AI core being able to move while unanchored.
       type: Fix
-  id: 28
+  id: 35
   time: '2022-12-29T21:12:05.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -401,13 +397,13 @@ Entries:
       type: Add
     - message: Syringes and hyposprays cannot go through a hardsuit.
       type: Tweak
-  id: 29
+  id: 37
   time: '2023-01-02T23:21:04.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - message: Strange spectacles act as prescription glasses.
       type: Tweak
-  id: 30
+  id: 38
   time: '2023-01-04T15:14:40.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -415,7 +411,7 @@ Entries:
         Add cryostasis command, allowing people to remove themselves from rounds
         and open a new job slot for latejoiners.
       type: Add
-  id: 31
+  id: 39
   time: '2023-01-07T00:02:53.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -435,7 +431,7 @@ Entries:
         Added reoccurrence delays to most events, you don't want 3 power outages
         right after eachother, do you?
       type: Tweak
-  id: 32
+  id: 40
   time: '2023-01-07T16:55:28.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -449,7 +445,7 @@ Entries:
       type: Fix
     - message: Height change traits scale evenly, and change camera zoom.
       type: Tweak
-  id: 33
+  id: 41
   time: '2023-01-08T02:18:55.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -463,7 +459,7 @@ Entries:
       type: Tweak
     - message: Nerf Draconic Bloodstream.
       type: Tweak
-  id: 34
+  id: 43
   time: '2023-01-08T06:48:55.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -479,7 +475,7 @@ Entries:
       type: Fix
     - message: Many markings have color accuracy improved.
       type: Tweak
-  id: 35
+  id: 44
   time: '2023-01-09T18:38:08.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -495,7 +491,7 @@ Entries:
       type: Tweak
     - message: Trait description popup shows whitelist and blacklist information.
       type: Add
-  id: 36
+  id: 45
   time: '2023-01-12T23:00:00.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -509,7 +505,7 @@ Entries:
       type: Tweak
     - message: Fix hunger being -1 roundstart.
       type: Tweak
-  id: 37
+  id: 46
   time: '2023-01-13T18:48:27.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -521,7 +517,7 @@ Entries:
       type: Tweak
     - message: Medical HUD shows a health overlay while equipped.
       type: Add
-  id: 38
+  id: 47
   time: '2023-01-15T23:55:42.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -533,10 +529,8 @@ Entries:
       type: Add
     - message: Anti-Social is now a negative trait, and gives the stuttering accent.
       type: Tweak
-  id: 39
+  id: 48
   time: '2023-01-16T05:10:33.0000000+00:00'
-
-## Old Changelog break
 
 - author: DEATHB4DEFEAT
   changes:
@@ -552,13 +546,13 @@ Entries:
       type: Tweak
     - message: Character preview job clothing is hidden in marking editor on update.
       type: Tweak
-  id: 40
+  id: 51
   time: '2023-01-16T23:17:39.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - message: Improve OwO accent greatly.
       type: Tweak
-  id: 41
+  id: 54
   time: '2023-01-19T17:36:43.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -568,13 +562,13 @@ Entries:
       type: Tweak
     - message: Increased max foam and smoke radius.
       type: Tweak
-  id: 42
+  id: 57
   time: '2023-01-20T01:17:20.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - message: Fixed transparency on slime markings, they should all match better.
       type: Fix
-  id: 43
+  id: 58
   time: '2023-01-22T02:24:02.0000000+00:00'
 - author: Pspritechologist
   changes:
@@ -582,7 +576,7 @@ Entries:
       type: Tweak
     - message: Added Morty.
       type: Add
-  id: 44
+  id: 59
   time: '2023-01-23T17:36:30.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -596,7 +590,7 @@ Entries:
       type: Add
     - message: Severl improvements to parkstation.
       type: Tweak
-  id: 45
+  id: 60
   time: '2023-01-24T09:41:29.0000000+00:00'
 - author: Pspritechologist
   changes:
@@ -604,7 +598,7 @@ Entries:
         Underwear is now "fully" incorporated into the game, with icons, names,
         etc!
       type: Add
-  id: 46
+  id: 61
   time: '2023-01-26T18:38:30.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -614,7 +608,7 @@ Entries:
       type: Tweak
     - message: Station AI no longer drops PDA immediately.
       type: Fix
-  id: 47
+  id: 62
   time: '2023-01-26T19:33:33.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -626,7 +620,7 @@ Entries:
       type: Add
     - message: Getting Started guidebook.
       type: Add
-  id: 48
+  id: 63
   time: '2023-01-31T13:14:32.0000000+00:00'
 - author: Pspritechologist
   changes:
@@ -640,7 +634,7 @@ Entries:
       type: Add
     - message: You wouldn't slip a guy with glasses!
       type: Tweak
-  id: 49
+  id: 64
   time: '2023-01-31T23:25:45.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -654,7 +648,7 @@ Entries:
       type: Add
     - message: Moth laugh.
       type: Add
-  id: 50
+  id: 65
   time: '2023-02-01T09:13:32.0000000+00:00'
 - author: Pspritechologist
   changes:
@@ -664,13 +658,13 @@ Entries:
       type: Add
     - message: Resized several material and part sprites so they look not dumb.
       type: Tweak
-  id: 51
+  id: 75
   time: '2023-02-02T06:17:50.0000000+00:00'
 - author: BlitzGunner225
   changes:
     - message: Cooler Medical HUD!
       type: Tweak
-  id: 52
+  id: 076
   time: '2023-02-02T16:25:50.0000000+00:00'
 - author: Pspritechologist
   changes:
@@ -682,7 +676,7 @@ Entries:
       type: Add
     - message: Updated Parkstation with various tweaks.
       type: Tweak
-  id: 53
+  id: 077
   time: '2023-02-03T06:01:23.0000000+00:00'
 - author: Pspritechologist
   changes:
@@ -694,7 +688,7 @@ Entries:
       type: Add
     - message: Updated Parkstation with various tweaks.
       type: Tweak
-  id: 54
+  id: 078
   time: '2023-02-10T23:47:50.0000000+00:00'
 - author: Pspritechologist
   changes:
@@ -708,13 +702,13 @@ Entries:
         The scream action is no longer present, since screaming can be done
         through emotes.
       type: Remove
-  id: 55
+  id: 079
   time: '2023-02-12T21:43:11.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - message: Add guidebooks for every species, quickly explaining their mechanics.
       type: Add
-  id: 56
+  id: 080
   time: '2023-02-18T00:09:30.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -726,7 +720,7 @@ Entries:
       type: Add
     - message: Station AI disallowed actions predict correctly.
       type: Fix
-  id: 57
+  id: 081
   time: '2023-02-19T13:53:18.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -738,7 +732,7 @@ Entries:
       type: Fix
     - message: Mute trait muted alert goes away on component shutdown.
       type: Fix
-  id: 58
+  id: 082
   time: '2023-02-25T01:45:13.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -764,7 +758,7 @@ Entries:
       type: Tweak
     - message: New logo.
       type: Add
-  id: 59
+  id: 083
   time: '2023-03-12T13:14:53.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -772,12 +766,12 @@ Entries:
       message: >-
         Added a new examine verb to open a UI showing an 6x scale sprite view of
         any humanoid.
-  id: 60
+  id: 084
   time: '2023-04-02T00:57:38Z'
 - author: Pspritechologist
   changes:
     - message: >-
         Several minor additions and tweaks to ParkStation.
       type: Tweak
-  id: 61
+  id: 085
   time: '2023-04-03T05:31:40Z'
