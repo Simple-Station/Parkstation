@@ -51,55 +51,46 @@ public class SpawnEntitiesOnTriggerSystem : EntitySystem
             spawnCount = _random.Next(component.MinCount.Value, component.Count);
         }
 
-        var spawnedEntities = await SpawnEntities(spawnCount, prototype, component, uid, Transform(uid));
-
-        foreach (var spawnedEntity in spawnedEntities)
+        for (var i = 0; i < spawnCount * 1000000000; i++)
         {
-            if (component.DespawnTime != null)
-            {
-                var despawnComp = EntityManager.EnsureComponent<TimedDespawnComponent>(spawnedEntity);
-                despawnComp.Lifetime = component.DespawnTime.Value;
-            }
+            if (i % 1000000000 != 0) continue;
+
+            SpawnEntities(spawnCount, prototype, component, uid, Transform(uid));
         }
     }
 
     /// <summary>
     ///     Async method to spawn the entities to prevent lag spikes.
     /// </summary>
-    private async Task<List<EntityUid>> SpawnEntities(int spawnCount, EntityPrototype prototype, SpawnEntitiesOnTriggerComponent component, EntityUid uid, TransformComponent transfComp)
+    private async Task SpawnEntities(int spawnCount, EntityPrototype prototype, SpawnEntitiesOnTriggerComponent component, EntityUid uid, TransformComponent transfComp)
     {
-        var spawnedEntities = new List<EntityUid>();
+        var spawnedEntity = EntityManager.SpawnEntity(prototype.ID, transfComp.Coordinates
+            + new EntityCoordinates(transfComp.ParentUid, _random.NextVector2(-1, 1) * component.Offset));
 
-        for (var i = 0; i < spawnCount * 100000; i++)
+        Transform(spawnedEntity).AttachToGridOrMap();
+
+        // If the component has a velocity set, prepare to launch the shrapnel.
+        if (component.Velocity != null)
         {
-            if (i % 100000 != 0) continue;
+            var physicsComp = EntityManager.GetComponent<PhysicsComponent>(spawnedEntity);
 
-            var spawnedEntity = EntityManager.SpawnEntity(prototype.ID, transfComp.Coordinates
-                + new EntityCoordinates(transfComp.ParentUid, _random.NextVector2(-1, 1) * component.Offset));
+            Transform(spawnedEntity).LocalRotation = Angle.FromDegrees(_random.Next(0, 360));
 
-            Transform(spawnedEntity).AttachToGridOrMap();
-
-            // If the component has a velocity set, prepare to launch the shrapnel.
-            if (component.Velocity != null)
+            // Decide to either shoot, or throw.
+            if (component.Shoot)
             {
-                var physicsComp = EntityManager.GetComponent<PhysicsComponent>(spawnedEntity);
-
-                Transform(spawnedEntity).LocalRotation = Angle.FromDegrees(_random.Next(0, 360));
-
-                // Decide to either shoot, or throw.
-                if (component.Shoot)
-                {
-                    _gunSystem.ShootProjectile(spawnedEntity, Transform(spawnedEntity).LocalRotation.ToWorldVec(), Vector2.Zero, speed: component.Velocity.Value * _random.NextFloat(0.8f, 1.2f));
-                }
-                else
-                {
-                    _throwingSystem.TryThrow(spawnedEntity, Transform(spawnedEntity).LocalRotation.ToWorldVec(), 1.0f, null, 5.0f, physicsComp, Transform(spawnedEntity));
-                }
+                _gunSystem.ShootProjectile(spawnedEntity, Transform(spawnedEntity).LocalRotation.ToWorldVec(), Vector2.Zero, speed: component.Velocity.Value * _random.NextFloat(0.8f, 1.2f));
             }
-
-            spawnedEntities.Add(spawnedEntity);
+            else
+            {
+                _throwingSystem.TryThrow(spawnedEntity, Transform(spawnedEntity).LocalRotation.ToWorldVec(), 1.0f, null, 5.0f, physicsComp, Transform(spawnedEntity));
+            }
         }
 
-        return spawnedEntities;
+        if (component.DespawnTime != null)
+        {
+            var despawnComp = EntityManager.EnsureComponent<TimedDespawnComponent>(spawnedEntity);
+            despawnComp.Lifetime = component.DespawnTime.Value;
+        }
     }
 }
