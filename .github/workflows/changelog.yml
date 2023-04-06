@@ -1,6 +1,6 @@
 name: PR Changelogs
 on:
-  pull_request:
+  pull_request_target:
     types: [closed]
 
 env:
@@ -11,7 +11,6 @@ jobs:
   changelog:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
-    environment: changelog
     permissions:
       contents: write
     steps:
