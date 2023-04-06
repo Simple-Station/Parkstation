@@ -225,6 +225,7 @@ namespace Content.Server.Database
         public string Clothing { get; set; } = null!;
         public string Backpack { get; set; } = null!;
         public List<Job> Jobs { get; } = new();
+        public Dictionary<string, string> JobCustomNames { get; } = new();
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
         public List<Loadout> Loadouts { get; } = new();

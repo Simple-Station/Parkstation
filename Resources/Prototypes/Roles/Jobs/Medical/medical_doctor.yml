@@ -1,6 +1,10 @@
 - type: job
   id: MedicalDoctor
   name: job-name-doctor
+  altNames:
+    - job-name-doctor-alt
+    - job-name-doctor-alt2
+    - job-name-doctor-alt3
   description: job-description-doctor
   playTimeTracker: JobMedicalDoctor
   startingGear: DoctorGear

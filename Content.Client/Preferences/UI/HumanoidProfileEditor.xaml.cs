@@ -472,6 +472,11 @@ namespace Content.Client.Preferences.UI
                         }
                     };
 
+                    selector.AltNameChanged += altName =>
+                    {
+                        Profile = Profile?.WithJobCustomName(job.ID, altName);
+                        IsDirty = true;
+                    };
                 }
             }
 
@@ -1380,8 +1385,10 @@ namespace Content.Client.Preferences.UI
                 var jobId = prioritySelector.Job.ID;
 
                 var priority = Profile?.JobPriorities.GetValueOrDefault(jobId, JobPriority.Never) ?? JobPriority.Never;
-
                 prioritySelector.Priority = priority;
+
+                var altName = Profile?.JobCustomNames.GetValueOrDefault(jobId, string.Empty) ?? string.Empty;
+                prioritySelector.AltName = altName;
             }
         }
 
@@ -1389,6 +1396,7 @@ namespace Content.Client.Preferences.UI
         {
             public JobPrototype Job { get; }
             private readonly RadioOptions<int> _optionButton;
+            private readonly OptionButton _altNamesButton;
 
             public JobPriority Priority
             {
@@ -1396,7 +1404,15 @@ namespace Content.Client.Preferences.UI
                 set => _optionButton.SelectByValue((int) value);
             }
 
+            public readonly Dictionary<int, string> AltNames;
+            public string AltName
+            {
+                get => AltNames[_altNamesButton.SelectedId];
+                set => _altNamesButton.SelectId(AltNames.FirstOrDefault(x => x.Value == value).Key);
+            }
+
             public event Action<JobPriority>? PriorityChanged;
+            public event Action<string>? AltNameChanged;
 
             private StripeBack _lockStripe;
             private Label _requirementsLabel;
@@ -1405,6 +1421,20 @@ namespace Content.Client.Preferences.UI
             public JobPrioritySelector(JobPrototype job)
             {
                 Job = job;
+
+                _jobTitle = new Label()
+                {
+                    Margin = new Thickness(5f,0,5f,0),
+                    Text = job.LocalizedName,
+                    MinSize = (180, 0),
+                    MouseFilter = MouseFilterMode.Stop
+                };
+
+                if (job.LocalizedDescription != null)
+                {
+                    _jobTitle.ToolTip = job.LocalizedDescription;
+                    _jobTitle.TooltipDelay = 0.2f;
+                }
 
                 _optionButton = new RadioOptions<int>(RadioOptionsLayout.Horizontal)
                 {
@@ -1425,6 +1455,42 @@ namespace Content.Client.Preferences.UI
                     _optionButton.Select(args.Id);
                     PriorityChanged?.Invoke(Priority);
                 };
+
+
+                _altNamesButton = new OptionButton
+                {
+                    Margin = new Thickness(5f, 0, 5f, 0),
+                    MinSize = (180, 0),
+                    Visible = false,
+                };
+
+                AltNames = new Dictionary<int, string>();
+                AltNames.Add(0, "default");
+                _altNamesButton.AddItem(job.LocalizedName, 0);
+
+                _altNamesButton.OnItemSelected += args =>
+                {
+                    _altNamesButton.Select(args.Id);
+                    AltNameChanged?.Invoke(AltName);
+                };
+
+                if (Job.AltNames is { Length: > 0 })
+                {
+                    _altNamesButton.Visible = true;
+                    _jobTitle.Visible = false;
+
+                    foreach (var alt in Job.AltNames)
+                    {
+                        AltNames.Add(AltNames.Count, alt);
+                        _altNamesButton.AddItem(alt, AltNames.Count - 1);
+                    }
+                }
+                else
+                {
+                    _altNamesButton.Visible = false;
+                    _jobTitle.Visible = true;
+                }
+
 
                 var icon = new TextureRect
                 {
@@ -1459,20 +1525,6 @@ namespace Content.Client.Preferences.UI
                     }
                 };
 
-                _jobTitle = new Label()
-                {
-                    Margin = new Thickness(5f,0,5f,0),
-                    Text = job.LocalizedName,
-                    MinSize = (180, 0),
-                    MouseFilter = MouseFilterMode.Stop
-                };
-
-                if (job.LocalizedDescription != null)
-                {
-                    _jobTitle.ToolTip = job.LocalizedDescription;
-                    _jobTitle.TooltipDelay = 0.2f;
-                }
-
                 AddChild(new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
@@ -1480,6 +1532,7 @@ namespace Content.Client.Preferences.UI
                     {
                         icon,
                         _jobTitle,
+                        _altNamesButton,
                         _optionButton,
                         _lockStripe,
                     }
