@@ -1387,7 +1387,7 @@ namespace Content.Client.Preferences.UI
                 var priority = Profile?.JobPriorities.GetValueOrDefault(jobId, JobPriority.Never) ?? JobPriority.Never;
                 prioritySelector.Priority = priority;
 
-                var altName = Profile?.JobCustomNames.GetValueOrDefault(jobId, string.Empty) ?? string.Empty;
+                var altName = Profile?.JobCustomNames.GetValueOrDefault(jobId, "default") ?? "default";
                 prioritySelector.AltName = altName;
             }
         }
@@ -1482,7 +1482,7 @@ namespace Content.Client.Preferences.UI
                     foreach (var alt in Job.AltNames)
                     {
                         AltNames.Add(AltNames.Count, alt);
-                        _altNamesButton.AddItem(alt, AltNames.Count - 1);
+                        _altNamesButton.AddItem(Loc.GetString(alt), AltNames.Count - 1);
                     }
                 }
                 else

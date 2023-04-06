@@ -193,10 +193,16 @@ namespace Content.Client.Preferences.UI
                 var description = profile.Name;
 
                 var highPriorityJob = humanoid?.JobPriorities.SingleOrDefault(p => p.Value == JobPriority.High).Key;
-                if (highPriorityJob != null)
+                if (humanoid != null && highPriorityJob != null)
                 {
-                    var jobName = IoCManager.Resolve<IPrototypeManager>().Index<JobPrototype>(highPriorityJob).LocalizedName;
-                    description = $"{description}\n{jobName}";
+                    // var jobName = IoCManager.Resolve<IPrototypeManager>().Index<JobPrototype>(highPriorityJob).LocalizedName;
+                    // description = $"{description}\n{jobName}";
+                    if (IoCManager.Resolve<IPrototypeManager>().TryIndex(highPriorityJob, out JobPrototype? job))
+                    {
+                        description = humanoid.JobCustomNames.TryGetValue(highPriorityJob, out var customName)
+                            ? $"{description}\n{Loc.GetString(customName)}"
+                            : $"{description}\n{job.LocalizedName}";
+                    }
                 }
 
                 var descriptionLabel = new Label

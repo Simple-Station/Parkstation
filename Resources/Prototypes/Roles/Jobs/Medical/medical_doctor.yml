@@ -1,10 +1,12 @@
 - type: job
   id: MedicalDoctor
   name: job-name-doctor
-  altNames:
-    - job-name-doctor-alt
-    - job-name-doctor-alt2
-    - job-name-doctor-alt3
+  altNames: # TODO: make the loc something like "job-name-<alt>" where alt is lowercase
+    - Virologist
+    - Geneticist
+    - Chemist
+    - Surgeon
+    - Paramedic
   description: job-description-doctor
   playTimeTracker: JobMedicalDoctor
   startingGear: DoctorGear

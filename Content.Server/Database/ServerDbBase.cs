@@ -249,6 +249,7 @@ namespace Content.Server.Database
                 Clothing = humanoid.Clothing.ToString(),
                 Backpack = humanoid.Backpack.ToString(),
                 Markings = markings,
+                JobCustomNames = humanoid.JobCustomNames.ToDictionary(j => j.Key, j => j.Value),
                 Slot = slot,
                 PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable
             };

@@ -140,7 +140,7 @@ namespace Content.Client.Lobby.UI
         {
             var protoMan = IoCManager.Resolve<IPrototypeManager>();
             var entMan = IoCManager.Resolve<IEntityManager>();
-            var siriMan = IoCManager.Resolve<ISerializationManager>(); // funi var
+            var siriMan = IoCManager.Resolve<ISerializationManager>();
             var invSystem = EntitySystem.Get<ClientInventorySystem>();
 
             var highPriorityJob = profile.JobPriorities.FirstOrDefault(p => p.Value == JobPriority.High).Key;

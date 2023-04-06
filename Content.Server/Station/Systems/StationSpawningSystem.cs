@@ -117,7 +117,7 @@ public sealed class StationSpawningSystem : EntitySystem
             var startingGear = _prototypeManager.Index<StartingGearPrototype>(job.StartingGear);
             EquipStartingGear(entity, startingGear, profile);
             if (profile != null)
-                EquipIdCard(entity, profile.Name, job.Prototype, station);
+                EquipIdCard(entity, profile.Name, job.Prototype, station, profile);
         }
 
         if (profile != null)
@@ -183,7 +183,8 @@ public sealed class StationSpawningSystem : EntitySystem
     /// <param name="characterName">Character name to use for the ID.</param>
     /// <param name="jobPrototype">Job prototype to use for the PDA and ID.</param>
     /// <param name="station">The station this player is being spawned on.</param>
-    public void EquipIdCard(EntityUid entity, string characterName, JobPrototype jobPrototype, EntityUid? station)
+    /// <param name="profile">Player profile.</param>
+    public void EquipIdCard(EntityUid entity, string characterName, JobPrototype jobPrototype, EntityUid? station, HumanoidCharacterProfile? profile = null)
     {
         if (!_inventorySystem.TryGetSlotEntity(entity, "id", out var idUid))
             return;
@@ -194,7 +195,11 @@ public sealed class StationSpawningSystem : EntitySystem
         var card = pdaComponent.ContainedID;
         var cardId = card.Owner;
         _cardSystem.TryChangeFullName(cardId, characterName, card);
-        _cardSystem.TryChangeJobTitle(cardId, jobPrototype.LocalizedName, card);
+
+        var jobTitle = jobPrototype.LocalizedName;
+        if (profile != null && profile.JobCustomNames.TryGetValue(jobPrototype.ID, out var customName))
+            jobTitle = customName;
+        _cardSystem.TryChangeJobTitle(cardId, jobTitle, card);
 
         var extendedAccess = false;
         if (station != null)
