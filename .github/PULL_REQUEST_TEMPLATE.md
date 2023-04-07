@@ -17,9 +17,10 @@ A checklist can be make using the following syntax:
 # Media
 <!--
 If applicable, add screenshots or videos to showcase your PR.
+This makes it much easier for us to merge PRs.
 Refactors or small fixes are exempt, but all PRs which make ingame changes (adding clothing, items, new features, etc) must include ingame media or the PR will not be merged.
-This makes it much easier for us to merge PRs and find media for progress reports.
-If you include media in your pull request, we may potentially use it in the progress reports, with clear credit given.
+Use screenshot software like Window's built in snipping tool, ShareX, Lightshot, or recording software like ShareX (gif), ScreenToGif, or Open Broadcaster Software (cross platform).
+If you're unsure whether your PR will require media, ask a maintainer.
 -->
 
 
