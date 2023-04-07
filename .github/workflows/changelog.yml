@@ -18,7 +18,7 @@ jobs:
       - name: Checkout Master
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.BOT_TOKEN }}
           ref: "${{ vars.CHANGELOG_BRANCH }}"
 
       - name: Setup Git
