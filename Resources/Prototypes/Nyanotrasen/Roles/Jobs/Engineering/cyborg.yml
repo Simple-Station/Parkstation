@@ -12,6 +12,7 @@
   whitelistRequired: true
   jobEntity: PlayerCyborgStandard
   startingGear: CyborgGear # for char preview only
+  canHaveTraits: false
 
 - type: startingGear
   id: CyborgGear

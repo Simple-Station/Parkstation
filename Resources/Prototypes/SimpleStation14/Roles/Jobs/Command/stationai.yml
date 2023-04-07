@@ -13,6 +13,7 @@
   jobEntity: AI
   startingGear: CyborgGear # for char preview only
   alwaysUseSpawner: true
+  canHaveTraits: false
 
 # - type: startingGear
 #   id: AIGear
