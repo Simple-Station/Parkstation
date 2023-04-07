@@ -105,6 +105,7 @@
   exclusive: true
   jobWhitelist:
     - MedicalDoctor
+    - ChiefMedicalOfficer
   item: ClothingOuterCoatLab
 
 - type: loadout
@@ -128,6 +129,7 @@
   exclusive: true
   jobWhitelist:
     - MedicalDoctor
+    - ChiefMedicalOfficer
   item: ClothingUniformJumpskirtChemistry
 
 - type: loadout
@@ -139,6 +141,7 @@
   exclusive: true
   jobWhitelist:
     - MedicalDoctor
+    - ChiefMedicalOfficer
   item: ClothingUniformJumpsuitChemistry
 
 - type: loadout
@@ -150,6 +153,7 @@
   exclusive: true
   jobWhitelist:
     - MedicalDoctor
+    - ChiefMedicalOfficer
   item: ClothingOuterCoatLabChem
 
 - type: loadout
@@ -161,6 +165,7 @@
   exclusive: true
   jobWhitelist:
     - MedicalDoctor
+    - ChiefMedicalOfficer
   item: UniformScrubsColorBlue
 
 - type: loadout
@@ -172,6 +177,7 @@
   exclusive: true
   jobWhitelist:
     - MedicalDoctor
+    - ChiefMedicalOfficer
   item: UniformScrubsColorGreen
 
 - type: loadout
@@ -183,6 +189,7 @@
   exclusive: true
   jobWhitelist:
     - MedicalDoctor
+    - ChiefMedicalOfficer
   item: UniformScrubsColorPurple
 
 - type: loadout
@@ -194,6 +201,7 @@
   exclusive: true
   jobWhitelist:
     - MedicalDoctor
+    - ChiefMedicalOfficer
   item: ClothingUniformJumpsuitParamedic
 
 - type: loadout
@@ -205,6 +213,7 @@
   exclusive: true
   jobWhitelist:
     - MedicalDoctor
+    - ChiefMedicalOfficer
   item: ClothingUniformJumpskirtParamedic
 
 - type: loadout
@@ -216,6 +225,7 @@
   exclusive: true
   jobWhitelist:
     - MedicalDoctor
+    - ChiefMedicalOfficer
   item: ClothingUniformJumpskirtNurse
 
 - type: loadout
@@ -227,6 +237,7 @@
   exclusive: true
   jobWhitelist:
     - MedicalDoctor
+    - ChiefMedicalOfficer
   item: ClothingHeadNurseHat
 
 
@@ -241,6 +252,7 @@
   exclusive: true
   jobWhitelist:
     - StationEngineer
+    - ChiefEngineer
   item: ClothingUniformJumpsuitEngineeringHazard
 
 - type: loadout
@@ -252,6 +264,7 @@
   exclusive: true
   jobWhitelist:
     - StationEngineer
+    - ChiefEngineer
   item: ClothingOuterVestHazard
 
 - type: loadout
@@ -286,6 +299,7 @@
   jobWhitelist:
     - StationEngineer
     - AtmosphericTechnician
+    - ChiefEngineer
   item: ClothingEyesGlassesMeson
 
 - type: loadout
@@ -298,6 +312,7 @@
   jobWhitelist:
     - StationEngineer
     - AtmosphericTechnician
+    - ChiefEngineer
   item: ClothingHeadHatHardhatBlue
 
 - type: loadout
@@ -310,6 +325,7 @@
   jobWhitelist:
     - StationEngineer
     - AtmosphericTechnician
+    - ChiefEngineer
   item: ClothingHeadHatHardhatOrange
 
 - type: loadout
@@ -322,6 +338,7 @@
   jobWhitelist:
     - StationEngineer
     - AtmosphericTechnician
+    - ChiefEngineer
   item: ClothingHeadHatHardhatYellow
 
 - type: loadout
@@ -334,6 +351,7 @@
   jobWhitelist:
     - StationEngineer
     - AtmosphericTechnician
+    - ChiefEngineer
   item: ClothingHeadHatHardhatWhite
 
 - type: loadout
@@ -346,6 +364,7 @@
   jobWhitelist:
     - StationEngineer
     - AtmosphericTechnician
+    - ChiefEngineer
   item: ClothingHeadHatHardhatRed
 
 - type: loadout
@@ -357,6 +376,7 @@
   jobWhitelist:
     - StationEngineer
     - AtmosphericTechnician
+    - ChiefEngineer
   item: BoxInflatable
 
 
@@ -372,6 +392,8 @@
   jobWhitelist:
     - Epistemologist
     - Scientist
+    - Mystagogue
+    - ResearchDirector
   item: ClothingOuterCoatLab
 
 - type: loadout
@@ -385,6 +407,8 @@
     - ForensicMantis
     - Cataloguer
     - Scientist
+    - Mystagogue
+    - ResearchDirector
   item: PinpointerAnomaly
 
 - type: loadout
@@ -398,8 +422,10 @@
     - ForensicMantis
     - Cataloguer
     - Scientist
+    - Mystagogue
+    - ResearchDirector
   item: PinpointerArtifact
-  
+
 - type: loadout
   id: LoadoutScienceItemNodeScanner
   name: Node scanner
@@ -409,6 +435,8 @@
   jobWhitelist:
     - Epistemologist
     - Scientist
+    - Mystagogue
+    - ResearchDirector
   item: NodeScanner
 
 
