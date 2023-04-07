@@ -779,3 +779,9 @@ Entries:
       message: Changed Syndicate reinforcement radio cost from 12TC to 13TC
   id: 81
   time: '2023-04-07T00:04:42Z'
+- author: Pixel
+  changes:
+    - type: add
+      message: Added node scanner to loadout
+  id: 76
+  time: '2023-04-07T00:25:51Z'
