@@ -531,7 +531,6 @@ Entries:
       type: Tweak
   id: 48
   time: '2023-01-16T05:10:33.0000000+00:00'
-
 - author: DEATHB4DEFEAT
   changes:
     - message: Fix Nearsight trait being inverted.
@@ -664,7 +663,7 @@ Entries:
   changes:
     - message: Cooler Medical HUD!
       type: Tweak
-  id: 076
+  id: 76
   time: '2023-02-02T16:25:50.0000000+00:00'
 - author: Pspritechologist
   changes:
@@ -676,7 +675,7 @@ Entries:
       type: Add
     - message: Updated Parkstation with various tweaks.
       type: Tweak
-  id: 077
+  id: 77
   time: '2023-02-03T06:01:23.0000000+00:00'
 - author: Pspritechologist
   changes:
@@ -688,7 +687,7 @@ Entries:
       type: Add
     - message: Updated Parkstation with various tweaks.
       type: Tweak
-  id: 078
+  id: 78
   time: '2023-02-10T23:47:50.0000000+00:00'
 - author: Pspritechologist
   changes:
@@ -702,13 +701,13 @@ Entries:
         The scream action is no longer present, since screaming can be done
         through emotes.
       type: Remove
-  id: 079
+  id: 79
   time: '2023-02-12T21:43:11.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - message: Add guidebooks for every species, quickly explaining their mechanics.
       type: Add
-  id: 080
+  id: 80
   time: '2023-02-18T00:09:30.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -720,7 +719,7 @@ Entries:
       type: Add
     - message: Station AI disallowed actions predict correctly.
       type: Fix
-  id: 081
+  id: 81
   time: '2023-02-19T13:53:18.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -732,7 +731,7 @@ Entries:
       type: Fix
     - message: Mute trait muted alert goes away on component shutdown.
       type: Fix
-  id: 082
+  id: 82
   time: '2023-02-25T01:45:13.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -758,7 +757,7 @@ Entries:
       type: Tweak
     - message: New logo.
       type: Add
-  id: 083
+  id: 83
   time: '2023-03-12T13:14:53.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -766,12 +765,17 @@ Entries:
       message: >-
         Added a new examine verb to open a UI showing an 6x scale sprite view of
         any humanoid.
-  id: 084
+  id: 84
   time: '2023-04-02T00:57:38Z'
 - author: Pspritechologist
   changes:
-    - message: >-
-        Several minor additions and tweaks to ParkStation.
+    - message: Several minor additions and tweaks to ParkStation.
       type: Tweak
-  id: 085
+  id: 85
   time: '2023-04-03T05:31:40Z'
+- author: BlitzGunner225
+  changes:
+    - type: tweak
+      message: Changed Syndicate reinforcement radio cost from 12TC to 13TC
+  id: 81
+  time: '2023-04-07T00:04:42Z'
