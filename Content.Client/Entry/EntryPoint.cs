@@ -1,6 +1,7 @@
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
+using Content.Client.Corvax.DiscordAuth;
 using Content.Client.Corvax.JoinQueue;
 using Content.Client.Eui;
 using Content.Client.Flash;
@@ -70,6 +71,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly RedialManager _redial = default!;
         [Dependency] private readonly ContentLocalizationManager _contentLoc = default!;
         [Dependency] private readonly JoinQueueManager _queueManager = default!; // Corvax-Queue
+        [Dependency] private readonly DiscordAuthManager _discordAuthManager = default!; // Corvax-DiscordAuth
 
         public override void Init()
         {
@@ -113,6 +115,7 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("metabolizerType");
             _prototypeManager.RegisterIgnore("metabolismGroup");
             _prototypeManager.RegisterIgnore("salvageMap");
+            _prototypeManager.RegisterIgnore("salvageFaction");
             _prototypeManager.RegisterIgnore("gamePreset");
             _prototypeManager.RegisterIgnore("gameRule");
             _prototypeManager.RegisterIgnore("worldSpell");
@@ -123,8 +126,8 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("alertLevels");
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("stationGoal"); // Corvax-StationGoal
+            _prototypeManager.RegisterIgnore("loadout"); // Corvax-Loadout
             _prototypeManager.RegisterIgnore("flavor");
-            _prototypeManager.RegisterIgnore("announcer"); // Announcer prototypes are server-only.
 
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
@@ -166,6 +169,7 @@ namespace Content.Client.Entry
             _networkResources.Initialize();
             _userInterfaceManager.SetDefaultTheme("SS14DefaultTheme");
             _queueManager.Initialize(); // Corvax-Queue
+            _discordAuthManager.Initialize(); // Corvax-DiscordAuth
             _documentParsingManager.Initialize();
 
             _baseClient.RunLevelChanged += (_, args) =>
