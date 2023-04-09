@@ -32,7 +32,7 @@
   id: Ageusia
   name: Ageusia
   description: Something has caused you to lose your sense of taste.
-  cost: 2
+  cost: 1
   category: Negative
   components:
     - type: Ageusia
@@ -51,7 +51,7 @@
   id: AntiSocial
   name: Anti-Social
   description: You don't really like being around others, you stutter a lot while speaking, and hugs bother you.
-  cost: 2
+  cost: 1
   category: Negative
   components:
     - type: InteractionPopup
