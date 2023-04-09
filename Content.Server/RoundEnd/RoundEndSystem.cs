@@ -17,6 +17,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Timer = Robust.Shared.Timing.Timer;
+using Content.Server.SimpleStation14.Announcements.Systems;
 
 namespace Content.Server.RoundEnd
 {
@@ -36,6 +37,7 @@ namespace Content.Server.RoundEnd
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly ShuttleSystem _shuttle = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
+        [Dependency] private readonly AnnouncerSystem _announceSystem = default!;
 
         public TimeSpan DefaultCooldownDuration { get; set; } = TimeSpan.FromSeconds(30);
 
@@ -146,26 +148,36 @@ namespace Content.Server.RoundEnd
 
             if (autoCall)
             {
-                _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-auto-called-announcement",
+                // _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-auto-called-announcement",
+                //     ("time", time),
+                //     ("units", Loc.GetString(units))),
+                //     Loc.GetString("Station"),
+                //     false,
+                //     null,
+                //     Color.Gold);
+                _announceSystem.SendAnnouncement("shuttlecalled", Filter.Broadcast(), Loc.GetString("round-end-system-shuttle-auto-called-announcement",
                     ("time", time),
                     ("units", Loc.GetString(units))),
                     Loc.GetString("Station"),
-                    false,
-                    null,
                     Color.Gold);
             }
             else
             {
-                _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-called-announcement",
+                // _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-called-announcement",
+                //     ("time", time),
+                //     ("units", Loc.GetString(units))),
+                //     Loc.GetString("Station"),
+                //     false,
+                //     null,
+                //     Color.Gold);
+                _announceSystem.SendAnnouncement("shuttlecalled", Filter.Broadcast(), Loc.GetString("round-end-system-shuttle-called-announcement",
                     ("time", time),
                     ("units", Loc.GetString(units))),
                     Loc.GetString("Station"),
-                    false,
-                    null,
                     Color.Gold);
             }
 
-            SoundSystem.Play("/Audio/Announcements/shuttlecalled.ogg", Filter.Broadcast());
+            // SoundSystem.Play("/Audio/Announcements/shuttlecalled.ogg", Filter.Broadcast());
 
             LastCountdownStart = _gameTiming.CurTime;
             ExpectedCountdownEnd = _gameTiming.CurTime + countdownTime;
@@ -205,10 +217,12 @@ namespace Content.Server.RoundEnd
                 _adminLogger.Add(LogType.ShuttleRecalled, LogImpact.High, $"Shuttle recalled");
             }
 
-            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-recalled-announcement"),
-                Loc.GetString("Station"), false, colorOverride: Color.Gold);
+            // _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-recalled-announcement"),
+            //     Loc.GetString("Station"), false, colorOverride: Color.Gold);
+            _announceSystem.SendAnnouncement("shuttlerecalled", Filter.Broadcast(), Loc.GetString("round-end-system-shuttle-recalled-announcement"),
+                Loc.GetString("Station"), Color.Gold);
 
-            SoundSystem.Play("/Audio/Announcements/shuttlerecalled.ogg", Filter.Broadcast());
+            // SoundSystem.Play("/Audio/Announcements/shuttlerecalled.ogg", Filter.Broadcast());
 
             LastCountdownStart = null;
             ExpectedCountdownEnd = null;
