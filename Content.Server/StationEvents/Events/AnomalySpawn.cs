@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Content.Server.Anomaly;
 using Content.Server.Station.Components;
+using Robust.Shared.Audio;
 using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;

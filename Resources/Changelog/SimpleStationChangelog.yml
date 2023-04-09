@@ -787,7 +787,19 @@ Entries:
   time: '2023-04-07T00:25:51Z'
 - author: Pspritechologist
   changes:
-    - message: "Recovered Walter from his own ashes."
+    - message: Recovered Walter from his own ashes.
       type: Tweak
   id: 64
   time: '2023-04-07T18:26:04Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: Fixed cloning not applying traits.
+  id: 67
+  time: '2023-04-09T03:42:37Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: add
+      message: Added pickup/drop/throw sounds to tons of items
+  id: 70
+  time: '2023-04-09T05:28:16Z'

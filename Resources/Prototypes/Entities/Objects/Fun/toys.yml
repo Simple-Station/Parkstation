@@ -376,6 +376,31 @@
   - type: Sprite
     sprite: Objects/Fun/toys.rsi
     state: nuketoy
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Machines/Nuke/nuke_alarm.ogg
+      volume: -5
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Machines/Nuke/nuke_alarm.ogg
+      volume: -5
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Machines/Nuke/nuke_alarm.ogg
+      volume: -5
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Machines/Nuke/nuke_alarm.ogg
+      volume: -5
+    damage:
+      types:
+        Blunt: 0
+  - type: Tag
+    tags:
+    - Payload # yes, you can even make re-usable plushie grenades
+  - type: ItemCooldown
+  - type: UseDelay
+    delay: 15
 
 - type: entity
   parent: BaseItem
