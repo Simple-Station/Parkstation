@@ -159,10 +159,6 @@ Entries:
       type: Fix
     - message: Give Ichor a physical description.
       type: Fix
-    - message: >-
-        Smonk reagent, instantly makes a ton of fast smoke. (for wizard spell
-        soon™)
-      type: Add
     - message: Add Doormat name to AI and borg possibilites.
       type: Add
     - message: Add Fakethanol reagent.
@@ -535,9 +531,6 @@ Entries:
       type: Tweak
   id: 39
   time: '2023-01-16T05:10:33.0000000+00:00'
-
-## Old Changelog break
-
 - author: DEATHB4DEFEAT
   changes:
     - message: Fix Nearsight trait being inverted.
@@ -776,8 +769,25 @@ Entries:
   time: '2023-04-02T00:57:38Z'
 - author: Pspritechologist
   changes:
-    - message: >-
-        Several minor additions and tweaks to ParkStation.
+    - message: Several minor additions and tweaks to ParkStation.
       type: Tweak
   id: 61
   time: '2023-04-03T05:31:40Z'
+- author: BlitzGunner225
+  changes:
+    - type: tweak
+      message: Changed Syndicate reinforcement radio cost from 12TC to 13TC
+  id: 62
+  time: '2023-04-07T00:04:42Z'
+- author: Pixel
+  changes:
+    - type: add
+      message: Added node scanner to loadout
+  id: 63
+  time: '2023-04-07T00:25:51Z'
+- author: Pspritechologist
+  changes:
+    - message: "Recovered Walter from his own ashes."
+      type: Tweak
+  id: 64
+  time: '2023-04-07T18:26:04Z'

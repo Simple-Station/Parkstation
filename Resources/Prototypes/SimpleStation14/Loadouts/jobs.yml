@@ -399,6 +399,17 @@
     - Cataloguer
     - Scientist
   item: PinpointerArtifact
+  
+- type: loadout
+  id: LoadoutScienceItemNodeScanner
+  name: Node scanner
+  description: "A handheld scanner for checking which node an artifact is on."
+  category: Jobs
+  cost: 3
+  jobWhitelist:
+    - Epistemologist
+    - Scientist
+  item: NodeScanner
 
 
 # Service
