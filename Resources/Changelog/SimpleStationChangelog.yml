@@ -817,3 +817,9 @@ Entries:
       message: Added 3 new announcer voices.
   id: 56
   time: '2023-04-09T06:50:03Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Changed some trait point costs.
+  id: 66
+  time: '2023-04-09T06:50:51Z'
