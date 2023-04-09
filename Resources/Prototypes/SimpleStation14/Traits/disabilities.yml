@@ -60,3 +60,22 @@
       messagePerceivedByOthers: hugging-success-generic-others
       soundPerceivedByOthers: false
     - type: StutteringAccent
+
+- type: trait
+  id: SightFear
+  name: Fear of Sight # placeholder name
+  description: You are afraid of seeing things, and will run away from them. #
+  cost: 2 #
+  category: Negative
+  components:
+    - type: SightFearTrait
+      prototypes:
+        - MobHuman
+        - Spoon
+        - Fork
+        - SpoonPlastic
+        - ForkPlastic
+      tags:
+        - DoorBumpOpener
+      multipleFearChance: 0.75
+      maxFears: 3
