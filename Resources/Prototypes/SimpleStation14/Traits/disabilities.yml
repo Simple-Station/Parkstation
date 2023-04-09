@@ -1,7 +1,7 @@
 - type: trait
   id: ColorBlindnessMonochrome
-  name: Monochromatic Colorblindness
-  description: Your eyes have permanent damage, causing you to only see along a greyscale of color.
+  name: trait-monochromacy-name
+  description: trait-monochromacy-description
   cost: 5
   category: Negative
   components:
@@ -9,8 +9,8 @@
 
 - type: trait
   id: Nearsighted
-  name: Nearsighted
-  description: Your eyes have permanent damage, you are only able to see nearby you unless wearing glasses.
+  name: trait-nearsighted-name
+  description: trait-nearsighted-description
   cost: 3
   category: Negative
   components:
@@ -18,8 +18,8 @@
 
 - type: trait
   id: FakeMime
-  name: Mute
-  description: For one reason or another you will not speak, ever, and communicate through miming or writing.
+  name: trait-mute-name
+  description: trait-mute-description
   cost: 6
   category: Negative
   blacklist:
@@ -40,8 +40,8 @@
 # Me when chat shitcode
 # - type: trait
 #   id: Deaf
-#   name: Deaf
-#   description: You are unable to hear anyone speak, others have to communicate through writing or miming. # Reverse mime
+#   name: trait-deaf-name
+#   description: trait-deaf-description # Reverse mime
 #   cost: 6
 #   category: Negative
 #   components:
@@ -49,8 +49,8 @@
 
 - type: trait
   id: AntiSocial
-  name: Anti-Social
-  description: You don't really like being around others, you stutter a lot while speaking, and hugs bother you.
+  name: trait-antisocial-name
+  description: trait-antisocial-description
   cost: 2
   category: Negative
   components:

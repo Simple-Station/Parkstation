@@ -12,3 +12,4 @@
   canBeAntag: false
   jobEntity: PlayerCyborgMedical
   startingGear: CyborgGear # for char preview only
+  canHaveTraits: false
