@@ -8,7 +8,7 @@ What other things could this impact?
 # TODO
 <!--
 If this PR is a work in progress, you can keep track of what you need to do here.
-A checklist can be make using the following syntax:
+A checklist can be made using the following syntax:
 - [ ] Task
 - [x] Completed Task
 - [ ] Other Task
