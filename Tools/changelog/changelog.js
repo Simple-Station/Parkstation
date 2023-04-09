@@ -2,20 +2,12 @@ const fs = require("fs");
 const yaml = require("js-yaml");
 const axios = require("axios");
 
-// Using a token is optional, but will greatly reduce the chance of hitting the rate limit
 if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `Bearer ${process.env.GITHUB_TOKEN}`;
 
-(async () => {
-    // Debug
-    console.log(`PR Number: ${process.env.PR_NUMBER}`);
-    console.log(`Using Token: ${process.env.GITHUB_TOKEN != undefined && process.env.GITHUB_TOKEN != ""}`);
-    console.log(`Repository: ${process.env.GITHUB_REPOSITORY}`);
-    console.log(`Changelog Directory: ${process.env.CHANGELOG_DIR}`);
-    console.log("\n");
-
+async function main() {
     // Get PR details
     const pr = await axios.get(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/pulls/${process.env.PR_NUMBER}`);
-    const { merged_at, body } = pr.data;
+    const { merged_at, body, user } = pr.data;
 
     // Get author
     const HeaderRegex = /^\s*(?::cl:|🆑) *([a-z0-9_\- ]+)?\s+/im;
@@ -27,19 +19,27 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
 
     let author = headerMatch[1];
     if (!author) {
-        console.log("No author found, setting it to 'Untitled'");
-        author = "Untitled";
+        console.log("No author found, setting it to author of the PR\n");
+        author = user.login;
     }
-    else console.log(`Author: ${author}`);
-    console.log("\n");
 
     // Get all changes
+    const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/img;
+    const matches = [];
     entries = [];
-    const changes = getAllChanges(body);
-    console.log(`Found ${changes.length} changes`);
-    console.log("\n");
 
-    changes.forEach((entry) => {
+    for (const match of body.matchAll(EntryRegex)) {
+        matches.push([match[1], match[2]]);
+    }
+
+    if (!matches)
+    {
+        console.log("No changes found, skipping");
+        return;
+    }
+
+    // Check change types and construct changelog entry
+    matches.forEach((entry) => {
         let type;
 
         switch (entry[0].toLowerCase()) {
@@ -67,26 +67,18 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
         }
     });
 
-    console.log(`Found ${entries.length} changes`);
-    console.log("\n");
-
-    // time is something like 2021-08-29T20:00:00Z
-    // time should be something like 2023-02-18T00:00:00.0000000+00:00
+    // Time is something like 2021-08-29T20:00:00Z
+    // Time should be something like 2023-02-18T00:00:00.0000000+00:00
     let time = merged_at;
     if (time)
     {
-        time = time.split("T")[0];
-        time = time + "T00:00:00.0000000+00:00";
+        time = time.replace("z", ".0000000+00:00");
     }
     else
     {
         console.log("Pull request was not merged, skipping");
         return;
-        // console.log("No merge time found, setting it to 2023-03-28T00:00:00.0000000+00:00");
-        // time = "2023-03-28T00:00:00.0000000+00:00";
     }
-    console.log(`Merge Time: ${time}`);
-    console.log("\n");
 
     // Construct changelog entry
     const entry = {
@@ -96,12 +88,7 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
         time: time,
     };
 
-    console.log("Changelog entry:");
-    console.log(entry);
-    console.log("\n");
-
     // Read changelogs.yml file
-    console.log("Reading changelogs file");
     const file = fs.readFileSync(
         `../../${process.env.CHANGELOG_DIR}`,
         "utf8"
@@ -121,7 +108,6 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     const updatedChangelogs = changelogs;
 
     // Write updated changelogs.yml file
-    console.log("Writing changelogs file");
     fs.writeFileSync(
         `../../${process.env.CHANGELOG_DIR}`,
         "Entries:\n" +
@@ -129,16 +115,6 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
     );
 
     console.log(`Changelog updated with changes from PR #${process.env.PR_NUMBER}`);
-})();
-
-function getAllChanges(description) {
-    console.log("Getting all changes");
-    const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/img;
-    const matches = [];
-
-    for (const match of description.matchAll(EntryRegex)) {
-        matches.push([match[1], match[2]]);
-    }
-
-    return matches;
 }
+
+main();

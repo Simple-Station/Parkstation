@@ -3,6 +3,7 @@ using Content.Server.Anomaly;
 using Content.Server.SimpleStation14.Announcements.Systems;
 using Content.Server.Station.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Audio;
 using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;

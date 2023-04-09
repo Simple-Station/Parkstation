@@ -163,7 +163,7 @@
     - StringInstrument
   - type: MeleeWeapon
     soundHit:
-      path: /Audio/Nyanotrasen/Weapons/guitarhit.ogg
+      path: /Audio/SimpleStation14/Weapons/Melee/banjohit.ogg
     damage:
       types:
         Blunt: 7

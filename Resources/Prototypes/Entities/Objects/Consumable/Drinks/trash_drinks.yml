@@ -72,6 +72,12 @@
     - Trash
   - type: Recyclable
   - type: SpaceGarbage
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/drinkglass_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
 
 # Containers
 - type: entity
@@ -225,4 +231,3 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/TrashDrinks/winebottle_empty.rsi
-
