@@ -803,3 +803,9 @@ Entries:
       message: Added pickup/drop/throw sounds to tons of items
   id: 70
   time: '2023-04-09T05:28:16Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Changes to the lists of controlled substances and items
+  id: 72
+  time: '2023-04-09T06:32:50Z'
