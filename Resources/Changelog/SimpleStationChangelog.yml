@@ -785,3 +785,9 @@ Entries:
       message: Added node scanner to loadout
   id: 63
   time: '2023-04-07T00:25:51Z'
+- author: Pspritechologist
+  changes:
+    - message: "Recovered Walter from his own ashes."
+      type: Tweak
+  id: 64
+  time: '2023-04-07T18:26:04Z'
