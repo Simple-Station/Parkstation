@@ -385,6 +385,8 @@
     whitelist:
       tags:
         - CaptainSabre
+    storageInsertSound: /Audio/SimpleStation14/Items/Handling/sword_sheath.ogg
+    storageRemoveSound: /Audio/SimpleStation14/Items/Handling/sword_unsheath.ogg
   - type: ItemMapper
     mapLayers:
       sheath-sabre:
