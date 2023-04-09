@@ -1,8 +1,8 @@
 - type: trait
   id: ColorBlindnessMonochrome
-  name: trait-monochromacy-name
-  description: trait-monochromacy-description
-  cost: 5
+  name: Monochromatic Colorblindness
+  description: Your eyes have permanent damage, causing you to only see along a greyscale of color.
+  cost: 2
   category: Negative
   components:
     - type: Monochromacy
@@ -18,9 +18,9 @@
 
 - type: trait
   id: FakeMime
-  name: trait-mute-name
-  description: trait-mute-description
-  cost: 6
+  name: Mute
+  description: For one reason or another you will not speak, ever, and communicate through miming or writing.
+  cost: 4
   category: Negative
   blacklist:
     components:
@@ -32,7 +32,7 @@
   id: Ageusia
   name: Ageusia
   description: Something has caused you to lose your sense of taste.
-  cost: 2
+  cost: 1
   category: Negative
   components:
     - type: Ageusia
@@ -49,9 +49,9 @@
 
 - type: trait
   id: AntiSocial
-  name: trait-antisocial-name
-  description: trait-antisocial-description
-  cost: 2
+  name: Anti-Social
+  description: You don't really like being around others, you stutter a lot while speaking, and hugs bother you.
+  cost: 1
   category: Negative
   components:
     - type: InteractionPopup

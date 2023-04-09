@@ -1,8 +1,8 @@
 - type: trait
   id: DragonsBlood
-  name: trait-dragons-blood-name
-  description: trait-dragons-blood-description
-  cost: -7
+  name: Draconic Bloodstream
+  description: You have some of the great Space Dragon's healing abilities, and have Ichor in your blood.  REQUIRES Reptilian species
+  cost: -5
   category: Positive
   whitelist:
     species:
