@@ -379,19 +379,18 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Machines/Nuke/nuke_alarm.ogg
-      volume: -5
+      params:
+        volume: -5
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Machines/Nuke/nuke_alarm.ogg
-      volume: -5
+      params:
+        volume: -5
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Machines/Nuke/nuke_alarm.ogg
-      volume: -5
-  - type: MeleeWeapon
-    soundHit:
-      path: /Audio/Machines/Nuke/nuke_alarm.ogg
-      volume: -5
+      params:
+        volume: -5
     damage:
       types:
         Blunt: 0
@@ -679,7 +678,7 @@
       revolver-ammo: !type:Container
 
 - type: entity
-  parent: RevolverCapGun 
+  parent: RevolverCapGun
   id: RevolverCapGunFake
   name: cap gun
   description: Looks almost like the real thing! Ages 8 and up.
