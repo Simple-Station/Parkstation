@@ -809,3 +809,11 @@ Entries:
       message: Changes to the lists of controlled substances and items
   id: 72
   time: '2023-04-09T06:32:50Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: add
+      message: Announcers are now random every round.
+    - type: add
+      message: Added 3 new announcer voices.
+  id: 56
+  time: '2023-04-09T06:50:03Z'
