@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.SimpleStation14.Announcements.Prototypes
@@ -38,5 +39,8 @@ namespace Content.Server.SimpleStation14.Announcements.Prototypes
 
         [DataField("message")]
         public string? MessageOverride { get; set; } = null;
+
+        [DataField("audioParams")]
+        public AudioParams? AudioParams { get; set; } = null;
     }
 }

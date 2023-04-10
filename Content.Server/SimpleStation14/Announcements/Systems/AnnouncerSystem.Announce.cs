@@ -28,14 +28,17 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
             return $"{announcer.BasePath}/{announcementType.Path}";
         }
 
+        /// <summary>
+        ///     Gets an announcement message from the announcer
+        /// </summary>
         public string? GetAnnouncementMessage(string announcerId, string announcementId)
         {
             string? result = null;
 
             var announcer = _prototypeManager.EnumeratePrototypes<AnnouncerPrototype>().ToArray().First(a => a.ID == announcerId);
 
-            var announcementType = Announcer.AnnouncementPaths.FirstOrDefault(a => a.ID == announcementId) ??
-                Announcer.AnnouncementPaths.First(a => a.ID == "fallback");
+            var announcementType = Announcer.AnnouncementPaths.FirstOrDefault(a => a.ID.ToLower() == announcementId.ToLower()) ??
+                Announcer.AnnouncementPaths.First(a => a.ID.ToLower() == "fallback");
 
             if (announcementType.MessageOverride != null)
                 result = Loc.GetString(announcementType.MessageOverride);
@@ -43,20 +46,51 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
             return result;
         }
 
+        /// <summary>
+        ///     Gets audio params from the announcer
+        /// </summary>
+        public AudioParams? GetAudioParams(string announcerId, string announcementId)
+        {
+            var announcer = _prototypeManager.EnumeratePrototypes<AnnouncerPrototype>().ToArray().First(a => a.ID == announcerId);
+
+            var announcementType = Announcer.AnnouncementPaths.FirstOrDefault(a => a.ID == announcementId) ??
+                Announcer.AnnouncementPaths.First(a => a.ID == "fallback");
+
+            return announcementType.AudioParams;
+        }
+
 
         /// <summary>
-        ///     Sends an announcement
+        ///     Sends an announcement audio
         /// </summary>
-        public void SendAnnouncement(string announcementId, Filter filter, AudioParams? audioParams = null)
+        public void SendAnnouncement(string announcementId, Filter filter)
         {
             var announcement = GetAnnouncementPath(Announcer.ID, announcementId);
-            _audioSystem.PlayGlobal(announcement, filter, true, audioParams);
+            _audioSystem.PlayGlobal(announcement, filter, true, GetAudioParams(Announcer.ID, announcementId));
         }
 
         /// <summary>
-        ///     Sends an announcement with a message
+        ///     Sends an announcement message
         /// </summary>
-        public void SendAnnouncement(string announcementId, Filter filter, string message, string? sender = null, Color? colorOverride = null, AudioParams? audioParams = null)
+        public void SendAnnouncement(string announcementId, string message, string? sender = null, Color? colorOverride = null, EntityUid? station = null)
+        {
+            sender ??= Announcer.Name;
+
+            var announcementMessage = GetAnnouncementMessage(Announcer.ID, announcementId);
+            if (announcementMessage != null)
+                message = announcementMessage;
+
+            if (station == null) {
+                _chatSystem.DispatchGlobalAnnouncement(message, sender, false, colorOverride: colorOverride);
+            } else {
+                _chatSystem.DispatchStationAnnouncement(station.Value, message, sender, false, colorOverride: colorOverride);
+            }
+        }
+
+        /// <summary>
+        ///     Sends an announcement with a message and audio
+        /// </summary>
+        public void SendAnnouncement(string announcementId, Filter filter, string message, string? sender = null, Color? colorOverride = null, EntityUid? station = null)
         {
             var announcementPath = GetAnnouncementPath(Announcer.ID, announcementId);
             sender ??= Announcer.Name;
@@ -65,8 +99,12 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
             if (announcementMessage != null)
                 message = announcementMessage;
 
-            _audioSystem.PlayGlobal(announcementPath, filter, true, audioParams);
-            _chatSystem.DispatchGlobalAnnouncement(message, sender, false, colorOverride: colorOverride);
+            _audioSystem.PlayGlobal(announcementPath, filter, true, GetAudioParams(Announcer.ID, announcementId));
+            if (station == null) {
+                _chatSystem.DispatchGlobalAnnouncement(message, sender, false, colorOverride: colorOverride);
+            } else {
+                _chatSystem.DispatchStationAnnouncement(station.Value, message, sender, false, colorOverride: colorOverride);
+            }
         }
     }
 }
