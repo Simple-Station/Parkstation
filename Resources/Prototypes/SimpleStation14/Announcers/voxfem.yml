@@ -3,10 +3,31 @@
   name: Female Alert AI
   basePath: /Audio/SimpleStation14/Announcements/VoxFem
   announcementPaths:
-    - id: aliens
-      path: aliens.ogg
+    # Communications console
     - id: announce
       path: announce.ogg
+    # Alert levels
+#    - id: alertgreen
+#      path: code_green.ogg
+#    - id: alertblue
+#      path: code_blue.ogg
+#    - id: alertviolet
+#      path: code_violet.ogg
+#    - id: alertwhite
+#      path: code_white.ogg
+#    - id: alertyellow
+#      path: code_yellow.ogg
+#    - id: alertred
+#      path: code_red.ogg
+#    - id: alertgamma
+#      path: code_gamma.ogg
+#    - id: alertdelta
+#      path: code_delta.ogg
+#    - id: alertepsilon
+#      path: code_epsilon.ogg
+    # Events
+    - id: aliens
+      path: aliens.ogg
     - id: anomalyspawn
       path: anomaly.ogg
     - id: attention
@@ -17,8 +38,6 @@
       path: ionstorm.ogg
     - id: meteorswarm
       path: meteors.ogg
-    - id: newai
-      path: newai.ogg
     - id: diseaseoutbreak
       path: outbreak7.ogg
     - id: powergridcheck
@@ -27,12 +46,17 @@
       path: poweron.ogg
     - id: radiation
       path: radiation.ogg
+    # Shuttle
     - id: shuttlecalled
       path: shuttlecalled.ogg
     - id: shuttledock
       path: shuttledock.ogg
     - id: shuttlerecalled
       path: shuttlerecalled.ogg
+    # New AI
+    - id: newai
+      path: newai.ogg
+    # Welcome
     - id: welcome
       path: welcome.ogg
     # If there is no announcement for a specific event, the fallback will be played.

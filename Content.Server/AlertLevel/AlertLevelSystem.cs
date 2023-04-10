@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
+using Content.Server.SimpleStation14.Announcements.Systems;
 using Content.Server.Station.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -13,6 +14,7 @@ public sealed class AlertLevelSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
 
     // Until stations are a prototype, this is how it's going to have to be.
     public const string DefaultAlertLevelSet = "stationAlerts";
@@ -168,24 +170,28 @@ public sealed class AlertLevelSystem : EntitySystem
         // The full announcement to be spat out into chat.
         var announcementFull = Loc.GetString("alert-level-announcement", ("name", name), ("announcement", announcement));
 
-        var playDefault = false;
+        // var playDefault = false;
         if (playSound)
         {
-            if (detail.Sound != null)
-            {
-                var filter = _stationSystem.GetInOwningStation(station);
-                SoundSystem.Play(detail.Sound.GetSound(), filter, detail.Sound.Params);
-            }
-            else
-            {
-                playDefault = true;
-            }
+            // if (detail.Sound != null)
+            // {
+            //     var filter = _stationSystem.GetInOwningStation(station);
+            //     SoundSystem.Play(detail.Sound.GetSound(), filter, detail.Sound.Params);
+            // }
+            // else
+            // {
+            //     playDefault = true;
+            // }
+
+            _announcerSystem.SendAnnouncement($"alert{level}", _stationSystem.GetInOwningStation(station));
         }
 
         if (announce)
         {
-            _chatSystem.DispatchStationAnnouncement(station, announcementFull, playDefaultSound: playDefault,
-                colorOverride: detail.Color, sender: stationName);
+            // _chatSystem.DispatchStationAnnouncement(station, announcementFull, playDefaultSound: playDefault,
+            //     colorOverride: detail.Color, sender: stationName);
+
+            _announcerSystem.SendAnnouncement($"alert{level}", announcementFull, stationName, detail.Color, station);
         }
 
         RaiseLocalEvent(new AlertLevelChangedEvent(station, level));
