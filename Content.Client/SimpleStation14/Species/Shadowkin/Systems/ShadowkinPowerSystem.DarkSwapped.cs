@@ -33,6 +33,7 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
             SubscribeLocalEvent<ShadowkinDarkSwappedComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<ShadowkinDarkSwappedComponent, PlayerAttachedEvent>(OnPlayerAttached);
             SubscribeLocalEvent<ShadowkinDarkSwappedComponent, PlayerDetachedEvent>(OnPlayerDetached);
+            
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         }
 
