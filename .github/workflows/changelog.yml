@@ -1,6 +1,6 @@
 name: PR Changelogs
 on:
-  pull_request:
+  pull_request_target:
     types: [closed]
 
 env:
@@ -34,25 +34,19 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd "${{ github.action_path }}"
-          cd Tools
-          cd changelog
+          cd "Tools/changelog"
           npm install
         shell: bash
 
       - name: Generate Changelog
         run: |
-          cd "${{ github.action_path }}"
-          cd Tools
-          cd changelog
-          export NODE_OPTIONS="--max-old-space-size=2048"
-          node --trace_gc changelog.js
+          cd "Tools/changelog"
+          node changelog.js
         shell: bash
 
       - name: Commit Changelog
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          token: "${{ secrets.BOT_TOKEN }}"
-          branch: "${{ vars.CHANGELOG_BRANCH }}"
-          file_pattern: "*.yml"
-          commit_message: "${{ vars.CHANGELOG_MESSAGE }} (#${{ env.PR_NUMBER }})"
+        run: |
+          git add *.yml
+          git commit -m "${{ vars.CHANGELOG_MESSAGE }} (#${{ env.PR_NUMBER }})"
+          git push
+        shell: bash

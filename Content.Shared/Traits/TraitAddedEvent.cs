@@ -7,12 +7,12 @@ namespace Content.Shared.Traits
     public class TraitAddedEvent : EntityEventArgs
     {
         public readonly EntityUid Uid;
-        public readonly string Trait;
+        public readonly List<string> Traits;
 
-        public TraitAddedEvent(EntityUid uid, string trait)
+        public TraitAddedEvent(EntityUid uid, List<string> traits)
         {
             Uid = uid;
-            Trait = trait;
+            Traits = traits;
         }
     }
 }

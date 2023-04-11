@@ -2,15 +2,15 @@
   id: ColorBlindnessMonochrome
   name: Monochromatic Colorblindness
   description: Your eyes have permanent damage, causing you to only see along a greyscale of color.
-  cost: 5
+  cost: 2
   category: Negative
   components:
     - type: Monochromacy
 
 - type: trait
   id: Nearsighted
-  name: Nearsighted
-  description: Your eyes have permanent damage, you are only able to see nearby you unless wearing glasses.
+  name: trait-nearsighted-name
+  description: trait-nearsighted-description
   cost: 3
   category: Negative
   components:
@@ -20,7 +20,7 @@
   id: FakeMime
   name: Mute
   description: For one reason or another you will not speak, ever, and communicate through miming or writing.
-  cost: 6
+  cost: 4
   category: Negative
   blacklist:
     components:
@@ -32,7 +32,7 @@
   id: Ageusia
   name: Ageusia
   description: Something has caused you to lose your sense of taste.
-  cost: 2
+  cost: 1
   category: Negative
   components:
     - type: Ageusia
@@ -40,8 +40,8 @@
 # Me when chat shitcode
 # - type: trait
 #   id: Deaf
-#   name: Deaf
-#   description: You are unable to hear anyone speak, others have to communicate through writing or miming. # Reverse mime
+#   name: trait-deaf-name
+#   description: trait-deaf-description # Reverse mime
 #   cost: 6
 #   category: Negative
 #   components:
@@ -51,7 +51,7 @@
   id: AntiSocial
   name: Anti-Social
   description: You don't really like being around others, you stutter a lot while speaking, and hugs bother you.
-  cost: 2
+  cost: 1
   category: Negative
   components:
     - type: InteractionPopup

@@ -303,6 +303,23 @@
   id: MobWalter
   description: He likes chems and treats. Walter.
   components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Pets/walter.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: walter
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: walter
+      Critical:
+        Base: walter_dead
+      Dead:
+        Base: walter_dead
+  - type: InteractionPopup
+    successChance: 0.85
   - type: Grammar
     attributes:
       proper: true
