@@ -17,7 +17,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHoP
   noSpawn: true
-  name: head of personnel's plated hardsuit helmet
+  name: head of personnel's hardsuit helmet
   description: Fancy helmet for a fancy hardsuit. Doesn't offer much damage protection.
   components:
   - type: Sprite
@@ -36,4 +36,4 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.9
-        Radiation: 0.9
+        Radiation: 0.6

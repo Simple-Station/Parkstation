@@ -30,7 +30,7 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitHoP
-  name: head of personnel's plated hardsuit
+  name: head of personnel's hardsuit
   description: A stylish hardsuit for only the most esteemed. Doesn't offer much damage protection.
   components:
   - type: Sprite
@@ -39,7 +39,7 @@
     sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/hopsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
-    lowPressureMultiplier: 10000
+    lowPressureMultiplier: 4500
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -50,7 +50,7 @@
         Slash: 0.8
         Piercing: 0.90
         Heat: 0.8
-        Radiation: 0.7
+        Radiation: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ToggleableClothing
