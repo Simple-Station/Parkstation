@@ -28,6 +28,35 @@
       type: StorageBoundUserInterface
 
 - type: entity
+  parent: Clothing
+  id: ClothingDuffelcentcom
+  name: centcom duffel bag
+  description: An above average sized duffel bag, its lined with cloth, made for centcom officals.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Duffels/centcom.rsi
+    state: icon
+  - type: Item
+    size: 9999
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: Storage
+    capacity: 140
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.8
+  - type: UserInterface
+    interfaces:
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+
+- type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelEngineering
   name: engineering duffel bag
