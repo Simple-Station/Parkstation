@@ -20,7 +20,7 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
 
             PickAnnouncer();
 
-            _configManager.OnValueChanged(SimpleStationCCVars.Announcer, PickAnnouncer);
+            _configManager.OnValueChanged(SimpleStationCCVars.Announcer, SetAnnouncer);
 
             SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         }
@@ -28,7 +28,7 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
 
         private void OnRoundStarting(RoundStartingEvent ev)
         {
-            PickAnnouncer(_configManager.GetCVar<string>(SimpleStationCCVars.Announcer));
+            SetAnnouncer(_configManager.GetCVar<string>(SimpleStationCCVars.Announcer));
         }
     }
 }

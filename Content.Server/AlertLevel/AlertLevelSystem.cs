@@ -183,7 +183,7 @@ public sealed class AlertLevelSystem : EntitySystem
             //     playDefault = true;
             // }
 
-            _announcerSystem.SendAnnouncement($"alert{level}", _stationSystem.GetInOwningStation(station));
+            _announcerSystem.SendAnnouncementAudio($"alert{level}", _stationSystem.GetInOwningStation(station));
         }
 
         if (announce)
@@ -191,7 +191,7 @@ public sealed class AlertLevelSystem : EntitySystem
             // _chatSystem.DispatchStationAnnouncement(station, announcementFull, playDefaultSound: playDefault,
             //     colorOverride: detail.Color, sender: stationName);
 
-            _announcerSystem.SendAnnouncement($"alert{level}", announcementFull, stationName, detail.Color, station);
+            _announcerSystem.SendAnnouncementMessage($"alert{level}", announcementFull, stationName, detail.Color, station);
         }
 
         RaiseLocalEvent(new AlertLevelChangedEvent(station, level));
