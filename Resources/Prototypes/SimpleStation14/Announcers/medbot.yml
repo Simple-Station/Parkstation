@@ -59,7 +59,7 @@
       path: shuttlerecalled.ogg
     # New AI
     - id: newai
-      path: newai.ogg # This is the same as the VoxFem announcer.
+      path: newai.ogg
     # Start of the shift
     - id: welcome
       path: welcome.ogg

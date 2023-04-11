@@ -36,6 +36,10 @@
       collection: InternCommandReportAnnouncements
     - id: diseaseoutbreak
       path: outbreak7.ogg
+    - id: ionstorm
+      path: ionstorm.ogg
+    - id: meteorswarm
+      path: meteors.ogg
     - id: powergridcheck
       path: poweroff.ogg
     - id: powergridcheckcomplete
@@ -51,7 +55,7 @@
       path: shuttlerecalled.ogg
     # New AI
     - id: newai
-      path: newai.ogg # This is the same as the VoxFem announcer.
+      path: newai.ogg # This is the same as the MedBot announcer.
     # Start of the shift
     - id: welcome
       collection: InternWelcomeAnnouncements
