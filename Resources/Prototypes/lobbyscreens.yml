@@ -9,3 +9,7 @@
 - type: lobbyBackground
   id: Room
   background: /Textures/LobbyScreens/room.png
+  
+- type: lobbyBackground
+  id: Planets
+  background: /Textures/LobbyScreens/planets.png
