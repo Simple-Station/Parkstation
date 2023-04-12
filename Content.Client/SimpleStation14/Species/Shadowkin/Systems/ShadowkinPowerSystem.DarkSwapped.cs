@@ -6,6 +6,7 @@ using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
 using Robust.Client.GameObjects;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
+using TerraFX.Interop.Windows;
 
 namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
 {
@@ -33,7 +34,7 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
             SubscribeLocalEvent<ShadowkinDarkSwappedComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<ShadowkinDarkSwappedComponent, PlayerAttachedEvent>(OnPlayerAttached);
             SubscribeLocalEvent<ShadowkinDarkSwappedComponent, PlayerDetachedEvent>(OnPlayerDetached);
-            
+
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         }
 
@@ -48,8 +49,7 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
             if (_player.LocalPlayer?.ControlledEntity != uid)
                 return;
 
-            _overlayMan.AddOverlay(_ignoreOverlay);
-            _overlayMan.AddOverlay(_etherealOverlay);
+            AddOverlay();
         }
 
         private void OnShutdown(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentShutdown args)
@@ -57,22 +57,17 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
             if (_player.LocalPlayer?.ControlledEntity != uid)
                 return;
 
-            _ignoreOverlay.Reset();
-            _overlayMan.RemoveOverlay(_ignoreOverlay);
-            _overlayMan.RemoveOverlay(_etherealOverlay);
+            RemoveOverlay();
         }
 
         private void OnPlayerAttached(EntityUid uid, ShadowkinDarkSwappedComponent component, PlayerAttachedEvent args)
         {
-            _overlayMan.AddOverlay(_ignoreOverlay);
-            _overlayMan.AddOverlay(_etherealOverlay);
+            AddOverlay();
         }
 
         private void OnPlayerDetached(EntityUid uid, ShadowkinDarkSwappedComponent component, PlayerDetachedEvent args)
         {
-            _ignoreOverlay.Reset();
-            _overlayMan.RemoveOverlay(_ignoreOverlay);
-            _overlayMan.RemoveOverlay(_etherealOverlay);
+            RemoveOverlay();
         }
 
         private void OnRoundRestart(RoundRestartCleanupEvent args)
@@ -81,7 +76,7 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
         }
 
 
-        public void ToggleInvisibility(EntityUid uid, bool isDark)
+        private void ToggleInvisibility(EntityUid uid, bool isDark)
         {
             if (isDark)
             {
@@ -91,6 +86,19 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems
             {
                 RemComp<ShadowkinDarkSwappedComponent>(uid);
             }
+        }
+
+        private void AddOverlay()
+        {
+            _overlayMan.AddOverlay(_ignoreOverlay);
+            _overlayMan.AddOverlay(_etherealOverlay);
+        }
+
+        private void RemoveOverlay()
+        {
+            _ignoreOverlay.Reset();
+            _overlayMan.RemoveOverlay(_ignoreOverlay);
+            _overlayMan.RemoveOverlay(_etherealOverlay);
         }
     }
 }

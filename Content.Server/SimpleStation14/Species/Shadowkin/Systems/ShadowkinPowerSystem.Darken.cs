@@ -70,10 +70,10 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
                     !_entityManager.TryGetComponent<TransformComponent>(shadowkin.Owner, out var transform))
                     continue;
 
-                shadowkin.DarkenAccumulator += frameTime;
-                if (shadowkin.DarkenAccumulator < shadowkin.DarkenRate)
+                shadowkin.DarkenAccumulator -= frameTime;
+                if (shadowkin.DarkenAccumulator > 0f)
                     continue;
-                shadowkin.DarkenAccumulator = 0f;
+                shadowkin.DarkenAccumulator += shadowkin.DarkenRate;
 
 
                 var darkened = new List<EntityUid>();

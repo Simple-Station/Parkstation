@@ -204,7 +204,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
                 return false;
 
             if (!component.Blackeye &&
-                component.PowerLevel <= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min] + 1f)
+                component.PowerLevel <= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min])
             {
                 Blackeye(uid);
 

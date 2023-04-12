@@ -103,7 +103,6 @@ namespace Content.Server.Bed.Sleep
             if (!TryWakeCooldown(uid))
                 return;
 
-            // Can't figure out a better way
             if (_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadowkin) &&
                 _entityManager.TryGetComponent<ShadowkinRestPowerComponent>(uid, out var shadowkinRest) &&
                 shadowkinRest.IsResting)

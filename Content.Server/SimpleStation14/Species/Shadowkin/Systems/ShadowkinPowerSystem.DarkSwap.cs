@@ -22,8 +22,6 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
         [Dependency] private readonly SharedStealthSystem _stealthSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
 
-        public SharedAudioSystem Audio => _audio;
-
         public override void Initialize()
         {
             base.Initialize();
@@ -110,7 +108,7 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
         }
 
 
-        public void SetCanSeeInvisibility(EntityUid uid, bool set)
+        private void SetCanSeeInvisibility(EntityUid uid, bool set)
         {
             var visibility = _entityManager.EnsureComponent<VisibilityComponent>(uid);
 
@@ -121,9 +119,9 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
                     eye.VisibilityMask |= (uint) VisibilityFlags.DarkSwapInvisibility;
                 }
 
-                _visibilitySystem.AddLayer(visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
-                _visibilitySystem.RemoveLayer(visibility, (int) VisibilityFlags.Normal, false);
-                _visibilitySystem.RefreshVisibility(visibility);
+                _visibilitySystem.AddLayer(uid, visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
+                _visibilitySystem.RemoveLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
+                _visibilitySystem.RefreshVisibility(uid);
 
                 if (!_entityManager.TryGetComponent<GhostComponent>(uid, out var _))
                     _stealthSystem.SetVisibility(uid, 0.8f, _entityManager.EnsureComponent<StealthComponent>(uid));
@@ -135,9 +133,9 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
                     eye.VisibilityMask &= ~(uint) VisibilityFlags.DarkSwapInvisibility;
                 }
 
-                _visibilitySystem.RemoveLayer(visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
-                _visibilitySystem.AddLayer(visibility, (int) VisibilityFlags.Normal, false);
-                _visibilitySystem.RefreshVisibility(visibility);
+                _visibilitySystem.RemoveLayer(uid, visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
+                _visibilitySystem.AddLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
+                _visibilitySystem.RefreshVisibility(uid);
 
                 if (!_entityManager.TryGetComponent<GhostComponent>(uid, out var _))
                     _entityManager.RemoveComponent<StealthComponent>(uid);

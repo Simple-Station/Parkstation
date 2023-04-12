@@ -59,12 +59,11 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
         {
             base.Update(frameTime);
 
-            var query = _entityManager.EntityQuery<ShadowkinComponent>(true);
+            var query = _entityManager.EntityQuery<ShadowkinComponent>();
 
             // Update power level for all shadowkin
             foreach (var component in query)
             {
-                // These MUST be  TryUpdatePowerLevel  THEN  TryBlackeye  or else init will always blackeye
                 _powerSystem.TryUpdatePowerLevel(component.Owner, frameTime);
                 if (!component.Blackeye)
                     _powerSystem.TryBlackeye(component.Owner);

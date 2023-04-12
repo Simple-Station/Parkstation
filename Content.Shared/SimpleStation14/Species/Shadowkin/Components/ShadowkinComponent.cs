@@ -6,15 +6,16 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
     [RegisterComponent, NetworkedComponent()]
     public sealed class ShadowkinComponent : Component
     {
-        // Dirty
+        #region Dirty
         [ViewVariables(VVAccess.ReadOnly)]
         public float DirtyAccumulator = 0f;
 
         [ViewVariables(VVAccess.ReadWrite)]
         public float DirtyAccumulatorRate = 3f;
+        #endregion
 
 
-        // Random occurrences
+        #region Random occurrences
         [ViewVariables(VVAccess.ReadOnly)]
         public float ForceSwapAccumulator = 0f;
 
@@ -47,9 +48,10 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
 
         [ViewVariables(VVAccess.ReadWrite)]
         public float TiredRateMax = 50f;
+        #endregion
 
 
-        // Darkening
+        #region Darkening
         [ViewVariables(VVAccess.ReadWrite)]
         public bool Darken = false;
 
@@ -65,9 +67,10 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
 
         [ViewVariables(VVAccess.ReadOnly)]
         public float DarkenAccumulator = 0f;
+        #endregion
 
 
-        // Shader
+        #region Shader
         /// <summary>
         ///     Automatically set to eye color.
         /// </summary>
@@ -82,9 +85,10 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
         /// </remarks>
         [ViewVariables(VVAccess.ReadWrite)]
         public float TintIntensity = 0.65f;
+        #endregion
 
 
-        // Power level
+        #region Power level
         /// <summary>
         ///     Current amount of energy.
         /// </summary>
@@ -94,7 +98,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
             get => _powerLevel;
             set => _powerLevel = Math.Clamp(value, PowerLevelMin, PowerLevelMax);
         }
-        public float _powerLevel;
+        public float _powerLevel = 25f;
 
         /// <summary>
         ///     Don't let PowerLevel go above this value.
@@ -142,6 +146,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
             { ShadowkinPowerThreshold.Tired, 50.0f },
             { ShadowkinPowerThreshold.Min, 0.0f },
         };
+        #endregion
     }
 
     [Serializable, NetSerializable]
