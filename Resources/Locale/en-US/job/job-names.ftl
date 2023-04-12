@@ -9,6 +9,7 @@ job-name-psychologist = psychologist
 job-name-intern = medical intern
 job-name-doctor = medical doctor
 job-name-cmo = chief medical officer
+job-name-css = chief service supervisor
 job-name-chemist = chemist
 job-name-technical-assistant = technical assistant
 job-name-engineer = station engineer

@@ -13,6 +13,7 @@ job-description-chef = Keep the station fed with a variety of food items, butche
 job-description-chemist = Produce medicinal drugs for the doctors to use, research ethically dubious rare chemicals, and produce weapons of war when enemies of the station arrive.
 job-description-clown = Entertain the crew through elaborate slapstick routines or terrible jokes.
 job-description-cmo = Manage the resources and personnel of the medical department to keep the crew alive and disease-free.
+job-description-css = Lead the service department which includes cargo and make sure all that the crew needs the most is provided and made available when necessary.
 job-description-detective = Investigate crime scenes using forensic tools, ensure that the guilty party is found, and have a couple smokes.
 job-description-doctor = Diagnose and heal crewmembers through medicinal chemicals, vaccinations, and disease cures, along with cloning the dead.
 job-description-engineer = Keep the station's main engine & solars active, optimize the power network, and make emergency repairs using your hardsuit.
