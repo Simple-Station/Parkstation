@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Server.SimpleStation14.Announcements.Prototypes;
+using Content.Shared.SimpleStation14.Announcements.Prototypes;
 using Content.Shared.SimpleStation14.CCVar;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;

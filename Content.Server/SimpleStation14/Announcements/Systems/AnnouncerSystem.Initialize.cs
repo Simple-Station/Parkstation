@@ -1,5 +1,5 @@
 using Content.Server.GameTicking.Events;
-using Content.Server.SimpleStation14.Announcements.Prototypes;
+using Content.Shared.SimpleStation14.Announcements.Prototypes;
 using Content.Shared.SimpleStation14.CCVar;
 using Robust.Shared.Configuration;
 

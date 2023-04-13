@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
-using Content.Server.SimpleStation14.Announcements.Prototypes;
+using Content.Shared.SimpleStation14.Announcements.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 

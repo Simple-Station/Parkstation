@@ -1,7 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.SimpleStation14.Announcements.Prototypes
+namespace Content.Shared.SimpleStation14.Announcements.Prototypes
 {
     /// <summary>
     ///     Defines an announcer and their announcement file paths
