@@ -41,7 +41,7 @@ public sealed class SolutionSpikableSystem : EntitySystem
     /// <param name="source">Source of the solution.</param>
     /// <param name="target">Target to spike with the solution from source.</param>
     /// <param name="user">User spiking the target solution.</param>
-    private void TrySpike(EntityUid source, EntityUid target, EntityUid user, RefillableSolutionComponent? spikableTarget = null,
+    public void TrySpike(EntityUid source, EntityUid target, EntityUid user, RefillableSolutionComponent? spikableTarget = null,
         SolutionSpikerComponent? spikableSource = null,
         SolutionContainerManagerComponent? managerSource = null,
         SolutionContainerManagerComponent? managerTarget = null)
