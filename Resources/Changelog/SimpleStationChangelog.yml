@@ -823,15 +823,3 @@ Entries:
       message: Changed some trait point costs.
   id: 66
   time: '2023-04-09T06:50:51Z'
-- author: PJB
-  changes:
-    - type: add
-      message: Added fun!
-    - type: tweak
-      message: Tweaked fun!
-    - type: fix
-      message: Fixed fun!
-    - type: remove
-      message: Removed fun!
-  id: 73
-  time: '2023-04-15T05:30:55Z'
