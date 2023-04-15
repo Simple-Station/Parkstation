@@ -1,16 +1,23 @@
+// Dependencies
 const fs = require("fs");
 const yaml = require("js-yaml");
 const axios = require("axios");
 
+// Use GitHub token if available
 if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `Bearer ${process.env.GITHUB_TOKEN}`;
 
+// Regexes
+const HeaderRegex = /^\s*(?::cl:|🆑) *([a-z0-9_\- ]+)?\s+/im;
+const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/img;
+
+// Main function
 async function main() {
     // Get PR details
     const pr = await axios.get(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/pulls/${process.env.PR_NUMBER}`);
     const { merged_at, body, user } = pr.data;
 
+
     // Get author
-    const HeaderRegex = /^\s*(?::cl:|🆑) *([a-z0-9_\- ]+)?\s+/im;
     const headerMatch = HeaderRegex.exec(body);
     if (!headerMatch) {
         console.log("No changelog entry found, skipping");
@@ -23,10 +30,46 @@ async function main() {
         author = user.login;
     }
 
+
     // Get all changes
-    const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/img;
+    const entries = getChanges(body);
+
+
+    // Time is something like 2021-08-29T20:00:00Z
+    // Time should be something like 2023-02-18T00:00:00.0000000+00:00
+    let time = merged_at;
+    if (time)
+    {
+        time = time.replace("z", ".0000000+00:00");
+    }
+    else
+    {
+        console.log("Pull request was not merged, skipping");
+        return;
+    }
+
+
+    // Construct changelog yml entry
+    const entry = {
+        author: author,
+        changes: entries,
+        id: getHighestCLNumber() + 1,
+        time: time,
+    };
+
+    // Write changelogs
+    writeChangelog(entry);
+
+    console.log(`Changelog updated with changes from PR #${process.env.PR_NUMBER}`);
+}
+
+
+// Code chunking
+
+// Get all changes from the PR body
+function getChanges(body) {
     const matches = [];
-    entries = [];
+    const entries = [];
 
     for (const match of body.matchAll(EntryRegex)) {
         matches.push([match[1], match[2]]);
@@ -37,6 +80,7 @@ async function main() {
         console.log("No changes found, skipping");
         return;
     }
+
 
     // Check change types and construct changelog entry
     matches.forEach((entry) => {
@@ -67,54 +111,41 @@ async function main() {
         }
     });
 
-    // Time is something like 2021-08-29T20:00:00Z
-    // Time should be something like 2023-02-18T00:00:00.0000000+00:00
-    let time = merged_at;
-    if (time)
-    {
-        time = time.replace("z", ".0000000+00:00");
-    }
-    else
-    {
-        console.log("Pull request was not merged, skipping");
-        return;
-    }
+    return entries;
+}
 
-    // Construct changelog entry
-    const entry = {
-        author: author,
-        changes: entries,
-        id: parseInt(process.env.PR_NUMBER),
-        time: time,
-    };
+// Get the highest changelog number from the changelogs file
+function getHighestCLNumber() {
+    // Read changelogs file
+    const file = fs.readFileSync(`../../${process.env.CHANGELOG_DIR}`, "utf8");
 
-    // Read changelogs.yml file
-    const file = fs.readFileSync(
-        `../../${process.env.CHANGELOG_DIR}`,
-        "utf8"
-    );
+    // Get list of CL numbers
     const data = yaml.load(file);
+    const entries = data && data.Entries ? Array.from(data.Entries) : [];
+    const clNumbers = entries.map((entry) => entry.id);
 
-    const changelogs = data && data.Entries ? Array.from(data.Entries) : [];
+    // Return highest changelog number
+    return Math.max(...clNumbers, 0);
+}
 
-    // Check if 'Entries:' already exists and remove it
-    const index = Object.entries(changelogs).findIndex(([key, value]) => key === "Entries");
-    if (index !== -1) {
-        changelogs.splice(index, 1);
+function writeChangelog(entry) {
+    let data = { Entries: [] };
+
+    // Create a new changelogs file if it does not exist
+    if (fs.existsSync(`../../${process.env.CHANGELOG_DIR}`)) {
+        const file = fs.readFileSync(`../../${process.env.CHANGELOG_DIR}`, "utf8");
+        data = yaml.load(file);
     }
 
-    // Add the new entry to the end of the array
-    changelogs.push(entry);
-    const updatedChangelogs = changelogs;
+    data.Entries.push(entry);
 
-    // Write updated changelogs.yml file
+    // Write updated changelogs file
     fs.writeFileSync(
         `../../${process.env.CHANGELOG_DIR}`,
         "Entries:\n" +
-            yaml.dump(updatedChangelogs, { indent: 2 }).replace(/^---/, "")
+            yaml.dump(data.Entries, { indent: 2 }).replace(/^---/, "")
     );
-
-    console.log(`Changelog updated with changes from PR #${process.env.PR_NUMBER}`);
 }
 
+// Run main
 main();
