@@ -130,7 +130,7 @@ public sealed class SiliconChargeSystem : EntitySystem
         if (!EntityManager.TryGetComponent<TemperatureComponent>(silicon, out var temperComp) ||
             !EntityManager.TryGetComponent<ThermalRegulatorComponent>(silicon, out var thermalComp))
         {
-            DebugTools.Assert("Silicon has no temperature component, but is battery powered.");
+            // DebugTools.Assert("Silicon has no temperature component, but is battery powered.");
             return 0;
         }
         var siliconComp = EntityManager.GetComponent<SiliconComponent>(silicon);
@@ -147,7 +147,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             // Divide the current temp by the max comfortable temp capped to 4, then add that to the multiplier.
             var hotTempMulti = Math.Min(temperComp.CurrentTemperature / upperThreshHalf, 4);
 
-            Logger.DebugS("silicon", $"Silicon {silicon} is overheating, multiplier is {hotTempMulti}.");
+            // Logger.DebugS("silicon", $"Silicon {silicon} is overheating, multiplier is {hotTempMulti}.");
 
             // If the silicon is hot enough, it has a chance to catch fire.
             FlammableComponent? flamComp = null;
@@ -171,7 +171,7 @@ public sealed class SiliconChargeSystem : EntitySystem
                 }
 
                 // Logger for the random chances.
-                Logger.WarningS("silicon", $"Silicon {silicon} has a {Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 15), 0.001f, 0.9f)} chance to catch fire, and a {Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 4), 0.001f, 0.75f)} chance to popup overheating.");
+                // Logger.WarningS("silicon", $"Silicon {silicon} has a {Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 15), 0.001f, 0.9f)} chance to catch fire, and a {Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 4), 0.001f, 0.75f)} chance to popup overheating.");
             }
 
             return hotTempMulti;

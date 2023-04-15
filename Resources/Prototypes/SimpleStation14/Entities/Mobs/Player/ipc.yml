@@ -4,6 +4,7 @@
   name: Urist McPositronic
   description: A positronic brain in a metal body.
   components:
+  - type: SiliconDownOnDead
   - type: Inventory
     templateId: ipc
   - type: Battery
@@ -15,7 +16,7 @@
     chargeStateThresholdMid: 0.80
     chargeStateThresholdLow: 0.35
     chargeStateThresholdCritical: 0.10
-    critWhenDead: true
+    dieWhenDead: true
     speedModifierThresholds:
       0: 1
       1: 1

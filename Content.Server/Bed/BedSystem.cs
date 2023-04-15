@@ -79,7 +79,7 @@ namespace Content.Server.Bed
 
                     var damage = bedComponent.Damage;
 
-                    if (HasComp<SleepingComponent>(healedEntity))
+                    if (EntityManager.TryGetComponent<SleepingComponent>(healedEntity, out var sleepComp) && sleepComp.Heal)
                         damage *= bedComponent.SleepMultiplier;
 
                     _damageableSystem.TryChangeDamage(healedEntity, damage, true, origin: bedComponent.Owner);

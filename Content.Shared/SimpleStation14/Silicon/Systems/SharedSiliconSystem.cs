@@ -111,4 +111,3 @@ public sealed class SiliconChargeStateUpdateEvent : EntityEventArgs
         ChargeState = chargeState;
     }
 }
-

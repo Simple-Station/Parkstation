@@ -60,31 +60,42 @@ public sealed class SiliconComponent : Component
 
     /// <summary>
     ///     The percentages at which the silicon will enter each state.
+    /// </summary>
+    /// <remarks>
     ///     The Silicon will always be Full at 100%.
     ///     Setting a value to null will disable that state.
-    ///     Setting Critical to 0 will cause the Silicon to never die of power loss.
-    /// </summary>
+    ///     Setting Critical to 0 will cause the Silicon to never enter the dead state.
+    /// </remarks>
     [DataField("chargeStateThresholdMid"), ViewVariables(VVAccess.ReadWrite)]
     public float? ChargeStateThresholdMid = 0.5f;
 
+    /// <inheritdoc cref="ChargeStateThresholdMid"/>
     [DataField("chargeStateThresholdLow"), ViewVariables(VVAccess.ReadWrite)]
     public float? ChargeStateThresholdLow = 0.25f;
 
+    /// <inheritdoc cref="ChargeStateThresholdMid"/>
     [DataField("chargeStateThresholdCritical"), ViewVariables(VVAccess.ReadWrite)]
     public float? ChargeStateThresholdCritical = 0.0f;
 
     /// <summary>
-    ///     Should the silicon die when it runs out of power?
-    ///     If false, will instead become immobile.
+    ///     The amount the Silicon will be slowed at each charge state.
+    /// </summary>
+    [DataField("speedModifierThresholds", required: true)]
+    public readonly Dictionary<ChargeState, float> SpeedModifierThresholds = default!;
+
+    /// <summary>
+    ///     Should the silicon become immobilized when their battery dies?
     /// </summary>
     /// <remarks>
     ///     Will only occur when hitting the Dead state.
     /// </remarks>
-    [DataField("critwhendead"), ViewVariables(VVAccess.ReadWrite)]
-    public bool Critwhendead = false;
+    [DataField("dieWhenDead"), ViewVariables(VVAccess.ReadWrite)]
+    public bool DieWhenDead = false;
 
-    [DataField("speedModifierThresholds", required: true)]
-    public readonly Dictionary<ChargeState, float> SpeedModifierThresholds = default!;
+    /// <summary>
+    ///     Is the Silicon currently dead?
+    /// </summary>
+    public bool Dead = false;
 
 
 

@@ -200,7 +200,7 @@
     chargeStateThresholdMid: 0.60
     chargeStateThresholdLow: 0.30
     chargeStateThresholdCritical: 0
-    critwhendead: false
+    dieWhenDead: false
     speedModifierThresholds:
       0: 1
       1: 1
