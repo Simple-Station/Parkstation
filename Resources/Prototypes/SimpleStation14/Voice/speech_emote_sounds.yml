@@ -38,6 +38,6 @@
       params:
         volume: -6
     SlimeSquish:
-      path: /Audio/SimpleStation14/Voice/Slime/slime_squish.ogg
+      collection: SlimeSquishes
       params:
         variation: 0.125

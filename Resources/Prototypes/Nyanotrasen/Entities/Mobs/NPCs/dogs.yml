@@ -60,10 +60,10 @@
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-dog
-    interactFailureString: petting-failure-pibble
+    interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/small_dog_bark_happy.ogg
-    hostileOnFail: true
+    # hostileOnFail: true
   - type: DogVision
   - type: Faction
     factions:
