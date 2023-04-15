@@ -395,9 +395,9 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("job_name");
 
-                    b.Property<string>("JobCustomName")
+                    b.Property<string>("AltName")
                         .HasColumnType("TEXT")
-                        .HasColumnName("job_custom_name");
+                        .HasColumnName("alt_name");
 
                     b.Property<int>("Priority")
                         .HasColumnType("INTEGER")

@@ -157,7 +157,7 @@ namespace Content.Server.Database
         private static HumanoidCharacterProfile ConvertProfiles(Profile profile)
         {
             var jobs = profile.Jobs.ToDictionary(j => j.JobName, j => (JobPriority) j.Priority);
-            var customNames = profile.JobCustomNames;
+            var customNames = profile.Jobs.ToDictionary(j => j.JobName, j => j.AltName);
             var antags = profile.Antags.Select(a => a.AntagName);
             var traits = profile.Traits.Select(t => t.TraitName);
             var loadouts = profile.Loadouts.Select(t => t.LoadoutName);
@@ -249,7 +249,6 @@ namespace Content.Server.Database
                 Clothing = humanoid.Clothing.ToString(),
                 Backpack = humanoid.Backpack.ToString(),
                 Markings = markings,
-                JobCustomNames = humanoid.JobCustomNames.ToDictionary(j => j.Key, j => j.Value),
                 Slot = slot,
                 PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable
             };
@@ -257,6 +256,11 @@ namespace Content.Server.Database
                 humanoid.JobPriorities
                     .Where(j => j.Value != JobPriority.Never)
                     .Select(j => new Job {JobName = j.Key, Priority = (DbJobPriority) j.Value})
+            );
+            entity.Jobs.AddRange(
+                humanoid.JobCustomNames
+                    .Where(j => !string.IsNullOrWhiteSpace(j.Value))
+                    .Select(j => new Job {JobName = j.Key, AltName = j.Value})
             );
             entity.Antags.AddRange(
                 humanoid.AntagPreferences

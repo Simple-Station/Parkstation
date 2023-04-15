@@ -9,7 +9,7 @@ namespace Content.Server.Database.Migrations.Postgres
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "job_custom_name",
+                name: "alt_name",
                 table: "job",
                 nullable: true
             );
@@ -18,7 +18,7 @@ namespace Content.Server.Database.Migrations.Postgres
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "job_custom_name",
+                name: "alt_name",
                 table: "job"
             );
         }

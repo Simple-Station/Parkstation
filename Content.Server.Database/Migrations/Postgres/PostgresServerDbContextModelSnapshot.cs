@@ -427,6 +427,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("job_name");
 
+                    b.Property<string>("AltName")
+                        .HasColumnType("text")
+                        .HasColumnName("alt_name");
+
                     b.Property<int>("Priority")
                         .HasColumnType("integer")
                         .HasColumnName("priority");

@@ -225,7 +225,7 @@ namespace Content.Server.Database
         public string Clothing { get; set; } = null!;
         public string Backpack { get; set; } = null!;
         public List<Job> Jobs { get; } = new();
-        public Dictionary<string, string> JobCustomNames { get; set; } = new();
+        // public Dictionary<string, string> JobCustomNames { get; set; } = new();
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
         public List<Loadout> Loadouts { get; } = new();
@@ -243,6 +243,7 @@ namespace Content.Server.Database
         public int ProfileId { get; set; }
 
         public string JobName { get; set; } = null!;
+        public string AltName { get; set; } = null!;
         public DbJobPriority Priority { get; set; }
     }
 
