@@ -50,9 +50,9 @@
 #   id: MaintenanceClown
 #   background: /Textures/Corvax/LobbyScreens/maintenance-clown.png
 
-- type: lobbyBackground
-  id: MedDepart
-  background: /Textures/Corvax/LobbyScreens/med-depart.png
+# - type: lobbyBackground
+#   id: MedDepart
+#   background: /Textures/Corvax/LobbyScreens/med-depart.png
 
 # - type: lobbyBackground
 #   id: NukiesHere

@@ -1,17 +1,14 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Discord: SuNe#7319",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "paper_stamp-psychologist"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Discord: SuNe#7319",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "stamp-psychologist"
-    }
-  ]
+    "states": [
+        {
+            "name": "stamp-psychologist"
+        }
+    ]
 }
