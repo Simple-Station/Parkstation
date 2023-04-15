@@ -17,9 +17,11 @@ async function main() {
     const pr = await axios.get(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/pulls/${process.env.PR_NUMBER}`);
     const { merged_at, body, user } = pr.data;
 
+    // Remove comments from the body
+    commentlessBody = body.replace(CommentRegex, '');
 
     // Get author
-    const headerMatch = HeaderRegex.exec(body);
+    const headerMatch = HeaderRegex.exec(commentlessBody);
     if (!headerMatch) {
         console.log("No changelog entry found, skipping");
         return;
@@ -30,9 +32,6 @@ async function main() {
         console.log("No author found, setting it to author of the PR\n");
         author = user.login;
     }
-
-    // Remove comments from the body
-    commentlessBody = body.replace(CommentRegex, '');
 
     // Get all changes from the body
     const entries = getChanges(commentlessBody);
