@@ -32,10 +32,10 @@ async function main() {
     }
 
     // Remove comments from the body
-    body = body.replace(CommentRegex, '');
+    commentlessBody = body.replace(CommentRegex, '');
 
     // Get all changes from the body
-    const entries = getChanges(body);
+    const entries = getChanges(commentlessBody);
 
 
     // Time is something like 2021-08-29T20:00:00Z
