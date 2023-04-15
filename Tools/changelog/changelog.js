@@ -7,8 +7,9 @@ const axios = require("axios");
 if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `Bearer ${process.env.GITHUB_TOKEN}`;
 
 // Regexes
-const HeaderRegex = /^\s*(?::cl:|🆑) *([a-z0-9_\- ]+)?\s+/im;
-const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/img;
+const HeaderRegex = /^\s*(?::cl:|🆑) *([a-z0-9_\- ]+)?\s+/im; // :cl: or 🆑 [0] followed by optional author name [1]
+const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/img; // * or - followed by change type [0] and change message [1]
+const CommentRegex = /<!--.*?-->/gs; // HTML comments
 
 // Main function
 async function main() {
@@ -30,8 +31,10 @@ async function main() {
         author = user.login;
     }
 
+    // Remove comments from the body
+    body = body.replace(CommentRegex, '');
 
-    // Get all changes
+    // Get all changes from the body
     const entries = getChanges(body);
 
 
