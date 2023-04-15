@@ -1,13 +1,12 @@
-using Content.Server.Cuffs.Components;
 using Content.Server.Mind.Components;
 using Content.Server.Objectives.Interfaces;
 using Content.Server.Station.Components;
 using Content.Server.Traitor;
-using JetBrains.Annotations;
+using Content.Shared.Cuffs.Components;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Objectives.Conditions
+namespace Content.Server.Corvax.Objectives.Conditions
 {
     [DataDefinition]
     public sealed class HijackShuttleCondition : IObjectiveCondition
