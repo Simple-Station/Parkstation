@@ -28,12 +28,16 @@
         amount: 1
       - id: PlushieSharkBlue
         amount: 1
+      - id: PlushieMoffRandom
+        amount: 2
       - id: PlushieRGBee
         amount: 1
         prob: 0.20
       - id: PlushieLizardRGB
         amount: 1
         prob: 0.20
+      - id: PlushieAtmosian
+        amount: 1
 
 - type: entity
   id: CrateFunCrewmates
@@ -121,6 +125,8 @@
         amount: 1
       - id: d6Dice
         amount: 4
+      - id: ShogiBoard
+        amount: 1
 
 - type: entity
   id: CrateFunATV
@@ -173,7 +179,7 @@
         amount: 4
       - id: KnifePlastic
         amount: 1
-        
+
 - type: entity
   id: CrateFunSyndicateSegway
   parent: CrateLivestock

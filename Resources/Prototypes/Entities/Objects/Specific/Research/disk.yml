@@ -8,6 +8,12 @@
     sprite: Objects/Specific/Research/researchdisk.rsi
     state: icon
   - type: ResearchDisk
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/disk_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/disk_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/disk_drop.ogg
 
 - type: entity
   parent: ResearchDisk
@@ -54,3 +60,9 @@
     - enum.DamageStateVisualLayers.Base:
         datadisk_base: Sixteen
   - type: TechnologyDisk
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/disk_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/disk_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/disk_drop.ogg

@@ -1,4 +1,13 @@
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanFacialHairHandlebar
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -7,6 +16,15 @@
       state: handlebar
 
 - type: marking
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      SlimePerson,
+      Oni,
+      Lamia,
+      Arachne,
+    ]
   id: HumanFacialHairHandlebarAlt
   bodyPart: FacialHair
   markingCategory: FacialHair

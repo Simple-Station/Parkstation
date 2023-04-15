@@ -15,6 +15,7 @@
       rareChance: 0.03
       prototypes:
         - PlushieBee
+        - PlushieAtmosian
         - PlushieNuke
         - PlushieLizard
         - PlushieNar
@@ -31,7 +32,9 @@
         - PlushieSharkGrey
         - ToyAmongPequeno
         - ToyMouse
-      chance: 0.8
+        - PlushieMoff
+        - PlushieMoffRandom
+      chance: 0.5
       offset: 0.2
 
 - type: entity

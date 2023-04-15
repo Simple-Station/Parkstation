@@ -29,9 +29,16 @@
   - type: Tag
     tags:
     - Document
+    - Trash
   - type: Appearance
   - type: PaperVisuals
   - type: Recyclable
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/paper_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/paper_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/paper_drop.ogg
 
 - type: entity
   name: office paper
@@ -390,7 +397,7 @@
     state: stamp-cent
 
 - type: entity
-  name: cleric's rubber stamp
+  name: chaplain's rubber stamp
   parent: RubberStampMime
   id: RubberStampChaplain
   components:
@@ -489,16 +496,17 @@
     state: stamp-qm
 
 - type: entity
-  name: mystagogue's rubber stamp
+  name: mystagogue's signet ring
   parent: RubberStampMime
   id: RubberStampRd
+  description: The mystagogue's blessed silver signet ring.
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-rd
     stampState: "paper_stamp-rd"
   - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
-    state: stamp-rd
+    sprite: Nyanotrasen/Objects/Misc/signet_rings.rsi
+    state: mystagogue
 
 - type: entity
   name: warden's rubber stamp

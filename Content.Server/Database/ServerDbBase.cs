@@ -28,6 +28,7 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
+                .Include(p => p.Profiles).ThenInclude(h => h.Loadouts)
                 .AsSingleQuery()
                 .SingleOrDefaultAsync(p => p.UserId == userId.UserId);
 
@@ -158,6 +159,7 @@ namespace Content.Server.Database
             var jobs = profile.Jobs.ToDictionary(j => j.JobName, j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => a.AntagName);
             var traits = profile.Traits.Select(t => t.TraitName);
+            var loadouts = profile.Loadouts.Select(t => t.LoadoutName);
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
@@ -213,7 +215,8 @@ namespace Content.Server.Database
                 jobs,
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToList(),
-                traits.ToList()
+                traits.ToList(),
+                loadouts.ToList()
             );
         }
 
@@ -259,6 +262,10 @@ namespace Content.Server.Database
             entity.Traits.AddRange(
                 humanoid.TraitPreferences
                         .Select(t => new Trait {TraitName = t})
+            );
+            entity.Loadouts.AddRange(
+                humanoid.LoadoutPreferences
+                        .Select(t => new Loadout {LoadoutName = t})
             );
 
             return entity;
@@ -701,7 +708,7 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
-        private async Task<IQueryable<AdminLog>> GetAdminLogsQuery(ServerDbContext db, LogFilter? filter = null)
+        private static IQueryable<AdminLog> GetAdminLogsQuery(ServerDbContext db, LogFilter? filter = null)
         {
             IQueryable<AdminLog> query = db.AdminLog;
 
@@ -740,14 +747,25 @@ namespace Content.Server.Database
                 query = query.Where(log => log.Date > filter.After);
             }
 
-            if (filter.AnyPlayers != null)
+            if (filter.IncludePlayers)
             {
-                query = query.Where(log => log.Players.Any(p => filter.AnyPlayers.Contains(p.PlayerUserId)));
-            }
+                if (filter.AnyPlayers != null)
+                {
+                    query = query.Where(log =>
+                        log.Players.Any(p => filter.AnyPlayers.Contains(p.PlayerUserId)) ||
+                        log.Players.Count == 0 && filter.IncludeNonPlayers);
+                }
 
-            if (filter.AllPlayers != null)
+                if (filter.AllPlayers != null)
+                {
+                    query = query.Where(log =>
+                        log.Players.All(p => filter.AllPlayers.Contains(p.PlayerUserId)) ||
+                        log.Players.Count == 0 && filter.IncludeNonPlayers);
+                }
+            }
+            else
             {
-                query = query.Where(log => log.Players.All(p => filter.AllPlayers.Contains(p.PlayerUserId)));
+                query = query.Where(log => log.Players.Count == 0);
             }
 
             if (filter.LastLogId != null)
@@ -785,7 +803,7 @@ namespace Content.Server.Database
         public async IAsyncEnumerable<string> GetAdminLogMessages(LogFilter? filter = null)
         {
             await using var db = await GetDb();
-            var query = await GetAdminLogsQuery(db.DbContext, filter);
+            var query = GetAdminLogsQuery(db.DbContext, filter);
 
             await foreach (var log in query.Select(log => log.Message).AsAsyncEnumerable())
             {
@@ -796,7 +814,7 @@ namespace Content.Server.Database
         public async IAsyncEnumerable<SharedAdminLog> GetAdminLogs(LogFilter? filter = null)
         {
             await using var db = await GetDb();
-            var query = await GetAdminLogsQuery(db.DbContext, filter);
+            var query = GetAdminLogsQuery(db.DbContext, filter);
             query = query.Include(log => log.Players);
 
             await foreach (var log in query.AsAsyncEnumerable())
@@ -814,7 +832,7 @@ namespace Content.Server.Database
         public async IAsyncEnumerable<JsonDocument> GetAdminLogsJson(LogFilter? filter = null)
         {
             await using var db = await GetDb();
-            var query = await GetAdminLogsQuery(db.DbContext, filter);
+            var query = GetAdminLogsQuery(db.DbContext, filter);
 
             await foreach (var json in query.Select(log => log.Json).AsAsyncEnumerable())
             {

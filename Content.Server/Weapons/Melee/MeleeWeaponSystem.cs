@@ -11,6 +11,7 @@ using Content.Server.Contests;
 using Content.Server.Examine;
 using Content.Server.Hands.Components;
 using Content.Server.Movement.Systems;
+using Content.Shared.Administration.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -26,6 +27,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Players;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Weapons.Melee;
 
@@ -50,7 +52,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!args.CanInteract || !args.CanAccess || component.HideFromExamine)
             return;
 
-        var getDamage = new MeleeHitEvent(new List<EntityUid>(), args.User, component.Damage);
+        var getDamage = new MeleeHitEvent(new List<EntityUid>(), args.User, component.Damage, false);
         getDamage.IsHit = false;
         RaiseLocalEvent(uid, getDamage);
 
@@ -74,7 +76,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             Text = Loc.GetString("damage-examinable-verb-text"),
             Message = Loc.GetString("damage-examinable-verb-message"),
             Category = VerbCategory.Examine,
-            IconTexture = "/Textures/Interface/VerbIcons/smite.svg.192dpi.png"
+            Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")),
         };
 
         args.Verbs.Add(verb);
@@ -91,7 +93,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
 
         if (user == null)
-            PopupSystem.PopupEntity(message, uid.Value); 
+            PopupSystem.PopupEntity(message, uid.Value);
         else
             PopupSystem.PopupEntity(message, uid.Value, Filter.PvsExcept(user.Value, entityManager: EntityManager), true);
     }

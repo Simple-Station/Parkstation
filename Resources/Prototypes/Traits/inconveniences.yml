@@ -14,3 +14,13 @@
         params:
           variation: 0.2
       timeBetweenIncidents: 0.3, 300
+
+- type: trait
+  id: EasyDrunk
+  name: trait-lightweight-name
+  description: trait-lightweight-desc
+  cost: 2
+  category: Negative
+  components:
+    - type: LightweightDrunk
+      boozeStrengthMultiplier: 2

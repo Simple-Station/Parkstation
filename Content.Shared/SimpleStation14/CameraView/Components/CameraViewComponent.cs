@@ -3,8 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.CameraView.Components
 {
     /// <summary>
-    /// Added to people when they are riding in a vehicle
-    /// used mostly to keep track of them for entityquery.
+    ///     This isn't intended to be on master, but it is, so it's staying.
     /// </summary>
     [RegisterComponent, NetworkedComponent]
     public sealed class CameraViewComponent : Component

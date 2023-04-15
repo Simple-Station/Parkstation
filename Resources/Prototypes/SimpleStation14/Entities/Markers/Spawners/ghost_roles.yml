@@ -1,0 +1,114 @@
+# Ghost roles
+- type: entity
+  id: SpawnPointGhostSyndicateCommsAgent
+  name: ghost role spawn point
+  suffix: Syndie Comms
+  parent: MarkerBase
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanSyndicateCommsAgent
+    name: Syndicate Communications Agent
+    description: Aid the traitors in their mission.
+    rules: |
+      Aid the traitors in any way possible, or stir up conflict with your voice mask on the radio.
+      DO NOT ABANDON THE OUTPOST UNLESS COMPLETELY NECESSARY
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: prisoner
+
+- type: entity
+  id: SpawnPointGhostCultistSpawner
+  name: ghost role spawn point
+  suffix: Cultist
+  parent: MarkerBase
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanSpaceCultist
+    name: Cultist
+    description: Convert the crewmates.
+    rules: |
+      Go mining, build up your shuttle, capture and turn anyone you encounter into a golem, survive.
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: chaplain
+
+- type: entity
+  id: SpawnPointGhostSpaceBartender
+  name: ghost role spawn point
+  suffix: Space Bartender
+  parent: MarkerBase
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanSpaceBartender
+    name: Space bartender
+    description: Tend the bar.
+    rules: |
+      Tend the bar, encourage people to come find it, maybe don't leave.
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: bartender
+
+
+# Oldstation
+- type: entity
+  id: SpawnPointGhostOldstationScientist
+  name: ghost role spawn point
+  suffix: Oldstation Scientist
+  parent: MarkerBase
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanOldstationCrewScientist
+    name: Oldstation crew Scientist
+    description: Live on the oldstation after repairing it.
+    rules: |
+      Repair the station and live as if you were a part of the nanotrasen crew.
+      DO NOT ABANDON THE STATION UNLESS COMPLETELY NECESSARY
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: scientist
+
+- type: entity
+  id: SpawnPointGhostOldstationEngineer
+  name: ghost role spawn point
+  suffix: Oldstation Engineer
+  parent: MarkerBase
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanOldstationCrewEngineer
+    name: Oldstation crew Engineer
+    description: Live on the oldstation after repairing it.
+    rules: |
+      Repair the station and live as if you were a part of the nanotrasen crew.
+      DO NOT ABANDON THE STATION UNLESS COMPLETELY NECESSARY
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: engineer
+
+- type: entity
+  id: SpawnPointGhostOldstationSecurity
+  name: ghost role spawn point
+  suffix: Oldstation Security
+  parent: MarkerBase
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanOldstationCrewSecurity
+    name: Oldstation crew Security
+    description: Live on the oldstation after repairing it.
+    rules: |
+      Repair the station and live as if you were a part of the nanotrasen crew.
+      DO NOT ABANDON THE STATION UNLESS COMPLETELY NECESSARY
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: security_officer

@@ -270,6 +270,29 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Items/Toys/mousesqueek.ogg"
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Items/Toys/mousesqueek.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCloth1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Faction
     factions:
     - RatPassive
@@ -322,6 +345,16 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Voice/Vox/shriek1.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieAtmosian
+  name: atmosian plushie
+  description: An adorable stuffed toy that resembles a brave atmosian. Unfortunately, he won't fix those depressurizations for you.
+  components:
+  - type: Sprite
+    state: plushie_atmosian
+
 ## Figurines
 
 - type: entity
@@ -343,11 +376,35 @@
   - type: Sprite
     sprite: Objects/Fun/toys.rsi
     state: nuketoy
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Machines/Nuke/nuke_alarm.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Machines/Nuke/nuke_alarm.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Machines/Nuke/nuke_alarm.ogg
+      params:
+        volume: -5
+    damage:
+      types:
+        Blunt: 0
+  - type: Tag
+    tags:
+    - Payload # yes, you can even make re-usable plushie grenades
+  - type: ItemCooldown
+  - type: UseDelay
+    delay: 15
 
 - type: entity
   parent: BaseItem
   id: ToyAssistant # TODO rename but needs map changes
-  name: passenger toy
+  name: assistant toy
   description: Grey tide world wide!
   components:
   - type: Sprite
@@ -619,6 +676,21 @@
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
+
+- type: entity
+  parent: RevolverCapGun
+  id: RevolverCapGunFake
+  name: cap gun
+  description: Looks almost like the real thing! Ages 8 and up.
+  components:
+    - type: RevolverAmmoProvider
+      whitelist:
+        tags:
+          - CartridgeCap
+          - SpeedLoaderCap
+          - CartridgeMagnum
+          - SpeedLoaderMagnum
+      proto: CartridgeMagnum
 
 - type: entity
   parent: BaseItem

@@ -1,14 +1,14 @@
 - type: species
   id: Skeleton
   name: Skeleton
-  roundStart: false # Plasma man soon:tm:
+  roundStart: false
   prototype: MobSkeletonPerson
   sprites: MobSkeletonSprites
   markingLimits: MobHumanMarkingLimits
   maleFirstNames: skeletonNamesFirst
   femaleFirstNames: skeletonNamesFirst
   dollPrototype: MobSkeletonPersonDummy
-  skinColoration: TintedHues
+  skinColoration: None
 
 - type: speciesBaseSprites
   id: MobSkeletonSprites

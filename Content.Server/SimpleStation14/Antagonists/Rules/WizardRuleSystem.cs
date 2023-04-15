@@ -72,14 +72,14 @@ public sealed class WizardRuleSystem : GameRuleSystem
         var minPlayers = _cfg.GetCVar(CCVars.WizardMinPlayers);
         if (!ev.Forced && ev.Players.Length < minPlayers)
         {
-            _chatManager.DispatchServerAnnouncement(Loc.GetString("wizard-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
+            _chatManager.DispatchServerAnnouncement(Loc.GetString("preset-wizard-not-enough-ready-players", ("readyPlayersCount", ev.Players.Length), ("minimumPlayers", minPlayers)));
             ev.Cancel();
             return;
         }
 
         if (ev.Players.Length == 0)
         {
-            _chatManager.DispatchServerAnnouncement(Loc.GetString("wizard-no-one-ready"));
+            _chatManager.DispatchServerAnnouncement(Loc.GetString("preset-wizard-no-one-ready"));
             ev.Cancel();
             return;
         }
@@ -171,21 +171,15 @@ public sealed class WizardRuleSystem : GameRuleSystem
             return;
         }
 
-        if (!await _db.GetWhitelistStatusAsync(wizard.UserId))
+        if (_cfg.GetCVar(CCVars.WhitelistEnabled) && !await _db.GetWhitelistStatusAsync(wizard.UserId))
         {
             Logger.ErrorS("preset", $"{wizard.ConnectedClient.UserName} is not whitelisted, preventing their selection.");
             return;
         }
 
-        // creadth: we need to create uplink for the antag.
+        // create uplink for the antag.
         // PDA should be in place already
         DebugTools.AssertNotNull(mind.OwnedEntity);
-
-        if (mind.AllRoles.Count() > 1)
-        {
-            Logger.InfoS("preset", $"{wizard.ConnectedClient.UserName} is already another antagonist.");
-            return;
-        }
 
         var startingBalance = _cfg.GetCVar(CCVars.WizardStartingBalance);
 

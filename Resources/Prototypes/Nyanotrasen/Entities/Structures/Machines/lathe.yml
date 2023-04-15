@@ -25,6 +25,7 @@
     runningState: icon
     dynamicRecipes:
       - QSI
+      - HandTeleporter
       - BluespaceBeaker
       - Decloner
       - CryostasisBeaker
@@ -33,7 +34,6 @@
       - BackpackOfHolding
       - SatchelOfHolding
       - DuffelbagOfHolding
-      - NormalityCrystal
       - AnomalyScanner
       - ChemicalPayload #Below = shared
       - FlashlightLantern
@@ -205,6 +205,8 @@
       - RPED
       - PowerDrill
       - MiningDrill
+      - ClothingEyesHudDiagnostic
+      - ClothingEyesHudDiagnosticPrescription
       - RCDAmmo # Below is shared with other lathes
       - FlashlightLantern
       - Bucket

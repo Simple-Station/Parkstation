@@ -101,6 +101,8 @@
     sprite: Clothing/Head/Hats/cardborg_h.rsi
   - type: TypingIndicatorClothing
     proto: robot
+  - type: IdentityBlocker
+  - type: IngestionBlocker
   - type: DropOnSlip
     chance: 20
 
@@ -305,7 +307,8 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/santahat.rsi
   - type: TemperatureProtection
-    coefficient: 0.35
+    coefficient: 0.33
+
   - type: DropOnSlip
     chance: 20
 
@@ -384,10 +387,10 @@
     sprite: Clothing/Head/Hats/ushanka.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/ushanka.rsi
+  - type: TemperatureProtection
+    coefficient: 0.4
   - type: AddAccentClothing
     accent: RussianAccent
-  - type: TemperatureProtection
-    coefficient: 0.25
   - type: DropOnSlip
     chance: 20
 
@@ -439,19 +442,6 @@
     sprite: Clothing/Head/Hats/witch.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/witch.rsi
-  - type: DropOnSlip
-    chance: 20
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatWizardFake
-  name: fake wizard hat
-  description: It has WIZZARD written across it in sequins. Comes with a cool beard.
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Hats/wizard_fake.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hats/wizard_fake.rsi
   - type: DropOnSlip
     chance: 20
 
@@ -509,8 +499,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPyjamaSyndicateBlack
-  name: syndicate black pyjama hat
-  description: For keeping that traitor head of yours warm.
+  name: black pyjama hat
+  description: For keeping that head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicateblack.rsi
@@ -522,8 +512,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPyjamaSyndicatePink
-  name: syndicate pink pyjama hat
-  description: For keeping that traitor head of yours warm.
+  name: pink pyjama hat
+  description: For keeping that head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicatepink.rsi
@@ -535,8 +525,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPyjamaSyndicateRed
-  name: syndicate red pyjama hat
-  description: For keeping that traitor head of yours warm.
+  name: red pyjama hat
+  description: For keeping that head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicatered.rsi

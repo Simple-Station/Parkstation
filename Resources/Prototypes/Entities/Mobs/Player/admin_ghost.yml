@@ -20,8 +20,8 @@
   - type: Actions
   - type: InputMover
   - type: MovementSpeedModifier
-    baseSprintSpeed: 12
-    baseWalkSpeed: 8
+    baseSprintSpeed: 8
+    baseWalkSpeed: 12
   - type: Physics
     ignorePaused: true
     bodyType: Kinematic
@@ -125,3 +125,5 @@
   - type: BibleUser
   - type: SpellbookUser1
   - type: SpellbookUser2
+  - type: Inventory
+    templateId: aghost

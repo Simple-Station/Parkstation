@@ -1,14 +1,4 @@
 - type: gameMapPool
   id: ParkMapPool
   maps:
-  # - Angle
-  # - Arena
-  # - Glacier
-  # - Lighthouse
-  # - Ovni
-  # - Pebble
-  # - Tortuga
-  # - Bagel
-  # - Boxstation
-  # - Saltern
   - ParkStation

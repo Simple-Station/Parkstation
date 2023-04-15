@@ -34,13 +34,14 @@
   - Lawyer
   - Librarian
   - MailCarrier
+  - MartialArtist
   - MedicalIntern
   - Mime
   - Musician
   - Passenger
   - Reporter
-  - Zookeeper
   - ServiceWorker
+  - Zookeeper
   - TechnicalAssistant
   - Quartermaster
 
@@ -73,6 +74,7 @@
   color: "#DE3A3A"
   roles:
   - HeadOfSecurity
+  - PrisonGuard
   - SecurityCadet
   - SecurityOfficer
   - Detective

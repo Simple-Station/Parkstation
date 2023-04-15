@@ -64,7 +64,7 @@
   - type: Stamina
     excess: 200
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
+    bloodReagent: XenoBlood
     bloodlossDamage:
       types:
         Bloodloss:
@@ -607,6 +607,7 @@
     name: salvage snake
     description: You are a salvage snake hunting for a meal.
     rules: You are an antagonist, kill!
+  - type: SalvageMobRestrictions
 
 - type: entity
   parent: MobSmallPurpleSnake
@@ -619,3 +620,4 @@
     name: salvage snake
     description: You are a salvage snake hunting for a meal.
     rules: You are an antagonist, kill!
+  - type: SalvageMobRestrictions

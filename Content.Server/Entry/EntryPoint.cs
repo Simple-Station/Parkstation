@@ -178,6 +178,7 @@ namespace Content.Server.Entry
         {
             _playTimeTracking?.Shutdown();
             _sysMan?.GetEntitySystemOrNull<StationSystem>()?.OnServerDispose();
+            IoCManager.Resolve<IServerDbManager>().Shutdown();
         }
 
         private static void LoadConfigPresets(IConfigurationManager cfg, IResourceManager res, ISawmill sawmill)
@@ -204,7 +205,7 @@ namespace Content.Server.Entry
 
         private static void LoadBuildConfigPresets(IConfigurationManager cfg, IResourceManager res, ISawmill sawmill)
         {
-#if !FULL_RELEASE
+#if TOOLS
             Load(CCVars.ConfigPresetDevelopment, "development");
 #endif
 #if DEBUG

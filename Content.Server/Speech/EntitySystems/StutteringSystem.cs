@@ -49,21 +49,21 @@ namespace Content.Server.Speech.EntitySystems
                 newLetter = message[i].ToString();
                 if (Stutter.IsMatch(newLetter) && _random.Prob(0.8f))
                 {
-                    if (_random.Prob(0.1f))
+                    if (_random.Prob(0.3f))
                     {
-                        newLetter = $"{newLetter}-{newLetter}-{newLetter}-{newLetter}";
+                        newLetter = $"{newLetter}-{newLetter}";
                     }
-                    else if (_random.Prob(0.2f))
+                    else if (_random.Prob(0.15f))
                     {
                         newLetter = $"{newLetter}-{newLetter}-{newLetter}";
+                    }
+                    else if (_random.Prob(0.1f))
+                    {
+                        newLetter = $"{newLetter}-{newLetter}-{newLetter}-{newLetter}";
                     }
                     else if (_random.Prob(0.05f))
                     {
                         newLetter = "";
-                    }
-                    else
-                    {
-                        newLetter = $"{newLetter}-{newLetter}";
                     }
                 }
 

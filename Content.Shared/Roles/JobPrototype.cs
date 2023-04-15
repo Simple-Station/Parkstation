@@ -58,6 +58,9 @@ namespace Content.Shared.Roles
         [DataField("canBeAntag")]
         public bool CanBeAntag { get; } = true;
 
+        [DataField("canHaveTraits")]
+        public bool CanHaveTraits { get; } = true;
+
         /// <summary>
         /// For e.g. prisoners, they'll never use their latejoin spawner.
         /// </summary>

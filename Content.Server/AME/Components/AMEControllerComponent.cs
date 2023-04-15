@@ -90,7 +90,7 @@ namespace Content.Server.AME.Components
                 InjectSound(overloading);
                 UpdateUserInterface();
 
-                float fuelRatio = (float) fuelJar.FuelAmount / (float) fuelJar.MaxFuelAmount;
+                float fuelRatio = (float) fuelJar.FuelAmount / (float) fuelJar.FuelCapacity;
 
                 if (fuelRatio <= 0.1f
                     && _entities.TryGetComponent<IntrinsicRadioReceiverComponent>(this.Owner, out var component))
@@ -186,7 +186,7 @@ namespace Content.Server.AME.Components
                     ToggleInjection();
                     break;
                 case UiButton.IncreaseFuel:
-                    InjectionAmount = Math.Min(InjectionAmount + 2, GetCoreCount() * 2);
+                    InjectionAmount += 2;
                     break;
                 case UiButton.DecreaseFuel:
                     InjectionAmount = InjectionAmount > 0 ? InjectionAmount -= 2 : 0;
