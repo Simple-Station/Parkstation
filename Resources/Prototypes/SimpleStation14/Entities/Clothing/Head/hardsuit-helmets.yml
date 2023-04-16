@@ -22,7 +22,7 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: SimpleStation14/Clothing/Head/Hardsuits/dominia.rsi
+    sprite: SimpleStation14/Clothing/Head/Hardsuits/hopsuit.rsi
     layers:
     - state: icon
     - state: light-overlay
