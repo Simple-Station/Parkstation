@@ -31,7 +31,7 @@
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitHoP
   name: head of personnel's hardsuit
-  description: A stylish hardsuit for only the most esteemed. Doesn't offer much damage protection.
+  description: A stylish hardsuit for only the most esteemed crew members. Doesn't offer much damage protection.
   components:
   - type: Sprite
     sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/hopsuit.rsi
