@@ -16,10 +16,10 @@ public sealed class VoiceOfGodSystem : EntitySystem
 
     public string Accentuate(VoiceOfGodComponent component, string message)
     {
-        if (component.Sound != "none")
+        if (!string.IsNullOrEmpty(component.Sound))
         {
             SoundSystem.Play(component.Sound,
-                Filter.Pvs(component.Owner),
+                Filter.Pvs(component.Owner, component.SoundRange),
                 component.Owner,
                 new AudioParams()
                 {

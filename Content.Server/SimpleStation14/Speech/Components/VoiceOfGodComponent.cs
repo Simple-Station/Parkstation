@@ -6,6 +6,9 @@ public sealed class VoiceOfGodComponent : Component
     [DataField("sound"), ViewVariables(VVAccess.ReadWrite)]
     public string Sound { get; set; } = "/Audio/SimpleStation14/Voice/voice_of_god.ogg";
 
+    [DataField("soundRange"), ViewVariables(VVAccess.ReadWrite)]
+    public float SoundRange { get; set; } = 2;
+
     [DataField("volume"), ViewVariables(VVAccess.ReadWrite)]
     public int Volume { get; set; } = 3;
 
