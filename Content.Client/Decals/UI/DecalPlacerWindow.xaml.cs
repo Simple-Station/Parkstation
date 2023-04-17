@@ -134,7 +134,8 @@ public sealed partial class DecalPlacerWindow : DefaultWindow
                 TextureNormal = tex,
                 Name = decal,
                 ToolTip = decal,
-                Modulate = _useColor ? _color : Color.White
+                Modulate = _useColor ? _color : Color.White,
+                Scale = new Vector2(1.5f, 1.5f)
             };
             button.OnPressed += ButtonOnPressed;
             if (_selected == decal)
