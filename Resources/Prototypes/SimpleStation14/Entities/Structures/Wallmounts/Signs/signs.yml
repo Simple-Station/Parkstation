@@ -426,3 +426,84 @@
   - type: Sprite
     sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
     state: supply
+
+# Dorm rooms
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom1
+  name: dorm room 1
+  description: A sign indicating that this is room 1 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_1
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom2
+  name: dorm room 2
+  description: A sign indicating that this is room 2 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_2
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom3
+  name: dorm room 3
+  description: A sign indicating that this is room 3 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_3
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom4
+  name: dorm room 4
+  description: A sign indicating that this is room 4 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_4
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom5
+  name: dorm room 5
+  description: A sign indicating that this is room 5 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_5
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom6
+  name: dorm room 6
+  description: A sign indicating that this is room 6 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_6
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom7
+  name: dorm room 7
+  description: A sign indicating that this is room 7 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_7
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom8
+  name: dorm room 8
+  description: A sign indicating that this is room 8 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_8
