@@ -1,6 +1,6 @@
 ﻿<DefaultWindow xmlns="https://spacestation14.io"
                Title="{Loc 'decal-placer-window-title'}"
-               MinSize="318 600">
+               MinSize="338 600">
     <BoxContainer Orientation="Vertical">
         <LineEdit Name="Search" HorizontalExpand="True" />
         <ScrollContainer VerticalExpand="True">
