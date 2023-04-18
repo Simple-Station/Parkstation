@@ -1,0 +1,56 @@
+- type: decal
+  id: DirtSideN
+  tags: ["markings", "dirt"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/dirt.rsi
+    state: dirt_side_n
+
+- type: decal
+  id: DirtSideE
+  tags: ["markings", "dirt"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/dirt.rsi
+    state: dirt_side_e
+
+- type: decal
+  id: DirtSideS
+  tags: ["markings", "dirt"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/dirt.rsi
+    state: dirt_side_s
+
+- type: decal
+  id: DirtSideW
+  tags: ["markings", "dirt"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/dirt.rsi
+    state: dirt_side_w
+
+
+- type: decal
+  id: DirtSideNE
+  tags: ["markings", "dirt"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/dirt.rsi
+    state: dirt_side_ne
+
+- type: decal
+  id: DirtSideSE
+  tags: ["markings", "dirt"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/dirt.rsi
+    state: dirt_side_se
+
+- type: decal
+  id: DirtSideSW
+  tags: ["markings", "dirt"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/dirt.rsi
+    state: dirt_side_sw
+
+- type: decal
+  id: DirtSideNW
+  tags: ["markings", "dirt"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/dirt.rsi
+    state: dirt_side_nw

@@ -17,6 +17,9 @@
       "name": "dirt_side_ne"
     },
     {
+      "name": "dirt_side_nw"
+    },
+    {
       "name": "dirt_side_s"
     },
     {
@@ -27,9 +30,6 @@
     },
     {
       "name": "dirt_side_w"
-    },
-    {
-      "name": "dirt_sidenw"
     }
   ]
 }
