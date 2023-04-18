@@ -1,3 +1,4 @@
+# Parkstation
 - type: entity
   id: SignParkstation
   name: parkstation floor sign
@@ -70,3 +71,265 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+
+
+# Departments
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkAtmos
+  name: atmospherics
+  description: A sign indicating that this is the atmospherics area of engineering.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: atmo
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkBridge
+  name: bridge
+  description: A sign indicating that this is the bridge.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: bridge
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkCargo
+  name: cargo
+  description: A sign indicating that this is the cargo area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: cargo
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkCharge
+  name: charging
+  description: A sign indicating that this is the charging area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: charge
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkChemistryGreen
+  name: chemistry
+  description: A sign indicating that this is the chemistry area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: chem
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkChemistryBlue
+  name: chemistry
+  description: A sign indicating that this is the chemistry area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: chemb
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkCloningGreen
+  name: cloning
+  description: A sign indicating that this is the cloning area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: clone
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkCloningBlue
+  name: cloning
+  description: A sign indicating that this is the cloning area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: cloneb
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkCommand
+  name: command
+  description: A sign indicating that this is the command area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: command
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkEngineering
+  name: engineering
+  description: A sign indicating that this is the engineering area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: engi
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkEvac
+  name: evacuation
+  description: A sign indicating that this is the evacuation area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: evac
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkGenetics
+  name: genetics
+  description: A sign indicating that this is the genetics area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: gene
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkHoP
+  name: head of personnel
+  description: A sign indicating that this is the head of personnel's office.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: hop
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkHydroponics
+  name: hydroponics
+  description: A sign indicating that this is the hydroponics area of service.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: hydro
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkJanitor
+  name: janitor
+  description: A sign indicating that this is the janitor's area of service.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: jani
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkMedicalGreen
+  name: medical
+  description: A sign indicating that this is the medical area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: medic
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkMedicalBlue
+  name: medical
+  description: A sign indicating that this is the medical area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: medicb
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkMining
+  name: mining
+  description: A sign indicating that this is the mining area of engineering.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: mine
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkResearch
+  name: research
+  description: A sign indicating that this is the research area of science.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: rd
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkRobotics
+  name: robotics
+  description: A sign indicating that this is the robotics area of science. # TODO: sprite needs to be recolored and description changed for engi
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: robo
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkSecurity
+  name: security
+  description: A sign indicating that this is the security area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: sec
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkSpace
+  name: space
+  description: A sign indicating that this leads to space.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: space
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkTelecomms
+  name: telecomms
+  description: A sign indicating that this is the telecomms area of engineering.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: tcom
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkVirologyGreen
+  name: virology
+  description: A sign indicating that this is the virology area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: viro
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkVirologyBlue
+  name: virology
+  description: A sign indicating that this is the virology area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: virob
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkXenobiology
+  name: xenobiology
+  description: A sign indicating that this is the xenobiology area of science.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: xeno
