@@ -333,3 +333,25 @@
   - type: Sprite
     sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
     state: xeno
+
+
+# Salvage
+- type: entity
+  parent: BaseSign
+  id: SignMiningSalvage
+  name: mining
+  description: A sign indicating that this is the mining area of engineering.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsign.rsi
+    state: mining_salvage
+
+- type: entity
+  parent: BaseSign
+  id: SignMiningNanotrasen
+  name: mining
+  description: A sign indicating that this is the mining area of Nanotrasen.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsign.rsi
+    state: mining_nanotrasen
