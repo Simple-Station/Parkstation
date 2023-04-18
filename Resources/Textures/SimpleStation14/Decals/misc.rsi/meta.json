@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bluecross"
+    },
+    {
+      "name": "mining_nanotrasen"
+    },
+    {
+      "name": "mining_salvage"
+    },
+    {
+      "name": "sandy_floor"
+    },
+    {
+      "name": "sandy_plating"
+    }
+  ]
+}

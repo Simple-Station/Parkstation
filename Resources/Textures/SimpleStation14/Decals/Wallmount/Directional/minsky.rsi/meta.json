@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "supply"
+    },
+    {
+      "name": "bridge"
+    },
+    {
+      "name": "eng"
+    },
+    {
+      "name": "evac"
+    },
+    {
+      "name": "med"
+    },
+    {
+      "name": "sci"
+    },
+    {
+      "name": "sec"
+    }
+  ]
+}

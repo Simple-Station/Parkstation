@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "dirt_side_e"
+    },
+    {
+      "name": "dirt_side_n"
+    },
+    {
+      "name": "dirt_side_ne"
+    },
+    {
+      "name": "dirt_side_s"
+    },
+    {
+      "name": "dirt_side_se"
+    },
+    {
+      "name": "dirt_side_sw"
+    },
+    {
+      "name": "dirt_side_w"
+    },
+    {
+      "name": "dirt_sidenw"
+    }
+  ]
+}

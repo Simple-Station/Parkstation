@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "box_corners_white_ne"
+    },
+    {
+      "name": "box_corners_white_nw"
+    },
+    {
+      "name": "box_corners_white_se"
+    },
+    {
+      "name": "box_corners_white_sw"
+    },
+    {
+      "name": "box_corners_yellow_ne"
+    },
+    {
+      "name": "box_corners_yellow_nw"
+    },
+    {
+      "name": "box_corners_yellow_se"
+    },
+    {
+      "name": "box_corners_yellow_sw"
+    }
+  ]
+}

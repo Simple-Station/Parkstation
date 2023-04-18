@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "air"
+    },
+    {
+      "name": "carbon_dioxide"
+    },
+    {
+      "name": "mix"
+    },
+    {
+      "name": "nitrogen"
+    },
+    {
+      "name": "nitrous_oxide"
+    },
+    {
+      "name": "oxygen"
+    },
+    {
+      "name": "plasma"
+    }
+  ]
+}
