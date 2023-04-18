@@ -1,0 +1,733 @@
+# Trimline
+- type: decal
+  id: TrimlineBox
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_box
+
+- type: decal
+  id: TrimlineBoxFill
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_box_fill
+
+
+
+# Trimline Arrow
+- type: decal
+  id: TrimlineArrowCCWN
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_n
+
+- type: decal
+  id: TrimlineArrowCCWE
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_e
+
+- type: decal
+  id: TrimlineArrowCCWS
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_s
+
+- type: decal
+  id: TrimlineArrowCCWW
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_w
+
+
+- type: decal
+  id: TrimLineArrowCCWNE
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_ne
+
+- type: decal
+  id: TrimLineArrowCCWSE
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_se
+
+- type: decal
+  id: TrimLineArrowCCWSW
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_sw
+
+- type: decal
+  id: TrimLineArrowCCWNW
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_nw
+
+
+
+- type: decal
+  id: TrimlineArrowCWFillN
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_n
+
+- type: decal
+  id: TrimlineArrowCWFillE
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_e
+
+- type: decal
+  id: TrimlineArrowCWFillS
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_s
+
+- type: decal
+  id: TrimlineArrowCWFillW
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_w
+
+
+- type: decal
+  id: TrimLineArrowCWFillNE
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_ne
+
+- type: decal
+  id: TrimLineArrowCWFillSE
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_se
+
+- type: decal
+  id: TrimLineArrowCWFillSW
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_sw
+
+- type: decal
+  id: TrimLineArrowCWFillNW
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_nw
+
+
+# Trimline Arrow Fill
+- type: decal
+  id: TrimlineArrowCCWFillN
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_fill_n
+
+- type: decal
+  id: TrimlineArrowCCWFillE
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_fill_e
+
+- type: decal
+  id: TrimlineArrowCCWFillS
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_fill_s
+
+- type: decal
+  id: TrimlineArrowCCWFillW
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_fill_w
+
+
+- type: decal
+  id: TrimLineArrowCCWFillNE
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_fill_ne
+
+- type: decal
+  id: TrimLineArrowCCWFillSE
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_fill_se
+
+- type: decal
+  id: TrimLineArrowCCWFillSW
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_fill_sw
+
+- type: decal
+  id: TrimLineArrowCCWFillNW
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_ccw_fill_nw
+
+
+
+- type: decal
+  id: TrimlineArrowCWFillN
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_n
+
+- type: decal
+  id: TrimlineArrowCWFillE
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_e
+
+- type: decal
+  id: TrimlineArrowCWFillS
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_s
+
+- type: decal
+  id: TrimlineArrowCWFillW
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_w
+
+
+- type: decal
+  id: TrimLineArrowCWFillNE
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_ne
+
+- type: decal
+  id: TrimLineArrowCWFillSE
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_se
+
+- type: decal
+  id: TrimLineArrowCWFillSW
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_sw
+
+- type: decal
+  id: TrimLineArrowCWFillNW
+  tags: ["station", "direction", "arrow"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_arrow_cw_fill_nw
+
+
+
+# Trimline Corner
+- type: decal
+  id: TrimlineCornerNE
+  tags: ["station", "direction", "corner"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_corner_ne
+
+- type: decal
+  id: TrimlineCornerSE
+  tags: ["station", "direction", "corner"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_corner_se
+
+- type: decal
+  id: TrimlineCornerSW
+  tags: ["station", "direction", "corner"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_corner_sw
+
+- type: decal
+  id: TrimlineCornerNW
+  tags: ["station", "direction", "corner"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_corner_nw
+
+# Trimline Corner Fill
+- type: decal
+  id: TrimlineCornerFillNE
+  tags: ["station", "direction", "corner"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_corner_fill_ne
+
+- type: decal
+  id: TrimlineCornerFillSE
+  tags: ["station", "direction", "corner"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_corner_fill_se
+
+- type: decal
+  id: TrimlineCornerFillSW
+  tags: ["station", "direction", "corner"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_corner_fill_sw
+
+- type: decal
+  id: TrimlineCornerFillNW
+  tags: ["station", "direction", "corner"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_corner_fill_nw
+
+
+
+# Trimline
+- type: decal
+  id: TrimlineN
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_n
+
+- type: decal
+  id: TrimlineE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_e
+
+- type: decal
+  id: TrimlineS
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_s
+
+- type: decal
+  id: TrimlineW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_w
+
+
+- type: decal
+  id: TrimlineNE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_ne
+
+- type: decal
+  id: TrimlineSE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_se
+
+- type: decal
+  id: TrimlineSW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_sw
+
+- type: decal
+  id: TrimlineNW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_nw
+
+
+- type: decal
+  id: TrimlineEndN
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_end_n
+
+- type: decal
+  id: TrimlineEndE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_end_e
+
+- type: decal
+  id: TrimlineEndS
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_end_s
+
+- type: decal
+  id: TrimlineEndW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_end_w
+
+
+
+# Trimline Fill
+- type: decal
+  id: TrimlineFillN
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_fill_n
+
+- type: decal
+  id: TrimlineFillE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_fill_e
+
+- type: decal
+  id: TrimlineFillS
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+
+- type: decal
+  id: TrimlineFillW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_fill_w
+
+
+- type: decal
+  id: TrimlineFillNE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_fill_ne
+
+- type: decal
+  id: TrimlineFillSE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_fill_se
+
+- type: decal
+  id: TrimlineFillSW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_fill_sw
+
+- type: decal
+  id: TrimlineFillNW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_fill_nw
+
+
+
+# Trimline Mid
+- type: decal
+  id: TrimlineMidN
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_mid_n
+
+- type: decal
+  id: TrimlineMidE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_mid_e
+
+- type: decal
+  id: TrimlineMidS
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_mid_s
+
+- type: decal
+  id: TrimlineMidW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_mid_w
+
+
+
+# Trimline Mid Fill
+- type: decal
+  id: TrimlineMidFillN
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_mid_fill_n
+
+- type: decal
+  id: TrimlineMidFillE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_mid_fill_e
+
+- type: decal
+  id: TrimlineMidFillS
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_mid_fill_s
+
+- type: decal
+  id: TrimlineMidFillW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_mid_fill_w
+
+
+
+# Trimline Shrink
+- type: decal
+  id: TrimlineShrinkCCWN
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_shrink_ccw_n
+
+- type: decal
+  id: TrimlineShrinkCCWE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_shrink_ccw_e
+
+- type: decal
+  id: TrimlineShrinkCCWS
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_shrink_ccw_s
+
+- type: decal
+  id: TrimlineShrinkCCWW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_shrink_ccw_w
+
+
+
+- type: decal
+  id: TrimlineShrinkCWN
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_shrink_cw_n
+
+- type: decal
+  id: TrimlineShrinkCWE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_shrink_cw_e
+
+- type: decal
+  id: TrimlineShrinkCWS
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_shrink_cw_s
+
+- type: decal
+  id: TrimlineShrinkCWW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_shrink_cw_w
+
+
+
+# Trimline Tram
+- type: decal
+  id: TrimlineTramN
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_tram_n
+
+- type: decal
+  id: TrimlineTramE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_tram_e
+
+- type: decal
+  id: TrimlineTramS
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_tram_s
+
+- type: decal
+  id: TrimlineTramW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_tram_w
+
+
+
+# Trimline Warn
+- type: decal
+  id: TrimlineWarnN
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_n
+
+- type: decal
+  id: TrimlineWarnE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_e
+
+- type: decal
+  id: TrimlineWarnS
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_s
+
+- type: decal
+  id: TrimlineWarnW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_w
+
+
+- type: decal
+  id: TrimlineWarnNE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_ne
+
+- type: decal
+  id: TrimlineWarnSE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_se
+
+- type: decal
+  id: TrimlineWarnSW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_sw
+
+- type: decal
+  id: TrimlineWarnNW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_nw
+
+
+
+# Trimline Warn Fill
+- type: decal
+  id: TrimlineWarnFillN
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_fill_n
+
+- type: decal
+  id: TrimlineWarnFillE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_fill_e
+
+- type: decal
+  id: TrimlineWarnFillS
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_fill_s
+
+- type: decal
+  id: TrimlineWarnFillW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_fill_w
+
+
+- type: decal
+  id: TrimlineWarnFillNE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_fill_ne
+
+- type: decal
+  id: TrimlineWarnFillSE
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_fill_se
+
+- type: decal
+  id: TrimlineWarnFillSW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_fill_sw
+
+- type: decal
+  id: TrimlineWarnFillNW
+  tags: ["station", "direction"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_warn_fill_nw
