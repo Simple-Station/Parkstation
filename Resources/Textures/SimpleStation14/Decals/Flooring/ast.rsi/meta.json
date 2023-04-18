@@ -23,9 +23,6 @@
       "name": "ast_warn_corner_sw"
     },
     {
-      "name": "ast_warn_e"
-    },
-    {
       "name": "ast_warn_end_e"
     },
     {
@@ -41,25 +38,28 @@
       "name": "ast_warn_full"
     },
     {
-      "name": "ast_warn_n"
+      "name": "ast_warn_side_e"
     },
     {
-      "name": "ast_warn_ne"
+      "name": "ast_warn_side_n"
     },
     {
-      "name": "ast_warn_nw"
+      "name": "ast_warn_side_ne"
     },
     {
-      "name": "ast_warn_s"
+      "name": "ast_warn_side_nw"
     },
     {
-      "name": "ast_warn_se"
+      "name": "ast_warn_side_s"
     },
     {
-      "name": "ast_warn_sw"
+      "name": "ast_warn_side_se"
     },
     {
-      "name": "ast_warn_w"
+      "name": "ast_warn_side_sw"
+    },
+    {
+      "name": "ast_warn_side_w"
     }
   ]
 }
