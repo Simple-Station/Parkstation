@@ -1,0 +1,584 @@
+# General
+- type: decal
+  id: SidingCornerNE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_corner_ne
+
+- type: decal
+  id: SidingCornerSE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_corner_se
+
+- type: decal
+  id: SidingCornerSW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_corner_sw
+
+- type: decal
+  id: SidingCornerNW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_corner_nw
+
+
+- type: decal
+  id: SidingEndN
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_end_n
+
+- type: decal
+  id: SidingEndE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_end_e
+
+- type: decal
+  id: SidingEndS
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_end_s
+
+- type: decal
+  id: SidingEndW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_end_w
+
+
+- type: decal
+  id: SidingLineN
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_line_n
+
+- type: decal
+  id: SidingLineE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_line_e
+
+- type: decal
+  id: SidingLineS
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_line_s
+
+- type: decal
+  id: SidingLineW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_line_w
+
+
+- type: decal
+  id: SidingLineNE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_line_ne
+
+- type: decal
+  id: SidingLineSE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_line_se
+
+- type: decal
+  id: SidingLineSW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_line_sw
+
+- type: decal
+  id: SidingLineNW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_line_nw
+
+
+
+# Thin Plating
+- type: decal
+  id: SidingThinplatingCornerNE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_corner_ne
+
+- type: decal
+  id: SidingThinplatingCornerSE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_corner_se
+
+- type: decal
+  id: SidingThinplatingCornerSW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_corner_sw
+
+- type: decal
+  id: SidingThinplatingCornerNW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_corner_nw
+
+
+- type: decal
+  id: SidingThinplatingEndN
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_end_n
+
+- type: decal
+  id: SidingThinplatingEndE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_end_e
+
+- type: decal
+  id: SidingThinplatingEndS
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_end_s
+
+- type: decal
+  id: SidingThinplatingEndW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_end_w
+
+
+- type: decal
+  id: SidingThinplatingLineN
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_line_n
+
+- type: decal
+  id: SidingThinplatingLineE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_line_e
+
+- type: decal
+  id: SidingThinplatingLineS
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_line_s
+
+- type: decal
+  id: SidingThinplatingLineW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_line_w
+
+
+- type: decal
+  id: SidingThinplatingLineNE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_line_ne
+
+- type: decal
+  id: SidingThinplatingLineSE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_line_se
+
+- type: decal
+  id: SidingThinplatingLineSW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_line_sw
+
+- type: decal
+  id: SidingThinplatingLineNW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_line_nw
+
+
+
+- type: decal
+  id: SidingThinplatingNewCornerNE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_corner_ne
+
+- type: decal
+  id: SidingThinplatingNewCornerSE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_corner_se
+
+- type: decal
+  id: SidingThinplatingNewCornerSW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_corner_sw
+
+- type: decal
+  id: SidingThinplatingNewCornerNW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_corner_nw
+
+
+- type: decal
+  id: SidingThinplatingNewEndN
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_end_n
+
+- type: decal
+  id: SidingThinplatingNewEndE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_end_e
+
+- type: decal
+  id: SidingThinplatingNewEndS
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_end_s
+
+- type: decal
+  id: SidingThinplatingNewEndW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_end_w
+
+
+- type: decal
+  id: SidingThinplatingNewLineN
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_line_n
+
+- type: decal
+  id: SidingThinplatingNewLineE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_line_e
+
+- type: decal
+  id: SidingThinplatingNewLineS
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_line_s
+
+- type: decal
+  id: SidingThinplatingNewLineW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_line_w
+
+
+- type: decal
+  id: SidingThinplatingNewLineNE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_line_ne
+
+- type: decal
+  id: SidingThinplatingNewLineSE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_line_se
+
+- type: decal
+  id: SidingThinplatingNewLineSW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_line_sw
+
+- type: decal
+  id: SidingThinplatingNewLineNW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_thinplating_new_line_nw
+
+
+
+# Wide Plating
+- type: decal
+  id: SidingWideplatingCornerNE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_corner_ne
+
+- type: decal
+  id: SidingWideplatingCornerSE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_corner_se
+
+- type: decal
+  id: SidingWideplatingCornerSW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_corner_sw
+
+- type: decal
+  id: SidingWideplatingCornerNW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_corner_nw
+
+
+- type: decal
+  id: SidingWideplatingEndN
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_end_n
+
+- type: decal
+  id: SidingWideplatingEndE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_end_e
+
+- type: decal
+  id: SidingWideplatingEndS
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_end_s
+
+- type: decal
+  id: SidingWideplatingEndW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_end_w
+
+
+- type: decal
+  id: SidingWideplatingLineN
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_line_n
+
+- type: decal
+  id: SidingWideplatingLineE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_line_e
+
+- type: decal
+  id: SidingWideplatingLineS
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_line_s
+
+- type: decal
+  id: SidingWideplatingLineW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_line_w
+
+
+- type: decal
+  id: SidingWideplatingLineNE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_line_ne
+
+- type: decal
+  id: SidingWideplatingLineSE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_line_se
+
+- type: decal
+  id: SidingWideplatingLineSW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_line_sw
+
+- type: decal
+  id: SidingWideplatingLineNW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_line_nw
+
+
+- type: decal
+  id: SidingWideplatingNewCornerNE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_corner_ne
+
+- type: decal
+  id: SidingWideplatingNewCornerSE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_corner_se
+
+- type: decal
+  id: SidingWideplatingNewCornerSW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_corner_sw
+
+- type: decal
+  id: SidingWideplatingNewCornerNW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_corner_nw
+
+
+- type: decal
+  id: SidingWideplatingNewEndN
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_end_n
+
+- type: decal
+  id: SidingWideplatingNewEndE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_end_e
+
+- type: decal
+  id: SidingWideplatingNewEndS
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_end_s
+
+- type: decal
+  id: SidingWideplatingNewEndW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_end_w
+
+
+- type: decal
+  id: SidingWideplatingNewLineN
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_line_n
+
+- type: decal
+  id: SidingWideplatingNewLineE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_line_e
+
+- type: decal
+  id: SidingWideplatingNewLineS
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_line_s
+
+- type: decal
+  id: SidingWideplatingNewLineW
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_line_w
+
+
+- type: decal
+  id: SidingWideplatingNewLineNE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_line_ne
+
+- type: decal
+  id: SidingWideplatingNewLineSE
+  tags: ["markings", "siding", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_line_se
+
+- type: decal
+  id: SidingWideplatingNewLineSW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_line_sw
+
+- type: decal
+  id: SidingWideplatingNewLineNW
+  tags: ["markings", "siding"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/siding.rsi
+    state: siding_wideplating_new_line_nw
