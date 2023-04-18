@@ -8,25 +8,32 @@
   },
   "states": [
     {
-      "name": "supply"
+      "name": "supply",
+      "directions": 4
     },
     {
-      "name": "bridge"
+      "name": "bridge",
+      "directions": 4
     },
     {
-      "name": "eng"
+      "name": "eng",
+      "directions": 4
     },
     {
-      "name": "evac"
+      "name": "evac",
+      "directions": 4
     },
     {
-      "name": "med"
+      "name": "med",
+      "directions": 4
     },
     {
-      "name": "sci"
+      "name": "sci",
+      "directions": 4
     },
     {
-      "name": "sec"
+      "name": "sec",
+      "directions": 4
     }
   ]
 }

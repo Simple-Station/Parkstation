@@ -276,7 +276,7 @@
 
 - type: entity
   parent: BaseSign
-  id: SignDepartmentParkSecurity
+  id: SignDepartmentParkSecurity # TODO: recolor blue
   name: security
   description: A sign indicating that this is the security area.
   components:
@@ -355,3 +355,74 @@
   - type: Sprite
     sprite: SimpleStation14/Structures/Wallmounts/deptsign.rsi
     state: mining_nanotrasen
+
+# Directional
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskyBridge
+  name: bridge
+  description: A fancy sign directing you towards the bridge.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: bridge
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskyEngineering
+  name: engineering
+  description: A fancy sign directing you towards engineering.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: eng
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskyEvac
+  name: evac
+  description: A fancy sign directing you towards the evacuation shuttle.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: evac
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskyMedbay
+  name: medbay
+  description: A fancy sign directing you towards the medbay.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: med
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskyScience
+  name: science
+  description: A fancy sign directing you towards science.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: sci
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskySecurity # TODO: recolor blue
+  name: security
+  description: A fancy sign directing you towards security.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: sec
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskySupply
+  name: cargo
+  description: A fancy sign directing you towards cargo.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: supply
