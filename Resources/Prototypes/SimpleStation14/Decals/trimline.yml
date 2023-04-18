@@ -76,28 +76,28 @@
 
 
 - type: decal
-  id: TrimlineArrowCWFillN
+  id: TrimlineArrowCWN
   tags: ["station", "direction", "arrow"]
   sprite:
     sprite: SimpleStation14/Decals/Flooring/trimline.rsi
     state: trimline_arrow_cw_fill_n
 
 - type: decal
-  id: TrimlineArrowCWFillE
+  id: TrimlineArrowCWE
   tags: ["station", "direction", "arrow"]
   sprite:
     sprite: SimpleStation14/Decals/Flooring/trimline.rsi
     state: trimline_arrow_cw_fill_e
 
 - type: decal
-  id: TrimlineArrowCWFillS
+  id: TrimlineArrowCWS
   tags: ["station", "direction", "arrow"]
   sprite:
     sprite: SimpleStation14/Decals/Flooring/trimline.rsi
     state: trimline_arrow_cw_fill_s
 
 - type: decal
-  id: TrimlineArrowCWFillW
+  id: TrimlineArrowCWW
   tags: ["station", "direction", "arrow"]
   sprite:
     sprite: SimpleStation14/Decals/Flooring/trimline.rsi
@@ -105,28 +105,28 @@
 
 
 - type: decal
-  id: TrimLineArrowCWFillNE
+  id: TrimlineArrowCWNE
   tags: ["station", "direction", "arrow"]
   sprite:
     sprite: SimpleStation14/Decals/Flooring/trimline.rsi
     state: trimline_arrow_cw_fill_ne
 
 - type: decal
-  id: TrimLineArrowCWFillSE
+  id: TrimlineArrowCWSE
   tags: ["station", "direction", "arrow"]
   sprite:
     sprite: SimpleStation14/Decals/Flooring/trimline.rsi
     state: trimline_arrow_cw_fill_se
 
 - type: decal
-  id: TrimLineArrowCWFillSW
+  id: TrimlineArrowCWSW
   tags: ["station", "direction", "arrow"]
   sprite:
     sprite: SimpleStation14/Decals/Flooring/trimline.rsi
     state: trimline_arrow_cw_fill_sw
 
 - type: decal
-  id: TrimLineArrowCWFillNW
+  id: TrimlineArrowCWNW
   tags: ["station", "direction", "arrow"]
   sprite:
     sprite: SimpleStation14/Decals/Flooring/trimline.rsi
@@ -421,6 +421,7 @@
   tags: ["station", "direction"]
   sprite:
     sprite: SimpleStation14/Decals/Flooring/trimline.rsi
+    state: trimline_fill_s
 
 - type: decal
   id: TrimlineFillW
