@@ -356,6 +356,7 @@
     sprite: SimpleStation14/Structures/Wallmounts/deptsign.rsi
     state: mining_nanotrasen
 
+
 # Directional
 - type: entity
   parent: BaseSignDirectional
@@ -426,6 +427,7 @@
   - type: Sprite
     sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
     state: supply
+
 
 # Dorm rooms
 - type: entity
@@ -507,3 +509,75 @@
   - type: Sprite
     sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
     state: room_8
+
+
+# Atmospherics
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsAir
+  name: air
+  description: A sign indicating that air is stored here.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: air
+
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsCarbonDioxide
+  name: carbon dioxide
+  description: A sign indicating that carbon dioxide is stored here.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: carbon_dioxide
+
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsMix
+  name: mix
+  description: A sign indicating the atmospherics mix chamber.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: mix
+
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsNitrogen
+  name: nitrogen
+  description: A sign indicating that nitrogen is stored here.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: nitrogen
+
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsNitrousOxide
+  name: nitrous oxide
+  description: A sign indicating that nitrous oxide is stored here.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: nitrous_oxide
+
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsOxygen
+  name: oxygen
+  description: A sign indicating that oxygen is stored here.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: oxygen
+
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsPlasma
+  name: plasma
+  description: A sign indicating that plasma is stored here.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: plasma
