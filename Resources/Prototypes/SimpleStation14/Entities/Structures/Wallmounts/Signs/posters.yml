@@ -1,3 +1,4 @@
+# Parlour posters
 - type: entity
   parent: PosterBase
   id: PosterBasePark
@@ -69,8 +70,7 @@
   - type: Sprite
     state: poster7_parlour
 
-#maps
-
+# Maps
 - type: entity
   parent: PosterBasePark
   id: PosterMapParkStation
@@ -79,3 +79,14 @@
   components:
   - type: Sprite
     state: parkstationmap
+
+# Yog
+- type: entity
+  parent: PosterBase
+  id: PosterSafety
+  name: Informative Poster
+  description: A poster displaying an engineer wearing a hard hat and insulated gloves, "Always wear your safety gear!"
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/yogposters.rsi
+    state: safety
