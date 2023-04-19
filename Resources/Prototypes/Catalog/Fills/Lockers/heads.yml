@@ -79,6 +79,7 @@
       - id: ClothingNeckGoldmedal
       - id: RubberStampHop
       - id: ClothingOuterHardsuitHoP
+      - id: BoxEncryptionKeyCommand
 
 - type: entity
   id: LockerChiefEngineerFilled

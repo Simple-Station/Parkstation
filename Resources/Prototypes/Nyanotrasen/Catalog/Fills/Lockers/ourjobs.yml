@@ -13,6 +13,7 @@
       - id: DoorRemoteResearch
       - id: HandTeleporter
       - id: RubberStampRd
+      - id: BoxEncryptionKeyScience
 
 - type: entity
   id: LockerEpistemicsFilled
