@@ -193,6 +193,7 @@ ClientBin/
 *.pfx
 *.publishsettings
 node_modules/
+package-lock.json
 orleans.codegen.cs
 
 # Since there are multiple workflows, uncomment next line to ignore bower_components
@@ -305,6 +306,6 @@ Resources/MapImages
 ### Nyanotrasen Specific
 Tools/gen_build_info.py
 
-Resources/Maps
-Resources/Prototypes/Maps
+# Resources/Maps
+# Resources/Prototypes/Maps
 Resources/Prototypes/species.yml

@@ -15,10 +15,6 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Inventory;
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;
-using Content.Server.StationRecords;
-using Content.Shared.StationRecords;
-using Content.Shared.PDA;
-using Content.Shared.Access.Components;
 
 namespace Content.Server.Administration.Commands.Cryostasis
 {
@@ -31,8 +27,8 @@ namespace Content.Server.Administration.Commands.Cryostasis
         [Dependency] private readonly IEntityManager _entityManager = default!;
 
         public string Command => "cryostasis";
-        public string Description => "Deletes you and opens up a new job slot. Do this in a secure area or put your belongings in a secure area. MISUSE WILL BE MODERATED";
-        public string Help => $"Usage: {Command}";
+        public string Description => "Deletes you and opens up a new job slot. Do this in a secure area or put your belongings in a secure area.";
+        public string Help => $"Usage: {Command} <force>";
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
@@ -58,8 +54,17 @@ namespace Content.Server.Administration.Commands.Cryostasis
                 return;
             }
 
+            var force = false;
+            if (args.Length >= 1)
+            {
+                if (args[0].ToLower() == "true")
+                {
+                    force = true;
+                }
+            }
+
             // No job (unemployed people are not allowed to go into cryostasis).
-            if (!mind.HasRole<Job>())
+            if (!mind.HasRole<Job>() && !force)
             {
                 shell.WriteLine("You do not have a job, you are not accessible by Nanotrasen, therefore unable to cryo.");
                 return;
@@ -68,7 +73,7 @@ namespace Content.Server.Administration.Commands.Cryostasis
             // No entity somehow???
             if (mind.CurrentEntity == null)
             {
-                shell.WriteLine("You do not have an entity?");
+                shell.WriteLine("You do not have an attached entity.");
                 return;
             }
 
@@ -98,30 +103,30 @@ namespace Content.Server.Administration.Commands.Cryostasis
             }
 
             // No job, you aren't a Nanotrasen employee. Probably some off-station role or random ghost(role).
-            if (job == null)
+            if (job == null && !force)
             {
                 shell.WriteLine("You do not have a job, you are not accessible by Nanotrasen, therefore unable to cryo.");
                 return;
             }
 
-            // Disappearing randomly as an antag wouldn't be very fun. An admin can handle it if really needed.
-            if (isantag == true)
-            {
-                shell.WriteLine("You are an antagonist, the Syndicate would not like this, and Nanotrasen will get too easy of a resolution. This would be inappropriate.");
-                return;
-            }
+            // // Disappearing randomly as an antag wouldn't be very fun. An admin can handle it if really needed.
+            // if (isantag == true)
+            // {
+            //     shell.WriteLine("You are an antagonist, the Syndicate would not like this, and Nanotrasen will get too easy of a resolution. This would be inappropriate.");
+            //     return;
+            // }
 
             // Find a job prototype matching the mind role name (reverse Loc wooo!).
             foreach (var jobproto in _prototypeManager.EnumeratePrototypes(typeof(JobPrototype)))
             {
-                if (typeof(JobPrototype) != typeof(JobPrototype)) continue;
+                if (job == null) break;
 
                 var jobprotoo = (JobPrototype) jobproto;
                 if (Loc.GetString(jobprotoo.Name).ToLower() == job.Name.ToLower()) jobprotot = jobprotoo;
             }
 
             // No matching job, Nanotrasen didn't employ you, who hired you? (jobs should ONLY be made for Nanotrasen ships.)
-            if (jobprotot == null)
+            if (jobprotot == null && !force)
             {
                 shell.WriteLine("You do not have a job, you are not accessible by Nanotrasen, therefore unable to cryo.");
                 return;
@@ -149,16 +154,15 @@ namespace Content.Server.Administration.Commands.Cryostasis
                 return;
             }
 
-            // TODO: EPIC sound
-            // Cool sound.
-            SoundSystem.Play("/Audio/Effects/Lightning/lightningbolt.ogg", Filter.Pvs(uid), uid);
+            // EPIC sound
+            SoundSystem.Play("/Audio/SimpleStation14/Effects/podwoosh.ogg", Filter.Pvs(uid), uid, AudioParams.Default.WithVolume(7f));
 
             // TODO: when multiple stations ever get loaded regularly at the same time, both with jobs, do something about this var maybe?
             // Find the first station (very likely the one with the jobs)
             EntityUid? station = null;
             station = EntitySystem.Get<StationSystem>().Stations.ToList()[0];
 
-            if (station != null)
+            if (station != null && jobprotot != null)
             {
                 // Send a cryostasis announcement to the station, if any.
                 var statio = (EntityUid) station;
@@ -184,6 +188,20 @@ namespace Content.Server.Administration.Commands.Cryostasis
 
             // Put them into "Cryostasis".
             _entities.QueueDeleteEntity(uid);
+        }
+
+        public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+        {
+            if (args.Length == 1)
+            {
+                // what a great solution
+                List<string> list = new();
+                list.Add("true");
+                list.Add("false");
+                return CompletionResult.FromHintOptions(list, Loc.GetString("cryostasis-command-arg-force"));
+            }
+
+            return CompletionResult.Empty;
         }
     }
 }

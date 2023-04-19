@@ -9,6 +9,8 @@
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
     state: icon
   - type: MeleeWeapon
+    soundHit:
+      path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
     attackRate: 1.25
     range: 1.75
     damage:
@@ -17,7 +19,7 @@
   - type: MeleeBloodletter
     bloodReduction:
       types:
-        Slash: 25.0
+        Slash: 15.0
   - type: Item
     size: 15
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
@@ -25,6 +27,7 @@
     tags:
     - CaptainSabre
   - type: DisarmMalus
+    malus: 0.25
 
 - type: entity
   name: katana
@@ -40,6 +43,8 @@
     sprite: Objects/Weapons/Melee/katana.rsi
     state: icon
   - type: MeleeWeapon
+    soundHit:
+      path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
     attackRate: 1.75
     damage:
       types:
@@ -47,7 +52,7 @@
   - type: MeleeBloodletter
     bloodReduction:
       types:
-        Slash: 22.0
+        Slash: 12.0
   - type: Item
     size: 15
     sprite: Objects/Weapons/Melee/katana.rsi
@@ -74,7 +79,7 @@
   - type: MeleeBloodletter
     bloodReduction:
       types:
-        Slash: 30.0
+        Slash: 20.0
   - type: StaminaDamageOnHit
     damage: 15
   - type: MeleeStaminaCost
@@ -103,7 +108,7 @@
   - type: MeleeBloodletter
     bloodReduction:
       types:
-        Slash: 40.0
+        Slash: 30.0
   - type: MeleeStaminaCost
     swing: 10
     hit: 10
