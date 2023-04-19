@@ -80,6 +80,7 @@
       - id: RubberStampHop
       - id: ClothingOuterHardsuitHoP
       - id: BoxEncryptionKeyCommand
+      - id: BoxEncryptionKeyPassenger
 
 - type: entity
   id: LockerChiefEngineerFilled
