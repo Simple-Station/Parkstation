@@ -705,13 +705,13 @@
   id: MobMouse
   description: Squeak!
   components:
-  - type: GhostTakeoverAvailable
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    whitelistRequired: false
-    name: ghost-role-information-mouse-name
-    description: ghost-role-information-mouse-description
+  # - type: GhostTakeoverAvailable
+  #   makeSentient: true
+  #   allowSpeech: true
+  #   allowMovement: true
+  #   whitelistRequired: false
+  #   name: ghost-role-information-mouse-name
+  #   description: ghost-role-information-mouse-description
   - type: Speech
     speechSounds: Squeak
   - type: Sprite
