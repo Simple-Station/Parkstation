@@ -68,7 +68,6 @@
       chargeStateThresholdMid: 0.60
       chargeStateThresholdLow: 0.30
       chargeStateThresholdCritical: 0
-      dieWhenDead: false
       speedModifierThresholds:
         0: 1
         1: 1
@@ -130,7 +129,7 @@
       bleedPuddleThreshold: 3
       bleedRefreshAmount: 0
       bloodLossThreshold: 0
-      maxBleedAmount: 8
+      maxBleedAmount: 14
       bloodlossDamage:
         types:
           Burn: 1.5
@@ -146,7 +145,7 @@
     - type: Temperature
       heatDamageThreshold: 320
       coldDamageThreshold: 255
-      currentTemperature: 320.15
+      currentTemperature: 280
       specificHeat: 50
       coldDamage:
         types:

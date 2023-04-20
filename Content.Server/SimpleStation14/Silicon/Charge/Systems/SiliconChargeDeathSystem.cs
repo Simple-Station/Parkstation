@@ -63,9 +63,8 @@ public sealed class SiliconDeathSystem : EntitySystem
 
         var sleepComp = EntityManager.EnsureComponent<SleepingComponent>(uid);
 
-        RemComp<SpamEmitSoundComponent>(uid);
+        RemComp<SpamEmitSoundComponent>(uid); // This is also fucking stupid, I once again hate the sleeping system.
 
-        // sleepComp.SnoreSounds = new SoundCollectionSpecifier("", AudioParams.Default.WithVariation(0.2f));
         EntityManager.EnsureComponent<ForcedSleepingComponent>(uid);
 
         siliconDeadComp.Dead = true;

@@ -26,6 +26,9 @@
       "name": "borgcharger_closed_unlit"
     },
     {
+      "name": "borgcharger_unlit"
+    },
+    {
       "name": "borgcharger_active_unlit",
       "delays": [
         [

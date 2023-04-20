@@ -23,6 +23,12 @@ public sealed class SiliconComponent : Component
     public new EntityUid Owner = EntityUid.Invalid;
 
     /// <summary>
+    ///     Is the Silicon currently dead?
+    /// </summary>
+    public bool Dead = false;
+
+
+    /// <summary>
     ///     The type of silicon this is.
     /// </summary>
     /// <remarks>
@@ -43,20 +49,18 @@ public sealed class SiliconComponent : Component
     /// <summary>
     ///     Should this silicon start charged?
     /// </summary>
+    /// <remarks>
+    ///     Valid values are: <see cref="StartChargedData.True"/>, <see cref="StartChargedData.False"/>, and <see cref="StartChargedData.Randomized"/>.
+    /// </remarks>
     [DataField("startCharged", customTypeSerializer: typeof(EnumSerializer)), ViewVariables(VVAccess.ReadOnly)]
     public Enum StartCharged = StartChargedData.Randomized;
-
-    /// <summary>
-    ///     Multiplier for the charge rate of the silicon.
-    /// </summary>
-    [DataField("chargeRateMulti"), ViewVariables(VVAccess.ReadWrite)]
-    public float ChargeRateMulti = 2.5f;
 
     /// <summary>
     ///     Multiplier for the drain rate of the silicon.
     /// </summary>
     [DataField("drainRateMulti"), ViewVariables(VVAccess.ReadWrite)]
     public float DrainRateMulti = 5.0f;
+
 
     /// <summary>
     ///     The percentages at which the silicon will enter each state.
@@ -77,33 +81,10 @@ public sealed class SiliconComponent : Component
     [DataField("chargeStateThresholdCritical"), ViewVariables(VVAccess.ReadWrite)]
     public float? ChargeStateThresholdCritical = 0.0f;
 
+
     /// <summary>
     ///     The amount the Silicon will be slowed at each charge state.
     /// </summary>
     [DataField("speedModifierThresholds", required: true)]
     public readonly Dictionary<ChargeState, float> SpeedModifierThresholds = default!;
-
-    /// <summary>
-    ///     Should the silicon become immobilized when their battery dies?
-    /// </summary>
-    /// <remarks>
-    ///     Will only occur when hitting the Dead state.
-    /// </remarks>
-    [DataField("dieWhenDead"), ViewVariables(VVAccess.ReadWrite)]
-    public bool DieWhenDead = false;
-
-    /// <summary>
-    ///     Is the Silicon currently dead?
-    /// </summary>
-    public bool Dead = false;
-
-
-
-    // [DataField("chargeStateThresholds"), ViewVariables(VVAccess.ReadWrite)]
-    // public ChargeStateThresholdsData ChargeStateThresholds = new()
-    // {
-    //     Mid = 1.0f,
-    //     Low = 0.25f,
-    //     Critical = 0.0f,
-    // };
 }
