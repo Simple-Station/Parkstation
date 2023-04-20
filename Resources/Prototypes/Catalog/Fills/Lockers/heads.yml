@@ -80,6 +80,7 @@
       - id: ClothingOuterHardsuitHoP
       - id: BoxEncryptionKeyCommand
       - id: BoxEncryptionKeyPassenger
+      - id: DoorRemoteCommand
 
 - type: entity
   id: LockerChiefEngineerFilled
