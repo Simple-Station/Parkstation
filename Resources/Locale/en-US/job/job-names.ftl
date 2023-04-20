@@ -42,7 +42,7 @@ job-name-boxer = boxer
 job-name-zookeeper = zookeeper
 
 
-#Nyano
+# Nyano
 job-name-mystagogue = mystagogue
 job-name-mantis = forensic mantis
 job-name-epistemologist = acolyte
@@ -60,7 +60,7 @@ job-name-paramedic = paramedic
 job-name-guard = prison guard
 job-name-martialartist =  martial artist
 
-#Park
+# Park
 job-name-sai = station AI
 job-name-css = chief service supervisor
 
