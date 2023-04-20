@@ -37,14 +37,14 @@ using Robust.Shared.GameObjects.Components.Localization;
 using Content.Shared.Movement.Systems;
 using System.Threading.Tasks;
 
-namespace Content.Server.SimpleStation14.Hologram;
+namespace Content.Server.SimpleStation14.Holograms;
 
-public class HologramServerSystem : EntitySystem
+public sealed class HologramServerSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPullingSystem _pulling = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IPlayerManager _playerManager = null!;
@@ -101,7 +101,7 @@ public class HologramServerSystem : EntitySystem
         if (args.Container.ID != DiskSlot || !_tagSystem.HasTag(args.Entity, "HoloDisk") ||
             (_entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var diskComp) && diskComp.HoloMind == null)) return;
 
-        if (component.LinkedHologram != EntityUid.Invalid && _entityManager.EntityExists(component.LinkedHologram))
+        if (_entityManager.EntityExists(component.LinkedHologram))
         {
             RaiseLocalEvent(new HologramKillEvent(component.LinkedHologram.Value));
         }
@@ -119,9 +119,9 @@ public class HologramServerSystem : EntitySystem
         if (!args.Powered && component.LinkedHologram != null && component.LinkedHologram != EntityUid.Invalid)
         {
             // If the hologram exists
-            if (component != null && _entityManager.EntityExists(component.LinkedHologram))
+            if (_entityManager.EntityExists(component.LinkedHologram))
             {
-                // Kill the Holgram
+                // Kill the Hologram
                 RaiseLocalEvent(new HologramKillEvent(component.LinkedHologram.Value));
             }
         }
@@ -172,9 +172,6 @@ public class HologramServerSystem : EntitySystem
 
         var pref = (HumanoidCharacterProfile) _prefs.GetPreferences(mind.UserId.Value).SelectedCharacter;
 
-        if (pref == null)
-            return false;
-
         var mob = HoloFetchAndSpawn(holoServer!, pref);
 
         var cloneMindReturn = EntityManager.AddComponent<BeingClonedComponent>(mob);
@@ -205,8 +202,7 @@ public class HologramServerSystem : EntitySystem
                 {
                     if (_entityManager.TryGetComponent<ClothingComponent>(item, out var clothing))
                     {
-                        if (clothing.InSlot == "back" || clothing.InSlot == "pocket1" || clothing.InSlot == "pocket2" ||
-                            clothing.InSlot == "belt" || clothing.InSlot == "suitstorage" || clothing.InSlot == "id")
+                        if (clothing.InSlot is "back" or "pocket1" or "pocket2" or "belt" or "suitstorage" or "id")
                         {
                             _entityManager.DeleteEntity(item);
                             return;
@@ -244,13 +240,12 @@ public class HologramServerSystem : EntitySystem
     /// </summary>
     private EntityUid HoloFetchAndSpawn(HologramServerComponent holoServer, HumanoidCharacterProfile pref)
     {
-
         List<Sex> sexes = new();
         var name = pref.Name;
         var toSpawn = "MobHologramProjected";
 
         var mob = Spawn(toSpawn, Transform(holoServer.Owner).MapPosition);
-        _entityManager.GetComponent<TransformComponent>(mob).AttachToGridOrMap();
+        Transform(mob).AttachToGridOrMap();
 
         ResetCamera(mob);
 
@@ -265,12 +260,11 @@ public class HologramServerSystem : EntitySystem
         grammar.Gender = Robust.Shared.Enums.Gender.Neuter;
         Dirty(grammar);
 
-        var meta = _entityManager.GetComponent<MetaDataComponent>(mob);
-        var popupAppearOther = Loc.GetString("system-hologram-phasing-appear-others", ("name", meta.EntityName));
+        var popupAppearOther = Loc.GetString("system-hologram-phasing-appear-others", ("name", MetaData(mob).EntityName));
         var popupAppearSelf = Loc.GetString("system-hologram-phasing-appear-self");
 
-        Popup.PopupEntity(popupAppearOther, mob, Filter.PvsExcept((EntityUid) mob), false, PopupType.Medium);
-        Popup.PopupEntity(popupAppearSelf, mob, mob, PopupType.Large);
+        _popup.PopupEntity(popupAppearOther, mob, Filter.PvsExcept((EntityUid) mob), false, PopupType.Medium);
+        _popup.PopupEntity(popupAppearSelf, mob, mob, PopupType.Large);
         _audio.PlayPvs("/Audio/SimpleStation14/Effects/Hologram/holo_on.ogg", mob);
 
         EnsureComp<SpeechComponent>(mob);
@@ -330,12 +324,12 @@ public class HologramServerSystem : EntitySystem
             return;
         if (targetMind.Mind == null)
         {
-            Popup.PopupEntity(Loc.GetString("system-hologram-disk-mind-none"), args.Target.Value, args.User);
+            _popup.PopupEntity(Loc.GetString("system-hologram-disk-mind-none"), args.Target.Value, args.User);
             return;
         }
 
         component.HoloMind = targetMind.Mind;
-        Popup.PopupEntity(Loc.GetString("system-hologram-disk-mind-saved"), args.Target.Value, args.User);
+        _popup.PopupEntity(Loc.GetString("system-hologram-disk-mind-saved"), args.Target.Value, args.User);
     }
 
 

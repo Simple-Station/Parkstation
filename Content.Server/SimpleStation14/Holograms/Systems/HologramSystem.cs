@@ -38,14 +38,14 @@ using Robust.Shared.GameObjects.Components.Localization;
 using System.Linq;
 using Robust.Shared.Utility;
 
-namespace Content.Server.SimpleStation14.Hologram;
+namespace Content.Server.SimpleStation14.Holograms;
 
-public class HologramSystem : EntitySystem
+public sealed class HologramSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPullingSystem _pulling = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IPlayerManager _playerManager = null!;
@@ -153,7 +153,6 @@ public class HologramSystem : EntitySystem
             args.Projector = nearProj.Value;
             return;
         }
-        return;
     }
 
     /// <summary>
@@ -251,8 +250,8 @@ public class HologramSystem : EntitySystem
         }
 
         _audio.Play(filename: "/Audio/SimpleStation14/Effects/Hologram/holo_off.ogg", playerFilter: Filter.Pvs(uid), coordinates: holoPos, false);
-        Popup.PopupCoordinates(popupDisappearOther, holoPos, Filter.PvsExcept(uid), false, PopupType.MediumCaution);
-        Popup.PopupCoordinates(popupDeathSelf, holoPos, uid, PopupType.LargeCaution);
+        _popup.PopupCoordinates(popupDisappearOther, holoPos, Filter.PvsExcept(uid), false, PopupType.MediumCaution);
+        _popup.PopupCoordinates(popupDeathSelf, holoPos, uid, PopupType.LargeCaution);
         if (component.LinkedServer != EntityUid.Invalid)
         {
             if (_entityManager.TryGetComponent<HologramServerComponent>(component.LinkedServer!.Value, out var serverComp))
@@ -260,7 +259,7 @@ public class HologramSystem : EntitySystem
             component.LinkedServer = EntityUid.Invalid;
         }
 
-        _entityManager.DeleteEntity(uid);
+        _entityManager.QueueDeleteEntity(uid);
 
         _adminLogger.Add(LogType.Unknown, LogImpact.Medium, $"{ToPrettyString(uid):mob} was disabled due to lack of projectors");
     }

@@ -1,6 +1,6 @@
 // using static Content.Server.SimpleStation14.Hologram.HologramSystem;
 
-namespace Content.Server.SimpleStation14.Hologram;
+namespace Content.Server.SimpleStation14.Holograms;
 
 [RegisterComponent]
 public sealed class HologramDiskComponent : Component
