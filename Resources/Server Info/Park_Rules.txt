@@ -1,18 +1,26 @@
-﻿[color=#ff0000]Suspection of being underaged will result in a ban. As long as everyone can act mature, they're welcome in the server.[/color]
+[color=#ff0000]
+Suspection of being underaged will result in a ban. As long as everyone can act maturely, they're welcome on the server.
+[/color]
 
-[color=#ff0000]DISCONNECTING FROM OR IGNORING/EVADING COMMUNICATION FROM ADMINS WILL RESULT IN AN APPEAL ONLY BAN. The job gets really hard when you refuse to talk to the Admins, just come to the Discord and talk it out, hurt feelings will not be held [/color]
+[color=#ff0000]
+DISCONNECTING FROM OR IGNORING/EVADING COMMUNICATION FROM ADMINS WILL RESULT IN AN APPEAL ONLY BAN. The job gets really hard when you refuse to talk to the Admins, just come to the Discord and talk it out, hurt feelings will not be held
+[/color]
 
-[color=#ff0000]This is the only source of server rules that apply to Parkstation, which idealy have all the information any regular player should need. Please do not ever hesitate to ask either an Admin in Admin-Help, or in the Discord server if you ever want clarification on the rules. Chances are, if you were confused, we'll update them. Although the official Nyanotrasen wiki([color=#a4885c]https://www.nyanotrasen.moe[/color]) does not directly relate to this server is any way, it does contain some RP-specific documents such as Space Law, the Standard Operating Procedure, and the Alert Procedure which will be mentioned here and are expected to be followed until further notice. [/color]
+[color=#ff0000]
+This is the only source of server rules that apply to Parkstation, which ideally has all the information any regular player should need. Please do not ever hesitate to ask either an Admin in Admin-Help or in the Discord server if you ever want clarification on the rules. Chances are, if you were confused, we'll update them.
+[/color]
 
-[color=#ff0000]MEDIUM ROLEPLAY[/color] The overall intention for this server is to do MRP right. NRP behaivor will be dealt with by Admins, and we will have a generally  high expectation of players in terms of role play. Note that this does not mean we expect you to memorize pages of lore, or to be a savant at improv and writing. The line drawn is we expect players to put in [color=#ffd700]effort[/color] and to be here with the mutual goal of having a fun time and telling an engaging story, since that's what we believe this game to be all about.
+We do not have a wiki, instead, we have, or will have, all the needed information available via Guidebooks, such as Space Law and Standard Operating Procedure.
 
-[color=#a4885c]0.[/color] [color=#a4885c]The[/color] [color=#ffd700]Golden[/color] [color=#a4885c]Rule.[/color] Admins may excercise discretion with rules as they see fit. If you rule lawyer or line skirt, you will get removed. Admins will answer for use of this privilege.
+[color=#ff0000]MEDIUM ROLEPLAY[/color] The overall intention for this server is to do MRP right. NRP behavior will be dealt with by Admins, and we will have a generally high expectation of players in terms of role-play. Note that this does not mean we expect you to memorize pages of lore, or to be a savant at improv and writing. The line drawn is we expect players to put in [color=#ffd700]effort[/color] and to be here with the mutual goal of having a fun time and telling an engaging story since that's what we believe this game to be all about.
+
+[color=#a4885c]0.[/color] [color=#a4885c]The[/color] [color=#ffd700]Golden[/color] [color=#a4885c]Rule.[/color] Admins may exercise discretion with rules as they see fit. If you rule lawyer or line skirt, you will get removed. Admins will answer for use of this privilege.
 
 [color=#ff0000]ZERO TOLERANCE RULES[/color]
 
-[color=#a4885c]1.[/color] Absolutely no hate speech, bigotry, intolerance, or anything even remotely similar. No engaging in explicit sexual acts.
+[color=#a4885c]1.[/color] Absolutely no hate speech, bigotry, intolerance, or anything remotely similar. No engaging in explicit sexual acts.
 
-[color=#a4885c]2.[/color] Any RP had with other players should be [color=#ff0000]entirely[/color] consensual. There are no firm guidelines on appropriate conduct, but both the OOC and LOOC channels are freely availiable. If you make another player uncomfortable, within reason, you will be held accountable.
+[color=#a4885c]2.[/color] Any RP had with other players should be [color=#ff0000]entirely[/color] consensual. There are no firm guidelines on appropriate conduct, but the OOC and LOOC channels are freely available. If you make another player uncomfortable, within reason, you will be held accountable.
 
 [color=#a4885c]3.[/color] Don't communicate in-game/in-character information through methods outside of the game (such as talking in Discord with other users actively playing about the game or by talking to your sibling across the room while you are both playing). This is referred to as "Metacomming" and it is strictly forbidden.
 
@@ -22,7 +30,7 @@
 
 [color=#a4885c]5.[/color] These are English servers. Speak only English in IC and OOC.
 
-[color=#a4885c]6.[/color] Don't use exploits or external programs to play, gain an advantage, or disrupt the round/server. This includes autoclickers and auto-hotkey scripts.
+[color=#a4885c]6.[/color] Don't use exploits or external programs to play, gain an advantage, or disrupt the round/server. This includes auto clickers and auto-hotkey scripts.
 
 [color=#a4885c]7.[/color] Don't "multi-key" (utilize multiple alt accounts). Users knowingly using multiple SS14 accounts will have all of their accounts banned.
 
@@ -31,34 +39,34 @@
 [color=#ff0000]IN GAME & ROLEPLAY RULES[/color]
 
 [color=#a4885c]9.[/color] Pick a realistic name that could appear on a birth certificate with at least a first and last name (leeway is given to this for Clowns, Mimes, and non-human races).
-    - Names of notable famous or fictional persons or names that resemble/parody them are strictly forbidden. You are not clever if you slightly change a famous name around. Terrible names open you up to being politely reminded to change it, smited, or instantly banned, depending on severity.
+    - Names of notable famous or fictional persons or names that resemble/parody them are strictly forbidden. You are not clever if you slightly change a famous name around. Terrible names open you up to being politely reminded to change it, smote, or instantly banned, depending on severity.
 
-[color=#a4885c]10.[/color] Act like an actual human being on a space station. Do not use text speak or emoticons IC, and do not refer to OOC things like admins in-game. Remember that this is an MRP enviroment, and people are expected to try and react to situations realistically, even if it's not the "optimal" thing to do. What's good for Roleplay > What's good for gameplay.
+[color=#a4885c]10.[/color] Act like an actual human being on a space station. Do not use text speak or emoticons IC, and do not refer to OOC things like admins in-game. Remember that this is an MRP environment, and people are expected to try and react to situations realistically, even if it's not the "optimal" thing to do. What's good for Roleplay > What's good for Gameplay.
 
 [color=#a4885c]11.[/color] Don't be a dick. You are playing a multiplayer game with other people who also want to enjoy the game.
     - Do not intentionally make other players' lives hell for your own amusement.
-    - The round ends when the summery pops up on your screen. Until then, RP is still expected. Remember that just because you're wrapped up doesn't mean there's no one on the shuttle finishing their story.
+    - The round ends when the summary pops up on your screen. Until then, RP is still expected. Remember that just because you're wrapped up doesn't mean there's no one on the shuttle finishing their story.
 
 [color=#a4885c]12.[/color] Don't harass or target players across rounds for actions in prior rounds or for actions outside of the game (this is referred to as "Metagrudging".)
     - Annoying players for IC reasons in the current round is fine; doing it across rounds or as a ghost role after they kill you is not.
 
 [color=#a4885c]13.[/color] Don't use information gained from outside your character's knowledge to gain an advantage (this is referred to as "Metagaming").
-    - Using information you gain from outside your own character (such as spectating while a ghost, through screenshots or metacomms, or other means) to your advantage is strictly forbidden. You remember all events up until you fall unconscious. If you take a ghost role, unless otherwise stated, you DO NOT REMEMBER ANYTHING from your past life. As for cloning, the line is blurry for what you can recall, but generally speaking, try to remember whatever makes the story the most interesting. Note that this almost always will [color=#ff0000]not[/color] include the person who led to your death.
+    - Using information you gain from outside your own character (such as spectating while a ghost, through screenshots or meta comms, or other means) to your advantage is strictly forbidden. You remember all events up until you fall unconscious. If you take a ghost role, unless otherwise stated, you DO NOT REMEMBER ANYTHING from your past life. As for cloning, the line is blurry for what you can recall, but generally speaking, try to remember whatever makes the story the most interesting. Note that this almost always will [color=#ff0000]not[/color] include the person who led to your death.
 
 [color=#a4885c]14.[/color] Follow escalation rules and don't murder someone for slipping you, use common sense.
     - You can defend yourself to the extent of protecting your own life.
     - Security is unique in escalation and can escalate to less lethal to arrest criminals as needed.
     - Don't outright leave people to die if you get in a fight, make an effort to heal them or bring them to Medbay.
     - Adminhelp the situation if you think someone is over-escalating.
-    - Department strikes, revolutions (ex: cargonia and any variation thereof), or cults are antagonist-only activites and are forbidden without admin permission.
+    - Department strikes, revolutions (ex: cargonia and any variation thereof), or cults are antagonist-only activities and are forbidden without admin permission.
 
-[color=#a4885c]15.[/color] Don't immediately ghost or suicide from your role if you do not get antagonist (referred to as "Antag-rolling").
-    - This is not fair to other players actually waiting patiently for an antagonist round. Alternatively, if you do not want to play an antagonist or do not want to cause conflict, do not opt-in for antagonist roles. This will be managed as any other wholly OOC action.
+[color=#a4885c]15.[/color] Don't immediately ghost or suicide from your role if you do not get an antagonist (referred to as "Antag-rolling").
+    - This is not fair to other players actually waiting patiently for an antagonist round. Alternatively, if you do not want to play an antagonist or do not want to cause conflict, do not opt in for antagonist roles. This will be managed as any other wholly OOC action.
 
-[color=#a4885c]16.[/color] Don't rush for or prepare equipment unrelated to your job for no purpose other then to have it "just in case" (referred to as "Powergaming").
+[color=#a4885c]16.[/color] Don't rush for or prepare equipment unrelated to your job for no purpose other than to have it "just in case" (referred to as "Powergaming").
     - A medical doctor does not need insulated gloves, and the Head of Personnel does not need to give themselves armory access so they can go grab a gun.
     - Don't manufacture weapons, bombs, or death poisons before you know of any reason you would need them.
-	- Dangerous tools are dangerous tools, regardless of it's a fireaxe, a full set of construction tools, or a gun. If you are not authorized or don't have a good reason to have them, expect Sec to take them away, and Admins to get involved if the situation warrants it.
+	- Dangerous tools are dangerous tools, regardless of whether it's a fire axe, a full set of construction tools, or a gun. If you are not authorized or don't have a good reason to have them, expect Security to take them away, and Admins to get involved if the situation warrants it.
 
 [color=#a4885c]17.[/color] Intentionally making yourself a major problem/annoyance/disruption for the crew or other players at large while not an antagonist is forbidden (referred to as "self-antagging").
 
@@ -80,11 +88,11 @@ If you regularly play Security or Command roles and got this far, I applaud you 
 
 Security/Command will be expected to answer for use of lethal force. Security/Command will be expected to effect arrests on criminals and prevent them from dying while in custody, even if lethal force is used. Security/Command is strongly encouraged, but not required, to clone antagonists and effect a permabrigging or other sentence as deemed appropriate.
 
-[color=#a4885c]20.[/color] Security/Command are expected to protect detainees in their custody to the best of their ability so as long as it does not come to unreasonable risk to themselves, the crew or the station at large to do so.
+[color=#a4885c]20.[/color] Security/Command are expected to protect detainees in their custody to the best of their ability so as long as it does not come to an unreasonable risk to themselves, the crew, or the station at large to do so.
     - Detainees that die in your custody must be cloned unless they have been (legally) executed.
 
 [color=#a4885c]21.[/color] This server is a "Roleplay Expected" server. We define this as performing your assigned duties, "doing your job". This means it is important to do what is expected out of your department and not what would be expected out of other departments.
-    - Don’t do other peoples jobs for them. Opt in for the role you intend to play or change your job by visiting the Head of Personnel. Failure to do your basic duties may result in a job ban.
+    - Don’t do other people's jobs for them. Opt for the role you intend to play or change your job by visiting the Head of Personnel. Failure to do your basic duties may result in a job or game ban.
 
 [color=#a4885c]22.[/color] Each round exists independently of all other rounds. While friendships persisting through rounds is okay, using experiences from other rounds to give an advantage or disadvantage to other players is not permitted.
 
@@ -92,14 +100,14 @@ Security/Command will be expected to answer for use of lethal force. Security/Co
 
 [color=#a4885c]24.[/color] Do your best not to interact negatively with SSD/AFK players. Moving them to safety is acceptable; killing, looting, or otherwise griefing them while they are away is not.
     - SSD characters are players who are disconnected or AFK. It is possible for players to return to SSD bodies. Players become catatonic when they take a ghost spawner role or commit suicide. Players are NOT able to return to these bodies without admin intervention.
-    - If the player in question is an antag’s target or they are being secured by security, interactions to finish what is required of your duties/objectives are always acceptable, but consider contacting Admins for a more fitting resolution.
+    - If the player in question is an antag’s target or they are being secured by security, interactions to finish what is required of your duties/objectives are always acceptable but consider contacting Admins for a more fitting resolution.
 
-[color=#a4885c]25.[/color] As mentioned above, [color=#ff0000]Space Law, Standard Operating Procedure and Alert Procedure policy/guidelines are expected to be adhered to[/color]. These can be found at wiki.spacestation14.io. There will be heavy leeway, due to not having our own set of regulations yet, but try to manage yourself in a fitting way.
+[color=#a4885c]25.[/color] As mentioned above, [color=#ff0000]Space Law, Standard Operating Procedure, and Alert Procedure policy/guidelines are expected to be adhered to[/color]. These can be found in the Guidebooks.
 
 [color=#ff0000]Command Rules[/color]
 
 [color=#a4885c]26.[/color] The following jobs: HOP, HOS, CE, RD, CMO, CSS, and AI should ahelp when they need to stop playing. Do not play these roles if you do not expect to be able to finish the round.
-    - These roles must exhibit some competency. Incompetence can result in a job ban. Command roles are designed to lead and manage departments first and do second. They are not intended to become do-it-all members of their departments.
+    - These roles must exhibit some competency. Incompetence can result in a job ban. Command roles are designed to lead and manage departments first. They are not intended to become do-it-all members of their departments.
     - Crew promoted to acting heads of staff must step down when an official head of staff arrives at the station. This is to prevent confusion with the chain of command when the new player arrives.
 
 [color=#ff0000]Antagonist and Ghost Role Policy[/color]
