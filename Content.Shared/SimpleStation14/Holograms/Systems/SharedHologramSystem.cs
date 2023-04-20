@@ -18,13 +18,13 @@ using System.Linq;
 
 namespace Content.Shared.SimpleStation14.Hologram;
 
-public class SharedHologramSystem : EntitySystem
+public sealed class SharedHologramSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedPullingSystem _pulling = default!;
@@ -53,14 +53,15 @@ public class SharedHologramSystem : EntitySystem
             _entityManager.TryGetComponent<HologramComponent>(args.Uid, out var _))
             return;
 
-        if (_tagSystem.HasAnyTag(args.Target.Value, "Softlight") && !_tagSystem.HasAnyTag(args.Target.Value, "Hardlight")){
+        if (_tagSystem.HasAnyTag(args.Target.Value, "Softlight") && !_tagSystem.HasAnyTag(args.Target.Value, "Hardlight"))
+        {
             args.Cancel();
 
             // Send a popup to the player about the interaction, and play a sound.
             var meta = _entityManager.GetComponent<MetaDataComponent>(args.Target.Value);
             var popup = Loc.GetString("system-hologram-light-interaction-fail", ("item", meta.EntityName));
             var sound = "/Audio/SimpleStation14/Effects/Hologram/holo_on.ogg";
-            Popup.PopupEntity(popup, args.Target.Value, Filter.Entities(args.Uid), false);
+            _popup.PopupEntity(popup, args.Target.Value, Filter.Entities(args.Uid), false);
             _audio.Play(sound, Filter.Entities(args.Uid), args.Uid, false);
         }
     }
@@ -99,8 +100,8 @@ public class SharedHologramSystem : EntitySystem
     {
         var uid = args.Uid;
         var component = _entityManager.GetComponent<HologramComponent>(uid);
-        var meta = _entityManager.GetComponent<MetaDataComponent>(uid);
-        var holoPos = _entityManager.GetComponent<TransformComponent>(uid).Coordinates;
+        var meta = MetaData(uid);
+        var holoPos = Transform(uid).Coordinates;
 
         var popupAppearOther = Loc.GetString("system-hologram-phasing-appear-others", ("name", meta.EntityName));
         var popupAppearSelf = Loc.GetString("system-hologram-phasing-appear-self");
@@ -132,19 +133,19 @@ public class SharedHologramSystem : EntitySystem
         }
 
         _entityManager.TryGetComponent<TransformComponent>(component.CurProjector, out var transfComp);
-        Popup.PopupCoordinates(popupDisappearOther, holoPos, Filter.PvsExcept(uid), false, PopupType.MediumCaution);
+        _popup.PopupCoordinates(popupDisappearOther, holoPos, Filter.PvsExcept(uid), false, PopupType.MediumCaution);
         _audio.Play(filename: "/Audio/SimpleStation14/Effects/Hologram/holo_off.ogg", playerFilter: Filter.Pvs(uid), coordinates: holoPos, false);
 
-        // Preapre to move holo
+        // Prepare to move holo
         if (TryComp<SharedPullableComponent>(uid, out var pullable) && pullable.BeingPulled) _pulling.TryStopPull(pullable);
         if (TryComp<SharedPullerComponent>(uid, out var pulling) && pulling.Pulling != null &&
             TryComp<SharedPullableComponent>(pulling.Pulling.Value, out var subjectPulling)) _pulling.TryStopPull(subjectPulling);
 
         // Move holo
-        Transform(uid).Coordinates = _entityManager.GetComponent<TransformComponent>((EntityUid) component.CurProjector).Coordinates;
+        Transform(uid).Coordinates = Transform((EntityUid) component.CurProjector).Coordinates;
 
-        Popup.PopupEntity(popupAppearOther, uid, Filter.PvsExcept((EntityUid) uid), false, PopupType.Medium);
-        Popup.PopupEntity(popupAppearSelf, uid, uid, PopupType.Large);
+        _popup.PopupEntity(popupAppearOther, uid, Filter.PvsExcept((EntityUid) uid), false, PopupType.Medium);
+        _popup.PopupEntity(popupAppearSelf, uid, uid, PopupType.Large);
         _audio.PlayPvs("/Audio/SimpleStation14/Effects/Hologram/holo_on.ogg", uid);
 
         _adminLogger.Add(LogType.Unknown, LogImpact.Low,
