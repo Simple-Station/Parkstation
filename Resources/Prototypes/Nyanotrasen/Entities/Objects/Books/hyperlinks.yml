@@ -1,6 +1,7 @@
 - type: entity
   parent: BaseItem
   id: BaseHyperlinkBook
+  suffix: HyperlinkBook
   abstract: true
   components:
   - type: Sprite
@@ -18,14 +19,18 @@
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookSpaceLaw
-  name: space law
+  suffix: GuidebookBook
+  name: Space Law
   description: A big book of laws for space courts.
   components:
   - type: Sprite
     layers:
     - state: book_space_law
-  - type: HyperlinkBook
-    url: https://wiki.nyanotrasen.moe/view/Space_Law
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Space_Law
+  - type: GuidebookBook
+    guides:
+    - SpaceLaw
 
 - type: entity
   parent: BaseHyperlinkBook
@@ -66,8 +71,11 @@
   - type: Sprite
     layers:
     - state: book_chemistry
-  - type: HyperlinkBook
-    url: https://wiki.nyanotrasen.moe/view/Chemistry
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Chemistry
+  - type: GuidebookBook
+    guides:
+    - Chemistry
 
 - type: entity
   parent: BaseHyperlinkBook
@@ -84,38 +92,50 @@
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookCooking
-  name: cookbook
+  suffix: GuidebookBook
+  name: Master Chef's Cookbook
   description: A list of food recipes.
   components:
   - type: Sprite
     layers:
     - state: book_cooking
-  - type: HyperlinkBook
-    url: https://wiki.nyanotrasen.moe/view/Cooking
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Cooking
+  - type: GuidebookBook
+    guides:
+    - Chef
 
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookBotany
-  name: botanical field guide
+  suffix: GuidebookBook
+  name: Botanical field guide
   description: A guide to plants.
   components:
   - type: Sprite
     layers:
     - state: book_hydroponics_pod_people
-  - type: HyperlinkBook
-    url: https://wiki.nyanotrasen.moe/view/Hydroponics
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Hydroponics
+  - type: GuidebookBook
+    guides:
+    - Botany
 
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookShuttle
-  name: guide to shuttle construction
-  description: A guide to building shuttles.
+  suffix: GuidebookBook
+  name: Guide to construction
+  description: A guide to building.
   components:
   - type: Sprite
     layers:
     - state: book_engineering
-  - type: HyperlinkBook
-    url: https://wiki.nyanotrasen.moe/view/Shuttle_Construction
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Shuttle_Construction
+  - type: GuidebookBook
+    guides:
+    - Construction
 
 - type: entity
   parent: BaseHyperlinkBook
@@ -139,7 +159,7 @@
   parent: BaseHyperlinkBook
   id: HyperlinkBookProcedure
   suffix: GuidebookBook
-  name: standard operating procedure
+  name: Standard Operating Procedure
   description: A guide to normal station function.
   components:
   - type: Sprite
@@ -154,14 +174,18 @@
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookPower
-  name: guide to power
+  suffix: GuidebookBook
+  name: Guide to power
   description: A guide to powering the station.
   components:
   - type: Sprite
     layers:
     - state: book_engineering2
-  - type: HyperlinkBook
-    url: https://wiki.nyanotrasen.moe/view/Power
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Power
+  - type: GuidebookBook
+    guides:
+    - Power
 
 - type: entity
   parent: BaseHyperlinkBook
@@ -202,3 +226,19 @@
   - type: GuidebookBook
     guides:
     - Atmospherics
+
+- type: entity
+  parent: BaseHyperlinkBook
+  id: HyperlinkBookEngineering
+  suffix: GuidebookBook
+  name: The engineer's guide to the station
+  description: A guide on Engineering. A combination of various other engineering books and more!
+  components:
+  - type: Sprite
+    layers:
+    - state: book_engineering2
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Atmospheric_Science
+  - type: GuidebookBook
+    guides:
+    - Engineering
