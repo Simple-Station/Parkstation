@@ -60,6 +60,10 @@ job-name-paramedic = paramedic
 job-name-guard = prison guard
 job-name-martialartist =  martial artist
 
+#Park
+job-name-sai = station AI
+job-name-css = chief service supervisor
+
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = atmospheric technician
 JobBartender = bartender
@@ -69,6 +73,8 @@ JobCargoTechnician = cargo technician
 JobCentralCommandOfficial = central command official
 JobChaplain = chaplain
 JobChef = chef
+JobSAI = station AI
+JobChiefServiceSupervisor = chief service supervisor
 JobChemist = chemist
 JobChiefEngineer = chief engineer
 JobChiefMedicalOfficer = chief medical officer

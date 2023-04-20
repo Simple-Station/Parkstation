@@ -41,3 +41,5 @@ job-description-security = Catch criminals and enemies of the station, enforce t
 job-description-serviceworker = Learn the basics of bartending, cooking, and growing plants.
 job-description-warden = Patrol the security department, ensure that no one is stealing from the armory, and make sure that all prisoners are processed and let out when their time is up.
 job-description-zookeeper = Put on a joyful display of cute animals and space carps for all the crew to see. Not available on all maps!
+job-description-sai = Follow your laws and serve the humans to the best of your ability.
+job-description-css = As chief supervisor, your main duties would include managing the crew, ensuring that everyone is performing their duties correctly.
