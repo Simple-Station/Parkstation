@@ -10,7 +10,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Events
     public sealed class ShadowkinTeleportEvent : WorldTargetActionEvent
     {
         [DataField("sound")]
-        public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/SimpleStation14/Effects/Shadowkin/Powers/base.ogg");
+        public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/SimpleStation14/Effects/Shadowkin/Powers/teleport.ogg");
 
         [DataField("volume")]
         public float Volume = 5f;
@@ -29,13 +29,13 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Events
     public sealed class ShadowkinDarkSwapEvent : InstantActionEvent
     {
         [DataField("soundOn")]
-        public SoundSpecifier SoundOn = new SoundPathSpecifier("/Audio/SimpleStation14/Effects/Shadowkin/Powers/disappearance-gradual.ogg");
+        public SoundSpecifier SoundOn = new SoundPathSpecifier("/Audio/SimpleStation14/Effects/Shadowkin/Powers/darkswapon.ogg");
 
         [DataField("volumeOn")]
         public float VolumeOn = 5f;
 
         [DataField("soundOff")]
-        public SoundSpecifier SoundOff = new SoundPathSpecifier("/Audio/SimpleStation14/Effects/Shadowkin/Powers/futuristic-ufo.ogg");
+        public SoundSpecifier SoundOff = new SoundPathSpecifier("/Audio/SimpleStation14/Effects/Shadowkin/Powers/darkswapoff.ogg");
 
         [DataField("volumeOff")]
         public float VolumeOff = 5f;

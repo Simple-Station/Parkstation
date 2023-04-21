@@ -80,9 +80,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
         /// <summary>
         ///     Based on PowerLevel.
         /// </summary>
-        /// <remarks>
-        ///     *Will be based on PowerLevel.
-        /// </remarks>
         [ViewVariables(VVAccess.ReadWrite)]
         public float TintIntensity = 0.65f;
         #endregion
