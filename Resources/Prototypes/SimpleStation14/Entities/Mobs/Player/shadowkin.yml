@@ -2,7 +2,6 @@
   save: false
   parent: BaseMobHuman
   id: MobShadowkin
-  abstract: true
   components:
   - type: HumanoidAppearance
     species: Shadowkin
