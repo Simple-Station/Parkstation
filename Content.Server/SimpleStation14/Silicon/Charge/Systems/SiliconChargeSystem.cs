@@ -13,6 +13,7 @@ using Content.Shared.SimpleStation14.Silicon.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Server.Body.Components;
 using Robust.Shared.Utility;
+using System.Linq;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 
@@ -24,8 +25,6 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
-
-    static string popupOverheating = Loc.GetString("silicon-system-overheating");
 
     public override void Initialize()
     {
@@ -57,16 +56,15 @@ public sealed class SiliconChargeSystem : EntitySystem
         base.Update(frameTime);
 
         // For each siliconComp entity with a battery component, drain their charge.
-        foreach (var (siliconComp, batteryComp) in EntityManager.EntityQuery<SiliconComponent, BatteryComponent>())
+        foreach (var (siliconComp, batteryComp) in EntityManager.EntityQuery<SiliconComponent, BatteryComponent>().Where(x => x.Item1.BatteryPowered))
         {
             if (siliconComp.Owner == EntityUid.Invalid)
                 continue;
 
             var silicon = siliconComp.Owner;
 
-            // If the silicon is not battery powered, or is dead, skip it.
-            if (!siliconComp.BatteryPowered ||
-                _mobStateSystem.IsDead(silicon))
+            // If the silicon is dead, skip it.
+            if (_mobStateSystem.IsDead(silicon))
                 continue;
 
             var drainRate = 10 * (siliconComp.DrainRateMulti);
@@ -130,7 +128,6 @@ public sealed class SiliconChargeSystem : EntitySystem
         if (!EntityManager.TryGetComponent<TemperatureComponent>(silicon, out var temperComp) ||
             !EntityManager.TryGetComponent<ThermalRegulatorComponent>(silicon, out var thermalComp))
         {
-            // DebugTools.Assert("Silicon has no temperature component, but is battery powered.");
             return 0;
         }
 
@@ -164,7 +161,7 @@ public sealed class SiliconChargeSystem : EntitySystem
                 else if ((flamComp == null || !flamComp.OnFire) &&
                         _random.Prob(Math.Clamp(temperComp.CurrentTemperature / (upperThresh), 0.001f, 0.75f)))
                 {
-                    _popup.PopupEntity(popupOverheating, silicon, silicon, PopupType.SmallCaution);
+                    _popup.PopupEntity(Loc.GetString("silicon-system-overheating"), silicon, silicon, PopupType.SmallCaution);
                 }
             }
 
