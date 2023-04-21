@@ -71,11 +71,11 @@ public sealed class SiliconChargeSystem : EntitySystem
 
             var drainRate = 10 * (siliconComp.DrainRateMulti);
 
-            // All multipliers will be - 1, and then added together, and then multiplied by 150. This is then added to the base drain rate.
+            // All multipliers will be subtracted by 1, and then added together, and then multiplied by the drain rate. This is then added to the base drain rate.
             // This is to stop exponential increases, while still allowing for less-than-one multipliers.
             var drainRateFinalAddi = 0f;
 
-            //TODO: Devise a method of adding multis where other systems can alter the drain rate.
+            // TODO: Devise a method of adding multis where other systems can alter the drain rate.
             // Maybe use something similar to refreshmovespeedmodifiers, where it's stored in the component.
             // Maybe it doesn't matter, and stuff should just use static drain?
 
@@ -133,6 +133,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             // DebugTools.Assert("Silicon has no temperature component, but is battery powered.");
             return 0;
         }
+
         var siliconComp = EntityManager.GetComponent<SiliconComponent>(silicon);
 
         // If the Silicon is hot, drain the battery faster, if it's cold, drain it slower, capped.
@@ -143,12 +144,8 @@ public sealed class SiliconChargeSystem : EntitySystem
         // Check if the silicon is in a hot environment.
         if (temperComp.CurrentTemperature > upperThreshHalf)
         {
-
             // Divide the current temp by the max comfortable temp capped to 4, then add that to the multiplier.
             var hotTempMulti = Math.Min(temperComp.CurrentTemperature / upperThreshHalf, 4);
-
-            // Logger.DebugS("silicon", $"Silicon {silicon} is overheating, multiplier is {hotTempMulti}.");
-
             // If the silicon is hot enough, it has a chance to catch fire.
             FlammableComponent? flamComp = null;
 
@@ -169,9 +166,6 @@ public sealed class SiliconChargeSystem : EntitySystem
                 {
                     _popup.PopupEntity(popupOverheating, silicon, silicon, PopupType.SmallCaution);
                 }
-
-                // Logger for the random chances.
-                // Logger.WarningS("silicon", $"Silicon {silicon} has a {Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 15), 0.001f, 0.9f)} chance to catch fire, and a {Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 4), 0.001f, 0.75f)} chance to popup overheating.");
             }
 
             return hotTempMulti;

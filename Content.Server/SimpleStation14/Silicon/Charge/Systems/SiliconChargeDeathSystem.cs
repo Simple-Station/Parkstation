@@ -32,7 +32,6 @@ public sealed class SiliconDeathSystem : EntitySystem
 
     private void OnSiliconChargeStateUpdate(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, SiliconChargeStateUpdateEvent args)
     {
-
         EntityManager.TryGetComponent<BatteryComponent>(uid, out var batteryComp);
         EntityManager.TryGetComponent<SiliconComponent>(uid, out var siliconComp);
 
@@ -54,7 +53,6 @@ public sealed class SiliconDeathSystem : EntitySystem
 
     private void SiliconDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent batteryComp)
     {
-
         var deadEvent = new SiliconChargeDeadEvent(uid, batteryComp);
         RaiseLocalEvent(uid, deadEvent);
 
@@ -62,9 +60,7 @@ public sealed class SiliconDeathSystem : EntitySystem
             return;
 
         var sleepComp = EntityManager.EnsureComponent<SleepingComponent>(uid);
-
         RemComp<SpamEmitSoundComponent>(uid); // This is also fucking stupid, I once again hate the sleeping system.
-
         EntityManager.EnsureComponent<ForcedSleepingComponent>(uid);
 
         siliconDeadComp.Dead = true;
