@@ -37,7 +37,7 @@
         #  sprite: Mobs/Species/Vox/parts.rsi
         #  state: l_leg
         #- shader: StencilMask
-        #  map: [ "enum.HumanoidVisualLayers.FemaleStencilMask" ]
+        #  map: [ "enum.HumanoidVisualLayers.StencilMask" ]
         #  sprite: Mobs/Customization/masking_helpers.rsi
         #  state: female_full
         #  visible: false

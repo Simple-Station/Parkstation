@@ -114,7 +114,7 @@
       - shader: StencilMask
         map: ["enum.HumanoidVisualLayers.StencilMask"]
         sprite: Mobs/Customization/masking_helpers.rsi
-        state: full
+        state: female_full
         visible: false
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -344,7 +344,7 @@
         - shader: StencilMask
           map: ["enum.HumanoidVisualLayers.StencilMask"]
           sprite: Mobs/Customization/masking_helpers.rsi
-          state: full
+          state: female_full
           visible: false
         - map: ["enum.HumanoidVisualLayers.LFoot"]
         - map: ["enum.HumanoidVisualLayers.RFoot"]

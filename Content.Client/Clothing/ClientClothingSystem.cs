@@ -79,8 +79,8 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         sprite.LayerSetState(layer, clothing.FemaleMask switch
         {
-            ClothingMask.NoMask => "female_none",
-            ClothingMask.UniformTop => "female_top",
+            FemaleClothingMask.NoMask => "female_none",
+            FemaleClothingMask.UniformTop => "female_top",
             _ => "female_full",
         });
         sprite.LayerSetVisible(layer, true);
@@ -225,8 +225,8 @@ public sealed class ClientClothingSystem : ClothingSystem
             {
                 sprite.LayerSetState(suitLayer, clothingComponent.FemaleMask switch
                 {
-                    ClothingMask.NoMask => "female_none",
-                    ClothingMask.UniformTop => "female_top",
+                    FemaleClothingMask.NoMask => "female_none",
+                    FemaleClothingMask.UniformTop => "female_top",
                     _ => "female_full",
                 });
                 sprite.LayerSetVisible(suitLayer, true);
