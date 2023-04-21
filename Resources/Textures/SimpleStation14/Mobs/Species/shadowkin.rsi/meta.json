@@ -62,14 +62,6 @@
         {
             "name": "eyes",
             "directions": 4
-        },
-        {
-            "name": "r_eye",
-            "directions": 4
-        },
-        {
-            "name": "l_eye",
-            "directions": 4
         }
     ]
 }

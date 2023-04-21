@@ -74,16 +74,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Systems
         }
 
 
-        /// <remarks> For viewing purposes. </remarks>
-        /// <param name="powerLevel">The current power level.</param>
-        /// <returns>Power level as an integer.</returns>
-        public int GetLevelInt(float powerLevel)
-        {
-            // Very dumb, round and convert to int
-            return (int) Math.Round(powerLevel);
-        }
-
-
         /// <summary>
         ///     Tries to update the power level of a shadowkin based on an amount of seconds.
         /// </summary>

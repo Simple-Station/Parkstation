@@ -4,6 +4,11 @@
   name: "Shadowkin body part"
   abstract: true
   components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Mobs/Species/shadowkin.rsi
+  - type: Icon
+    sprite: SimpleStation14/Mobs/Species/shadowkin.rsi
   - type: Damageable
     damageContainer: Biological
   - type: BodyPart
@@ -18,11 +23,8 @@
   parent: PartShadowkin
   components:
   - type: Sprite
-    netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "torso_m"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "torso_m"
   - type: BodyPart
     partType: Torso
@@ -33,11 +35,8 @@
   parent: PartShadowkin
   components:
   - type: Sprite
-    netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "head_m"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "head_m"
   - type: BodyPart
     partType: Head
@@ -55,11 +54,8 @@
   parent: PartShadowkin
   components:
   - type: Sprite
-    netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "l_arm"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "l_arm"
   - type: BodyPart
     partType: Arm
@@ -71,11 +67,8 @@
   parent: PartShadowkin
   components:
   - type: Sprite
-    netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "r_arm"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "r_arm"
   - type: BodyPart
     partType: Arm
@@ -87,11 +80,8 @@
   parent: PartShadowkin
   components:
   - type: Sprite
-    netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "l_hand"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "l_hand"
   - type: BodyPart
     partType: Hand
@@ -103,11 +93,8 @@
   parent: PartShadowkin
   components:
   - type: Sprite
-    netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "r_hand"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "r_hand"
   - type: BodyPart
     partType: Hand
@@ -119,16 +106,13 @@
   parent: PartShadowkin
   components:
   - type: Sprite
-    netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "l_leg"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "l_leg"
   - type: BodyPart
     partType: Leg
     symmetry: Left
-  - type: MovementSpeedModifier # TODO
+  - type: MovementSpeedModifier
     baseWalkSpeed : 4.5
     baseSprintSpeed : 2.7
 
@@ -138,16 +122,13 @@
   parent: PartShadowkin
   components:
   - type: Sprite
-    netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "r_leg"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "r_leg"
   - type: BodyPart
     partType: Leg
     symmetry: Right
-  - type: MovementSpeedModifier # TODO
+  - type: MovementSpeedModifier
     baseWalkSpeed : 4.5
     baseSprintSpeed : 2.7
 
@@ -157,11 +138,8 @@
   parent: PartShadowkin
   components:
   - type: Sprite
-    netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "l_foot"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "l_foot"
   - type: BodyPart
     partType: Foot
@@ -173,11 +151,8 @@
   parent: PartShadowkin
   components:
   - type: Sprite
-    netsync: false
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "r_foot"
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
     state: "r_foot"
   - type: BodyPart
     partType: Foot

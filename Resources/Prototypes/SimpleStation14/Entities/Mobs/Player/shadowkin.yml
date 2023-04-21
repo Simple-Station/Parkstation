@@ -1,7 +1,7 @@
 - type: entity
   save: false
   parent: BaseMobHuman
-  id: BaseMobShadowkin
+  id: MobShadowkin
   abstract: true
   components:
   - type: HumanoidAppearance
@@ -9,7 +9,7 @@
   - type: Hunger
   - type: Thirst
   - type: Icon
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin.rsi
+    sprite: SimpleStation14/Mobs/Species/shadowkin.rsi
     state: full
   - type: Body
     prototype: Shadowkin
@@ -31,7 +31,7 @@
       48: 0.85
       64: 0.65
   - type: Damageable
-    damageContainer: Shadowkin
+    damageContainer: Biological # Shadowkin
     damageModifierSet: Shadowkin
   - type: Barotrauma
     damage:
@@ -148,6 +148,31 @@
       Male: UnisexSlime
       Female: UnisexSlime
       Unsexed: UnisexSlime
+  - type: CombatMode
+    canDisarm: true
+  - type: Mind
+    showExamineInfo: true
+  - type: Input
+    context: "human"
+  - type: MobMover
+  - type: InputMover
+  - type: Alerts
+  - type: Actions
+  - type: CameraRecoil
+  - type: Examiner
+  - type: CanHostGuardian
+  - type: Faction
+    factions:
+    - NanoTrasen
+  - type: MailReceiver
+  - type: InteractionPopup
+    successChance: 0.75
+    interactFailureString: petting-failure-generic
+    interactSuccessString: petting-success-soft-floofy
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: petting-success-soft-floofy-others
+  # - type: PotentialPsionic # They've their own abilities.
+
 
 - type: entity
   save: false
@@ -212,34 +237,3 @@
       - map: ["pocket2"]
       - map: ["enum.HumanoidVisualLayers.Tail"]
       - map: ["enum.HumanoidVisualLayers.Wings"]
-
-- type: entity
-  save: false
-  name: Urist McFluff
-  parent: BaseMobShadowkin
-  id: MobShadowkin
-  components:
-  - type: CombatMode
-    canDisarm: true
-  - type: Mind
-    showExamineInfo: true
-  - type: Input
-    context: "human"
-  - type: MobMover
-  - type: InputMover
-  - type: Alerts
-  - type: Actions
-  - type: CameraRecoil
-  - type: Examiner
-  - type: CanHostGuardian
-  - type: Faction
-    factions:
-    - NanoTrasen
-  - type: MailReceiver
-  - type: InteractionPopup
-    successChance: 0.75
-    interactFailureString: hugging-failure-generic
-    interactSuccessString: hugging-success-generic
-    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
-    messagePerceivedByOthers: hugging-success-generic-others
-  # - type: PotentialPsionic # They've their own abilities.

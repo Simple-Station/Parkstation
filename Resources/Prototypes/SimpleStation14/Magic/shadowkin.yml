@@ -9,7 +9,7 @@
   checkCanAccess: true
   repeat: true
   icon:
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin_icons.rsi
+    sprite: SimpleStation14/Interface/Actions/shadowkin_icons.rsi
     state: teleport
   serverEvent: !type:ShadowkinTeleportEvent
     powerCost: 35
@@ -23,7 +23,7 @@
   speech: action-description-shadowkin-darkswap
   itemIconStyle: NoItem
   icon:
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin_icons.rsi
+    sprite: SimpleStation14/Interface/Actions/shadowkin_icons.rsi
     state: darkswap
   serverEvent: !type:ShadowkinDarkSwapEvent
     powerCostOn: 55
@@ -37,6 +37,6 @@
   useDelay: 60
   itemIconStyle: NoItem
   icon:
-    sprite: SimpleStation14/Mobs/Species/Shadowkin/shadowkin_icons.rsi
+    sprite: SimpleStation14/Interface/Actions/shadowkin_icons.rsi
     state: rest
   serverEvent: !type:ShadowkinRestEvent

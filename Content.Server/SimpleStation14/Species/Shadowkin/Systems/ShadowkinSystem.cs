@@ -30,7 +30,7 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
                 if (args.Examined == args.Examiner)
                 {
                     args.PushMarkup(Loc.GetString("shadowkin-power-examined-self",
-                        ("power", _powerSystem.GetLevelInt(component.PowerLevel)),
+                        ("power", (int) component.PowerLevel),
                         ("powerMax", component.PowerLevelMax),
                         ("powerType", powerType)
                     ));
