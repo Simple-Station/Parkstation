@@ -2,9 +2,6 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-// Parkstation sleeping mods
-using Robust.Shared.Audio;
-
 namespace Content.Shared.Bed.Sleep;
 
 /// <summary>
@@ -28,15 +25,4 @@ public sealed class SleepingComponent : Component
 
     [DataField("cooldownEnd", customTypeSerializer:typeof(TimeOffsetSerializer))]
     public TimeSpan CoolDownEnd;
-
-    // Parkstation sleeping mods
-    [DataField("snore"), ViewVariables(VVAccess.ReadWrite)]
-    public bool Snore = true;
-
-    [DataField("snoreSounds")]
-    public SoundCollectionSpecifier SnoreSounds = new SoundCollectionSpecifier("Snores", AudioParams.Default.WithVariation(0.2f));
-
-    [DataField("heal"), ViewVariables(VVAccess.ReadWrite)]
-    public bool Heal = true;
-    // \Parkstation
 }
