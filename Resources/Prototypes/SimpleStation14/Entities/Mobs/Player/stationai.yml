@@ -257,7 +257,6 @@
       radius: 3
       energy: 1
       color: "#9dc5c9"
-    - type: IntrinsicUI
       uis:
         - key: enum.LawsUiKey.Key
           toggleAction:
@@ -277,12 +276,15 @@
             keywords: ["AI", "console", "interface"]
             priority: -1
             event: !type:ToggleIntrinsicUIEvent
-        - key: enum.AICameraListUiKey.Key
-          toggleAction:
-            name: Warp menu
-            description: Teleport to cameras and crew
-            icon: SimpleStation14/Mobs/Silicon/ai.rsi/icon-camera.png
-            iconOn: SimpleStation14/Mobs/Silicon/ai.rsi/icon-camera.png
-            keywords: ["AI", "console", "interface"]
-            priority: -3
-            event: !type:ToggleIntrinsicUIEvent
+        # Mostly works, just not as I wish, so I'm disabling it for now.
+        # Need to split this into two PRs,
+        # There is too many issues this PR has fixed we need live for me to keep delaying it with more things
+        # - key: enum.AICameraListUiKey.Key
+        #   toggleAction:
+        #     name: Warp menu
+        #     description: Teleport to cameras and crew
+        #     icon: SimpleStation14/Mobs/Silicon/ai.rsi/icon-camera.png
+        #     iconOn: SimpleStation14/Mobs/Silicon/ai.rsi/icon-camera.png
+        #     keywords: ["AI", "console", "interface"]
+        #     priority: -3
+        #     event: !type:ToggleIntrinsicUIEvent
