@@ -823,3 +823,9 @@ Entries:
       message: Changed some trait point costs.
   id: 69
   time: '2023-04-09T06:50:51Z'
+- author: Cabbage
+  changes:
+    - type: add
+      message: Added head of personnel's plated hardsuit.
+  id: 70
+  time: '2023-04-22T22:53:43Z'
