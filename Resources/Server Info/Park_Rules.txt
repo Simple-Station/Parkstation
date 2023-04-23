@@ -1,14 +1,14 @@
-[color=#ff0000]Players who are suspected of being under age will be banned. As long as everyone can act maturely, they're welcome on the server.[/color]
+[color=#ff0000]Players who are suspected of being under age will be banned. As long as everyone can act maturely, they're welcome in the server.[/color]
 
 [color=#ff0000]DISCONNECTING FROM OR IGNORING/EVADING COMMUNICATION FROM ADMINS WILL RESULT IN AN APPEAL ONLY BAN. The job gets really hard when you refuse to talk to the Admins, just come to our Discord and talk it out, hurt feelings will not be held.[/color]
 
 [color=#ff0000]This is the only source of server rules that apply to Parkstation, which ideally has all the information any regular player should need. Please do not ever hesitate to ask either an Admin in[/color] [color=#DC143C]AHelp[/color][color=#ff0000] (F1) or in the Discord server if you ever want clarification on the rules. Chances are, if you were confused, we'll update them.[/color]
 
-We do not have a wiki, instead, we have or will have all the needed information available via Guidebooks (NumPad0), such as Space Law and Standard Operating Procedure. If we do not have some bit of information (how to do a job or how specifically to execute something a document says) you may ask an admin via [color=#DC143C]AHelp[/color] (F1) or ask other players via the [color=#66bbff]OOC[/color] chat channel.
+We do not have a wiki, instead, we have or will have all the needed information available via Guidebooks (NumPad0), such as Space Law and Standard Operating Procedure. If we do not have some bit of information (how to do a job or how specifically to execute something a document says) you may ask an admin via [color=#DC143C]AHelp[/color] (F1) or ask other players via the [color=#66bbff]OOC[/color] or [color=#66e0e0]LOOC[/color] chat channels.
 
 [color=#ff0000]MEDIUM ROLEPLAY[/color]
 
-The overall intention for this server is to do MRP right. NRP behavior will be dealt with by Admins, and we will have a generally high expectation of players in terms of role-play. Note that this does not mean we expect you to memorize pages of lore, or to be a savant at improv and writing. The line drawn is we expect players to put in [color=#ffd700]effort[/color] and to be here with the mutual goal of having a fun time and telling an engaging story since that's what we believe this game to be all about.
+The overall intention for this server is to do MRP right. NRP behavior will be dealt with by Admins, and we will have a generally high expectation of players in terms of role-play. Note that this does not mean we expect you to memorize pages of lore, or to be a savant at improv and writing. The line drawn is we expect players to put in [color=#ffd700]effort[/color] and to be here with the mutual goal of having a fun time and telling an engaging story, as that's what we believe this game to be all about.
 
 [color=#a4885c]0.[/color] [color=#a4885c]The[/color] [color=#ffd700]Golden[/color] [color=#a4885c]Rule.[/color] Admins may exercise discretion with rules as they see fit. If you rule lawyer or line skirt, you will get removed. Admins will answer for use of this privilege.
 
@@ -26,7 +26,7 @@ The overall intention for this server is to do MRP right. NRP behavior will be d
 
 [color=#ff0000]GENERAL ETIQUETTE[/color]
 
-[color=#a4885c]6.[/color] These are English servers. Speak only English in [color=#bbbbbb]IC[/color] and [color=#66bbff]OOC[/color].
+[color=#a4885c]6.[/color] These are English servers, and you are expected to use English when communicating through any server-related channels.
 
 [color=#a4885c]7.[/color] Don't use exploits or external programs to play, gain an advantage, or disrupt the round/server. This includes auto clickers and auto-hotkey scripts.
 
@@ -37,21 +37,22 @@ The overall intention for this server is to do MRP right. NRP behavior will be d
 [color=#ff0000]IN GAME & ROLEPLAY RULES[/color]
 
 [color=#a4885c]10.[/color] Pick a realistic name that could appear on a birth certificate with at least a first and last name.
-    - Names don't have to be entirely realistic, but should still make sense since this is a game set quite far in the "future". Extra leeway beyond this is given to Clowns, Mimes, and non-human races.
-    - Names of notable famous or fictional persons or names that resemble/parody them are strictly forbidden. You are not clever if you slightly change a famous name around. Terrible names will allow admins to smite you, politely warn you, or instantly ban you, depending on severity.
+    - Names don't have to be entirely realistic, but should still make sense, as this is a game set quite far in the "future". Extra leeway beyond this is given to Clowns, Mimes, and non-human races.
+    - Names of notable famous or fictional persons or names that resemble/parody them are strictly forbidden. Terrible names will allow admins to smite you, politely warn you, or instantly ban you, depending on severity.
     - Names that are LRP/NRP or straight up inappropriate, such as "Holden-Hisdick" will likely get you the instant ban mentioned above.
 
 [color=#a4885c]11.[/color] Act like an actual human being on a space station. Do not use text speak or emoticons [color=#bbbbbb]IC[/color], and do not refer to [color=#66bbff]OOC[/color] things like admins in-game. Remember that this is an MRP environment, and people are expected to try and react to situations realistically, even if it's not the "optimal" thing to do. What's good for Roleplay > What's good for Gameplay.
 
 [color=#a4885c]12.[/color] Don't be a dick. You are playing a multiplayer game with other people who also want to enjoy the game.
     - Do not intentionally make other players' lives hell for your own amusement.
-    - The round ends when the summary pops up on your screen. Until then, RP is still expected. Remember that just because you're wrapped up doesn't mean there's no one on the shuttle finishing their story.
+    - The round ends when the summary pops up on your screen. Until then, RP is still expected. Remember that just because you're wrapped up doesn't mean there's no one at the end of the round finishing their story.
 
 [color=#a4885c]13.[/color] Don't harass or target players across rounds for actions in prior rounds or for actions outside of the game (this is referred to as "Metagrudging".)
     - Annoying players for [color=#bbbbbb]IC[/color] reasons in the current round is fine; doing it across rounds or as a ghost role after they kill you is [color=#DC143C]not[/color].
 
 [color=#a4885c]14.[/color] Don't use information gained from outside your character's knowledge to gain an advantage (this is referred to as "Metagaming").
-    - Using information you gain from outside your own character (such as spectating while a ghost, through screenshots or meta comms, or other means) to your advantage is strictly forbidden. You remember all events up until you fall unconscious. If you take a ghost role, unless otherwise stated, you DO NOT REMEMBER ANYTHING from your past life. As for cloning, the line is blurry for what you can recall, but generally speaking, try to remember whatever makes the story the most interesting. Note that this almost always will [color=#DC143C]not[/color] include the person who led to your death.
+    - Using information you gain from outside your own character (such as spectating while a ghost, through screenshots or meta comms, or other means) to your advantage is strictly forbidden. You remember all events up until you fall unconscious. If you take a ghost role, unless otherwise stated, you DO NOT REMEMBER ANYTHING from your past life. 
+    - The line is blurry for cloning in regards to what you can recall, but generally speaking, try to remember whatever makes the story the most interesting. Note that this almost always will [color=#DC143C]not[/color] include the person who led to your death.
 
 [color=#a4885c]15.[/color] Follow escalation rules and don't murder someone for slipping you, use common sense.
     - You can defend yourself to the extent of protecting your own life.
@@ -81,17 +82,17 @@ If you regularly play [color=#334E6D]Command[/color] or [color=#6494F0]Security[
     - Don't engage in common troublemaker behavior and lawbreaking as a [color=#334E6D]Command[/color] or [color=#6494F0]Security[/color] role.
     - Do not immediately abandon your position as a [color=#334E6D]Command[/color] role and go do whatever you want instead of managing your department/the station.
         - As a [color=#334E6D]Command[/color] role, do not take over the jobs of others. The [color=#334E6D]HoP[/color] is not the [color=#6494F0]HoS[/color], for instance, and holds no direct power over Sec.
-        - The [color=#334E6D]HoP[/color] is [color=#DC143C]not[/color] the Captain. [color=#DC143C]There is no Captain.[/color] Any [color=#334E6D]HoP[/color] or other command member who gives themself all access without reason or permission is liable for arrest and demotion.
+        - The [color=#334E6D]HoP[/color] is not the Captain. Any [color=#334E6D]HoP[/color] or other command member who gives themselves all access without reason or permission is liable for arrest and demotion.
 
-[color=#a4885c]20.[/color] [color=#6494F0]Security[/color]/[color=#334E6D]Command[/color] should try to remain non-lethal and effect arrests, except in the following special circumstances, where they may choose to use lethal force:
+[color=#a4885c]20.[/color] [color=#6494F0]Security[/color] should try to remain non-lethal and effect arrests, except in the following special circumstances, where they may choose to use lethal force:
     - Lethal force is used against you (ex: firearms, lasers, disabling weapons with intent to kill, deadly melee weapons). Note your first option should still be to stun, but if your life is in danger, you can do what you must.
     - You determine that your life or the life of an innocent is in immediate danger
     - The suspect is unable to be safely detained by less-lethal means
     - If no other reasonable options are readily available and allowing the suspect to continue would be an unreasonable danger to the station/crew
 
-[color=#6494F0]Security[/color]/[color=#334E6D]Command[/color] will be expected to answer for use of lethal force. [color=#6494F0]Security[/color]/[color=#334E6D]Command[/color] will be expected to effect arrests on criminals and prevent them from dying while in custody, even if lethal force is used. [color=#6494F0]Security[/color]/[color=#334E6D]Command[/color] is strongly encouraged, but not required, to clone antagonists and effect a permabrigging or other sentence as deemed appropriate.
+[color=#6494F0]Security[/color] will be expected to answer for use of lethal force. [color=#6494F0]Security[/color] will be expected to effect arrests on criminals and prevent them from dying while in custody, even if lethal force is used. [color=#6494F0]Security[/color] is strongly encouraged, but not required, to clone antagonists and effect a permabrigging or other sentence as deemed appropriate.
 
-[color=#a4885c]21.[/color] [color=#6494F0]Security[/color]/[color=#334E6D]Command[/color] are expected to protect detainees in their custody to the best of their ability so as long as it does not come to an unreasonable risk to themselves, the crew, or the station at large to do so.
+[color=#a4885c]21.[/color] [color=#6494F0]Security[/color] are expected to protect detainees in their custody to the best of their ability so as long as it does not come to an unreasonable risk to themselves, the crew, or the station at large to do so.
     - Detainees that die in your custody must be cloned unless they have been (legally) executed.
 
 [color=#a4885c]22.[/color] This server is a "Roleplay Expected" server. We define this as performing your assigned duties, "doing your job". This means it is important to do what is expected out of your department and not what would be expected out of other departments.
