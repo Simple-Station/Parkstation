@@ -4,7 +4,6 @@ using Content.Server.SimpleStation14.Silicon.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
-using Content.Shared.SimpleStation14.Silicon.Components;
 
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
