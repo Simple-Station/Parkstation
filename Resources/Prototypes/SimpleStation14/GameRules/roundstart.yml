@@ -1,0 +1,5 @@
+- type: gameRule
+  id: OldStation
+  config:
+    !type:OldStationRuleConfiguration
+    id: OldStation
