@@ -1,6 +1,6 @@
 - type: announcer
   id: Intern
-  name: Intern
+  name: Central Command
   basePath: /Audio/SimpleStation14/Announcements/Intern
   announcementPaths:
     # Communications console
