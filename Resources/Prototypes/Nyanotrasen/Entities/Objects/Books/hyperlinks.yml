@@ -65,7 +65,7 @@
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookChemistry
-  name: chemical recipe book
+  name: The Cook Book
   description: The Chemist's guide to "cooking!"
   components:
   - type: Sprite
