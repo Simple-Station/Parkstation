@@ -93,8 +93,8 @@
   parent: BaseHyperlinkBook
   id: HyperlinkBookCooking
   suffix: GuidebookBook
-  name: Master Chef's Cookbook
-  description: A list of food recipes.
+  name: Cooking Al Dente
+  description: The only thing heavier than the weight of all that monkey genocide.
   components:
   - type: Sprite
     layers:
@@ -109,8 +109,8 @@
   parent: BaseHyperlinkBook
   id: HyperlinkBookBotany
   suffix: GuidebookBook
-  name: Botanical field guide
-  description: A guide to plants.
+  name: Botanical Field Guide
+  description: The most SFW guide on breeding you'll ever find.
   components:
   - type: Sprite
     layers:
@@ -125,8 +125,8 @@
   parent: BaseHyperlinkBook
   id: HyperlinkBookShuttle
   suffix: GuidebookBook
-  name: Guide to construction
-  description: A guide to building.
+  name: Building Upwards!
+  description: May not be the sharpest tool in the shed, but it's sure the densest!
   components:
   - type: Sprite
     layers:
@@ -175,8 +175,8 @@
   parent: BaseHyperlinkBook
   id: HyperlinkBookPower
   suffix: GuidebookBook
-  name: Guide to power
-  description: A guide to powering the station.
+  name: Commanding Power
+  description: A guide to powering the station. Sadly, nothing to do with increasing self confidence...
   components:
   - type: Sprite
     layers:
