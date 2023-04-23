@@ -6,6 +6,12 @@
   components:
   - type: Sprite
     state: box
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
 
 - type: entity
   name: holy water kit
@@ -395,3 +401,13 @@
     contents:
       - id: EncryptionKeyService
         amount: 6
+
+- type: entity
+  name: command encryption key box
+  parent: BoxEncryptionKeyPassenger
+  id: BoxEncryptionKeyCommand
+  components:
+  - type: StorageFill
+    contents:
+      - id: EncryptionKeyCommand
+        amount: 4

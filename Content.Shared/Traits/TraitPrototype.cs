@@ -1,5 +1,6 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using static Robust.Shared.Prototypes.EntityPrototype; // don't worry about it
 
 namespace Content.Shared.Traits

@@ -28,6 +28,8 @@ using Content.Server.Materials;
 using Content.Server.Jobs;
 using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
+using Content.Server.SimpleStation14.Traits.Events;
+using Content.Server.Traits;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mobs.Systems;
@@ -65,6 +67,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+        [Dependency] private readonly TraitSystem _traits = default!;
 
         public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -238,6 +241,12 @@ namespace Content.Server.Cloning
             }
             // end of genetic damage checks
 
+            // For other systems checking if they should be getting cloned
+            var beingCloned = new BeingClonedEvent(pref, mind, clonePod.Owner);
+            RaiseLocalEvent(beingCloned);
+            if (beingCloned.Cancelled)
+                return false;
+
             var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus);
 
             var cloneMindReturn = EntityManager.AddComponent<BeingClonedComponent>(mob);
@@ -250,17 +259,9 @@ namespace Content.Server.Cloning
 
             AddComp<ActiveCloningPodComponent>(uid);
 
-            // TODO: Ideally, components like this should be on a mind entity so this isn't neccesary.
-            // Remove this when 'mind entities' are added.
-            // Add on special job components to the mob.
-            if (mind.CurrentJob != null)
-            {
-                foreach (var special in mind.CurrentJob.Prototype.Special)
-                {
-                    if (special is AddComponentSpecial)
-                        special.AfterEquip(mob);
-                }
-            }
+            // For other systems adding components to the mob
+            var ev = new BeenClonedEvent(pref, mind, mob, clonePod.Owner);
+            RaiseLocalEvent(ev);
 
             return true;
         }

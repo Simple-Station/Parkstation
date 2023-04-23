@@ -21,12 +21,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Content.Shared.Database;
 using Robust.Shared.Asynchronous;
+using Content.Server.SimpleStation14.Announcements.Systems;
 
 namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker
     {
         [Dependency] private readonly ITaskManager _taskManager = default!;
+        [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -525,11 +527,13 @@ namespace Content.Server.GameTicking
             {
                 if (!proto.GamePresets.Contains(Preset.ID)) continue;
 
-                if (proto.Message != null)
-                    _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(proto.Message), playSound: true);
+                // if (proto.Message != null)
+                //     _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(proto.Message), playSound: true);
 
-                if (proto.Sound != null)
-                    SoundSystem.Play(proto.Sound.GetSound(), Filter.Broadcast());
+                // if (proto.Sound != null)
+                //     SoundSystem.Play(proto.Sound.GetSound(), Filter.Broadcast());
+
+                _announcerSystem.SendAnnouncement(proto.ID.ToLower(), Filter.Broadcast(), Loc.GetString(proto.Message ?? "game-ticker-welcome-to-the-station"));
 
                 // Only play one because A
                 break;
