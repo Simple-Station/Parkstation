@@ -12,7 +12,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 14
+        Piercing: 30
   - type: Fixtures
     fixtures:
     - shape:

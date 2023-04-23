@@ -1,40 +1,4 @@
 - type: entity
-  name: impact grenade
-  description: A grenade that explodes on impact.
-  parent: GrenadeBase
-  id: GrenadeImpact
-  components:
-    - type: Sprite
-      sprite: Objects/Weapons/Grenades/flashbang.rsi
-    - type: ExplodeOnTrigger
-    - type: Explosive
-      explosionType: Default
-      totalIntensity: 40
-      intensitySlope: 45
-      maxIntensity: 20
-      canCreateVacuum: false
-    # - type: DeleteOnTrigger
-    # - type: DamageSelfOnTrigger
-    #   damage:
-    #     types:
-    #       Brute: 10
-    - type: DamageOnLand
-      damage:
-        types:
-          Brute: 10
-    - type: Damageable
-      damageContainer: Inorganic
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 5
-        behaviors:
-        - !type:TriggerBehavior
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
-
-- type: entity
   name: fragmentation grenade
   description: A grenade that explodes into a cloud of shrapnel.
   parent: GrenadeBase
@@ -44,8 +8,8 @@
       sprite: SimpleStation14/Objects/Weapons/Grenades/frag_grenade.rsi
     - type: SpawnEntitiesOnTrigger
       prototype: BulletGrenadeShrapnel
-      count: 120
-      minCount: 100
+      count: 50
+      minCount: 30
       velocity: 20
       despawnTime: 0.4
       shoot: true
