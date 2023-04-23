@@ -69,10 +69,9 @@
       sprite: SimpleStation14/Objects/Weapons/Grenades/beenade.rsi
     - type: SpawnEntitiesOnTrigger
       prototype: MobAngryBee
-      count: 10
-      minCount: 6
+      count: 14
+      minCount: 8
       despawnTime: 10
-      # velocity: 2
       offset: 1
     - type: DeleteOnTrigger
     - type: Appearance
