@@ -1,6 +1,6 @@
 - type: announcer
   id: VoxFem
-  name: Female Alert AI
+  name: Automated
   basePath: /Audio/SimpleStation14/Announcements/VoxFem
   announcementPaths:
     # Communications console
