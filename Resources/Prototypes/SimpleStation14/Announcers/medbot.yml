@@ -1,6 +1,6 @@
 - type: announcer
   id: MedBot
-  name: Male Alert AI
+  name: Automated
   basePath: /Audio/SimpleStation14/Announcements/MedBot
   announcementPaths:
     # Communications console
