@@ -1,6 +1,6 @@
 - type: announcer
   id: NEIL
-  name: NEIL
+  name: N.E.I.L.
   basePath: /Audio/SimpleStation14/Announcements/NEIL
   announcementPaths:
     # Communications console
