@@ -4,7 +4,7 @@ using Content.Server.Mind.Components;
 using Content.Shared.Tag;
 using Content.Shared.Popups;
 using Content.Shared.Interaction.Helpers;
-using Content.Shared.SimpleStation14.Hologram;
+using Content.Shared.SimpleStation14.Holograms;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Pulling;

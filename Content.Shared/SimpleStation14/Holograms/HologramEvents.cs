@@ -1,7 +1,7 @@
-using Content.Shared.SimpleStation14.Hologram;
+using Content.Shared.SimpleStation14.Holograms;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.SimpleStation14.Hologram;
+namespace Content.Shared.SimpleStation14.Holograms;
 
 /// <summary>
 /// Raised when a hologram is being returned to its last visited projector.

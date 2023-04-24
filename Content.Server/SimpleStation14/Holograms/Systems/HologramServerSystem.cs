@@ -15,7 +15,7 @@ using Content.Server.Power.Components;
 using Content.Server.Administration.Commands;
 using Content.Shared.Tag;
 using Content.Shared.Popups;
-using Content.Shared.SimpleStation14.Hologram;
+using Content.Shared.SimpleStation14.Holograms;
 using Content.Shared.Pulling;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;

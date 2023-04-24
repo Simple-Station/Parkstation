@@ -3,9 +3,9 @@
 // using Content.Shared.Anomaly.Components;
 // using Robust.Client.GameObjects;
 // using Robust.Shared.Timing;
-// using Content.Shared.SimpleStation14.Hologram;
+// using Content.Shared.SimpleStation14.Holograms;
 
-// namespace Content.Client.SimpleStation14.Hologram;
+// namespace Content.Client.SimpleStation14.Holograms;
 
 // public sealed class HologramSystem : SharedHologramSystem
 // {
