@@ -3,8 +3,6 @@
   config:
     !type:StationEventRuleConfiguration
     startAnnouncement: station-event-noospheric-storm-announcement
-    startAudio:
-      path: /Audio/Announcements/noosphericstorm.ogg
     id: NoosphericStorm
     weight: 5
     endAfter: 1
