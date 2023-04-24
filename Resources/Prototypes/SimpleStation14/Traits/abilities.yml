@@ -2,7 +2,6 @@
   id: DragonsBlood
   name: trait-dragons-blood-name
   description: trait-dragons-blood-description
-  REQUIRES Reptilian species
   cost: -5
   category: Positive
   whitelist:
