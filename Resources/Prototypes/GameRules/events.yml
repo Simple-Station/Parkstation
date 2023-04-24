@@ -42,10 +42,6 @@
     !type:StationEventRuleConfiguration
     id: BureaucraticError
     startAnnouncement: station-event-bureaucratic-error-announcement
-    startAudio:
-      path: /Audio/Announcements/bureaucratic_error.ogg
-      params:
-        volume: -1
     minimumPlayers: 20
     weight: 6
     endAfter: 1
@@ -57,10 +53,6 @@
   config:
     !type:StationEventRuleConfiguration
     startAnnouncement: station-event-disease-outbreak-announcement
-    startAudio:
-      path: /Audio/Announcements/outbreak7.ogg
-      params:
-        volume: -1
     id: DiseaseOutbreak
     weight: 8
     endAfter: 1
@@ -101,8 +93,6 @@
     !type:StationEventRuleConfiguration
     id: GasLeak
     startAnnouncement: station-event-gas-leak-start-announcement
-    startAudio:
-      path: /Audio/Announcements/gas_leak.ogg
     endAnnouncement: station-event-gas-leak-end-announcement
     earliestStart: 10
     minimumPlayers: 5
@@ -115,8 +105,6 @@
     !type:StationEventRuleConfiguration
     id: KudzuGrowth
     startAnnouncement: station-event-kudzu-growth-start-announcement
-    startAudio:
-      path: /Audio/Announcements/kudzu.ogg
     earliestStart: 25
     minimumPlayers: 10
     weight: 5
@@ -135,10 +123,6 @@
     minimumPlayers: 20
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
-    startAudio:
-      path: /Audio/Announcements/meteors.ogg
-      params:
-        volume: -1
     startAfter: 30
     reoccurrenceDelay: 35
     maxOccurrences: 4
@@ -161,10 +145,6 @@
     weight: 10
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
-    startAudio:
-      path: /Audio/Announcements/power_off.ogg
-      params:
-        volume: -4
     startAfter: 12
     reoccurrenceDelay: 20
 
@@ -185,8 +165,6 @@
     weight: 10
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
     minEndAfter: 120
     maxEndAfter: 240
     onlyJamHeadsets: true
@@ -202,8 +180,6 @@
     !type:StationEventRuleConfiguration
     id: VentClog
     startAnnouncement: station-event-vent-clog-start-announcement
-    startAudio:
-      path: /Audio/Announcements/ventclog.ogg
     earliestStart: 15
     minimumPlayers: 15
     weight: 5

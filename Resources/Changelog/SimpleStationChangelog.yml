@@ -823,3 +823,23 @@ Entries:
       message: Changed some trait point costs.
   id: 69
   time: '2023-04-09T06:50:51Z'
+- author: Cabbage
+  changes:
+    - type: add
+      message: Added head of personnel's plated hardsuit.
+  id: 70
+  time: '2023-04-22T22:53:43Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: Comms console announcements use the announcer's voice
+    - type: fix
+      message: Announcements use the announcer's voice
+    - type: fix
+      message: Anomaly announcement plays the correct audio
+    - type: fix
+      message: Intern has a meteor swarm announcement
+    - type: tweak
+      message: Fugitives send a command report announcement
+  id: 71
+  time: '2023-04-23T13:57:10Z'

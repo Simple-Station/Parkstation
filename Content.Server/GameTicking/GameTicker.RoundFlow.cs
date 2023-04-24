@@ -533,7 +533,7 @@ namespace Content.Server.GameTicking
                 // if (proto.Sound != null)
                 //     SoundSystem.Play(proto.Sound.GetSound(), Filter.Broadcast());
 
-                _announcerSystem.SendAnnouncement(proto.ID.ToLower(), Filter.Broadcast(), Loc.GetString(proto.Message ?? "game-ticker-welcome-to-the-station"));
+                _announcerSystem.SendAnnouncement(proto.ID, Filter.Broadcast(), Loc.GetString(proto.Message ?? "game-ticker-welcome-to-the-station"));
 
                 // Only play one because A
                 break;
