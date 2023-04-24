@@ -1,8 +1,10 @@
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Random;
 
 namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
@@ -12,6 +14,7 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
         [Dependency] private readonly ShadowkinPowerSystem _powerSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private readonly SharedInteractionSystem _interact = default!;
 
         public override void Initialize()
         {
@@ -89,25 +92,23 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
                     // If so, start the timer
                     component.ForceSwapAccumulator += frameTime;
 
-                    // If the timer is up, force swap
-                    if (component.ForceSwapAccumulator > component.ForceSwapRate)
-                    {
-                        // Reset timer
-                        component.ForceSwapAccumulator = 0f;
-                        // Random new timer
-                        component.ForceSwapRate = _random.NextFloat(component.ForceSwapRateMin, component.ForceSwapRateMax);
+                    // If the time's not up, return.
+                    if (component.ForceSwapAccumulator < component.ForceSwapRateMax)
+                        return;
 
-                        // Add/Remove DarkSwapped component, which will handle the rest
-                        if (_entityManager.TryGetComponent<ShadowkinDarkSwappedComponent>(component.Owner, out var _))
-                        {
-                            RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(component.Owner, false));
-                            _entityManager.RemoveComponent<ShadowkinDarkSwappedComponent>(component.Owner);
-                        }
-                        else
-                        {
-                            RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(component.Owner, true));
-                            _entityManager.AddComponent<ShadowkinDarkSwappedComponent>(component.Owner);
-                        }
+                    // Reset the timer, and randomize a new one
+                    component.ForceSwapAccumulator = 0f;
+                    component.ForceSwapRate = _random.NextFloat(component.ForceSwapRateMin, component.ForceSwapRateMax);
+
+                    var chance = _random.Next(7);
+
+                    if (chance <= 2)
+                    {
+                        ForceDarkswap(component.Owner, component);
+                    }
+                    else if (chance <= 7)
+                    {
+                        ForceTeleport(component.Owner, component);
                     }
                 }
                 else
@@ -152,6 +153,56 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
                 #endregion
                 #endregion
             }
+        }
+
+        private void ForceDarkswap(EntityUid uid, ShadowkinComponent component)
+        {
+            // Add/Remove DarkSwapped component, which will handle the rest
+            if (_entityManager.TryGetComponent<ShadowkinDarkSwappedComponent>(uid, out var _))
+            {
+                RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(uid, false));
+                _entityManager.RemoveComponent<ShadowkinDarkSwappedComponent>(uid);
+            }
+            else
+            {
+                RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(uid, true));
+                _entityManager.AddComponent<ShadowkinDarkSwappedComponent>(uid);
+            }
+        }
+
+        private void ForceTeleport(EntityUid uid, ShadowkinComponent component)
+        {
+            // Create the event we'll later raise, and set it to our Shadowkin.
+            var args = new ShadowkinTeleportEvent();
+            args.Performer = uid;
+
+            // Pick a random location on the map until we find one that can be reached.
+            var coords = Transform(uid).Coordinates;
+            EntityCoordinates? target = null;
+
+            for (var i = 8; i != 0; i--) // It'll iterate up to 8 times, shrinking in distance each time, and if it doesn't find a valid location, it'll return.
+            {
+                var angle = Angle.FromDegrees(_random.Next(360));
+                var length = i;
+
+                var offset = new Vector2((float) (length * Math.Cos(angle)), (float) (length * Math.Sin(angle)));
+
+                target = coords.Offset(offset);
+
+                if (_interact.InRangeUnobstructed(uid, target.Value, 0))
+                    break;
+
+                target = null;
+            }
+
+            // If we didn't find a valid location, return.
+            if (target == null)
+                return;
+
+            args.Target = target.Value;
+
+            // Raise the event to teleport the Shadowkin.
+            RaiseLocalEvent(args);
         }
     }
 }
