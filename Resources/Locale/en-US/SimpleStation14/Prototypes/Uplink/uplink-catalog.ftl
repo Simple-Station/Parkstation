@@ -24,7 +24,7 @@ uplink-book-heal-desc = Target a being and heal them of all their wounds instant
 
 # Armor
 uplink-armor-hardsuit-name = Hardsuit
-uplink-armor-hardsuit-desc = A someone damage resistant, but heavy hardsuit that allows eva and protection in fights. Also acts as wizard robes, allowing you to use spells.
+uplink-armor-hardsuit-desc = A somewhat damage resistant, but heavy hardsuit that allows eva and protection in fights. Also acts as wizard robes, allowing you to use spells.
 
 # Utility
 uplink-utility-spellbelt-name = Spell Belt
