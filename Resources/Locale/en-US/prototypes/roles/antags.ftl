@@ -32,7 +32,4 @@ roles-antag-evil-twin-description = Replace your twin.
 roles-antag-minor-antag-name = Minor Antag
 roles-antag-minor-antag-objective = Make your way through a normal shift, considering your ulterior motives.
 
-roles-antag-wizard-antag-name = Wizard
-roles-antag-wizard-objective = The Wizard Federation has selected you to eliminate the crew.
-
 roles-antag-not-whitelisted = You need to be whitelisted to play antagonists.
