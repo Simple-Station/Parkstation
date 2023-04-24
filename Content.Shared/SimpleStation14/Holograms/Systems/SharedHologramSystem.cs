@@ -16,7 +16,7 @@ using Content.Shared.Database;
 using Content.Shared.Pulling;
 using System.Linq;
 
-namespace Content.Shared.SimpleStation14.Hologram;
+namespace Content.Shared.SimpleStation14.Holograms;
 
 public sealed class SharedHologramSystem : EntitySystem
 {
@@ -153,7 +153,7 @@ public sealed class SharedHologramSystem : EntitySystem
     }
 }
 
-public enum HoloType
+public enum HoloTypeEnum
 {
     Projected,
     Lightbee

@@ -156,7 +156,7 @@
   id: MobHologramProjected
   components:
   - type: Hologram
-    holoType: HoloType.Projected
+    holoType: enum.HoloTypeEnum.Projected
     isHardLight: false
   - type: Stealth
     lastVisibility: 0.80
@@ -182,9 +182,8 @@
   id: MobHologramLightbee
   components:
   - type: Hologram
-    # holoData: !HoloData
-    #   Type: Lightbee
-    #   IsHardLight: false
+    holoData: enum.HoloTypeEnum.Lightbee
+    IsHardLight: false
   - type: Fixtures
     fixtures:
       - shape:
@@ -223,9 +222,8 @@
   id: MobHologramHardlight
   components:
   - type: Hologram
-    # holoData:
-    #   Type: HoloType.Lightbee
-    #   IsHardLight: true
+    holoData: enum.HoloTypeEnum.Lightbee
+    IsHardLight: true
   - type: Fixtures
     fixtures:
       - shape:
