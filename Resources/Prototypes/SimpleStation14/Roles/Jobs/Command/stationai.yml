@@ -5,6 +5,7 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 60000
+  weight: 30
   icon: "StationAI"
   supervisors: "all crew"
   accessGroups:

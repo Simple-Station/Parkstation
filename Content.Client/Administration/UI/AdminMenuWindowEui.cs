@@ -23,6 +23,8 @@ namespace Content.Client.Administration.UI
                 Announcer =  _window.Announcer.Text,
                 AnnounceType =  (AdminAnnounceType) (_window.AnnounceMethod.SelectedMetadata ?? AdminAnnounceType.Station),
                 CloseAfter = !_window.KeepWindowOpen.Pressed,
+                AnnouncerVoice = _window.AnnouncerVoice.Text,
+                AnnouncerSound = _window.AnnouncerType.Text
             });
 
         }
