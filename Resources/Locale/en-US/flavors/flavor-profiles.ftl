@@ -99,6 +99,7 @@ flavor-complex-orange = like oranges
 flavor-complex-watermelon = like watermelon
 flavor-complex-nuggie = like "chicken"
 flavor-complex-garlic = like garlic
+flavor-complex-grape = like grapes
 
 ## Complex foodstuffs (cooked foods, joke flavors, etc)
 
@@ -187,7 +188,6 @@ flavor-complex-holy = heavenly
 flavor-base-seeds = seeds
 flavor-complex-cotton = like cotton
 flavor-complex-vanilla = like vanilla
-flavor-complex-jail = like jail
 flavor-complex-soju = like bold, alcoholic rice
 flavor-complex-orangecreamcicle = like creamy, alcoholic orange juice
 flavor-complex-silverjack = like a rockstars dream

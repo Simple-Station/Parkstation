@@ -9,7 +9,7 @@
     earliestStart: 15
     reoccurrenceDelay: 10
 
-# Rat king, evil twin, fugitive, oneiro, etc.
+# Rat king, paradox anomaly, fugitive, oneiro, etc.
 - type: gameRule
   id: MidRoundAntag
   config:
