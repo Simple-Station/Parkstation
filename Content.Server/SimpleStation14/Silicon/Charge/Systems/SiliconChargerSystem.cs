@@ -105,7 +105,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
                 UpdateState(chargerComp.Owner, chargerComp);
             }
 
-            var chargeRate = frameTime * chargerComp.ChargeMulti / chargerComp.PresentEntities.Count ;
+            var chargeRate = frameTime * chargerComp.ChargeMulti / chargerComp.PresentEntities.Count;
 
             foreach (var entity in chargerComp.PresentEntities)
             {
@@ -148,8 +148,8 @@ public sealed class SiliconchargerCompSystem : EntitySystem
 
         // If the given entity has a battery, charge it.
         if (EntityManager.TryGetComponent(entity, out BatteryComponent? batteryComp) &&
-        !EntityManager.TryGetComponent<UnremoveableComponent>(entity, out var _) &&
-        batteryComp.CurrentCharge < batteryComp.MaxCharge)
+            !EntityManager.TryGetComponent<UnremoveableComponent>(entity, out var _) &&
+            batteryComp.CurrentCharge < batteryComp.MaxCharge)
         {
             entitiesToCharge.Add(entity);
         }
@@ -238,6 +238,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
         var damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Shock"), frameTime * chargerComp.ChargeMulti / 100);
         var damageDealt = _damageableSystem.TryChangeDamage(entity, damage, false, true, damageComp, chargerComp.Owner);
         chargerComp.warningAccumulator -= frameTime;
+
         if (damageDealt != null && chargerComp.warningAccumulator <= 0 && damageDealt.Total > 0)
         {
             var popupBurn = Loc.GetString("system-silicon-charger-burn", ("charger", chargerComp.Owner), ("entity", entity));
