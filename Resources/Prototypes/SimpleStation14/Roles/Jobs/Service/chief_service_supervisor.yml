@@ -8,7 +8,7 @@
       time: 3600
     - !type:OverallPlaytimeRequirement
       time: 54000
-  weight: 20
+  weight: 10
   startingGear: CSSGear
   icon: "ChiefServiceSupervisor"
   requireAdminNotify: true
