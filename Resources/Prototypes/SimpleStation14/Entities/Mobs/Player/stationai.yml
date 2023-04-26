@@ -243,8 +243,6 @@
           density: 1000
           mask:
             - GhostImpassable
-          layer:
-            - GhostImpassable
     - type: Sprite
       drawdepth: Mobs
       noRot: true
