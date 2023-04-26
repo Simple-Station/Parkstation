@@ -21,6 +21,7 @@ namespace Content.Server.StationEvents.Events
             Gas.Plasma,
             Gas.Tritium,
             Gas.Frezon,
+            Gas.WaterVapor,
         };
 
         /// <summary>

@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using Content.Server.Anomaly;
+using Content.Server.SimpleStation14.Announcements.Systems;
 using Content.Server.Station.Components;
+using Robust.Shared.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
 
@@ -10,6 +12,7 @@ public sealed class AnomalySpawn : StationEventSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AnomalySystem _anomaly = default!;
+    [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
 
     public override string Prototype => "AnomalySpawn";
 
@@ -21,7 +24,8 @@ public sealed class AnomalySpawn : StationEventSystem
 
         var str = Loc.GetString("anomaly-spawn-event-announcement",
             ("sighting", Loc.GetString($"anomaly-spawn-sighting-{_random.Next(1, 6)}")));
-        ChatSystem.DispatchGlobalAnnouncement(str, colorOverride: Color.FromHex("#18abf5"));
+        // ChatSystem.DispatchGlobalAnnouncement(str, colorOverride: Color.FromHex("#18abf5"));
+        _announcerSystem.SendAnnouncement(Prototype, Filter.Broadcast(), str, colorOverride: Color.FromHex("#18abf5"));
     }
 
     public override void Started()

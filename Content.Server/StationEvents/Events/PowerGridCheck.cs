@@ -107,13 +107,13 @@ namespace Content.Server.StationEvents.Events
                 }
             }
 
-            // Can't use the default EndAudio
-            _announceCancelToken?.Cancel();
-            _announceCancelToken = new CancellationTokenSource();
-            Timer.Spawn(3000, () =>
-            {
-                _audioSystem.PlayGlobal("/Audio/Announcements/power_on.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-4f));
-            }, _announceCancelToken.Token);
+            // // Can't use the default EndAudio
+            // _announceCancelToken?.Cancel();
+            // _announceCancelToken = new CancellationTokenSource();
+            // Timer.Spawn(3000, () =>
+            // {
+            //     _audioSystem.PlayGlobal("/Audio/Announcements/power_on.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-4f));
+            // }, _announceCancelToken.Token);
             _unpowered.Clear();
 
             base.Ended();
