@@ -1,6 +1,7 @@
 - type: job
   id: SAI
-  name: "station AI"
+  name: job-name-sai
+  description: job-description-sai
   playTimeTracker: JobSAI
   requirements:
     - !type:OverallPlaytimeRequirement

@@ -1,6 +1,7 @@
 - type: job
   id: ChiefServiceSupervisor
-  name: "chief service supervisor"
+  name: job-name-css
+  description: job-description-css
   playTimeTracker: JobChiefServiceSupervisor
   requirements:
     - !type:DepartmentTimeRequirement
