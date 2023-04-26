@@ -29,12 +29,6 @@ public class StationEventRuleConfiguration : GameRuleConfiguration
     [DataField("endAnnouncement")]
     public string? EndAnnouncement;
 
-    [DataField("startAudio")]
-    public SoundSpecifier? StartAudio;
-
-    [DataField("endAudio")]
-    public SoundSpecifier? EndAudio;
-
     /// <summary>
     ///     In minutes, when is the first round time this event can start
     /// </summary>
