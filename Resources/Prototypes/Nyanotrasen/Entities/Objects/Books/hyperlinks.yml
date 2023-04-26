@@ -35,14 +35,14 @@
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookSupernanny
-  name: book of unsanctioned space punishments
+  name: Book of Unsanctioned Space Punishments
   description: The ravings of a madman.
   components:
   - type: Sprite
     layers:
     - state: book_space_law
-  - type: HyperlinkBook
-    url: https://supernannyfanon.fandom.com/wiki/Category:Discipline_Techniques
+  # - type: HyperlinkBook
+  #   url: https://supernannyfanon.fandom.com/wiki/Category:Discipline_Techniques
 
 - type: entity
   parent: BaseHyperlinkBook
@@ -80,14 +80,14 @@
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookBartending
-  name: bartender's guide
+  name: Bartender's Guide
   description: A list of drink recipes.
   components:
   - type: Sprite
     layers:
     - state: book_bar
-  - type: HyperlinkBook
-    url: https://wiki.nyanotrasen.moe/view/Drinks
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Drinks
 
 - type: entity
   parent: BaseHyperlinkBook
@@ -190,26 +190,26 @@
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookMedical
-  name: guide to medical
+  name: Guide to Medical
   description: A guide to the medical department.
   components:
   - type: Sprite
     layers:
     - state: book_infections
-  - type: HyperlinkBook
-    url: https://wiki.nyanotrasen.moe/view/Medical
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Medical
 
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookHacking
-  name: guide to hacking
+  name: Guide to Hacking
   description: For emergency use only.
   components:
   - type: Sprite
     layers:
     - state: book_hacking
-  - type: HyperlinkBook
-    url: https://wiki.nyanotrasen.moe/view/Hacking
+  # - type: HyperlinkBook
+  #   url: https://wiki.nyanotrasen.moe/view/Hacking
 
 - type: entity
   parent: BaseHyperlinkBook
@@ -231,7 +231,7 @@
   parent: BaseHyperlinkBook
   id: HyperlinkBookEngineering
   suffix: GuidebookBook
-  name: The engineer's guide to the station
+  name: The Engineer's Guide to the Station
   description: A guide on Engineering. A combination of various other engineering books and more!
   components:
   - type: Sprite
