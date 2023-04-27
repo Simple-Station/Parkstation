@@ -52,15 +52,16 @@ public sealed class SiliconchargerCompSystem : EntitySystem
 
         #region Entity Storage Chargers
         // Check for any chargers with the EntityStorageComponent.
-        foreach (var (chargerComp, entStorage) in EntityManager.EntityQuery<SiliconChargerComponent, EntityStorageComponent>())
+        var entstorQuery = EntityQueryEnumerator<SiliconChargerComponent, EntityStorageComponent>();
+        while (entstorQuery.MoveNext(out var uid, out var chargerComp, out var entStorage))
         {
             var wasActive = chargerComp.Active;
             chargerComp.Active = false;
 
-            if (EntityManager.TryGetComponent<ApcPowerReceiverComponent>(chargerComp.Owner, out var powerComp) && !powerComp.Powered)
+            if (EntityManager.TryGetComponent<ApcPowerReceiverComponent>(uid, out var powerComp) && !powerComp.Powered)
             {
                 if (chargerComp.Active != wasActive)
-                    UpdateState(chargerComp.Owner, chargerComp);
+                    UpdateState(uid, chargerComp);
 
                 continue;
             }
@@ -83,21 +84,22 @@ public sealed class SiliconchargerCompSystem : EntitySystem
             }
 
             if (chargerComp.Active != wasActive)
-                UpdateState(chargerComp.Owner, chargerComp);
+                UpdateState(uid, chargerComp);
         }
         #endregion
 
         #region Step Trigger Chargers
         // Check for any chargers with the StepTriggerComponent.
-        foreach (var (chargerComp, stepComp) in EntityManager.EntityQuery<SiliconChargerComponent, StepTriggerComponent>())
+        var stepQuery = EntityQueryEnumerator<SiliconChargerComponent, StepTriggerComponent>();
+        while (stepQuery.MoveNext(out var uid, out var chargerComp, out var stepTrigger))
         {
             if (chargerComp.PresentEntities.Count == 0 ||
-                (EntityManager.TryGetComponent<ApcPowerReceiverComponent>(chargerComp.Owner, out var powerComp) && !powerComp.Powered))
+                (EntityManager.TryGetComponent<ApcPowerReceiverComponent>(uid, out var powerComp) && !powerComp.Powered))
             {
                 if (chargerComp.Active)
                 {
                     chargerComp.Active = false;
-                    UpdateState(chargerComp.Owner, chargerComp);
+                    UpdateState(uid, chargerComp);
                 }
                 continue;
             }
@@ -105,7 +107,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
             if (!chargerComp.Active)
             {
                 chargerComp.Active = true;
-                UpdateState(chargerComp.Owner, chargerComp);
+                UpdateState(uid, chargerComp);
             }
 
             var chargeRate = frameTime * chargerComp.ChargeMulti / chargerComp.PresentEntities.Count;
@@ -272,6 +274,8 @@ public sealed class SiliconchargerCompSystem : EntitySystem
         }
     }
 
+    #region Charger specific
+        #region Step Trigger Chargers
     // When an entity starts colliding with the charger, add it to the list of entities present on the charger if it has the StepTriggerComponent.
     private void OnStartCollide(EntityUid uid, SiliconChargerComponent component, ref StartCollideEvent args)
     {
@@ -307,4 +311,6 @@ public sealed class SiliconchargerCompSystem : EntitySystem
             component.PresentEntities.Remove(target);
         }
     }
+        #endregion
+    #endregion
 }
