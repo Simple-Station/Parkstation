@@ -1,12 +1,12 @@
 using System.Linq;
-using Content.Server.SimpleStation14.Announcements.Prototypes;
+using Content.Shared.SimpleStation14.Announcements.Prototypes;
 using Content.Shared.SimpleStation14.CCVar;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.SimpleStation14.Announcements.Systems
 {
-    public sealed partial class AnnouncerSystem : EntitySystem
+    public sealed partial class AnnouncerSystem
     {
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -24,7 +24,8 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
         /// <summary>
         ///     Sets the announcer
         /// </summary>
-        public void PickAnnouncer(string announcerId)
+        /// <param name="announcerId">ID of the announcer to choose</param>
+        public void SetAnnouncer(string announcerId)
         {
             if (announcerId == "random")
             {
