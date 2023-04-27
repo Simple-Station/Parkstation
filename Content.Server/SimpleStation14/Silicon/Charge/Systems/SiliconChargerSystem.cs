@@ -50,6 +50,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        #region Entity Storage Chargers
         // Check for any chargers with the EntityStorageComponent.
         foreach (var (chargerComp, entStorage) in EntityManager.EntityQuery<SiliconChargerComponent, EntityStorageComponent>())
         {
@@ -84,7 +85,9 @@ public sealed class SiliconchargerCompSystem : EntitySystem
             if (chargerComp.Active != wasActive)
                 UpdateState(chargerComp.Owner, chargerComp);
         }
+        #endregion
 
+        #region Step Trigger Chargers
         // Check for any chargers with the StepTriggerComponent.
         foreach (var (chargerComp, stepComp) in EntityManager.EntityQuery<SiliconChargerComponent, StepTriggerComponent>())
         {
@@ -112,6 +115,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
                 HandleChargingEntity(entity, chargeRate, chargerComp, frameTime);
             }
         }
+        #endregion
     }
 
     // Cleanup the sound stream when the charger is destroyed.
@@ -208,7 +212,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
 
     private void ChargeBattery(EntityUid entity, BatteryComponent batteryComp, float chargeRate, SiliconChargerComponent chargerComp)
     {
-        // Do some math so a charger never charges a battery in less than 10 seconds, just for the effect of it.
+        // Do some math so a charger never charges a battery from zero to full in less than 10 seconds, just for the effect of it.
         if (chargerComp.ChargeMulti * 10 > batteryComp.MaxCharge / 10)
         {
             chargeRate /= (chargerComp.ChargeMulti * 10) / (batteryComp.MaxCharge / 10);
