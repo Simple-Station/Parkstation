@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation",
+    "copyright": "Modified by Pspritechologist, taken from tgstation at https://github.com/tgstation/tgstation/commit/fd0eb5a07838f9423b81473afc7b007027ba3fa2",
     "size": {
         "x": 32,
         "y": 32
@@ -540,46 +540,46 @@
             ]
         },
         {
-          "name": "artifact",
-          "directions": 4,
-          "delays": [
-            [
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1
-            ],
-            [
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1
-            ],
-            [
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1
-            ],
-            [
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1
+            "name": "artifact",
+            "directions": 4,
+            "delays": [
+                [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ]
             ]
-          ]
         },
         {
             "name": "teleport",
