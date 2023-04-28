@@ -72,7 +72,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
 
                 var chargeRate = chargerComp.ChargeMulti * frameTime * 10;
 
-                HandleChargingEntity(entity, chargeRate, chargerComp, frameTime);
+                HandleChargingEntity(entity, chargeRate, chargerComp, uid, frameTime);
 
                 // Heat up the air in the charger.
                 if (entStorage.Airtight)
@@ -114,7 +114,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
 
             foreach (var entity in chargerComp.PresentEntities)
             {
-                HandleChargingEntity(entity, chargeRate, chargerComp, frameTime);
+                HandleChargingEntity(entity, chargeRate, chargerComp, uid, frameTime);
             }
         }
         #endregion
@@ -129,7 +129,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
     /// <summary>
     ///     Handles working out what entities need to have their batteries charged, or be burnt.
     /// </summary>
-    private void HandleChargingEntity(EntityUid entity, float chargeRate, SiliconChargerComponent chargerComp, float frameTime, bool burn = true)
+    private void HandleChargingEntity(EntityUid entity, float chargeRate, SiliconChargerComponent chargerComp, EntityUid chargerUid, float frameTime, bool burn = true)
     {
         var entitiesToCharge = SearchThroughEntities(entity, burn);
 
@@ -142,9 +142,9 @@ public sealed class SiliconchargerCompSystem : EntitySystem
         foreach (var entityToCharge in entitiesToCharge)
         {
             if (EntityManager.TryGetComponent<BatteryComponent>(entityToCharge, out var batteryComp))
-                ChargeBattery(entityToCharge, EntityManager.GetComponent<BatteryComponent>(entityToCharge), chargeRate, chargerComp);
+                ChargeBattery(entityToCharge, EntityManager.GetComponent<BatteryComponent>(entityToCharge), chargeRate, chargerComp, chargerUid);
             else if (EntityManager.TryGetComponent<DamageableComponent>(entityToCharge, out var damageComp))
-                BurnEntity(entityToCharge, damageComp, frameTime, chargerComp);
+                BurnEntity(entityToCharge, damageComp, frameTime, chargerComp, chargerUid);
         }
     }
 
@@ -212,7 +212,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
         return entitiesToCharge;
     }
 
-    private void ChargeBattery(EntityUid entity, BatteryComponent batteryComp, float chargeRate, SiliconChargerComponent chargerComp)
+    private void ChargeBattery(EntityUid entity, BatteryComponent batteryComp, float chargeRate, SiliconChargerComponent chargerComp, EntityUid chargerUid)
     {
         // Do some math so a charger never charges a battery from zero to full in less than 10 seconds, just for the effect of it.
         if (chargerComp.ChargeMulti * 10 > batteryComp.MaxCharge / 10)
@@ -234,20 +234,20 @@ public sealed class SiliconchargerCompSystem : EntitySystem
             }
             else
             {
-                _explosion.QueueExplosion(entity, "Default", batteryComp.MaxCharge / 50, 1.5f, 200, user: chargerComp.Owner);
+                _explosion.QueueExplosion(entity, "Default", batteryComp.MaxCharge / 50, 1.5f, 200, user: chargerUid);
             }
         }
     }
 
-    private void BurnEntity(EntityUid entity, DamageableComponent damageComp, float frameTime, SiliconChargerComponent chargerComp)
+    private void BurnEntity(EntityUid entity, DamageableComponent damageComp, float frameTime, SiliconChargerComponent chargerComp, EntityUid chargerUid)
     {
         var damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Shock"), frameTime * chargerComp.ChargeMulti / 100);
-        var damageDealt = _damageableSystem.TryChangeDamage(entity, damage, false, true, damageComp, chargerComp.Owner);
+        var damageDealt = _damageableSystem.TryChangeDamage(entity, damage, false, true, damageComp, chargerUid);
         chargerComp.warningAccumulator -= frameTime;
 
         if (damageDealt != null && chargerComp.warningAccumulator <= 0 && damageDealt.Total > 0)
         {
-            var popupBurn = Loc.GetString("system-silicon-charger-burn", ("charger", chargerComp.Owner), ("entity", entity));
+            var popupBurn = Loc.GetString("system-silicon-charger-burn", ("charger", chargerUid), ("entity", entity));
             _popup.PopupEntity(popupBurn, entity, PopupType.MediumCaution);
             chargerComp.warningAccumulator += 5f;
         }
