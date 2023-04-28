@@ -287,6 +287,11 @@ namespace Content.Server.Preferences.Managers
                             .WithJobPriorities(
                                 hp.JobPriorities.Where(job =>
                                     _protos.HasIndex<JobPrototype>(job.Key)))
+                            .WithJobCustomNames(
+                                hp.JobCustomNames.Where(job =>
+                                    _protos.TryIndex<JobPrototype>(job.Key, out var proto) &&
+                                    proto.AltNames != null &&
+                                    proto.AltNames.Contains(job.Value)))
                             .WithAntagPreferences(
                                 hp.AntagPreferences.Where(antag =>
                                     _protos.HasIndex<AntagPrototype>(antag)))
