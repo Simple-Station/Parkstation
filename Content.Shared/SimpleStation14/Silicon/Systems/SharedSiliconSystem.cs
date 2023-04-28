@@ -89,14 +89,6 @@ public enum StartChargedData
     Randomized
 }
 
-// [Serializable, NetSerializable]
-// public struct ChargeStateThresholdsData
-// {
-//     public float Mid;
-//     public float Low;
-//     public float Critical;
-// }
-
 
 /// <summary>
 ///     Event raised when a Silicon's charge state needs to be updated.

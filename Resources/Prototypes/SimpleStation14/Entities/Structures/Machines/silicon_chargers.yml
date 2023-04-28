@@ -11,14 +11,15 @@
         - state: base
         - state: closed
           map: ["enum.StorageVisualLayers.Door"]
-        - state: borgcharger_unlit
+        - state: borgcharger_closed_unlit
           shader: unshaded
           map: ["enum.SiliconChargerVisuals.Lights"]
     - type: GenericVisualizer
       visuals:
         enum.PowerDeviceVisuals.VisualState:
           enum.SiliconChargerVisuals.Lights:
-            Normal: { state: "borgcharger_unlit" }
+            Normal: { state: "borgcharger_closed_unlit" }
+            NormalOpen: { state: "borgcharger_open_unlit" }
             Charging: { state: "borgcharger_active_unlit" }
         enum.PowerDeviceVisuals.Powered:
           enum.SiliconChargerVisuals.Lights:
@@ -59,6 +60,7 @@
         entity_storage: !type:Container
     - type: SiliconCharger
       chargeMulti: 1000
+      targetTemp: 390
 
 - type: entity
   id: SiliconChargerChargePad
@@ -72,7 +74,7 @@
       drawdepth: FloorObjects
       layers:
         - state: offline
-        - state: beam
+        - state: idle
           shader: unshaded
           map: ["enum.SiliconChargerVisuals.Lights"]
     - type: GenericVisualizer

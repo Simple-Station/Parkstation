@@ -12,5 +12,6 @@ public enum SiliconChargerVisuals
 public enum SiliconChargerVisualState
 {
     Normal,
+    NormalOpen,
     Charging
 }

@@ -5,7 +5,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations;
 namespace Content.Shared.SimpleStation14.Silicon.Components;
 
 /// <summary>
-///     Component for defnining a mob as a robot.
+///     Component for defining a mob as a robot.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed class SiliconComponent : Component

@@ -56,13 +56,9 @@ public sealed class SiliconChargeSystem : EntitySystem
         base.Update(frameTime);
 
         // For each siliconComp entity with a battery component, drain their charge.
-        foreach (var (siliconComp, batteryComp) in EntityManager.EntityQuery<SiliconComponent, BatteryComponent>().Where(x => x.Item1.BatteryPowered))
+        var query = EntityQueryEnumerator<SiliconComponent, BatteryComponent>();
+        while (query.MoveNext(out var silicon, out var siliconComp, out var batteryComp))
         {
-            if (siliconComp.Owner == EntityUid.Invalid)
-                continue;
-
-            var silicon = siliconComp.Owner;
-
             // If the silicon is dead, skip it.
             if (_mobStateSystem.IsDead(silicon))
                 continue;
@@ -87,28 +83,26 @@ public sealed class SiliconChargeSystem : EntitySystem
             batteryComp.UseCharge(frameTime * drainRate);
 
             // Figure out the current state of the Silicon.
-            var currentState = ChargeState.Dead;
             var chargePercent = batteryComp.CurrentCharge / batteryComp.MaxCharge;
 
-            if (chargePercent == 0 && siliconComp.ChargeStateThresholdCritical != 0)
+            ChargeState currentState;
+            switch (chargePercent)
             {
-                currentState = ChargeState.Dead;
-            }
-            else if (chargePercent <= siliconComp.ChargeStateThresholdCritical)
-            {
-                currentState = ChargeState.Critical;
-            }
-            else if (chargePercent <= siliconComp.ChargeStateThresholdLow)
-            {
-                currentState = ChargeState.Low;
-            }
-            else if (chargePercent < siliconComp.ChargeStateThresholdMid)
-            {
-                currentState = ChargeState.Mid;
-            }
-            else if (chargePercent >= siliconComp.ChargeStateThresholdMid)
-            {
-                currentState = ChargeState.Full;
+                case var x when x > siliconComp.ChargeStateThresholdMid:
+                    currentState = ChargeState.Full;
+                    break;
+                case var x when x > siliconComp.ChargeStateThresholdLow:
+                    currentState = ChargeState.Mid;
+                    break;
+                case var x when x > siliconComp.ChargeStateThresholdCritical:
+                    currentState = ChargeState.Low;
+                    break;
+                case var x when x > 0 || siliconComp.ChargeStateThresholdCritical == 0:
+                    currentState = ChargeState.Critical;
+                    break;
+                default:
+                    currentState = ChargeState.Dead;
+                    break;
             }
 
             // Check if anything needs to be updated.

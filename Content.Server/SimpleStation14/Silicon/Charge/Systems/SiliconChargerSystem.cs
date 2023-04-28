@@ -20,6 +20,8 @@ using Content.Server.Hands.Systems;
 using Content.Server.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Power;
+using Content.Shared.Storage.Components;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 
@@ -44,6 +46,9 @@ public sealed class SiliconchargerCompSystem : EntitySystem
         SubscribeLocalEvent<SiliconChargerComponent, EndCollideEvent>(OnEndCollide);
 
         SubscribeLocalEvent<SiliconChargerComponent, ComponentShutdown>(OnChargerShutdown);
+
+        SubscribeLocalEvent<SiliconChargerComponent, StorageAfterOpenEvent>(HandleStateOpen);
+        SubscribeLocalEvent<SiliconChargerComponent, StorageAfterCloseEvent>(HandleStateClose);
     }
 
     public override void Update(float frameTime)
@@ -253,6 +258,23 @@ public sealed class SiliconchargerCompSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    ///     Updates the state of the charger when it's open or closed.
+    /// </summary>
+    private void HandleStateOpen(EntityUid uid, SiliconChargerComponent component, ref StorageAfterOpenEvent _)
+    {
+        UpdateState(uid, component);
+    }
+
+    /// <inheritdoc cref="HandleStateOpen"/>
+    private void HandleStateClose(EntityUid uid, SiliconChargerComponent component, ref StorageAfterCloseEvent _)
+    {
+        UpdateState(uid, component);
+    }
+
+    /// <summary>
+    ///     Updates the visual and auditory state of the charger based on if it's active, and/or open.
+    /// </summary>
     private void UpdateState(EntityUid uid, SiliconChargerComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -260,15 +282,20 @@ public sealed class SiliconchargerCompSystem : EntitySystem
 
         if (component.Active)
         {
-            _appearance.SetData(uid, SiliconChargerVisuals.Lights, SiliconChargerVisualState.Charging);
+            _appearance.SetData(uid, PowerDeviceVisuals.VisualState, SiliconChargerVisualState.Charging);
 
-            if (component.SoundLoop != null)
+            if (component.SoundLoop != null && component.SoundStream == null)
                 component.SoundStream =
                     _audio.PlayPvs(component.SoundLoop, uid, AudioParams.Default.WithLoop(true).WithMaxDistance(5));
         }
         else
         {
-            _appearance.SetData(uid, SiliconChargerVisuals.Lights, SiliconChargerVisualState.Normal);
+            var state = SiliconChargerVisualState.Normal;
+
+            if (EntityManager.TryGetComponent<EntityStorageComponent>(uid, out var storageComp) && storageComp.Open)
+                state = SiliconChargerVisualState.NormalOpen;
+
+            _appearance.SetData(uid, PowerDeviceVisuals.VisualState, state);
             component.SoundStream?.Stop();
             component.SoundStream = null;
         }
