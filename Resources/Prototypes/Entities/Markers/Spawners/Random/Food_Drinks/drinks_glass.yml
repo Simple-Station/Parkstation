@@ -8,9 +8,8 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Consumable/Drinks/beerglass.rsi
-        state: icon
+      - sprite: SimpleStation14/Markers/random_spawners.rsi
+        state: beer
   - type: RandomSpawner
   #small item
     prototypes:

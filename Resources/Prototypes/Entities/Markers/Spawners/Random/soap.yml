@@ -5,8 +5,7 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Specific/Janitorial/soap.rsi
+      - sprite: SimpleStation14/Markers/random_spawners.rsi
         state: soap
   - type: RandomSpawner
     prototypes:

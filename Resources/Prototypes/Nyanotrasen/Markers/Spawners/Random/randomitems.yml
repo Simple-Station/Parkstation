@@ -5,9 +5,8 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Fun/dice.rsi
-        state: d20_20
+      - sprite: SimpleStation14/Markers/random_spawners.rsi
+        state: questionmark
   - type: RandomSpawner
     offset: 0
     prototypes:

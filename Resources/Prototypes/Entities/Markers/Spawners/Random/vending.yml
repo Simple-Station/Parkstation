@@ -5,9 +5,8 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Structures/Machines/VendingMachines/coffee.rsi
-        state: off
+      - sprite: SimpleStation14/Markers/random_spawners.rsi
+        state: snack
   - type: RandomSpawner
     prototypes:
       - VendingMachineCigs

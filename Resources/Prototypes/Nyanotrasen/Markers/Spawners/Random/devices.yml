@@ -5,9 +5,8 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Misc/module.rsi
-        state: airalarm_electronics
+      - sprite: SimpleStation14/Markers/random_spawners.rsi
+        state: circuit
   - type: RandomSpawner
     offset: 0
     prototypes:

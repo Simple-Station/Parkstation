@@ -5,9 +5,8 @@
   components:
   - type: Sprite
     layers:
-    - state: red
-    - sprite: Structures/Specific/anomaly.rsi
-      state: anom1
+    - sprite: SimpleStation14/Markers/random_spawners.rsi
+      state: anomaly
   - type: RandomSpawner
     prototypes:
     - AnomalyPyroclastic

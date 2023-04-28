@@ -5,9 +5,8 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Fun/Instruments/h_synthesizer.rsi
-        state: icon
+      - sprite: SimpleStation14/Markers/random_spawners.rsi
+        state: piano
   - type: RandomSpawner
     prototypes:
       - AcousticGuitarInstrument

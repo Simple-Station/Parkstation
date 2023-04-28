@@ -5,9 +5,8 @@
   components:
     - type: Sprite
       layers:
-        - state: red
-        - sprite: Objects/Consumable/Food/snacks.rsi
-          state: pistachio-trash
+        - sprite: SimpleStation14/Markers/random_spawners.rsi
+          state: trash
     - type: RandomSpawner
       rarePrototypes:
         - PuddleVomit

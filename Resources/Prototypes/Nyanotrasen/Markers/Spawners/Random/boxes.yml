@@ -5,9 +5,8 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Storage/boxes.rsi
-        state: box
+      - sprite: SimpleStation14/Markers/random_spawners.rsi
+        state: box_small
   - type: RandomSpawner
     offset: 0
     prototypes:
@@ -52,9 +51,8 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Storage/boxes.rsi
-        state: shellslug
+      - sprite: SimpleStation14/Markers/random_spawners.rsi
+        state: cardboard
   - type: RandomSpawner
     offset: 0
     prototypes:

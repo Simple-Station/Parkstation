@@ -8,9 +8,8 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Consumable/Food/snacks.rsi
-        state: cheesiehonkers
+      - sprite: SimpleStation14/Markers/random_spawners.rsi
+        state: can
   - type: RandomSpawner
   #small item
     prototypes:
