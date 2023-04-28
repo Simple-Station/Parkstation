@@ -1,0 +1,406 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/f13f9795860d47baea7b49f8d60b28b16b182a4f",
+    "states": [
+        {
+            "name": "rainbow"
+        },
+        {
+            "name": "questionmark"
+        },
+        {
+            "name": "loot"
+        },
+        {
+            "name": "trash"
+        },
+        {
+            "name": "lootdrop"
+        },
+        {
+            "name": "gloves"
+        },
+        {
+            "name": "lipstick"
+        },
+        {
+            "name": "glowstick"
+        },
+        {
+            "name": "tape"
+        },
+        {
+            "name": "plant"
+        },
+        {
+            "name": "snack"
+        },
+        {
+            "name": "cola"
+        },
+        {
+            "name": "bedsheet"
+        },
+        {
+            "name": "wallet"
+        },
+        {
+            "name": "clusterbang"
+        },
+        {
+            "name": "lizard_boots"
+        },
+        {
+            "name": "syndi_toolbox"
+        },
+        {
+            "name": "syringe"
+        },
+        {
+            "name": "implanter"
+        },
+        {
+            "name": "marker"
+        },
+        {
+            "name": "crayon"
+        },
+        {
+            "name": "prisoner"
+        },
+        {
+            "name": "prisoner_shoes"
+        },
+        {
+            "name": "toy"
+        },
+        {
+            "name": "deck"
+        },
+        {
+            "name": "circuit"
+        },
+        {
+            "name": "disk"
+        },
+        {
+            "name": "cash"
+        },
+        {
+            "name": "beer"
+        },
+        {
+            "name": "syndicate"
+        },
+        {
+            "name": "chips"
+        },
+        {
+            "name": "pistol"
+        },
+        {
+            "name": "heater"
+        },
+        {
+            "name": "shiv"
+        },
+        {
+            "name": "donkpocket"
+        },
+        {
+            "name": "condiment"
+        },
+        {
+            "name": "beacon"
+        },
+        {
+            "name": "chair",
+            "directions": 4
+        },
+        {
+            "name": "arcade",
+            "directions": 4
+        },
+        {
+            "name": "statue"
+        },
+        {
+            "name": "showcase"
+        },
+        {
+            "name": "eguitar"
+        },
+        {
+            "name": "suit"
+        },
+        {
+            "name": "costume"
+        },
+        {
+            "name": "hat"
+        },
+        {
+            "name": "cap"
+        },
+        {
+            "name": "backpack"
+        },
+        {
+            "name": "tank_holder"
+        },
+        {
+            "name": "canister"
+        },
+        {
+            "name": "rollerbed"
+        },
+        {
+            "name": "dirty_mattress"
+        },
+        {
+            "name": "grille"
+        },
+        {
+            "name": "girder"
+        },
+        {
+            "name": "barricade"
+        },
+        {
+            "name": "table"
+        },
+        {
+            "name": "table_fancy"
+        },
+        {
+            "name": "briefcase"
+        },
+        {
+            "name": "box_small"
+        },
+        {
+            "name": "flashlight"
+        },
+        {
+            "name": "ansible_crystal"
+        },
+        {
+            "name": "matter_bin"
+        },
+        {
+            "name": "rack_parts"
+        },
+        {
+            "name": "table_parts"
+        },
+        {
+            "name": "paint"
+        },
+        {
+            "name": "coin"
+        },
+        {
+            "name": "dice_bag"
+        },
+        {
+            "name": "dice"
+        },
+        {
+            "name": "carpet"
+        },
+        {
+            "name": "tile"
+        },
+        {
+            "name": "cardboard"
+        },
+        {
+            "name": "metal"
+        },
+        {
+            "name": "rods"
+        },
+        {
+            "name": "diamond"
+        },
+        {
+            "name": "sandstone"
+        },
+        {
+            "name": "wood"
+        },
+        {
+            "name": "xeno_egg"
+        },
+        {
+            "name": "ripley"
+        },
+        {
+            "name": "animal_hide"
+        },
+        {
+            "name": "snowman"
+        },
+        {
+            "name": "seed"
+        },
+        {
+            "name": "esword"
+        },
+        {
+            "name": "esword_dual"
+        },
+        {
+            "name": "handcuffs"
+        },
+        {
+            "name": "gauze"
+        },
+        {
+            "name": "eyes"
+        },
+        {
+            "name": "scapel"
+        },
+        {
+            "name": "pill"
+        },
+        {
+            "name": "medkit"
+        },
+        {
+            "name": "toolbox"
+        },
+        {
+            "name": "wrench"
+        },
+        {
+            "name": "tank"
+        },
+        {
+            "name": "crate"
+        },
+        {
+            "name": "crate_secure"
+        },
+        {
+            "name": "locker"
+        },
+        {
+            "name": "locker_clothing"
+        },
+        {
+            "name": "dresser"
+        },
+        {
+            "name": "cabinet"
+        },
+        {
+            "name": "fridge"
+        },
+        {
+            "name": "lamp"
+        },
+        {
+            "name": "lighter"
+        },
+        {
+            "name": "cigarettes"
+        },
+        {
+            "name": "stamp"
+        },
+        {
+            "name": "pen"
+        },
+        {
+            "name": "folder"
+        },
+        {
+            "name": "paper"
+        },
+        {
+            "name": "soup"
+        },
+        {
+            "name": "can"
+        },
+        {
+            "name": "pizzabox"
+        },
+        {
+            "name": "vending_restock"
+        },
+        {
+            "name": "book"
+        },
+        {
+            "name": "mopbucket"
+        },
+        {
+            "name": "caution"
+        },
+        {
+            "name": "tray"
+        },
+        {
+            "name": "trash_bin"
+        },
+        {
+            "name": "box"
+        },
+        {
+            "name": "soap"
+        },
+        {
+            "name": "moisture_trap"
+        },
+        {
+            "name": "shard"
+        },
+        {
+            "name": "rune"
+        },
+        {
+            "name": "peel"
+        },
+        {
+            "name": "vomit"
+        },
+        {
+            "name": "cannabis"
+        },
+        {
+            "name": "piano"
+        },
+        {
+            "name": "flower"
+        },
+        {
+            "name": "plushie"
+        },
+        {
+            "name": "donkpocket_single"
+        },
+        {
+            "name": "cake"
+        },
+        {
+            "name": "wrapping_paper"
+        },
+        {
+            "name": "big_anomaly"
+        },
+        {
+            "name": "anomaly"
+        },
+        {
+            "name": "anomaly_stationary"
+        }
+    ]
+}
