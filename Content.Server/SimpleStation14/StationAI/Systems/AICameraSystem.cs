@@ -20,6 +20,7 @@ namespace Content.Server.SimpleStation14.StationAI.Systems
                 return;
 
             component.CameraName = camera.CameraId;
+            component.CameraCategories = camera.AvailableNetworks;
             component.Enabled = true;
 
             Dirty(component);

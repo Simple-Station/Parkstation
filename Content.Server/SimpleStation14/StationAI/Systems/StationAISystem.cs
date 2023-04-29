@@ -23,14 +23,18 @@ namespace Content.Shared.SimpleStation14.StationAI
 
         private void OnStartup(EntityUid uid, StationAIComponent component, ComponentStartup args)
         {
-            if (!_prototypeManager.TryIndex(component.Action, out InstantActionPrototype? proto)) return;
+            if (!_prototypeManager.TryIndex(component.Action, out InstantActionPrototype? proto))
+                return;
+
             var action = new InstantAction(proto);
             _actions.AddAction(uid, action, null);
         }
 
         private void OnShutdown(EntityUid uid, StationAIComponent component, ComponentShutdown args)
         {
-            if (!_prototypeManager.TryIndex(component.Action, out InstantActionPrototype? proto)) return;
+            if (!_prototypeManager.TryIndex(component.Action, out InstantActionPrototype? proto))
+                return;
+
             var action = new InstantAction(proto);
             _actions.RemoveAction(uid, action, null);
         }

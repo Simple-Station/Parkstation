@@ -1,4 +1,6 @@
+using System.Linq;
 using Content.Server.SurveillanceCamera;
+using Content.Shared.SimpleStation14.StationAI;
 using Content.Shared.SimpleStation14.StationAI.Events;
 using Robust.Server.GameObjects;
 
@@ -17,13 +19,12 @@ namespace Content.Server.SimpleStation14.StationAI.Systems
 
         private void HandleCameraListMessage(AICameraListMessage args)
         {
-            var cameras = EntityManager.EntityQuery<SurveillanceCameraComponent>();
-            var cameraList = new List<EntityUid>();
+            // You need to be an AI to use this.
+            if (!EntityManager.TryGetComponent<AIEyeComponent>(args.Owner, out var _))
+                return;
 
-            foreach (var camera in cameras)
-            {
-                cameraList.Add(camera.Owner);
-            }
+            var cameras = EntityManager.EntityQuery<SurveillanceCameraComponent>();
+            var cameraList = cameras.Select(camera => camera.Owner).ToList();
 
             var ui = _userInterfaceSystem.GetUi(args.Owner, args.UiKey);
             var state = new AIBoundUserInterfaceState(cameraList);

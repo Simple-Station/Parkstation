@@ -38,9 +38,9 @@ public sealed class PrototypeSaveTest
         "constructionghost",
         "MobGlimmerWisp", // fucking combat mode bullshit
         // I don't want to figure out what's wrong with these lol
-        "AIBase",
-        "AICore",
-        "AIEye",
+        // "AIBase",
+        // "AICore",
+        // "AIEye",
         "ClothingOuterPurpleCoat",
         "MagicMedipen",
         "Sleeper",

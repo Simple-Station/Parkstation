@@ -225,6 +225,9 @@
     # Only ghosts can see the eye
     - type: Visibility
       layer: 4
+    # Can see through walls for now
+    - type: Eye
+      drawFov: false
     - type: Input
       context: "human"
     - type: MobMover
@@ -255,6 +258,7 @@
       radius: 3
       energy: 1
       color: "#9dc5c9"
+    - type: IntrinsicUI
       uis:
         - key: enum.LawsUiKey.Key
           toggleAction:
@@ -279,8 +283,8 @@
         # There is too many issues this PR has fixed we need live for me to keep delaying it with more things
         # - key: enum.AICameraListUiKey.Key
         #   toggleAction:
-        #     name: Warp menu
-        #     description: Teleport to cameras and crew
+        #     name: ai-warp-menu-title
+        #     description: ai-warp-menu-description
         #     icon: SimpleStation14/Mobs/Silicon/ai.rsi/icon-camera.png
         #     iconOn: SimpleStation14/Mobs/Silicon/ai.rsi/icon-camera.png
         #     keywords: ["AI", "console", "interface"]

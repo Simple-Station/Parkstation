@@ -58,9 +58,11 @@ namespace Content.Server.SimpleStation14.StationAI
 
         private void OnPowerUsed(EntityUid uid, AIEyePowerComponent component, AIEyePowerActionEvent args)
         {
-            var ai = _entityManager.EnsureComponent<StationAIComponent>(uid);
+            // var ai = _entityManager.EnsureComponent<StationAIComponent>(uid);
+            if (!_entityManager.TryGetComponent<StationAIComponent>(uid, out var ai))
+                return;
 
-            // Mindswap
+            // Mind swap
             var projection = Spawn(component.Prototype, Transform(uid).Coordinates);
             ai.ActiveEye = projection;
             var core = _entityManager.GetComponent<MetaDataComponent>(uid);
@@ -69,12 +71,17 @@ namespace Content.Server.SimpleStation14.StationAI
             _mindSwap.Swap(uid, projection);
 
             // Consistent name
-            if (core.EntityName != "") _entityManager.GetComponent<MetaDataComponent>(projection).EntityName = core.EntityName;
-            else _entityManager.GetComponent<MetaDataComponent>(projection).EntityName = "Invalid AI";
+            _entityManager.GetComponent<MetaDataComponent>(projection).EntityName =
+                core.EntityName != ""
+                ? core.EntityName
+                : "Invalid AI";
 
             // Consistent laws
             var laws = _entityManager.GetComponent<LawsComponent>(uid);
-            foreach (var law in laws.Laws) _laws.AddLaw(projection, law);
+            foreach (var law in laws.Laws)
+            {
+                _laws.AddLaw(projection, law);
+            }
 
             args.Handled = true;
         }
@@ -106,6 +113,7 @@ namespace Content.Server.SimpleStation14.StationAI
             SoundSystem.Play("/Audio/SimpleStation14/Machines/AI/borg_death.ogg", Filter.Pvs(uid), uid);
         }
     }
+
 
     public sealed class AIEyePowerActionEvent : InstantActionEvent
     {

@@ -1,3 +1,4 @@
+using Content.Shared.SimpleStation14.StationAI;
 using Content.Shared.SimpleStation14.StationAI.Events;
 
 namespace Content.Server.SimpleStation14.StationAI.Systems
@@ -16,10 +17,15 @@ namespace Content.Server.SimpleStation14.StationAI.Systems
 
         private void HandleCameraWarpMessage(AICameraWarpMessage args)
         {
-            if (!_entityManager.TryGetComponent<TransformComponent>(args.Owner, out var transform)) return;
-            if (!_entityManager.TryGetComponent<TransformComponent>(args.Camera, out var cameraTransform)) return;
+            // You need to be an AI to do this.
+            if (!_entityManager.TryGetComponent<AIEyeComponent>(args.Owner, out var _))
+                return;
 
-            if (transform.MapID != cameraTransform.MapID) return;
+            var transform = Transform(args.Owner);
+            var cameraTransform = Transform(args.Camera);
+
+            if (transform.MapID != cameraTransform.MapID)
+                return;
 
             _transformSystem.SetCoordinates(args.Owner, cameraTransform.Coordinates);
             transform.AttachToGridOrMap();

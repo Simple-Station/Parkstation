@@ -4,7 +4,6 @@ using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Power.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.DeviceNetwork;
-using Content.Shared.SimpleStation14.StationAI;
 using Content.Shared.SurveillanceCamera;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
@@ -52,7 +51,6 @@ public sealed class SurveillanceCameraSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<SurveillanceCameraComponent, ComponentStartup>(OnInit);
         SubscribeLocalEvent<SurveillanceCameraComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<SurveillanceCameraComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<SurveillanceCameraComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
@@ -147,17 +145,6 @@ public sealed class SurveillanceCameraSystem : EntitySystem
     private void OnPowerChanged(EntityUid camera, SurveillanceCameraComponent component, ref PowerChangedEvent args)
     {
         SetActive(camera, args.Powered, component);
-    }
-
-    private void OnInit(EntityUid camera, SurveillanceCameraComponent component, ComponentStartup args)
-    {
-        var _entityManager = IoCManager.Resolve<IEntityManager>();
-
-        _entityManager.EnsureComponent<AICameraComponent>(camera, out var cam);
-        var cama = _entityManager.GetComponent<SurveillanceCameraComponent>(camera);
-
-        cam.CameraName = cama.CameraId;
-        cam.CameraCategories = cama.AvailableNetworks;
     }
 
     private void OnShutdown(EntityUid camera, SurveillanceCameraComponent component, ComponentShutdown args)
