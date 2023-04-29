@@ -35,6 +35,11 @@
     - NanoTrasen
   - type: MailReceiver
   - type: PotentialPsionic
+  - type: CantInteract
+    unless:
+      tags:
+        - DoorBumpOpener
+      requireAll: false
 
 #Syndie
 - type: entity
