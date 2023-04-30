@@ -12,6 +12,7 @@ using Content.Server.Stunnable;
 using Content.Server.Ghost.Components;
 using Content.Server.Roles;
 using Content.Server.GameTicking;
+using Content.Server.SimpleStation14.Announcements.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Humanoid.Prototypes;
@@ -42,6 +43,7 @@ namespace Content.Server.Fugitive
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly StunSystem _stun = default!;
         [Dependency] private readonly AudioSystem _audioSystem = default!;
+        [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
 
         public override void Initialize()
         {
@@ -58,7 +60,8 @@ namespace Content.Server.Fugitive
             {
                 if (cd.AnnounceTime != null && _timing.CurTime > cd.AnnounceTime)
                 {
-                    _chat.DispatchGlobalAnnouncement(Loc.GetString("station-event-fugitive-hunt-announcement"), sender: Loc.GetString("fugitive-announcement-GALPOL"), colorOverride: Color.Yellow);
+                    // _chat.DispatchGlobalAnnouncement(Loc.GetString("station-event-fugitive-hunt-announcement"), sender: Loc.GetString("fugitive-announcement-GALPOL"), colorOverride: Color.Yellow);
+                    _announcerSystem.SendAnnouncement("commandreport", Filter.Broadcast(), Loc.GetString("station-event-fugitive-hunt-announcement"), Loc.GetString("fugitive-announcement-GALPOL"), Color.Yellow);
 
                     foreach (var console in EntityQuery<CommunicationsConsoleComponent>())
                     {

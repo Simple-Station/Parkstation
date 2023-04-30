@@ -60,7 +60,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      50: Dead
   - type: Stamina
     excess: 200
   - type: Bloodstream
@@ -81,7 +81,7 @@
     animation: WeaponArcBite
     damage:
       groups:
-        Brute: 12
+        Brute: 6
   - type: Appearance
   - type: DamageStateVisuals
     rotate: true
@@ -147,7 +147,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead
+      75: Dead
   - type: Stamina
     excess: 300
   - type: SlowOnDamage
@@ -183,15 +183,16 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      150: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 5
   - type: Stamina
     excess: 200
   - type: MovementSpeedModifier
     baseWalkSpeed : 5.5
     baseSprintSpeed : 3
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      150: 0.7
   - type: Fixtures
     fixtures:
     - shape:
@@ -222,7 +223,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      1500: Dead
+      500: Dead
   - type: Stamina
     excess: 1500
   - type: MovementSpeedModifier
@@ -232,7 +233,7 @@
     hidden: true
     damage:
      groups:
-       Brute: 40
+       Brute: 20
   - type: SlowOnDamage
     speedModifierThresholds:
       1000: 0.7
@@ -268,7 +269,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      550: Dead
+      200: Dead
   - type: Stamina
     excess: 550
   - type: MovementSpeedModifier
@@ -278,7 +279,7 @@
     hidden: true
     damage:
      groups:
-       Brute: 20
+       Brute: 10
   - type: SlowOnDamage
     speedModifierThresholds:
       450: 0.7
@@ -312,7 +313,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      250: Dead
+      50: Dead
   - type: Stamina
     excess: 250
   - type: MovementSpeedModifier
@@ -322,15 +323,12 @@
     hidden: true
     damage:
      groups:
-       Brute: 8
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      200: 0.7
+       Brute: 3
   - type: Fixtures
     fixtures:
     - shape:
         !type:PhysShapeCircle
-        radius: 0.45
+        radius: 0.35
       density: 235
       mask:
       - MobMask
@@ -366,7 +364,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead
+      75: Dead
   - type: Stamina
     excess: 300
   - type: SlowOnDamage
