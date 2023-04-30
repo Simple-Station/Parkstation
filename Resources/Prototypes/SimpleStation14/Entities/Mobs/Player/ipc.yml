@@ -23,6 +23,7 @@
       3: 0.45
       4: 0.00
   - type: Carriable
+  - type: BatteryDrinker
 
 - type: entity
   save: false
