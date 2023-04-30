@@ -62,8 +62,6 @@
     # Allow examining things
     - type: Mind
       showExamineInfo: true
-    - type: Body
-      prototype: AIBody
     - type: Input
       context: "human"
     - type: MobMover
@@ -75,7 +73,6 @@
     - type: Tag
       tags:
         - CannotSuicide
-        - CanPilot
     - type: DoAfter
     - type: Speech
       speechSounds: Pai
