@@ -50,6 +50,7 @@ emergency_dock_time = 260.0
 emergency_transit_time = 180.0
 recall_turning_point = 0.75
 auto_call_time = 150
+arrivals = false
 
 [biomass]
 easy_mode = false
