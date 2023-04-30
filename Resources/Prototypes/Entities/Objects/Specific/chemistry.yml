@@ -272,7 +272,6 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill
-    scale: 0.5, 0.5
   - type: Item
     size: 1
     sprite: Objects/Specific/Chemistry/pills.rsi
