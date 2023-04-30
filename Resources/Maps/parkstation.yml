@@ -43582,20 +43582,6 @@ entities:
     type: Transform
   - nextAttack: 4426.3413178
     type: MeleeWeapon
-  - containers:
-      storagebase: !type:Container
-        ents:
-        - 5641
-    type: ContainerContainer
-- uid: 5641
-  type: LeftArmBorg
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 5640
-    type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 5642
   type: ClothingHeadHatCardborg
   components:

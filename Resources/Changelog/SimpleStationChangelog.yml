@@ -843,3 +843,17 @@ Entries:
       message: Fugitives send a command report announcement
   id: 71
   time: '2023-04-23T13:57:10Z'
+- author: SomeCabbage
+  changes:
+    - type: tweak
+      message: HoP's hardsuit helmet now looks more like the hat and less boring
+  id: 72
+  time: '2023-04-28T10:06:30Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: >-
+        The chemists have suddenly decided to greatly improve the look of their
+        pills, making patients much happier to ingest them.
+  id: 73
+  time: '2023-04-30T02:23:55Z'
