@@ -63,7 +63,6 @@
   description: A painfully saturated, nuclear powered, semi-softsuit made by the chief service supervisor after Nanotrasen denied their request for a proper hardsuit. Offers almost no protection from anything besides space.
   components:
   - type: Sprite
-    netsync: false
     sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/csssuit.rsi
     layers:
     - state: icon
@@ -71,6 +70,8 @@
       visible: false
       shader: unshaded
       map: [ "light" ]
+  - type: HandheldLight
+    addPrefix: false
   - type: ToggleableLightVisuals
     spriteLayer: light
     clothingVisuals:
