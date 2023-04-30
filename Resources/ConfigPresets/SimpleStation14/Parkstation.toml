@@ -81,7 +81,6 @@ loginlocal = true
 
 [hub]
 advertise = true
-# server_url = "ss14://0.0.0.0:1212"
 
 [auth]
 # 0 = Optional, 1 = Required, 2 = Disabled
@@ -109,34 +108,9 @@ discord = "https://discord.gg/49KeKwXc8g"
 github = "https://github.com/Park-Station/Parkstation"
 patreon = "https://www.patreon.com/simple14"
 
-[discord]
-# ahelp_webhook = "https://discord.com/api/webhooks/number/gibberish"
-# round_webhook = "https://discord.com/api/webhooks/number/gibberish"
-# round_roleid = "1091482392964890646"
-
 [netres]
 limit = 0.0
 
 
 [build]
 fork_id = "ParkStation14"
-
-[database]
-# Database type to use. Can be "sqlite" or "postgres" currently.
-engine = "sqlite"
-sync = false
-
-# Path to store the database at when using SQLite. Note that is NOT a disk path.
-# This is relative to the server data directory, which is specified by --data-dir when starting the server from the command (or automatically set by SS14.Watchdog)
-sqlite_dbpath = "preferences.db"
-sqlite_concurrency = 3
-
-# PostgreSQL database configuration, should be self explanatory.
-# pg_host = "localhost"
-# pg_port = 5432
-# pg_database = "ss14"
-# pg_username = "ss14"
-# pg_password = "ss14"
-
-# [config]
-# presets = Parkstation
