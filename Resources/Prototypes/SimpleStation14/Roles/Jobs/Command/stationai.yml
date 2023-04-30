@@ -1,10 +1,12 @@
 - type: job
   id: SAI
-  name: "station AI"
+  name: job-name-sai
+  description: job-description-sai
   playTimeTracker: JobSAI
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 60000
+  weight: 30
   icon: "StationAI"
   supervisors: "all crew"
   accessGroups:

@@ -1,6 +1,7 @@
 - type: job
   id: ChiefServiceSupervisor
-  name: "chief service supervisor"
+  name: job-name-css
+  description: job-description-css
   playTimeTracker: JobChiefServiceSupervisor
   requirements:
     - !type:DepartmentTimeRequirement
@@ -8,7 +9,7 @@
       time: 3600
     - !type:OverallPlaytimeRequirement
       time: 54000
-  weight: 20
+  weight: 10
   startingGear: CSSGear
   icon: "ChiefServiceSupervisor"
   requireAdminNotify: true

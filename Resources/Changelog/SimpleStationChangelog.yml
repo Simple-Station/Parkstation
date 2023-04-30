@@ -843,3 +843,9 @@ Entries:
       message: Fugitives send a command report announcement
   id: 71
   time: '2023-04-23T13:57:10Z'
+- author: SomeCabbage
+  changes:
+    - type: tweak
+      message: HoP's hardsuit helmet now looks more like the hat and less boring
+  id: 72
+  time: '2023-04-28T10:06:30Z'
