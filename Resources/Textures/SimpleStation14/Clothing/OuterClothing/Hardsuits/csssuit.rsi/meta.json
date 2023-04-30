@@ -11,8 +11,7 @@
             "name": "icon"
         },
         {
-            "name": "light-overlay",
-            "directions": 4
+            "name": "light-overlay"
         },
         {
             "name": "equipped-body",

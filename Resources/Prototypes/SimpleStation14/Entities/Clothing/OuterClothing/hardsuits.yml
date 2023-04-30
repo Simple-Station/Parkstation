@@ -58,7 +58,7 @@
 
 - type: entity
   parent: ClothingOuterHardsuitBase
-  id: ClothingOuterHardsuitHoP
+  id: ClothingOuterHardsuitCSS
   name: chief service supervisor's nuclear firmsuit
   description: A painfully saturated, nuclear powered, semi-softsuit made by the chief service supervisor after Nanotrasen denied their request for a proper hardsuit. Offers almost no protection from anything besides space.
   components:
