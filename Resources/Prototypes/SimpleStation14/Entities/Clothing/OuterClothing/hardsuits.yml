@@ -70,8 +70,6 @@
       visible: false
       shader: unshaded
       map: [ "light" ]
-  - type: Clothing
-    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/csssuit.rsi
   - type: HandheldLight
     addPrefix: false
   - type: ToggleableLightVisuals
