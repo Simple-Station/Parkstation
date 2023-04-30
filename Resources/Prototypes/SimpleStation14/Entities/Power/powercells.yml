@@ -1,0 +1,21 @@
+- type: entity
+  name: css's nuclear cell
+  description: A tiny, self-sufficient, nuclear power cell. Intended for use in the CSS's jury rigged suit. It slowly recharges by itself.
+  id: PowerCellCSS
+  suffix: Full
+  parent: BasePowerCell
+  components:
+    - type: Sprite
+      sprite: SimpleStation14\Objects\Power\cssCell.rsi
+      layers:
+      - map: [ "enum.PowerCellVisualLayers.Base" ]
+        state: cssCell
+      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+        state: cssCellUnshaded
+        shader: unshaded
+    - type: Battery
+      maxCharge: 180
+      startingCharge: 180
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 0.5 #takes about 6 minutes to charge itself back to full

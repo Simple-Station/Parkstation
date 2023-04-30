@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Cabbage#9633",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "light-overlay",
+            "directions": 4
+        },
+        {
+            "name": "equipped-body",
+            "directions": 4
+        },
+        {
+            "name": "equipped-body-light",
+            "directions": 4
+        },
+        {
+            "name": "equipped-body-unshaded",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

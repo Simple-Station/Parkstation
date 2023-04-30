@@ -55,3 +55,56 @@
     damageCoefficient: 0.8
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitHoP
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitHoP
+  name: chief service supervisor's nuclear firmsuit
+  description: A painfully saturated, nuclear powered, semi-softsuit made by the chief service supervisor after Nanotrasen denied their request for a proper hardsuit. Offers almost no protection from anything besides space.
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/csssuit.rsi
+    layers:
+    - state: icon
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      body:
+      - state: equipped-body-light
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      body:
+      - state: equipped-body
+      - state: equipped-body-unshaded
+        shader: unshaded
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellCSS
+  - type: PointLight
+    radius: 8
+    energy: 1
+    color: "#ff2034"
+  - type: PressureProtection
+    highPressureMultiplier: 0.4
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.9
+        Radiation: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.95

@@ -54,3 +54,18 @@
         Piercing: 0.95
         Heat: 0.9
         Radiation: 0.6
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHelmetHardsuitCSS
+  noSpawn: true
+  name: chief service supervisor's keeper helmet
+  description: An ingenious and simultaneously impossible, flexible, air-tight mesh helmet used for EVA.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/Head/Hardsuits/csssuit.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/Head/Hardsuits/csssuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
