@@ -38221,13 +38221,13 @@ entities:
     parent: 1
     type: Transform
 - uid: 4839
-  type: CrateFunInstruments
+  type: CrateFunInstrumentsVariety
   components:
   - pos: 19.5,-14.5
     parent: 1
     type: Transform
 - uid: 4840
-  type: CrateFunBrass
+  type: CrateFunInstrumentsBrass
   components:
   - pos: 19.5,-13.5
     parent: 1
