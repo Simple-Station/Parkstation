@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Server.GameTicking;
+using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -35,9 +35,9 @@ public sealed class PunpunSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<PunpunComponent, ComponentStartup>(OnRoundStart);
-        SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
+        SubscribeLocalEvent<RoundEndedEvent>(OnRoundEnd);
     }
 
     // Checks if the Punpun data has any itemss to eqiup, and names the Punpun upon initialization.
@@ -68,7 +68,7 @@ public sealed class PunpunSystem : EntitySystem
 
     // Checks if Punpun exists, and is alive at round end.
     // If so, stores the items and increments the Punpun count.
-    private void OnRoundEnd(RoundEndTextAppendEvent ev)
+    private void OnRoundEnd(RoundEndedEvent ev)
     {
         // Do an entity query to get all the punpun components
         var punpunComponents = EntityManager.EntityQuery<PunpunComponent>();
@@ -118,7 +118,7 @@ public sealed class PunpunSystem : EntitySystem
     {
         if (_inventorySystem.TryGetSlotEntity(uid, slot, out var item) && item != null)
             return _entityManager.GetComponent<MetaDataComponent>(item.Value).EntityPrototype!.ID;
-        
+
         return String.Empty;
     }
 }

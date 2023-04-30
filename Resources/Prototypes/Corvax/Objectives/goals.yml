@@ -21,3 +21,36 @@
 - type: stationGoal
   id: StationGoalZoo
   text: station-goal-zoo
+
+
+- type: weightedRandom
+  id: StationGoals
+  weights:
+    StationGoalPower: 1
+    StationGoalDepartment: 1
+    StationGoalStation: 1
+
+
+- type: weightedRandom
+  id: StationGoalDepartment
+  weights:
+    StationGoalScience: 1
+
+
+- type: weightedRandom
+  id: StationGoalPower
+  weights:
+    StationGoalSolarPanels: 1
+    StationGoalSingularity: 1
+
+- type: weightedRandom
+  id: StationGoalScience
+  weights:
+    StationGoalArtifacts: 1
+
+- type: weightedRandom
+  id: StationGoalStation
+  weights:
+    StationGoalShuttle: 1
+    StationGoalBank: 1
+    StationGoalZoo: 1
