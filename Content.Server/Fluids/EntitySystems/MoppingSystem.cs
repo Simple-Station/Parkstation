@@ -1,7 +1,9 @@
 using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Fluids.Components;
+using Content.Server.Mind.Components;
 using Content.Server.Popups;
+using Content.Server.SimpleStation14.EndOfRoundStats.MopUsed;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
@@ -281,6 +283,17 @@ public sealed class MoppingSystem : SharedMoppingSystem
         _solutionSystem.TryTransferSolution(args.Target.Value, uid, args.TargetSolution,
             AbsorbentComponent.SolutionName, args.TransferAmount);
         component.InteractingEntities.Remove(args.Target.Value);
+
+        // Parkstation-EndOfRoundStats-Start
+        String? username = null;
+
+        if (EntityManager.TryGetComponent<MindComponent>(args.Args.User, out var mindComp)
+            && mindComp.Mind != null &&
+            mindComp.Mind.Session != null)
+            username = mindComp.Mind.Session.Name;
+
+        RaiseLocalEvent(new MopUsedStatEvent(MetaData(args.Args.User).EntityName, args.AdditionalData.TransferAmount, username));
+        // Parkstation-EndOfRoundStats-End
 
         args.Handled = true;
     }
