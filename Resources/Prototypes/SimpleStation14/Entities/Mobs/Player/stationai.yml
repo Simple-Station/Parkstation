@@ -240,10 +240,6 @@
           sprite: SimpleStation14/Mobs/Silicon/ai.rsi
           state: aieye
           shader: unshaded
-    - type: PointLight
-      radius: 3
-      energy: 1
-      color: "#9dc5c9"
     - type: IntrinsicUI
       uis:
         - key: enum.LawsUiKey.Key
