@@ -38,6 +38,7 @@
       color: "#93e2ff"
       delay: 5
       global: true
+      showAuthor: false
     # Innate door remotes (bolting, emergency access, etc)
     - type: InnateItem
       afterInteract: false
