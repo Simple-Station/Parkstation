@@ -21,7 +21,7 @@ public sealed class DropOnSlipSystem : EntitySystem
         SubscribeLocalEvent<InventoryComponent, SlipEvent>(HandleSlip);
     }
 
-    private void HandleSlip(EntityUid uid, InventoryComponent inventoryComponent, SlipEvent args)
+    private void HandleSlip(EntityUid uid, InventoryComponent inventoryComponent, ref SlipEvent args)
     {
         var invSystem = _entities.System<InventorySystem>();
         if (invSystem.TryGetSlots(uid, out var slotDefinitions, inventoryComponent))
