@@ -18,9 +18,8 @@ public sealed class ResetNarcolepsy : ReagentEffect
 
     public override void Effect(ReagentEffectArgs args)
     {
-        if (args.Scale != 1f)
-            return;
-
-        args.EntityManager.EntitySysManager.GetEntitySystem<NarcolepsySystem>().AdjustNarcolepsyTimer(args.SolutionEntity, TimerReset);
+        if (args.Scale > 0.9f) {
+            args.EntityManager.EntitySysManager.GetEntitySystem<NarcolepsySystem>().AdjustNarcolepsyTimer(args.SolutionEntity, TimerReset);
+        }
     }
 }
