@@ -26,7 +26,7 @@ public sealed class BloodLostStatSystem : EntitySystem
     {
         var line = String.Empty;
 
-        if (totalBloodLost < 100)
+        if (totalBloodLost < 150)
             return;
 
         line += GenerateBloodLost(totalBloodLost);
@@ -36,7 +36,7 @@ public sealed class BloodLostStatSystem : EntitySystem
 
     private string GenerateBloodLost(float bloodLost)
     {
-        return "[color=maroon]" + (float) Math.Round(bloodLost) + " units of blood was lost this round" + "[/color]";
+        return "[color=maroon]" + (float) Math.Round(bloodLost) + " units of blood were lost this round" + "[/color]";
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)

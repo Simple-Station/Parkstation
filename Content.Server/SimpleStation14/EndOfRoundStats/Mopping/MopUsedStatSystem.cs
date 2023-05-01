@@ -53,7 +53,7 @@ public sealed class MopUsedStatSystem : EntitySystem
 
         if (userMopStats.Count == 0)
         {
-            line += "[color=red]" + "Not one puddle was mopped this round!" + "[/color]";
+            line += "\n[color=red]" + "Not one puddle was mopped this round!" + "[/color]";
         }
         else
         {
@@ -98,11 +98,11 @@ public sealed class MopUsedStatSystem : EntitySystem
                     impressColor = "[color=silver]";
                     break;
                 default:
-                    impressColor = "[color=brown]";
+                    impressColor = "[color=bronze]";
                     break;
             }
 
-            line += "A total of " + impressColor + totalAmountMopped.Int() + "[/color]" + " units of liquid was mopped this round across " + impressColor + timesMopped + "[/color]" + " puddles!";
+            line += "\nA total of " + impressColor + totalAmountMopped.Int() + "[/color]" + " units of liquid was mopped this round across " + impressColor + timesMopped + "[/color]" + " puddles!";
 
             line += "\n" + "The top moppers were:";
 
@@ -131,7 +131,7 @@ public sealed class MopUsedStatSystem : EntitySystem
                     impressColor = "[color=silver]";
                     break;
                 default:
-                    impressColor = "[color=brown]";
+                    impressColor = "[color=bronze]";
                     break;
             }
 

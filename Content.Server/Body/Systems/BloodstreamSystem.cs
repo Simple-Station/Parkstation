@@ -21,6 +21,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Server.SimpleStation14.EndOfRoundStats.BloodLost;
 
 namespace Content.Server.Body.Systems;
 
@@ -106,7 +107,7 @@ public sealed class BloodstreamSystem : EntitySystem
                 TryModifyBloodLevel(uid, (-bloodstream.BleedAmount) / 20, bloodstream);
                 TryModifyBleedAmount(uid, -bloodstream.BleedReductionAmount, bloodstream);
 
-                totalBloodLost += (bloodstream.BleedAmount) / 20; // Parkstation-EndOfRoundStats
+                totalBloodLost += bloodstream.BleedAmount / 20; // Parkstation-EndOfRoundStats
             }
 
             // Next, we'll deal some bloodloss damage if their blood level is below a threshold.

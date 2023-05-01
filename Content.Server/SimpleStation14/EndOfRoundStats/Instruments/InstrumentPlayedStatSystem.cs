@@ -52,8 +52,8 @@ public sealed class InstrumentPlayedStatSystem : EntitySystem
                 topPlayer = (player, amountPlayed);
         }
 
-        if (topPlayer.Item2 < TimeSpan.FromMinutes(8))
-            line += "[color=red]" + "No vibes were had this round..." + "[/color]";
+        if (topPlayer.Item2 < TimeSpan.FromMinutes(10))
+            return;
         else
             line += GenerateTopPlayer(topPlayer.Item1, topPlayer.Item2);
 
