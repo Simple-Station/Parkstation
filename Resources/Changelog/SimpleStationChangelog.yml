@@ -857,3 +857,9 @@ Entries:
         pills, making patients much happier to ingest them.
   id: 73
   time: '2023-04-30T02:23:55Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Airlocks now check your belt slot for accesses
+  id: 74
+  time: '2023-05-01T04:08:37Z'
