@@ -46,9 +46,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         instrument.Playing = true;
         instrument.Dirty();
 
-        // Parkstation-EndOfRoundStats-Start
-        instrument.TimeStartedPlaying = _gameTiming.CurTime;
-        // Parkstation-EndOfRoundStats-End
+        instrument.TimeStartedPlaying = _gameTiming.CurTime; // Parkstation-EndOfRoundStats
     }
 
     private void OnMidiStop(InstrumentStopMidiEvent msg, EntitySessionEventArgs args)
