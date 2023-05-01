@@ -863,3 +863,15 @@ Entries:
       message: Airlocks now check your belt slot for accesses
   id: 74
   time: '2023-05-01T04:08:37Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Moved SAI door remote to actions
+    - type: fix
+      message: SAI no longer collides with ghosts in eye form
+    - type: fix
+      message: SAI can see items and actions when in eye form
+    - type: fix
+      message: SAI no longer has a body :) -Psprite
+  id: 75
+  time: '2023-05-01T04:13:49Z'
