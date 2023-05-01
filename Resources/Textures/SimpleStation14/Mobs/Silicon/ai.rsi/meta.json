@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "size": { "x": 32, "y": 32 },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "",
+    "states": [
+        {
+            "name": "ai_dead",
+            "delays": [[1.0]]
+        },
+        {
+            "name": "ai",
+            "delays": [
+                [
+                    0.2, 0.2, 0.1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2,
+                    0.2, 0.2, 0.1
+                ]
+            ]
+        },
+        {
+            "name": "aieye",
+            "delays": [[0.5, 0.5]]
+        },
+        {
+            "name": "icon-camera"
+        },
+        {
+            "name": "icon-comms"
+        }
+    ]
+}

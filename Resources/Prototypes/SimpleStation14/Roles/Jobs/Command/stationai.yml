@@ -12,7 +12,7 @@
   accessGroups:
     - AllAccess
   canBeAntag: false
-  jobEntity: AI
+  jobEntity: AICore
   startingGear: CyborgGear # for char preview only
   alwaysUseSpawner: true
   canHaveTraits: false

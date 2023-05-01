@@ -33,6 +33,7 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: camera
   - type: Appearance
+  - type: AICamera
   - type: SurveillanceCameraVisuals
     sprites:
       Active: camera
