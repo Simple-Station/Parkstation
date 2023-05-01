@@ -51,11 +51,9 @@ public sealed class MopUsedStatSystem : EntitySystem
     {
         var line = String.Empty;
 
-        line += "\n\n" + "[color=green]" + "Mopping statistics!" + "[/color]";
-
         if (userMopStats.Count == 0)
         {
-            line += "\n   [color=red]" + "Not one puddle was mopped this round!" + "[/color]";
+            line += "[color=red]" + "Not one puddle was mopped this round!" + "[/color]";
         }
         else
         {
@@ -90,13 +88,13 @@ public sealed class MopUsedStatSystem : EntitySystem
 
             switch (timesMopped)
             {
-                case var x when x > 1200:
+                case var x when x > 1600:
                     impressColor = "[color=blue]";
                     break;
-                case var x when x > 600:
+                case var x when x > 800:
                     impressColor = "[color=gold]";
                     break;
-                case var x when x > 200:
+                case var x when x > 300:
                     impressColor = "[color=silver]";
                     break;
                 default:
@@ -104,10 +102,9 @@ public sealed class MopUsedStatSystem : EntitySystem
                     break;
             }
 
-            totalAmountMopped = (int) totalAmountMopped;
-            line += "\n   " + "A total of " + impressColor + totalAmountMopped + "[/color]" + " units of liquid was mopped this round across " + impressColor + timesMopped + "[/color]" + " puddles!";
+            line += "A total of " + impressColor + totalAmountMopped.Int() + "[/color]" + " units of liquid was mopped this round across " + impressColor + timesMopped + "[/color]" + " puddles!";
 
-            line += "\n\n   " + "The top moppers were:";
+            line += "\n" + "The top moppers were:";
 
             line += GenerateTopMopper(topMopperOne.Item1, topMopperOne.Item2);
             line += GenerateTopMopper(topMopperTwo.Item1, topMopperTwo.Item2);
@@ -139,9 +136,9 @@ public sealed class MopUsedStatSystem : EntitySystem
             }
 
             if (data.Username == null)
-                line += "\n   " + impressColor + currentPlace + ". " + data.Name + " with " + (int) amountMopped + " units mopped!" + "[/color]";
+                line += "\n" + impressColor + currentPlace + ". " + data.Name + " with " + (int) amountMopped + " units mopped!" + "[/color]";
             else
-                line += "\n   " + impressColor + currentPlace + ". " + data.Username + " as " + data.Name + " with " + (int) amountMopped + " units mopped!" + "[/color]";
+                line += "\n" + impressColor + currentPlace + ". " + data.Username + " as " + data.Name + " with " + (int) amountMopped + " units mopped!" + "[/color]";
 
             currentPlace++;
         }

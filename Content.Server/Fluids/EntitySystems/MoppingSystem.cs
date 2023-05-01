@@ -285,14 +285,19 @@ public sealed class MoppingSystem : SharedMoppingSystem
         component.InteractingEntities.Remove(args.Target.Value);
 
         // Parkstation-EndOfRoundStats-Start
-        String? username = null;
+        if (args.AdditionalData.TransferAmount < 0)
+        {
+            String? username = null;
 
-        if (EntityManager.TryGetComponent<MindComponent>(args.Args.User, out var mindComp)
-            && mindComp.Mind != null &&
-            mindComp.Mind.Session != null)
-            username = mindComp.Mind.Session.Name;
+            if (EntityManager.TryGetComponent<MindComponent>(args.Args.User, out var mindComp)
+                && mindComp.Mind != null &&
+                mindComp.Mind.Session != null)
+            {
+                username = mindComp.Mind.Session.Name;
+            }
 
-        RaiseLocalEvent(new MopUsedStatEvent(MetaData(args.Args.User).EntityName, args.AdditionalData.TransferAmount, username));
+            RaiseLocalEvent(new MopUsedStatEvent(MetaData(args.Args.User).EntityName, args.AdditionalData.TransferAmount, username));
+        }
         // Parkstation-EndOfRoundStats-End
 
         args.Handled = true;

@@ -7,8 +7,6 @@ public sealed class InstrumentPlayedStatSystem : EntitySystem
 {
     Dictionary<PlayerData, TimeSpan> userPlayStats = new();
 
-    int currentPlace = 1; // For making the top players.
-
     public struct PlayerData
     {
         public String Name;
@@ -46,39 +44,30 @@ public sealed class InstrumentPlayedStatSystem : EntitySystem
     {
         var line = String.Empty;
 
-        if (userPlayStats.Count == 0)
+        (PlayerData, TimeSpan) topPlayer = (new PlayerData(), TimeSpan.Zero);
+
+        foreach (var (player, amountPlayed) in userPlayStats)
         {
-            line += "\n\n[color=red]" + "No vibes were had this round..." + "[/color]";
+            if (amountPlayed >= topPlayer.Item2)
+                topPlayer = (player, amountPlayed);
         }
+
+        if (topPlayer.Item2 < TimeSpan.FromMinutes(8))
+            line += "[color=red]" + "No vibes were had this round..." + "[/color]";
         else
-        {
-            (PlayerData, TimeSpan) topPlayer = (new PlayerData(), TimeSpan.Zero);
-
-            foreach (var (player, amountPlayed) in userPlayStats)
-            {
-                if (amountPlayed >= topPlayer.Item2)
-                    topPlayer = (player, amountPlayed);
-            }
-
             line += GenerateTopPlayer(topPlayer.Item1, topPlayer.Item2);
-        }
 
-        ev.AddLine(line);
+        ev.AddLine("\n" + line);
     }
 
     private String GenerateTopPlayer(PlayerData data, TimeSpan amountPlayed)
     {
         var line = String.Empty;
 
-        if (amountPlayed > TimeSpan.Zero)
-        {
-            if (data.Username == null)
-                line += "\n\n" + "The master of vibes this round was " + data.Name + " \n" + "having played their tunes for " + amountPlayed + "!";
-            else
-                line += "\n\n" + "The master of vibes this round was " + data.Username + " as " + data.Name + " \n" + "having played their tunes for " + amountPlayed + "!";
-
-            currentPlace++;
-        }
+        if (data.Username == null)
+            line += "The master of vibes this round was " + data.Name + " \n" + "having played their tunes for " + amountPlayed.Minutes + " minutes!";
+        else
+            line += "The master of vibes this round was " + data.Username + " as " + data.Name + " \n" + "having played their tunes for " + amountPlayed.Minutes + " minutes!";
 
         return line;
     }
@@ -86,6 +75,5 @@ public sealed class InstrumentPlayedStatSystem : EntitySystem
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
     {
         userPlayStats.Clear();
-        currentPlace = 1;
     }
 }
