@@ -1,5 +1,6 @@
 ﻿using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
+using Content.Server.Mind.Components;
 using Content.Server.Players;
 using Content.Shared.Administration;
 using Content.Shared.Ghost;
@@ -63,6 +64,9 @@ namespace Content.Server.Administration.Commands
                 _entities.GetComponent<MetaDataComponent>(ghost).EntityName = player.Name;
                 mind.TransferTo(ghost);
             }
+
+            // Mind doesn't seem to do this for us?
+            _entities.EventBus.RaiseLocalEvent(ghost, new MindAddedMessage());
 
             var comp = _entities.GetComponent<GhostComponent>(ghost);
             EntitySystem.Get<SharedGhostSystem>().SetCanReturnToBody(comp, canReturn);

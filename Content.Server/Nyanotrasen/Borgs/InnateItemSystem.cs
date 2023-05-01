@@ -23,6 +23,7 @@ namespace Content.Server.Borgs
 
         private void OnMindAdded(EntityUid uid, InnateItemComponent component, MindAddedMessage args)
         {
+            Logger.ErrorS("innate", $"OnMindAdded: {uid}");
             if (!component.AlreadyInitialized)
                 RefreshItems(uid, component);
 
