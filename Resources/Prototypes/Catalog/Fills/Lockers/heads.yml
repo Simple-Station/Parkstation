@@ -55,6 +55,9 @@
       - id: WeaponAntiqueLaser
       - id: JetpackCaptainFilled
       - id: ClothingHeadHatBeretCap
+      - id: ClothingHeadCaptainHat
+      - id: ClothingHeadCaptainCap
+      - id: ClothingOuterCoatCaptain
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -82,6 +85,7 @@
       - id: BoxEncryptionKeyCommand
       - id: BoxEncryptionKeyPassenger
       - id: DoorRemoteCommand
+      - id: ClothingOuterCoatHOP
 
 - type: entity
   id: LockerChiefEngineerFilled
