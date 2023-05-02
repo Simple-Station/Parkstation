@@ -21,7 +21,7 @@ id = "parkstation"
 min_players = 32
 
 [rules]
-rules.time = 60
+time = 60
 
 [events]
 ramping_average_end_time = 120.0
@@ -54,9 +54,6 @@ arrivals = false
 
 [biomass]
 easy_mode = false
-
-[ambience]
-restart_sounds_enabled = true
 
 [explosion]
 tiles_per_tick = 128
