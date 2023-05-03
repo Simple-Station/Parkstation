@@ -2,8 +2,9 @@
 Describe the Pull Request here.
 What does it change?
 What other things could this impact?
+Why should this be merged?
 -->
-<details><summary><h1>Description</h1></summary>
+<details><summary><h2>Description</h2></summary>
 <p>
 
 Description.
@@ -14,9 +15,9 @@ Description.
 ---
 
 <!--
-If this PR is a work in progress, you can keep track of what you need to do here.
+If this PR is a work in progress, you can keep track of what you need to do here using checklists.
 -->
-<details><summary><h1>TODO</h1></summary>
+<details><summary><h2>TODO</h2></summary>
 <p>
 
 - [ ] Task
@@ -31,14 +32,16 @@ If this PR is a work in progress, you can keep track of what you need to do here
 <!--
 If applicable, add screenshots or videos to showcase your PR.
 This makes it much easier for us to merge PRs.
-Refactors or small fixes are exempt, but all PRs which make ingame changes (adding clothing, items, new features, etc) must include ingame media or the PR will not be merged.
-Use screenshot software like Window's built in snipping tool, ShareX, Lightshot, or recording software like ShareX (gif), ScreenToGif, or Open Broadcaster Software (cross platform).
+Refactors or small fixes are exempt, but all PRs which make in-game changes (adding clothing, items, new features, etc) must include in-game media or the PR will not be merged.
+
+Use screenshot software like Windows's built-in snipping tool, ShareX, Lightshot, or recording software like ShareX (gif), ScreenToGif, or Open Broadcaster Software (cross-platform).
+
 If you're unsure whether your PR will require media, ask a maintainer.
 -->
-<details><summary><h1>Media</h1></summary>
+<details><summary><h2>Media</h2></summary>
 <p>
 
-![Image Embed](https://img.simplemodbot.tk/random)
+![Example Media Embed](https://img.simplemodbot.tk/random)
 
 </p>
 </details>
@@ -60,7 +63,7 @@ For writing actual entries, don't consider the entry type suffix (e.g. add) to b
 bad: - add: a new tool for engineers
 good: - add: Added a new tool for engineers
 -->
-<details><summary><h1>Changelog</h1></summary>
+<details><summary><h2>Changelog</h2></summary>
 <p>
 
 :cl:
