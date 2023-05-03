@@ -85,7 +85,6 @@ namespace Content.Client.Ghost
             SubscribeLocalEvent<GhostComponent, ToggleGhostsActionEvent>(OnToggleGhosts);
         }
 
-
         private void OnGhostInit(EntityUid uid, GhostComponent component, ComponentInit args)
         {
             if (TryComp(component.Owner, out SpriteComponent? sprite))
