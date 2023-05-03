@@ -35646,24 +35646,11 @@ entities:
     parent: 1
     type: Transform
 - uid: 4362
-  type: LockerHeadOfPersonnel
+  type: LockerHeadOfPersonnelFilled
   components:
   - pos: 34.5,-14.5
     parent: 1
     type: Transform
-  - containers:
-      entity_storage: !type:Container
-        showEnts: False
-        occludes: True
-        ents:
-        - 16751
-        - 16339
-        - 8687
-        - 4403
-        - 4399
-        - 4397
-        - 4395
-    type: ContainerContainer
 - uid: 4363
   type: TableWood
   components:
