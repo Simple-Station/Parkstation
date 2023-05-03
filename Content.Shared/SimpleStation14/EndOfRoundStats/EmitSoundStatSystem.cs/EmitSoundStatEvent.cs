@@ -1,6 +1,6 @@
 using Robust.Shared.Audio;
 
-namespace Content.Shared.SimpleStation14.EndOfRoundStats.EmitSound;
+namespace Content.Shared.SimpleStation14.EndOfRoundStats.EmitSound; // Sound emitters are shared.
 
 public sealed class EmitSoundStatEvent : EntityEventArgs
 {

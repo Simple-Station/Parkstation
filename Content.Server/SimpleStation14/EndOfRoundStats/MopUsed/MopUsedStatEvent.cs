@@ -1,4 +1,3 @@
-using Content.Server.Mind.Components;
 using Content.Shared.FixedPoint;
 
 namespace Content.Server.SimpleStation14.EndOfRoundStats.MopUsed;
