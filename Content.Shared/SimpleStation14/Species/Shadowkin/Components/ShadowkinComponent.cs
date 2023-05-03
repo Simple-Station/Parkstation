@@ -3,18 +3,9 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
 {
-    [RegisterComponent, NetworkedComponent()]
-    public sealed class ShadowkinComponent : Component
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+    public sealed partial class ShadowkinComponent : Component
     {
-        #region Dirty
-        [ViewVariables(VVAccess.ReadOnly)]
-        public float DirtyAccumulator = 0f;
-
-        [ViewVariables(VVAccess.ReadWrite)]
-        public float DirtyAccumulatorRate = 3f;
-        #endregion
-
-
         #region Random occurrences
         [ViewVariables(VVAccess.ReadOnly)]
         public float ForceSwapAccumulator = 0f;
@@ -31,7 +22,8 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
         public float ForceSwapRateMin = 30f;
 
         [ViewVariables(VVAccess.ReadWrite)]
-        public float ForceSwapRateMax = 90f;
+        public float ForceSwapRateMax = 120f;
+
 
         [ViewVariables(VVAccess.ReadOnly)]
         public float TiredAccumulator = 0f;
@@ -89,7 +81,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
         /// <summary>
         ///     Current amount of energy.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
+        [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
         public float PowerLevel
         {
             get => _powerLevel;
@@ -100,37 +92,37 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
         /// <summary>
         ///     Don't let PowerLevel go above this value.
         /// </summary>
-        [ViewVariables(VVAccess.ReadOnly)]
-        public readonly float PowerLevelMax = PowerThresholds[ShadowkinPowerThreshold.Max];
+        [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+        public float PowerLevelMax = PowerThresholds[ShadowkinPowerThreshold.Max];
 
         /// <summary>
         ///     Blackeyes if PowerLevel is this value.
         /// </summary>
-        [ViewVariables(VVAccess.ReadOnly)]
-        public readonly float PowerLevelMin = PowerThresholds[ShadowkinPowerThreshold.Min];
+        [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+        public float PowerLevelMin = PowerThresholds[ShadowkinPowerThreshold.Min];
 
         /// <summary>
         ///     How much energy is gained per second.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
+        [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
         public float PowerLevelGain = 2f;
 
         /// <summary>
         ///     Power gain multiplier
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
+        [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
         public float PowerLevelGainMultiplier = 1f;
 
         /// <summary>
         ///     Whether to gain power or not.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
+        [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
         public bool PowerLevelGainEnabled = true;
 
         /// <summary>
         ///     Whether they are a blackeye.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
+        [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
         public bool Blackeye = false;
 
 
@@ -144,16 +136,6 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
             { ShadowkinPowerThreshold.Min, 0.0f },
         };
         #endregion
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class ShadowkinComponentState : ComponentState
-    {
-        public float PowerLevel { get; init; }
-        public float PowerLevelGain { get; init; }
-        public float PowerLevelGainMultiplier { get; init; }
-        public bool PowerLevelGainEnabled { get; init; }
-        public bool Blackeye { get; init; }
     }
 
     [Serializable, NetSerializable]
