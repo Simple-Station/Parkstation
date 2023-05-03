@@ -1,0 +1,21 @@
+- type: instantAction
+  id: AIEye
+  name: action-aieye-name
+  description: action-aieye-description
+  priority: 17
+  useDelay: 5
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  itemIconStyle: NoItem
+  serverEvent: !type:AIEyePowerActionEvent
+
+- type: instantAction
+  id: AIHealthOverlay
+  name: action-aihealth-name
+  description: action-aihealth-description
+  priority: 18
+  useDelay: 2.5
+  itemIconStyle: NoItem
+  icon:
+    sprite: Interface/Alerts/human_alive.rsi
+    state: health0
+  event: !type:AIHealthOverlayEvent

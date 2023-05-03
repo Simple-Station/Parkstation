@@ -36,3 +36,4 @@ player-leave-message = Player {$name} left.
 latejoin-arrival-announcement = {$character} ({$job}) has arrived at the station!
 cryo-departure-announcement = {$character} ({$job}) has gone into Cryogenic Storage.
 latejoin-arrival-sender = Station
+latejoin-arrivals-direction = A shuttle transferring you to your station will arrive shortly.

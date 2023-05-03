@@ -26,8 +26,8 @@ roles-antag-xeno-objective = Infect as many people as possible and overtake the 
 roles-antag-fugitive-name = Fugitive
 roles-antag-fugitive-description = Survive. Escape.
 
-roles-antag-evil-twin-name = Evil twin
-roles-antag-evil-twin-description = Replace your twin.
+roles-antag-evil-twin-name = Paradox Anomaly
+roles-antag-evil-twin-description = Replace your double, or befriend them.
 
 roles-antag-minor-antag-name = Minor Antag
 roles-antag-minor-antag-objective = Make your way through a normal shift, considering your ulterior motives.

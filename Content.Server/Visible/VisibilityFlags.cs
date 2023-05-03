@@ -8,5 +8,6 @@ namespace Content.Server.Visible
         Ghost  = 1 << 1,
         PsionicInvisibility = 1 << 2,
         DarkSwapInvisibility = 1 << 3,
+        AIEye = 1 << 4,
     }
 }
