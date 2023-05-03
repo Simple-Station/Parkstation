@@ -87,7 +87,7 @@ namespace Content.Shared.Chat
         /// <summary>
         ///     Empathy channel for Shadowkin.
         /// </summary>
-        Empathy = 1 << 14,
+        Empathy = 1 << 15,
 
         /// <summary>
         ///     Channels considered to be IC.
