@@ -28,7 +28,8 @@
     - state: book_space_law
   # - type: HyperlinkBook
   #   url: https://wiki.nyanotrasen.moe/view/Space_Law
-  - type: GuidebookBook
+  - type: GuideHelp
+    openOnActivation: true
     guides:
     - SpaceLaw
 
@@ -74,7 +75,8 @@
     - state: book_chemistry
   # - type: HyperlinkBook
   #   url: https://wiki.nyanotrasen.moe/view/Chemistry
-  - type: GuidebookBook
+  - type: GuideHelp
+    openOnActivation: true
     guides:
     - Chemistry
 
@@ -102,7 +104,8 @@
     - state: book_cooking
   # - type: HyperlinkBook
   #   url: https://wiki.nyanotrasen.moe/view/Cooking
-  - type: GuidebookBook
+  - type: GuideHelp
+    openOnActivation: true
     guides:
     - Chef
 
@@ -118,7 +121,8 @@
     - state: book_hydroponics_pod_people
   # - type: HyperlinkBook
   #   url: https://wiki.nyanotrasen.moe/view/Hydroponics
-  - type: GuidebookBook
+  - type: GuideHelp
+    openOnActivation: true
     guides:
     - Botany
 
@@ -134,7 +138,8 @@
     - state: book_engineering
   # - type: HyperlinkBook
   #   url: https://wiki.nyanotrasen.moe/view/Shuttle_Construction
-  - type: GuidebookBook
+  - type: GuideHelp
+    openOnActivation: true
     guides:
     - Construction
 
@@ -186,7 +191,8 @@
     - state: book_engineering2
   # - type: HyperlinkBook
   #   url: https://wiki.nyanotrasen.moe/view/Power
-  - type: GuidebookBook
+  - type: GuideHelp
+    openOnActivation: true
     guides:
     - Power
 
@@ -243,6 +249,7 @@
     - state: book_engineering2
   # - type: HyperlinkBook
   #   url: https://wiki.nyanotrasen.moe/view/Atmospheric_Science
-  - type: GuidebookBook
+  - type: GuideHelp
+    openOnActivation: true
     guides:
     - Engineering
