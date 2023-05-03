@@ -67,23 +67,17 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
             // Update power level for all shadowkin
             foreach (var component in query)
             {
+                var oldPowerLevel = _powerSystem.GetLevelName(component.PowerLevel);
+
                 _powerSystem.TryUpdatePowerLevel(component.Owner, frameTime);
                 if (!component.Blackeye)
                     _powerSystem.TryBlackeye(component.Owner);
 
-
-                // Sync client and server
-                component.DirtyAccumulator += frameTime;
-                if (component.DirtyAccumulator > component.DirtyAccumulatorRate)
+                if (oldPowerLevel != _powerSystem.GetLevelName(component.PowerLevel))
                 {
-                    component.DirtyAccumulator = 0f;
-
                     _powerSystem.UpdateAlert(component.Owner, true, component.PowerLevel);
                     Dirty(component);
                 }
-
-
-                #region Random Stuff
 
                 #region ForceSwap
                 // Check if they're at max power
@@ -150,7 +144,6 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
                     component.TiredAccumulator -= frameTime / 5f;
                     component.TiredAccumulator = Math.Clamp(component.TiredAccumulator, 0f, component.TiredRate);
                 }
-                #endregion
                 #endregion
             }
         }

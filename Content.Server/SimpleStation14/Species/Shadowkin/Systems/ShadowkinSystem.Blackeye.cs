@@ -41,8 +41,9 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
                 component.Blackeye = true;
                 component.PowerLevelGainEnabled = false;
                 _powerSystem.SetPowerLevel(ev.Uid, ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min]);
-            }
 
+                Dirty(component);
+            }
 
             if (!ev.Damage)
                 return;
