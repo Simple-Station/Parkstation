@@ -35648,7 +35648,7 @@ entities:
 - uid: 4362
   type: LockerHeadOfPersonnelFilled
   components:
-  - pos: 34.5,-14.5
+  - pos: 34.499817,-14.500046
     parent: 1
     type: Transform
 - uid: 4363
@@ -35849,48 +35849,18 @@ entities:
   - pos: 8.5,-45.5
     parent: 1
     type: Transform
-- uid: 4395
-  type: BoxID
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 4362
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
 - uid: 4396
   type: UniformPrinter
   components:
   - pos: 31.5,-14.5
     parent: 1
     type: Transform
-- uid: 4397
-  type: ClothingNeckGoldmedal
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 4362
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
 - uid: 4398
   type: BoxPDA
   components:
   - pos: 32.409615,-17.026457
     parent: 1
     type: Transform
-- uid: 4399
-  type: BoxHeadset
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 4362
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
 - uid: 4400
   type: TableWood
   components:
@@ -35909,16 +35879,6 @@ entities:
   - pos: 53.924355,-15.40477
     parent: 1
     type: Transform
-- uid: 4403
-  type: HoPIDCard
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 4362
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
 - uid: 4404
   type: ChairOfficeLight
   components:
@@ -75609,18 +75569,6 @@ entities:
   - pos: 52.5,13.5
     parent: 1
     type: Transform
-- uid: 8687
-  type: MaterialDurathread1
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 4362
-    type: Transform
-  - count: 10
-    type: Stack
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
 - uid: 8688
   type: Catwalk
   components:
@@ -131953,30 +131901,6 @@ entities:
     pos: 56.440514,-14.435013
     parent: 1
     type: Transform
-- uid: 16339
-  type: BoxCardboard
-  components:
-  - flags: InContainer
-    desc: A cardboard box for encryption keys.
-    name: encryption key box
-    type: MetaData
-  - parent: 4362
-    type: Transform
-  - containers:
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents:
-        - 16341
-        - 16342
-        - 16742
-        - 16743
-        - 16744
-        - 16745
-    type: ContainerContainer
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
 - uid: 16340
   type: SheetPlasma1
   components:
@@ -131985,24 +131909,6 @@ entities:
     type: Transform
   - count: 10
     type: Stack
-- uid: 16341
-  type: EncryptionKeyMedical
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 16339
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 16342
-  type: EncryptionKeyMedical
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 16339
-    type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 16343
   type: CableApcStack
   components:
@@ -134520,42 +134426,6 @@ entities:
     type: Transform
   - bodyType: Dynamic
     type: Physics
-- uid: 16742
-  type: EncryptionKeyEngineering
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 16339
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 16743
-  type: EncryptionKeyEngineering
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 16339
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 16744
-  type: EncryptionKeyCommand
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 16339
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 16745
-  type: EncryptionKeyCommand
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 16339
-    type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 16746
   type: HyperlinkBookAnomaliesArtifacts
   components:
@@ -134587,84 +134457,6 @@ entities:
   - pos: 44.75669,-30.257792
     parent: 1
     type: Transform
-- uid: 16751
-  type: BoxCardboard
-  components:
-  - flags: InContainer
-    desc: A cardboard box for storing encryption keys.
-    name: encryption key box
-    type: MetaData
-  - parent: 4362
-    type: Transform
-  - containers:
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents:
-        - 16752
-        - 16754
-        - 16756
-        - 16757
-        - 16753
-        - 16755
-    type: ContainerContainer
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
-- uid: 16752
-  type: EncryptionKeySecurity
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 16751
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 16753
-  type: EncryptionKeyService
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 16751
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 16754
-  type: EncryptionKeySecurity
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 16751
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 16755
-  type: EncryptionKeyService
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 16751
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 16756
-  type: EncryptionKeyScience
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 16751
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 16757
-  type: EncryptionKeyScience
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 16751
-    type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 16758
   type: HyperlinkBookProcedure
   components:
