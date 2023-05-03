@@ -12,8 +12,8 @@
 # Books
 - type: listing
   id: WizardSpawnBook
-  name: Spawn spellbook
-  description: Summons some carps that attack whatever is closest to them.
+  name: uplink-book-spawnbook-name
+  description: uplink-book-spawnbook-desc
   productEntity: SpawnSpellbook
   cost:
     Bluespace: 8
@@ -22,8 +22,8 @@
 
 - type: listing
   id: WizardWallBook
-  name: Force wall spellbook
-  description: Summons a 3x1 wall that blocks anything but you from passing through it.
+  name: uplink-book-forcewall-name
+  description: uplink-book-forcewall-desc
   productEntity: ForceWallSpellbook
   cost:
     Bluespace: 10
@@ -32,8 +32,8 @@
 
 - type: listing
   id: WizardBlinkBook
-  name: Blink spellbook
-  description: Allows you to teleport to anywhere on your screen, even through walls!
+  name: uplink-book-blink-name
+  description: uplink-book-blink-desc
   productEntity: BlinkBook
   cost:
     Bluespace: 16
@@ -42,8 +42,8 @@
 
 - type: listing
   id: WizardSmiteBook
-  name: Smite spellbook
-  description: Allows you instantly, and very violently, explode someone into gibs.
+  name: uplink-book-smite-name
+  description: uplink-book-smite-desc
   productEntity: SmiteBook
   cost:
     Bluespace: 50
@@ -52,8 +52,8 @@
 
 - type: listing
   id: WizardKnockBook
-  name: Knock knock
-  description: Opens all doors in a big area for some time, short cooldown.
+  name: uplink-book-knok-name
+  description: uplink-book-knok-desc
   productEntity: KnockSpellbook
   cost:
     Bluespace: 14
@@ -62,8 +62,8 @@
 
 - type: listing
   id: WizardFireballBook
-  name: Fireball!
-  description: Throw a massive explosive at people, don't get caught in it yourself.
+  name: uplink-book-fireball-name
+  description: uplink-book-fireball-desc
   productEntity: FireballSpellbook
   cost:
     Bluespace: 16
@@ -72,8 +72,8 @@
 
 - type: listing
   id: WizardHealingBook
-  name: Healing book
-  description: Target a being and heal them of all their wounds instantly! (WARNING - May be considered necromany if used on the dead)
+  name: uplink-book-heal-name
+  description: uplink-book-heal-desc
   productEntity: HealingSpellbook
   cost:
     Bluespace: 8
@@ -86,8 +86,8 @@
 # Armor
 - type: listing
   id: WizardHardsuit
-  name: Hardsuit
-  description: A someone damage resistant, but heavy hardsuit that allows eva and protection in fights. Also acts as wizard robes, allowing you to use spells.
+  name: uplink-armor-hardsuit-name
+  description: uplink-armor-hardsuit-desc
   productEntity: ClothingOuterHardsuitWizard
   cost:
     Bluespace: 6
@@ -97,8 +97,8 @@
 # Utility
 - type: listing
   id: WizardSpellBelt
-  name: Spell Belt
-  description: A belt to hold your spells in.
+  name: uplink-utility-spellbelt-name
+  description: uplink-utility-spellbelt-desc
   productEntity: ClothingBeltWand
   cost:
     Bluespace: 4
@@ -108,8 +108,8 @@
 # Bundles
 - type: listing
   id: WizardSurplusCrate30BS
-  name: 30 to 50 BS surplus crate
-  description: A crate filled with random wizard items, overall worth 50BS.
+  name: uplink-bundles-wizarsurpluscrate30bs-name
+  description: uplink-bundles-wizarsurpluscrate30bs-desc
   productEntity: CrateWizardSurplus
   cost:
     Bluespace: 30
@@ -118,8 +118,8 @@
 
 - type: listing
   id: WizardOutfitBag
-  name: Wizard outfit bag
-  description: A nice set few sets of magical wizard clothing to use spells.
+  name: uplink-bundles-wizardoutfitbag-name
+  description: uplink-bundles-wizardoutfitbag-desc
   productEntity: ClothingBackpackDuffelWizard
   cost:
     Bluespace: 4
@@ -131,8 +131,8 @@
 # Pointless
 - type: listing
   id: WizardBurger
-  name: Spell Burger
-  description: A delicious burger made of magic and bluespace.
+  name: uplink-pointless-spellburger-name
+  description: uplink-pointless-spellburger-desc
   productEntity: FoodBurgerSpell
   cost:
     Bluespace: 1
