@@ -54,7 +54,7 @@ public sealed partial class GhostGui : UIWidget
         if (todd != null)
         {
             var time = (_gameTiming.CurTime - todd);
-            var respawnTime = _configurationManager.GetCVar(SimpleStationCVars.RespawnTime);
+            var respawnTime = _configurationManager.GetCVar(SimpleStationCCVars.RespawnTime);
         }
     }
 

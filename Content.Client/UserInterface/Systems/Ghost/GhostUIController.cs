@@ -75,8 +75,8 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
 
         Gui.Visible = _system?.IsGhost ?? false;
         Gui.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody,
-            _cfg.GetCVar(SimpleStationCVars.RespawnEnabled) ? _system?.Player?.TimeOfDeath : null,
-            _cfg.GetCVar(SimpleStationCVars.RespawnTime));
+            _cfg.GetCVar(SimpleStationCCVars.RespawnEnabled) ? _system?.Player?.TimeOfDeath : null,
+            _cfg.GetCVar(SimpleStationCCVars.RespawnTime));
     }
 
     private void UpdateRespawn()

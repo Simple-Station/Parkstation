@@ -23,7 +23,7 @@ public sealed class GhostRespawnCommand : IConsoleCommand
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (!_configurationManager.GetCVar(SimpleStationCVars.RespawnEnabled))
+        if (!_configurationManager.GetCVar(SimpleStationCCVars.RespawnEnabled))
         {
             shell.WriteLine("Respawning is disabled, ask an admin to respawn you.");
             return;
@@ -49,7 +49,7 @@ public sealed class GhostRespawnCommand : IConsoleCommand
 
 
         var time = ( _gameTiming.CurTime - ghost.TimeOfDeath);
-        var respawnTime = _configurationManager.GetCVar(SimpleStationCVars.RespawnTime);
+        var respawnTime = _configurationManager.GetCVar(SimpleStationCCVars.RespawnTime);
 
         if (respawnTime > time.TotalSeconds)
         {
