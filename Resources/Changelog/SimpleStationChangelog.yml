@@ -823,3 +823,55 @@ Entries:
       message: Changed some trait point costs.
   id: 69
   time: '2023-04-09T06:50:51Z'
+- author: Cabbage
+  changes:
+    - type: add
+      message: Added head of personnel's plated hardsuit.
+  id: 70
+  time: '2023-04-22T22:53:43Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: Comms console announcements use the announcer's voice
+    - type: fix
+      message: Announcements use the announcer's voice
+    - type: fix
+      message: Anomaly announcement plays the correct audio
+    - type: fix
+      message: Intern has a meteor swarm announcement
+    - type: tweak
+      message: Fugitives send a command report announcement
+  id: 71
+  time: '2023-04-23T13:57:10Z'
+- author: SomeCabbage
+  changes:
+    - type: tweak
+      message: HoP's hardsuit helmet now looks more like the hat and less boring
+  id: 72
+  time: '2023-04-28T10:06:30Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: >-
+        The chemists have suddenly decided to greatly improve the look of their
+        pills, making patients much happier to ingest them.
+  id: 73
+  time: '2023-04-30T02:23:55Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Airlocks now check your belt slot for accesses
+  id: 74
+  time: '2023-05-01T04:08:37Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Moved SAI door remote to actions
+    - type: fix
+      message: SAI no longer collides with ghosts in eye form
+    - type: fix
+      message: SAI can see items and actions when in eye form
+    - type: fix
+      message: SAI no longer has a body :) -Psprite
+  id: 75
+  time: '2023-05-01T04:13:49Z'

@@ -57,7 +57,8 @@
     - state: book_psionics
   # - type: HyperlinkBook
   #   url: https://wiki.nyanotrasen.moe/view/Glimmer
-  - type: GuidebookBook
+  - type: GuideHelp
+    openOnActivation: true
     guides:
     - Psionics
     - AltarsGolemancy
@@ -149,7 +150,8 @@
     - state: book_nuclear
   # - type: HyperlinkBook
   #   url: https://wiki.nyanotrasen.moe/view/Alert_Procedure
-  - type: GuidebookBook
+  - type: GuideHelp
+    openOnActivation: true
     guides:
     - CommonAlerts
     - SpecificAlerts
@@ -167,7 +169,8 @@
     - state: book_particle_accelerator
   # - type: HyperlinkBook
   #   url: https://wiki.nyanotrasen.moe/view/Standard_Operating_Procedure
-  - type: GuidebookBook
+  - type: GuideHelp
+    openOnActivation: true
     guides:
     - StandardOperatingProcedure
 
@@ -223,7 +226,8 @@
     - state: book_engineering2
   # - type: HyperlinkBook
   #   url: https://wiki.nyanotrasen.moe/view/Atmospheric_Science
-  - type: GuidebookBook
+  - type: GuideHelp
+    openOnActivation: true
     guides:
     - Atmospherics
 
