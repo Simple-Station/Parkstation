@@ -28,8 +28,6 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
 
             SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ShadowkinDarkSwapEvent>(DarkSwap);
 
-            SubscribeLocalEvent<EyeComponent, ComponentStartup>(OnEyeStartup);
-
             SubscribeLocalEvent<ShadowkinDarkSwappedComponent, ComponentStartup>(OnInvisStartup);
             SubscribeLocalEvent<ShadowkinDarkSwappedComponent, ComponentShutdown>(OnInvisShutdown);
         }
@@ -71,11 +69,6 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
         }
 
 
-        private void OnEyeStartup(EntityUid uid, EyeComponent component, ComponentStartup args)
-        {
-            SetCanSeeInvisibility(uid, _entityManager.TryGetComponent<GhostComponent>(uid, out var _));
-        }
-
         private void OnInvisStartup(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentStartup args)
         {
             EnsureComp<PacifiedComponent>(uid);
@@ -108,7 +101,7 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
         }
 
 
-        private void SetCanSeeInvisibility(EntityUid uid, bool set)
+        public void SetCanSeeInvisibility(EntityUid uid, bool set)
         {
             var visibility = _entityManager.EnsureComponent<VisibilityComponent>(uid);
 
