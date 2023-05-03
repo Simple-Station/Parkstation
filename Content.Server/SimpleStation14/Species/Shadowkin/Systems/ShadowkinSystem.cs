@@ -1,6 +1,7 @@
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Physics;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Systems;
@@ -51,10 +52,10 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
         private void OnInit(EntityUid uid, ShadowkinComponent component, ComponentInit args)
         {
             if (component.PowerLevel <= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min] + 1f)
-                _powerSystem.SetPowerLevel(component.Owner, ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Okay]);
+                _powerSystem.SetPowerLevel(uid, ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Okay]);
 
-            component.ForceSwapRate = _random.NextFloat(component.ForceSwapRateMin, component.ForceSwapRateMax);
-            component.TiredRate = _random.NextFloat(component.TiredRateMin, component.TiredRateMax);
+            component.MaxedPowerAccumulator = _random.NextFloat(component.MaxedPowerRateMin, component.MaxedPowerRateMax);
+            component.MinPowerAccumulator = _random.NextFloat(component.MinRateMin, component.MinRateMax);
         }
 
 
@@ -79,20 +80,19 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
                     Dirty(component);
                 }
 
-                #region ForceSwap
+                #region MaxPower
                 // Check if they're at max power
                 if (component.PowerLevel >= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Max])
                 {
                     // If so, start the timer
-                    component.ForceSwapAccumulator += frameTime;
+                    component.MaxedPowerAccumulator -= frameTime;
 
                     // If the time's not up, return.
-                    if (component.ForceSwapAccumulator < component.ForceSwapRateMax)
-                        return;
+                    if (component.MaxedPowerAccumulator > 0f)
+                        continue;
 
-                    // Reset the timer, and randomize a new one
-                    component.ForceSwapAccumulator = 0f;
-                    component.ForceSwapRate = _random.NextFloat(component.ForceSwapRateMin, component.ForceSwapRateMax);
+                    // Randomize the timer
+                    component.MaxedPowerAccumulator = _random.NextFloat(component.MaxedPowerRateMin, component.MaxedPowerRateMax);
 
                     var chance = _random.Next(7);
 
@@ -107,15 +107,15 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
                 }
                 else
                 {
-                    // Slowly regenerate if not max power
-                    component.ForceSwapAccumulator -= frameTime / 3f;
-                    component.ForceSwapAccumulator = Math.Clamp(component.ForceSwapAccumulator, 0f, component.ForceSwapRate);
+                    // Slowly regenerate if not maxed
+                    component.MaxedPowerAccumulator += frameTime / 5f;
+                    component.MaxedPowerAccumulator = Math.Clamp(component.MaxedPowerAccumulator, 0f, component.MaxedPowerRateMax);
                 }
                 #endregion
 
-                #region Tired
+                #region MinPower
                 // Check if they're at the average of the Tired and Okay thresholds
-                // Just Tired is too little, and Okay is too much
+                // Just Tired is too little, and Okay is too much, get the average
                 if (component.PowerLevel <=
                     (
                         ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Tired] +
@@ -124,25 +124,23 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
                 )
                 {
                     // If so, start the timer
-                    component.TiredAccumulator += frameTime;
+                    component.MinPowerAccumulator += frameTime;
 
                     // If the timer is up, force rest
-                    if (component.TiredAccumulator > component.TiredRate)
-                    {
-                        // Reset timer
-                        component.TiredAccumulator = 0f;
-                        // Random new timer
-                        component.TiredRate = _random.NextFloat(component.TiredRateMin, component.TiredRateMax);
+                    if (!(component.MinPowerAccumulator < 0f))
+                        continue;
 
-                        // Send event to rest
-                        RaiseLocalEvent(new ShadowkinRestEventResponse(component.Owner, true));
-                    }
+                    // Random new timer
+                    component.MinPowerAccumulator = _random.NextFloat(component.MinRateMin, component.MinRateMax);
+
+                    // Send event to rest
+                    RaiseLocalEvent(new ShadowkinRestEventResponse(component.Owner, true));
                 }
                 else
                 {
                     // Slowly regenerate if not tired
-                    component.TiredAccumulator -= frameTime / 5f;
-                    component.TiredAccumulator = Math.Clamp(component.TiredAccumulator, 0f, component.TiredRate);
+                    component.MinPowerAccumulator -= frameTime / 5f;
+                    component.MinPowerAccumulator = Math.Clamp(component.MinPowerAccumulator, 0f, component.MinRateMax);
                 }
                 #endregion
             }
@@ -166,8 +164,10 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
         private void ForceTeleport(EntityUid uid, ShadowkinComponent component)
         {
             // Create the event we'll later raise, and set it to our Shadowkin.
-            var args = new ShadowkinTeleportEvent();
-            args.Performer = uid;
+            var args = new ShadowkinTeleportEvent
+            {
+                Performer = uid
+            };
 
             // Pick a random location on the map until we find one that can be reached.
             var coords = Transform(uid).Coordinates;
@@ -176,13 +176,12 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
             for (var i = 8; i != 0; i--) // It'll iterate up to 8 times, shrinking in distance each time, and if it doesn't find a valid location, it'll return.
             {
                 var angle = Angle.FromDegrees(_random.Next(360));
-                var length = i;
-
-                var offset = new Vector2((float) (length * Math.Cos(angle)), (float) (length * Math.Sin(angle)));
+                var offset = new Vector2((float) (i * Math.Cos(angle)), (float) (i * Math.Sin(angle)));
 
                 target = coords.Offset(offset);
 
-                if (_interact.InRangeUnobstructed(uid, target.Value, 0))
+                if (_interact.InRangeUnobstructed(uid, target.Value, 0,
+                        CollisionGroup.MobMask | CollisionGroup.MobLayer))
                     break;
 
                 target = null;

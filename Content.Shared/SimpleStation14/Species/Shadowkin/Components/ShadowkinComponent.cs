@@ -7,39 +7,24 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
     public sealed partial class ShadowkinComponent : Component
     {
         #region Random occurrences
-        [ViewVariables(VVAccess.ReadOnly)]
-        public float ForceSwapAccumulator = 0f;
-
-        /// <summary>
-        ///     Default value.
-        ///     Gets randomly set after activated.
-        ///     Forces DarkSwap ability.
-        /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        public float ForceSwapRate;
+        public float MaxedPowerAccumulator = 0f;
 
         [ViewVariables(VVAccess.ReadWrite)]
-        public float ForceSwapRateMin = 30f;
+        public float MaxedPowerRateMin = 45f;
 
         [ViewVariables(VVAccess.ReadWrite)]
-        public float ForceSwapRateMax = 120f;
+        public float MaxedPowerRateMax = 150f;
 
-
-        [ViewVariables(VVAccess.ReadOnly)]
-        public float TiredAccumulator = 0f;
-
-        /// <summary>
-        ///     Default value.
-        ///     Forces the rest ability.
-        /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        public float TiredRate;
 
         [ViewVariables(VVAccess.ReadWrite)]
-        public float TiredRateMin = 15f;
+        public float MinPowerAccumulator = 0f;
 
         [ViewVariables(VVAccess.ReadWrite)]
-        public float TiredRateMax = 50f;
+        public float MinRateMin = 15f;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float MinRateMax = 60f;
         #endregion
 
 
@@ -57,7 +42,7 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
         [ViewVariables(VVAccess.ReadWrite)]
         public float DarkenRate = 0.084f; // 1/12th of a second
 
-        [ViewVariables(VVAccess.ReadOnly)]
+        [ViewVariables(VVAccess.ReadWrite)]
         public float DarkenAccumulator = 0f;
         #endregion
 
