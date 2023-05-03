@@ -1,20 +1,33 @@
-# Description
 <!--
 Describe the Pull Request here.
 What does it change?
 What other things could this impact?
 -->
+<details><summary><h1>Description</h1></summary>
+<p>
 
-# TODO
+Description.
+
+</p>
+</details> 
+
+---
+
 <!--
 If this PR is a work in progress, you can keep track of what you need to do here.
-A checklist can be made using the following syntax:
+-->
+<details><summary><h1>TODO</h1></summary>
+<p>
+
 - [ ] Task
 - [x] Completed Task
 - [ ] Other Task
--->
 
-# Media
+</p>
+</details>
+
+---
+
 <!--
 If applicable, add screenshots or videos to showcase your PR.
 This makes it much easier for us to merge PRs.
@@ -22,9 +35,16 @@ Refactors or small fixes are exempt, but all PRs which make ingame changes (addi
 Use screenshot software like Window's built in snipping tool, ShareX, Lightshot, or recording software like ShareX (gif), ScreenToGif, or Open Broadcaster Software (cross platform).
 If you're unsure whether your PR will require media, ask a maintainer.
 -->
+<details><summary><h1>Media</h1></summary>
+<p>
 
+![Image Embed](https://img.simplemodbot.tk/random)
 
-# Changelog
+</p>
+</details>
+
+---
+
 <!--
 Here you can fill out a changelog that will automatically be added to the game when your PR is merged.
 There are 4 icons for changelog entries: add, remove, tweak, fix.
@@ -38,11 +58,16 @@ Stuff like "Refactored X system, no changes should be visible" shouldn't be on a
 
 For writing actual entries, don't consider the entry type suffix (e.g. add) to be "part" of the sentence:
 bad: - add: a new tool for engineers
-good: - add: added a new tool for engineers
+good: - add: Added a new tool for engineers
 -->
+<details><summary><h1>Changelog</h1></summary>
+<p>
 
 :cl:
 - add: Added fun!
 - tweak: Tweaked fun!
 - fix: Fixed fun!
 - remove: Removed fun!
+
+</p>
+</details> 
