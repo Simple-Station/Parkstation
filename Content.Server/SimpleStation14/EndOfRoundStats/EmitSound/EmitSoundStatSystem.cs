@@ -1,0 +1,99 @@
+using System.Diagnostics.CodeAnalysis;
+using Content.Server.GameTicking;
+using Content.Shared.GameTicking;
+using Content.Shared.SimpleStation14.EndOfRoundStats.EmitSound;
+using Content.Shared.Tag;
+
+namespace Content.Server.SimpleStation14.EndOfRoundStats.EmitSound;
+
+public sealed class EmitSoundStatSystem : EntitySystem
+{
+    Dictionary<SoundSources, int> soundsEmitted = new();
+
+    // This Enum must match the exact tag you're searching for.
+    // Adding a new tag to this Enum, and ensuring the localisation is set will automatically add it to the end of round stats.
+
+    private enum SoundSources
+    {
+        BikeHorn,
+        Plushie
+    }
+
+    [Dependency] private readonly TagSystem _tag = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<EmitSoundStatEvent>(OnSoundEmitted);
+
+        SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+    }
+
+    private void OnSoundEmitted(EmitSoundStatEvent ev)
+    {
+        SoundSources? source = null;
+
+        foreach (var enumSource in Enum.GetValues<SoundSources>())
+        {
+            if (_tag.HasTag(ev.Emitter, enumSource.ToString()))
+            {
+                source = enumSource;
+                break;
+            }
+        }
+
+        if (source == null)
+            return;
+
+        if (soundsEmitted.ContainsKey(source.Value))
+        {
+            soundsEmitted[source.Value]++;
+            return;
+        }
+
+        soundsEmitted.Add(source.Value, 1);
+    }
+
+    private void OnRoundEnd(RoundEndTextAppendEvent ev)
+    {
+        var line = string.Empty;
+        var entry = false;
+
+        foreach (var source in soundsEmitted.Keys)
+        {
+            if (soundsEmitted[source] > 30 && GenerateSoundsEmitted(source, soundsEmitted[source], out var lineTemp))
+            {
+                line += "\n" + lineTemp;
+
+                entry = true;
+            }
+        }
+
+        if (entry)
+            ev.AddLine("[color=springGreen]" + line + "[/color]");
+    }
+
+    private bool GenerateSoundsEmitted(SoundSources source, int soundsEmitted, [NotNullWhen(true)] out string? line)
+    {
+        string preLocalString = "eofstats-emitsound-" + source.ToString();
+
+        if (!Loc.TryGetString(preLocalString, out var localString, ("times", soundsEmitted)))
+        {
+            Logger.DebugS("eofstats", "Unknown messageId: {0}", preLocalString);
+            Logger.Debug("Make sure the string is following the correct format, and matches the enum! (eofstats-emitsound-<enum>)");
+
+            throw new ArgumentException("Unknown messageId: " + preLocalString);
+            return false;
+        }
+
+        line = localString;
+        return true;
+    }
+
+    private void OnRoundRestart(RoundRestartCleanupEvent ev)
+    {
+        soundsEmitted.Clear();
+    }
+}

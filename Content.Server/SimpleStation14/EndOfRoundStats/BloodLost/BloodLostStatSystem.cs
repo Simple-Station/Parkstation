@@ -36,7 +36,7 @@ public sealed class BloodLostStatSystem : EntitySystem
 
     private string GenerateBloodLost(float bloodLost)
     {
-        return "[color=maroon]" + (float) Math.Round(bloodLost) + " units of blood were lost this round" + "[/color]";
+        return "[color=maroon]" + Loc.GetString("eofstats-bloodlost-total", ("bloodLost", Math.Round(bloodLost))) + "[/color]";
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)

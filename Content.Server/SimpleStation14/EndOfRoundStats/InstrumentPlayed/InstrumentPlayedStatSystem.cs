@@ -1,5 +1,8 @@
+using System.Linq;
 using Content.Server.GameTicking;
+using Content.Server.Instruments;
 using Content.Shared.GameTicking;
+using Robust.Shared.Timing;
 
 namespace Content.Server.SimpleStation14.EndOfRoundStats.Instruments;
 
@@ -12,6 +15,8 @@ public sealed class InstrumentPlayedStatSystem : EntitySystem
         public String Name;
         public String? Username;
     }
+
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {
@@ -42,7 +47,23 @@ public sealed class InstrumentPlayedStatSystem : EntitySystem
 
     private void OnRoundEnd(RoundEndTextAppendEvent ev)
     {
-        var line = String.Empty;
+        // Gather any people currently playing istruments.
+        // This part is very important :P
+        // Otherwise people playing their tunes on the evac shuttle will not be counted.
+        foreach (var instrument in EntityManager.EntityQuery<InstrumentComponent>().Where(i => i.InstrumentPlayer != null))
+        {
+            if (instrument.TimeStartedPlaying != null && instrument.InstrumentPlayer != null)
+            {
+                var username = instrument.InstrumentPlayer.Name;
+                var entity = instrument.InstrumentPlayer.AttachedEntity;
+                var name = entity != null ? MetaData((EntityUid) entity).EntityName : "Unknown";
+
+                RaiseLocalEvent(new InstrumentPlayedStatEvent(name, (TimeSpan) (_gameTiming.CurTime - instrument.TimeStartedPlaying), username));
+            }
+        }
+
+        // Continue with normal logic.
+        var line = "[color=green]";
 
         (PlayerData, TimeSpan) topPlayer = (new PlayerData(), TimeSpan.Zero);
 
@@ -52,22 +73,22 @@ public sealed class InstrumentPlayedStatSystem : EntitySystem
                 topPlayer = (player, amountPlayed);
         }
 
-        if (topPlayer.Item2 < TimeSpan.FromMinutes(10))
+        if (topPlayer.Item2 < TimeSpan.FromMinutes(8))
             return;
         else
             line += GenerateTopPlayer(topPlayer.Item1, topPlayer.Item2);
 
-        ev.AddLine("\n" + line);
+        ev.AddLine("\n" + line + "[/color]");
     }
 
     private String GenerateTopPlayer(PlayerData data, TimeSpan amountPlayed)
     {
         var line = String.Empty;
 
-        if (data.Username == null)
-            line += "The master of vibes this round was " + data.Name + " \n" + "having played their tunes for " + amountPlayed.Minutes + " minutes!";
+        if (data.Username != null)
+            line += Loc.GetString("eofstats-instrumentplayed-topplayer-hasusername",("username", data.Name), ("name", data.Username), ("amountPlayedMinutes", Math.Round(amountPlayed.TotalMinutes)));
         else
-            line += "The master of vibes this round was " + data.Username + " as " + data.Name + " \n" + "having played their tunes for " + amountPlayed.Minutes + " minutes!";
+            line += Loc.GetString("eofstats-instrumentplayed-topplayer-hasnousername", ("name", data.Name), ("amountPlayedMinutes", Math.Round(amountPlayed.TotalMinutes)));
 
         return line;
     }

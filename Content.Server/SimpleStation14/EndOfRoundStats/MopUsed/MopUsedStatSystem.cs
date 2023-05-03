@@ -53,7 +53,7 @@ public sealed class MopUsedStatSystem : EntitySystem
 
         if (userMopStats.Count == 0)
         {
-            line += "\n[color=red]" + "Not one puddle was mopped this round!" + "[/color]";
+            line += "\n[color=red]" + Loc.GetString("eofstats-mop-noamountmopped") + "[/color]";
         }
         else
         {
@@ -89,22 +89,22 @@ public sealed class MopUsedStatSystem : EntitySystem
             switch (timesMopped)
             {
                 case var x when x > 1600:
-                    impressColor = "[color=blue]";
+                    impressColor = "blue";
                     break;
                 case var x when x > 800:
-                    impressColor = "[color=gold]";
+                    impressColor = "gold";
                     break;
                 case var x when x > 300:
-                    impressColor = "[color=silver]";
+                    impressColor = "silver";
                     break;
                 default:
-                    impressColor = "[color=bronze]";
+                    impressColor = "brown";
                     break;
             }
 
-            line += "\nA total of " + impressColor + totalAmountMopped.Int() + "[/color]" + " units of liquid was mopped this round across " + impressColor + timesMopped + "[/color]" + " puddles!";
+            line += "\n" + Loc.GetString("eofstats-mop-amountmopped", ("amountMopped", (int) totalAmountMopped), ("timesMopped", timesMopped), ("impressColor", impressColor));
 
-            line += "\n" + "The top moppers were:";
+            line += "\n" + Loc.GetString("eofstats-mop-topmopper-header");
 
             line += GenerateTopMopper(topMopperOne.Item1, topMopperOne.Item2);
             line += GenerateTopMopper(topMopperTwo.Item1, topMopperTwo.Item2);
@@ -125,20 +125,20 @@ public sealed class MopUsedStatSystem : EntitySystem
             switch (currentPlace)
             {
                 case 1:
-                    impressColor = "[color=gold]";
+                    impressColor = "gold";
                     break;
                 case 2:
-                    impressColor = "[color=silver]";
+                    impressColor = "silver";
                     break;
                 default:
-                    impressColor = "[color=bronze]";
+                    impressColor = "burlywood";
                     break;
             }
 
-            if (data.Username == null)
-                line += "\n" + impressColor + currentPlace + ". " + data.Name + " with " + (int) amountMopped + " units mopped!" + "[/color]";
+            if (data.Username != null)
+                line += "\n" + Loc.GetString("eofstats-mop-topmopper-hasusername", ("name", data.Name), ("username", data.Username), ("amountMopped", (int) amountMopped), ("impressColor", impressColor), ("place", currentPlace));
             else
-                line += "\n" + impressColor + currentPlace + ". " + data.Username + " as " + data.Name + " with " + (int) amountMopped + " units mopped!" + "[/color]";
+                line += "\n" + Loc.GetString("eofstats-mop-topmopper-hasnousername", ("name", data.Name), ("amountMopped", (int) amountMopped), ("impressColor", impressColor), ("place", currentPlace));
 
             currentPlace++;
         }

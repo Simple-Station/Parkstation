@@ -25,19 +25,22 @@ public sealed class ShotsFiredStatSystem : EntitySystem
     }
     private void OnRoundEnd(RoundEndTextAppendEvent ev)
     {
-        var line = String.Empty;
+        var line = "\n[color=cadetblue]";
 
-        if (shotsFired < 25)
+        if (shotsFired < 25 && shotsFired != 0)
             return;
 
         line += GenerateShotsFired(shotsFired);
 
-        ev.AddLine(line);
+        ev.AddLine(line + "[/color]");
     }
 
     private string GenerateShotsFired(int shotsFired)
     {
-        return "\n[color=maroon]" + shotsFired + " shots were fired this round" + "[/color]";
+        if (shotsFired == 0)
+            return Loc.GetString("eofstats-shotsfired-noshotsfired");
+
+        return Loc.GetString("eofstats-shotsfired-amount", ("shotsFired", shotsFired));
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
