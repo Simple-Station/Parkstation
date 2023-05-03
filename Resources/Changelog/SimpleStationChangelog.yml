@@ -875,3 +875,14 @@ Entries:
       message: SAI no longer has a body :) -Psprite
   id: 75
   time: '2023-05-01T04:13:49Z'
+- author: SomeCabbage
+  changes:
+    - type: tweak
+      message: >-
+        Several minor Parkstation map tweaks. Reoriented the maintenance bar
+        sign. Arrivals docking airlocks are now the new type of arrival airlock
+        meant for the arrival shuttle. The Security disposal chute is now hooked
+        up. AI core now has telecom servers. Salvage now has 3 pre-placed GPSs.
+        HoP locker is better now and contains cool stuff.
+  id: 76
+  time: '2023-05-03T14:41:38Z'
