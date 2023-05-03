@@ -82,7 +82,6 @@
       - id: BoxEncryptionKeyCommand
       - id: BoxEncryptionKeyPassenger
       - id: DoorRemoteCommand
-      - id: MaterialDurathread
 
 - type: entity
   id: LockerChiefEngineerFilled
