@@ -33,6 +33,12 @@
   - type: Appearance
   - type: PaperVisuals
   - type: Recyclable
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/paper_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/paper_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/paper_drop.ogg
 
 - type: entity
   name: office paper
@@ -156,8 +162,16 @@
   id: NukeCodePaper
   name: nuclear authentication codes
   components:
-    - type: NukeCodePaper
-    - type: Paper
+  - type: NukeCodePaper
+    allNukesAvailable: true
+  - type: Paper
+
+- type: entity
+  parent: NukeCodePaper
+  id: NukeCodePaperStation
+  suffix: Station Only
+  components:
+  - type: NukeCodePaper
 
 - type: entity
   name: pen

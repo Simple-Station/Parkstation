@@ -14,6 +14,12 @@
     - type: GuideHelp
       guides:
       - MachineUpgrading
+    - type: EmitSoundOnPickup
+      sound: /Audio/SimpleStation14/Items/Handling/component_pickup.ogg
+    - type: EmitSoundOnDrop
+      sound: /Audio/SimpleStation14/Items/Handling/component_drop.ogg
+    - type: EmitSoundOnLand
+      sound: /Audio/SimpleStation14/Items/Handling/component_drop.ogg
 
 # Rating 1
 

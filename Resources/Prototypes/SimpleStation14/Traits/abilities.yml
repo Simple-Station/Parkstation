@@ -1,8 +1,8 @@
 - type: trait
   id: DragonsBlood
-  name: Draconic Bloodstream
-  description: You have some of the great Space Dragon's healing abilities, and have Ichor in your blood.  REQUIRES Reptilian species
-  cost: -7
+  name: trait-dragons-blood-name
+  description: trait-dragons-blood-description
+  cost: -5
   category: Positive
   whitelist:
     species:
@@ -17,8 +17,8 @@
 
 - type: trait
   id: Arachnid
-  name: Arachnid
-  description: Allows you to spin webs, like the Arachne.
+  name: trait-arachnid-name
+  description: trait-arachnid-description
   cost: -3
   category: Positive
   whitelist:
@@ -29,8 +29,8 @@
 
 - type: trait
   id: Voracious
-  name: Voracious
-  description: You are able to eat and drink almost instantly.
+  name: trait-voracious-name
+  description: trait-voracious-description
   cost: -3
   category: Positive
   components:
@@ -40,8 +40,8 @@
 
 - type: trait
   id: LightWeight
-  name: Light
-  description: You move faster and can climb easier, though this allows others to lift you onto things easier too.
+  name: trait-lightweight-name
+  description: trait-lightweight-description
   cost: -5
   category: Positive
   components:
@@ -53,8 +53,8 @@
 
 # - type: trait
 #   id: Bigger
-#   name: Bigger
-#   description: Bigger
+#   name: trait-bigger-name
+#   description: trait-bigger-description
 #   cost: -3
 #   category: Positive
 #   blacklist:
@@ -67,8 +67,8 @@
 
 - type: trait
   id: Big
-  name: Bigger
-  description: Big
+  name: trait-big-name
+  description: trait-big-description
   cost: -2
   category: Positive
   blacklist:
@@ -81,8 +81,8 @@
 
 - type: trait
   id: Small
-  name: Smaller
-  description: Small
+  name: trait-small-name
+  description: trait-small-description
   cost: -1
   category: Positive
   blacklist:
@@ -96,8 +96,8 @@
 # teeny
 # - type: trait
 #   id: Smaller
-#   name: Smaller
-#   description: Smaller
+#   name: trait-smaller-name
+#   description: trait-smaller-description
 #   cost: -2
 #   category: Positive
 #   blacklist:

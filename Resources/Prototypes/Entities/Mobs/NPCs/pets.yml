@@ -32,6 +32,9 @@
       amount: 2
   - type: RandomBark
     chatlog: True
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Old Ian
@@ -60,6 +63,9 @@
       gender: male
   - type: RandomBark
     chatlog: True
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Lisa
@@ -86,6 +92,9 @@
     attributes:
       proper: true
       gender: female
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Runtime
@@ -96,6 +105,9 @@
   - type: Grammar
     attributes:
       gender: female
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Exception
@@ -106,6 +118,9 @@
   - type: Grammar
     attributes:
       gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Floppa
@@ -126,6 +141,9 @@
   - type: Grammar
     attributes:
       gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Bandito
@@ -139,6 +157,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: bingus
@@ -196,6 +217,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: McGriff
@@ -257,6 +281,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
   - type: RandomBark
     barkMultiplier: 1.3
 
@@ -296,6 +323,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Walter
@@ -303,12 +333,32 @@
   id: MobWalter
   description: He likes chems and treats. Walter.
   components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Pets/walter.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: walter
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: walter
+      Critical:
+        Base: walter_dead
+      Dead:
+        Base: walter_dead
+  - type: InteractionPopup
+    successChance: 0.85
   - type: Grammar
     attributes:
       proper: true
       gender: male
   - type: RandomMetadata
     nameSegments: null
+  - type: Tag
+    tags:
+    - CannotSuicide
   - type: RandomBark
     barkMultiplier: 1.1
 
@@ -327,6 +377,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Morticia
@@ -343,6 +396,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Alexander
@@ -356,6 +412,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Renault
@@ -375,6 +434,9 @@
     attributes:
       proper: true
       gender: female
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 
 - type: entity
@@ -402,3 +464,7 @@
     attributes:
       proper: true
       gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+
