@@ -79,11 +79,6 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
             _cfg.GetCVar(SimpleStationCCVars.RespawnTime));
     }
 
-    private void UpdateRespawn()
-    {
-        Gui?.UpdateRespawn(_system?.Player?.TimeOfDeath);
-    }
-
     private void OnPlayerRemoved(GhostComponent component)
     {
         Gui?.Hide();
@@ -92,7 +87,6 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
     private void OnPlayerUpdated(GhostComponent component)
     {
         UpdateGui();
-        UpdateRespawn();
     }
 
     private void OnPlayerAttached(GhostComponent component)
@@ -102,7 +96,6 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
 
         Gui.Visible = true;
         UpdateGui();
-        UpdateRespawn();
     }
 
     private void OnPlayerDetached()
