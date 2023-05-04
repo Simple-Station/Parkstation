@@ -23,6 +23,7 @@ public sealed class ShotsFiredStatSystem : EntitySystem
     {
         shotsFired++;
     }
+
     private void OnRoundEnd(RoundEndTextAppendEvent ev)
     {
         var line = "\n[color=cadetblue]";

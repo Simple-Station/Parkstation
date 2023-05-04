@@ -12,7 +12,6 @@ public sealed class EmitSoundStatSystem : EntitySystem
 
     // This Enum must match the exact tag you're searching for.
     // Adding a new tag to this Enum, and ensuring the localisation is set will automatically add it to the end of round stats.
-
     private enum SoundSources
     {
         BikeHorn,
