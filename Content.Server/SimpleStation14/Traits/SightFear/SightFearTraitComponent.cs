@@ -1,9 +1,7 @@
-using Content.Shared.FixedPoint;
-
-namespace Content.Shared.SimpleStation14.Traits.SightFear
+namespace Content.Server.SimpleStation14.Traits.SightFear
 {
-    [RegisterComponent, AutoGenerateComponentState]
-    public sealed partial class SightFearTraitComponent : Component
+    [RegisterComponent]
+    public sealed class SightFearTraitComponent : Component
     {
         /// <summary>
         ///     The ID of the fear this entity has
@@ -12,7 +10,6 @@ namespace Content.Shared.SimpleStation14.Traits.SightFear
         /// </summary>
         [DataField("afraidOf")]
         [ViewVariables(VVAccess.ReadWrite)]
-        [AutoNetworkedField]
         public string AfraidOf = string.Empty;
 
         /// <summary>
@@ -27,7 +24,6 @@ namespace Content.Shared.SimpleStation14.Traits.SightFear
         /// </summary>
         [DataField("maxFear")]
         [ViewVariables(VVAccess.ReadWrite)]
-        [AutoNetworkedField]
         public double MaxFear = 20;
 
         /// <summary>
@@ -41,7 +37,6 @@ namespace Content.Shared.SimpleStation14.Traits.SightFear
         /// </summary>
         [DataField("calmRate")]
         [ViewVariables(VVAccess.ReadWrite)]
-        [AutoNetworkedField]
         public float CalmRate = 1.5f;
 
         public float Accumulator = 0.084f;

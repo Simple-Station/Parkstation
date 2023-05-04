@@ -1,13 +1,12 @@
 using System.Linq;
 using Content.Shared.Examine;
-using Content.Shared.FixedPoint;
 using Content.Shared.Interaction.Helpers;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Shared.SimpleStation14.Traits.SightFear;
+namespace Content.Server.SimpleStation14.Traits.SightFear;
 
 public sealed class SightFearTraitSystem : EntitySystem
 {
@@ -108,8 +107,8 @@ public sealed class SightFearTraitSystem : EntitySystem
                 // Calculate the strength of the fear
                 var distance = (Transform(uid).Coordinates.Position - Transform(entity).Coordinates.Position).Length;
                 var strength = MathHelper.Lerp(0f, value, 1f - distance / range);
-                
-                if (strength <= 0f)
+
+                if (strength <= 0f || component.Fear >= component.MaxFear * 2)
                     continue;
 
                 // Increase the level of fear
@@ -123,7 +122,7 @@ public sealed class SightFearTraitSystem : EntitySystem
             component.Afraid = afraid;
 
             // Decrease the fear level if not afraid this frame
-            if (!afraid)
+            if (!afraid && component.Fear > 0f)
             {
                 component.Fear -= frameTime * 1.19047619 * component.CalmRate; // Don't ask about the number.
                 Logger.ErrorS("SightFearTraitSystem", $"Entity {uid} is not afraid, decreasing fear level to {component.Fear}/{component.MaxFear}.");
