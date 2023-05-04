@@ -3,30 +3,31 @@
   weights:
     # TODO: Real weight values
     # TODO: Every comment with an ! needs to be implemented somehow or removed
-    Arachnophobia: 1 # Spiders
-    Coulrophobia: 1 # Clowns
-    # Nyctophobia: 1 # Darkness
-    Phasmophobia: 1 # Ghosts
-    # Pyrophobia: 1 # Fire
-    Trypanophobia: 1 # Needles
-    Xenophobia: 1 # Aliens
-    Hemophobia: 1 # Blood
-    Necrophobia: 1 # !Corpses
-    Ophidiophobia: 1 # Snakes
-    Ornithophobia: 1 # Birds
-    Thanatophobia: 1 # !Death
-    # Zoophobia: 1 # Animals
-    Chronophobia: 1 # !Time
-    # Monophobia: 1 # Being alone
-    Pediophobia: 1 # Plushies
-    Somniphobia: 1 # Sleep
-    Technophobia: 1 # !Technology
-    Algophobia: 1 # !Pain
+    #! Alphabetical Order
     Anthropophobia: 1 # People
+    ## Algophobia: 1 #! Pain
+    Arachnophobia: 1 # Spiders
     Astraphobia: 1 # Thunder and lightning
     Barophobia: 1 # Gravity
     # Batrachophobia: 1 # Amphibians
     Bibliophobia: 1 # Books
     Blennophobia: 1 # Slime
     Catoptrophobia: 1 # Mirrors
+    ## Chronophobia: 1 #! Time
+    Coulrophobia: 1 # Clowns
     Dendrophobia: 1 # Trees
+    Hemophobia: 1 # Blood
+    # Monophobia: 1 # Being alone
+    ## Necrophobia: 1 #! Corpses
+    # Nyctophobia: 1 # Darkness
+    Ophidiophobia: 1 # Snakes
+    Ornithophobia: 1 # Birds
+    Pediophobia: 1 # Plushies
+    Phasmophobia: 1 # Ghosts
+    # Pyrophobia: 1 # Fire
+    Somniphobia: 1 # Sleep
+    ## Technophobia: 1 #! Technology
+    ## Thanatophobia: 1 #! Death
+    Trypanophobia: 1 # Needles
+    Xenophobia: 1 # Aliens
+    # Zoophobia: 1 # Animals
