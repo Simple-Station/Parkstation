@@ -1,12 +1,17 @@
 using Content.Server.GameTicking;
 using Content.Shared.GameTicking;
+using Content.Shared.SimpleStation14.CCVar;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.SimpleStation14.EndOfRoundStats.ShotsFired;
 
 public sealed class ShotsFiredStatSystem : EntitySystem
 {
+    [Dependency] private readonly IConfigurationManager _config = default!;
+
+
     int shotsFired = 0;
 
     public override void Initialize()
@@ -26,20 +31,21 @@ public sealed class ShotsFiredStatSystem : EntitySystem
 
     private void OnRoundEnd(RoundEndTextAppendEvent ev)
     {
-        var line = "\n[color=cadetblue]";
-
-        if (shotsFired < 25 && shotsFired != 0)
-            return;
+        var line = string.Empty;
 
         line += GenerateShotsFired(shotsFired);
 
-        ev.AddLine(line + "[/color]");
+        if (line != string.Empty)
+            ev.AddLine("\n[color=cadetblue]" + line + "[/color]");
     }
 
     private string GenerateShotsFired(int shotsFired)
     {
-        if (shotsFired == 0)
+        if (shotsFired == 0 && _config.GetCVar<bool>(SimpleStationCCVars.ShotsFiredDisplayNone))
             return Loc.GetString("eofstats-shotsfired-noshotsfired");
+
+        if (shotsFired == 0 || shotsFired < _config.GetCVar<int>(SimpleStationCCVars.ShotsFiredThreshold))
+            return string.Empty;
 
         return Loc.GetString("eofstats-shotsfired-amount", ("shotsFired", shotsFired));
     }

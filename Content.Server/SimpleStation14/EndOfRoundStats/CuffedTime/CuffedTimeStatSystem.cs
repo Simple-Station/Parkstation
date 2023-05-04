@@ -3,22 +3,27 @@ using Content.Server.GameTicking;
 using Content.Server.Mind.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.GameTicking;
+using Content.Shared.SimpleStation14.CCVar;
 using Content.Shared.SimpleStation14.EndOfRoundStats.CuffedTime;
+using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
 namespace Content.Server.SimpleStation14.EndOfRoundStats.CuffedTime;
 
 public sealed class CuffedTimeStatSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
+
+
     Dictionary<PlayerData, TimeSpan> userPlayStats = new();
 
-    public struct PlayerData
+    private struct PlayerData
     {
         public String Name;
         public String? Username;
     }
 
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {
@@ -76,7 +81,7 @@ public sealed class CuffedTimeStatSystem : EntitySystem
                 topPlayer = (player, amountPlayed);
         }
 
-        if (topPlayer.Item2 < TimeSpan.FromMinutes(8))
+        if (topPlayer.Item2 < TimeSpan.FromMinutes(_config.GetCVar<int>(SimpleStationCCVars.CuffedTimeThreshold)))
             return;
         else
             line += GenerateTopPlayer(topPlayer.Item1, topPlayer.Item2);

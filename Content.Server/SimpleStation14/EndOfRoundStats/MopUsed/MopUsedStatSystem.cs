@@ -1,21 +1,26 @@
+using System.Linq;
 using Content.Server.GameTicking;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
+using Content.Shared.SimpleStation14.CCVar;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.SimpleStation14.EndOfRoundStats.MopUsed;
 
 public sealed class MopUsedStatSystem : EntitySystem
 {
+    [Dependency] private readonly IConfigurationManager _config = default!;
+
+
     Dictionary<MopperData, FixedPoint2> userMopStats = new();
     int timesMopped = 0;
 
-    int currentPlace = 1; // For making the top moppers.
-
-    public struct MopperData
+    private struct MopperData
     {
         public String Name;
         public String? Username;
     }
+
 
     public override void Initialize()
     {
@@ -51,70 +56,62 @@ public sealed class MopUsedStatSystem : EntitySystem
     {
         var line = String.Empty;
 
-        if (userMopStats.Count == 0)
+        if (userMopStats.Count == 0 && _config.GetCVar<bool>(SimpleStationCCVars.MopUsedDisplayNone))
         {
             line += "\n[color=red]" + Loc.GetString("eofstats-mop-noamountmopped") + "[/color]";
         }
+        else if (userMopStats.Count == 0)
+        {
+            return;
+        }
         else
         {
-            FixedPoint2 totalAmountMopped = 0;
+            var sortedMoppers = userMopStats.OrderByDescending(m => m.Value);
 
-            (MopperData, FixedPoint2) topMopperOne = (new MopperData(), 0);
-            (MopperData, FixedPoint2) topMopperTwo = (new MopperData(), 0);
-            (MopperData, FixedPoint2) topMopperThree = (new MopperData(), 0);
-
-            foreach (var (mopper, amountMopped) in userMopStats)
-            {
-                totalAmountMopped += amountMopped;
-
-                if (amountMopped > topMopperOne.Item2)
-                {
-                    topMopperThree = topMopperTwo;
-                    topMopperTwo = topMopperOne;
-                    topMopperOne = (mopper, amountMopped);
-                }
-                else if (amountMopped > topMopperTwo.Item2)
-                {
-                    topMopperThree = topMopperTwo;
-                    topMopperTwo = (mopper, amountMopped);
-                }
-                else if (amountMopped > topMopperThree.Item2)
-                {
-                    topMopperThree = (mopper, amountMopped);
-                }
-            }
+            int totalAmountMopped = sortedMoppers.Sum(m => (int) m.Value);
 
             String impressColor;
 
-            switch (timesMopped)
+            if (totalAmountMopped < _config.GetCVar<int>(SimpleStationCCVars.MopUsedThreshold))
+                return;
+
+            switch (totalAmountMopped)
             {
-                case var x when x > 1600:
-                    impressColor = "blue";
+                case var x when x > 2600:
+                    impressColor = "royalBlue";
                     break;
-                case var x when x > 800:
+                case var x when x > 1400:
                     impressColor = "gold";
                     break;
-                case var x when x > 300:
-                    impressColor = "silver";
+                case var x when x > 600:
+                    impressColor = "slateBlue";
                     break;
                 default:
-                    impressColor = "brown";
+                    impressColor = "burlyWood";
                     break;
             }
 
-            line += "\n" + Loc.GetString("eofstats-mop-amountmopped", ("amountMopped", (int) totalAmountMopped), ("timesMopped", timesMopped), ("impressColor", impressColor));
+            line += "\n" + Loc.GetString("eofstats-mop-amountmopped", ("amountMopped", totalAmountMopped), ("timesMopped", timesMopped), ("impressColor", impressColor));
 
-            line += "\n" + Loc.GetString("eofstats-mop-topmopper-header");
+            if (_config.GetCVar<int>(SimpleStationCCVars.MopUsedTopMopperCount) > 0)
+                line += "\n" + Loc.GetString("eofstats-mop-topmopper-header");
 
-            line += GenerateTopMopper(topMopperOne.Item1, topMopperOne.Item2);
-            line += GenerateTopMopper(topMopperTwo.Item1, topMopperTwo.Item2);
-            line += GenerateTopMopper(topMopperThree.Item1, topMopperThree.Item2);
+            var currentPlace = 1;
+            foreach (var mopper in sortedMoppers)
+            {
+                if (currentPlace > _config.GetCVar<int>(SimpleStationCCVars.MopUsedTopMopperCount))
+                    break;
+
+                line += GenerateTopMopper(mopper.Key, mopper.Value, currentPlace);
+
+                currentPlace++;
+            }
         }
 
         ev.AddLine(line);
     }
 
-    private String GenerateTopMopper(MopperData data, FixedPoint2 amountMopped)
+    private String GenerateTopMopper(MopperData data, FixedPoint2 amountMopped, int place)
     {
         var line = String.Empty;
 
@@ -122,7 +119,7 @@ public sealed class MopUsedStatSystem : EntitySystem
         {
             String impressColor;
 
-            switch (currentPlace)
+            switch (place)
             {
                 case 1:
                     impressColor = "gold";
@@ -136,11 +133,24 @@ public sealed class MopUsedStatSystem : EntitySystem
             }
 
             if (data.Username != null)
-                line += "\n" + Loc.GetString("eofstats-mop-topmopper-hasusername", ("name", data.Name), ("username", data.Username), ("amountMopped", (int) amountMopped), ("impressColor", impressColor), ("place", currentPlace));
+                line += "\n" + Loc.GetString
+                (
+                    "eofstats-mop-topmopper-hasusername",
+                    ("name", data.Name),
+                    ("username", data.Username),
+                    ("amountMopped", (int) amountMopped),
+                    ("impressColor", impressColor),
+                    ("place", place)
+                );
             else
-                line += "\n" + Loc.GetString("eofstats-mop-topmopper-hasnousername", ("name", data.Name), ("amountMopped", (int) amountMopped), ("impressColor", impressColor), ("place", currentPlace));
-
-            currentPlace++;
+                line += "\n" + Loc.GetString
+                (
+                    "eofstats-mop-topmopper-hasnousername",
+                    ("name", data.Name),
+                    ("amountMopped", (int) amountMopped),
+                    ("impressColor", impressColor),
+                    ("place", place)
+                );
         }
 
         return line;
@@ -150,6 +160,5 @@ public sealed class MopUsedStatSystem : EntitySystem
     {
         userMopStats.Clear();
         timesMopped = 0;
-        currentPlace = 1;
     }
 }

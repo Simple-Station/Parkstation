@@ -1,11 +1,16 @@
 using Content.Server.GameTicking;
 using Content.Shared.GameTicking;
+using Robust.Shared.Configuration;
+using Content.Shared.SimpleStation14.CCVar;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.SimpleStation14.EndOfRoundStats.BloodLost;
 
 public sealed class BloodLostStatSystem : EntitySystem
 {
-    float totalBloodLost = 0;
+    [Dependency] private readonly IConfigurationManager _config = default!;
+
+    FixedPoint2 totalBloodLost = 0;
 
     public override void Initialize()
     {
@@ -26,7 +31,7 @@ public sealed class BloodLostStatSystem : EntitySystem
     {
         var line = String.Empty;
 
-        if (totalBloodLost < 150)
+        if (totalBloodLost < _config.GetCVar<float>(SimpleStationCCVars.BloodLostThreshold))
             return;
 
         line += GenerateBloodLost(totalBloodLost);
@@ -34,9 +39,9 @@ public sealed class BloodLostStatSystem : EntitySystem
         ev.AddLine("\n" + line);
     }
 
-    private string GenerateBloodLost(float bloodLost)
+    private string GenerateBloodLost(FixedPoint2 bloodLost)
     {
-        return "[color=maroon]" + Loc.GetString("eofstats-bloodlost-total", ("bloodLost", Math.Round(bloodLost))) + "[/color]";
+        return "[color=maroon]" + Loc.GetString("eofstats-bloodlost-total", ("bloodLost", bloodLost.Int())) + "[/color]";
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)

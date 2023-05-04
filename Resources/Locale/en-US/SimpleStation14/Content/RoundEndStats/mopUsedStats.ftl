@@ -2,7 +2,7 @@ eofstats-mop-amountmopped = A total of [color={$impressColor}]{$amountMopped}[/c
 
 eofstats-mop-topmopper-header = The top moppers were:
 
-eofstats-mop-topmopper-hasuserimpressColor = [color={$impressColor}]{$place}. {$name} with {$amountMopped} units mopped![/color]
-eofstats-mop-topmopper-hasnouserimpressColor = [color={$impressColor}]{$place}. {$username} as {$name} with {$amountMopped} units mopped![/color]
+eofstats-mop-topmopper-hasusername = [color={$impressColor}]{$place}. {$name} with {$amountMopped} units mopped![/color]
+eofstats-mop-topmopper-hasnousername = [color={$impressColor}]{$place}. {$username} as {$name} with {$amountMopped} units mopped![/color]
 
 eofstats-mop-noamountmopped = Not one puddle was mopped this round!
