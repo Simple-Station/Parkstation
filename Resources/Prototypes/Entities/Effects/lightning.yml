@@ -29,6 +29,9 @@
   - type: Tag
     tags:
       - HideContextMenu
+  - type: SightFeared
+    fears:
+      Astraphobia: 2.5 # Doesn't show very long, make it spooky
 
 - type: entity
   name: lightning
@@ -60,6 +63,9 @@
     - type: Lightning
       canArc: false
       shockDamage: 30
+    - type: SightFeared
+      fears:
+        Astraphobia: 3.25 # Spookier
 
 - type: entity
   name: charged lightning
@@ -78,6 +84,9 @@
     - type: Lightning
       canArc: true
       lightningPrototype: ChargedLightning
+    - type: SightFeared
+      fears:
+        Astraphobia: 2.75
 
 - type: entity
   name: supercharged lightning
@@ -103,6 +112,9 @@
       softness: 1
       autoRot: true
       castShadows: false
+    - type: SightFeared
+      fears:
+        Astraphobia: 3
 
 - type: entity
   name: hypercharged lightning
@@ -128,3 +140,6 @@
       softness: 1
       autoRot: true
       castShadows: false
+    - type: SightFeared
+      fears:
+        Astraphobia: 3.25

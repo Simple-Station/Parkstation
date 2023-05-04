@@ -25,6 +25,10 @@
     - type: Faction
       factions:
         - NanoTrasen
+    - type: SightFeared
+      fears:
+        Anthropophobia: 0.25
+        Xenophobia: 0.8
 
 - type: entity
   name: Skeleton Pirate

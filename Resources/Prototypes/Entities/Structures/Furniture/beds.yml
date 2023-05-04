@@ -58,6 +58,9 @@
     noRot: true
   - type: Anchorable
   - type: Pullable
+  - type: SightFeared
+    fears:
+      Somniphobia: 1
 
 
 - type: entity
@@ -78,6 +81,9 @@
   - type: Construction
     graph: bed
     node: medicalbed
+  - type: SightFeared
+    fears:
+      Somniphobia: 0.7
 
 - type: entity
   parent: Bed
@@ -111,3 +117,6 @@
           MaterialWoodPlank:
             min: 1
             max: 5
+  - type: SightFeared
+    fears:
+      Somniphobia: 0.5

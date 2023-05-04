@@ -35,3 +35,7 @@
     - type: Faction
       factions:
         - NanoTrasen
+    - type: SightFeared
+      fears:
+        Anthropophobia: 0.75
+        Xenophobia: 0.75

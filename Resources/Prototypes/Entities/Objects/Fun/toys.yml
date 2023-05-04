@@ -32,6 +32,9 @@
     damage:
       types:
         Blunt: 0
+  - type: SightFeared
+    fears:
+      Pediophobia: 0.75
 
 - type: entity
   parent: BasePlushie
@@ -61,6 +64,9 @@
     energy: 2
   - type: RgbLightController
     layers: [ 0 ]
+  - type: SightFeared
+    fears:
+      Pediophobia: 1
 
 - type: entity
   parent: BasePlushie
@@ -70,6 +76,9 @@
   components:
   - type: Sprite
     state: plushie_nuke
+  - type: SightFeared
+    fears:
+      Pediophobia: 1.5
 
 - type: entity
   parent: BasePlushie
@@ -79,6 +88,9 @@
   components:
   - type: Sprite
     state: plushie_rouny
+  - type: SightFeared
+    fears:
+      Pediophobia: 1
 
 - type: entity
   parent: BasePlushie
@@ -92,6 +104,9 @@
     netsync: false
     radius: 1.5
     energy: 2
+  - type: SightFeared
+    fears:
+      Pediophobia: 0.25
 
 - type: entity
   parent: BasePlushie
@@ -140,6 +155,9 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Items/Toys/muffled_weh.ogg
+  - type: SightFeared
+    fears:
+      Pediophobia: 0.5
 
 - type: entity
   parent: BasePlushie
@@ -152,6 +170,9 @@
     state: blue
   - type: Item
     heldPrefix: blue
+  - type: SightFeared
+    fears:
+      Pediophobia: 1
 
 - type: entity
   parent: PlushieSharkBlue
@@ -185,6 +206,9 @@
   components:
   - type: Sprite
     state: plushie_ratvar
+  - type: SightFeared
+    fears:
+      Pediophobia: 1.5
 
 - type: entity
   parent: BasePlushie
@@ -194,6 +218,9 @@
   components:
   - type: Sprite
     state: narplush
+  - type: SightFeared
+    fears:
+      Pediophobia: 1.5
 
 
 - type: entity
@@ -225,6 +252,9 @@
   - type: Tag
     tags:
     - PlushieCarp
+  - type: SightFeared
+    fears:
+      Pediophobia: 1
 
 - type: entity
   parent: BasePlushie
@@ -234,6 +264,9 @@
   components:
   - type: Sprite
     state: plushie_slime
+  - type: SightFeared
+    fears:
+      Pediophobia: 0.5
 
 - type: entity
   parent: BasePlushie
@@ -252,6 +285,10 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Items/Toys/rattle.ogg
+  - type: SightFeared
+    fears:
+      Pediophobia: 1
+      Ophidiophobia: 0.75
 
 - type: entity
   parent: BasePlushie
@@ -323,6 +360,10 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/quack.ogg
+  - type: SightFeared
+    fears:
+      Pediophobia: 0.75
+      Ornithophobia: 0.5
 
 - type: entity
   parent: BasePlushie
@@ -400,6 +441,9 @@
   - type: ItemCooldown
   - type: UseDelay
     delay: 15
+  - type: SightFeared
+    fears:
+      Pediophobia: 1.5
 
 - type: entity
   parent: BaseItem
@@ -875,6 +919,9 @@
           base: Sixteen
   - type: DynamicPrice
     price: 3
+  - type: SightFeared
+    fears:
+      Pediophobia: 1
 
 - type: entity
   parent: BaseItem

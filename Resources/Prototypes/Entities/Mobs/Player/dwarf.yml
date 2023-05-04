@@ -28,3 +28,6 @@
         - NanoTrasen
     - type: MailReceiver
     - type: PotentialPsionic
+    - type: SightFeared
+      fears:
+        Anthropophobia: 0.8 # A bit shorter, so less scary

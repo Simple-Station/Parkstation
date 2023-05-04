@@ -89,6 +89,9 @@
           Log:
             min: 2
             max: 8
+  - type: SightFeared
+    fears:
+      Dendrophobia: 0.75
 
 - type: entity
   parent: BaseTree
@@ -106,6 +109,9 @@
       density: 4000
       layer:
       - WallLayer
+  - type: SightFeared
+    fears:
+      Dendrophobia: 0.7
 
 - type: entity
   parent: BaseTree
@@ -123,6 +129,9 @@
       density: 2000
       layer:
       - WallLayer
+  - type: SightFeared
+    fears:
+      Dendrophobia: 1
 
 - type: entity
   parent: BaseTree

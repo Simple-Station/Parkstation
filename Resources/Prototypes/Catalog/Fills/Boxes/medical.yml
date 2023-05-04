@@ -12,6 +12,9 @@
     layers:
       - state: box
       - state: syringe
+  - type: SightFeared
+    fears:
+      Trypanophobia: 2
 
 - type: entity
   name: pill canister box
@@ -72,7 +75,7 @@
     layers:
       - state: box
       - state: latex
-      
+
 - type: entity
   name: nitrile gloves box
   parent: BoxCardboard
