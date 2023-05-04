@@ -20,6 +20,7 @@ public sealed class SightFearTraitSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SightFearTraitComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<SightFearedComponent, ComponentInit>(CheckFeared);
     }
 
 
@@ -33,6 +34,26 @@ public sealed class SightFearTraitSystem : EntitySystem
         Dirty(component);
     }
 
+    private void CheckFeared(EntityUid uid, SightFearedComponent component, ComponentInit args)
+    {
+        if (component.Fears.Count == 0)
+        {
+            Logger.WarningS("SightFearTraitSystem", $"Entity {uid} has SightFearedComponent without any defined fears.");
+            return;
+        }
+
+        if (!_prototype.TryIndex<WeightedRandomPrototype>("RandomFears", out var randomFears))
+        {
+            Logger.ErrorS("SightFearTraitSystem", $"Prototype RandomFears could not be found.");
+            return;
+        }
+
+        foreach (var fear in component.Fears.Keys.Where(fear => !randomFears.Weights.ContainsKey(fear)))
+        {
+            Logger.ErrorS("SightFearTraitSystem", $"Prototype RandomFears does not contain fear {fear} from SightFearedComponent on entity {uid}.");
+        }
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -40,6 +61,14 @@ public sealed class SightFearTraitSystem : EntitySystem
         var query = EntityQueryEnumerator<SightFearTraitComponent>();
         while(query.MoveNext(out var uid, out var component))
         {
+            if (component.Accumulator > 0f)
+            {
+                component.Accumulator -= frameTime;
+                continue;
+            }
+
+            component.Accumulator = 0.84f;
+
             var range = 10f;
             if (_entity.TryGetComponent<SharedEyeComponent>(uid, out var eye))
                 range *= (eye.Zoom.X + eye.Zoom.Y) / 2;
