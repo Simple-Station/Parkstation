@@ -1,0 +1,30 @@
+- type: weightedRandom
+  id: RandomFears
+  weights: # TODO: Weights
+    Arachnophobia: 1 # Spiders
+    Coulrophobia: 1 # Clowns
+    Nyctophobia: 1 # Darkness
+    Phasmophobia: 1 # Ghosts
+    Pyrophobia: 1 # Fire
+    Trypanophobia: 1 # Needles
+    Xenophobia: 1 # Aliens
+    Hemophobia: 1 # Blood
+    Necrophobia: 1 # Corpses
+    Ophidiophobia: 1 # Snakes
+    Ornithophobia: 1 # Birds
+    Thanatophobia: 1 # Death
+    # Zoophobia: 1 # Animals
+    Chronophobia: 1 # Time
+    Monophobia: 1 # Being alone
+    Pediophobia: 1 # Dolls
+    Somniphobia: 1 # Sleep
+    Technophobia: 1 # Technology
+    Algophobia: 1 # Pain
+    Anthropophobia: 1 # People
+    Astraphobia: 1 # Thunder and lightning
+    Barophobia: 1 # Gravity
+    Batrachophobia: 1 # Amphibians
+    Bibliophobia: 1 # Books
+    Blennophobia: 1 # Slime
+    Catoptrophobia: 1 # Mirrors
+    Dendrophobia: 1 # Trees

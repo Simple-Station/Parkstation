@@ -1362,6 +1362,9 @@
       types:
         Piercing: 10
   - type: RandomBark
+  - type: SightFeared
+    fears:
+      Arachnophobia: 1
 
 - type: entity
   name: tarantula

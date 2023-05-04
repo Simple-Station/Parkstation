@@ -1,5 +1,9 @@
-using Content.Shared.SimpleStation14.Traits.SightFear;
-using Robust.Shared.GameStates;
+using System.Linq;
+using Content.Shared.Examine;
+using Content.Shared.Interaction.Helpers;
+using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Shared.SimpleStation14.Traits.SightFear;
@@ -9,85 +13,57 @@ public sealed class SightFearTraitSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<SightFearTraitComponent, ComponentInit>(OnInit);
+        base.Initialize();
 
-        SubscribeLocalEvent<SightFearTraitComponent, ComponentGetState>(OnGetState);
-        SubscribeLocalEvent<SightFearTraitComponent, ComponentHandleState>(OnHandleState);
+        SubscribeLocalEvent<SightFearTraitComponent, ComponentInit>(OnComponentInit);
     }
 
-    private void OnInit(EntityUid entity, SightFearTraitComponent traitComponent, ComponentInit args)
+
+    private void OnComponentInit(EntityUid uid, SightFearTraitComponent component, ComponentInit args)
     {
-        // If there are no possible fears, don't bother.
-        if (traitComponent.PossiblePrototypes.Count <= 0 && traitComponent.PossibleTags.Count <= 0)
+        if (!string.IsNullOrEmpty(component.AfraidOf) ||
+            !_prototype.TryIndex<WeightedRandomPrototype>("RandomFears", out var randomFears))
             return;
 
-        // Randomly pick a fear.
-        if (_random.Prob(0.5f))
-            traitComponent.AfraidOfPrototypes.Add(_random.PickAndTake(traitComponent.PossiblePrototypes));
-        else
-            traitComponent.AfraidOfTags.Add(_random.PickAndTake(traitComponent.PossibleTags));
-
-        RecursiveRandom(traitComponent.MultipleFearChance, traitComponent);
+        component.AfraidOf = randomFears.Pick(_random);
+        Dirty(component);
     }
 
-
-    private void OnGetState(EntityUid entity, SightFearTraitComponent traitComponent, ref ComponentGetState args)
+    public override void Update(float frameTime)
     {
-        args.State = new SightFearTraitComponentState(traitComponent.AfraidOfPrototypes, traitComponent.AfraidOfTags);
-    }
+        base.Update(frameTime);
 
-    private void OnHandleState(EntityUid entity, SightFearTraitComponent traitComponent, ref ComponentHandleState args)
-    {
-        if (args.Current is not SightFearTraitComponentState state)
-            return;
-
-        traitComponent.AfraidOfPrototypes = state.AfraidOfPrototypes;
-        traitComponent.AfraidOfTags = state.AfraidOfTags;
-    }
-
-
-    private void RecursiveRandom(float chance, SightFearTraitComponent traitComponent)
-    {
-        if (traitComponent.PossiblePrototypes.Count <= 0 && traitComponent.PossibleTags.Count <= 0)
-            return;
-
-        if (_random.Prob(0.5f) && traitComponent.PossiblePrototypes.Count > 0)
+        var query = EntityQueryEnumerator<SightFearTraitComponent>();
+        while(query.MoveNext(out var uid, out var component))
         {
-            if (!_random.Prob(chance))
-                return;
+            var range = 10f;
+            if (_entity.TryGetComponent<SharedEyeComponent>(uid, out var eye))
+                range *= (eye.Zoom.X + eye.Zoom.Y) / 2;
 
-            traitComponent.AfraidOfPrototypes.Add(_random.PickAndTake(traitComponent.PossiblePrototypes));
-            RecursiveRandom(chance, traitComponent);
-            return;
-        }
+            var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, range)
+                .Where(e => _entity.HasComponent<SightFearedComponent>(e));
 
-        if (traitComponent.PossibleTags.Count > 0)
-        {
-            if (!_random.Prob(chance))
-                return;
+            foreach (var entity in entities)
+            {
+                if (!_entity.TryGetComponent<ExaminerComponent>(uid, out var examiner) ||
+                    !examiner.InRangeUnOccluded(Transform(entity).Coordinates, range))
+                    continue;
 
-            traitComponent.AfraidOfTags.Add(_random.PickAndTake(traitComponent.PossibleTags));
-            RecursiveRandom(chance, traitComponent);
-            return;
+                var feared = _entity.GetComponent<SightFearedComponent>(entity);
+                if (!feared.Fears.TryGetValue(component.AfraidOf, out var value))
+                    continue;
+
+                var distance = (Transform(uid).Coordinates.Position - Transform(entity).Coordinates.Position).Length;
+                var strength = MathHelper.Lerp(0f, value, 1f - (distance / range));
+                if (strength <= 0f)
+                    continue;
+
+                Logger.ErrorS("SightFearTraitSystem", $"Entity {uid} is afraid of {entity} ({component.AfraidOf}) at strength {strength}");
+            }
         }
     }
-
-
-    // public override void Update(float frameTime)
-    // {
-    //     base.Update(frameTime);
-    //
-    //     if (!_timing.IsFirstTimePredicted)
-    //         return;
-    //
-    //     var player = _player.LocalPlayer?.ControlledEntity;
-    //     if (player == null)
-    //         return;
-    //
-    //     if (!_entity.TryGetComponent<SightFearTraitComponent>(player, out var fear))
-    //         return;
-    // }
 }

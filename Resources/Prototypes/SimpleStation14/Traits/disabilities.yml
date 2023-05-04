@@ -69,13 +69,3 @@
   category: Negative
   components:
     - type: SightFearTrait
-      prototypes:
-        - MobHuman
-        - Spoon
-        - Fork
-        - SpoonPlastic
-        - ForkPlastic
-      tags:
-        - DoorBumpOpener
-      multipleFearChance: 0.75
-      maxFears: 3
