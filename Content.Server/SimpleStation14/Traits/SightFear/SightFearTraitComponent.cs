@@ -1,3 +1,5 @@
+using Robust.Shared.Audio;
+
 namespace Content.Server.SimpleStation14.Traits.SightFear
 {
     [RegisterComponent]
@@ -37,7 +39,9 @@ namespace Content.Server.SimpleStation14.Traits.SightFear
         /// </summary>
         [DataField("calmRate")]
         [ViewVariables(VVAccess.ReadWrite)]
-        public float CalmRate = 1.5f;
+        public float CalmRate = 2.25f;
+
+        public IPlayingAudioStream? Stream;
 
         public float Accumulator = 0.084f;
     }

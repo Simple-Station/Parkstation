@@ -1,8 +1,14 @@
 using System.Linq;
+using Content.Server.Power.EntitySystems;
+using Content.Shared.Audio;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Helpers;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -14,6 +20,7 @@ public sealed class SightFearTraitSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -108,7 +115,7 @@ public sealed class SightFearTraitSystem : EntitySystem
                 var distance = (Transform(uid).Coordinates.Position - Transform(entity).Coordinates.Position).Length;
                 var strength = MathHelper.Lerp(0f, value, 1f - distance / range);
 
-                if (strength <= 0f || component.Fear >= component.MaxFear * 2)
+                if (strength <= 0f)
                     continue;
 
                 // Increase the level of fear
@@ -119,7 +126,23 @@ public sealed class SightFearTraitSystem : EntitySystem
                 Logger.ErrorS("SightFearTraitSystem", $"Entity {uid} is afraid of {entity} ({component.AfraidOf}) at strength {strength}, now at a fear level of {component.Fear}/{component.MaxFear}.");
             }
 
+            // Set the afraid state for other systems to use
             component.Afraid = afraid;
+
+            // Spook
+            if (component.Fear >= component.MaxFear * 2 && component.Stream == null)
+            {
+                component.Stream = _audio.PlayGlobal(new SoundPathSpecifier("/Audio/SimpleStation14/Effects/fastbeat.ogg"), uid, AudioParams.Default.WithLoop(true).WithVariation(0.125f));
+            }
+            else if (component.Fear >= component.MaxFear && component.Stream == null)
+            {
+                component.Stream = _audio.PlayGlobal(new SoundPathSpecifier("/Audio/SimpleStation14/Effects/slowbeat.ogg"), uid, AudioParams.Default.WithLoop(true).WithVariation(0.125f));
+            }
+            else if (component.Fear < component.MaxFear && component.Stream != null)
+            {
+                component.Stream?.Stop();
+                component.Stream = null;
+            }
 
             // Decrease the fear level if not afraid this frame
             if (!afraid && component.Fear > 0f)
