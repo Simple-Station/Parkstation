@@ -2,7 +2,7 @@
   id: ChocolateMilk
   reactants:
     Milk:
-      amount: 4
+      amount: 5
     Theobromine:
       amount: 1
   products:
