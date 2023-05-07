@@ -40,4 +40,14 @@ public sealed class CCCVars
     /// </summary>
     public static readonly CVarDef<string> DiscordAuthApiKey =
         CVarDef.Create("discord_auth.api_key", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
+    /*
+     * Station Goals
+     */
+
+    /// <summary>
+    ///     Enables station goals
+    /// </summary>
+    public static readonly CVarDef<bool> StationGoalsEnabled =
+        CVarDef.Create("game.station_goals", false, CVar.SERVERONLY);
 }

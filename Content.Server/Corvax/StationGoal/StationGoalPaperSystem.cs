@@ -1,9 +1,11 @@
 using System.Data;
 using System.Linq;
 using Content.Server.Fax;
+using Content.Shared.Corvax.CCCVars;
 using Content.Shared.GameTicking;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -17,6 +19,7 @@ namespace Content.Server.Corvax.StationGoal
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly FaxSystem _faxSystem = default!;
+        [Dependency] private readonly IConfigurationManager _config = default!;
 
         private const string RandomPrototype = "StationGoals";
 
@@ -29,6 +32,9 @@ namespace Content.Server.Corvax.StationGoal
 
         private void OnRoundStarted(RoundStartedEvent ev)
         {
+            if (_config.GetCVar(CCCVars.StationGoalsEnabled) != true)
+                return;
+
             SendRandomGoal();
         }
 
