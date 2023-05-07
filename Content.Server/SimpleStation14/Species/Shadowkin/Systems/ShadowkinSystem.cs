@@ -70,9 +70,9 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems
             {
                 var oldPowerLevel = _powerSystem.GetLevelName(component.PowerLevel);
 
-                _powerSystem.TryUpdatePowerLevel(component.Owner, frameTime);
                 if (!component.Blackeye)
                     _powerSystem.TryBlackeye(component.Owner);
+                _powerSystem.TryUpdatePowerLevel(component.Owner, frameTime);
 
                 if (oldPowerLevel != _powerSystem.GetLevelName(component.PowerLevel))
                 {
