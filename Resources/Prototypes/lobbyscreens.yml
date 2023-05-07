@@ -11,5 +11,5 @@
   background: /Textures/LobbyScreens/room.png
   
 - type: lobbyBackground
-  id: Planets
+  id: Dipper
   background: /Textures/LobbyScreens/planets.png
