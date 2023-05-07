@@ -6,7 +6,7 @@ There are various possible alert levels, including some only activated by Centra
 Each alert level has different "Operating Procedures" that you must follow, shown in detail in the subcategories of this page.
 
 <Box HorizontalAlignment="Left">
-Alert levels are set either via a communicatons console, or the AI internal computer.
+Alert levels are set either via a communications console, or the AI internal computer.
 </Box>
 <Box HorizontalAlignment="Left">
 <GuideEntityEmbed Entity="ComputerComms" Caption="" />
