@@ -13,6 +13,7 @@
   startingGear: CSSGear
   icon: "ChiefServiceSupervisor"
   requireAdminNotify: true
+  whitelistRequired: true
   supervisors: job-supervisors-cc
   canBeAntag: false
   antagAdvantage: 6
