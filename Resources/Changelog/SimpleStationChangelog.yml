@@ -892,3 +892,9 @@ Entries:
       message: Added chocolate milk, made with 5 Milk and 1 Theobromine.
   id: 77
   time: '2023-05-06T22:47:18Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: Station AI and CSS are now whitelisted jobs.
+  id: 78
+  time: '2023-05-07T00:27:35Z'
