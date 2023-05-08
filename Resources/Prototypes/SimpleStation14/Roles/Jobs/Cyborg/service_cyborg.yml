@@ -1,21 +1,15 @@
 - type: job
-  id: Cyborg
-  name: job-name-cyborg
+  id: ServiceCyborg
+  name: job-name-service-cyborg
   description: job-description-cyborg
   playTimeTracker: JobCyborg
+  whitelistRequired: true
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 24000
-  icon: "Cyborg"
+  icon: "ServiceCyborg"
   supervisors: job-supervisors-human
   canBeAntag: false
-  whitelistRequired: true
-  jobEntity: PlayerCyborgStandard
+  jobEntity: PlayerCyborgService
   startingGear: CyborgGear # for char preview only
   canHaveTraits: false
-
-- type: startingGear
-  id: CyborgGear
-  equipment:
-    head: ClothingHeadHatCardborg
-    outerClothing: ClothingOuterCardborg
