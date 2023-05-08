@@ -233,28 +233,6 @@
     tags: []
 
 - type: entity
-  name: magic medipen
-  parent: ChemicalMedipen
-  id: MagicMedipen
-  description: Slowly regenerates ichor? Where does the ichor come from?
-  components:
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 5
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 15
-        reagents:
-          - ReagentId: Ichor
-            Quantity: 10
-  - type: AutoRegenReagent
-    solution: pen
-    reagents:
-      - Ichor
-    unitsPerSecond: 0.1
-
-- type: entity
   name: pen
   suffix: Hypopen
   parent: BaseItem

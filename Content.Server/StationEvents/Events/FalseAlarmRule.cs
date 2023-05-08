@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.SimpleStation14.Announcements.Systems;
 using Content.Server.StationEvents.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
@@ -11,6 +12,7 @@ namespace Content.Server.StationEvents.Events;
 public sealed class FalseAlarmRule : StationEventSystem<FalseAlarmRuleComponent>
 {
     [Dependency] private readonly EventManagerSystem _event = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;
 
     protected override void Started(EntityUid uid, FalseAlarmRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -21,8 +23,7 @@ public sealed class FalseAlarmRule : StationEventSystem<FalseAlarmRuleComponent>
 
         if (picked.StartAnnouncement != null)
         {
-            ChatSystem.DispatchGlobalAnnouncement(Loc.GetString(picked.StartAnnouncement), playSound: false, colorOverride: Color.Gold);
+            _announcer.SendAnnouncement(args.RuleId, Filter.Broadcast(), Loc.GetString(picked.StartAnnouncement), colorOverride: Color.Gold);
         }
-        Audio.PlayGlobal(picked.StartAudio, Filter.Broadcast(), true);
     }
 }

@@ -72,23 +72,12 @@
   components:
   - type: ZombieRule
 
-# - type gameRule
-#   id: XenoOutbreak
-#   config:
-#     !type:GenericGameRuleConfiguration
-#     id: XenoOutbreak
-
-- type: gameRule
-  id: Wizard
-  config:
-    !type:GenericGameRuleConfiguration
-    id: Wizard
-
-- type: gameRule
+- type: entity
   id: Minor
-  config:
-    !type:GenericGameRuleConfiguration
-    id: Minor
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: MinorRule
 
 # event schedulers
 - type: entity

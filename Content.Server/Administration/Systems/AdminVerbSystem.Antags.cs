@@ -1,5 +1,6 @@
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind.Components;
+using Content.Server.SimpleStation14.Antagonists.Rules;
 using Content.Server.Zombies;
 using Content.Shared.Administration;
 using Content.Shared.Database;
@@ -15,7 +16,6 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly ZombifyOnDeathSystem _zombify = default!;
     [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
     [Dependency] private readonly MinorRuleSystem _minorRule = default!;
-    [Dependency] private readonly WizardRuleSystem _wizardRule = default!;
     [Dependency] private readonly NukeopsRuleSystem _nukeopsRule = default!;
     [Dependency] private readonly PiratesRuleSystem _piratesRule = default!;
 
@@ -55,7 +55,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = "Make Minor",
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi((new ResourcePath("/Textures/Structures/Wallmounts/posters.rsi")), "poster5_contraband"),
+            Icon = new SpriteSpecifier.Rsi((new ResPath("/Textures/Structures/Wallmounts/posters.rsi")), "poster5_contraband"),
             Act = () =>
             {
                 if (targetMindComp.Mind == null || targetMindComp.Mind.Session == null)
@@ -67,23 +67,6 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-minor"),
         };
         args.Verbs.Add(minor);
-
-        Verb wizard = new()
-        {
-            Text = "Make Wizard",
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi((new ResourcePath("/Textures/Structures/Wallmounts/posters.rsi")), "poster5_contraband"),
-            Act = () =>
-            {
-                if (targetMindComp.Mind == null || targetMindComp.Mind.Session == null)
-                    return;
-
-                _wizardRule.MakeWizard(targetMindComp.Mind.Session);
-            },
-            Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-wizard"),
-        };
-        args.Verbs.Add(wizard);
 
         Verb zombie = new()
         {

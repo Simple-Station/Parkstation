@@ -24,9 +24,7 @@ namespace Content.Client.Administration.UI
                 Announcement = Rope.Collapse(_window.Announcement.TextRope),
                 Announcer =  _window.Announcer.Text,
                 AnnounceType =  (AdminAnnounceType) (_window.AnnounceMethod.SelectedMetadata ?? AdminAnnounceType.Station),
-                CloseAfter = !_window.KeepWindowOpen.Pressed,
-                AnnouncerVoice = _window.AnnouncerVoice.Text,
-                AnnouncerSound = _window.AnnouncerType.Text
+                CloseAfter = !_window.KeepWindowOpen.Pressed
             });
 
         }

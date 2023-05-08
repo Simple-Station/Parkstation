@@ -57,15 +57,7 @@ namespace Content.Server.Administration.UI
                             break;
                         // TODO: Per-station announcement support
                         case AdminAnnounceType.Station:
-                            // _chatSystem.DispatchGlobalAnnouncement(doAnnounce.Announcement, doAnnounce.Announcer, colorOverride: Color.Gold);
-                            var tmp = _announcerSystem.Announcer;
-                            _proto.TryIndex<AnnouncerPrototype>(doAnnounce.AnnouncerVoice, out var announcer);
-                            _announcerSystem.Announcer = announcer ?? tmp;
-
-                            _announcerSystem.SendAnnouncement(string.IsNullOrEmpty(doAnnounce.AnnouncerSound) ? "commandreport" : doAnnounce.AnnouncerSound,
-                                Filter.Broadcast(), doAnnounce.Announcement, doAnnounce.Announcer, Color.Gold);
-
-                            _announcerSystem.Announcer = tmp;
+                            _chatSystem.DispatchGlobalAnnouncement(doAnnounce.Announcement, doAnnounce.Announcer, colorOverride: Color.Gold);
                             break;
                     }
 
