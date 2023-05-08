@@ -849,3 +849,52 @@ Entries:
       message: HoP's hardsuit helmet now looks more like the hat and less boring
   id: 72
   time: '2023-04-28T10:06:30Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: >-
+        The chemists have suddenly decided to greatly improve the look of their
+        pills, making patients much happier to ingest them.
+  id: 73
+  time: '2023-04-30T02:23:55Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Airlocks now check your belt slot for accesses
+  id: 74
+  time: '2023-05-01T04:08:37Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Moved SAI door remote to actions
+    - type: fix
+      message: SAI no longer collides with ghosts in eye form
+    - type: fix
+      message: SAI can see items and actions when in eye form
+    - type: fix
+      message: SAI no longer has a body :) -Psprite
+  id: 75
+  time: '2023-05-01T04:13:49Z'
+- author: SomeCabbage
+  changes:
+    - type: tweak
+      message: >-
+        Several minor Parkstation map tweaks. Reoriented the maintenance bar
+        sign. Arrivals docking airlocks are now the new type of arrival airlock
+        meant for the arrival shuttle. The Security disposal chute is now hooked
+        up. AI core now has telecom servers. Salvage now has 3 pre-placed GPSs.
+        HoP locker is better now and contains cool stuff.
+  id: 76
+  time: '2023-05-03T14:41:38Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: add
+      message: Added chocolate milk, made with 5 Milk and 1 Theobromine.
+  id: 77
+  time: '2023-05-06T22:47:18Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: Station AI and CSS are now whitelisted jobs.
+  id: 78
+  time: '2023-05-07T00:27:35Z'

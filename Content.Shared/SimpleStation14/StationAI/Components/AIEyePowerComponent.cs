@@ -3,10 +3,11 @@ using Content.Shared.Actions.ActionTypes;
 namespace Content.Shared.SimpleStation14.StationAI
 {
     [RegisterComponent]
-    public sealed class AITelegnosisPowerComponent : Component
+    public sealed class AIEyePowerComponent : Component
     {
         [DataField("prototype")]
-        public string Prototype = "AIeye";
-        public InstantAction? TelegnosisPowerAction = null;
+        public string Prototype = "AIEye";
+
+        public InstantAction? EyePowerAction = null;
     }
 }

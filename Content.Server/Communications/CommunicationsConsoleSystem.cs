@@ -268,7 +268,8 @@ namespace Content.Server.Communications
             Loc.TryGetString(comp.AnnouncementDisplayName, out var title);
             title ??= comp.AnnouncementDisplayName;
 
-            msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
+            if (comp.ShowAuthor)
+                msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
             if (comp.AnnounceGlobal)
             {
                 // _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: comp.AnnouncementSound, colorOverride: comp.AnnouncementColor);

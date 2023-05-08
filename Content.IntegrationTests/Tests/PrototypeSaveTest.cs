@@ -97,9 +97,7 @@ public sealed class PrototypeSaveTest
         "GasFilterFlipped",
         "SurveillanceWirelessCameraAnchoredConstructed",
 
-        // I don't want to figure out what's wrong with these - Death
-        "AIeye",
-        "AI",
+        // TODO: I don't want to figure out what's wrong with these - Death
         "ClothingOuterPurpleCoat",
         "MagicMedipen",
         "Sleeper",
