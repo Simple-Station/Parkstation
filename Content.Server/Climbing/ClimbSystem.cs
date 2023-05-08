@@ -94,23 +94,31 @@ public sealed class ClimbSystem : SharedClimbSystem
         // TODO VERBS ICON add a climbing icon?
         args.Verbs.Add(new AlternativeVerb
         {
-            Act = () => TryMoveEntity(component, args.User, args.User, args.Target),
+            Act = () => TryClimb(args.User, args.User, args.Target, component),
             Text = Loc.GetString("comp-climbable-verb-climb")
         });
     }
 
     private void OnClimbableDragDrop(EntityUid uid, ClimbableComponent component, ref DragDropTargetEvent args)
     {
-        TryMoveEntity(component, args.User, args.Dragged, uid);
+        TryClimb(args.User, args.Dragged, uid, component);
     }
 
-    private void TryMoveEntity(ClimbableComponent component, EntityUid user, EntityUid entityToMove,
-        EntityUid climbable)
+    public void TryClimb(EntityUid user,
+        EntityUid entityToMove,
+        EntityUid climbable,
+        ClimbableComponent? comp = null,
+        ClimbingComponent? climbing = null)
     {
-        if (!TryComp(entityToMove, out ClimbingComponent? climbingComponent) || climbingComponent.IsClimbing)
+        if (!Resolve(climbable, ref comp) || !Resolve(entityToMove, ref climbing))
             return;
 
-        var climbDelay = component.ClimbDelay;
+        // Note, IsClimbing does not mean a DoAfter is active, it means the target has already finished a DoAfter and
+        // is currently on top of something..
+        if (climbing.IsClimbing)
+            return;
+
+        var climbDelay = comp.ClimbDelay;
         if (TryComp<LightWeightTraitComponent>(entityToMove, out var Light) &&
             Light.NegateTime != null)
             climbDelay -= (float) Light.NegateTime;
