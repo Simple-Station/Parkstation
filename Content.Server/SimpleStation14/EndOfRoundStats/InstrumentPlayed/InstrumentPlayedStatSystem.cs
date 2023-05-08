@@ -67,7 +67,7 @@ public sealed class InstrumentPlayedStatSystem : EntitySystem
         }
 
         // Continue with normal logic.
-        var line = "[color=green]";
+        var line = "[color=springGreen]";
 
         (PlayerData, TimeSpan) topPlayer = (new PlayerData(), TimeSpan.Zero);
 
@@ -92,15 +92,15 @@ public sealed class InstrumentPlayedStatSystem : EntitySystem
         if (data.Username != null)
             line += Loc.GetString
             (
-                "eofstats-instrumentplayed-topplayer-hasusername",
-                ("username", data.Name),
-                ("name", data.Username),
+                "eorstats-instrumentplayed-topplayer-hasusername",
+                ("username", data.Username),
+                ("name", data.Name),
                 ("amountPlayedMinutes", Math.Round(amountPlayed.TotalMinutes))
             );
         else
             line += Loc.GetString
             (
-                "eofstats-instrumentplayed-topplayer-hasnousername",
+                "eorstats-instrumentplayed-topplayer-hasnousername",
                 ("name", data.Name),
                 ("amountPlayedMinutes", Math.Round(amountPlayed.TotalMinutes))
             );

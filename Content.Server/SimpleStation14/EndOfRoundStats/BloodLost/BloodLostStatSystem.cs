@@ -41,7 +41,7 @@ public sealed class BloodLostStatSystem : EntitySystem
 
     private string GenerateBloodLost(FixedPoint2 bloodLost)
     {
-        return "[color=maroon]" + Loc.GetString("eofstats-bloodlost-total", ("bloodLost", bloodLost.Int())) + "[/color]";
+        return "[color=maroon]" + Loc.GetString("eorstats-bloodlost-total", ("bloodLost", bloodLost.Int())) + "[/color]";
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)

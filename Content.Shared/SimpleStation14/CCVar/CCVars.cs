@@ -20,7 +20,7 @@ public sealed class SimpleStationCCVars
     /*
      * End of round stats
      */
-
+    #region EndOfRoundStats
     #region BloodLost
     /// <summary>
     ///     The amount of blood lost required to trigger the BloodLost end of round stat.
@@ -106,5 +106,29 @@ public sealed class SimpleStationCCVars
     /// </summary>
     public static readonly CVarDef<bool> ShotsFiredDisplayNone =
         CVarDef.Create("eorstats.shotsfired_displaynone", true, CVar.SERVERONLY);
+    #endregion
+
+    #region SlippedCount
+    /// <summary>
+    ///     The amount of times slipped required to trigger the SlippedCount end of round stat.
+    /// </summary>
+    /// <remarks>
+    ///     Setting this to 0 will disable the SlippedCount end of round stat.
+    /// </remarks>
+    public static readonly CVarDef<int> SlippedCountThreshold =
+        CVarDef.Create("eorstats.slippedcount_threshold", 30, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Should a stat be displayed specifically when nobody was done?
+    /// </summary>
+    public static readonly CVarDef<bool> SlippedCountDisplayNone =
+        CVarDef.Create("eorstats.slippedcount_displaynone", true, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Should the top slipper be displayed in the end of round stats?
+    /// </summary>
+    public static readonly CVarDef<bool> SlippedCountTopSlipper =
+        CVarDef.Create("eorstats.slippedcount_topslipper", true, CVar.SERVERONLY);
+    #endregion
     #endregion
 }

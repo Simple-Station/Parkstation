@@ -85,12 +85,12 @@ public sealed class EmitSoundStatSystem : EntitySystem
 
     private bool TryGenerateSoundsEmitted(SoundSources source, int soundsEmitted, [NotNullWhen(true)] out string? line)
     {
-        string preLocalString = "eofstats-emitsound-" + source.ToString();
+        string preLocalString = "eorstats-emitsound-" + source.ToString();
 
         if (!Loc.TryGetString(preLocalString, out var localString, ("times", soundsEmitted)))
         {
-            Logger.DebugS("eofstats", "Unknown messageId: {0}", preLocalString);
-            Logger.Debug("Make sure the string is following the correct format, and matches the enum! (eofstats-emitsound-<enum>)");
+            Logger.DebugS("eorstats", "Unknown messageId: {0}", preLocalString);
+            Logger.Debug("Make sure the string is following the correct format, and matches the enum! (eorstats-emitsound-<enum>)");
 
             throw new ArgumentException("Unknown messageId: " + preLocalString);
             return false;

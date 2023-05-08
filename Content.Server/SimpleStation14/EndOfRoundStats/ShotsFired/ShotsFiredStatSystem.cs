@@ -42,12 +42,12 @@ public sealed class ShotsFiredStatSystem : EntitySystem
     private string GenerateShotsFired(int shotsFired)
     {
         if (shotsFired == 0 && _config.GetCVar<bool>(SimpleStationCCVars.ShotsFiredDisplayNone))
-            return Loc.GetString("eofstats-shotsfired-noshotsfired");
+            return Loc.GetString("eorstats-shotsfired-noshotsfired");
 
         if (shotsFired == 0 || shotsFired < _config.GetCVar<int>(SimpleStationCCVars.ShotsFiredThreshold))
             return string.Empty;
 
-        return Loc.GetString("eofstats-shotsfired-amount", ("shotsFired", shotsFired));
+        return Loc.GetString("eorstats-shotsfired-amount", ("shotsFired", shotsFired));
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)

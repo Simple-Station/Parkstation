@@ -58,7 +58,7 @@ public sealed class MopUsedStatSystem : EntitySystem
 
         if (userMopStats.Count == 0 && _config.GetCVar<bool>(SimpleStationCCVars.MopUsedDisplayNone))
         {
-            line += "\n[color=red]" + Loc.GetString("eofstats-mop-noamountmopped") + "[/color]";
+            line += "\n[color=red]" + Loc.GetString("eorstats-mop-noamountmopped") + "[/color]";
         }
         else if (userMopStats.Count == 0)
         {
@@ -87,14 +87,14 @@ public sealed class MopUsedStatSystem : EntitySystem
                     impressColor = "slateBlue";
                     break;
                 default:
-                    impressColor = "burlyWood";
+                    impressColor = "fireBrick";
                     break;
             }
 
-            line += "\n" + Loc.GetString("eofstats-mop-amountmopped", ("amountMopped", totalAmountMopped), ("timesMopped", timesMopped), ("impressColor", impressColor));
+            line += "\n" + Loc.GetString("eorstats-mop-amountmopped", ("amountMopped", totalAmountMopped), ("timesMopped", timesMopped), ("impressColor", impressColor));
 
             if (_config.GetCVar<int>(SimpleStationCCVars.MopUsedTopMopperCount) > 0)
-                line += "\n" + Loc.GetString("eofstats-mop-topmopper-header");
+                line += "\n" + Loc.GetString("eorstats-mop-topmopper-header");
 
             var currentPlace = 1;
             foreach (var mopper in sortedMoppers)
@@ -125,17 +125,17 @@ public sealed class MopUsedStatSystem : EntitySystem
                     impressColor = "gold";
                     break;
                 case 2:
-                    impressColor = "silver";
+                    impressColor = "slateBlue";
                     break;
                 default:
-                    impressColor = "burlywood";
+                    impressColor = "fireBrick";
                     break;
             }
 
             if (data.Username != null)
                 line += "\n" + Loc.GetString
                 (
-                    "eofstats-mop-topmopper-hasusername",
+                    "eorstats-mop-topmopper-hasusername",
                     ("name", data.Name),
                     ("username", data.Username),
                     ("amountMopped", (int) amountMopped),
@@ -145,7 +145,7 @@ public sealed class MopUsedStatSystem : EntitySystem
             else
                 line += "\n" + Loc.GetString
                 (
-                    "eofstats-mop-topmopper-hasnousername",
+                    "eorstats-mop-topmopper-hasnousername",
                     ("name", data.Name),
                     ("amountMopped", (int) amountMopped),
                     ("impressColor", impressColor),
