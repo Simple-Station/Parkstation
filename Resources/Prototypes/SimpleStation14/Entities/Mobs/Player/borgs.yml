@@ -199,8 +199,7 @@
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
-    - Engineering
-    - Cargo
+    - Service
     - Binary
   - type: ActiveRadio
     channels:
@@ -261,8 +260,7 @@
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
-    - Engineering
-    - Cargo
+    - Service
     - Binary
   - type: ActiveRadio
     channels:
@@ -323,8 +321,7 @@
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
-    - Engineering
-    - Cargo
+    - Service
     - Binary
   - type: ActiveRadio
     channels:
