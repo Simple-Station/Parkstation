@@ -6,7 +6,10 @@
   whitelistRequired: true
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 24000
+      time: 10800
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 7200
   icon: "MedicalCyborg"
   supervisors: job-supervisors-human
   canBeAntag: false

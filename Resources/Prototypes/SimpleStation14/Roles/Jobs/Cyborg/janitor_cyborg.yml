@@ -6,7 +6,10 @@
   whitelistRequired: true
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 24000
+      time: 10800
+    - !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 7200
   icon: "JanitorCyborg"
   supervisors: job-supervisors-human
   canBeAntag: false

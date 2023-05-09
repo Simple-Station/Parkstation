@@ -1,6 +1,6 @@
 - type: job
-  id: ServiceCyborg
-  name: job-name-service-cyborg
+  id: ShaftMinerCyborg
+  name: job-name-shaftminer-cyborg
   description: job-description-cyborg
   playTimeTracker: JobCyborg
   whitelistRequired: true
@@ -8,11 +8,11 @@
     - !type:OverallPlaytimeRequirement
       time: 10800
     - !type:RoleTimeRequirement
-      role: JobBartender
+      role: JobSalvageTechnician
       time: 7200
-  icon: "ServiceCyborg"
+  icon: "ShaftMinerCyborg"
   supervisors: job-supervisors-human
   canBeAntag: false
-  jobEntity: PlayerCyborgService
+  jobEntity: PlayerCyborgShaftMiner
   startingGear: CyborgGear # for char preview only
   canHaveTraits: false

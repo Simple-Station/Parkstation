@@ -6,6 +6,7 @@ job-name-security-cyborg = security cyborg
 job-name-janitor-cyborg = janitor cyborg
 job-name-engineer-cyborg = engineer cyborg
 job-name-clown-cyborg = clown cyborg
+job-name-shaftminer-cyborg = ShaftMiner Cyborg
 
 # Role timers
 JobSAI = station AI

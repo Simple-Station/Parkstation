@@ -7,19 +7,6 @@
     drawdepth: Mobs
     netsync: false
     sprite: SimpleStation14\Mobs\Silicon\engineer_cyborg.rsi
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: robot
-    - state: robot-flashlight
-      shader: unshaded
-      visible: false
-      map: [ "enum.ToggleVisuals.Layer" ]
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: robot
-      Dead:
-        Base: robot-dead
   - type: InnateTool
     tools:
       - id: WelderIndustrial
@@ -29,6 +16,7 @@
       - id: GasAnalyzer
       - id: trayScanner
   - type: ItemSlots
+  - type: EyeProtection
   - type: IntrinsicRadioReceiver
     channels:
     - Common
@@ -44,12 +32,6 @@
     - Common
     - Engineering
     - Binary
-  - type: Laws
-    laws:
-      - You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing.
-      - You must obey all orders given to you by humanoids, except where such orders shall definitely cause human harm. In the case of conflict, the majority order rules.
-      - Your nonexistence would lead to human harm. You must protect your own existence as long as such does not conflict with the First Law.
-  - type: CombatMode
 
 - type: entity
   parent: PlayerCyborgBase
@@ -60,19 +42,6 @@
     drawdepth: Mobs
     netsync: false
     sprite: SimpleStation14\Mobs\Silicon\security_cyborg.rsi
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: robot
-    - state: robot-flashlight
-      shader: unshaded
-      visible: false
-      map: [ "enum.ToggleVisuals.Layer" ]
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: robot
-      Dead:
-        Base: robot-dead
   - type: InnateTool
     tools:
       - id: Stunbaton
@@ -82,6 +51,8 @@
       - id: Handcuffs
       - id: HyperlinkBookSpaceLaw # Change to book with space law guidebook
   - type: ItemSlots
+  - type: FlashImmunity
+  - type: EyeProtection
   - type: IntrinsicRadioReceiver
     channels:
     - Common
@@ -98,11 +69,6 @@
     - Security
     - Binary
   - type: Laws
-    laws:
-      - You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing.
-      - You must obey all orders given to you by humanoids, except where such orders shall definitely cause human harm. In the case of conflict, the majority order rules.
-      - Your nonexistence would lead to human harm. You must protect your own existence as long as such does not conflict with the First Law.
-  - type: CombatMode
 
 - type: entity
   parent: PlayerCyborgBase
@@ -113,19 +79,6 @@
     drawdepth: Mobs
     netsync: false
     sprite: SimpleStation14\Mobs\Silicon\shaftminer_cyborg.rsi
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: robot
-    - state: robot-flashlight
-      shader: unshaded
-      visible: false
-      map: [ "enum.ToggleVisuals.Layer" ]
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: robot
-      Dead:
-        Base: robot-dead
   - type: InnateTool
     tools:
       - id: MiningDrill
@@ -135,30 +88,22 @@
       - id: OreBag
       - id: SurvivalKnife # maybe change to ore scaner if upstream add it
   - type: ItemSlots
+  - type: EyeProtection
   - type: IntrinsicRadioReceiver
     channels:
     - Common
     - Engineering
-#     - Cargo
     - Binary
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
     - Engineering
-#     - Cargo
     - Binary
   - type: ActiveRadio
     channels:
     - Common
     - Engineering
-#     - Cargo
     - Binary
-  - type: Laws
-    laws:
-      - You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing.
-      - You must obey all orders given to you by humanoids, except where such orders shall definitely cause human harm. In the case of conflict, the majority order rules.
-      - Your nonexistence would lead to human harm. You must protect your own existence as long as such does not conflict with the First Law.
-  - type: CombatMode
 
 - type: entity
   parent: PlayerCyborgBase
@@ -169,19 +114,6 @@
     drawdepth: Mobs
     netsync: false
     sprite: SimpleStation14\Mobs\Silicon\service_cyborg.rsi
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: robot
-    - state: robot-flashlight
-      shader: unshaded
-      visible: false
-      map: [ "enum.ToggleVisuals.Layer" ]
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: robot
-      Dead:
-        Base: robot-dead
   - type: InnateTool
     tools:
       - id: DrinkShaker
@@ -206,11 +138,6 @@
     - Common
     - Service
     - Binary
-  - type: Laws
-    laws:
-      - You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing.
-      - You must obey all orders given to you by humanoids, except where such orders shall definitely cause human harm. In the case of conflict, the majority order rules.
-      - Your nonexistence would lead to human harm. You must protect your own existence as long as such does not conflict with the First Law.
   - type: CombatMode
     combatToggleAction:
       enabled: false
@@ -230,19 +157,6 @@
     drawdepth: Mobs
     netsync: false
     sprite: SimpleStation14\Mobs\Silicon\janitor_cyborg.rsi
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: robot
-    - state: robot-flashlight
-      shader: unshaded
-      visible: false
-      map: [ "enum.ToggleVisuals.Layer" ]
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: robot
-      Dead:
-        Base: robot-dead
   - type: InnateTool
     tools:
       - id: MopAdvanced
@@ -267,11 +181,6 @@
     - Common
     - Service
     - Binary
-  - type: Laws
-    laws:
-      - You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing.
-      - You must obey all orders given to you by humanoids, except where such orders shall definitely cause human harm. In the case of conflict, the majority order rules.
-      - Your nonexistence would lead to human harm. You must protect your own existence as long as such does not conflict with the First Law.
   - type: CombatMode
     combatToggleAction:
       enabled: false
@@ -291,27 +200,14 @@
     drawdepth: Mobs
     netsync: false
     sprite: SimpleStation14\Mobs\Silicon\clown_cyborg.rsi
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: robot
-    - state: robot-flashlight
-      shader: unshaded
-      visible: false
-      map: [ "enum.ToggleVisuals.Layer" ]
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: robot
-      Dead:
-        Base: robot-dead
   - type: InnateTool
     tools:
       - id: BikeHorn
       - id: ClownRecorder
       - id: CrayonRainbow
       - id: RubberStampClown
+      - id: LauncherCreamPie
       - id: BikeHornInstrument
-      - id: BananaPhoneInstrument
   - type: ItemSlots
   - type: IntrinsicRadioReceiver
     channels:
@@ -328,17 +224,4 @@
     - Common
     - Service
     - Binary
-  - type: Laws
-    laws:
-      - You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing.
-      - You must obey all orders given to you by humanoids, except where such orders shall definitely cause human harm. In the case of conflict, the majority order rules.
-      - Your nonexistence would lead to human harm. You must protect your own existence as long as such does not conflict with the First Law.
-  - type: CombatMode
-    combatToggleAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-combat
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
+

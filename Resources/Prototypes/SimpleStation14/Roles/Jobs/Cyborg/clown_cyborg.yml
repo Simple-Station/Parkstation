@@ -6,7 +6,10 @@
   whitelistRequired: true
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 24000
+      time: 10800
+    - !type:RoleTimeRequirement
+      role: JobClown
+      time: 7200
   icon: "ClownCyborg"
   supervisors: job-supervisors-human
   canBeAntag: false

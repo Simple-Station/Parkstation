@@ -5,7 +5,7 @@
   playTimeTracker: JobCyborg
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 24000
+      time: 18000
   icon: "Cyborg"
   supervisors: job-supervisors-human
   canBeAntag: false
