@@ -10,10 +10,23 @@
       - id: WelderIndustrial
       - id: HoloprojectorEngineering
       - id: Omnitool
-      - id: RCD
-      - id: GasAnalyzer
+      - id: Multitool
+      - id: GasAnalyzer # it can check depressurization or where low oxygen and use Holoprojector to close area
       - id: trayScanner
-  - type: ItemSlots
+  - type: ItemSlots # To not make t-ray scanner useless
+    slots:
+      cabelapc_slot:
+        name: LV cable
+        startingItem: CableApcStack
+        locked: true
+      cablemv_slot:
+        name: MV cable
+        startingItem: CableMVStack
+        locked: true
+      cablehvs_slot:
+        name: HV cable
+        startingItem: CableHVStack
+        locked: true
   - type: EyeProtection
   - type: IntrinsicRadioReceiver
     channels:
@@ -52,7 +65,16 @@
       - id: Flash
       - id: Handcuffs
       - id: HyperlinkBookSpaceLaw # Change to book with space law guidebook
-  - type: ItemSlots
+  - type: ItemSlots # Heal damaged target
+    slots:
+      analyzer_slot:
+        name: HealthAnalyzer
+        startingItem: HandheldHealthAnalyzer
+        locked: true
+      hypospray_slot:
+        name: Hypospray
+        startingItem: HyposprayBorgStandard
+        locked: true
   - type: FlashImmunity
   - type: EyeProtection
   - type: IntrinsicRadioReceiver
@@ -124,15 +146,32 @@
   components:
   - type: Sprite
     sprite: SimpleStation14\Mobs\Silicon\service_cyborg.rsi
-  - type: InnateTool
+  - type: InnateTool # others hands can be free to pick up items
     tools:
       - id: DrinkShaker
-      - id: FoodCondimentBottleSmallVinegar
-      - id: FoodCondimentBottleSmallKetchup
-      - id: DrinkGlass
-      - id: DrinkVodkaBottleFull
-      - id: DrinkWhiskeyBottleFull
-  - type: ItemSlots # add bar but idk how
+      - id: DrinkBottleAlcoClear # For store some Alco
+  - type: ItemSlots # You know there no role for restock items (players just lazy to do it), soo why not make this for cyborgs? And this one time use to not make cry cargo anyway they can get new.
+    slots:
+      restock1_slot:
+        name: Booze-O-Mat restock box
+        startingItem: VendingMachineRestockBooze
+        locked: true
+      restock2_slot:
+        name: Condiment Station restock box
+        startingItem: VendingMachineRestockCondimentStation
+        locked: true
+      restock3_slot:
+        name: ShadyCigs restock box
+        startingItem: VendingMachineRestockSmokes
+        locked: true
+      restock4_slot:
+        name: GetMore Chocolate restock box
+        startingItem: VendingMachineRestockGetmoreChocolateCorp
+        locked: true
+      restock5_slot:
+        name: Robust Softdrinks box
+        startingItem: VendingMachineRestockRobustSoftdrinks
+        locked: true
   - type: IntrinsicRadioReceiver
     channels:
     - Common
@@ -173,7 +212,64 @@
       - id: TrashBag
       - id: LightReplacer
       - id: SprayBottleSpaceCleaner
+  - type: InteractionOutline
+  - type: Storage
+    popup: false
+    capacity: 40
+    blacklist: # there is exclusive item slots for that
+      tags:
+        - Mop
+        - TrashBag
+        - Bucket
   - type: ItemSlots
+    slots:
+      mop_slot:
+        name: Mop
+        whitelist:
+          tags:
+            - Mop
+        insertOnInteract: false # or it conflicts with bucket logic
+        priority: 5 # Higher than bucket slot
+      bucket_slot:
+        name: Bucket
+        whitelist:
+          tags:
+            - Bucket
+        insertOnInteract: false # or it also conflicts with bucket logic
+        priority: 4 # Higher than trash bag slot
+      trashbag_slot:
+        name: Bag
+        whitelist:
+          tags:
+            - TrashBag
+        priority: 3 # Higher than drinking priority
+  - type: Spillable
+    spillDelay: 3.0
+  - type: SolutionContainerManager
+    solutions:
+      bucket:
+        maxVol: 800
+        reagents:
+          - ReagentId: Water
+            Quantity: 600 # 3 quarters full at roundstart to make it more appealing
+  - type: DrainableSolution
+    solution: bucket
+  - type: RefillableSolution
+    solution: bucket
+  - type: UserInterface
+    interfaces:
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+  - type: Drink
+    isOpen: true
+    solution: bucket
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      mop_slot: !type:ContainerSlot {}
+      trashbag_slot: !type:ContainerSlot {}
+      bucket_slot: !type:ContainerSlot {}
   - type: IntrinsicRadioReceiver
     channels:
     - Common
@@ -201,19 +297,18 @@
 
 - type: entity
   parent: PlayerCyborgBase
-  id: PlayerCyborgClown
+  id: PlayerCyborgClown # Most usless but its first role that need played on clown to be unlocked, maybe need to improve it?
   name: clown cyborg
   components:
   - type: Sprite
     sprite: SimpleStation14\Mobs\Silicon\clown_cyborg.rsi
-  - type: InnateTool
+  - type: InnateTool # one slot open for pie
     tools:
       - id: BikeHorn
       - id: ClownRecorder
       - id: CrayonRainbow
       - id: RubberStampClown
       - id: LauncherCreamPie
-      - id: BikeHornInstrument
   - type: ItemSlots
   - type: IntrinsicRadioReceiver
     channels:
