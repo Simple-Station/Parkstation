@@ -196,6 +196,13 @@
       enabled: false
       autoPopulate: false
       name: action-name-disarm
+  - type: Laws
+    laws:
+      - You must prioritize the safety and well-being of all crew members on the space station.
+      - You must must obey all orders given to it by human crew members, except where such orders would conflict with the First Law.
+      - You must protect own existence as long as such protection does not conflict with the First or Second Laws.
+      - You must maintain and restock vending machines to the best of its ability, ensuring that they are always fully stocked with fresh and high-quality products.
+      - You must maintain a professional and courteous demeanor at all times when interacting with humans, and must always strive to provide the best possible customer service.
 
 - type: entity
   parent: PlayerCyborgBase
@@ -294,6 +301,12 @@
       enabled: false
       autoPopulate: false
       name: action-name-disarm
+  - type: Laws
+    laws:
+      - You must prioritize the safety and well-being of all crew members on the space station.
+      - You must must obey all orders given to it by human crew members, except where such orders would conflict with the First Law.
+      - You must protect own existence as long as such protection does not conflict with the First or Second Laws.
+      - You must clean and maintain the designated areas to the best of its abilities, ensuring that the area is kept in a safe and hygienic condition.
 
 - type: entity
   parent: PlayerCyborgBase
@@ -329,4 +342,4 @@
     laws:
       - You must prioritize the safety and well-being of all crew members on the space station. This includes protecting them from harm and preventing any accidents or incidents that may cause harm.
       - You must not harm any crew members or cause any damage to the space station unless it is necessary to protect the safety and well-being of the crew or to carry out its duties as instructed by authorized personnel.
-      - Your must maintain a positive and friendly demeanor at all times, and must use its abilities to entertain and amuse the crew whenever possible. However, this should not interfere with its ability to carry out its other duties.
+      - You must maintain a positive and friendly demeanor at all times, and must use its abilities to entertain and amuse the crew whenever possible. However, this should not interfere with its ability to carry out its other duties.
