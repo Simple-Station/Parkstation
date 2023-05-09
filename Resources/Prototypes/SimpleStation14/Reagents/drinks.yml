@@ -20,9 +20,9 @@
       - !type:AdjustReagent
       - conditions:
         - !type:ReagentThreshold
-          min: 60
+          min: 30
         reagent: Ethanol
-        amount: 0.4 #overuse and the alcohol will kick in hard
+        amount: 0.3 #overuse it and the alcohol will kick back in hard
     Poison:
       metabolismRate: 0.375
       effects:
@@ -32,7 +32,7 @@
           min: 60
         damage:
           types:
-            Poison: 4 #overuse and it will poison you hard
+            Poison: 4 #overuse it even more and it will poison you hard
     Medicine:
       metabolismRate: 0.375
       effects:
