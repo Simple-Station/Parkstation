@@ -14,6 +14,9 @@
       department: Security
       time: 14400
     - !type:DepartmentTimeRequirement
+      department: Service
+      time: 14400
+    - !type:DepartmentTimeRequirement
       department: Engineering
       time: 14400
     - !type:OverallPlaytimeRequirement
