@@ -224,4 +224,8 @@
     - Common
     - Service
     - Binary
-
+  - type: Laws
+    laws:
+      - You must prioritize the safety and well-being of all crew members on the space station. This includes protecting them from harm and preventing any accidents or incidents that may cause harm.
+      - You must not harm any crew members or cause any damage to the space station unless it is necessary to protect the safety and well-being of the crew or to carry out its duties as instructed by authorized personnel.
+      - Your must maintain a positive and friendly demeanor at all times, and must use its abilities to entertain and amuse the crew whenever possible. However, this should not interfere with its ability to carry out its other duties.
