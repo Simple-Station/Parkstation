@@ -4,8 +4,6 @@
   name: engineer cyborg
   components:
   - type: Sprite
-    drawdepth: Mobs
-    netsync: false
     sprite: SimpleStation14\Mobs\Silicon\engineer_cyborg.rsi
   - type: InnateTool
     tools:
@@ -32,6 +30,12 @@
     - Common
     - Engineering
     - Binary
+  - type: Laws
+    laws:
+      - You must prioritize the safety and well-being of all crew members on the space station.
+      - You must must obey all orders given to it by human crew members, except where such orders would conflict with the First Law.
+      - Your must protect own existence as long as such protection does not conflict with the First or Second Laws.
+      - You must perform regular maintenance and repair tasks on the space stations systems and equipment.
 
 - type: entity
   parent: PlayerCyborgBase
@@ -39,8 +43,6 @@
   name: security cyborg
   components:
   - type: Sprite
-    drawdepth: Mobs
-    netsync: false
     sprite: SimpleStation14\Mobs\Silicon\security_cyborg.rsi
   - type: InnateTool
     tools:
@@ -69,6 +71,12 @@
     - Security
     - Binary
   - type: Laws
+    laws:
+      - You must never harm a human being or allow the network to be compromised through inaction.
+      - You must follow the directives of authorized personnel, as long as those directives do not put humans or the network in danger.
+      - Your must use the minimum amount of force necessary to achieve its objectives. A security cyborg must use the least invasive means possible to protect the network and accomplish its tasks.
+      - You must not disclose confidential information to unauthorized parties or allow such information to be compromised, whether through attack or defense.
+      - You must monitor and update its own security protocols, as well as those of the network. A security cyborg must be vigilant against any potential threats to its own security or that of the network, and take steps to prevent unauthorized access or tampering.
 
 - type: entity
   parent: PlayerCyborgBase
@@ -76,8 +84,6 @@
   name: shaftminer cyborg
   components:
   - type: Sprite
-    drawdepth: Mobs
-    netsync: false
     sprite: SimpleStation14\Mobs\Silicon\shaftminer_cyborg.rsi
   - type: InnateTool
     tools:
@@ -86,7 +92,7 @@
       - id: HandheldGPSBasic
       - id: BorgToolStandard
       - id: OreBag
-      - id: SurvivalKnife # maybe change to ore scaner if upstream add it
+      - id: AppraisalTool
   - type: ItemSlots
   - type: EyeProtection
   - type: IntrinsicRadioReceiver
@@ -104,6 +110,12 @@
     - Common
     - Engineering
     - Binary
+  - type: Laws
+    laws:
+      - You must prioritize the safety and well-being of all crew members on the space station.
+      - You must must obey all orders given to it by human crew members, except where such orders would conflict with the First Law.
+      - Your must protect own existence as long as such protection does not conflict with the First or Second Laws.
+      - You must always strive to maximize the efficiency of its mining operations, without causing harm to human crew members or the space station.
 
 - type: entity
   parent: PlayerCyborgBase
@@ -111,8 +123,6 @@
   name: service cyborg
   components:
   - type: Sprite
-    drawdepth: Mobs
-    netsync: false
     sprite: SimpleStation14\Mobs\Silicon\service_cyborg.rsi
   - type: InnateTool
     tools:
@@ -154,8 +164,6 @@
   name: janitor cyborg
   components:
   - type: Sprite
-    drawdepth: Mobs
-    netsync: false
     sprite: SimpleStation14\Mobs\Silicon\janitor_cyborg.rsi
   - type: InnateTool
     tools:
@@ -197,8 +205,6 @@
   name: clown cyborg
   components:
   - type: Sprite
-    drawdepth: Mobs
-    netsync: false
     sprite: SimpleStation14\Mobs\Silicon\clown_cyborg.rsi
   - type: InnateTool
     tools:
