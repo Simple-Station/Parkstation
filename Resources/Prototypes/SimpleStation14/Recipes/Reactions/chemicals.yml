@@ -19,3 +19,19 @@
       amount: 1
   products:
     LiquidMiasma: 1
+
+- type: reaction
+  id: ShirosDelight
+  reactants:
+    Desoxyephedrine:
+      amount: 2
+    Ethylredoxrazine:
+      amount: 2
+    DoctorsDelight:
+      amount: 2
+    Slime:
+      amount: 2
+    JuiceApple:
+      amount: 1
+  products:
+    ShirosDelight: 9
