@@ -11,6 +11,8 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 14400
+    - !type:OverallPlaytimeRequirement
+      time: 21600
   access:
   - Medical
   - Maintenance

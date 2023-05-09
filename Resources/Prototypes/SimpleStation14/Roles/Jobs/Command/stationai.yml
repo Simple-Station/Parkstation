@@ -4,8 +4,20 @@
   description: job-description-sai
   playTimeTracker: JobSAI
   requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 14400
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 14400
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 14400
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 14400
     - !type:OverallPlaytimeRequirement
-      time: 60000
+      time: 86400
   weight: 30
   icon: "StationAI"
   supervisors: "all crew"
