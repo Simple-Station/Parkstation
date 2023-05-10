@@ -4,7 +4,7 @@
   parent: BaseDrink
   desc: It swirls with the slime and dissociation of an extraordinary paramedic. Due to it's thick nature it lingers in the body a bit longer than usual. Overdrinking is incredibly dangerous.
   physicalDesc: dissociated
-  flavor: flavor-complex-shirosdelight
+  flavor: shirosDelight
   color: "#BDC7CE"
   metamorphicSprite:
     sprite: SimpleStation14/Objects/Consumable/Drinks/shirosdelightglass.rsi

@@ -201,4 +201,4 @@ flavor-complex-bubbletea = like creamy sweetness
 flavor-complex-corncob = like a sick joke
 
 ## parkstation
-flavor-complex-shirosdelight = like spicy, slimy, dissociated, bittersweet enthusiasm
+flavor-complex-shirosdelight = like spicy, slimy, dissociated, bittersweet, enthusiasm
