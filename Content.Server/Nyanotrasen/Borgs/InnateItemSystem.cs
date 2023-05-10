@@ -35,16 +35,18 @@ namespace Content.Server.Borgs
             if (!TryComp<ItemSlotsComponent>(uid, out var slotsComp))
                 return;
 
-            int priority = component.StartingPriority ?? 0;
+            var priority = component.StartingPriority ?? 0;
             foreach (var slot in slotsComp.Slots.Values)
             {
-                if (slot.ContainerSlot?.ContainedEntity is not { Valid: true } sourceItem)
-                    continue;
-                if (_tagSystem.HasTag(sourceItem, "NoAction"))
+                if (slot.ContainerSlot?.ContainedEntity is not { Valid: true } sourceItem ||
+                    _tagSystem.HasTag(sourceItem, "NoAction"))
                     continue;
 
-                if (component.AfterInteract) _actionsSystem.AddAction(uid, CreateAfterInteractAction(sourceItem, priority), uid);
-                else _actionsSystem.AddAction(uid, CreateBeforeInteractAction(sourceItem, priority), uid);
+                _actionsSystem.AddAction(uid, component.AfterInteract
+                    ? CreateAfterInteractAction(sourceItem, priority)
+                    : CreateBeforeInteractAction(sourceItem, priority),
+                    uid
+                );
 
                 priority--;
             }
