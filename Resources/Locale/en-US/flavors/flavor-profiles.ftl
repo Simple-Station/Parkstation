@@ -200,5 +200,5 @@ flavor-complex-graveyard = like a strong cold brew
 flavor-complex-bubbletea = like creamy sweetness
 flavor-complex-corncob = like a sick joke
 
-## parkstation
+## Parkstation
 flavor-complex-shirosdelight = like spicy, slimy, dissociated, bittersweet, enthusiasm

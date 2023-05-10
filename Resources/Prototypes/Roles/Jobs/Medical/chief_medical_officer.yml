@@ -30,6 +30,7 @@
     - type: PsionicBonusChance
       flatBonus: 0.025
     - type: MedicalTraining
+  whitelistRequired: true
 
 - type: startingGear
   id: CMOGear

@@ -18,6 +18,7 @@ rules_file = "Park_Rules.txt"
 id = "parkstation"
 
 [whitelist]
+enabled = true
 min_players = 32
 
 [rules]
