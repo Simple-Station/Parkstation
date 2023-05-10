@@ -16,6 +16,8 @@
   startingGear: CyborgGear # for char preview only
   alwaysUseSpawner: true
   canHaveTraits: false
+  joinNotifyCrew: true
+  whitelistRequired: true
 
 # - type: startingGear
 #   id: AIGear
