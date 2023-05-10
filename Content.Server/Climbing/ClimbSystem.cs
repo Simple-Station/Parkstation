@@ -1,6 +1,5 @@
 using Content.Server.Body.Systems;
 using Content.Server.Climbing.Components;
-using Content.Server.DoAfter;
 using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
@@ -37,13 +36,12 @@ public sealed class ClimbSystem : SharedClimbSystem
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly FixtureSystem _fixtureSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly InteractionSystem _interactionSystem = default!;
     [Dependency] private readonly StunSystem _stunSystem = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly BonkSystem _bonkSystem = default!;
 
     private const string ClimbingFixtureName = "climb";
     private const int ClimbingCollisionGroup = (int) (CollisionGroup.TableLayer | CollisionGroup.LowImpassable);
@@ -58,7 +56,7 @@ public sealed class ClimbSystem : SharedClimbSystem
         SubscribeLocalEvent<ClimbableComponent, GetVerbsEvent<AlternativeVerb>>(AddClimbableVerb);
         SubscribeLocalEvent<ClimbableComponent, DragDropTargetEvent>(OnClimbableDragDrop);
 
-        SubscribeLocalEvent<ClimbingComponent, DoAfterEvent<ClimbExtraEvent>>(OnDoAfter);
+        SubscribeLocalEvent<ClimbingComponent, ClimbDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<ClimbingComponent, EndCollideEvent>(OnClimbEndCollide);
         SubscribeLocalEvent<ClimbingComponent, BuckleChangeEvent>(OnBuckleChange);
         SubscribeLocalEvent<ClimbingComponent, ComponentGetState>(OnClimbingGetState);
@@ -112,28 +110,22 @@ public sealed class ClimbSystem : SharedClimbSystem
         if (!TryComp(entityToMove, out ClimbingComponent? climbingComponent) || climbingComponent.IsClimbing)
             return;
 
-        var ClimbDelay = component.ClimbDelay;
-        if (TryComp<LightWeightTraitComponent>(entityToMove, out var Light) && Light.NegateTime != null) ClimbDelay -= (float) Light.NegateTime;
+        var climbDelay = component.ClimbDelay;
+        if (TryComp<LightWeightTraitComponent>(entityToMove, out var Light) &&
+            Light.NegateTime != null)
+            climbDelay -= (float) Light.NegateTime;
 
-        if (_bonkSystem.TryBonk(entityToMove, climbable))
-            return;
-
-        var ev = new ClimbExtraEvent();
-
-        var args = new DoAfterEventArgs(user, ClimbDelay, target: climbable, used: entityToMove)
+        var args = new DoAfterArgs(user, climbDelay, new ClimbDoAfterEvent(), entityToMove, target: climbable, used: entityToMove)
         {
             BreakOnTargetMove = true,
             BreakOnUserMove = true,
-            BreakOnDamage = true,
-            BreakOnStun = true,
-            RaiseOnUser = false,
-            RaiseOnTarget = false,
+            BreakOnDamage = true
         };
 
-        _doAfterSystem.DoAfter(args, ev);
+        _doAfterSystem.TryStartDoAfter(args);
     }
 
-    private void OnDoAfter(EntityUid uid, ClimbingComponent component, DoAfterEvent<ClimbExtraEvent> args)
+    private void OnDoAfter(EntityUid uid, ClimbingComponent component, ClimbDoAfterEvent args)
     {
         if (args.Handled || args.Cancelled || args.Args.Target == null || args.Args.Used == null)
             return;
@@ -438,11 +430,6 @@ public sealed class ClimbSystem : SharedClimbSystem
     private void Reset(RoundRestartCleanupEvent ev)
     {
         _fixtureRemoveQueue.Clear();
-    }
-
-    private sealed class ClimbExtraEvent : EntityEventArgs
-    {
-        //Honestly this is only here because otherwise this activates on every single doafter on a human
     }
 }
 
