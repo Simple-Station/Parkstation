@@ -1,0 +1,16 @@
+- type: entity
+  parent: DrinkBaseCup
+  id: DrinkShirosDelight
+  name: Shiro's Delight
+  description: A swirling solution with the slimy dissociation of an extraordinary paramedic. Due to it's thick nature it lingers in the body a bit longer than usual. Overdrinking is incredibly dangerous.
+  components:
+    - type: Drink
+    - type: Sprite
+      sprite: SimpleStation14/Objects/Consumable/Drinks/shirosdelightglass.rsi
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ShirosDelight
+              Quantity: 30
