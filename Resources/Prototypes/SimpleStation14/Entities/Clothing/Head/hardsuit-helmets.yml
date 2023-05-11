@@ -56,9 +56,9 @@
         Radiation: 0.6
 
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: ClothingHeadEVAHelmetBase
   id: ClothingHeadHelmetHardsuitCSS
-  noSpawn: true
+  noSpawn: false
   name: chief service supervisor's keeper helmet
   description: An ingenious and simultaneously impossible, flexible, air-tight mesh helmet used for EVA.
   components:
