@@ -2,7 +2,7 @@
   id: ShirosDelight
   name: Shiro's Delight
   parent: BaseDrink
-  desc: It swirls with the slime and dissociation of an extraordinary paramedic. Due to it's thick nature it lingers in the body a bit longer than usual. Overdrinking is incredibly dangerous.
+  desc: It swirls with the slime and dissociation of an extraordinary paramedic. Due to its thick nature it lingers in the body a bit longer than usual. Overdrinking is incredibly dangerous.
   physicalDesc: dissociated
   flavor: shirosDelight
   color: "#BDC7CE"

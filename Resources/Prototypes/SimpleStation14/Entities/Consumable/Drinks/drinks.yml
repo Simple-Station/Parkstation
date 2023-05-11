@@ -2,7 +2,7 @@
   parent: DrinkBaseCup
   id: DrinkShirosDelight
   name: Shiro's Delight
-  description: A swirling solution with the slimy dissociation of an extraordinary paramedic. Due to it's thick nature it lingers in the body a bit longer than usual. Overdrinking is incredibly dangerous.
+  description: A swirling solution with the slimy dissociation of an extraordinary paramedic. Due to its thick nature it lingers in the body a bit longer than usual. Overdrinking is incredibly dangerous.
   components:
     - type: Drink
     - type: Sprite
