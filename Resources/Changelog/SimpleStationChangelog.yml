@@ -898,3 +898,25 @@ Entries:
       message: Station AI and CSS are now whitelisted jobs.
   id: 78
   time: '2023-05-07T00:27:35Z'
+- author: JasperStingtail
+  changes:
+    - type: add
+      message: Added Ohio
+  id: 79
+  time: '2023-05-11T17:46:12Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: >-
+        The spirits from beyond have decided to stop repairing catatonic beings'
+        eyesight
+  id: 80
+  time: '2023-05-11T18:55:51Z'
+- author: SomeCabbage
+  changes:
+    - type: add
+      message: >-
+        Added Shiro's Delight, a fun drink that is time consuming and somewhat
+        difficult to make, but provides funny buffs. Ask Shiro for the recipe
+  id: 81
+  time: '2023-05-11T19:01:57Z'

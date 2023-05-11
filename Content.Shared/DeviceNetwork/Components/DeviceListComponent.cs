@@ -19,7 +19,7 @@ public sealed class DeviceListComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("deviceLimit")]
-    public int DeviceLimit = 32;
+    public int DeviceLimit = 64;
 
     /// <summary>
     /// Whether the device list is used as an allow or deny list
