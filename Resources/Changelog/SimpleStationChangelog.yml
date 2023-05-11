@@ -898,3 +898,9 @@ Entries:
       message: Station AI and CSS are now whitelisted jobs.
   id: 78
   time: '2023-05-07T00:27:35Z'
+- author: JasperStingtail
+  changes:
+    - type: add
+      message: Added Ohio
+  id: 79
+  time: '2023-05-11T17:46:12Z'
