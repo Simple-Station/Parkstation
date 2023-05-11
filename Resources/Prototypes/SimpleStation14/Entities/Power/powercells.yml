@@ -11,7 +11,7 @@
       - map: [ "enum.PowerCellVisualLayers.Base" ]
         state: cssCell
       - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
-        state: cssCellUnshaded
+        state: o2
         shader: unshaded
     - type: Battery
       maxCharge: 180
