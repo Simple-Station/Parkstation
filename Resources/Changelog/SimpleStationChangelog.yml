@@ -904,3 +904,11 @@ Entries:
       message: Added Ohio
   id: 79
   time: '2023-05-11T17:46:12Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: >-
+        The spirits from beyond have decided to stop repairing catatonic beings'
+        eyesight
+  id: 80
+  time: '2023-05-11T18:55:51Z'
