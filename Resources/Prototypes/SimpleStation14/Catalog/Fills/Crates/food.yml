@@ -1,0 +1,21 @@
+- type: entity
+  id: CrateFoodExoticMeats
+  description: "Contains variety of uncooked, exotic meats. Eat at your own peril."
+  parent: CrateFreezer
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodMeatFish
+      amount: 4
+    - id: FoodMeatBear
+      amount: 2
+    - id: FoodMeatPenguin
+      amount: 2
+    - id: FoodMeatRat
+      amount: 2
+    - id: FoodMeatLizard
+      amount: 2
+    - id: FoodMeatSpider
+      amount: 2
+    - id: FoodMeatXeno
+      prob: 0.01

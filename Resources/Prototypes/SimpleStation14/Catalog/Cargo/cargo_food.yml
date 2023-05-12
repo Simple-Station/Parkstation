@@ -1,0 +1,10 @@
+- type: cargoProduct
+  id: FoodExoticMeat
+  description: "Contains variety of exotic looking meats."
+  icon:
+    sprite: Objects/Consumable/Food/meat.rsi
+    state: spider
+  product: CrateFoodExoticMeat
+  cost: 1250
+  category: Food
+  group: market
