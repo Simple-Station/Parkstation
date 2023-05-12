@@ -10,12 +10,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 7
+        maxVol: 3
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
-        - ReagentId: Water
-          Quantity: 4
         - ReagentId: Vitamin
           Quantity: 1
   - type: Sprite

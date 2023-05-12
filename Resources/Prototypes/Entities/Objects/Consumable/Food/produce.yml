@@ -279,12 +279,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 14
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
-        - ReagentId: Water
-          Quantity: 6
         - ReagentId: Vitamin
           Quantity: 4
   - type: Sprite
@@ -292,7 +290,7 @@
   - type: Produce
     seedId: cabbage
   - type: SliceableFood
-    count: 3
+    count: 4
     slice: FoodSliceCabbage
 
 - type: entity
