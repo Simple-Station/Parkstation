@@ -1,8 +1,9 @@
-namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components
-{
-    [RegisterComponent]
-    public sealed class EmpathyChatComponent : Component
-    {
+using Robust.Shared.GameStates;
 
-    }
+namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components;
+
+[RegisterComponent, NetworkedComponent]
+public sealed class EmpathyChatComponent : Component
+{
+
 }

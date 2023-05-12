@@ -9,8 +9,6 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
-using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
 using Content.Shared.Slippery;
 using Content.Shared.Stunnable;
 using Content.Shared.Verbs;
@@ -102,13 +100,6 @@ namespace Content.Server.Bed.Sleep
         {
             if (!TryWakeCooldown(uid))
                 return;
-
-            if (_entityManager.TryGetComponent<ShadowkinComponent>(uid, out var shadowkin) &&
-                _entityManager.TryGetComponent<ShadowkinRestPowerComponent>(uid, out var shadowkinRest) &&
-                shadowkinRest.IsResting)
-            {
-                RaiseLocalEvent(new ShadowkinRestEventResponse(uid, !shadowkinRest.IsResting));
-            }
 
             if (TryWaking(uid))
                 args.Handled = true;

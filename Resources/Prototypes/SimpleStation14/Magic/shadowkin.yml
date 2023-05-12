@@ -39,4 +39,5 @@
   icon:
     sprite: SimpleStation14/Interface/Actions/shadowkin_icons.rsi
     state: rest
+  checkCanInteract: false
   serverEvent: !type:ShadowkinRestEvent
