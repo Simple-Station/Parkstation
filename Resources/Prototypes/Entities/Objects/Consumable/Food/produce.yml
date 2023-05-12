@@ -279,16 +279,21 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 14
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
+        - ReagentId: Water
+          Quantity: 6
         - ReagentId: Vitamin
           Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/cabbage.rsi
   - type: Produce
     seedId: cabbage
+  - type: SliceableFood
+    count: 3
+    slice: FoodSliceCabbage
 
 - type: entity
   name: garlic

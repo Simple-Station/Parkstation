@@ -1,0 +1,24 @@
+- type: entity
+  name: cabbage leaf
+  parent: FoodProduceBase
+  id: FoodSliceCabbage
+  description: A leaf of cabbage.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cabbage
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 7
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Water
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 1
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Specific/Hydroponics/cabbage.rsi
+  - type: Produce
+    seedId: cabbage

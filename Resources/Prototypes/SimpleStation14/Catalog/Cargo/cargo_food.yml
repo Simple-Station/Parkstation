@@ -9,3 +9,15 @@
   cost: 5000
   category: Food
   group: market
+
+- type: cargoProduct
+  id: FoodCabbages
+  name: Cabbage crate
+  description: "A crate containing a dozen cabbages"
+  icon:
+    sprite: Objects/Specific/Hydroponics/cabbage.rsi
+    state: produce
+  product: CrateFoodCabbages
+  cost: 500
+  category: Food
+  group: market

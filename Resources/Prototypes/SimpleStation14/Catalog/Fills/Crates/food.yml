@@ -22,3 +22,14 @@
       prob: 0.01
     - type: AccessReader
     access: [["Kitchen"]]
+
+- type: entity
+  id: CrateFoodCababge
+  name: Cabbage crate
+  description: "A crate containing a dozen cabbages."
+  parent: CrateHydroponics
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodCabbage
+      amount: 12
