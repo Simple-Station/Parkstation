@@ -1,10 +1,11 @@
 - type: cargoProduct
   id: FoodExoticMeat
-  description: "Contains variety of exotic looking meats."
+  name: Exotic meats crate
+  description: "Contains a variety of exotic looking meats."
   icon:
     sprite: Objects/Consumable/Food/meat.rsi
-    state: spider
+    state: xeno
   product: CrateFoodExoticMeat
-  cost: 1250
+  cost: 5000
   category: Food
   group: market
