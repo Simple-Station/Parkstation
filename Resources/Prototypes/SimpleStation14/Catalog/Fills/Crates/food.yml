@@ -2,7 +2,7 @@
   id: CrateFoodExoticMeats
   name: Exotic meats crate
   description: "Contains a variety of uncooked, exotic meats. Eat at your own peril."
-  parent: CrateFreezer
+  parent: CrateSecure
   components:
   - type: StorageFill
     contents:
@@ -20,3 +20,5 @@
       amount: 2
     - id: FoodMeatXeno
       prob: 0.01
+    - type: AccessReader
+    access: [["Kitchen"]]
