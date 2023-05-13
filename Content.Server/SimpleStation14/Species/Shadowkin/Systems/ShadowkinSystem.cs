@@ -23,29 +23,30 @@ public sealed class ShadowkinSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowkinComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<ShadowkinComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<ShadowkinComponent, ComponentShutdown>(OnShutdown);
     }
 
     private void OnExamine(EntityUid uid, ShadowkinComponent component, ExaminedEvent args)
     {
-        if (args.IsInDetailsRange)
-        {
-            var powerType = ShadowkinPowerSystem.GetLevelName(component.PowerLevel);
+        if (!args.IsInDetailsRange)
+            return;
 
-            if (args.Examined == args.Examiner)
-            {
-                args.PushMarkup(Loc.GetString("shadowkin-power-examined-self",
-                    ("power", (int) component.PowerLevel),
-                    ("powerMax", component.PowerLevelMax),
-                    ("powerType", powerType)
-                ));
-            }
-            else
-            {
-                args.PushMarkup(Loc.GetString("shadowkin-power-examined-other",
-                    ("target", Identity.Entity(uid, _entity)),
-                    ("powerType", powerType)
-                ));
-            }
+        var powerType = ShadowkinPowerSystem.GetLevelName(component.PowerLevel);
+
+        if (args.Examined == args.Examiner)
+        {
+            args.PushMarkup(Loc.GetString("shadowkin-power-examined-self",
+                ("power", (int) component.PowerLevel),
+                ("powerMax", component.PowerLevelMax),
+                ("powerType", powerType)
+            ));
+        }
+        else
+        {
+            args.PushMarkup(Loc.GetString("shadowkin-power-examined-other",
+                ("target", Identity.Entity(uid, _entity)),
+                ("powerType", powerType)
+            ));
         }
     }
 
@@ -56,6 +57,11 @@ public sealed class ShadowkinSystem : EntitySystem
 
         component.MaxedPowerAccumulator = _random.NextFloat(component.MaxedPowerRateMin, component.MaxedPowerRateMax);
         component.MinPowerAccumulator = _random.NextFloat(component.MinRateMin, component.MinRateMax);
+    }
+
+    private void OnShutdown(EntityUid uid, ShadowkinComponent component, ComponentShutdown args)
+    {
+        _power.UpdateAlert(component.Owner, false);
     }
 
 
@@ -121,7 +127,7 @@ public sealed class ShadowkinSystem : EntitySystem
                     ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Tired] +
                     ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Okay]
                 ) / 2f
-               )
+            )
             {
                 // If so, start the timer
                 component.MinPowerAccumulator += frameTime;

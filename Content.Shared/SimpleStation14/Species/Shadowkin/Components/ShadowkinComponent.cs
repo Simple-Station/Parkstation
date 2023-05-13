@@ -28,25 +28,6 @@ public sealed partial class ShadowkinComponent : Component
     #endregion
 
 
-    #region Darkening
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool Darken = false;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float DarkenRange = 5f;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public List<EntityUid> DarkenedLights = new();
-
-    // Accumulator for darkening
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float DarkenRate = 0.084f; // 1/12th of a second
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float DarkenAccumulator = 0f;
-    #endregion
-
-
     #region Shader
     /// <summary>
     ///     Automatically set to eye color.

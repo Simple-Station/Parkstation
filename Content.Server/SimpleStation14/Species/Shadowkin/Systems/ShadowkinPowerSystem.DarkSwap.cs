@@ -77,8 +77,8 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
             _audio.PlayPvs(args.SoundOn, args.Performer, AudioParams.Default.WithVolume(args.VolumeOn));
 
-            _power.TryAddPowerLevel(comp.Owner, -args.PowerCostOn);
-            _stamina.TakeStaminaDamage(comp.Owner, args.StaminaCost);
+            _power.TryAddPowerLevel(uid, -args.PowerCostOn);
+            _stamina.TakeStaminaDamage(uid, args.StaminaCost);
         }
         else
         {
@@ -87,8 +87,8 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
             _audio.PlayPvs(args.SoundOff, args.Performer, AudioParams.Default.WithVolume(args.VolumeOff));
 
-            _power.TryAddPowerLevel(comp.Owner, -args.PowerCostOff);
-            _stamina.TakeStaminaDamage(comp.Owner, args.StaminaCost);
+            _power.TryAddPowerLevel(uid, -args.PowerCostOff);
+            _stamina.TakeStaminaDamage(uid, args.StaminaCost);
         }
     }
 
@@ -97,22 +97,20 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     {
         EnsureComp<PacifiedComponent>(uid);
 
-        SetCanSeeInvisibility(uid, true);
+        if (component.Invisible)
+            SetCanSeeInvisibility(uid, true);
     }
 
     private void OnInvisShutdown(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentShutdown args)
     {
-        if (Terminating(uid))
-            return;
-
         RemComp<PacifiedComponent>(uid);
 
-        SetCanSeeInvisibility(uid, false);
+        if (component.Invisible)
+            SetCanSeeInvisibility(uid, false);
 
-        if (!_entity.TryGetComponent<ShadowkinComponent>(uid, out var shadowkin))
-            return;
+        component.Darken = false;
 
-        foreach (var light in shadowkin.DarkenedLights.ToArray())
+        foreach (var light in component.DarkenedLights.ToArray())
         {
             if (!_entity.TryGetComponent<PointLightComponent>(light, out var pointLight) ||
                 !_entity.TryGetComponent<ShadowkinLightComponent>(light, out var shadowkinLight))
@@ -121,7 +119,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             _darken.ResetLight(pointLight, shadowkinLight);
         }
 
-        shadowkin.DarkenedLights.Clear();
+        component.DarkenedLights.Clear();
     }
 
 

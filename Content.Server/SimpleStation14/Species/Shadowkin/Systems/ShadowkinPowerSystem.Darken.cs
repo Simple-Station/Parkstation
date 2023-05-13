@@ -9,42 +9,10 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems;
 
 public sealed class ShadowkinDarkenSystem : EntitySystem
 {
-    [Dependency] private readonly ShadowkinPowerSystem _power = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<ShadowkinComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<ShadowkinComponent, ComponentShutdown>(OnShutdown);
-    }
-
-    private static void OnStartup(EntityUid uid, ShadowkinComponent component, ComponentStartup args)
-    {
-        component.Darken = true;
-    }
-
-    private void OnShutdown(EntityUid uid, ShadowkinComponent component, ComponentShutdown args)
-    {
-        component.Darken = false;
-
-        foreach (var light in component.DarkenedLights.ToArray())
-        {
-            var pointLight = _entity.GetComponent<PointLightComponent>(light);
-            var shadowkinLight = _entity.GetComponent<ShadowkinLightComponent>(light);
-
-            ResetLight(pointLight, shadowkinLight);
-        }
-
-        component.DarkenedLights.Clear();
-
-        // I hate duplicate subscriptions
-        _power.UpdateAlert(component.Owner, false);
-    }
 
 
     public void ResetLight(PointLightComponent light, ShadowkinLightComponent sLight)
@@ -63,13 +31,14 @@ public sealed class ShadowkinDarkenSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var shadowkins = _entity.EntityQuery<ShadowkinComponent>();
+        var shadowkins = _entity.EntityQueryEnumerator<ShadowkinDarkSwappedComponent>();
 
-        foreach (var shadowkin in shadowkins.Where(x => x.Darken))
+        while (shadowkins.MoveNext(out var uid, out var shadowkin))
         {
-            if (!_entity.TryGetComponent(shadowkin.Owner, out ShadowkinDarkSwappedComponent? __) ||
-                !_entity.TryGetComponent<TransformComponent>(shadowkin.Owner, out var transform))
+            if (!shadowkin.Darken)
                 continue;
+
+            var transform = Transform(uid);
 
             shadowkin.DarkenAccumulator -= frameTime;
             if (shadowkin.DarkenAccumulator > 0f)
@@ -90,11 +59,11 @@ public sealed class ShadowkinDarkenSystem : EntitySystem
             _random.Shuffle(darkened);
             shadowkin.DarkenedLights = darkened;
 
-            var playerPos = _entity.GetComponent<TransformComponent>(shadowkin.Owner).WorldPosition;
+            var playerPos = Transform(uid).WorldPosition;
 
             foreach (var light in shadowkin.DarkenedLights.ToArray())
             {
-                var lightPos = _entity.GetComponent<TransformComponent>(light).WorldPosition;
+                var lightPos = Transform(light).WorldPosition;
                 var pointLight = _entity.GetComponent<PointLightComponent>(light);
 
 
