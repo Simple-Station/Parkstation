@@ -92,8 +92,8 @@
   - type: ShadowkinTeleportPower
   - type: Vocal
     sounds:
-      Male: UnisexSlime
-      Female: UnisexSlime
+      Male: MaleSlime
+      Female: FemaleSlime
       Unsexed: UnisexSlime
   - type: CombatMode
     canDisarm: true

@@ -3,6 +3,24 @@
   params:
     variation: 0.125
   sounds:
+    # If only parents worked..
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    # Slime
     Scream:
       collection: SlimeMaleScreams
     Laugh:
@@ -13,6 +31,24 @@
   params:
     variation: 0.125
   sounds:
+    # If only parents worked..
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    # Slime
     Scream:
       collection: SlimeFemaleScreams
     Laugh:
@@ -23,6 +59,17 @@
   params:
     variation: 0.125
   sounds:
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Snore:
+      collection: Snores
+    # Slime
     Scream:
       collection: SlimeUnisexScreams
     Laugh:
@@ -31,7 +78,7 @@
 - type: emoteSounds
   id: GeneralSlimeEmotes
   sounds:
-    Clap: # If parents worked, I wouldn't need to redefine clap and snap..
+    Clap:
       collection: Claps
     Snap:
       collection: Snaps
