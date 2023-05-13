@@ -27,18 +27,20 @@ public sealed class SlippedCountStatSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MetaDataComponent, SlipEvent>(OnSlip);
+        SubscribeLocalEvent<SlipperyComponent, SlipEvent>(OnSlip);
 
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
 
 
-    private void OnSlip(EntityUid uid, MetaDataComponent meta, ref SlipEvent args)
+    private void OnSlip(EntityUid uid, SlipperyComponent slipComp, ref SlipEvent args)
     {
         string? username = null;
 
-        if (EntityManager.TryGetComponent<MindComponent>(uid, out var mindComp) &&
+        var entity = args.Slipped;
+
+        if (EntityManager.TryGetComponent<MindComponent>(entity, out var mindComp) &&
             mindComp.Mind != null &&
             mindComp.Mind.TryGetSession(out var session))
         {
@@ -47,7 +49,7 @@ public sealed class SlippedCountStatSystem : EntitySystem
 
         var playerData = new PlayerData
         {
-            Name = meta.EntityName,
+            Name = MetaData(entity).EntityName,
             Username = username
         };
 
@@ -98,16 +100,16 @@ public sealed class SlippedCountStatSystem : EntitySystem
             line += Loc.GetString
             (
                 "eorstats-slippedcount-topslipper-hasusername",
-                ("username", data.Name),
-                ("name", data.Username),
-                ("amountPlayedMinutes", amountSlipped)
+                ("username", data.Username),
+                ("name", data.Name),
+                ("slipcount", amountSlipped)
             );
         else
             line += Loc.GetString
             (
                 "eorstats-slippedcount-topslipper-hasnousername",
                 ("name", data.Name),
-                ("amountPlayedMinutes", amountSlipped)
+                ("slipcount", amountSlipped)
             );
 
         return "\n" + line;
