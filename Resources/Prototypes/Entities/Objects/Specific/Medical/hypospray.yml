@@ -88,6 +88,8 @@
     solution: pen
   - type: RefillableSolution
     solution: pen
+  - type: UseDelay
+    delay: 120 # Reusable but slow
 
 - type: entity
   name: emergency medipen
@@ -157,6 +159,8 @@
             Quantity: 20
   - type: Tag
     tags: []
+  - type: UseDelay
+    delay: 160 # Slower due to larger volume
 
 - type: entity
   name: stimulant injector
@@ -181,6 +185,8 @@
     price: 500
   - type: Tag
     tags: []
+  - type: UseDelay
+    delay: 240 # Very slow due to large volume
 
 - type: entity
   name: stimulant microinjector
@@ -226,6 +232,8 @@
     price: 1000
   - type: Tag
     tags: []
+  - type: UseDelay
+    delay: 240 # Very slow due to large volume
 
 - type: entity
   name: magic medipen
@@ -248,6 +256,8 @@
     reagents:
       - Ichor
     unitsPerSecond: 0.1
+  - type: UseDelay
+    delay: 5
 
 - type: entity
   name: pen
