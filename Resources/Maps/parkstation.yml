@@ -14519,7 +14519,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 1208
-  type: chem_dispenser
+  type: ChemDispenser
   components:
   - pos: -14.5,-28.5
     parent: 1
@@ -31773,7 +31773,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 3810
-  type: chem_dispenser
+  type: ChemDispenser
   components:
   - pos: -12.5,-33.5
     parent: 1
@@ -117380,7 +117380,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 14455
-  type: chem_dispenser
+  type: ChemDispenser
   components:
   - pos: 1.5,-39.5
     parent: 1
