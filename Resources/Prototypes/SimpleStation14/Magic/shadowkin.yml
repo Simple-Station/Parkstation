@@ -8,6 +8,7 @@
   itemIconStyle: NoItem
   checkCanAccess: true
   repeat: true
+  priority: -20
   icon:
     sprite: SimpleStation14/Interface/Actions/shadowkin_icons.rsi
     state: teleport
@@ -22,6 +23,7 @@
   useDelay: 3
   speech: action-description-shadowkin-darkswap
   itemIconStyle: NoItem
+  priority: -21
   icon:
     sprite: SimpleStation14/Interface/Actions/shadowkin_icons.rsi
     state: darkswap
@@ -36,6 +38,7 @@
   description: action-description-shadowkin-rest
   useDelay: 60
   itemIconStyle: NoItem
+  priority: -22
   icon:
     sprite: SimpleStation14/Interface/Actions/shadowkin_icons.rsi
     state: rest
