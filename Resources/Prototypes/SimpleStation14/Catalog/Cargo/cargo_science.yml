@@ -3,7 +3,7 @@
   name: Science materials crate
   description: "A crate containing a varienty of raw materials relevant to research and development"
   icon:
-    sprite: /Nyanotrasen/Structures/Machines/glimmer_machines.rsi
+    sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
     state: base
   product: CrateScienceMaterials
   cost: 6500
@@ -18,6 +18,6 @@
     sprite: Structures/Machines/Anomaly/ape.rsi
     state: base
   product: CrateScienceAPE
-  cost: 3200
+  cost: 3000
   category: Science
   group: market
