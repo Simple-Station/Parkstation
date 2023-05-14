@@ -11657,13 +11657,6 @@ entities:
   - pos: -22.561275,9.455191
     parent: 1
     type: Transform
-- uid: 798
-  type: MagazineBoxAntiMaterial
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -24.09307,2.2813354
-    parent: 1
-    type: Transform
 - uid: 799
   type: WeaponShotgunSawn
   components:
@@ -24946,25 +24939,6 @@ entities:
   - pos: -15.5,42.5
     parent: 1
     type: Transform
-- uid: 2825
-  type: PuddleBlood
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -11.5,41.5
-    parent: 1
-    type: Transform
-  - solutions:
-      puddle:
-        temperature: 293.15
-        canMix: False
-        canReact: True
-        maxVol: 1000
-        reagents:
-        - Quantity: 50
-          ReagentId: Blood
-    type: SolutionContainerManager
-  - active: False
-    type: StepTrigger
 - uid: 2826
   type: WallReinforced
   components:

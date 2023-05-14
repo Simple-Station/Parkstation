@@ -184448,7 +184448,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 22659
-  type: MopAdvanced
+  type: AdvMopItem
   components:
   - pos: 5.794586,48.52485
     parent: 1
