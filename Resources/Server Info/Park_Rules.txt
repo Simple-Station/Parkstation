@@ -2,9 +2,9 @@
 
 [color=#ff0000]DISCONNECTING FROM OR IGNORING/EVADING COMMUNICATION FROM ADMINS WILL RESULT IN AN APPEAL ONLY BAN. The job gets really hard when you refuse to talk to the Admins, just come to our Discord and talk it out, hurt feelings will not be held.[/color]
 
-[color=#ff0000]This is the only source of server rules that apply to Parkstation, which ideally has all the information any regular player should need. Please do not ever hesitate to ask either an Admin in[/color] [color=#DC143C]AHelp[/color][color=#ff0000] (F1) or in the Discord server if you ever want clarification on the rules. Chances are, if you were confused, we'll update them.[/color]
+[color=#bb00bb]This is the only source of server rules that apply to Parkstation, which ideally has all the information any regular player should need. Please do not ever hesitate to ask either an Admin in[/color] [color=#DC143C]AHelp (F1)[/color][color=#bb00bb] or in the Discord server if you ever want clarification on the rules. Chances are, if you were confused, we'll update them.[/color]
 
-We do not have a wiki, instead, we have or will have all the needed information available via Guidebooks (NumPad0), such as Space Law and Standard Operating Procedure. If we do not have some bit of information (how to do a job or how specifically to execute something a document says) you may ask an admin via [color=#DC143C]AHelp[/color] (F1) or ask other players via the [color=#66bbff]OOC[/color] or [color=#66e0e0]LOOC[/color] chat channels.
+We do not have a wiki, instead, we have or will have all the needed information available via Guidebooks (NumPad0), such as Space Law and Standard Operating Procedure. If we do not have some bit of information (how to do a job or how specifically to execute something a document says) you may ask an admin via [color=#DC143C]AHelp (F1)[/color] or ask other players via the [color=#66bbff]OOC[/color] or [color=#66e0e0]LOOC[/color] chat channels.
 
 [color=#ff0000]MEDIUM ROLEPLAY[/color]
 
@@ -53,7 +53,7 @@ The overall intention for this server is to do MRP right. NRP behavior will be d
     - [color=#6494F0]Security[/color] is unique in escalation and can escalate to less lethal to arrest criminals as needed.
     - Don't outright leave people to die if you get in a fight, make an effort to heal them or bring them to [color=#52B4E9]Medical[/color].
     - Department strikes, revolutions (ex: cargonia and any variation thereof), or cults are antagonist-only activities and are forbidden without admin permission.
-    - [color=#DC143C]AHelp[/color] (F1) the situation if you think someone is over-escalating.
+    - [color=#DC143C]AHelp (F1)[/color] the situation if you think someone is over-escalating.
 
 [color=#a4885c]16.[/color] Don't immediately ghost, suicide, or cryostasis if you do not get an antagonist role (referred to as "Antag-rolling").
     - This is not fair to other players actually waiting patiently for an antagonist round or wanting good staff. Alternatively, if you do not want to play an antagonist or do not want to cause conflict, do not opt in for antagonist roles. This will be managed as any other wholly [color=#66bbff]OOC[/color] action.
@@ -79,26 +79,23 @@ The overall intention for this server is to do MRP right. NRP behavior will be d
     - You determine that your life or the life of an innocent is in immediate danger
     - If no other reasonable options are readily available and allowing the suspect to continue would be an unreasonable danger to the station/crew
 
-[color=#6494F0]Security[/color] will be expected to answer for use of lethal force. [color=#6494F0]Security[/color] will be expected to effect arrests on criminals and prevent them from dying while in custody, even if lethal force is used. [color=#6494F0]Security[/color] is strongly encouraged, but not required, to clone antagonists and effect a permabrigging or other sentence as deemed appropriate.
+[color=#a4885c]21.[/color] [color=#6494F0]Security[/color] are be expected to answer for use of lethal force. [color=#6494F0]Security[/color] will be expected to effect arrests on criminals and prevent them from dying while in custody, even if lethal force is used. [color=#6494F0]Security[/color] is strongly encouraged, but not required, to clone antagonists and effect a permabrigging or other sentence as deemed appropriate.
 
-[color=#a4885c]21.[/color] [color=#6494F0]Security[/color] are expected to protect detainees in their custody to the best of their ability so as long as it does not come to an unreasonable risk to themselves, the crew, or the station at large to do so.
+[color=#a4885c]22.[/color] [color=#6494F0]Security[/color] are expected to protect detainees in their custody to the best of their ability so as long as it does not come to an unreasonable risk to themselves, the crew, or the station at large to do so.
     - Detainees that die in your custody must be cloned unless they have been (legally) executed.
 
-[color=#a4885c]22.[/color] This server is a "Roleplay Expected" server. We define this as performing your assigned duties, "doing your job". This means it is important to do what is expected of your department and not what would be expected of other departments.
+[color=#a4885c]23.[/color] This server is a "Roleplay Expected" server. We define this as performing your assigned duties, "doing your job". This means it is important to do what is expected of your department and not what would be expected of other departments.
     - Don’t do other people's jobs for them. Opt for the role you intend to play or change your job by visiting the Head of Personnel. Failure to do your basic duties may result in a job or game ban.
 
-[color=#a4885c]23.[/color] Each round exists independently of all other rounds. While friendships persisting through rounds is okay, using experiences from other rounds to give an advantage or disadvantage to other players is not permitted.
-
-[color=#a4885c]24.[/color] New Life Rule is in effect
-    - Do not use information obtained while dead or from a previous life upon returning to the land of the living. Even if you are cloned, you do not remember the events culminating in your death.
+[color=#a4885c]24.[/color] Each round exists independently of all other rounds. While friendships persisting through rounds is okay, using experiences from other rounds to give an advantage or disadvantage over other players is not permitted.
 
 [color=#a4885c]25.[/color] Do your best not to interact negatively with SSD/AFK players. Moving them to safety is acceptable; killing, looting, or otherwise griefing them while they are away is not.
     - SSD characters are players who are disconnected or AFK. It is possible for players to return to SSD bodies. Players become catatonic when they take a ghost spawner role or commit suicide. Players are NOT able to return to these bodies without admin intervention.
     - If the player in question is an antag target or they are being secured by [color=#6494F0]Security[/color], interactions to finish what is required of your duties/objectives are always acceptable but consider contacting Admins for a more fitting resolution.
 
-[color=#a4885c]26.[/color] [color=#DC143C]Space Law, Standard Operating Procedure, and Alert Procedure policy/guidelines are expected to be adhered to.[/color] These can be found in the Guidebooks (NumPad0). Reading both of these, especially as a [color=#334E6D]Command[/color] member, can provide great ways to deal with problems in certain cases.
+[color=#a4885c]26.[/color] [color=#DC143C]Space Law, Standard Operating Procedure, and Alert Procedure are expected to be adhered to.[/color] These can be found in the Guidebooks (NumPad0). Reading both of these, especially as a [color=#334E6D]Command[/color] member, can provide great ways to deal with problems in certain cases.
 
-[color=#a4885c]27.[/color] The following jobs: [color=#334E6D]HoP[/color], [color=#6494F0]HoS[/color], [color=#EFB341]CE[/color], [color=#D381C9]RD[/color], [color=#52B4E9]CMO[/color], [color=#9FED58]CSS[/color], and [color=#334E6D]AI[/color] should [color=#DC143C]AHelp[/color] (F1) when they need to stop playing. Do not play these roles if you do not expect to be able to finish the round.
+[color=#a4885c]27.[/color] The following jobs: [color=#334E6D]HoP[/color], [color=#6494F0]HoS[/color], [color=#EFB341]CE[/color], [color=#D381C9]RD[/color], [color=#52B4E9]CMO[/color], [color=#9FED58]CSS[/color], and [color=#334E6D]AI[/color] should [color=#DC143C]AHelp (F1)[/color] when they need to stop playing. Do not play these roles if you do not expect to be able to finish the round.
     - These roles must exhibit some competency. Incompetence can result in a job ban. [color=#334E6D]Command[/color] roles are designed to lead and manage departments first. They are not intended to become do-it-all members of their departments.
     - Crew promoted to acting heads of staff must step down when an official head of staff arrives at the station. This is to prevent confusion with the Chain of command when the new crew mate arrives.
 
