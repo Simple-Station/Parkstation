@@ -32,7 +32,7 @@ public sealed class ActivatableUIRequiresVisionSystem : EntitySystem
         }
     }
 
-    private void OnBlindnessChanged(EntityUid uid, BlindableComponent component, BlindnessChangedEvent args)
+    private void OnBlindnessChanged(EntityUid uid, BlindableComponent component, ref BlindnessChangedEvent args)
     {
         if (!args.Blind)
             return;
