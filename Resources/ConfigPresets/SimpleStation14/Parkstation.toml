@@ -1,5 +1,5 @@
 [game]
-hostname = "[NA East][MRP] Parkstation"
+hostname = "[EN][NA East][MRP] Parkstation"
 desc = "A server focused on RP expectations and calmer rounds."
 maxplayers = 64
 soft_max_players = 48
