@@ -1,0 +1,23 @@
+- type: entity
+  id: CrateScienceMaterials
+  parent: CrateScienceSecure
+  name: Science materials crate
+  description: "A crate containing a varienty of raw materials"
+  components:
+  - type: StorageFill
+    contents:
+      - id: SheetPlasma
+      - id: SheetPlastic
+      - id: SheetPlasteel
+      - id: MaterialBluespace
+
+- type: entity
+  id: CrateScienceAPE
+  parent: CrateScienceSecure
+  name: APE crate
+  description: "A crate containing a single APE unit"
+  components:
+  - type: StorageFill
+    contents:
+      - id: MachineAPE
+      - id: AnomalyScanner
