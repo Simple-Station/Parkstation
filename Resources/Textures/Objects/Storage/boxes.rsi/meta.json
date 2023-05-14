@@ -65,6 +65,9 @@
             "name": "box_medical"
         },
         {
+            "name": "box_science"
+        },
+        {
             "name": "box_olive"
         },
         {
@@ -111,6 +114,17 @@
         },
         {
             "name": "lighttube"
+        },
+        {
+            "name": "omegacart"
+        },
+        {
+            "name": "id"
+        },
+        {
+        },
+        {
+            "name": "omegacart"
         },
         {
             "name": "magazine"

@@ -121,6 +121,7 @@
       - id: ClothingEyesHudMedical
       - id: ClothingEyesHudMedicalPrescription
       - id: ClothingHeadsetAltMedical
+      - id: ClothingBeltMilitaryWebbingCMO
       - id: ClothingCloakCmo
       - id: ClothingBackpackDuffelSurgeryFilled
       - id: ClothingOuterCoatLabCmo

@@ -4,6 +4,8 @@ using Content.Server.SimpleStation14.Traits.Events;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Traits;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
@@ -14,6 +16,7 @@ public sealed class TraitSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
+    [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
 
     public override void Initialize()
@@ -129,10 +132,19 @@ public sealed class TraitSystem : EntitySystem
                 comp.Owner = mob;
                 EntityManager.AddComponent(mob, comp, true);
             }
-        }
 
-        // Tell the client to add the trait client-sided too
-        RaiseNetworkEvent(new TraitAddedEvent(mob, traitString));
+            // Add item required by the trait
+            if (trait.TraitGear != null)
+            {
+                if (!TryComp(mob, out HandsComponent? handsComponent))
+                    continue;
+
+                var coords = EntityManager.GetComponent<TransformComponent>(mob).Coordinates;
+                var inhandEntity = EntityManager.SpawnEntity(trait.TraitGear, coords);
+                _sharedHandsSystem.TryPickup(mob, inhandEntity, checkActionBlocker: false,
+                    handsComp: handsComponent);
+            }
+        }
 
         return true;
     }

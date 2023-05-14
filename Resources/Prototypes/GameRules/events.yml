@@ -6,7 +6,7 @@
   - type: StationEvent
     weight: 7
     minimumPlayers: 12
-    startAfter: 30
+    startDelay: 30
     duration: 35
   - type: AnomalySpawnRule
 
@@ -17,7 +17,7 @@
   components:
   - type: StationEvent
     weight: 10
-    startAfter: 30
+    startDelay: 30
     duration: 35
   - type: BluespaceArtifactRule
 
@@ -44,17 +44,21 @@
     minimumPlayers: 15
   - type: BreakerFlipRule
 
-- type: entity
-  id: BureaucraticError
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-bureaucratic-error-announcement
-    minimumPlayers: 20
-    weight: 6
-    duration: 1
-  - type: BureaucraticErrorRule
+# - type: entity
+#   id: BureaucraticError
+#   parent: BaseGameRule
+#   noSpawn: true
+#   components:
+#   - type: StationEvent
+#     startAnnouncement: station-event-bureaucratic-error-announcement
+#     startAudio:
+#       path: /Audio/Announcements/bureaucratic_error.ogg
+#       params:
+#         volume: -1
+#     minimumPlayers: 20
+#     weight: 6
+#     duration: 1
+#   - type: BureaucraticErrorRule
 
 - type: entity
   id: DiseaseOutbreak
@@ -113,7 +117,7 @@
     earliestStart: 10
     minimumPlayers: 5
     weight: 5
-    startAfter: 20
+    startDelay: 20
   - type: GasLeakRule
 
 - type: entity
@@ -126,7 +130,7 @@
     earliestStart: 25
     minimumPlayers: 10
     weight: 5
-    startAfter: 50
+    startDelay: 50
     duration: 240
   - type: KudzuGrowthRule
 
@@ -142,7 +146,7 @@
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
     duration: null #ending is handled by MeteorSwarmRule
-    startAfter: 30
+    startDelay: 30
   - type: MeteorSwarmRule
 
 # - type: entity
@@ -166,7 +170,7 @@
     weight: 10
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
-    startAfter: 12
+    startDelay: 12
     duration: 60
     maxDuration: 120
   - type: PowerGridCheckRule
@@ -189,9 +193,10 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 10
+    weight: 8
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
+    minimumPlayers: 10
     duration: 120
     maxDuration: 240
   - type: SolarFlareRule
@@ -199,8 +204,8 @@
     affectedChannels:
     - Common
     - Service
-    lightBreakChancePerSecond: 0.0003
-    doorToggleChancePerSecond: 0.001
+    lightBreakChancePerSecond: 0.00003
+    doorToggleChancePerSecond: 0.0001
 
 - type: entity
   id: VentClog
@@ -212,7 +217,7 @@
     earliestStart: 15
     minimumPlayers: 15
     weight: 5
-    startAfter: 50
+    startDelay: 50
     duration: 60
   - type: VentClogRule
 

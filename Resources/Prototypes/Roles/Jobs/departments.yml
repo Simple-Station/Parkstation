@@ -65,7 +65,7 @@
   - MedicalDoctor
   - MedicalIntern
   - Psychologist
-  - MedicalCyborg
+  - MedicalRobot
   - Paramedic
 
 - type: department
@@ -98,5 +98,5 @@
   color: "#8D9AAC"
   roles:
   - SAI
-  - Cyborg
-  - MedicalCyborg
+  - Robot
+  - MedicalRobot

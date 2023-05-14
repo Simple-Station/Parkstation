@@ -652,6 +652,7 @@
   parent: ToyGunBase
   id: RevolverCapGun
   name: cap gun
+  suffix: Toy
   description: Looks almost like the real thing! Ages 8 and up.
   components:
   - type: Sprite
@@ -687,6 +688,7 @@
   parent: RevolverCapGun
   id: RevolverCapGunFake
   name: cap gun
+  suffix: Real Gun, No Map
   description: Looks almost like the real thing! Ages 8 and up.
   components:
     - type: RevolverAmmoProvider
