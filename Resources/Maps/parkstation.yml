@@ -56897,7 +56897,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 6830
-  type: PoweredlightColoredRed
+  type: PoweredLightColoredRed
   components:
   - rot: 3.141592653589793 rad
     pos: -2.5,41.5
@@ -56945,7 +56945,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 6836
-  type: PoweredlightBlueInterior
+  type: PoweredLightBlueInterior
   components:
   - pos: -2.5,46.5
     parent: 1
@@ -115154,7 +115154,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 14242
-  type: PoweredlightBlueInterior
+  type: PoweredLightBlueInterior
   components:
   - rot: 3.141592653589793 rad
     pos: 53.5,27.5
@@ -115163,7 +115163,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 14243
-  type: PoweredlightBlueInterior
+  type: PoweredLightBlueInterior
   components:
   - rot: 3.141592653589793 rad
     pos: 49.5,27.5

@@ -69709,7 +69709,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 9931
-  type: PoweredlightColoredFrostyBlue
+  type: PoweredLightColoredFrostyBlue
   components:
   - rot: 3.141592653589793 rad
     pos: -37.5,-8.5
@@ -69718,7 +69718,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 9932
-  type: PoweredlightColoredFrostyBlue
+  type: PoweredLightColoredFrostyBlue
   components:
   - pos: -37.5,-3.5
     parent: 1
@@ -69726,7 +69726,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 9933
-  type: PoweredlightColoredFrostyBlue
+  type: PoweredLightColoredFrostyBlue
   components:
   - rot: -1.5707963267948966 rad
     pos: -33.5,-5.5
@@ -69735,7 +69735,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 9934
-  type: PoweredlightColoredFrostyBlue
+  type: PoweredLightColoredFrostyBlue
   components:
   - rot: 1.5707963267948966 rad
     pos: -42.5,-5.5
@@ -146363,7 +146363,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 19314
-  type: PoweredlightColoredFrostyBlue
+  type: PoweredLightColoredFrostyBlue
   components:
   - pos: 77.5,65.5
     parent: 1
