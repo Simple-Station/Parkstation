@@ -5401,12 +5401,16 @@ entities:
           0: 65535
         19,1:
           0: 4369
+          1: 8738
         19,2:
           0: 4369
+          1: 8738
         19,3:
           0: 4369
+          1: 8738
         19,4:
           0: 1
+          1: 2
         18,0:
           0: 12560
         -3,-15:
@@ -5447,8 +5451,10 @@ entities:
           0: 4352
         19,6:
           0: 8753
+          1: 4352
         19,7:
           0: 62003
+          1: 256
         -12,14:
           0: 8739
         -12,15:
@@ -190082,25 +190088,25 @@ entities:
 - uid: 23177
   type: SheetPlasteel
   components:
-  - pos: 53.52638,36.45507
+  - pos: 53.71525,36.41098
     parent: 1
     type: Transform
 - uid: 23178
   type: SheetPlasteel
   components:
-  - pos: 53.73284,36.602566
+  - pos: 53.86272,36.79446
     parent: 1
     type: Transform
 - uid: 23179
   type: SheetSteel
   components:
-  - pos: 52.998802,36.39527
+  - pos: 53.24334,36.41098
     parent: 1
     type: Transform
 - uid: 23180
   type: SheetSteel
   components:
-  - pos: 53.11678,36.764004
+  - pos: 53.4498,36.779713
     parent: 1
     type: Transform
 - uid: 23181
@@ -190273,19 +190279,19 @@ entities:
 - uid: 23208
   type: ClothingBeltUtility
   components:
-  - pos: 52.36418,36.38824
+  - pos: 52.122902,36.307735
     parent: 1
     type: Transform
 - uid: 23209
   type: ClothingBeltUtility
   components:
-  - pos: 52.408424,36.815968
+  - pos: 52.13765,36.764965
     parent: 1
     type: Transform
 - uid: 23210
   type: ClothingBeltUtility
   components:
-  - pos: 52.37893,36.638977
+  - pos: 52.13765,36.499477
     parent: 1
     type: Transform
 - uid: 23211
@@ -204964,6 +204970,174 @@ entities:
   type: CableApcExtension
   components:
   - pos: 75.5,5.5
+    parent: 1
+    type: Transform
+- uid: 25098
+  type: PhoneInstrument
+  components:
+  - pos: -10.420592,-3.1245625
+    parent: 1
+    type: Transform
+- uid: 25099
+  type: PhoneInstrument
+  components:
+  - pos: -17.312925,-5.2349205
+    parent: 1
+    type: Transform
+- uid: 25100
+  type: PhoneInstrument
+  components:
+  - pos: -6.417994,10.736224
+    parent: 1
+    type: Transform
+- uid: 25101
+  type: PhoneInstrument
+  components:
+  - pos: 5.5855675,3.552063
+    parent: 1
+    type: Transform
+- uid: 25102
+  type: PhoneInstrument
+  components:
+  - pos: 7.5045815,1.6113327
+    parent: 1
+    type: Transform
+- uid: 25103
+  type: PhoneInstrument
+  components:
+  - pos: 12.06385,8.647985
+    parent: 1
+    type: Transform
+- uid: 25104
+  type: PhoneInstrument
+  components:
+  - pos: 57.601685,41.80842
+    parent: 1
+    type: Transform
+- uid: 25105
+  type: PhoneInstrument
+  components:
+  - pos: -8.285005,23.686548
+    parent: 1
+    type: Transform
+- uid: 25106
+  type: PhoneInstrument
+  components:
+  - pos: -48.264076,48.492756
+    parent: 1
+    type: Transform
+- uid: 25107
+  type: PhoneInstrument
+  components:
+  - pos: 49.459915,-17.457075
+    parent: 1
+    type: Transform
+- uid: 25108
+  type: PhoneInstrument
+  components:
+  - pos: 61.624092,-1.4508693
+    parent: 1
+    type: Transform
+- uid: 25109
+  type: PhoneInstrument
+  components:
+  - pos: -10.754051,-34.323753
+    parent: 1
+    type: Transform
+- uid: 25110
+  type: PhoneInstrument
+  components:
+  - pos: -13.379052,-35.887177
+    parent: 1
+    type: Transform
+- uid: 25111
+  type: PhoneInstrument
+  components:
+  - pos: -45.541325,-47.3788
+    parent: 1
+    type: Transform
+- uid: 25112
+  type: PhoneInstrument
+  components:
+  - pos: -58.431744,-23.314913
+    parent: 1
+    type: Transform
+- uid: 25113
+  type: PhoneInstrument
+  components:
+  - pos: -18.634142,47.54201
+    parent: 1
+    type: Transform
+- uid: 25114
+  type: SheetGlass
+  components:
+  - pos: 55.034843,31.41705
+    parent: 1
+    type: Transform
+- uid: 25115
+  type: SheetGlass
+  components:
+  - pos: 55.108578,31.859528
+    parent: 1
+    type: Transform
+- uid: 25116
+  type: SheetGlass
+  components:
+  - pos: 58.752556,41.360195
+    parent: 1
+    type: Transform
+- uid: 25117
+  type: SheetGlass
+  components:
+  - pos: 64.36893,44.697433
+    parent: 1
+    type: Transform
+- uid: 25118
+  type: SheetGlass
+  components:
+  - pos: 64.59014,44.402447
+    parent: 1
+    type: Transform
+- uid: 25119
+  type: SheetGlass
+  components:
+  - pos: 64.66387,44.697433
+    parent: 1
+    type: Transform
+- uid: 25120
+  type: SheetGlass
+  components:
+  - pos: 52.680607,36.366734
+    parent: 1
+    type: Transform
+- uid: 25121
+  type: SheetGlass
+  components:
+  - pos: 52.680607,36.735466
+    parent: 1
+    type: Transform
+- uid: 25122
+  type: SheetGlass
+  components:
+  - pos: 52.97555,36.63222
+    parent: 1
+    type: Transform
+- uid: 25123
+  type: SheetGlass
+  components:
+  - pos: 53.00428,36.296413
+    parent: 1
+    type: Transform
+- uid: 25124
+  type: SheetSteel
+  components:
+  - pos: 53.18538,36.812637
+    parent: 1
+    type: Transform
+- uid: 25125
+  type: SheetPlastic
+  components:
+  - pos: 56.06938,31.499107
     parent: 1
     type: Transform
 ...
