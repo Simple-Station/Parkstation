@@ -2,7 +2,6 @@ using Content.Shared.SimpleStation14.Silicon.Components;
 using Content.Shared.Alert;
 using Robust.Shared.Serialization;
 using Content.Shared.Movement.Systems;
-// using
 
 namespace Content.Shared.SimpleStation14.Silicon.Systems;
 public sealed class SharedSiliconChargeSystem : EntitySystem

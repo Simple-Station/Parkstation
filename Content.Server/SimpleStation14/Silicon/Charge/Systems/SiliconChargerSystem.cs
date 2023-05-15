@@ -14,7 +14,6 @@ using Robust.Shared.Timing;
 using Content.Shared.SimpleStation14.Silicon;
 using Robust.Shared.Audio;
 using Robust.Server.GameObjects;
-using Content.Server.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Server.Hands.Systems;
 using Content.Server.Explosion.Components;
@@ -22,6 +21,7 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Power;
 using Content.Shared.Storage.Components;
+using Content.Shared.Hands.Components;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 

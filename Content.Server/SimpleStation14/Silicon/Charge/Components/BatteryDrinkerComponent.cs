@@ -37,5 +37,5 @@ public class BatteryDrinkerComponent : Component
     ///     Doesn't _need_ to be localised, but come on, man.
     /// </summary>
     [DataField("drinkText")]
-    public string DrinkText = "";
+    public string DrinkText = "aaaaaaaaaa";
 }

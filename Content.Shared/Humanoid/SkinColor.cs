@@ -135,13 +135,13 @@ public static class SkinColor
 
         var check = true;
 
-        if (r > 0.75 || r < 0.5)
+        if (r > 0.75 || r < 0.25)
             check = false;
 
-        if (g > 0.75 || g < 0.5)
+        if (g > 0.75 || g < 0.25)
             check = false;
 
-        if (b > 0.75 || b < 0.5)
+        if (b > 0.75 || b < 0.25)
             check = false;
 
         return check;

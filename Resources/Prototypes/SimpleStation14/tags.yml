@@ -3,10 +3,3 @@
 
 - type: Tag
   id: GlassesNearsight
-
-- type: Tag
-  id: Hardlight
-- type: Tag
-  id: Softlight
-- type: Tag
-  id: HoloDisk

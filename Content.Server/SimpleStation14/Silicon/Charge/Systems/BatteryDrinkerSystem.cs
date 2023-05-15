@@ -4,8 +4,10 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Helpers;
 using Content.Shared.PowerCell.Components;
+using Content.Shared.SimpleStation14.Silicon;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
+using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
@@ -22,7 +24,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
         SubscribeLocalEvent<BatteryComponent, GetVerbsEvent<AlternativeVerb>>(AddAltVerb);
 
-        SubscribeLocalEvent<BatteryComponent, DoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<BatteryDrinkerComponent, BatteryDrinkerEvent>(OnDoAfter);
     }
 
     private void AddAltVerb(EntityUid uid, BatteryComponent batteryComponent, GetVerbsEvent<AlternativeVerb> args)
@@ -79,27 +81,26 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         else
             doAfterTime *= 2.5f;
 
-        _doAfter.DoAfter(new DoAfterEventArgs(user, doAfterTime, target:target)
+        var args = new DoAfterArgs(user, doAfterTime, new BatteryDrinkerEvent(), user, target)
         {
-            RaiseOnTarget = true,
-            RaiseOnUser = false,
-            BreakOnUserMove = false,
             BreakOnDamage = true,
-            BreakOnStun = true,
-            BreakOnTargetMove = false,
-            MovementThreshold = 0.25f,
-            PostCheck = () => user.InRangeUnOccluded(target, 1.5f)
-        });
+            BreakOnTargetMove = true,
+            Broadcast = false,
+            DistanceThreshold = 1.35f,
+            RequireCanInteract = true,
+            CancelDuplicate = false
+        };
+
+        var doAfter = _doAfter.TryStartDoAfter(args);
     }
 
-    private void OnDoAfter(EntityUid uid, BatteryComponent batteryComponent, DoAfterEvent args)
+    private void OnDoAfter(EntityUid uid, BatteryDrinkerComponent drinkerComp, DoAfterEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || args.Target == null)
             return;
 
-        var source = uid;
-        var drinker = args.Args.User;
-        var drinkerComp = EntityManager.GetComponent<BatteryDrinkerComponent>(drinker);
+        var source = args.Target.Value;
+        var drinker = uid;
         var sourceBattery = EntityManager.GetComponent<BatteryComponent>(source);
 
         TryGetFillableBattery(drinker, out var drinkerBattery);
@@ -113,7 +114,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
         var amountToDrink = drinkerComp.DrinkMultiplier * 1000;
 
-        amountToDrink = MathF.Min(amountToDrink, batteryComponent.CurrentCharge);
+        amountToDrink = MathF.Min(amountToDrink, sourceBattery.CurrentCharge);
         amountToDrink = MathF.Min(amountToDrink, drinkerBattery.MaxCharge - drinkerBattery.CurrentCharge);
 
         if (sourceComp != null && sourceComp.MaxAmount > 0)
@@ -139,14 +140,10 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
         var sound = drinkerComp.DrinkSound ?? sourceComp?.DrinkSound;
 
-        // Log sound
-        Logger.InfoS("battery", $"User {drinker} drank {amountToDrink} from {source}.");
-        Logger.Info("Sound to play: " + sound?.ToString() ?? "null");
-
         if (sound != null)
             _audio.PlayPvs(sound, source);
 
-        if (sourceBattery.CurrentCharge > 0)
-            DrinkBattery(source, drinker, sourceBattery, drinkerBattery, drinkerComp);
+        // if (sourceBattery.CurrentCharge > 0)  // Make use proper looping doafters when we merge Upstream.
+        //     DrinkBattery(source, drinker, sourceBattery, drinkerBattery, drinkerComp);
     }
 }
