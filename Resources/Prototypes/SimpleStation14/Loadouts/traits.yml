@@ -24,3 +24,35 @@
     components:
       - Nearsighted
   item: ClothingEyesHudMedicalPrescription
+
+- type: loadout
+  id: LoadoutNearsightedEyesGoggles
+  name: Prescription Engineering Goggles
+  description: Just to make sure you don't blind yourself
+  category: Traits
+  cost: 4
+  jobWhitelist:
+    - AtmosphericTechnician
+    - StationEngineer
+    - ChiefEngineer
+    - SalvageTechnician
+  whitelist:
+    components:
+      - Nearsighted
+  item: ClothingEyesGlassesMesonPrescription
+
+- type: loadout
+  id: LoadoutNearsightedEyesSecurityGlasses
+  name: Prescription Security Glasses
+  description: Now you can see AND be stylish!
+  category: Traits
+  cost: 4
+  jobWhitelist:
+    - SecurityCadet
+    - SecurityOfficer
+    - Warden
+    - HeadOfSecurity
+  whitelist:
+    components:
+      - Nearsighted
+  item: ClothingEyesGlassesSecurityPrescription
