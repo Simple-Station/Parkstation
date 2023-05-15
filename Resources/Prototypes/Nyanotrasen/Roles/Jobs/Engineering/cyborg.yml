@@ -4,9 +4,6 @@
   description: job-description-cyborg
   playTimeTracker: JobCyborg
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 14400
     - !type:OverallPlaytimeRequirement
       time: 28800
   icon: "Unknown"
