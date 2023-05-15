@@ -185371,7 +185371,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 22629
-  type: MaintenanceToolSpawner
+  type: HatSpawner
   components:
   - pos: 72.5,31.5
     parent: 1
@@ -185395,43 +185395,43 @@ entities:
     parent: 1
     type: Transform
 - uid: 22633
-  type: MaintenanceToolSpawner
+  type: CrateEmptySpawner
   components:
   - pos: 63.5,0.5
     parent: 1
     type: Transform
 - uid: 22634
-  type: MaintenanceToolSpawner
+  type: DonkpocketBoxSpawner
   components:
   - pos: 61.5,-8.5
     parent: 1
     type: Transform
 - uid: 22635
-  type: MaintenanceToolSpawner
+  type: RandomSpawner
   components:
   - pos: 45.5,-14.5
     parent: 1
     type: Transform
 - uid: 22636
-  type: MaintenanceToolSpawner
+  type: MaintenanceFluffSpawner
   components:
   - pos: 33.5,-21.5
     parent: 1
     type: Transform
 - uid: 22637
-  type: MaintenanceToolSpawner
+  type: MaintenanceFluffSpawner
   components:
   - pos: 33.5,-20.5
     parent: 1
     type: Transform
 - uid: 22638
-  type: MaintenanceToolSpawner
+  type: MaintenanceFluffSpawner
   components:
   - pos: 14.5,-32.5
     parent: 1
     type: Transform
 - uid: 22639
-  type: MaintenanceToolSpawner
+  type: RandomSnacks
   components:
   - pos: -33.5,-47.5
     parent: 1
@@ -185443,31 +185443,31 @@ entities:
     parent: 1
     type: Transform
 - uid: 22641
-  type: MaintenanceToolSpawner
+  type: RandomDrinkBottle
   components:
   - pos: -64.5,-25.5
     parent: 1
     type: Transform
 - uid: 22642
-  type: MaintenanceToolSpawner
+  type: RandomBook
   components:
   - pos: -74.5,-19.5
     parent: 1
     type: Transform
 - uid: 22643
-  type: MaintenanceToolSpawner
+  type: RandomItem
   components:
   - pos: -58.5,21.5
     parent: 1
     type: Transform
 - uid: 22644
-  type: MaintenanceToolSpawner
+  type: RandomDrinkBottle
   components:
   - pos: -51.5,21.5
     parent: 1
     type: Transform
 - uid: 22645
-  type: MaintenanceToolSpawner
+  type: RandomFoodSingle
   components:
   - pos: -55.5,51.5
     parent: 1
@@ -188581,7 +188581,7 @@ entities:
 - uid: 22938
   type: SpawnMobSlothPaperwork
   components:
-  - pos: -8.5,29.5
+  - pos: -56.5,-18.5
     parent: 1
     type: Transform
 - uid: 22939
@@ -205138,6 +205138,24 @@ entities:
   type: SheetPlastic
   components:
   - pos: 56.06938,31.499107
+    parent: 1
+    type: Transform
+- uid: 25126
+  type: SpawnMobCatFloppa
+  components:
+  - pos: -9.5,29.5
+    parent: 1
+    type: Transform
+- uid: 25127
+  type: RandomDrinkBottle
+  components:
+  - pos: 12.5,38.5
+    parent: 1
+    type: Transform
+- uid: 25128
+  type: RandomItem
+  components:
+  - pos: 12.5,1.5
     parent: 1
     type: Transform
 ...
