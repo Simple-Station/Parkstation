@@ -2,7 +2,7 @@
   id: CrateNPCFox
   parent: CrateLivestock
   name: Fox crate
-  description: "A crate containing a two foxes."
+  description: "A crate containing two foxes."
   components:
   - type: StorageFill
     contents:
