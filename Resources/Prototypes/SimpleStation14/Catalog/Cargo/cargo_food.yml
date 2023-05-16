@@ -6,7 +6,7 @@
     sprite: Objects/Consumable/Food/meat.rsi
     state: xeno
   product: CrateFoodExoticMeat
-  cost: 5000
+  cost: 2500
   category: Food
   group: market
 

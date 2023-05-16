@@ -9,13 +9,14 @@
       - id: SheetPlasma
       - id: SheetPlastic
       - id: SheetPlasteel
-      - id: MaterialBluespace
+      - id: MaterialBluespace1
+        count: 1
 
 - type: entity
   id: CrateScienceAPE
   parent: CrateScienceSecure
   name: APE crate
-  description: "A crate containing a single APE unit"
+  description: "A crate containing a single APE unit and an anomaly scanner."
   components:
   - type: StorageFill
     contents:

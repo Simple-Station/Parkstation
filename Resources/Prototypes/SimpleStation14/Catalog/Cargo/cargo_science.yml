@@ -6,18 +6,18 @@
     sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
     state: base
   product: CrateScienceMaterials
-  cost: 6500
+  cost: 3000
   category: Science
   group: market
 
 - type: cargoProduct
   id: ScienceAPE
   name: APE crate
-  description: "A crate containing a single APE unit for containing and poking anomalies"
+  description: "A crate containing a single APE unit and anomaly scanner."
   icon:
     sprite: Structures/Machines/Anomaly/ape.rsi
     state: base
   product: CrateScienceAPE
-  cost: 3000
+  cost: 2000
   category: Science
   group: market

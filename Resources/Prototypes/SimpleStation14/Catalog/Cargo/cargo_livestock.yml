@@ -6,6 +6,6 @@
     sprite: Mobs/Animals/fox.rsi
     state: fox
   product: CrateNPCFox
-  cost: 1000
+  cost: 1200
   category: Livestock
   group: market
