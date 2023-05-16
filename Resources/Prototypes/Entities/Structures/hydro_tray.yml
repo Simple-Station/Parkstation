@@ -84,3 +84,9 @@
     range: 5
     sound:
       path: /Audio/Ambience/Objects/flowing_water_open.ogg
+  - type: DrainableSolution
+    solution: soil
+  - type: Drink
+    isOpen: true
+    solution: soil
+    delay: 3
