@@ -3,6 +3,11 @@ using Content.Server.Chat.Systems;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
 using JetBrains.Annotations;
+using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
+using Content.Shared.Random;
+using Content.Shared.SimpleStation14.Prototypes;
+using Content.Shared.Random.Helpers;
 
 namespace Content.Server.Borgs
 {
@@ -17,6 +22,8 @@ namespace Content.Server.Borgs
             base.Initialize();
             SubscribeLocalEvent<LawsComponent, StateLawsMessage>(OnStateLaws);
             SubscribeLocalEvent<LawsComponent, PlayerAttachedEvent>(OnPlayerAttached);
+
+            SubscribeLocalEvent<LawsComponent, ComponentInit>(OnInit); // Parkstation-Laws
         }
 
         private void OnStateLaws(EntityUid uid, LawsComponent component, StateLawsMessage args)
@@ -50,6 +57,64 @@ namespace Content.Server.Borgs
                 _chat.TrySendInGameICMessage(uid, law, InGameICChatType.Speak, false);
             }
         }
+
+        // Parkstation-Laws-Start
+
+        private void OnInit(EntityUid uid, LawsComponent component, ComponentInit args)
+        {
+            if (component.LawsID == null)
+                return;
+
+            var _prototype = IoCManager.Resolve<IPrototypeManager>();
+
+            if (_prototype.TryIndex<LawsPrototype>(component.LawsID, out var laws))
+            {
+                AddLawsFromPrototype(component.LawsID, uid, component);
+
+                return;
+            }
+
+            if (_prototype.TryIndex<WeightedRandomPrototype>(component.LawsID, out var collection))
+            {
+                AddLawsFromPrototype(collection.Pick(), uid, component);
+
+                return;
+            }
+
+            Logger.Warning($"No laws prototype or weighted random found with ID {component.LawsID} for entity {ToPrettyString(uid)}.");
+        }
+
+        public void AddLawsFromPrototype(string prototypeID, EntityUid? uid = null, LawsComponent? component = null)
+        {
+            var _prototype = IoCManager.Resolve<IPrototypeManager>();
+
+            if (uid != null)
+            {
+                if (!Resolve(uid.Value, ref component, false))
+                    component = EntityManager.EnsureComponent<LawsComponent>(uid.Value);
+            }
+
+            if (component == null)
+            {
+                Logger.Warning($"No Laws component given and no entity to add it to.");
+
+                return;
+            }
+
+            var laws = _prototype.Index<LawsPrototype>(prototypeID);
+
+            // component.Laws.Clear();
+
+            // Add each law in the list.
+            foreach (var law in laws.Laws)
+            {
+                component.Laws.Add(law);
+            }
+
+            Dirty(component);
+        }
+
+        // Parkstation-Laws-End
 
         [PublicAPI]
         public void ClearLaws(EntityUid uid, LawsComponent? component = null)

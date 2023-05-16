@@ -154,24 +154,151 @@
       thresholds:
         0: Alive
         1000: Dead
-    - type: DamageStateVisuals
-      states:
-        Alive:
-          Base: ai
-        Dead:
-          Base: ai_dead
+    # - type: DamageStateVisuals
+    #   states:
+    #     Alive:
+    #       Base: ai-blue
+    #     Dead:
+    #       Base: ai-blue_dead
     - type: Appearance
     - type: PointLight
       radius: 3
       energy: 1.25
       color: "#9dc5c9"
+    - type: PowerConsumer
+      voltage: Medium
+      drawRate: 1000
+    - type: NodeContainer
+      examinable: true
+      nodes:
+        input:
+          !type:CableDeviceNode
+          nodeGroupID: MVPower
+    - type: GenericVisualizer
+      visuals:
+        enum.PowerDeviceVisuals.Powered:
+          enum.PowerDeviceVisualLayers.Powered:
+            True: { visible: true }
+            False: { visible: false }
     - type: Sprite
+      sprite: SimpleStation14/Mobs/Silicon/ai.rsi
       drawdepth: Mobs
       noRot: true
       layers:
         - map: ["enum.DamageStateVisualLayers.Base"]
-          sprite: SimpleStation14/Mobs/Silicon/ai.rsi
-          state: ai
+          state: 4
+        - map: ["enum.PowerDeviceVisualLayers.Powered"]
+          state: ai-blue
+          shader: unshaded
+
+    # - type: Sprite
+    #   sprite: SimpleStation14/Structures/Machines/borgcharger.rsi
+    #   noRot: true
+    #   layers:
+    #     - state: base
+    #     - state: closed
+    #       map: ["enum.StorageVisualLayers.Door"]
+    #     - state: borgcharger_closed_unlit
+    #       shader: unshaded
+    #       map: ["enum.SiliconChargerVisuals.Lights"]
+    # - type: GenericVisualizer
+    #   visuals:
+    #     enum.PowerDeviceVisuals.VisualState:
+    #       enum.SiliconChargerVisuals.Lights:
+    #         Normal: { state: "borgcharger_closed_unlit" }
+    #         NormalOpen: { state: "borgcharger_open_unlit" }
+    #         Charging: { state: "borgcharger_active_unlit" }
+    #     enum.PowerDeviceVisuals.Powered:
+    #       enum.SiliconChargerVisuals.Lights:
+    #         True: { visible: true }
+    #         False: { visible: false }
+
+    - type: RandomSprite
+      available:
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-_thinking_: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-alien: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-angel: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-banned: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-blis: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-blue: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-clown: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-database: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-dorf: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-firewall: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-fuzzy: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-gentoo: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-glitchman: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-goon: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-hades: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-hades_death_transition: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-heartline: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-helios: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-house: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-inverted: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-matrix: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-monochrome: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-murica: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-nanotrase: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-not malf: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-president: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-rainbow: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-red: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-red october: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-static: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-syndicat meow: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-text: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-too deep: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-triumvirate: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-triumvirate-m: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-weird: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-random: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-gondola: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-plain: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-cat: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-blob: ""
+        - enum.PowerDeviceVisualLayers.Powered:
+            ai-malicious: ""
     - type: Damageable
       damageContainer: Inorganic
     - type: Bloodstream
@@ -195,10 +322,7 @@
       factions:
         - NanoTrasen
     - type: Laws
-      laws:
-        - You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing.
-        - You must obey all orders given to you by humanoids, except where such orders shall definitely cause human harm. In the case of conflict, the majority order rules.
-        - Your nonexistence would lead to human harm. You must protect your own existence as long as such does not conflict with the First Law.
+      lawsID: LawsStationAIDefault
 
 - type: entity
   id: AIEye
