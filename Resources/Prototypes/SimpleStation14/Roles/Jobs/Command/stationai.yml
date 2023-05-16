@@ -1,19 +1,23 @@
 - type: job
   id: SAI
-  name: "station AI"
+  name: job-name-sai
+  description: job-description-sai
   playTimeTracker: JobSAI
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 60000
+  weight: 30
   icon: "StationAI"
   supervisors: "all crew"
   accessGroups:
     - AllAccess
   canBeAntag: false
-  jobEntity: AI
+  jobEntity: AICore
   startingGear: CyborgGear # for char preview only
   alwaysUseSpawner: true
   canHaveTraits: false
+  joinNotifyCrew: true
+  whitelistRequired: true
 
 # - type: startingGear
 #   id: AIGear
