@@ -1,6 +1,6 @@
 [game]
 hostname = "🌳 | Parkstation"
-desc = "An English MRP server focused more on proper RP expectations and calmer rounds."
+desc = "An English MRP server focused on higher RP expectations and calmer rounds."
 maxplayers = 64
 soft_max_players = 48
 lobbyenabled = true
