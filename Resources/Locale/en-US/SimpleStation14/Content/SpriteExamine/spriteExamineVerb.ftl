@@ -1,2 +1,2 @@
-character-sprite-examine-verb-text = View Closely
-character-sprite-examine-verb-message = Get a closer look...
+character-sprite-examine-verb-text = Character Information
+character-sprite-examine-verb-message = View information about this character.

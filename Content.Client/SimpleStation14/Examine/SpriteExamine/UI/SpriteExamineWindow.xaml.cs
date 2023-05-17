@@ -34,10 +34,10 @@ public sealed partial class SpriteExamineWindow : FancyWindow
     {
         _sprites.RemoveAllChildren();
 
+        // These shouldn't be shown to the player, no need for locale
         _name.Text = "Placeholder Name";
         _job.Text = "Placeholder Job";
 
-        // TODO: Localization
         _flavor.SetMessage(Loc.GetString("sprite-examine-window-flavor-text-placeholder"));
     }
 
