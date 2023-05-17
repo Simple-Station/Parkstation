@@ -108,7 +108,7 @@ namespace Content.Server.Borgs
             // Add each law in the list.
             foreach (var law in laws.Laws)
             {
-                component.Laws.Add(law);
+                component.Laws.Add(Loc.GetString(law));
             }
 
             Dirty(component);

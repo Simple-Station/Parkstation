@@ -224,7 +224,7 @@
         - enum.PowerDeviceVisualLayers.Powered:
             ai-banned: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-blis: ""
+            ai-bliss: ""
         - enum.PowerDeviceVisualLayers.Powered:
             ai-blue: ""
         - enum.PowerDeviceVisualLayers.Powered:
@@ -246,8 +246,6 @@
         - enum.PowerDeviceVisualLayers.Powered:
             ai-hades: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-hades_death_transition: ""
-        - enum.PowerDeviceVisualLayers.Powered:
             ai-heartline: ""
         - enum.PowerDeviceVisualLayers.Powered:
             ai-helios: ""
@@ -262,7 +260,7 @@
         - enum.PowerDeviceVisualLayers.Powered:
             ai-murica: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-nanotrase: ""
+            ai-nanotrasen: ""
         - enum.PowerDeviceVisualLayers.Powered:
             ai-not malf: ""
         - enum.PowerDeviceVisualLayers.Powered:
@@ -318,6 +316,7 @@
     # Expensive
     - type: StaticPrice
       price: 50000
+    - type: CargoSellBlacklist
     - type: Faction
       factions:
         - NanoTrasen
