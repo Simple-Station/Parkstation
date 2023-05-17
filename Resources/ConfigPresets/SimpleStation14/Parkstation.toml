@@ -80,6 +80,7 @@ loginlocal = true
 
 [hub]
 advertise = true
+tags = "rp:med,region:am_n_e,lang:en,no_tag_infer"
 
 [auth]
 # 0 = Optional, 1 = Required, 2 = Disabled
@@ -100,7 +101,6 @@ log_late_msg = false
 
 [status]
 enabled = true
-tags = "rp:med,region:am_n_e,lang:en,no_tag_infer"
 
 
 [infolinks]
