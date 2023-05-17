@@ -1,6 +1,6 @@
 [game]
-hostname = "[NA East][MRP] Parkstation"
-desc = "A server focused on RP expectations and calmer rounds."
+hostname = "🌳 | Parkstation"
+desc = "An English MRP server focused on higher RP expectations and calmer rounds."
 maxplayers = 64
 soft_max_players = 48
 lobbyenabled = true
@@ -100,6 +100,7 @@ log_late_msg = false
 
 [status]
 enabled = true
+tags = "rp:med,region:am_n_e,lang:en,no_tag_infer"
 
 
 [infolinks]
