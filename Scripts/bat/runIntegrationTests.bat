@@ -1,5 +1,7 @@
 @echo off
 cd ../../
-dotnet build --configuration Tools --no-restore /p:WarningsAsErrors=nullable /m
-dotnet test --configuration Tools --no-build Content.Tests/Content.Tests.csproj -- NUnit.ConsoleOut=0
+dotnet restore
+dotnet build --configuration DebugOpt --no-restore /p:WarningsAsErrors=nullable /m
+dotnet test --no-build --configuration DebugOpt Content.Tests/Content.Tests.csproj -- NUnit.ConsoleOut=0
+dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj -- NUnit.ConsoleOut=0
 pause
