@@ -10,6 +10,9 @@ role_timers = false
 fallbackpreset = "extended"
 map_pool = "ParkMapPool"
 
+[afterlight]
+respawn.time = 0
+
 [server]
 rules_file = "Park_Rules.txt"
 id = "parkstation"

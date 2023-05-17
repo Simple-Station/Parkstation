@@ -2,9 +2,16 @@
 using Content.Client.Ghost;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Client.UserInterface.Systems.Ghost.Widgets;
+using Content.Shared.CCVar;
+using Content.Shared.SimpleStation14.CCVar;
 using Content.Shared.Ghost;
+using Robust.Client.Console;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
+using Robust.Shared.IoC;
+using Robust.Shared.Configuration;
+using Robust.Shared.Console;
+using Robust.Shared.Timing;
 
 namespace Content.Client.UserInterface.Systems.Ghost;
 
@@ -12,6 +19,9 @@ namespace Content.Client.UserInterface.Systems.Ghost;
 public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
 {
     [Dependency] private readonly IEntityNetworkManager _net = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IConsoleHost _consoleHost = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     [UISystemDependency] private readonly GhostSystem? _system = default;
 
@@ -64,7 +74,9 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         }
 
         Gui.Visible = _system?.IsGhost ?? false;
-        Gui.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody);
+        Gui.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody,
+            _cfg.GetCVar(SimpleStationCCVars.RespawnEnabled) ? _system?.Player?.TimeOfDeath : null,
+            _cfg.GetCVar(SimpleStationCCVars.RespawnTime));
     }
 
     private void OnPlayerRemoved(GhostComponent component)
@@ -120,8 +132,14 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.ReturnToBodyPressed += ReturnToBody;
         Gui.GhostRolesPressed += GhostRolesPressed;
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
+        Gui.GhostRolesRespawnPressed += GuiOnGhostRolesRespawnPressed;
 
         UpdateGui();
+    }
+
+    private void GuiOnGhostRolesRespawnPressed()
+    {
+        _consoleHost.ExecuteCommand("ghostrespawn");
     }
 
     public void UnloadGui()
@@ -133,6 +151,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.ReturnToBodyPressed -= ReturnToBody;
         Gui.GhostRolesPressed -= GhostRolesPressed;
         Gui.TargetWindow.WarpClicked -= OnWarpClicked;
+        Gui.GhostRolesRespawnPressed -= GuiOnGhostRolesRespawnPressed;
 
         Gui.Hide();
     }
@@ -152,5 +171,10 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
     private void GhostRolesPressed()
     {
         _system?.OpenGhostRoles();
+    }
+
+    private void RespawnPressed()
+    {
+        IoCManager.Resolve<IClientConsoleHost>().RemoteExecuteCommand(null, "ghostrespawn");
     }
 }

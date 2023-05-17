@@ -6,6 +6,8 @@ namespace Content.Shared.Ghost
     [NetworkedComponent()]
     public abstract class SharedGhostComponent : Component
     {
+        public TimeSpan TimeOfDeath { get; set; } = TimeSpan.Zero;
+
         [ViewVariables(VVAccess.ReadWrite)]
         public bool CanGhostInteract
         {
@@ -42,7 +44,7 @@ namespace Content.Shared.Ghost
 
         public override ComponentState GetComponentState()
         {
-            return new GhostComponentState(CanReturnToBody, CanGhostInteract);
+            return new GhostComponentState(CanReturnToBody, CanGhostInteract, TimeOfDeath);
         }
 
         public override void HandleComponentState(ComponentState? curState, ComponentState? nextState)
@@ -56,6 +58,7 @@ namespace Content.Shared.Ghost
 
             CanReturnToBody = state.CanReturnToBody;
             CanGhostInteract = state.CanGhostInteract;
+            TimeOfDeath = state.TimeOfDeath;
         }
     }
 
@@ -65,14 +68,16 @@ namespace Content.Shared.Ghost
         public bool CanReturnToBody { get; }
         public bool CanGhostInteract { get; }
 
+        public TimeSpan TimeOfDeath { get; }
+
         public GhostComponentState(
             bool canReturnToBody,
-            bool canGhostInteract)
+            bool canGhostInteract,
+            TimeSpan timeOfDeath)
         {
             CanReturnToBody = canReturnToBody;
             CanGhostInteract = canGhostInteract;
+            TimeOfDeath = timeOfDeath;
         }
     }
 }
-
-

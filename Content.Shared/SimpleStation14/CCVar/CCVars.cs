@@ -16,4 +16,17 @@ public sealed class SimpleStationCCVars
     /// </summary>
     public static readonly CVarDef<List<string>> AnnouncerBlacklist =
         CVarDef.Create("game.announcer.blacklist", new List<string>(), CVar.SERVERONLY);
+
+
+    /// <summary>
+    ///     Whether or not respawning is enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> RespawnEnabled =
+        CVarDef.Create("respawn.enabled", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     How long the player has to wait in seconds after death before respawning.
+    /// </summary>
+    public static readonly CVarDef<float> RespawnTime =
+        CVarDef.Create("respawn.time", 600.0f, CVar.SERVER | CVar.REPLICATED);
 }
