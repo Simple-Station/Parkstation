@@ -15,8 +15,8 @@
                 -->
             </GridContainer>
             <!-- character name, job title and icon, etc goes here -->
-            <Label Text="Character Name" HorizontalAlignment="Center" />
-            <Label Text="Job Title" HorizontalAlignment="Center" />
+            <Label Name="Name" Text="Character Name" HorizontalAlignment="Center" />
+            <Label Name="Job" Text="Job Title" HorizontalAlignment="Center" />
         </BoxContainer>
 
         <PanelContainer MinSize="2 5" MaxWidth="2" Margin="8 0 8 0">
@@ -25,10 +25,10 @@
             </PanelContainer.PanelOverride>
         </PanelContainer>
 
-        <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+        <ScrollContainer HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True">
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
                 <!-- character description goes here -->
-                <RichTextLabel Name="RichTextThing" HorizontalExpand="True" />
+                <RichTextLabel Name="FlavorText" HorizontalExpand="True" />
             </BoxContainer>
         </ScrollContainer>
     </BoxContainer>

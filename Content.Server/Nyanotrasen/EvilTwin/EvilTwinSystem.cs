@@ -7,7 +7,6 @@ using Content.Server.Preferences.Managers;
 using Content.Server.Humanoid;
 using Content.Server.Station.Systems;
 using Content.Server.Mind.Components;
-using Content.Server.DetailExaminable;
 using Content.Server.Players;
 using Content.Server.Spawners.Components;
 using Content.Server.Psionics;
@@ -18,6 +17,7 @@ using Content.Server.GameTicking;
 using Content.Server.Fugitive;
 using Content.Server.Cloning;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Shared.DetailExaminable;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
@@ -209,6 +209,7 @@ namespace Content.Server.EvilTwin
                 {
                     var detailCopy = EnsureComp<DetailExaminableComponent>(uid);
                     detailCopy.Content = detail.Content;
+                    Dirty(detailCopy);
                 }
 
                 if (candidate.Item2.Mind.CurrentJob.StartingGear != null && _prototypeManager.TryIndex<StartingGearPrototype>(candidate.Item2.Mind.CurrentJob.StartingGear, out var gear))
