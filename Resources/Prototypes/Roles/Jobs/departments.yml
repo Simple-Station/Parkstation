@@ -4,6 +4,7 @@
   color: "#334E6D"
   roles:
   - SAI
+  - Captain
   - CentralCommandOfficial
   - ChiefServiceSupervisor
   - ChiefEngineer
