@@ -1,4 +1,5 @@
-﻿// using Content.Shared.Examine;
+﻿// Parkstation-CharacterInformation-Start
+// using Content.Shared.Examine;
 // using Content.Shared.Verbs;
 // using Robust.Shared.Utility;
 //
@@ -39,3 +40,5 @@
 //         }
 //     }
 // }
+// Parkstation-CharacterInformation-End
+// (This was moved to shared)

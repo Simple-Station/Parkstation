@@ -15,12 +15,12 @@ namespace Content.Client.FlavorText
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
 
-            CFlavorTextInput.OnKeyBindUp += _ => FlavorTextChanged();
+            CFlavorTextInput.OnKeyBindUp += _ => FlavorTextChanged(); // Parkstation-CharacterInformation
         }
 
         public void FlavorTextChanged()
         {
-            OnFlavorTextChanged?.Invoke(Rope.Collapse(CFlavorTextInput.TextRope));
+            OnFlavorTextChanged?.Invoke(Rope.Collapse(CFlavorTextInput.TextRope)); // Parkstation-CharacterInformation
         }
     }
 }

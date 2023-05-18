@@ -57,7 +57,7 @@ namespace Content.Client.Preferences.UI
 
         private LineEdit _ageEdit => CAgeEdit;
         private LineEdit _nameEdit => CNameEdit;
-        private TextEdit _flavorTextEdit = null!;
+        private TextEdit _flavorTextEdit = null!; // Parkstation-CharacterInformation
         private Button _nameRandomButton => CNameRandomize;
         private Button _randomizeEverythingButton => CRandomizeEverything;
         private RichTextLabel _warningLabel => CWarningLabel;
@@ -1067,7 +1067,7 @@ namespace Content.Client.Preferences.UI
         {
             if (_flavorTextEdit != null)
             {
-                _flavorTextEdit.TextRope = new Rope.Leaf(Profile?.FlavorText ?? "");
+                _flavorTextEdit.TextRope = new Rope.Leaf(Profile?.FlavorText ?? ""); // Parkstation-CharacterInformation
             }
         }
 

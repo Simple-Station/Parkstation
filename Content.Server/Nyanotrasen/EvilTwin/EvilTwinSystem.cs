@@ -17,7 +17,7 @@ using Content.Server.GameTicking;
 using Content.Server.Fugitive;
 using Content.Server.Cloning;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Shared.DetailExaminable;
+using Content.Shared.DetailExaminable; // Parkstation-CharacterInformation
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
@@ -209,7 +209,7 @@ namespace Content.Server.EvilTwin
                 {
                     var detailCopy = EnsureComp<DetailExaminableComponent>(uid);
                     detailCopy.Content = detail.Content;
-                    Dirty(detailCopy);
+                    Dirty(detailCopy); // Parkstation-CharacterInformation
                 }
 
                 if (candidate.Item2.Mind.CurrentJob.StartingGear != null && _prototypeManager.TryIndex<StartingGearPrototype>(candidate.Item2.Mind.CurrentJob.StartingGear, out var gear))

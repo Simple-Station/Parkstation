@@ -8,7 +8,7 @@ using Content.Server.Roles;
 using Content.Server.Station.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
-using Content.Shared.DetailExaminable;
+using Content.Shared.DetailExaminable; // Parkstation-CharacterInformation
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -152,9 +152,11 @@ public sealed class StationSpawningSystem : EntitySystem
             MetaData(entity).EntityName = profile.Name;
             if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
             {
+                // Parkstation-CharacterInformation-Start
                 var detail = AddComp<DetailExaminableComponent>(entity);
                 detail.Content = profile.FlavorText;
                 Dirty(detail);
+                // Parkstation-CharacterInformation-End
             }
         }
 

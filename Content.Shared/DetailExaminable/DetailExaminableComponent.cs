@@ -1,3 +1,4 @@
+// Parkstation-CharacterInformation-Start
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.DetailExaminable
@@ -11,3 +12,4 @@ namespace Content.Shared.DetailExaminable
         public string Content = "";
     }
 }
+// Parkstation-CharacterInformation-End

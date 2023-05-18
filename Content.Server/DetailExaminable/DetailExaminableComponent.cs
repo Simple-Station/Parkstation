@@ -1,4 +1,5 @@
-﻿// namespace Content.Server.DetailExaminable
+﻿// Parkstation-CharacterInformation-Start
+// namespace Content.Server.DetailExaminable
 // {
 //     [RegisterComponent]
 //     public sealed class DetailExaminableComponent : Component
@@ -7,3 +8,5 @@
 //         public string Content = "";
 //     }
 // }
+// Parkstation-CharacterInformation-End
+// (This was moved to shared)

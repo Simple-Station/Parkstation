@@ -1,5 +1,6 @@
 ﻿<Control Name="CFlavorText" xmlns="https://spacestation14.io"
          xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+    <!-- Parkstation-CharacterInformation-Start -->
     <PanelContainer>
         <PanelContainer.PanelOverride>
             <graphics:StyleBoxFlat BackgroundColor="#242429" />
@@ -9,4 +10,5 @@
             <TextEdit Name="CFlavorTextInput" Access="Public" MinSize="220 100" HorizontalExpand="True" VerticalExpand="True" />
         </BoxContainer>
     </PanelContainer>
+    <!-- Parkstation-CharacterInformation-End -->
 </Control>
