@@ -1779,8 +1779,8 @@ entities:
           color: '#FFFFFFFF'
           id: Bushi1
         decals:
-          2821: -37,8
-          2822: -34,10
+          2819: -37,8
+          2820: -34,10
       - node:
           color: '#FFFFFFFF'
           id: Bushk2
@@ -4081,12 +4081,14 @@ entities:
           0: 65535
         -8,2:
           0: 61440
+          4: 4095
         -8,3:
           0: 65535
         -7,1:
           0: 65535
         -7,2:
           0: 64716
+          4: 819
         -7,3:
           0: 65535
         -7,0:
@@ -4577,12 +4579,14 @@ entities:
           0: 65535
         -10,2:
           0: 61440
+          4: 4095
         -10,3:
           0: 65535
         -9,1:
           0: 65535
         -9,2:
           0: 61440
+          4: 4095
         -9,3:
           0: 65535
         -16,1:
@@ -4601,6 +4605,7 @@ entities:
           0: 65535
         -14,2:
           0: 61440
+          4: 3822
         -14,3:
           0: 65535
         -13,1:
@@ -6131,18 +6136,23 @@ entities:
           0: 128
         16,17:
           0: 238
+          4: 60928
         17,17:
           0: 255
+          4: 65280
         18,17:
           0: 255
+          4: 65280
         19,17:
           0: 255
+          4: 65280
         -4,13:
           0: 1
         20,16:
           0: 4369
         20,17:
           0: 17
+          4: 4352
       uniqueMixes:
       - volume: 2500
         temperature: 293.15
@@ -12702,7 +12712,7 @@ entities:
     type: SurveillanceCamera
   - cameraCategory:
     - SurveillanceCameraGeneral
-    cameraName: camera
+    cameraName: weh camera
     enabled: True
     type: AICamera
 - uid: 1046
@@ -194471,10 +194481,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 23751
-  type: DisposalBend
+  type: DisposalYJunction
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -22.5,46.5
+  - pos: -22.5,46.5
     parent: 1
     type: Transform
 - uid: 23752
@@ -206861,6 +206870,12 @@ entities:
     pos: -32.5,7.5
     parent: 1
     type: Transform
+  - devices:
+    - 25282
+    - 25281
+    - 25284
+    - 25283
+    type: DeviceList
 - uid: 25292
   type: FloraTreeLarge05
   components:
@@ -207075,6 +207090,282 @@ entities:
   type: ClothingHeadHatWeldingMaskFlame
   components:
   - pos: 63.310905,1.2987183
+    parent: 1
+    type: Transform
+- uid: 25328
+  type: DisposalUnit
+  components:
+  - pos: -27.5,49.5
+    parent: 1
+    type: Transform
+- uid: 25329
+  type: DisposalBend
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -27.5,46.5
+    parent: 1
+    type: Transform
+- uid: 25330
+  type: DisposalPipe
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -23.5,46.5
+    parent: 1
+    type: Transform
+- uid: 25331
+  type: DisposalPipe
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -24.5,46.5
+    parent: 1
+    type: Transform
+- uid: 25332
+  type: DisposalPipe
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -25.5,46.5
+    parent: 1
+    type: Transform
+- uid: 25333
+  type: DisposalPipe
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -26.5,46.5
+    parent: 1
+    type: Transform
+- uid: 25334
+  type: DisposalPipe
+  components:
+  - pos: -27.5,47.5
+    parent: 1
+    type: Transform
+- uid: 25335
+  type: DisposalPipe
+  components:
+  - pos: -27.5,48.5
+    parent: 1
+    type: Transform
+- uid: 25336
+  type: DisposalTrunk
+  components:
+  - pos: -27.5,49.5
+    parent: 1
+    type: Transform
+- uid: 25337
+  type: ChairOfficeDark
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -26.5,47.5
+    parent: 1
+    type: Transform
+- uid: 25338
+  type: BoxPillCanister
+  components:
+  - pos: -35.517925,49.735096
+    parent: 1
+    type: Transform
+- uid: 25339
+  type: CarpetGreen
+  components:
+  - pos: -19.5,44.5
+    parent: 1
+    type: Transform
+- uid: 25340
+  type: CarpetGreen
+  components:
+  - pos: -19.5,45.5
+    parent: 1
+    type: Transform
+- uid: 25341
+  type: CarpetGreen
+  components:
+  - pos: -17.5,44.5
+    parent: 1
+    type: Transform
+- uid: 25342
+  type: CarpetGreen
+  components:
+  - pos: -17.5,45.5
+    parent: 1
+    type: Transform
+- uid: 25343
+  type: CarpetGreen
+  components:
+  - pos: -18.5,45.5
+    parent: 1
+    type: Transform
+- uid: 25344
+  type: CarpetGreen
+  components:
+  - pos: -18.5,44.5
+    parent: 1
+    type: Transform
+- uid: 25345
+  type: CarpetGreen
+  components:
+  - pos: -16.5,45.5
+    parent: 1
+    type: Transform
+- uid: 25346
+  type: CarpetGreen
+  components:
+  - pos: -16.5,44.5
+    parent: 1
+    type: Transform
+- uid: 25347
+  type: DrinkMugMoebius
+  components:
+  - pos: -9.312339,-34.145298
+    parent: 1
+    type: Transform
+- uid: 25348
+  type: DrinkMugMoebius
+  components:
+  - pos: -13.667573,-36.911686
+    parent: 1
+    type: Transform
+- uid: 25349
+  type: DrinkMugRainbow
+  components:
+  - pos: -13.667573,-35.156525
+    parent: 1
+    type: Transform
+- uid: 25350
+  type: DrinkMugDog
+  components:
+  - pos: -13.225157,-36.80844
+    parent: 1
+    type: Transform
+- uid: 25351
+  type: Paper
+  components:
+  - pos: 10.347835,8.070365
+    parent: 1
+    type: Transform
+- uid: 25352
+  type: Paper
+  components:
+  - pos: 10.37733,8.099864
+    parent: 1
+    type: Transform
+- uid: 25353
+  type: Paper
+  components:
+  - pos: 10.37733,8.099864
+    parent: 1
+    type: Transform
+- uid: 25354
+  type: Paper
+  components:
+  - pos: 10.37733,8.099864
+    parent: 1
+    type: Transform
+- uid: 25355
+  type: Paper
+  components:
+  - pos: -11.664714,-8.530487
+    parent: 1
+    type: Transform
+- uid: 25356
+  type: Paper
+  components:
+  - pos: -11.664714,-8.530487
+    parent: 1
+    type: Transform
+- uid: 25357
+  type: Paper
+  components:
+  - pos: -11.664714,-8.530487
+    parent: 1
+    type: Transform
+- uid: 25358
+  type: Paper
+  components:
+  - pos: -11.664714,-8.530487
+    parent: 1
+    type: Transform
+- uid: 25359
+  type: Paper
+  components:
+  - pos: -11.664714,-8.530487
+    parent: 1
+    type: Transform
+- uid: 25360
+  type: Paper
+  components:
+  - pos: -11.590978,-8.441992
+    parent: 1
+    type: Transform
+- uid: 25361
+  type: Paper
+  components:
+  - pos: -11.590978,-8.441992
+    parent: 1
+    type: Transform
+- uid: 25362
+  type: Paper
+  components:
+  - pos: -11.590978,-8.441992
+    parent: 1
+    type: Transform
+- uid: 25363
+  type: Paper
+  components:
+  - pos: -11.590978,-8.441992
+    parent: 1
+    type: Transform
+- uid: 25364
+  type: Paper
+  components:
+  - pos: -11.590978,-8.441992
+    parent: 1
+    type: Transform
+- uid: 25365
+  type: Paper
+  components:
+  - pos: -11.590978,-8.441992
+    parent: 1
+    type: Transform
+- uid: 25366
+  type: Paper
+  components:
+  - pos: -11.590978,-8.441992
+    parent: 1
+    type: Transform
+- uid: 25367
+  type: Paper
+  components:
+  - pos: -11.590978,-8.441992
+    parent: 1
+    type: Transform
+- uid: 25368
+  type: Paper
+  components:
+  - pos: -11.590978,-8.441992
+    parent: 1
+    type: Transform
+- uid: 25369
+  type: Paper
+  components:
+  - pos: -11.590978,-8.441992
+    parent: 1
+    type: Transform
+- uid: 25370
+  type: Paper
+  components:
+  - pos: -11.590978,-8.441992
+    parent: 1
+    type: Transform
+- uid: 25371
+  type: Paper
+  components:
+  - pos: -11.590978,-8.441992
+    parent: 1
+    type: Transform
+- uid: 25372
+  type: Paper
+  components:
+  - pos: -11.590978,-8.441992
     parent: 1
     type: Transform
 ...
