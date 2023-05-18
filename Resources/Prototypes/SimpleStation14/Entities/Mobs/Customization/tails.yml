@@ -163,3 +163,12 @@
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/tails64x32.rsi
       state: shadowkin_big
+
+- type: marking
+  id: TailShadowkinBigFluff
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/tails64x32.rsi
+      state: shadowkin_big_fluff
