@@ -5,10 +5,10 @@ using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 
-namespace Content.Client.SimpleStation14.Examine.SpriteExamine.UI;
+namespace Content.Client.SimpleStation14.Examine.CharacterInformation.UI;
 
 [GenerateTypedNameReferences]
-public sealed partial class SpriteExamineWindow : FancyWindow
+public sealed partial class CharacterInformationWindow : FancyWindow
 {
     private readonly IEntityManager _entity;
 
@@ -21,7 +21,7 @@ public sealed partial class SpriteExamineWindow : FancyWindow
     // ReSharper disable once InconsistentNaming
     private RichTextLabel _flavor => FlavorText;
 
-    public SpriteExamineWindow()
+    public CharacterInformationWindow()
     {
         RobustXamlLoader.Load(this);
 

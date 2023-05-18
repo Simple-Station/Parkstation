@@ -1,8 +1,8 @@
 using System.Linq;
 using Content.Client.Examine;
 using Content.Client.Inventory;
-using Content.Shared.SimpleStation14.Examine.SpriteExamine.Components;
-using Content.Client.SimpleStation14.Examine.SpriteExamine.UI;
+using Content.Shared.SimpleStation14.Examine.CharacterInformation.Components;
+using Content.Client.SimpleStation14.Examine.CharacterInformation.UI;
 using Content.Shared.Access.Components;
 using Content.Shared.Chat;
 using Content.Shared.DetailExaminable;
@@ -12,9 +12,9 @@ using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Client.SimpleStation14.Examine.SpriteExamine.Systems;
+namespace Content.Client.SimpleStation14.Examine.CharacterInformation.Systems;
 
-public sealed class SpriteExaminableSystem : EntitySystem
+public sealed class CharacterInformationSystem : EntitySystem
 {
     [Dependency] private readonly ExamineSystem _examine = default!;
     [Dependency] private readonly ClientInventorySystem _inventory = default!;
@@ -22,20 +22,20 @@ public sealed class SpriteExaminableSystem : EntitySystem
     [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
-    private SpriteExamineWindow? _window;
+    private CharacterInformationWindow? _window;
 
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _window = new SpriteExamineWindow();
+        _window = new CharacterInformationWindow();
 
-        SubscribeLocalEvent<SpriteExaminableComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
+        SubscribeLocalEvent<CharacterInformationComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
     }
 
 
-    private void OnGetExamineVerbs(EntityUid uid, SpriteExaminableComponent component, GetVerbsEvent<ExamineVerb> args)
+    private void OnGetExamineVerbs(EntityUid uid, CharacterInformationComponent component, GetVerbsEvent<ExamineVerb> args)
     {
         var verb = new ExamineVerb()
         {
