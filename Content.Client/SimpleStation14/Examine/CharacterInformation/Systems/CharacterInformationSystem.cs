@@ -4,10 +4,12 @@ using Content.Client.Inventory;
 using Content.Shared.SimpleStation14.Examine.CharacterInformation.Components;
 using Content.Client.SimpleStation14.Examine.CharacterInformation.UI;
 using Content.Shared.Access.Components;
+using Content.Shared.CCVar;
 using Content.Shared.DetailExaminable;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
 using Content.Shared.Verbs;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -19,6 +21,7 @@ public sealed class CharacterInformationSystem : EntitySystem
     [Dependency] private readonly ClientInventorySystem _inventory = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
 
     private CharacterInformationWindow? _window;
 
@@ -42,8 +45,8 @@ public sealed class CharacterInformationSystem : EntitySystem
                 // TODO: Better name?
                 Do(args.Target);
             },
-            Text = Loc.GetString("character-sprite-examine-verb-text"),
-            Message = Loc.GetString("character-sprite-examine-verb-message"),
+            Text = Loc.GetString("character-information-verb-text"),
+            Message = Loc.GetString("character-information-verb-message"),
             Category = VerbCategory.Examine,
             Disabled = !_examine.IsInDetailsRange(args.User, uid),
             Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Interface/VerbIcons/sentient.svg.192dpi.png")),
@@ -95,7 +98,11 @@ public sealed class CharacterInformationSystem : EntitySystem
         }
 
         // Get and set flavor text
-        if (_entity.TryGetComponent<DetailExaminableComponent>(uid, out var detail))
+        if (!_config.GetCVar(CCVars.FlavorText))
+        {
+            flavorText = Loc.GetString("character-information-ui-flavor-text-disabled");
+        }
+        else if (_entity.TryGetComponent<DetailExaminableComponent>(uid, out var detail))
         {
             flavorText = detail.Content;
         }

@@ -1,2 +1,2 @@
-character-sprite-examine-verb-text = Character Information
-character-sprite-examine-verb-message = View information about this character.
+character-information-verb-text = Character Information
+character-information-verb-message = View information about this character.

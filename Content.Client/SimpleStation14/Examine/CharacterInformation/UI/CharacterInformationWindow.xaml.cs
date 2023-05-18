@@ -46,7 +46,7 @@ public sealed partial class CharacterInformationWindow : FancyWindow
         _name.SetMarkup(unknown);
         _job.SetMarkup(unknown);
 
-        _flavor.SetMarkup(Loc.GetString("character-sprite-examine-ui-flavor-text-placeholder"));
+        _flavor.SetMarkup(Loc.GetString("character-information-ui-flavor-text-placeholder"));
     }
 
     /// <summary>
