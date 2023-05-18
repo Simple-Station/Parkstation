@@ -4,7 +4,6 @@ using Content.Client.Inventory;
 using Content.Shared.SimpleStation14.Examine.CharacterInformation.Components;
 using Content.Client.SimpleStation14.Examine.CharacterInformation.UI;
 using Content.Shared.Access.Components;
-using Content.Shared.Chat;
 using Content.Shared.DetailExaminable;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
@@ -19,7 +18,6 @@ public sealed class CharacterInformationSystem : EntitySystem
     [Dependency] private readonly ExamineSystem _examine = default!;
     [Dependency] private readonly ClientInventorySystem _inventory = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     private CharacterInformationWindow? _window;
@@ -41,6 +39,7 @@ public sealed class CharacterInformationSystem : EntitySystem
         {
             Act = () =>
             {
+                // TODO: Better name?
                 Do(args.Target);
             },
             Text = Loc.GetString("character-sprite-examine-verb-text"),
@@ -64,6 +63,7 @@ public sealed class CharacterInformationSystem : EntitySystem
         string? job = null;
         string? flavorText = null;
 
+        // Get ID from inventory, get name and job from ID
         if (_inventory.TryGetSlotEntity(uid, "id", out var idUid))
         {
             var id = GetId(idUid);
@@ -79,16 +79,22 @@ public sealed class CharacterInformationSystem : EntitySystem
         // Fancy job title
         if (!string.IsNullOrEmpty(job))
         {
-            var department = _prototype.EnumeratePrototypes<DepartmentPrototype>().FirstOrDefault(d => d.Roles.Contains(job));
+            var test = job.Replace(" ", "");
+            // Command will be last in the list
+            // TODO: Make this not revolve around this fact ^
+            var departments = _prototype.EnumeratePrototypes<DepartmentPrototype>().OrderBy(d => d.ID).Reverse();
+            var department = departments.FirstOrDefault(d => d.Roles.Contains(test));
+
             if (department is not null)
             {
                 // Department (ex: Command or Security)
-                var dept = _chat.SanitizeMessageCapital(Loc.GetString($"department-{department.ID}"));
+                var dept = string.Join(" ", Loc.GetString($"department-{department.ID}").Split(' ').Select(s => s[0].ToString().ToUpper() + s[1..].ToLower()));
                 // Redo the job title with the department color and department (ex: Captain (Command) or Security Officer (Security))
                 job = $"[color={department.Color.ToHex()}]{job} ({dept})[/color]";
             }
         }
 
+        // Get and set flavor text
         if (_entity.TryGetComponent<DetailExaminableComponent>(uid, out var detail))
         {
             flavorText = detail.Content;
@@ -120,7 +126,7 @@ public sealed class CharacterInformationSystem : EntitySystem
     /// </summary>
     /// <param name="id">The ID card to retrieve the information from</param>
     /// <returns>Name, Job Title</returns>
-    private (string, string) GetNameAndJob(IdCardComponent id)
+    private static (string, string) GetNameAndJob(IdCardComponent id)
     {
         var name = id.FullName;
         if (string.IsNullOrEmpty(name))
@@ -129,7 +135,7 @@ public sealed class CharacterInformationSystem : EntitySystem
         var jobTitle = id.JobTitle;
         if (string.IsNullOrEmpty(jobTitle))
             jobTitle = "Unknown";
-        jobTitle = _chat.SanitizeMessageCapital(jobTitle);
+        jobTitle = string.Join(" ", jobTitle.Split(' ').Select(s => s[0].ToString().ToUpper() + s[1..].ToLower()));
 
         return (name, jobTitle);
     }
