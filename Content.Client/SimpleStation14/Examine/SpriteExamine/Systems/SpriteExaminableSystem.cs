@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Client.Examine;
 using Content.Client.Inventory;
 using Content.Shared.SimpleStation14.Examine.SpriteExamine.Components;
@@ -6,7 +7,9 @@ using Content.Shared.Access.Components;
 using Content.Shared.Chat;
 using Content.Shared.DetailExaminable;
 using Content.Shared.PDA;
+using Content.Shared.Roles;
 using Content.Shared.Verbs;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Client.SimpleStation14.Examine.SpriteExamine.Systems;
@@ -17,6 +20,7 @@ public sealed class SpriteExaminableSystem : EntitySystem
     [Dependency] private readonly ClientInventorySystem _inventory = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     private SpriteExamineWindow? _window;
 
@@ -69,6 +73,19 @@ public sealed class SpriteExaminableSystem : EntitySystem
 
                 name = info.Item1;
                 job = info.Item2;
+            }
+        }
+
+        // Fancy job title
+        if (!string.IsNullOrEmpty(job))
+        {
+            var department = _prototype.EnumeratePrototypes<DepartmentPrototype>().FirstOrDefault(d => d.Roles.Contains(job));
+            if (department is not null)
+            {
+                // Department (ex: Command or Security)
+                var dept = _chat.SanitizeMessageCapital(Loc.GetString($"department-{department.ID}"));
+                // Redo the job title with the department color and department (ex: Captain (Command) or Security Officer (Security))
+                job = $"[color={department.Color.ToHex()}]{job} ({dept})[/color]";
             }
         }
 
