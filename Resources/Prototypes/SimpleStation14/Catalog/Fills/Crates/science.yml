@@ -2,7 +2,7 @@
   id: CrateScienceMaterials
   parent: CrateScienceSecure
   name: Science materials crate
-  description: "A crate containing a varienty of raw materials"
+  description: "A crate containing a varienty of raw materials."
   components:
   - type: StorageFill
     contents:

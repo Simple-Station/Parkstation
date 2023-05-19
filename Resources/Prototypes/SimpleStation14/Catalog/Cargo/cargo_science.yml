@@ -1,7 +1,7 @@
 - type: cargoProduct
   id: ScienceMaterials
   name: Science materials crate
-  description: "A crate containing a variety of raw materials relevant to research and development"
+  description: "A crate containing a variety of raw materials relevant to research and development."
   icon:
     sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
     state: base

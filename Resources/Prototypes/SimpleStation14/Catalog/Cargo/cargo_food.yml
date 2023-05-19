@@ -13,7 +13,7 @@
 - type: cargoProduct
   id: FoodCabbages
   name: Cabbage crate
-  description: "A crate containing a dozen cabbages"
+  description: "A crate containing a dozen cabbages."
   icon:
     sprite: Objects/Specific/Hydroponics/cabbage.rsi
     state: produce
