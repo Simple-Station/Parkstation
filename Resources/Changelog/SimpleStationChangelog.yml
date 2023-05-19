@@ -944,3 +944,13 @@ Entries:
       message: East and west evac have been fixed to dock properly
   id: 82
   time: '2023-05-17T21:54:03Z'
+- author: Pspritechologist
+  changes:
+    - type: add
+      message: >-
+        CentCom realized they weren't properly tracking you, and decided to
+        update the telemetry terms of your contracts,. Expect to see some
+        interesting stats at the end of the shift regarding things you may have,
+        or may have not done well!
+  id: 83
+  time: '2023-05-19T19:04:52Z'
