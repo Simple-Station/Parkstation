@@ -1,0 +1,31 @@
+- type: entity
+  name: baby fox
+  parent: MobFox
+  id: MobFoxBaby
+  description: A little fox! Aww...
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: SimpleStation14/Mobs/Pets/fox.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: baby_fox
+  - type: Appearance
+  - type: Inventory
+    speciesId: baby_fox
+    templateId: pet
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: baby_fox
+      Critical:
+        Base: baby_fox_dead
+      Dead:
+        Base: baby_fox_dead
+  - type: Grammar
+    attributes:
+      gender: epicene
