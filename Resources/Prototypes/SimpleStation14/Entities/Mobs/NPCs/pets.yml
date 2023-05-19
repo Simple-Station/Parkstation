@@ -68,3 +68,16 @@
     attributes:
       proper: true
       gender: male
+
+- type: entity
+  name: McG
+  parent: MobMcGriff
+  id: MobMcGriffnt
+  description: This dog can tell something smells
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: SpaceStation14/Mobs/Pets/mcgriff.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mcgriff
