@@ -1,0 +1,49 @@
+﻿- type: gameMap
+  id: OhioStation
+  mapName: 'OhioStation'
+  mapPath: /Maps/ohiostation.yml
+  minPlayers: 0
+  stations:
+    OhioStation:
+      mapNameTemplate: '{0} Ochd Deug oh Tri {1}'
+      emergencyShuttlePath: /Maps/Shuttles/NTES_Kaeri.yml
+      nameGenerator:
+        !type:NanotrasenNameGenerator
+        prefixCreator: '14'
+      overflowJobs:
+        - Passenger
+      availableJobs:
+        Passenger: [ -1, -1 ]
+        SAI: [1, 1]
+        ChiefServiceSupervisor: [ 1, 1]
+        Bartender: [ 1, 3 ]
+        Botanist: [ 2, 4 ]
+        Boxer: [ 1, 2 ]
+        Chef: [ 1, 3 ]
+        Clown: [ 1, 1 ]
+        Cyborg: [ 1, 3 ]
+        Janitor: [ 3, 6 ]
+        Mime: [ 1, 1 ]
+        HeadOfPersonnel: [ 1, 1 ]
+        ChiefEngineer: [ 1, 1 ]
+        StationEngineer: [ 4, 8 ]
+        ChiefMedicalOfficer: [ 1, 1 ]
+        MailCarrier: [ 2, 4 ]
+        MedicalDoctor: [ 3, 10 ]
+        MedicalCyborg: [ 2, 4 ]
+        Mystagogue: [ 1, 1 ]
+        Epistemologist: [ 2, 6 ]
+        HeadOfSecurity: [ 1, 1 ]
+        SecurityOfficer: [ 4, 8 ]
+        Chaplain: [ 1, 2 ]
+        Warden: [ 1, 1 ]
+        SecurityCadet: [ 2, 5 ]
+        Lawyer: [ 2, 3 ]
+        Quartermaster: [ 3, 5 ]
+        SalvageTechnician: [ 3, 4 ]
+        Musician: [2, 3]
+        AtmosphericTechnician: [ 2, 4 ]
+        ServiceWorker: [ 1, 4 ]
+        Reporter: [ 1, 1 ]
+        Psychologist: [ 1, 1 ]
+        Prisoner: [ 2, 3 ]

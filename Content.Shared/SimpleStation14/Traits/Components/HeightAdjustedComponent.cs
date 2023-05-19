@@ -1,9 +1,11 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared.SimpleStation14.Traits
 {
     /// <summary>
     ///     Adjusts an entities height and zoom.
     /// </summary>
-    [RegisterComponent]
+    [RegisterComponent, NetworkedComponent]
     public sealed class HeightAdjustedComponent : Component
     {
         [ViewVariables(VVAccess.ReadWrite)]

@@ -1,0 +1,12 @@
+- type: entity
+  id: StatueDragon
+  parent: BaseStructure
+  name: statue of a dragon
+  description: A statue of a big and scary dragon.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Decorations/statues.rsi
+    state: dragon_jasper
+    drawdepth: Mobs
+    offset: "0,0.5"
+    noRot: true
