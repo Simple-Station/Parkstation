@@ -6,7 +6,7 @@
     sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
     state: base
   product: CrateScienceMaterials
-  cost: 3500
+  cost: 5000
   category: Science
   group: market
 

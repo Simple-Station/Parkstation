@@ -11,6 +11,19 @@
       - id: SheetPlasteel
       - id: MaterialBluespace1
         count: 1
+        # random chance for more bluespace hehe
+      - id: MaterialBluespace1
+        prob: 0.45
+        count: 1
+      - id: MaterialBluespace1
+        prob: 0.30
+        count: 1
+      - id: MaterialBluespace1
+        prob: 0.15
+        count: 1
+      - id: MaterialBluespace1
+        prob: 0.10
+        count: 1
 
 - type: entity
   id: CrateScienceAPE

@@ -18,6 +18,6 @@
     sprite: Objects/Specific/Hydroponics/cabbage.rsi
     state: produce
   product: CrateFoodCabbages
-  cost: 400
+  cost: 425
   category: Food
   group: market

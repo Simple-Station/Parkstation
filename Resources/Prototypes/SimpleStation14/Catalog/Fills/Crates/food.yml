@@ -73,3 +73,6 @@
     contents:
     - id: FoodCabbage
       amount: 12
+    - id: FoodCabbage
+      amount: 1
+      prob: 0.3
