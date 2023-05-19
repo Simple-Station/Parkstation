@@ -77,7 +77,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: SpaceStation14/Mobs/Pets/mc.rsi
+    sprite: SimpleStation14/Mobs/Pets/mc.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: mcgriff
