@@ -93,9 +93,20 @@ public sealed class CuffedTimeStatSystem : EntitySystem
         var line = String.Empty;
 
         if (data.Username != null)
-            line += Loc.GetString("eorstats-cuffedtime-hasusername", ("username", data.Username), ("name", data.Name), ("timeCuffedMinutes", Math.Round(timeCuffed.TotalMinutes)));
+            line += Loc.GetString
+            (
+                "eorstats-cuffedtime-hasusername",
+                ("username", data.Username),
+                ("name", data.Name),
+                ("timeCuffedMinutes", Math.Round(timeCuffed.TotalMinutes))
+            );
         else
-            line += Loc.GetString("eorstats-cuffedtime-nousername", ("name", data.Name), ("timeCuffedMinutes", Math.Round(timeCuffed.TotalMinutes)));
+            line += Loc.GetString
+            (
+                "eorstats-cuffedtime-nousername",
+                ("name", data.Name),
+                ("timeCuffedMinutes", Math.Round(timeCuffed.TotalMinutes))
+            );
 
         return line;
     }

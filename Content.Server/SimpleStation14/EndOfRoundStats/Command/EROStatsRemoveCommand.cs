@@ -47,7 +47,7 @@ public sealed class EORStatsRemoveCommand : IConsoleCommand
 
         index--;
 
-        shell.WriteLine($"Removed {_stats.eorStats[index].Item1} from end of round stats.");
+        shell.WriteLine($"Removed '{_stats.eorStats[index].Item1}' from end of round stats.");
 
         _stats.eorStats.RemoveAt(index);
     }
@@ -59,9 +59,7 @@ public sealed class EORStatsRemoveCommand : IConsoleCommand
         if (args.Length == 1)
         {
             var options = _stats.eorStats.Select(o => new CompletionOption
-            (
-                (_stats.eorStats.LastIndexOf((o.Item1, o.Item2)) + 1).ToString(), o.Item1
-            ));
+                ((_stats.eorStats.LastIndexOf((o.Item1, o.Item2)) + 1).ToString(), o.Item1));
 
             if (options.Count() == 0)
                 return CompletionResult.FromHint("No stats to remove.");

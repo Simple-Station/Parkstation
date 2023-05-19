@@ -18,6 +18,8 @@ public sealed class EmitSoundStatSystem : EntitySystem
 
     // This Enum must match the exact tag you're searching for.
     // Adding a new tag to this Enum, and ensuring the localisation is set will automatically add it to the end of round stats.
+    // Local string should be in the format: eorstats-emitsound-<Enum> (e.g. eorstats-emitsound-BikeHorn)
+    // and should have a parameter of "times" (e.g. Horns were honked a total of {$times} times!)
     private enum SoundSources
     {
         BikeHorn,
@@ -93,7 +95,6 @@ public sealed class EmitSoundStatSystem : EntitySystem
             Logger.Debug("Make sure the string is following the correct format, and matches the enum! (eorstats-emitsound-<enum>)");
 
             throw new ArgumentException("Unknown messageId: " + preLocalString);
-            return false;
         }
 
         line = localString;

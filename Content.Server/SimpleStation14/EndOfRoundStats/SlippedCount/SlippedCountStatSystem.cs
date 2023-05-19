@@ -11,7 +11,6 @@ namespace Content.Server.SimpleStation14.EndOfRoundStats.SlippedCount;
 
 public sealed class SlippedCountStatSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
 
     Dictionary<PlayerData, int> userSlipStats = new();
@@ -83,13 +82,13 @@ public sealed class SlippedCountStatSystem : EntitySystem
         {
             line += Loc.GetString("eorstats-slippedcount-totalslips", ("timesSlipped", totalTimesSlipped));
 
-            line += GenerateTopPlayer(sortedSlippers.First().Key, sortedSlippers.First().Value);
+            line += GenerateTopSlipper(sortedSlippers.First().Key, sortedSlippers.First().Value);
         }
 
         ev.AddLine("\n" + line + "[/color]");
     }
 
-    private String GenerateTopPlayer(PlayerData data, int amountSlipped)
+    private String GenerateTopSlipper(PlayerData data, int amountSlipped)
     {
         var line = String.Empty;
 

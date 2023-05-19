@@ -34,14 +34,9 @@ public sealed class BloodLostStatSystem : EntitySystem
         if (totalBloodLost < _config.GetCVar<float>(SimpleStationCCVars.BloodLostThreshold))
             return;
 
-        line += GenerateBloodLost(totalBloodLost);
+        line += $"[color=maroon]{Loc.GetString("eorstats-bloodlost-total", ("bloodLost", totalBloodLost.Int()))}[/color]";
 
         ev.AddLine("\n" + line);
-    }
-
-    private string GenerateBloodLost(FixedPoint2 bloodLost)
-    {
-        return "[color=maroon]" + Loc.GetString("eorstats-bloodlost-total", ("bloodLost", bloodLost.Int())) + "[/color]";
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)

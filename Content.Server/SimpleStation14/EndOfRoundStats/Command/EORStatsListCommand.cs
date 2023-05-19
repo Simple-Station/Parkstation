@@ -1,17 +1,12 @@
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.SimpleStation14.EndOfRoundStats.Command;
 
 [AdminCommand(AdminFlags.Admin)]
 public sealed class EORStatsCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly IEntitySystemManager _entitysys = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-
     public string Command => "eorstatslist";
     public string Description => "Lists the current command-added end of round stats to be displayed.";
     public string Help => $"Usage: {Command}";

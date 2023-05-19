@@ -19,7 +19,7 @@ public sealed class CommandStatSystem : EntitySystem
     {
         foreach (var (stat, color) in eorStats)
         {
-            ev.AddLine($"\n[color={color}]{stat}[/color]");
+            ev.AddLine($"[color={color}]{stat}[/color]");
         }
     }
 
