@@ -171,15 +171,21 @@
     - type: NodeContainer
       examinable: true
       nodes:
-        input:
-          !type:CableDeviceNode
+        input: !type:CableDeviceNode
           nodeGroupID: MVPower
-    - type: GenericVisualizer
-      visuals:
-        enum.PowerDeviceVisuals.Powered:
-          enum.PowerDeviceVisualLayers.Powered:
-            True: { visible: true }
-            False: { visible: false }
+    - type: battery
+      charge: 12000
+      maxCharge: 120000
+      pricePerJoule: 0
+    # - type: GenericVisualizer
+    #   visuals:
+    #     enum.PowerDeviceVisuals.VisualState:
+    #       enum.PowerDeviceVisualLayers.Powered:
+    #         Idle: { state: "ai-blue" }
+    #     enum.PowerDeviceVisuals.Powered:
+    #       enum.PowerDeviceVisualLayers.Powered:
+    #         True: { visible: true }
+    #         False: { visible: false }
     - type: Sprite
       sprite: SimpleStation14/Mobs/Silicon/ai.rsi
       drawdepth: Mobs
@@ -190,29 +196,31 @@
         - map: ["enum.PowerDeviceVisualLayers.Powered"]
           state: ai-blue
           shader: unshaded
-
-    # - type: Sprite
-    #   sprite: SimpleStation14/Structures/Machines/borgcharger.rsi
-    #   noRot: true
-    #   layers:
-    #     - state: base
-    #     - state: closed
-    #       map: ["enum.StorageVisualLayers.Door"]
-    #     - state: borgcharger_closed_unlit
-    #       shader: unshaded
-    #       map: ["enum.SiliconChargerVisuals.Lights"]
-    # - type: GenericVisualizer
-    #   visuals:
-    #     enum.PowerDeviceVisuals.VisualState:
-    #       enum.SiliconChargerVisuals.Lights:
-    #         Normal: { state: "borgcharger_closed_unlit" }
-    #         NormalOpen: { state: "borgcharger_open_unlit" }
-    #         Charging: { state: "borgcharger_active_unlit" }
-    #     enum.PowerDeviceVisuals.Powered:
-    #       enum.SiliconChargerVisuals.Lights:
-    #         True: { visible: true }
-    #         False: { visible: false }
-
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Bloodstream
+      bloodReagent: MotorOil
+      bloodlossDamage:
+        types:
+          Bloodloss: 1
+      bloodlossHealDamage:
+        types:
+          Bloodloss: -0.25
+    - type: RandomMetadata
+      nameSegments: [names_ai]
+    - type: Pullable
+    - type: Tag
+      tags:
+        - Structure
+    # Expensive
+    - type: StaticPrice
+      price: 50000
+    - type: CargoSellBlacklist
+    - type: Faction
+      factions:
+        - NanoTrasen
+    - type: Laws
+      lawsID: LawsStationAIDefault
     - type: RandomSprite
       available:
         - enum.PowerDeviceVisualLayers.Powered:
@@ -297,31 +305,6 @@
             ai-blob: ""
         - enum.PowerDeviceVisualLayers.Powered:
             ai-malicious: ""
-    - type: Damageable
-      damageContainer: Inorganic
-    - type: Bloodstream
-      bloodReagent: MotorOil
-      bloodlossDamage:
-        types:
-          Bloodloss: 1
-      bloodlossHealDamage:
-        types:
-          Bloodloss: -0.25
-    - type: RandomMetadata
-      nameSegments: [names_ai]
-    - type: Pullable
-    - type: Tag
-      tags:
-        - Structure
-    # Expensive
-    - type: StaticPrice
-      price: 50000
-    - type: CargoSellBlacklist
-    - type: Faction
-      factions:
-        - NanoTrasen
-    - type: Laws
-      lawsID: LawsStationAIDefault
 
 - type: entity
   id: AIEye

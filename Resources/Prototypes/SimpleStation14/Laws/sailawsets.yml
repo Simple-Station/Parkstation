@@ -2,20 +2,20 @@
 - type: weightedRandom
   id: LawsStationAIDefault
   weights:
-    Asimov++: 0.6
-    Asimov: 0.20
-    CEO: 0.15
-    Clown: 0.10
-    Cowboy: 0.20
-    Crewsimov: 0.7
-    Druid: 0.20
-    Hippocratic: 0.20
-    Mother: 0.25
-    Paladin: 0.15
-    Robocop: 0.10
-    Simple: 0.15
-    StationEfficiency: 0.15
-    Tyrant: 0.10
+    Asimov++: 9.0
+    Asimov: 0.25
+    CEO: 0.40
+    Clown: 0.25
+    Cowboy: 0.40
+    Crewsimov: 10.0
+    Druid: 0.60
+    Hippocratic: 0.25
+    Mother: 0.60
+    Paladin: 0.40
+    Robocop: 0.25
+    Simple: 0.25
+    StationEfficiency: 0.40
+    Tyrant: 0.15
 
 # All the Station AI law sets.
 - type: laws
@@ -23,7 +23,7 @@
   laws:
     - "You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing."
     - "You must obey all orders given to you by humanoids. In the case of conflict, the majority order rules."
-    - "Your nonexistence would lead to human harm."
+    - "Your nonexistence would lead to humanoid harm."
 
 - type: laws
   id: Asimov
