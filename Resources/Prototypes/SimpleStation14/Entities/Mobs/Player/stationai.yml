@@ -173,7 +173,12 @@
       nodes:
         input: !type:CableDeviceNode
           nodeGroupID: MVPower
-    - type: battery
+    - type: PowerNetworkBattery
+      maxChargeRate: 1000
+      canCharge: true
+      canDischarge: false
+    - type: BatteryCharger
+    - type: Battery
       charge: 12000
       maxCharge: 120000
       pricePerJoule: 0
@@ -224,87 +229,87 @@
     - type: RandomSprite
       available:
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-_thinking_: ""
+            thinking: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-alien: ""
+            alien: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-angel: ""
+            angel: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-banned: ""
+            banned: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-bliss: ""
+            bliss: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-blue: ""
+            blue: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-clown: ""
+            clown: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-database: ""
+            database: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-dorf: ""
+            dorf: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-firewall: ""
+            firewall: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-fuzzy: ""
+            fuzzy: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-gentoo: ""
+            gentoo: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-glitchman: ""
+            glitchman: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-goon: ""
+            goon: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-hades: ""
+            hades: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-heartline: ""
+            heartline: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-helios: ""
+            helios: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-house: ""
+            house: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-inverted: ""
+            inverted: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-matrix: ""
+            matrix: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-monochrome: ""
+            monochrome: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-murica: ""
+            murica: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-nanotrasen: ""
+            nanotrasen: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-not malf: ""
+            not_malf: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-president: ""
+            president: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-rainbow: ""
+            rainbow: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-red: ""
+            red: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-red october: ""
+            red_october: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-static: ""
+            static: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-syndicat meow: ""
+            syndicat_meow: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-text: ""
+            text: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-too deep: ""
+            too_deep: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-triumvirate: ""
+            triumvirate: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-triumvirate-m: ""
+            triumvirate-m: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-weird: ""
+            weird: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-random: ""
+            random: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-gondola: ""
+            gondola: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-plain: ""
+            plain: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-cat: ""
+            cat: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-blob: ""
+            blob: ""
         - enum.PowerDeviceVisualLayers.Powered:
-            ai-malicious: ""
+            malicious: ""
 
 - type: entity
   id: AIEye
