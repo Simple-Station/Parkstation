@@ -59,9 +59,6 @@
     - id: FoodMeatXeno
       prob: 0.05
       amount: 1
-    - id: SheetPlasma1
-      prob: 0.01
-      amount: 1
 
 - type: entity
   id: CrateFoodCababge
