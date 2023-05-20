@@ -954,3 +954,9 @@ Entries:
         or may have not done well!
   id: 83
   time: '2023-05-19T19:04:52Z'
+- author: Pspritechologist
+  changes:
+    - type: remove
+      message: Removes Ohiostation from the map pool until further notice.
+  id: 84
+  time: '2023-05-20T04:24:27Z'
