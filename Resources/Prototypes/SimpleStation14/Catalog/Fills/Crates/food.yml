@@ -6,7 +6,7 @@
   components:
   - type: StorageFill
     contents:
-    # guarenteed meats
+    # guaranteed meats
     - id: FoodMeatFish
       amount: 2
     - id: FoodMeatBear
