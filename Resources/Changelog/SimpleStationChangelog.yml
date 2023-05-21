@@ -960,3 +960,13 @@ Entries:
       message: Removes Ohiostation from the map pool until further notice.
   id: 84
   time: '2023-05-20T04:24:27Z'
+- author: SomeCabbage
+  changes:
+    - type: add
+      message: >-
+        Added a few new cargo orders to the request terminal. Includes the Fox
+        crate, Exotic meats, and more.
+    - type: add
+      message: Cabbages can now be cut into leaves (request by Pspritechologist)
+  id: 85
+  time: '2023-05-21T05:35:18Z'
