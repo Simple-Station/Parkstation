@@ -9,9 +9,7 @@ lobbyduration = 180
 role_timers = false
 fallbackpreset = "extended"
 map_pool = "ParkMapPool"
-
-[afterlight]
-respawn.time = 0
+respawn_time = 0
 
 [server]
 rules_file = "Park_Rules.txt"
