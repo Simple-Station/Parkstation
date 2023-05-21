@@ -24,6 +24,7 @@
   - type: Tag
     tags:
     - Payload # yes, you can even make re-usable plushie grenades
+    - Plushie
   - type: UseDelay
     delay: 1.0
   - type: MeleeWeapon
@@ -875,3 +876,21 @@
           base: Sixteen
   - type: DynamicPrice
     price: 3
+
+- type: entity
+  parent: BaseItem
+  id: ClownRecorder
+  name: clown recorder
+  description: When you just can't get those laughs coming the natural way!
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/clownrecorder.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    sound:
+      collection: ClownRecorder
+  - type: EmitSoundOnActivate
+    sound:
+      collection: ClownRecorder
+  - type: UseDelay
+    delay: 30.0

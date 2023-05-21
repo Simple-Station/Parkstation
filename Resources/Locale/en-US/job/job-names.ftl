@@ -1,4 +1,4 @@
-﻿job-name-warden = warden
+job-name-warden = warden
 job-name-security = security officer
 job-name-cadet = security cadet
 job-name-hos = head of security
@@ -42,7 +42,7 @@ job-name-boxer = boxer
 job-name-zookeeper = zookeeper
 
 
-#Nyano
+# Nyano
 job-name-mystagogue = mystagogue
 job-name-mantis = forensic mantis
 job-name-epistemologist = acolyte

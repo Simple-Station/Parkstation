@@ -29,6 +29,7 @@
     - type: BibleUser #Lets them heal with bibles
     - type: Psionic
     - type: DispelPower
+  whitelistRequired: true
 
 - type: startingGear
   id: MystagogueGear

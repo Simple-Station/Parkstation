@@ -114,6 +114,8 @@
           Quantity: 10
         - ReagentId: Theobromine
           Quantity: 3
+  - type: Extractable
+    grindableSolutionName: food
 
 - type: entity
   name: energy bar

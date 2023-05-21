@@ -21,4 +21,40 @@ namespace Content.Shared.SimpleStation14.StationAI.Events
             Performer = performer;
         }
     }
+
+
+    [Serializable, NetSerializable]
+    public sealed class AICameraListMessage : BoundUserInterfaceMessage
+    {
+        public EntityUid Owner;
+
+        public AICameraListMessage(EntityUid owner)
+        {
+            Owner = owner;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class AICameraWarpMessage : BoundUserInterfaceMessage
+    {
+        public EntityUid Owner;
+        public EntityUid Camera;
+
+        public AICameraWarpMessage(EntityUid owner, EntityUid camera)
+        {
+            Owner = owner;
+            Camera = camera;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class AIBoundUserInterfaceState : BoundUserInterfaceState
+    {
+        public List<EntityUid> Cameras = new List<EntityUid>();
+
+        public AIBoundUserInterfaceState(List<EntityUid> cameras)
+        {
+            Cameras = cameras;
+        }
+    }
 }
