@@ -22,7 +22,7 @@ public sealed class SimpleStationCCVars
     ///     Whether or not respawning is enabled.
     /// </summary>
     public static readonly CVarDef<bool> RespawnEnabled =
-        CVarDef.Create("game.respawn_enabled", true, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("game.respawn_enabled", false, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     ///     How long the player has to wait in seconds after death before respawning.
