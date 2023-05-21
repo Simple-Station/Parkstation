@@ -5371,6 +5371,7 @@ entities:
           0: 3647
         16,15:
           0: 61391
+          4: 4128
         17,15:
           0: 65535
         19,12:
@@ -5648,8 +5649,10 @@ entities:
           0: 4369
         20,13:
           0: 4369
+          4: 8192
         20,14:
           0: 4369
+          4: 8738
         20,10:
           0: 4369
         20,11:
@@ -5860,7 +5863,7 @@ entities:
           0: 65535
         16,16:
           0: 58982
-          4: 2184
+          4: 2185
         -3,12:
           0: 15
         -2,12:
@@ -6081,6 +6084,7 @@ entities:
           0: 9010
         20,15:
           0: 4369
+          4: 8738
         20,9:
           0: 4402
         20,8:
@@ -6141,8 +6145,10 @@ entities:
           0: 1
         20,16:
           0: 4369
+          4: 8738
         20,17:
           0: 4369
+          4: 8738
       uniqueMixes:
       - volume: 2500
         temperature: 293.15
@@ -190609,27 +190615,27 @@ entities:
     parent: 1
     type: Transform
 - uid: 23167
-  type: PersonalAI
+  type: SupersynthNyanotrasenPersonalAI
   components:
   - flags: SessionSpecific
     type: MetaData
-  - pos: -8.479592,-8.404739
+  - pos: -8.506459,-8.413479
     parent: 1
     type: Transform
 - uid: 23168
-  type: PersonalAI
+  type: SupersynthNyanotrasenPersonalAI
   components:
   - flags: SessionSpecific
     type: MetaData
-  - pos: -12.206873,-34.47898
+  - pos: -12.226634,-34.43295
     parent: 1
     type: Transform
 - uid: 23169
-  type: PersonalAI
+  type: SupersynthNyanotrasenPersonalAI
   components:
   - flags: SessionSpecific
     type: MetaData
-  - pos: -53.51927,-22.452425
+  - pos: -53.561367,-22.390165
     parent: 1
     type: Transform
 - uid: 23170
@@ -198417,7 +198423,7 @@ entities:
     type: SurveillanceCamera
   - cameraCategory:
     - SurveillanceCameraEngineering
-    cameraName: camera
+    cameraName: atmos air temp camera
     enabled: True
     type: AICamera
 - uid: 24324
