@@ -9,6 +9,7 @@ lobbyduration = 180
 role_timers = false
 fallbackpreset = "extended"
 map_pool = "ParkMapPool"
+respawn_enabled = true
 respawn_time = 0
 
 [server]
