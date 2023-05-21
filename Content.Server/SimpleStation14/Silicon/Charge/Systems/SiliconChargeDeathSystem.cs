@@ -54,7 +54,7 @@ public sealed class SiliconDeathSystem : EntitySystem
     private void SiliconDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent batteryComp)
     {
         var deadEvent = new SiliconChargeDeadEvent(uid, batteryComp);
-        RaiseLocalEvent(uid, deadEvent);
+        RaiseLocalEvent(uid, ref deadEvent);
 
         if (deadEvent.Cancelled)
             return;

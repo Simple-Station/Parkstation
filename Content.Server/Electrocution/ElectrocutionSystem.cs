@@ -272,7 +272,7 @@ namespace Content.Server.Electrocution
                 || !DoCommonElectrocution(uid, sourceUid, shockDamage, time, refresh, siemensCoefficient, statusEffects))
                 return false;
 
-            RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient), true);
+            RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Parkstation-IPC
             return true;
         }
 
@@ -317,7 +317,7 @@ namespace Content.Server.Electrocution
             electrocutionComponent.Electrocuting = uid;
             electrocutionComponent.Source = sourceUid;
 
-            RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient), true);
+            RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Parkstation-IPC
 
             return true;
         }
@@ -387,7 +387,7 @@ namespace Content.Server.Electrocution
 
             var filter = Filter.PvsExcept(uid, entityManager: EntityManager);
 
-            // TODO: Allow being able to pass EntityUid to Loc...
+-            // TODO: Allow being able to pass EntityUid to Loc...
             if (sourceUid != null)
             {
                 _popupSystem.PopupEntity(Loc.GetString("electrocuted-component-mob-shocked-by-source-popup-others",

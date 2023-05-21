@@ -9,8 +9,9 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Server.SimpleStation14.Silicon.Charge;
 
-namespace Content.Server.SimpleStation14.Silicon.Charge;
+namespace Content.Server.SimpleStation14.Power;
 
 public sealed class BatteryDrinkerSystem : EntitySystem
 {

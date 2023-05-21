@@ -252,7 +252,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
 
         if (damageDealt != null && chargerComp.warningAccumulator <= 0 && damageDealt.Total > 0)
         {
-            var popupBurn = Loc.GetString("system-silicon-charger-burn", ("charger", chargerUid), ("entity", entity));
+            var popupBurn = Loc.GetString("silicon-charger-burn", ("charger", chargerUid), ("entity", entity));
             _popup.PopupEntity(popupBurn, entity, PopupType.MediumCaution);
             chargerComp.warningAccumulator += 5f;
         }
@@ -315,11 +315,11 @@ public sealed class SiliconchargerCompSystem : EntitySystem
         {
             if (component.PresentEntities.Count >= component.MaxEntities)
             {
-                _popup.PopupEntity(Loc.GetString("system-silicon-charger-list-too-big"), target, target);
+                _popup.PopupEntity(Loc.GetString("silicon-charger-list-too-big"), target, target);
                 return;
             }
 
-            _popup.PopupEntity(Loc.GetString("system-silicon-charger-add-to-list"), target, target);
+            _popup.PopupEntity(Loc.GetString("silicon-charger-add-to-list"), target, target);
 
             component.PresentEntities.Add(target);
         }

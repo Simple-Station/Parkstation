@@ -1,6 +1,6 @@
 using Robust.Shared.Audio;
 
-namespace Content.Server.SimpleStation14.Silicon.Charge;
+namespace Content.Server.SimpleStation14.Power;
 
 [RegisterComponent]
 public class BatteryDrinkerComponent : Component
