@@ -11,6 +11,9 @@ public sealed partial class ShadowkinComponent : Component
     public float MaxedPowerAccumulator = 0f;
 
     [ViewVariables(VVAccess.ReadWrite)]
+    public float MaxedPowerRoof = 0f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
     public float MaxedPowerRateMin = 45f;
 
     [ViewVariables(VVAccess.ReadWrite)]
@@ -21,10 +24,13 @@ public sealed partial class ShadowkinComponent : Component
     public float MinPowerAccumulator = 0f;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MinRateMin = 15f;
+    public float MinPowerRoof = 0f;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MinRateMax = 60f;
+    public float MinPowerMin = 15f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float MinPowerMax = 60f;
     #endregion
 
 

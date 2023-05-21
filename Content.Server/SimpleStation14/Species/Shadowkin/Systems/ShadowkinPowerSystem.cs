@@ -12,6 +12,15 @@ public sealed class ShadowkinPowerSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
 
+    private static readonly Dictionary<ShadowkinPowerThreshold, string> _powerDictionary = new Dictionary<ShadowkinPowerThreshold, string>
+    {
+        {ShadowkinPowerThreshold.Max, Loc.GetString("shadowkin-power-max")},
+        {ShadowkinPowerThreshold.Great, Loc.GetString("shadowkin-power-great")},
+        {ShadowkinPowerThreshold.Good, Loc.GetString("shadowkin-power-good")},
+        {ShadowkinPowerThreshold.Okay, Loc.GetString("shadowkin-power-okay")},
+        {ShadowkinPowerThreshold.Tired, Loc.GetString("shadowkin-power-tired")},
+        {ShadowkinPowerThreshold.Min, Loc.GetString("shadowkin-power-min")}
+    };
 
     /// <param name="powerLevel">The current power level.</param>
     /// <returns>The name of the power level.</returns>
@@ -22,25 +31,18 @@ public sealed class ShadowkinPowerSystem : EntitySystem
         var value = ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Max];
 
         // Find the highest threshold that is lower than the current power level
-        foreach (var threshold in ShadowkinComponent.PowerThresholds
-                     .Where(threshold => threshold.Value <= value && threshold.Value >= powerLevel))
+        foreach (var threshold in ShadowkinComponent.PowerThresholds)
         {
-            result = threshold.Key;
-            value = threshold.Value;
+            if (threshold.Value <= value &&
+                threshold.Value >= powerLevel)
+            {
+                result = threshold.Key;
+                value = threshold.Value;
+            }
         }
 
-        var powerDictionary = new Dictionary<ShadowkinPowerThreshold, string>
-        {
-            {ShadowkinPowerThreshold.Max, Loc.GetString("shadowkin-power-max")},
-            {ShadowkinPowerThreshold.Great, Loc.GetString("shadowkin-power-great")},
-            {ShadowkinPowerThreshold.Good, Loc.GetString("shadowkin-power-good")},
-            {ShadowkinPowerThreshold.Okay, Loc.GetString("shadowkin-power-okay")},
-            {ShadowkinPowerThreshold.Tired, Loc.GetString("shadowkin-power-tired")},
-            {ShadowkinPowerThreshold.Min, Loc.GetString("shadowkin-power-min")}
-        };
-
         // Return the name of the threshold
-        powerDictionary.TryGetValue(result, out var powerType);
+        _powerDictionary.TryGetValue(result, out var powerType);
         return powerType ?? Loc.GetString("shadowkin-power-okay");
     }
 
@@ -61,11 +63,11 @@ public sealed class ShadowkinPowerSystem : EntitySystem
         // Get shadowkin component
         if (!_entity.TryGetComponent<ShadowkinComponent>(uid, out var component))
         {
-            Logger.Error("Tried to update alert of entity without shadowkin component.");
-            throw new InvalidOperationException("Tried to update alert of entity without shadowkin component.");
+            Logger.ErrorS("ShadowkinPowerSystem", "Tried to update alert of entity without shadowkin component.");
+            return;
         }
 
-        // Get the power as a short from 0-5
+        // TODO: How the FUCK does this work??
         var power = ContentHelpers.RoundToLevels((double) powerLevel, component.PowerLevelMax, 8);
 
         // Set the alert level
@@ -105,7 +107,7 @@ public sealed class ShadowkinPowerSystem : EntitySystem
         if (!_entity.TryGetComponent<ShadowkinComponent>(uid, out var component))
         {
             Logger.Error("Tried to update power level of entity without shadowkin component.");
-            throw new InvalidOperationException("Tried to update power level of entity without shadowkin component.");
+            return;
         }
 
         // Calculate new power level (P = P + t * G * M)
@@ -147,7 +149,7 @@ public sealed class ShadowkinPowerSystem : EntitySystem
         if (!_entity.TryGetComponent<ShadowkinComponent>(uid, out var component))
         {
             Logger.Error("Tried to add to power level of entity without shadowkin component.");
-            throw new InvalidOperationException("Tried to add to power level of entity without shadowkin component.");
+            return;
         }
 
         // Get new power level
@@ -172,7 +174,7 @@ public sealed class ShadowkinPowerSystem : EntitySystem
         if (!_entity.TryGetComponent<ShadowkinComponent>(uid, out var component))
         {
             Logger.Error("Tried to set power level of entity without shadowkin component.");
-            throw new InvalidOperationException("Tried to set power level of entity without shadowkin component.");
+            return;
         }
 
         // Clamp power level using clamp function
@@ -188,10 +190,10 @@ public sealed class ShadowkinPowerSystem : EntitySystem
     /// </summary>
     public bool TryBlackeye(EntityUid uid)
     {
-        // Check if the entity has a shadowkin component
-        if (!_entity.TryGetComponent<ShadowkinComponent>(uid, out var component) ||
-            component.Blackeye ||
-            !(component.PowerLevel <= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min]))
+        // Raise an attempted blackeye event
+        var ev = new ShadowkinBlackeyeAttemptEvent(uid);
+        RaiseLocalEvent(ev);
+        if (ev.Cancelled)
             return false;
 
         Blackeye(uid);
@@ -207,12 +209,12 @@ public sealed class ShadowkinPowerSystem : EntitySystem
         if (!_entity.TryGetComponent<ShadowkinComponent>(uid, out var component))
         {
             Logger.Error("Tried to blackeye entity without shadowkin component.");
-            throw new InvalidOperationException("Tried to blackeye entity without shadowkin component.");
+            return;
         }
 
         component.Blackeye = true;
-        RaiseNetworkEvent(new ShadowkinBlackeyeEvent(component.Owner));
-        RaiseLocalEvent(new ShadowkinBlackeyeEvent(component.Owner));
+        RaiseNetworkEvent(new ShadowkinBlackeyeEvent(uid));
+        RaiseLocalEvent(new ShadowkinBlackeyeEvent(uid));
     }
 
 
@@ -222,11 +224,10 @@ public sealed class ShadowkinPowerSystem : EntitySystem
     /// <param name="uid">The entity uid.</param>
     /// <param name="multiplier">The multiplier to add.</param>
     /// <param name="time">The time in seconds to wait before removing the multiplier.</param>
-    public bool TryAddMultiplier(EntityUid uid, float multiplier = 1f, float? time = null)
+    public bool TryAddMultiplier(EntityUid uid, float multiplier, float? time = null)
     {
-        if (!_entity.TryGetComponent<ShadowkinComponent>(uid, out var _))
-            return false;
-        if (float.IsNaN(multiplier))
+        if (!_entity.HasComponent<ShadowkinComponent>(uid) ||
+            float.IsNaN(multiplier))
             return false;
 
         AddMultiplier(uid, multiplier, time);
@@ -240,13 +241,13 @@ public sealed class ShadowkinPowerSystem : EntitySystem
     /// <param name="uid">The entity uid.</param>
     /// <param name="multiplier">The multiplier to add.</param>
     /// <param name="time">The time in seconds to wait before removing the multiplier.</param>
-    public void AddMultiplier(EntityUid uid, float multiplier = 1f, float? time = null)
+    public void AddMultiplier(EntityUid uid, float multiplier, float? time = null)
     {
         // Get shadowkin component
         if (!_entity.TryGetComponent<ShadowkinComponent>(uid, out var component))
         {
             Logger.Error("Tried to add multiplier to entity without shadowkin component.");
-            throw new InvalidOperationException("Tried to add multiplier to entity without shadowkin component.");
+            return;
         }
 
         // Add the multiplier

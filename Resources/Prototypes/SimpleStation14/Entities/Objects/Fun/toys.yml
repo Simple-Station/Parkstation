@@ -33,7 +33,7 @@
   parent: BasePlushie
   id: PlushieShadowkin
   name: shadowkin plushie
-  description: A plushie of a shadowkin, it's very soft.
+  description: A plushie of a Shadowkin. It's very soft.
   components:
     - type: ShadowkinDarkSwapped
       invisible: false

@@ -1,95 +1,96 @@
+using Content.Shared.Humanoid;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
-using Robust.Shared.Prototypes;
-using Robust.Client.GameObjects;
-using Content.Shared.Humanoid;
 
-namespace Content.Client.SimpleStation14.Overlays
+namespace Content.Client.SimpleStation14.Overlays.Shaders;
+
+public sealed class IgnoreHumanoidWithComponentOverlay : Overlay
 {
-    public sealed class IgnoreHumanoidWithComponentOverlay : Overlay
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+
+    public List<Component> IgnoredComponents = new();
+    public List<Component> AllowAnywayComponents = new();
+    private readonly List<EntityUid> _nonVisibleList = new();
+
+    public IgnoreHumanoidWithComponentOverlay()
     {
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
+        IoCManager.InjectDependencies(this);
+    }
 
-        public List<Component> ignoredComponents = new();
-        public List<Component> allowAnywayComponents = new();
-        private List<EntityUid> _nonvisibleList = new();
+    protected override void Draw(in OverlayDrawArgs args)
+    {
+        var spriteQuery = _entityManager.GetEntityQuery<SpriteComponent>();
 
-        public IgnoreHumanoidWithComponentOverlay()
+        foreach (var humanoid in _entityManager.EntityQuery<HumanoidAppearanceComponent>(true))
         {
-            IoCManager.InjectDependencies(this);
-        }
+            if (_playerManager.LocalPlayer?.ControlledEntity == humanoid.Owner)
+                continue;
 
-        protected override void Draw(in OverlayDrawArgs args)
-        {
-            var spriteQuery = _entityManager.GetEntityQuery<SpriteComponent>();
-
-            foreach (var humanoid in _entityManager.EntityQuery<HumanoidAppearanceComponent>(true))
+            var cont = true;
+            foreach (var comp in IgnoredComponents)
             {
-                if (_playerManager.LocalPlayer?.ControlledEntity == humanoid.Owner) continue;
-
-                var cont = true;
-                foreach (var comp in ignoredComponents)
-                {
-                    if (_entityManager.TryGetComponent(humanoid.Owner, comp.GetType(), out IComponent? _))
-                    {
-                        cont = false;
-                        break;
-                    }
-                }
-                foreach (var comp in allowAnywayComponents)
-                {
-                    if (_entityManager.TryGetComponent(humanoid.Owner, comp.GetType(), out IComponent? _))
-                    {
-                        cont = true;
-                        break;
-                    }
-                }
-                if (cont)
-                {
-                    Reset(humanoid.Owner);
+                if (!_entityManager.HasComponent(humanoid.Owner, comp.GetType()))
                     continue;
-                }
 
-
-                if (!spriteQuery.TryGetComponent(humanoid.Owner, out var sprite)) continue;
-
-                if (sprite.Visible && !_nonvisibleList.Contains(humanoid.Owner))
-                {
-                    sprite.Visible = false;
-                    _nonvisibleList.Add(humanoid.Owner);
-                }
+                cont = false;
+                break;
             }
-
-            foreach (var humanoid in _nonvisibleList.ToArray())
+            foreach (var comp in AllowAnywayComponents)
             {
-                if (_entityManager.Deleted(humanoid))
-                {
-                    _nonvisibleList.Remove(humanoid);
+                if (!_entityManager.HasComponent(humanoid.Owner, comp.GetType()))
                     continue;
-                }
+
+                cont = true;
+                break;
             }
-        }
-
-
-        public void Reset()
-        {
-            foreach (var humanoid in _nonvisibleList.ToArray())
+            if (cont)
             {
-                _nonvisibleList.Remove(humanoid);
-
-                if (_entityManager.TryGetComponent<SpriteComponent>(humanoid, out var sprite)) sprite.Visible = true;
+                Reset(humanoid.Owner);
+                continue;
             }
+
+
+            if (!spriteQuery.TryGetComponent(humanoid.Owner, out var sprite))
+                continue;
+
+            if (!sprite.Visible || _nonVisibleList.Contains(humanoid.Owner))
+                continue;
+
+            sprite.Visible = false;
+            _nonVisibleList.Add(humanoid.Owner);
         }
 
-        public void Reset(EntityUid entity)
+        foreach (var humanoid in _nonVisibleList.ToArray())
         {
-            if (_nonvisibleList.Contains(entity))
-            {
-                _nonvisibleList.Remove(entity);
+            if (!_entityManager.Deleted(humanoid))
+                continue;
 
-                if (_entityManager.TryGetComponent<SpriteComponent>(entity, out var sprite)) sprite.Visible = true;
-            }
+            _nonVisibleList.Remove(humanoid);
         }
+    }
+
+
+    public void Reset()
+    {
+        foreach (var humanoid in _nonVisibleList.ToArray())
+        {
+            _nonVisibleList.Remove(humanoid);
+
+            if (_entityManager.TryGetComponent<SpriteComponent>(humanoid, out var sprite))
+                sprite.Visible = true;
+        }
+    }
+
+    public void Reset(EntityUid entity)
+    {
+        if (!_nonVisibleList.Contains(entity))
+            return;
+
+        _nonVisibleList.Remove(entity);
+
+        if (_entityManager.TryGetComponent<SpriteComponent>(entity, out var sprite))
+            sprite.Visible = true;
     }
 }

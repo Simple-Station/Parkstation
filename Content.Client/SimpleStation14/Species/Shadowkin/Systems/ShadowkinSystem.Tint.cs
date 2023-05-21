@@ -1,6 +1,7 @@
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Content.Client.SimpleStation14.Overlays;
+using Content.Client.SimpleStation14.Overlays.Shaders;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Robust.Client.GameObjects;
 using Content.Shared.GameTicking;
@@ -11,20 +12,20 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems;
 public sealed class ShadowkinTintSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private readonly IOverlayManager _overlay = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
 
-    private ColorTintOverlay _overlay = default!;
+    private ColorTintOverlay _tintOverlay = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _overlay = new ColorTintOverlay
+        _tintOverlay = new ColorTintOverlay
         {
-            tintColor = new Vector3(0.5f, 0f, 0.5f),
-            tintAmount = 0.25f,
-            comp = new ShadowkinComponent()
+            TintColor = new Vector3(0.5f, 0f, 0.5f),
+            TintAmount = 0.25f,
+            Comp = new ShadowkinComponent()
         };
 
         SubscribeLocalEvent<ShadowkinComponent, ComponentStartup>(OnStartup);
@@ -36,31 +37,33 @@ public sealed class ShadowkinTintSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, ShadowkinComponent component, ComponentStartup args)
     {
-        if (_player.LocalPlayer?.ControlledEntity != uid) return;
+        if (_player.LocalPlayer?.ControlledEntity != uid)
+            return;
 
-        _overlayMan.AddOverlay(_overlay);
+        _overlay.AddOverlay(_tintOverlay);
     }
 
     private void OnShutdown(EntityUid uid, ShadowkinComponent component, ComponentShutdown args)
     {
-        if (_player.LocalPlayer?.ControlledEntity != uid) return;
+        if (_player.LocalPlayer?.ControlledEntity != uid)
+            return;
 
-        _overlayMan.RemoveOverlay(_overlay);
+        _overlay.RemoveOverlay(_tintOverlay);
     }
 
     private void OnPlayerAttached(EntityUid uid, ShadowkinComponent component, PlayerAttachedEvent args)
     {
-        _overlayMan.AddOverlay(_overlay);
+        _overlay.AddOverlay(_tintOverlay);
     }
 
     private void OnPlayerDetached(EntityUid uid, ShadowkinComponent component, PlayerDetachedEvent args)
     {
-        _overlayMan.RemoveOverlay(_overlay);
+        _overlay.RemoveOverlay(_tintOverlay);
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent args)
     {
-        _overlayMan.RemoveOverlay(_overlay);
+        _overlay.RemoveOverlay(_tintOverlay);
     }
 
 
@@ -69,16 +72,11 @@ public sealed class ShadowkinTintSystem : EntitySystem
         base.Update(frameTime);
 
         var uid = _player.LocalPlayer?.ControlledEntity;
-        if (uid == null)
-            return;
-
-        if (!_entity.TryGetComponent(uid, out ShadowkinComponent? comp))
-            return;
-        if (!_entity.TryGetComponent(uid, out SpriteComponent? sprite))
-            return;
-        if (!sprite.LayerMapTryGet(HumanoidVisualLayers.Eyes, out var index))
-            return;
-        if (!sprite.TryGetLayer(index, out var layer))
+        if (uid == null ||
+            !_entity.TryGetComponent(uid, out ShadowkinComponent? comp) ||
+            !_entity.TryGetComponent(uid, out SpriteComponent? sprite) ||
+            !sprite.LayerMapTryGet(HumanoidVisualLayers.Eyes, out var index) ||
+            !sprite.TryGetLayer(index, out var layer))
             return;
 
         // Eye color
@@ -98,16 +96,16 @@ public sealed class ShadowkinTintSystem : EntitySystem
 
     private void UpdateShader(Vector3? color, float? intensity)
     {
-        while (_overlayMan.HasOverlay<ColorTintOverlay>())
+        while (_overlay.HasOverlay<ColorTintOverlay>())
         {
-            _overlayMan.RemoveOverlay(_overlay);
+            _overlay.RemoveOverlay(_tintOverlay);
         }
 
         if (color != null)
-            _overlay.tintColor = color;
+            _tintOverlay.TintColor = color;
         if (intensity != null)
-            _overlay.tintAmount = intensity;
+            _tintOverlay.TintAmount = intensity;
 
-        _overlayMan.AddOverlay(_overlay);
+        _overlay.AddOverlay(_tintOverlay);
     }
 }

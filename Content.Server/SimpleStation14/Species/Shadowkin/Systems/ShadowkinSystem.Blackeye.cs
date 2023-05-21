@@ -26,23 +26,32 @@ public sealed class ShadowkinBlackeyeSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<ShadowkinBlackeyeAttemptEvent>(OnBlackeyeAttempt);
         SubscribeAllEvent<ShadowkinBlackeyeEvent>(OnBlackeye);
+    }
+
+
+    private void OnBlackeyeAttempt(ShadowkinBlackeyeAttemptEvent ev)
+    {
+        if (!_entity.TryGetComponent<ShadowkinComponent>(ev.Uid, out var component) ||
+            component.Blackeye ||
+            !(component.PowerLevel <= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min] + 5))
+            ev.Cancel();
     }
 
     private void OnBlackeye(ShadowkinBlackeyeEvent ev)
     {
-        // Popup
-        _popup.PopupEntity(Loc.GetString("shadowkin-blackeye"), ev.Uid, ev.Uid, PopupType.Large);
+        // Check if the entity is a shadowkin
+        if (!_entity.TryGetComponent<ShadowkinComponent>(ev.Uid, out var component))
+            return;
 
         // Stop gaining power
-        if (_entity.TryGetComponent<ShadowkinComponent>(ev.Uid, out var component))
-        {
-            component.Blackeye = true;
-            component.PowerLevelGainEnabled = false;
-            _power.SetPowerLevel(ev.Uid, ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min]);
+        component.Blackeye = true;
+        component.PowerLevelGainEnabled = false;
+        _power.SetPowerLevel(ev.Uid, ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min]);
 
-            Dirty(component);
-        }
+        // Update client state
+        Dirty(component);
 
         // Remove powers
         _entity.RemoveComponent<ShadowkinDarkSwapPowerComponent>(ev.Uid);
@@ -53,6 +62,9 @@ public sealed class ShadowkinBlackeyeSystem : EntitySystem
         if (!ev.Damage)
             return;
 
+        // Popup
+        _popup.PopupEntity(Loc.GetString("shadowkin-blackeye"), ev.Uid, ev.Uid, PopupType.Large);
+
         // Stamina crit
         if (_entity.TryGetComponent<StaminaComponent>(ev.Uid, out var stamina))
         {
@@ -61,21 +73,21 @@ public sealed class ShadowkinBlackeyeSystem : EntitySystem
 
         // Nearly crit with cellular damage
         // If already 5 damage off of crit, don't do anything
-        if (_entity.TryGetComponent<DamageableComponent>(ev.Uid, out var damageable) &&
-            _mobThreshold.TryGetThresholdForState(ev.Uid, MobState.Critical, out var key))
-        {
-            var minus = damageable.TotalDamage;
+        if (!_entity.TryGetComponent<DamageableComponent>(ev.Uid, out var damageable) ||
+            !_mobThreshold.TryGetThresholdForState(ev.Uid, MobState.Critical, out var key))
+            return;
 
-            _damageable.TryChangeDamage(
-                ev.Uid,
-                new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Cellular"),
-                    Math.Max((double) (key.Value - minus - 5), 0)),
-                true,
-                true,
-                null,
-                null,
-                false
-            );
-        }
+        var minus = damageable.TotalDamage;
+
+        _damageable.TryChangeDamage(
+            ev.Uid,
+            new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Cellular"),
+                Math.Max((double) (key.Value - minus - 5), 0)),
+            true,
+            true,
+            null,
+            null,
+            false
+        );
     }
 }

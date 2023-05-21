@@ -59,36 +59,69 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
     private void DarkSwap(EntityUid uid, ShadowkinDarkSwapPowerComponent component, ShadowkinDarkSwapEvent args)
     {
-        ToggleInvisibility(args.Performer, args);
+        var hasComp = _entity.HasComponent<ShadowkinDarkSwappedComponent>(args.Performer);
+
+        SetDarkened(
+            args.Performer,
+            !hasComp,
+            !hasComp,
+            true,
+            args.StaminaCostOn,
+            args.PowerCostOn,
+            args.SoundOn,
+            args.VolumeOn,
+            args.StaminaCostOff,
+            args.PowerCostOff,
+            args.SoundOff,
+            args.VolumeOff
+        );
 
         args.Handled = true;
     }
 
 
-    public void ToggleInvisibility(EntityUid uid, ShadowkinDarkSwapEvent args)
+    public void SetDarkened(
+        EntityUid performer,
+        bool addComp,
+        bool invisible,
+        bool darken,
+        float staminaCostOn,
+        float powerCostOn,
+        SoundSpecifier soundOn,
+        float volumeOn,
+        float staminaCostOff,
+        float powerCostOff,
+        SoundSpecifier soundOff,
+        float volumeOff
+    )
     {
-        if (!_entity.TryGetComponent<ShadowkinComponent>(uid, out var comp))
+        var ev = new ShadowkinDarkSwapAttemptEvent();
+        RaiseLocalEvent(ev);
+        if (ev.Cancelled)
             return;
 
-        if (!HasComp<ShadowkinDarkSwappedComponent>(uid))
+        if (addComp)
         {
-            EnsureComp<ShadowkinDarkSwappedComponent>(uid);
-            RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(uid, true));
+            var comp = _entity.EnsureComponent<ShadowkinDarkSwappedComponent>(performer);
+            comp.Invisible = invisible;
+            comp.Darken = darken;
 
-            _audio.PlayPvs(args.SoundOn, args.Performer, AudioParams.Default.WithVolume(args.VolumeOn));
+            RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(performer, true));
 
-            _power.TryAddPowerLevel(uid, -args.PowerCostOn);
-            _stamina.TakeStaminaDamage(uid, args.StaminaCost);
+            _audio.PlayPvs(soundOn, performer, AudioParams.Default.WithVolume(volumeOn));
+
+            _power.TryAddPowerLevel(performer, -powerCostOn);
+            _stamina.TakeStaminaDamage(performer, staminaCostOn);
         }
         else
         {
-            RemComp<ShadowkinDarkSwappedComponent>(uid);
-            RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(uid, false));
+            _entity.RemoveComponent<ShadowkinDarkSwappedComponent>(performer);
+            RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(performer, false));
 
-            _audio.PlayPvs(args.SoundOff, args.Performer, AudioParams.Default.WithVolume(args.VolumeOff));
+            _audio.PlayPvs(soundOff, performer, AudioParams.Default.WithVolume(volumeOff));
 
-            _power.TryAddPowerLevel(uid, -args.PowerCostOff);
-            _stamina.TakeStaminaDamage(uid, args.StaminaCost);
+            _power.TryAddPowerLevel(performer, -powerCostOff);
+            _stamina.TakeStaminaDamage(performer, staminaCostOff);
         }
     }
 

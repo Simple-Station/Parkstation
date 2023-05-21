@@ -23,11 +23,9 @@ namespace Content.Server.SimpleStation14.Eye
         private void OnEyeStartup(EntityUid uid, EyeComponent component, ComponentStartup args)
         {
             if (_entityManager.HasComponent<GhostComponent>(uid))
-            {
                 component.VisibilityMask |= (uint) VisibilityFlags.AIEye;
-            }
 
-            _shadowkinPowerSystem.SetCanSeeInvisibility(uid, _entityManager.TryGetComponent<GhostComponent>(uid, out var _));
+            _shadowkinPowerSystem.SetCanSeeInvisibility(uid, _entityManager.HasComponent<GhostComponent>(uid));
         }
     }
 }

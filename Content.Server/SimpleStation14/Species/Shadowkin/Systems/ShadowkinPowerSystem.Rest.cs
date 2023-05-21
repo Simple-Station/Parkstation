@@ -4,7 +4,6 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
-using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.SimpleStation14.Species.Shadowkin.Systems;
@@ -15,7 +14,6 @@ public sealed class ShadowkinRestSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ShadowkinPowerSystem _power = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
 
     private InstantAction _action = default!;
 
@@ -44,7 +42,7 @@ public sealed class ShadowkinRestSystem : EntitySystem
 
     private void Rest(EntityUid uid, ShadowkinRestPowerComponent component, ShadowkinRestEvent args)
     {
-        if (!_entity.TryGetComponent<ShadowkinComponent>(uid, out _))
+        if (!_entity.HasComponent<ShadowkinComponent>(args.Performer))
             return;
 
         // Now doing what you weren't before
@@ -54,10 +52,10 @@ public sealed class ShadowkinRestSystem : EntitySystem
         if (component.IsResting)
         {
             // Sleepy time
-            _statusEffect.TryAddStatusEffect<ForcedSleepingComponent>(args.Performer, "ForcedSleep", TimeSpan.FromDays(1), false);
+            _entity.EnsureComponent<ForcedSleepingComponent>(args.Performer);
             // No waking up normally (it would do nothing)
             _actions.RemoveAction(args.Performer, new InstantAction(_prototype.Index<InstantActionPrototype>("Wake")));
-            _power.TryAddMultiplier(args.Performer);
+            _power.TryAddMultiplier(args.Performer, 1f);
             // No action cooldown
             args.Handled = false;
         }
@@ -65,8 +63,8 @@ public sealed class ShadowkinRestSystem : EntitySystem
         else
         {
             // Wake up
-            if (_statusEffect.TryRemoveStatusEffect(args.Performer, "ForcedSleep"))
-                _entity.RemoveComponent<SleepingComponent>(args.Performer);
+            _entity.RemoveComponent<ForcedSleepingComponent>(args.Performer);
+            _entity.RemoveComponent<SleepingComponent>(args.Performer);
             _power.TryAddMultiplier(args.Performer, -1f);
             // Action cooldown
             args.Handled = true;

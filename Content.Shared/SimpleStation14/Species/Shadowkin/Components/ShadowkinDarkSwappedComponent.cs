@@ -6,14 +6,20 @@ namespace Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 public sealed class ShadowkinDarkSwappedComponent : Component
 {
     /// <summary>
-    ///     For whatever random things want only the darken effect.
+    ///     If it should be sent to the dark
     /// </summary>
     [DataField("invisible")]
     public bool Invisible = true;
 
+    /// <summary>
+    ///     If it should dim nearby lights
+    /// </summary>
     [DataField("darken"), ViewVariables(VVAccess.ReadWrite)]
     public bool Darken = true;
 
+    /// <summary>
+    ///     How far to dim nearby lights
+    /// </summary>
     [DataField("range"), ViewVariables(VVAccess.ReadWrite)]
     public float DarkenRange = 5f;
 

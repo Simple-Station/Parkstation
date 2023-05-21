@@ -3,6 +3,19 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.SimpleStation14.Species.Shadowkin.Events;
 
 /// <summary>
+///     Raised to notify other systems of an attempt to blackeye a shadowkin.
+/// </summary>
+public sealed class ShadowkinBlackeyeAttemptEvent : CancellableEntityEventArgs
+{
+    public readonly EntityUid Uid;
+
+    public ShadowkinBlackeyeAttemptEvent(EntityUid uid)
+    {
+        Uid = uid;
+    }
+}
+
+/// <summary>
 ///     Raised when a shadowkin becomes a blackeye.
 /// </summary>
 [Serializable, NetSerializable]

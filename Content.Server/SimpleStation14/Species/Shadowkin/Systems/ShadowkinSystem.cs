@@ -26,6 +26,7 @@ public sealed class ShadowkinSystem : EntitySystem
         SubscribeLocalEvent<ShadowkinComponent, ComponentShutdown>(OnShutdown);
     }
 
+
     private void OnExamine(EntityUid uid, ShadowkinComponent component, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
@@ -33,6 +34,7 @@ public sealed class ShadowkinSystem : EntitySystem
 
         var powerType = ShadowkinPowerSystem.GetLevelName(component.PowerLevel);
 
+        // Show exact values for yourself
         if (args.Examined == args.Examiner)
         {
             args.PushMarkup(Loc.GetString("shadowkin-power-examined-self",
@@ -41,6 +43,7 @@ public sealed class ShadowkinSystem : EntitySystem
                 ("powerType", powerType)
             ));
         }
+        // Show general values for others
         else
         {
             args.PushMarkup(Loc.GetString("shadowkin-power-examined-other",
@@ -55,13 +58,18 @@ public sealed class ShadowkinSystem : EntitySystem
         if (component.PowerLevel <= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min] + 1f)
             _power.SetPowerLevel(uid, ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Okay]);
 
-        component.MaxedPowerAccumulator = _random.NextFloat(component.MaxedPowerRateMin, component.MaxedPowerRateMax);
-        component.MinPowerAccumulator = _random.NextFloat(component.MinRateMin, component.MinRateMax);
+        var max = _random.NextFloat(component.MaxedPowerRateMin, component.MaxedPowerRateMax);
+        component.MaxedPowerAccumulator = max;
+        component.MaxedPowerRoof = max;
+
+        var min = _random.NextFloat(component.MinPowerMin, component.MinPowerMax);
+        component.MinPowerAccumulator = min;
+        component.MinPowerRoof = min;
     }
 
     private void OnShutdown(EntityUid uid, ShadowkinComponent component, ComponentShutdown args)
     {
-        _power.UpdateAlert(component.Owner, false);
+        _power.UpdateAlert(uid, false);
     }
 
 
@@ -69,20 +77,19 @@ public sealed class ShadowkinSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = _entity.EntityQuery<ShadowkinComponent>();
+        var query = _entity.EntityQueryEnumerator<ShadowkinComponent>();
 
         // Update power level for all shadowkin
-        foreach (var component in query)
+        while (query.MoveNext(out var uid, out var component))
         {
             var oldPowerLevel = ShadowkinPowerSystem.GetLevelName(component.PowerLevel);
 
-            if (!component.Blackeye)
-                _power.TryBlackeye(component.Owner);
-            _power.TryUpdatePowerLevel(component.Owner, frameTime);
+            _power.TryUpdatePowerLevel(uid, frameTime);
 
             if (oldPowerLevel != ShadowkinPowerSystem.GetLevelName(component.PowerLevel))
             {
-                _power.UpdateAlert(component.Owner, true, component.PowerLevel);
+                _power.TryBlackeye(uid);
+                _power.UpdateAlert(uid, true, component.PowerLevel);
                 Dirty(component);
             }
 
@@ -93,29 +100,31 @@ public sealed class ShadowkinSystem : EntitySystem
                 // If so, start the timer
                 component.MaxedPowerAccumulator -= frameTime;
 
-                // If the time's not up, return.
-                if (component.MaxedPowerAccumulator > 0f)
-                    continue;
-
-                // Randomize the timer
-                component.MaxedPowerAccumulator = _random.NextFloat(component.MaxedPowerRateMin, component.MaxedPowerRateMax);
-
-                var chance = _random.Next(7);
-
-                if (chance <= 2)
+                // If the time's up, do things
+                if (component.MaxedPowerAccumulator <= 0f)
                 {
-                    ForceDarkswap(component.Owner, component);
-                }
-                else if (chance <= 7)
-                {
-                    ForceTeleport(component.Owner, component);
+                    // Randomize the timer
+                    var next = _random.NextFloat(component.MaxedPowerRateMin, component.MaxedPowerRateMax);
+                    component.MaxedPowerRoof = next;
+                    component.MaxedPowerAccumulator = next;
+
+                    var chance = _random.Next(7);
+
+                    if (chance <= 2)
+                    {
+                        ForceDarkSwap(uid, component);
+                    }
+                    else if (chance <= 7)
+                    {
+                        ForceTeleport(uid, component);
+                    }
                 }
             }
             else
             {
                 // Slowly regenerate if not maxed
                 component.MaxedPowerAccumulator += frameTime / 5f;
-                component.MaxedPowerAccumulator = Math.Clamp(component.MaxedPowerAccumulator, 0f, component.MaxedPowerRateMax);
+                component.MaxedPowerAccumulator = Math.Clamp(component.MaxedPowerAccumulator, 0f, component.MaxedPowerRoof);
             }
             #endregion
 
@@ -130,32 +139,34 @@ public sealed class ShadowkinSystem : EntitySystem
             )
             {
                 // If so, start the timer
-                component.MinPowerAccumulator += frameTime;
+                component.MinPowerAccumulator -= frameTime;
 
                 // If the timer is up, force rest
-                if (!(component.MinPowerAccumulator < 0f))
-                    continue;
+                if (component.MinPowerAccumulator <= 0f)
+                {
+                    // Random new timer
+                    var next = _random.NextFloat(component.MinPowerMin, component.MinPowerMax);
+                    component.MinPowerRoof = next;
+                    component.MinPowerAccumulator = next;
 
-                // Random new timer
-                component.MinPowerAccumulator = _random.NextFloat(component.MinRateMin, component.MinRateMax);
-
-                // Send event to rest
-                RaiseLocalEvent(new ShadowkinRestEvent { Performer = component.Owner });
+                    // Send event to rest
+                    RaiseLocalEvent(uid, new ShadowkinRestEvent { Performer = uid });
+                }
             }
             else
             {
                 // Slowly regenerate if not tired
-                component.MinPowerAccumulator -= frameTime / 5f;
-                component.MinPowerAccumulator = Math.Clamp(component.MinPowerAccumulator, 0f, component.MinRateMax);
+                component.MinPowerAccumulator += frameTime / 5f;
+                component.MinPowerAccumulator = Math.Clamp(component.MinPowerAccumulator, 0f, component.MinPowerRoof);
             }
             #endregion
         }
     }
 
-    private void ForceDarkswap(EntityUid uid, ShadowkinComponent component)
+    private void ForceDarkSwap(EntityUid uid, ShadowkinComponent component)
     {
         // Add/Remove DarkSwapped component, which will handle the rest
-        if (_entity.TryGetComponent<ShadowkinDarkSwappedComponent>(uid, out var _))
+        if (_entity.HasComponent<ShadowkinDarkSwappedComponent>(uid))
         {
             RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(uid, false));
             _entity.RemoveComponent<ShadowkinDarkSwappedComponent>(uid);
@@ -163,7 +174,7 @@ public sealed class ShadowkinSystem : EntitySystem
         else
         {
             RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(uid, true));
-            _entity.AddComponent<ShadowkinDarkSwappedComponent>(uid);
+            _entity.EnsureComponent<ShadowkinDarkSwappedComponent>(uid);
         }
     }
 
@@ -200,6 +211,6 @@ public sealed class ShadowkinSystem : EntitySystem
         args.Target = target.Value;
 
         // Raise the event to teleport the Shadowkin.
-        RaiseLocalEvent(args);
+        RaiseLocalEvent(uid, args);
     }
 }

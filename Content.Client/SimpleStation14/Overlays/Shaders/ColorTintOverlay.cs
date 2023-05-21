@@ -3,54 +3,59 @@ using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.SimpleStation14.Overlays
+namespace Content.Client.SimpleStation14.Overlays.Shaders;
+
+/// <summary>
+///     A simple overlay that applies a colored tint to the screen.
+/// </summary>
+public sealed class ColorTintOverlay : Overlay
 {
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IEntityManager _entity = default!;
+
+    public override bool RequestScreenTexture => true;
+    public override OverlaySpace Space => OverlaySpace.WorldSpace;
+    private readonly ShaderInstance _shader;
+
     /// <summary>
-    ///     A simple overlay that applies a color tint to the screen.
+    ///     The color to tint the screen to as RGB on a scale of 0-1.
     /// </summary>
-    public sealed class ColorTintOverlay : Overlay
+    public Vector3? TintColor = null;
+    /// <summary>
+    ///     The percent to tint the screen by on a scale of 0-1.
+    /// </summary>
+    public float? TintAmount = null;
+    /// <summary>
+    ///     Component required to be on the entity to tint the screen.
+    /// </summary>
+    public Component? Comp = null;
+
+    public ColorTintOverlay()
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] IEntityManager _entityManager = default!;
+        IoCManager.InjectDependencies(this);
 
-        public override bool RequestScreenTexture => true;
-        public override OverlaySpace Space => OverlaySpace.WorldSpace;
-        private readonly ShaderInstance _shader;
+        _shader = _prototype.Index<ShaderPrototype>("ColorTint").InstanceUnique();
+    }
 
-        /// <summary>
-        ///     The color to tint the screen to as RGB on a scale of 0-1.
-        /// </summary>
-        public Vector3? tintColor = null;
-        /// <summary>
-        ///     The percent to tint the screen by on a scale of 0-1.
-        /// </summary>
-        public float? tintAmount = null;
-        public Component? comp = null;
+    protected override void Draw(in OverlayDrawArgs args)
+    {
+        if (ScreenTexture == null ||
+            _player.LocalPlayer?.ControlledEntity is not { Valid: true } player ||
+            Comp != null && !_entity.HasComponent(player, Comp.GetType()))
+            return;
 
-        public ColorTintOverlay()
-        {
-            IoCManager.InjectDependencies(this);
+        _shader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
+        if (TintColor != null)
+            _shader.SetParameter("tint_color", (Vector3) TintColor);
+        if (TintAmount != null)
+            _shader.SetParameter("tint_amount", (float) TintAmount);
 
-            _shader = _prototypeManager.Index<ShaderPrototype>("ColorTint").InstanceUnique();
-        }
-
-        protected override void Draw(in OverlayDrawArgs args)
-        {
-            if (ScreenTexture == null) return;
-            if (_playerManager.LocalPlayer?.ControlledEntity is not { Valid: true } player) return;
-            if (comp != null && !_entityManager.TryGetComponent(player, comp.GetType(), out IComponent? _)) return;
-
-            _shader?.SetParameter("SCREEN_TEXTURE", ScreenTexture);
-            if (tintColor != null) _shader?.SetParameter("tint_color", (Vector3) tintColor);
-            if (tintAmount != null) _shader?.SetParameter("tint_amount", (float) tintAmount);
-
-            var worldHandle = args.WorldHandle;
-            var viewport = args.WorldBounds;
-            worldHandle.SetTransform(Matrix3.Identity);
-            worldHandle.UseShader(_shader);
-            worldHandle.DrawRect(viewport, Color.White);
-            worldHandle.UseShader(null);
-        }
+        var worldHandle = args.WorldHandle;
+        var viewport = args.WorldBounds;
+        worldHandle.SetTransform(Matrix3.Identity);
+        worldHandle.UseShader(_shader);
+        worldHandle.DrawRect(viewport, Color.White);
+        worldHandle.UseShader(null);
     }
 }

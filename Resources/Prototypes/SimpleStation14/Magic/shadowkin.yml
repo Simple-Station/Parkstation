@@ -30,7 +30,8 @@
   serverEvent: !type:ShadowkinDarkSwapEvent
     powerCostOn: 55
     powerCostOff: 40
-    staminaCost: 0
+    staminaCostOn: 0
+    staminaCostOff: 0
 
 - type: instantAction
   id: ShadowkinRest

@@ -33,7 +33,7 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
         SubscribeLocalEvent<ShadowkinTeleportPowerComponent, ComponentStartup>(Startup);
         SubscribeLocalEvent<ShadowkinTeleportPowerComponent, ComponentShutdown>(Shutdown);
 
-        SubscribeLocalEvent<ShadowkinTeleportEvent>(Teleport);
+        SubscribeLocalEvent<ShadowkinTeleportPowerComponent, ShadowkinTeleportEvent>(Teleport);
     }
 
 
@@ -48,12 +48,10 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
     }
 
 
-    private void Teleport(ShadowkinTeleportEvent args)
+    private void Teleport(EntityUid uid, ShadowkinTeleportPowerComponent component, ShadowkinTeleportEvent args)
     {
-        if (args.Handled)
-            return;
-
-        if (!_entity.TryGetComponent<ShadowkinComponent>(args.Performer, out var comp))
+        if (args.Handled ||
+            !_entity.TryGetComponent<ShadowkinComponent>(args.Performer, out var comp))
             return;
 
 

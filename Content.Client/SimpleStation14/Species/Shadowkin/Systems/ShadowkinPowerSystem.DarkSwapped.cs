@@ -1,6 +1,7 @@
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Content.Client.SimpleStation14.Overlays;
+using Content.Client.SimpleStation14.Overlays.Shaders;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Robust.Client.GameObjects;
 using Content.Shared.Humanoid;
@@ -10,7 +11,7 @@ namespace Content.Client.SimpleStation14.Species.Shadowkin.Systems;
 public sealed class ShadowkinDarkSwappedSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private readonly IOverlayManager _overlay = default!;
 
     private IgnoreHumanoidWithComponentOverlay _ignoreOverlay = default!;
     private EtherealOverlay _etherealOverlay = default!;
@@ -20,8 +21,8 @@ public sealed class ShadowkinDarkSwappedSystem : EntitySystem
         base.Initialize();
 
         _ignoreOverlay = new IgnoreHumanoidWithComponentOverlay();
-        _ignoreOverlay.ignoredComponents.Add(new HumanoidAppearanceComponent());
-        _ignoreOverlay.allowAnywayComponents.Add(new ShadowkinDarkSwappedComponent());
+        _ignoreOverlay.IgnoredComponents.Add(new HumanoidAppearanceComponent());
+        _ignoreOverlay.AllowAnywayComponents.Add(new ShadowkinDarkSwappedComponent());
         _etherealOverlay = new EtherealOverlay();
 
         SubscribeLocalEvent<ShadowkinDarkSwappedComponent, ComponentStartup>(OnStartup);
@@ -60,14 +61,14 @@ public sealed class ShadowkinDarkSwappedSystem : EntitySystem
 
     private void AddOverlay()
     {
-        _overlayMan.AddOverlay(_ignoreOverlay);
-        _overlayMan.AddOverlay(_etherealOverlay);
+        _overlay.AddOverlay(_ignoreOverlay);
+        _overlay.AddOverlay(_etherealOverlay);
     }
 
     private void RemoveOverlay()
     {
         _ignoreOverlay.Reset();
-        _overlayMan.RemoveOverlay(_ignoreOverlay);
-        _overlayMan.RemoveOverlay(_etherealOverlay);
+        _overlay.RemoveOverlay(_ignoreOverlay);
+        _overlay.RemoveOverlay(_etherealOverlay);
     }
 }

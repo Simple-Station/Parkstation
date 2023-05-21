@@ -52,8 +52,22 @@ public sealed class ShadowkinDarkSwapEvent : InstantActionEvent
     [DataField("powerCostOff")]
     public float PowerCostOff = 35f;
 
-    [DataField("staminaCost")]
-    public float StaminaCost;
+    /// <summary>
+    ///     How much stamina to drain when darkening.
+    /// </summary>
+    [DataField("staminaCostOn")]
+    public float StaminaCostOn;
+
+    /// <summary>
+    ///     How much stamina to drain when lightening.
+    /// </summary>
+    [DataField("staminaCostOff")]
+    public float StaminaCostOff;
+}
+
+public sealed class ShadowkinDarkSwapAttemptEvent : CancellableEntityEventArgs
+{
+
 }
 
 
