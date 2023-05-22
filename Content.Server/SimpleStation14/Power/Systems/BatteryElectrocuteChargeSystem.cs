@@ -1,3 +1,4 @@
+using Content.Server.Electrocution;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Shared.Electrocution;
@@ -11,6 +12,7 @@ public sealed class BatteryElectrocuteChargeSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -23,13 +25,12 @@ public sealed class BatteryElectrocuteChargeSystem : EntitySystem
         if (args.ShockDamage == null || args.ShockDamage <= 0)
             return;
 
+        var damagePerWatt = ElectrocutionSystem.ElectrifiedDamagePerWatt * 2;
+
         var damage = args.ShockDamage.Value * args.SiemensCoefficient;
-        var charge = Math.Min(damage * 300f, battery.MaxCharge * 0.25f) * _random.NextFloat(0.75f, 1.25f);
+        var charge = Math.Min(damage / damagePerWatt, battery.MaxCharge * 0.25f) * _random.NextFloat(0.75f, 1.25f);
 
         battery.CurrentCharge += charge;
-
-        if (!_gameTiming.InPrediction)
-            return;
 
         var message = Loc.GetString("battery-electrocute-charge");
 

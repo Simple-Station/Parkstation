@@ -51,7 +51,7 @@ namespace Content.Server.Electrocution
         private const string DamageType = "Shock";
 
         // Yes, this is absurdly small for a reason.
-        private const float ElectrifiedDamagePerWatt = 0.0015f;
+        public const float ElectrifiedDamagePerWatt = 0.0015f; // Parkstation-IPC
 
         private const float RecursiveDamageMultiplier = 0.75f;
         private const float RecursiveTimeMultiplier = 0.8f;
@@ -387,7 +387,7 @@ namespace Content.Server.Electrocution
 
             var filter = Filter.PvsExcept(uid, entityManager: EntityManager);
 
--            // TODO: Allow being able to pass EntityUid to Loc...
+            // TODO: Allow being able to pass EntityUid to Loc...
             if (sourceUid != null)
             {
                 _popupSystem.PopupEntity(Loc.GetString("electrocuted-component-mob-shocked-by-source-popup-others",
