@@ -38,15 +38,17 @@
       Cardboard: 100
   - type: Stack
     stackType: Cardboard
+    baseLayer: base
+    layerStates:
+    - cardboard
+    - cardboard_2
+    - cardboard_3
   - type: Sprite
     state: cardboard_3
+    layers:
+    - state: cardboard_3
+      map: ["base"]
   - type: Appearance
-    visuals:
-    - type: StackVisualizer
-      stackLayers:
-      - cardboard
-      - cardboard_2
-      - cardboard_3
 
 - type: entity
   parent: MaterialCardboard
@@ -82,6 +84,11 @@
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Cloth
+    baseLayer: base
+    layerStates:
+    - cloth
+    - cloth_2
+    - cloth_3
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -93,13 +100,10 @@
         Quantity: 3
   - type: Sprite
     state: cloth_3
+    layers:
+    - state: cloth_3
+      map: ["base"]
   - type: Appearance
-    visuals:
-    - type: StackVisualizer
-      stackLayers:
-      - cloth
-      - cloth_2
-      - cloth_3
 
 - type: entity
   parent: MaterialCloth
@@ -119,6 +123,11 @@
   components:
   - type: Stack
     stackType: Durathread
+    baseLayer: base
+    layerStates:
+    - durathread
+    - durathread_2
+    - durathread_3
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -126,13 +135,10 @@
   - type: Sprite
     state: durathread_3
     scale: 1, 1
+    layers:
+    - state: durathread_3
+      map: ["base"]
   - type: Appearance
-    visuals:
-    - type: StackVisualizer
-      stackLayers:
-      - durathread
-      - durathread_2
-      - durathread_3
   - type: Construction
     graph: Durathread
     node: MaterialDurathread
@@ -159,15 +165,17 @@
       Wood: 100
   - type: Stack
     stackType: WoodPlank
+    baseLayer: base
+    layerStates:
+    - wood
+    - wood_2
+    - wood_3
   - type: Sprite
     state: wood
+    layers:
+    - state: wood
+      map: ["base"]
   - type: Appearance
-    visuals:
-    - type: StackVisualizer
-      stackLayers:
-      - wood
-      - wood_2
-      - wood_3
   - type: Item
     heldPrefix: wood
 
@@ -265,15 +273,17 @@
   components:
   - type: Stack
     stackType: Cotton
+    baseLayer: base
+    layerStates:
+    - cotton
+    - cotton_2
+    - cotton_3
   - type: Sprite
     state: cotton_3
+    layers:
+    - state: cotton_3
+      map: ["base"]
   - type: Appearance
-    visuals:
-      - type: StackVisualizer
-        stackLayers:
-          - cotton
-          - cotton_2
-          - cotton_3
 
 - type: entity
   parent: MaterialCotton

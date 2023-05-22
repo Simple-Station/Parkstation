@@ -55,7 +55,9 @@ namespace Content.Server.GameTicking
 
                 foreach (var (player, _) in profiles)
                 {
-                    if (playerNetIds.Contains(player)) continue;
+                    if (playerNetIds.Contains(player))
+                        continue;
+
                     toRemove.Add(player);
                 }
 
@@ -65,12 +67,14 @@ namespace Content.Server.GameTicking
                 }
             }
 
-            var assignedJobs = _stationJobs.AssignJobs(profiles, _stationSystem.Stations.ToList());
+            var spawnableStations = EntityQuery<StationJobsComponent, StationSpawningComponent>().Select(x => x.Item1.Owner).ToList();
 
-            _stationJobs.AssignOverflowJobs(ref assignedJobs, playerNetIds, profiles, _stationSystem.Stations.ToList());
+            var assignedJobs = _stationJobs.AssignJobs(profiles, spawnableStations);
+
+            _stationJobs.AssignOverflowJobs(ref assignedJobs, playerNetIds, profiles, spawnableStations);
 
             // Calculate extended access for stations.
-            var stationJobCounts = _stationSystem.Stations.ToDictionary(e => e, _ => 0);
+            var stationJobCounts = spawnableStations.ToDictionary(e => e, _ => 0);
             foreach (var (netUser, (job, station)) in assignedJobs)
             {
                 if (job == null)
@@ -123,7 +127,7 @@ namespace Content.Server.GameTicking
 
             if (station == EntityUid.Invalid)
             {
-                var stations = _stationSystem.Stations.ToList();
+                var stations = EntityQuery<StationJobsComponent, StationSpawningComponent>().Select(x => x.Item1.Owner).ToList();
                 _robustRandom.Shuffle(stations);
                 if (stations.Count == 0)
                     station = EntityUid.Invalid;
