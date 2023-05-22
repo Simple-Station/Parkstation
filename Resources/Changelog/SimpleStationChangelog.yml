@@ -970,3 +970,9 @@ Entries:
       message: Cabbages can now be cut into leaves (request by Pspritechologist)
   id: 85
   time: '2023-05-21T05:35:18Z'
+- author: Devianartaro
+  changes:
+    - type: add
+      message: 'Added pride pins to loadout '
+  id: 86
+  time: '2023-05-22T23:39:12Z'
