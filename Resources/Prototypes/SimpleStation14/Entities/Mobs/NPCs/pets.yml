@@ -81,3 +81,234 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: mcgriff
+
+- type: entity
+  name: Shiro
+  parent: SimpleMobBase
+  id: MobShiro
+  description: Huh, so this is what Shiro really looks like.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: SimpleStation14/Mobs/pets/shiro.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: shiro
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.30
+      density: 50
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+  - type: Appearance
+  - type: Inventory
+    speciesId: fox
+    templateId: pet
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: shiro
+      Critical:
+        Base: shiro
+      Dead:
+        Base: shiro_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: InteractionPopup
+    successChance: 1.0
+    interactSuccessString: petting-success-soft-floofy
+    interactFailureString: petting-failure-generic
+    interactSuccessSound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: female
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Slime
+  - type: Bloodstream
+    bloodReagent: Slime
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          1
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.45
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaled: true
+        damage:
+          types:
+            Heat: 2
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "slime-hurt-by-water-popup" ]
+        probability: 0.25
+  - type: DraconicBloodstream
+    reagent:
+      solutionName: chemicals
+      reagent: ShirosDelight
+      unitsPerUpdate: 0.30
+      accumulatorTime: 0.4
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Desoxyephedrine
+          Quantity: 10
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 2.0
+  - type: AutoRegenReagent
+    solution: melee
+    unitsPerSecond: 0.25
+    reagents:
+      - Desoxyephedrine
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Slash: 2
+        Piercing: 3
+  - type: Faction
+    factions:
+    - Pet
+  - type: RandomBark
+    barkMultiplier: 0.5
+    barks:
+      - Shiro!
+      - Shiro.
+      - Wah!
+      - Wah.
+      - Shiro?
+    chatlog: True
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 8.5
+    baseSprintSpeed : 4.25
+  - type: Tag
+    tags:
+    - CannotSuicide
+
+- type: entity
+  name: Jack Parker
+  id: MobMonkeyJackParker
+  parent: SimpleMobBase
+  description: Hasn't lost a case in his entire career.
+  startingGear: jackparkerstuff
+  components:
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-primate
+  - type: Inventory
+    templateId: monkey
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.35
+      density: 80
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+  - type: Strippable
+  - type: Stripping
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: monkey
+      sprite: SimpleStation14/Mobs/pets/jackparker.rsi
+  - type: Hands
+  - type: Speech
+    speechSounds: Monkey
+  - type: Body
+    prototype: Primate
+    requiredLegs: 1
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: monkey
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Appearance
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Monkey_burning
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Puller
+  - type: CanHostGuardian
+  - type: DiseaseCarrier
+  - type: CombatMode
+    canDisarm: true
+
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcFist
+    damage:
+      types:
+        Blunt: 5
+  - type: RandomBark
+    barkMultiplier: 0.65
+    barks:
+      - Oooook.
+      - Aaaaaaah.
+      - Ook ah.
+      - Ook.
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+
+- type: startingGear
+  id: jackparkerstuff
+  equipment:
+    hands: BriefcaseBrownFilled
