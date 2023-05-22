@@ -1,8 +1,8 @@
-using Content.Server.Storage.Components;
+using Content.Shared.Storage.Components;
 using Content.Shared.StepTrigger.Components;
 using Robust.Shared.Audio;
 
-namespace Content.Server.SimpleStation14.Silicon;
+namespace Content.Shared.SimpleStation14.Silicon;
 
 [RegisterComponent]
 public sealed class SiliconChargerComponent : Component
@@ -50,7 +50,7 @@ public sealed class SiliconChargerComponent : Component
     ///     The temperature the charger will stop heating up at.
     /// </summary>
     /// <remarks>
-    ///     Used specifically for chargers with the <see cref="EntityStorageComponent"/>.
+    ///     Used specifically for chargers with the <see cref="SharedEntityStorageComponent"/>.
     /// </remarks>
     [DataField("targetTemp"), ViewVariables(VVAccess.ReadWrite)]
     public float TargetTemp = 365f;

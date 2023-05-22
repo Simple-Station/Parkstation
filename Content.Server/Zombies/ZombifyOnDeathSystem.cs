@@ -30,6 +30,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
+using Content.Shared.SimpleStation14.Silicon.Components; // Parkstation-IPCs
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
@@ -91,9 +92,9 @@ namespace Content.Server.Zombies
             //Don't zombfiy zombies
             if (HasComp<ZombieComponent>(target))
                 return;
-            
-            //Don't zombify cyborg
-            if (HasComp<CyborgComponent>(target))
+
+            //Don't zombify Roborgs
+            if (HasComp<SiliconComponent>(target)) // Parkstation-IPCs
                 return;
 
             //you're a real zombie now, son.

@@ -22,10 +22,11 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Power;
 using Content.Shared.Storage.Components;
 using Content.Shared.Hands.Components;
+using Content.Shared.SimpleStation14.Silicon.Charge;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 
-public sealed class SiliconchargerCompSystem : EntitySystem
+public sealed class SiliconChargerSystem : EntitySystem
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
@@ -37,6 +38,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
+    [Dependency] private readonly SharedSiliconChargerSystem _sharedCharger = default!;
 
     public override void Initialize()
     {
@@ -46,9 +48,6 @@ public sealed class SiliconchargerCompSystem : EntitySystem
         SubscribeLocalEvent<SiliconChargerComponent, EndCollideEvent>(OnEndCollide);
 
         SubscribeLocalEvent<SiliconChargerComponent, ComponentShutdown>(OnChargerShutdown);
-
-        SubscribeLocalEvent<SiliconChargerComponent, StorageAfterOpenEvent>(HandleStateOpen);
-        SubscribeLocalEvent<SiliconChargerComponent, StorageAfterCloseEvent>(HandleStateClose);
     }
 
     public override void Update(float frameTime)
@@ -66,7 +65,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
             if (EntityManager.TryGetComponent<ApcPowerReceiverComponent>(uid, out var powerComp) && !powerComp.Powered)
             {
                 if (chargerComp.Active != wasActive)
-                    UpdateState(uid, chargerComp);
+                    _sharedCharger.UpdateState(uid, chargerComp);
 
                 continue;
             }
@@ -89,9 +88,9 @@ public sealed class SiliconchargerCompSystem : EntitySystem
             }
 
             if (chargerComp.Active != wasActive)
-                UpdateState(uid, chargerComp);
+                _sharedCharger.UpdateState(uid, chargerComp);
         }
-        #endregion
+        #endregion Entity Storage Chargers
 
         #region Step Trigger Chargers
         // Check for any chargers with the StepTriggerComponent.
@@ -104,7 +103,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
                 if (chargerComp.Active)
                 {
                     chargerComp.Active = false;
-                    UpdateState(uid, chargerComp);
+                    _sharedCharger.UpdateState(uid, chargerComp);
                 }
                 continue;
             }
@@ -112,7 +111,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
             if (!chargerComp.Active)
             {
                 chargerComp.Active = true;
-                UpdateState(uid, chargerComp);
+                _sharedCharger.UpdateState(uid, chargerComp);
             }
 
             var chargeRate = frameTime * chargerComp.ChargeMulti / chargerComp.PresentEntities.Count;
@@ -122,7 +121,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
                 HandleChargingEntity(entity, chargeRate, chargerComp, uid, frameTime);
             }
         }
-        #endregion
+        #endregion Step Trigger Chargers
     }
 
     // Cleanup the sound stream when the charger is destroyed.
@@ -158,16 +157,16 @@ public sealed class SiliconchargerCompSystem : EntitySystem
         var entitiesToCharge = new List<EntityUid>();
 
         // If the given entity has a battery, charge it.
-        if (EntityManager.TryGetComponent(entity, out BatteryComponent? batteryComp) &&
-            !EntityManager.TryGetComponent<UnremoveableComponent>(entity, out var _) &&
+        if (!EntityManager.TryGetComponent<UnremoveableComponent>(entity, out var _) &&
+            EntityManager.TryGetComponent(entity, out BatteryComponent? batteryComp) &&
             batteryComp.CurrentCharge < batteryComp.MaxCharge)
         {
             entitiesToCharge.Add(entity);
         }
 
         // If the given entity contains a battery, charge it.
-        else if (EntityManager.TryGetComponent(entity, out PowerCellSlotComponent? cellSlotComp) &&
-                !EntityManager.TryGetComponent<UnremoveableComponent>(entity, out var _) &&
+        else if (!EntityManager.TryGetComponent<UnremoveableComponent>(entity, out var _) &&
+                EntityManager.TryGetComponent(entity, out PowerCellSlotComponent? cellSlotComp) &&
                 _itemSlotsSystem.TryGetSlot(entity, cellSlotComp.CellSlotId, out var slot) &&
                 EntityManager.TryGetComponent<BatteryComponent>(slot.Item, out var cellComp) &&
                 cellComp.CurrentCharge < cellComp.MaxCharge)
@@ -175,7 +174,7 @@ public sealed class SiliconchargerCompSystem : EntitySystem
             entitiesToCharge.Add(slot.Item.Value);
         }
 
-        // If the given entity DOESN'T have a battery, burn the fucker.
+        // If the given entity is fleshy, burn the fucker.
         else if (burn &&
                 EntityManager.TryGetComponent<DamageableComponent>(entity, out var damageComp) &&
                 damageComp.DamageContainerID == "Biological")
@@ -258,49 +257,6 @@ public sealed class SiliconchargerCompSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    ///     Updates the state of the charger when it's open or closed.
-    /// </summary>
-    private void HandleStateOpen(EntityUid uid, SiliconChargerComponent component, ref StorageAfterOpenEvent _)
-    {
-        UpdateState(uid, component);
-    }
-
-    /// <inheritdoc cref="HandleStateOpen"/>
-    private void HandleStateClose(EntityUid uid, SiliconChargerComponent component, ref StorageAfterCloseEvent _)
-    {
-        UpdateState(uid, component);
-    }
-
-    /// <summary>
-    ///     Updates the visual and auditory state of the charger based on if it's active, and/or open.
-    /// </summary>
-    private void UpdateState(EntityUid uid, SiliconChargerComponent? component = null)
-    {
-        if (!Resolve(uid, ref component))
-            return;
-
-        if (component.Active)
-        {
-            _appearance.SetData(uid, PowerDeviceVisuals.VisualState, SiliconChargerVisualState.Charging);
-
-            if (component.SoundLoop != null && component.SoundStream == null)
-                component.SoundStream =
-                    _audio.PlayPvs(component.SoundLoop, uid, AudioParams.Default.WithLoop(true).WithMaxDistance(5));
-        }
-        else
-        {
-            var state = SiliconChargerVisualState.Normal;
-
-            if (EntityManager.TryGetComponent<EntityStorageComponent>(uid, out var storageComp) && storageComp.Open)
-                state = SiliconChargerVisualState.NormalOpen;
-
-            _appearance.SetData(uid, PowerDeviceVisuals.VisualState, state);
-            component.SoundStream?.Stop();
-            component.SoundStream = null;
-        }
-    }
-
     #region Charger specific
         #region Step Trigger Chargers
     // When an entity starts colliding with the charger, add it to the list of entities present on the charger if it has the StepTriggerComponent.
@@ -338,6 +294,6 @@ public sealed class SiliconchargerCompSystem : EntitySystem
             component.PresentEntities.Remove(target);
         }
     }
-        #endregion
-    #endregion
+        #endregion Step Trigger Chargers
+    #endregion Charger specific
 }

@@ -1,7 +1,7 @@
 - type: entity
   save: false
   abstract: true
-  id: PlayerSiliconBase #for player controlled silicons
+  id: PlayerSiliconBase # For player controlled silicons
   components:
     - type: Reactive
       groups:
@@ -56,8 +56,8 @@
       prototype: Drone
     - type: DoAfter
     - type: Examiner
-    - type: Recyclable
-      safe: false
+    # - type: Recyclable
+    #   safe: false
     - type: StandingState
     - type: Alerts
     - type: Silicon
@@ -113,10 +113,69 @@
     - type: Destructible
       thresholds:
         - trigger: !type:DamageTrigger
-            damage: 175
+            damage: 500
           behaviors:
-            - !type:DoActsBehavior
-              acts: ["Destruction"]
+            - !type:GibBehavior {}
+    - type: Icon
+      sprite: SimpleStation14/Mobs/Species/IPC/parts.rsi
+      state: full
+    - type: Sprite
+      netsync: false
+      noRot: true
+      drawdepth: Mobs
+      layers:
+        - map: ["enum.HumanoidVisualLayers.Chest"]
+        - map: ["enum.HumanoidVisualLayers.Head"]
+        - map: ["enum.HumanoidVisualLayers.Snout"]
+        - map: ["enum.HumanoidVisualLayers.Eyes"]
+        - map: ["enum.HumanoidVisualLayers.RArm"]
+        - map: ["enum.HumanoidVisualLayers.LArm"]
+        - map: ["enum.HumanoidVisualLayers.RLeg"]
+        - map: ["enum.HumanoidVisualLayers.LLeg"]
+        - shader: StencilClear
+          sprite: SimpleStation14/Mobs/Species/IPC/parts.rsi
+          state: l_leg
+        - shader: StencilMask
+          map: ["enum.HumanoidVisualLayers.StencilMask"]
+          sprite: Mobs/Customization/masking_helpers.rsi
+          state: female_full
+          visible: false
+        - map: ["enum.HumanoidVisualLayers.LFoot"]
+        - map: ["enum.HumanoidVisualLayers.RFoot"]
+        - map: ["socks"]
+        - map: ["underpants"]
+        - map: ["undershirt"]
+        - map: ["jumpsuit"]
+        - map: ["enum.HumanoidVisualLayers.LHand"]
+        - map: ["enum.HumanoidVisualLayers.RHand"]
+        - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+          color: "#ffffff"
+          sprite: Objects/Misc/handcuffs.rsi
+          state: body-overlay-2
+          visible: false
+        - map: ["id"]
+        - map: ["gloves"]
+        - map: ["shoes"]
+        - map: ["ears"]
+        - map: ["outerClothing"]
+        - map: ["eyes"]
+        - map: ["belt"]
+        - map: ["neck"]
+        - map: ["back"]
+        - map: ["enum.HumanoidVisualLayers.FacialHair"]
+        - map: ["enum.HumanoidVisualLayers.Hair"]
+        - map: ["enum.HumanoidVisualLayers.HeadSide"]
+        - map: ["enum.HumanoidVisualLayers.HeadTop"]
+        - map: ["mask"]
+        - map: ["head"]
+        - map: ["pocket1"]
+        - map: ["pocket2"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]
+        - map: ["enum.HumanoidVisualLayers.Wings"]
+        - map: ["clownedon"] # Dynamically generated
+          sprite: "Effects/creampie.rsi"
+          state: "creampie_human"
+          visible: false
     - type: Repairable
       fuelcost: 60
       doAfterDelay: 32
@@ -142,6 +201,10 @@
       damage:
         types:
           Heat: 0.75 #per second, scales with number of fire 'stacks'
+    # - type: Barotrauma # Not particularly modifiable. In the future, some response to pressure changes would be nice.
+    #   damage:
+    #     types:
+    #       Blunt: 0.28 #per second, scales with pressure and other constants.
     - type: Temperature
       heatDamageThreshold: 320
       coldDamageThreshold: 255
@@ -232,6 +295,13 @@
       requiredLegs: 2
     - type: Ensnareable
       sprite: Objects/Misc/ensnare.rsi
+    - type: Speech
+      speechSounds: Pai
+    - type: Vocal
+      sounds:
+        Male: MaleHuman
+        Female: FemaleHuman
+        Unsexed: MaleHuman
     - type: MeleeWeapon
       hidden: true
       soundHit:
@@ -241,18 +311,12 @@
       attackRate: 1
       damage:
         types:
-          Blunt: 6 # It's metal.
+          Blunt: 6 # It's tough.
     - type: MobPrice
       price: 1500 # Kidnapping a living person and selling them for cred is a good move.
       deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
     - type: Pullable
     - type: Puller
-
-      # Things that likely need to change, taken from human.
-    - type: Barotrauma
-      damage:
-        types:
-          Blunt: 0.28 #per second, scales with pressure and other constants.
     - type: Reactive
       groups:
         Flammable: [Touch]
@@ -277,78 +341,9 @@
       damageOverlayGroups:
         Brute:
           sprite: Mobs/Effects/brute_damage.rsi
-          color: "#FF0000"
+          color: "#DD8822"
         Burn:
           sprite: Mobs/Effects/burn_damage.rsi
-    - type: Speech
-      speechSounds: Pai
-    - type: Vocal
-      sounds:
-        Male: MaleHuman
-        Female: FemaleHuman
-        Unsexed: MaleHuman
-
-    - type: Icon
-      sprite: SimpleStation14/Mobs/Species/IPC/parts.rsi
-      state: full
-    - type: Sprite
-      netsync: false
-      noRot: true
-      drawdepth: Mobs
-      layers:
-        - map: ["enum.HumanoidVisualLayers.Chest"]
-        - map: ["enum.HumanoidVisualLayers.Head"]
-        - map: ["enum.HumanoidVisualLayers.Snout"]
-        - map: ["enum.HumanoidVisualLayers.Eyes"]
-        - map: ["enum.HumanoidVisualLayers.RArm"]
-        - map: ["enum.HumanoidVisualLayers.LArm"]
-        - map: ["enum.HumanoidVisualLayers.RLeg"]
-        - map: ["enum.HumanoidVisualLayers.LLeg"]
-        - shader: StencilClear
-          sprite: SimpleStation14/Mobs/Species/IPC/parts.rsi
-          state: l_leg
-        - shader: StencilMask
-          map: ["enum.HumanoidVisualLayers.StencilMask"]
-          sprite: Mobs/Customization/masking_helpers.rsi
-          state: female_full
-          visible: false
-        - map: ["enum.HumanoidVisualLayers.LFoot"]
-        - map: ["enum.HumanoidVisualLayers.RFoot"]
-        - map: ["socks"]
-        - map: ["underpants"]
-        - map: ["undershirt"]
-        - map: ["jumpsuit"]
-        - map: ["enum.HumanoidVisualLayers.LHand"]
-        - map: ["enum.HumanoidVisualLayers.RHand"]
-        - map: ["enum.HumanoidVisualLayers.Handcuffs"]
-          color: "#ffffff"
-          sprite: Objects/Misc/handcuffs.rsi
-          state: body-overlay-2
-          visible: false
-        - map: ["id"]
-        - map: ["gloves"]
-        - map: ["shoes"]
-        - map: ["ears"]
-        - map: ["outerClothing"]
-        - map: ["eyes"]
-        - map: ["belt"]
-        - map: ["neck"]
-        - map: ["back"]
-        - map: ["enum.HumanoidVisualLayers.FacialHair"]
-        - map: ["enum.HumanoidVisualLayers.Hair"]
-        - map: ["enum.HumanoidVisualLayers.HeadSide"]
-        - map: ["enum.HumanoidVisualLayers.HeadTop"]
-        - map: ["mask"]
-        - map: ["head"]
-        - map: ["pocket1"]
-        - map: ["pocket2"]
-        - map: ["enum.HumanoidVisualLayers.Tail"]
-        - map: ["enum.HumanoidVisualLayers.Wings"]
-        - map: ["clownedon"] # Dynamically generated
-          sprite: "Effects/creampie.rsi"
-          state: "creampie_human"
-          visible: false
-
     # Organs
     - type: IdExaminable
     - type: HealthExaminable

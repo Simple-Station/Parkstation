@@ -5,6 +5,7 @@ using Content.Shared.Tag;
 
 namespace Content.Server.Borgs
 {
+    [Obsolete("'Cyborg' should be unused on Parkstation, see SiliconSystem")]
     public sealed class Cyborg : EntitySystem
     {
         [Dependency] private readonly ChatSystem _chatSystem = default!;
