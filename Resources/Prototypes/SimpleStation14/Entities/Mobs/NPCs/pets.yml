@@ -99,7 +99,7 @@
     fixtures:
     - shape:
         !type:PhysShapeCircle
-        radius: 0.30
+        radius: 0.35
       density: 50
       mask:
       - MobMask
@@ -128,7 +128,7 @@
       amount: 3
   - type: InteractionPopup
     successChance: 1.0
-    interactSuccessString: petting-success-soft-floofy
+    interactSuccessString: petting-success-slime
     interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
@@ -179,30 +179,32 @@
     reagent:
       solutionName: chemicals
       reagent: ShirosDelight
-      unitsPerUpdate: 0.30
+      unitsPerUpdate: 0.3
       accumulatorTime: 0.4
   - type: SolutionContainerManager
     solutions:
       melee:
         reagents:
         - ReagentId: Desoxyephedrine
-          Quantity: 10
+          Quantity: 40
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 2.0
   - type: AutoRegenReagent
     solution: melee
-    unitsPerSecond: 0.25
+    unitsPerSecond: 0.5
     reagents:
       - Desoxyephedrine
   - type: MeleeWeapon
-    animation: WeaponArcBite
+    animation: WeaponArcClaw
+    attackRate: 2
     soundHit:
-      path: /Audio/Effects/bite.ogg
+      path: /Audio/weapons/punch3.ogg
     damage:
       types:
+        Blunt: 1
         Slash: 2
-        Piercing: 3
+        Piercing: 1
   - type: Faction
     factions:
     - Pet
@@ -216,11 +218,16 @@
       - Shiro?
     chatlog: True
   - type: MovementSpeedModifier
-    baseWalkSpeed : 8.5
-    baseSprintSpeed : 4.25
+    baseWalkSpeed : 8.0
+    baseSprintSpeed : 4.0
   - type: Tag
     tags:
     - CannotSuicide
+  - type: GhostTakeoverAvailable
+    makeSentient: true
+    whitelistRequired: true
+    name: Shiro
+    description: Be Shiro! Be fast! Always be fast!
 
 - type: entity
   name: Jack Parker
