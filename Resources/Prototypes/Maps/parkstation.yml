@@ -5,45 +5,50 @@
   minPlayers: 0
   stations:
     parkstation:
-      mapNameTemplate: '{0} Arborum {1}'
-      emergencyShuttlePath: /Maps/Shuttles/NTES_Kaeri.yml
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs:
-        - Passenger
-      availableJobs:
-        Passenger: [ -1, -1 ]
-        SAI: [1, 1]
-        ChiefServiceSupervisor: [ 1, 1]
-        Bartender: [ 1, 1 ]
-        Botanist: [ 2, 3 ]
-        Boxer: [ 1, 2 ]
-        Chef: [ 1, 1 ]
-        Clown: [ 1, 1 ]
-        Cyborg: [ 2, 2 ]
-        Janitor: [ 2, 3 ]
-        Mime: [ 1, 1 ]
-        HeadOfPersonnel: [ 1, 1 ]
-        ChiefEngineer: [ 1, 1 ]
-        StationEngineer: [ 3, 6 ]
-        ChiefMedicalOfficer: [ 1, 1 ]
-        MailCarrier: [ 1, 2 ]
-        MedicalDoctor: [ 3, 6 ]
-        MedicalCyborg: [ 1, 2 ]
-        Mystagogue: [ 1, 1 ]
-        Epistemologist: [ 2, 5 ]
-        HeadOfSecurity: [ 1, 1 ]
-        SecurityOfficer: [ 2, 4 ]
-        Chaplain: [ 1, 1 ]
-        Warden: [ 1, 1 ]
-        SecurityCadet: [ 3, 5 ]
-        Lawyer: [ 1, 2 ]
-        Quartermaster: [ 3, 4 ]
-        SalvageTechnician: [ 2, 4 ]
-        Musician: [1, 2]
-        AtmosphericTechnician: [ 1, 3 ]
-        ServiceWorker: [ 2, 3 ]
-        Reporter: [ 1, 1 ]
-        Psychologist: [ 1, 1 ]
-        Prisoner: [ 2, 2 ]
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Arborum {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/NTES_Right.yml
+        - type: StationJobs
+          overflowJobs:
+            - Passenger
+          availableJobs:
+            Passenger: [ -1, -1 ]
+            SAI: [1, 1]
+            ChiefServiceSupervisor: [ 1, 1]
+            Bartender: [ 1, 1 ]
+            Botanist: [ 2, 3 ]
+            Boxer: [ 1, 2 ]
+            Chef: [ 1, 1 ]
+            Clown: [ 1, 1 ]
+            Cyborg: [ 2, 2 ]
+            Janitor: [ 2, 3 ]
+            Mime: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 3, 6 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MailCarrier: [ 1, 2 ]
+            MedicalDoctor: [ 3, 6 ]
+            MedicalCyborg: [ 1, 2 ]
+            Mystagogue: [ 1, 1 ]
+            Epistemologist: [ 2, 5 ]
+            HeadOfSecurity: [ 1, 1 ]
+            SecurityOfficer: [ 2, 4 ]
+            Chaplain: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityCadet: [ 3, 5 ]
+            Lawyer: [ 1, 2 ]
+            Quartermaster: [ 3, 4 ]
+            SalvageTechnician: [ 2, 4 ]
+            Musician: [1, 2]
+            AtmosphericTechnician: [ 1, 3 ]
+            ServiceWorker: [ 2, 3 ]
+            Reporter: [ 1, 1 ]
+            Psychologist: [ 1, 1 ]
+            Prisoner: [ 2, 2 ]

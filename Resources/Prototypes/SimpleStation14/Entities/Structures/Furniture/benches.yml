@@ -183,12 +183,13 @@
     bodyType: Dynamic
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.2
-      density: 100
-      mask:
-      - TableMask
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - TableMask
   - type: Pullable
   - type: Damageable
     damageContainer: Inorganic
@@ -250,12 +251,13 @@
     bodyType: Dynamic
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.2
-      density: 100
-      mask:
-      - TableMask
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - TableMask
   - type: Pullable
   - type: Damageable
     damageContainer: Inorganic

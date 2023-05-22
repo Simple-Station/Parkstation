@@ -138,7 +138,8 @@
       bodyType: Dynamic
     - type: Fixtures
       fixtures:
-        - shape: !type:PhysShapeCircle
+        fix1:
+          shape: !type:PhysShapeCircle
             radius: 0.35
           density: 1000
           mask:
@@ -227,7 +228,8 @@
       fixedRotation: true
     - type: Fixtures
       fixtures:
-        - shape: !type:PhysShapeCircle
+        fix1:
+          shape: !type:PhysShapeCircle
             radius: 0.35
           density: 1000
           mask:

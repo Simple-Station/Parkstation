@@ -41,6 +41,10 @@
         - MachineLayer
   - type: EntityStorage
     airtight: false
+    closeSound:
+      path: /Audio/SimpleStation14/Effects/closet_close.ogg
+    openSound:
+      path: /Audio/SimpleStation14/Effects/closet_open.ogg
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
@@ -48,12 +52,6 @@
   - type: PlaceableSurface
     placeCentered: true
     isPlaceable: false
-  - type: EntityStorage
-    airtight: false
-    closeSound:
-      path: /Audio/SimpleStation14/Effects/closet_close.ogg
-    openSound:
-      path: /Audio/SimpleStation14/Effects/closet_open.ogg
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic

@@ -160,7 +160,7 @@ namespace Content.Server.Administration.Commands.Cryostasis
             // TODO: when multiple stations ever get loaded regularly at the same time, both with jobs, do something about this var maybe?
             // Find the first station (very likely the one with the jobs)
             EntityUid? station = null;
-            station = EntitySystem.Get<StationSystem>().Stations.ToList()[0];
+            station = EntitySystem.Get<StationSystem>().GetStations()[0];
 
             if (station != null && jobprotot != null)
             {

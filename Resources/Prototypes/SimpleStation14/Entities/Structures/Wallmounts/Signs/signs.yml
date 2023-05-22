@@ -60,8 +60,9 @@
     canCollide: false
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb {}
+      fix1:
+        shape:
+          !type:PhysShapeAabb {}
   - type: Destructible
     thresholds:
     - trigger:
