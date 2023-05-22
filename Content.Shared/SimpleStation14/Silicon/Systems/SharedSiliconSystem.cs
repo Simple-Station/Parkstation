@@ -4,6 +4,7 @@ using Robust.Shared.Serialization;
 using Content.Shared.Movement.Systems;
 
 namespace Content.Shared.SimpleStation14.Silicon.Systems;
+
 public sealed class SharedSiliconChargeSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
@@ -44,22 +45,22 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
 
     private void OnRefreshMovespeed(EntityUid uid, SiliconComponent component, RefreshMovementSpeedModifiersEvent args)
     {
-        if (component.BatteryPowered)
+        if (!component.BatteryPowered)
+            return;
+
+        var speedModThresholds = component.SpeedModifierThresholds;
+
+        var closest = -0.5f;
+
+        foreach (var state in speedModThresholds)
         {
-            var speedModThresholds = component.SpeedModifierThresholds;
-
-            var closest = -0.5f;
-
-            foreach (var state in speedModThresholds)
-            {
-                if (component.ChargeState >= state.Key && ((float)state.Key) > closest)
-                    closest = ((float)state.Key);
-            }
-
-            var speedMod = speedModThresholds[(ChargeState)closest];
-
-            args.ModifySpeed(speedMod, speedMod);
+            if (component.ChargeState >= state.Key && ((float) state.Key) > closest)
+                closest = ((float) state.Key);
         }
+
+        var speedMod = speedModThresholds[(ChargeState)closest];
+
+        args.ModifySpeed(speedMod, speedMod);
     }
 }
 
