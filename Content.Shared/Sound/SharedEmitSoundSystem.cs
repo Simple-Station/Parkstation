@@ -3,6 +3,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
 using Content.Shared.Popups;
+using Content.Shared.SimpleStation14.EndOfRoundStats.EmitSound; // Parkstation-EndOfRoundStats
 using Content.Shared.Sound.Components;
 using Content.Shared.Throwing;
 using JetBrains.Annotations;
@@ -105,6 +106,11 @@ namespace Content.Shared.Sound
                 // don't predict sounds that client couldn't have played already
                 _audioSystem.PlayPvs(component.Sound, component.Owner);
             }
+
+            // Parkstation-EndOfRoundStats-Start
+            if (_netMan.IsServer)
+                RaiseLocalEvent(new EmitSoundStatEvent(component.Owner, component.Sound));
+            // Parkstation-EndOfRoundStats-End
         }
     }
 }

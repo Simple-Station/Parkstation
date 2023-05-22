@@ -920,3 +920,53 @@ Entries:
         difficult to make, but provides funny buffs. Ask Shiro for the recipe
   id: 81
   time: '2023-05-11T19:01:57Z'
+- author: JasperStingtail
+  changes:
+    - type: fix
+      message: Fixed cargo spacing
+    - type: fix
+      message: 'Fixed an unpowered engineering door '
+    - type: fix
+      message: Fixed epi scanning modules to have a vessel machine
+    - type: fix
+      message: Fixed cloning to work now
+    - type: add
+      message: Added a door in epi hallways for ease of access
+    - type: add
+      message: Added more directional signs
+    - type: add
+      message: Reluctantly added mouse timed spawners
+    - type: add
+      message: Added bottle of nothing to clown/mime room
+    - type: add
+      message: Added navigational decals
+    - type: fix
+      message: East and west evac have been fixed to dock properly
+  id: 82
+  time: '2023-05-17T21:54:03Z'
+- author: Pspritechologist
+  changes:
+    - type: add
+      message: >-
+        CentCom realized they weren't properly tracking you, and decided to
+        update the telemetry terms of your contracts,. Expect to see some
+        interesting stats at the end of the shift regarding things you may have,
+        or may have not done well!
+  id: 83
+  time: '2023-05-19T19:04:52Z'
+- author: Pspritechologist
+  changes:
+    - type: remove
+      message: Removes Ohiostation from the map pool until further notice.
+  id: 84
+  time: '2023-05-20T04:24:27Z'
+- author: SomeCabbage
+  changes:
+    - type: add
+      message: >-
+        Added a few new cargo orders to the request terminal. Includes the Fox
+        crate, Exotic meats, and more.
+    - type: add
+      message: Cabbages can now be cut into leaves (request by Pspritechologist)
+  id: 85
+  time: '2023-05-21T05:35:18Z'
