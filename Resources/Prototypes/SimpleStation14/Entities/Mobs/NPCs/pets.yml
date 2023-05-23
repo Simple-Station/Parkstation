@@ -87,7 +87,6 @@
   parent: SimpleMobBase
   id: MobShiro
   description: Huh, so this is what Shiro really looks like.
-  startingGear: shirosvest
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -233,7 +232,6 @@
   id: MobMonkeyJackParker
   parent: SimpleMobBase
   description: Hasn't lost a case in his entire career.
-  startingGear: jackparkerstuff
   components:
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-primate
@@ -314,13 +312,3 @@
   - type: Tag
     tags:
     - CannotSuicide
-
-- type: startingGear
-  id: jackparkerstuff
-  equipment:
-    hands: BriefcaseBrownFilled
-
-- type: startingGear
-  id: shirosvest
-  equipment:
-    belt: ClothingBeltWebbingShiro
