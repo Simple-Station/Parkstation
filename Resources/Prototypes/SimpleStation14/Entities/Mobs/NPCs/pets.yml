@@ -124,7 +124,7 @@
         Base: shiro_dead
   - type: Butcherable
     spawned:
-    - id: FoodMeat
+    - id: FoodShiroSlime
       amount: 3
   - type: InteractionPopup
     successChance: 1.0
@@ -203,7 +203,7 @@
     damage:
       types:
         Blunt: 1
-        Slash: 2
+        Slash: 1
         Piercing: 1
   - type: Faction
     factions:
