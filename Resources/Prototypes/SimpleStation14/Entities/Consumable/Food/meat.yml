@@ -10,7 +10,7 @@
   - type: Sprite
     sprite: SimpleStation14/Objects/Consumable/Food/shiro.rsi
     netsync: false
-    state: slime
+    state: shiro
   - type: Tag
     tags:
     - Raw
