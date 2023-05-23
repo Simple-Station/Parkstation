@@ -9,9 +9,9 @@
   - type: Clothing
     sprite: SimpleStation14/Clothing/Belt/shirowebbing.rsi
   - type: Item
-    size: 60
+    size: 15
   - type: Storage
-    capacity: 60
+    capacity: 10
   - type: Tag
     tags:
       - BeltSlotNotBelt

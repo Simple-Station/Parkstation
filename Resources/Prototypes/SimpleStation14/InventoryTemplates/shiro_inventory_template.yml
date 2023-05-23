@@ -27,7 +27,7 @@
     slotTexture: belt
     slotFlags: BELT
     slotGroup: SecondHotbar
-    stripTime: 300 # only if you're reeaaaaly dedicated to taking it since it autofills with shiro's vest
+    stripTime: 3
     uiWindowPos: 3,1
     strippingWindowPos: 1,5
     displayName: Belt

@@ -85,26 +85,6 @@
             ]
         },
         {
-            "name": "equipped-SUITSTORAGE-pig",
-            "directions": 4,
-            "delays": [
-                [ 1 ],
-                [ 1 ],
-                [ 1 ],
-                [ 1 ]
-            ]
-        },
-        {
-            "name": "equipped-SUITSTORAGE-pig",
-            "directions": 4,
-            "delays": [
-                [ 1 ],
-                [ 1 ],
-                [ 1 ],
-                [ 1 ]
-            ]
-        },
-        {
             "name": "equipped-SUITSTORAGE-shiro",
             "directions": 4,
             "delays": [
