@@ -1,0 +1,18 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltWebbingShiro
+  name: shiro's webbing
+  description: A flexible set of webbing worn by little Shiro.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/Belt/shirowebbing.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/Belt/shirowebbing.rsi
+  - type: Item
+    size: 60
+  - type: Storage
+    capacity: 60
+  - type: Tag
+    tags:
+      - BeltSlotNotBelt
+      - PetWearable

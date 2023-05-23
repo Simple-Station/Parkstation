@@ -87,6 +87,7 @@
   parent: SimpleMobBase
   id: MobShiro
   description: Huh, so this is what Shiro really looks like.
+  startingGear: shirosvest
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -107,8 +108,8 @@
       - MobLayer
   - type: Appearance
   - type: Inventory
-    speciesId: fox
-    templateId: pet
+    speciesId: shiro
+    templateId: shiro
   - type: Strippable
   - type: UserInterface
     interfaces:
@@ -198,8 +199,6 @@
   - type: MeleeWeapon
     animation: WeaponArcClaw
     attackRate: 2
-    soundHit:
-      path: /Audio/weapons/punch3.ogg
     damage:
       types:
         Blunt: 1
@@ -320,3 +319,8 @@
   id: jackparkerstuff
   equipment:
     hands: BriefcaseBrownFilled
+
+- type: startingGear
+  id: shirosvest
+  equipment:
+    belt: ClothingBeltWebbingShiro

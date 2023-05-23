@@ -1,7 +1,7 @@
 - type: entity
   name: dissociative slimeball
-  parent: FoodShiroSlime
-  id: FoodMeat
+  parent: FoodMeatBase
+  id: FoodShiroSlime
   description: A perfectly round blob of Shiro's slime.
   components:
   - type: FlavorProfile
@@ -14,8 +14,6 @@
   - type: Tag
     tags:
     - Raw
-  - type: Sprite
-    state: plain
   - type: SolutionContainerManager
     solutions:
       food:
