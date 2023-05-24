@@ -88,12 +88,20 @@
   id: MobShiro
   description: Huh, so this is what Shiro really looks like.
   components:
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          shiro: Sixteen
+
   - type: Sprite
     drawdepth: Mobs
+    netsync: false
     sprite: SimpleStation14/Mobs/pets/shiro.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: SimpleStation14/Mobs/pets/shiro.rsi
       state: shiro
+      color: "#FF00FF"
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -226,8 +234,8 @@
     whitelistRequired: true
     name: Shiro
     description: Be Shiro! Be fast! Always be fast!
-  - loadout:
-    prototype: [ ShirosVest ]
+  - type: Loadout
+    prototypes: [ ShirosVest ]
 
 - type: entity
   name: Jack Parker
@@ -314,15 +322,15 @@
   - type: Tag
     tags:
     - CannotSuicide
-  - loadout:
-    prototype: [ JacksThings ]
+  - type: Loadout
+    prototypes: [ JacksThings ]
 
 - type: startingGear
   id: ShirosVest
   equipment:
-  belt: ClothingBeltWebbingShiroFilled
+    belt: ClothingBeltWebbingShiroFilled
 
 - type: startingGear
   id: JacksThings
   equipment:
-  hands: BriefcaseBrownFilled
+    hands: BriefcaseBrownFilled
