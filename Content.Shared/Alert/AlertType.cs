@@ -27,6 +27,7 @@ namespace Content.Shared.Alert
         Starving,
         Thirsty,
         Parched,
+        Charge // Parkstation-IPC
         Stamina,
         Pulled,
         Pulling,
@@ -45,10 +46,6 @@ namespace Content.Shared.Alert
         Debug4,
         Debug5,
         Debug6,
-
-        // Start of Parkstation alerts
-        Charge
-        // End of Parkstation alerts
     }
 
 }

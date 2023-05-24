@@ -16,23 +16,23 @@
     - sprite: SimpleStation14/Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_tesla
 
-- type: marking
-  speciesRestriction: [IPC]
-  id: RobotAntennaLightb
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: SimpleStation14/Mobs/Customization/ipc_antenna.rsi
-      state: ipc_antenna_lightb
+# - type: marking
+#   speciesRestriction: [IPC]
+#   id: RobotAntennaLightb
+#   bodyPart: Hair
+#   markingCategory: Hair
+#   sprites:
+#     - sprite: SimpleStation14/Mobs/Customization/ipc_antenna.rsi
+#       state: ipc_antenna_lightb
 
-- type: marking
-  speciesRestriction: [IPC]
-  id: RobotAntennaLight
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: SimpleStation14/Mobs/Customization/ipc_antenna.rsi
-      state: ipc_antenna_light
+# - type: marking
+#   speciesRestriction: [IPC]
+#   id: RobotAntennaLight
+#   bodyPart: Hair
+#   markingCategory: Hair
+#   sprites:
+#     - sprite: SimpleStation14/Mobs/Customization/ipc_antenna.rsi
+#       state: ipc_antenna_light
 
 - type: marking
   speciesRestriction: [IPC]
@@ -43,14 +43,14 @@
     - sprite: SimpleStation14/Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_cyberhead
 
-- type: marking
-  speciesRestriction: [IPC]
-  id: RobotAntennaSidelights
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: SimpleStation14/Mobs/Customization/ipc_antenna.rsi
-      state: ipc_antenna_sidelights
+# - type: marking
+#   speciesRestriction: [IPC]
+#   id: RobotAntennaSidelights
+#   bodyPart: Hair
+#   markingCategory: Hair
+#   sprites:
+#     - sprite: SimpleStation14/Mobs/Customization/ipc_antenna.rsi
+#       state: ipc_antenna_sidelights
 
 - type: marking
   speciesRestriction: [IPC]

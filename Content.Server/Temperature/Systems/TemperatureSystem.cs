@@ -4,7 +4,7 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Body.Components;
+using Content.Server.Body.Components; // Parkstation-IPCs
 using Content.Server.Temperature.Components;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
@@ -38,7 +38,7 @@ namespace Content.Server.Temperature.Systems
         {
             SubscribeLocalEvent<TemperatureComponent, OnTemperatureChangeEvent>(EnqueueDamage);
             SubscribeLocalEvent<TemperatureComponent, AtmosExposedUpdateEvent>(OnAtmosExposedUpdate);
-            SubscribeLocalEvent<AlertsComponent, OnTemperatureChangeEvent>(ServerAlertNotDumb); // See ServerAlert for how upstream handled it.
+            SubscribeLocalEvent<AlertsComponent, OnTemperatureChangeEvent>(ServerAlertNotDumb); // Parkstation-IPCs // See ServerAlert for how upstream handled it.
             SubscribeLocalEvent<TemperatureProtectionComponent, InventoryRelayedEvent<ModifyChangedTemperatureEvent>>(
                 OnTemperatureChangeAttempt);
 
@@ -168,7 +168,7 @@ namespace Content.Server.Temperature.Systems
             }
         }
 
-        /// Parkstation Temperature Alerts
+        // Parkstation-IPCs-Start
         /// <summary>
         ///     Finds the TemperatureComponent and the ThermalRegulatorComponent, and uses _alertsSystem to set the alert level based on the range of temperatures as allowed by those components.
         ///     Does some math to determine the alert level based on the current temperature and the range of temperatures allowed by the ThermalRegulatorComponent.
@@ -241,7 +241,7 @@ namespace Content.Server.Temperature.Systems
                 return;
             }
         }
-        /// Parkstation Temperature Alerts
+        /// Parkstation-IPCs-End
 
         private void EnqueueDamage(EntityUid uid, TemperatureComponent component, OnTemperatureChangeEvent args)
         {

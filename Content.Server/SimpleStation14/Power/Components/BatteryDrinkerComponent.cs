@@ -12,7 +12,7 @@ public class BatteryDrinkerComponent : Component
     public bool DrinkAll = false;
 
     /// <summary>
-    ///     How long it takes to drink from the battery, in seconds.
+    ///     How long it takes to drink from a battery, in seconds.
     ///     Is mutliplied by the source.
     /// </summary>
     [DataField("drinkSpeed"), ViewVariables(VVAccess.ReadWrite)]

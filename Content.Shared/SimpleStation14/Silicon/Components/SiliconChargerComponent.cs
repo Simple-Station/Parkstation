@@ -34,13 +34,13 @@ public sealed class SiliconChargerComponent : Component
     ///     For reference, an IPC drains at 50.
     /// </summary>
     [DataField("chargeMulti"), ViewVariables(VVAccess.ReadWrite)]
-    public float ChargeMulti = 150f;
+    public float ChargeMulti = 50f;
 
     /// <summary>
     ///     The minimum size of a battery to be charged.
     /// </summary>
     /// <remarks>
-    ///     Charging a battery too small will detonate it, becoming more likely if it's already full.
+    ///     Charging a battery too small will detonate it, becoming more likely as it fills.
     /// </remarks>
     [DataField("minChargeSize"), ViewVariables(VVAccess.ReadWrite)]
     public int MinChargeSize = 1000;
@@ -53,7 +53,7 @@ public sealed class SiliconChargerComponent : Component
     ///     Used specifically for chargers with the <see cref="SharedEntityStorageComponent"/>.
     /// </remarks>
     [DataField("targetTemp"), ViewVariables(VVAccess.ReadWrite)]
-    public float TargetTemp = 365f;
+    public float TargetTemp = 373.15f;
 
 
     /// <summary>
