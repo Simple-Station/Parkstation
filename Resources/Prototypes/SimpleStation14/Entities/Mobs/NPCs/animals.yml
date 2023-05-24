@@ -29,3 +29,124 @@
   - type: Grammar
     attributes:
       gender: epicene
+
+- type: entity
+  name: slime cat
+  parent: SimpleMobBase
+  id: MobSlimeCat
+  description: A cute squishy slime cat. Humorous pet.
+  components:
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          shiro: Sixteen
+
+  - type: Sprite
+    drawdepth: Mobs
+    netsync: false
+    sprite: SimpleStation14/Mobs/pets/shiro.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: SimpleStation14/Mobs/pets/shiro.rsi
+      state: shiro
+      color: "#FF00FF"
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.35
+      density: 50
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+  - type: Appearance
+  - type: Inventory
+    speciesId: shiro
+    templateId: pet
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: shiro
+      Critical:
+        Base: shiro
+      Dead:
+        Base: shiro_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlime
+      amount: 3
+  - type: InteractionPopup
+    successChance: 1.0
+    interactSuccessString: petting-success-slime
+    interactFailureString: petting-failure-generic
+    interactSuccessSound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Slime
+  - type: Bloodstream
+    bloodReagent: Slime
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          1
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.45
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaled: true
+        damage:
+          types:
+            Heat: 2
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "slime-hurt-by-water-popup" ]
+        probability: 0.25
+  - type: MeleeWeapon
+    animation: WeaponArcClaw
+    attackRate: 1.4
+    damage:
+      types:
+        Blunt: 1
+        Slash: 3
+        Piercing: 2
+  - type: Faction
+    factions:
+    - Pet
+  - type: RandomBark
+    barkMultiplier: 1.0
+    barks:
+      - Squish.
+      - Splort.
+    chatlog: True
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 8.0
+    baseSprintSpeed : 4.0

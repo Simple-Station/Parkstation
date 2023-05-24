@@ -84,14 +84,14 @@
 
 - type: entity
   name: Shiro
-  parent: SimpleMobBase
+  parent: MobSlimeCat
   id: MobShiro
   description: Huh, so this is what Shiro really looks like.
   components:
   - type: RandomSprite
     available:
       - enum.DamageStateVisualLayers.Base:
-          shiro: Sixteen
+          shiro: ""
 
   - type: Sprite
     drawdepth: Mobs
@@ -101,88 +101,19 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       sprite: SimpleStation14/Mobs/pets/shiro.rsi
       state: shiro
-      color: "#FF00FF"
+      color: "#FFFFFF"
   - type: Physics
-  - type: Fixtures
-    fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 50
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
-  - type: Appearance
   - type: Inventory
     speciesId: shiro
     templateId: shiro
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-    - key: enum.StrippingUiKey.Key
-      type: StrippableBoundUserInterface
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: shiro
-      Critical:
-        Base: shiro
-      Dead:
-        Base: shiro_dead
   - type: Butcherable
     spawned:
     - id: FoodShiroSlime
       amount: 3
-  - type: InteractionPopup
-    successChance: 1.0
-    interactSuccessString: petting-success-slime
-    interactFailureString: petting-failure-generic
-    interactSuccessSound:
-      path: /Audio/Animals/fox_squeak.ogg
   - type: Grammar
     attributes:
       proper: true
       gender: female
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Slime
-  - type: Bloodstream
-    bloodReagent: Slime
-    bloodlossDamage:
-      types:
-        Bloodloss:
-          1
-    bloodlossHealDamage:
-      types:
-        Bloodloss:
-          -0.25
-  - type: Barotrauma
-    damage:
-      types:
-        Blunt: 0.45
-  - type: Reactive
-    groups:
-      Flammable: [ Touch ]
-      Extinguish: [ Touch ]
-    reactions:
-    - reagents: [ Water, SpaceCleaner ]
-      methods: [ Touch ]
-      effects:
-      - !type:WashCreamPieReaction
-    - reagents: [ Water ]
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        scaled: true
-        damage:
-          types:
-            Heat: 2
-      - !type:PopupMessage
-        type: Local
-        visualType: Large
-        messages: [ "slime-hurt-by-water-popup" ]
-        probability: 0.25
   - type: DraconicBloodstream
     reagent:
       solutionName: chemicals
