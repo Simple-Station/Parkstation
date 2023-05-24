@@ -1,5 +1,8 @@
 - type: Tag
-  id: WizardBook
+  id: GlassesNearsight
 
 - type: Tag
-  id: GlassesNearsight
+  id: Plushie
+
+- type: Tag
+  id: WizardBook
