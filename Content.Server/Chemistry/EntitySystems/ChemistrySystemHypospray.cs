@@ -14,21 +14,30 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Tag;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
-using Robust.Shared.Player;
+using Content.Shared.Containers.ItemSlots;
+using Robust.Shared.Containers;
+using Content.Shared.Examine;
+using Robust.Shared.Prototypes;
+using Content.Shared.Chemistry.Components;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
     public sealed partial class ChemistrySystem
     {
         [Dependency] private readonly UseDelaySystem _useDelay = default!;
+        [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         private void InitializeHypospray()
         {
             SubscribeLocalEvent<HyposprayComponent, AfterInteractEvent>(OnAfterInteract);
             SubscribeLocalEvent<HyposprayComponent, MeleeHitEvent>(OnAttack);
             SubscribeLocalEvent<HyposprayComponent, SolutionChangedEvent>(OnSolutionChange);
+            SubscribeLocalEvent<HyposprayComponent, EntInsertedIntoContainerMessage>(OnContainerModified);
+            SubscribeLocalEvent<HyposprayComponent, EntRemovedFromContainerMessage>(OnContainerModified);
             SubscribeLocalEvent<HyposprayComponent, UseInHandEvent>(OnUseInHand);
             SubscribeLocalEvent<HyposprayComponent, ComponentStartup>(OnStartup);
+            SubscribeLocalEvent<HyposprayComponent, ExaminedEvent>(OnExamine);
         }
 
         private void OnStartup(EntityUid uid, HyposprayComponent component, ComponentStartup args)
@@ -46,6 +55,11 @@ namespace Content.Server.Chemistry.EntitySystems
         }
 
         private void OnSolutionChange(EntityUid uid, HyposprayComponent component, SolutionChangedEvent args)
+        {
+            Dirty(component);
+        }
+
+        private void OnContainerModified(EntityUid uid, HyposprayComponent component, ContainerModifiedMessage args)
         {
             Dirty(component);
         }
@@ -88,9 +102,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 if (tag.Tags.Contains("HardsuitOn"))
                 {
                     if (target == null) return false;
-                    var taget = (EntityUid) target;
-
-                    _popup.PopupEntity("You cant get the needle to go through the thick plating!", taget, user, PopupType.MediumCaution);
+                    _popup.PopupEntity("You cant get the needle to go through the thick plating!", target.Value, user, PopupType.MediumCaution);
                     return false;
                 }
             }
@@ -103,7 +115,18 @@ namespace Content.Server.Chemistry.EntitySystems
                 target = user;
             }
 
-            _solutions.TryGetSolution(uid, component.SolutionName, out var hypoSpraySolution);
+            EntityUid? container = uid;
+
+            if (component.SolutionSlot != null) {
+                container = _itemSlotsSystem.GetItemOrNull(uid, component.SolutionSlot);
+            }
+
+            if (container == null) {
+                _popup.PopupCursor(Loc.GetString("hypospray-component-no-container-message"), user);
+                return false;
+            }
+
+            _solutions.TryGetSolution(container, component.SolutionName, out var hypoSpraySolution);
 
             if (hypoSpraySolution == null || hypoSpraySolution.Volume == 0)
             {
@@ -145,12 +168,14 @@ namespace Content.Server.Chemistry.EntitySystems
             }
 
             // Move units from attackSolution to targetSolution
-            var removedSolution = _solutions.SplitSolution(uid, hypoSpraySolution, realTransferAmount);
+            var removedSolution = _solutions.SplitSolution(container.Value, hypoSpraySolution, realTransferAmount);
 
             if (!targetSolution.CanAddSolution(removedSolution))
                 return true;
             _reactiveSystem.DoEntityReaction(target.Value, removedSolution, ReactionMethod.Injection);
             _solutions.TryAddSolution(target.Value, targetSolution, removedSolution);
+
+            Dirty(component);
 
             //same logtype as syringes...
             _adminLogger.Add(LogType.ForceFeed, $"{_entMan.ToPrettyString(user):user} injected {_entMan.ToPrettyString(target.Value):target} with a solution {SolutionContainerSystem.ToPrettyString(removedSolution):removedSolution} using a {_entMan.ToPrettyString(uid):using}");
@@ -165,6 +190,53 @@ namespace Content.Server.Chemistry.EntitySystems
 
             return entMan.HasComponent<SolutionContainerManagerComponent>(entity)
                 && entMan.HasComponent<MobStateComponent>(entity);
+        }
+
+        private void OnExamine(EntityUid uid, HyposprayComponent component, ExaminedEvent args)
+        {
+            if (component.SolutionSlot != null) {
+                var container = _itemSlotsSystem.GetItemOrNull(uid, component.SolutionSlot);
+                if (container == null) {
+                    args.PushText(Loc.GetString("hypospray-component-on-examine-no-container"));
+                    return;
+                }
+
+                if (!TryComp(container, out ExaminableSolutionComponent? examinableComponent))
+                    return;
+
+                // Mostly copied from SolutionContainerSystem.OnExamineSolution
+
+                SolutionContainerManagerComponent? solutionsManager = null;
+                if (!Resolve(container.Value, ref solutionsManager)
+                    || !solutionsManager.Solutions.TryGetValue(examinableComponent.Solution, out var solutionHolder))
+                    return;
+
+                var primaryReagent = solutionHolder.GetPrimaryReagentId();
+
+                if (string.IsNullOrEmpty(primaryReagent))
+                {
+                    args.PushText(Loc.GetString("shared-solution-container-component-on-examine-empty-container"));
+                    return;
+                }
+
+                if (!_prototypeManager.TryIndex(primaryReagent, out ReagentPrototype? proto))
+                {
+                    Logger.Error(
+                        $"{nameof(Solution)} could not find the prototype associated with {primaryReagent}.");
+                    return;
+                }
+
+                var colorHex = solutionHolder.GetColor(_prototypeManager)
+                    .ToHexNoAlpha(); //TODO: If the chem has a dark color, the examine text becomes black on a black background, which is unreadable.
+                var messageString = "shared-solution-container-component-on-examine-main-text";
+
+                args.PushMarkup(Loc.GetString(messageString,
+                    ("color", colorHex),
+                    ("wordedAmount", Loc.GetString(solutionHolder.Contents.Count == 1
+                        ? "shared-solution-container-component-on-examine-worded-amount-one-reagent"
+                        : "shared-solution-container-component-on-examine-worded-amount-multiple-reagents")),
+                    ("desc", proto.LocalizedPhysicalDescription)));
+            }
         }
     }
 }

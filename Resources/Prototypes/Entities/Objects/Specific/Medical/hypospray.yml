@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: hypospray
   parent: BaseItem
   description: A sterile injector for rapid administration of drugs to patients.
@@ -9,15 +9,16 @@
     state: hypo
   - type: Item
     sprite: Objects/Specific/Medical/hypospray.rsi
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 30
-  - type: RefillableSolution
-    solution: hypospray
-  - type: ExaminableSolution
-    solution: hypospray
+  - type: ItemSlots
+    slots:
+      container:
+        whitelist:
+          tags:
+          - Bottle
+        startingItem: ChemistryEmptyBottle01
   - type: Hypospray
+    solutionSlot: container
+    solutionName: drink
     pierceArmor: true
   - type: DynamicPrice
     price: 750

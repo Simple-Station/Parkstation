@@ -1,5 +1,6 @@
 using Content.Server.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 
@@ -30,8 +31,14 @@ namespace Content.Server.Chemistry.Components
 
         public override ComponentState GetComponentState()
         {
+            var itemSlotSys = _entMan.EntitySysManager.GetEntitySystem<ItemSlotsSystem>();
             var solutionSys = _entMan.EntitySysManager.GetEntitySystem<SolutionContainerSystem>();
-            return solutionSys.TryGetSolution(Owner, SolutionName, out var solution)
+
+            EntityUid? container = Owner;
+            if (SolutionSlot != null) {
+                container =  itemSlotSys.GetItemOrNull(Owner, SolutionSlot);
+            }
+            return solutionSys.TryGetSolution(container, SolutionName, out var solution)
                 ? new HyposprayComponentState(solution.Volume, solution.MaxVolume)
                 : new HyposprayComponentState(FixedPoint2.Zero, FixedPoint2.Zero);
         }
