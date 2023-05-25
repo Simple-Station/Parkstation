@@ -51,6 +51,8 @@ namespace Content.Client.Chemistry.UI
                     (uint)_window.PillDosage.Value, (uint)_window.PillNumber.Value, _window.LabelLine));
             _window.CreateBottleButton.OnPressed += _ => SendMessage(
                 new ChemMasterOutputToBottleMessage((uint)_window.BottleDosage.Value, _window.LabelLine));
+            _window.CreateCartridgeButton.OnPressed += _ => SendMessage(
+                new ChemMasterCreateCartridgeMessage((uint)_window.CartridgeDosage.Value, _window.LabelLine));
 
             for (uint i = 0; i < _window.PillTypeButtons.Length; i++)
             {

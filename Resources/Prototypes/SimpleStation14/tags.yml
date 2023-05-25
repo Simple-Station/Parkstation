@@ -6,3 +6,11 @@
 
 - type: Tag
   id: WizardBook
+
+# Can be used in a chemical medipen
+- type: Tag
+  id: ChemicalCartridge
+
+# Can be filled in ChemMaster once (changes to ChemicalCartridge afterwards)
+- type: Tag
+  id: ChemicalCartridgeEmpty

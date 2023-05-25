@@ -3771,19 +3771,19 @@ entities:
     parent: 1
     type: Transform
 - uid: 331
-  type: ChemicalMedipen
+  type: CartridgeMedipen
   components:
   - pos: 10.484516,-22.194567
     parent: 1
     type: Transform
 - uid: 332
-  type: ChemicalMedipen
+  type: CartridgeMedipen
   components:
   - pos: 10.498704,-22.393242
     parent: 1
     type: Transform
 - uid: 333
-  type: ChemicalMedipen
+  type: CartridgeMedipen
   components:
   - pos: 10.512893,-22.60611
     parent: 1

@@ -50,6 +50,65 @@
     delay: 0.5
 
 - type: entity
+  name: chemical cartridge
+  parent: BaseItem
+  description: A disposable single-use chemical cartridge. Needs to be filled in a ChemMaster.
+  id: ChemicalCartridgeEmpty
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chemistry/bottle.rsi
+    layers:
+      - state: bottle-1
+      - state: bottle-1-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: bottle-1-
+  - type: Item
+    size: 3
+  - type: SolutionContainerManager
+    solutions:
+      cartridge:
+        maxVol: 15
+  - type: Tag
+    tags:
+    - Trash
+    - ChemicalCartridgeEmpty
+  - type: Recyclable
+  - type: SpaceGarbage
+  - type: DynamicPrice
+    price: 75 # These are limited supply items.
+  - type: TrashOnEmpty
+    solution: cartridge
+
+- type: entity
+  name: cartridge medipen
+  parent: BaseItem
+  description: A reusable sterile injector for rapid administration of drugs to patients from disposable cartridges.
+  id: CartridgeMedipen
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    netsync: false
+    layers:
+    - state: medipen
+  - type: Item
+    sprite: Objects/Specific/Medical/medipen.rsi
+    size: 3
+  - type: ItemSlots
+    slots:
+      cartridge:
+        whitelist:
+          tags:
+          - ChemicalCartridge
+  - type: Hypospray
+    solutionSlot: cartridge
+    solutionName: cartridge
+    transferAmount: 15
+
+- type: entity
   name: chemical medipen
   parent: BaseItem
   description: A sterile injector for rapid administration of drugs to patients. This one can't be refilled.
@@ -86,8 +145,6 @@
   - type: DynamicPrice
     price: 75 # These are limited supply items.
   - type: TrashOnEmpty
-    solution: pen
-  - type: RefillableSolution
     solution: pen
 
 - type: entity
