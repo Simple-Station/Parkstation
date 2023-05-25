@@ -1,6 +1,6 @@
 - type: entity
   # parent: BaseMachine # ConstructibleMachine Work out dual inheritance
-  id: LoudSpeaker
+  id: LoudSpeakerBase
   name: loudspeaker
   description: An loudspeaker. For when the station just needs to know something.
   components:
@@ -34,6 +34,8 @@
   - type: Construction
     graph: LoudSpeaker
     node: loudspeaker
+    containers:
+    - payload
   - type: ContainerContainer
     containers:
       payload: !type:Container
@@ -98,3 +100,44 @@
     mode: SnapgridCenter
     snap:
     - Wallmount
+
+- type: entity
+  parent: LoudSpeakerBase
+  id: LoudSpeakerBuzzer
+  name: buzzer
+  description: A buzzer to indicate that someone wants your attention.
+  components:
+  - type: ContainerFill
+    containers:
+      payload:
+      - BikeHorn
+      board:
+      - LoudSpeakerElectronics
+
+- type: entity
+  parent: LoudSpeakerBase
+  id: LoudSpeakerBuzzerService
+  suffix: Service
+  name: buzzer
+  description: A buzzer to indicate that someone wants your attention.
+  components:
+  - type: ContainerFill
+    containers:
+      payload:
+      - DeskBell
+      board:
+      - LoudSpeakerElectronics
+
+- type: entity
+  parent: LoudSpeakerBase
+  id: LoudSpeakerSec
+  suffix: Sec
+  name: buzzer
+  description: A buzzer to indicate that someone wants your attention.
+  components:
+  - type: ContainerFill
+    containers:
+      payload:
+      - BikeHorn
+      board:
+      - LoudSpeakerElectronics

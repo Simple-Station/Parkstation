@@ -41,13 +41,13 @@ public sealed class LoudSpeakerComponent : Component
     ///     The amount to multiply the volume by.
     /// </summary>
     [DataField("volumeMod")]
-    public float VolumeMod = 2f;
+    public float VolumeMod = 3.5f;
 
     /// <summary>
     ///     The amount to multiply the range by.
     /// </summary>
     [DataField("rangeMod")]
-    public float RangeMod = 3f;
+    public float RangeMod = 3.5f;
 
     /// <summary>
     ///     The amount to multiply the rolloff by.
@@ -60,7 +60,7 @@ public sealed class LoudSpeakerComponent : Component
     ///     If the sound has a variance of 0, default variance is used.
     /// </summary>
     [DataField("varianceMod")]
-    public float VarianceMod = 1.35f;
+    public float VarianceMod = 1.5f;
 
     /// <summary>
     ///     The modifier to apply to the default variance.

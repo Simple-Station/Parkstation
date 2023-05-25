@@ -56,7 +56,6 @@ public sealed class DoorSignalControlSystem : EntitySystem
             .WithVolume(sound.Params.Volume * component.VolumeMod)
             .WithMaxDistance(sound.Params.MaxDistance * component.RangeMod)
             .WithRolloffFactor(sound.Params.RolloffFactor * component.RolloffMod)
-            // If variance is 0 or null, use default variance.
             .WithVariation((sound.Params.Variation !> 0 ? component.DefaultVariance : sound.Params.Variation) * component.VarianceMod);
 
         _audio.Play(sound, Filter.Pvs(uid, component.RangeMod), uid, true, newParams);

@@ -79,24 +79,10 @@
       steps:
       - tool: Screwing
         doAfter: 1
-    - to: wired
-      conditions:
-      - !type:AllWiresCut {}
-      - !type:WirePanel {}
-      - !type:ContainerNotEmpty
-        container: board
-      - !type:ContainerEmpty
-        container: payload
-      completed:
-      - !type:EmptyContainer
-        container: board
-      steps:
-      - tool: Prying
-        doAfter: 1
     - to: electronics
       conditions:
-      - !type:AllWiresCut {}
-      - !type:WirePanel {}
+      # - !type:AllWiresCut {}
+      # - !type:WirePanel {}
       - !type:ContainerNotEmpty
         container: board
       - !type:ContainerNotEmpty
@@ -107,14 +93,28 @@
       steps:
       - tool: Prying
         doAfter: 2
+    - to: wired
+      conditions:
+      # - !type:AllWiresCut {}
+      # - !type:WirePanel {}
+      - !type:ContainerNotEmpty
+        container: board
+      - !type:ContainerEmpty
+        container: payload
+      completed:
+      - !type:EmptyContainer
+        container: board
+      steps:
+      - tool: Prying
+        doAfter: 1
 
   - node: loudspeaker
     entity: LoudSpeaker
     edges:
     - to: payload
       conditions:
-      - !type:AllWiresCut {}
-      - !type:WirePanel {}
+      # - !type:AllWiresCut {}
+      # - !type:WirePanel {}
       steps:
       - tool: Screwing
         doAfter: 1
