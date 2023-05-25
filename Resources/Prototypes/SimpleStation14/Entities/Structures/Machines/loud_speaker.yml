@@ -1,0 +1,100 @@
+- type: entity
+  # parent: BaseMachine # ConstructibleMachine Work out dual inheritance
+  id: LoudSpeaker
+  name: loudspeaker
+  description: An loudspeaker. For when the station just needs to know something.
+  components:
+  - type: WallMount
+  - type: ApcPowerReceiver
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: ExtensionCableReceiver
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Appearance
+  - type: Sprite
+    noRot: false
+    sprite: Structures/Wallmounts/intercom.rsi
+    layers:
+    - state: base
+    - state: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    # - state: broadcasting
+    #   map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
+    #   shader: unshaded
+    #   visible: false
+  - type: Transform
+    noRot: false
+    anchored: true
+  # - type: Wires
+  #   BoardName: "LoudSpeaker"
+  #   LayoutId: LoudSpeaker
+  - type: LoudSpeaker
+  - type: Construction
+    graph: LoudSpeaker
+    node: loudspeaker
+  - type: ContainerContainer
+    containers:
+      payload: !type:Container
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 160
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 80
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/metalbreak.ogg
+          - !type:EmptyAllContainersBehaviour
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetSteel1:
+                min: 1
+                max: 2
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      # enum.RadioDeviceVisuals.Broadcasting:
+      #   enum.RadioDeviceVisualLayers.Broadcasting:
+      #     True: { visible: true }
+      #     False: { visible: false }
+  # placement:
+  #   mode: SnapgridCenter
+  #   snap:
+  #   - Wallmount
+
+- type: entity
+  id: LoudSpeakerAssesmbly
+  name: loudspeaker assembly
+  description: A loudspeaker. It doesn't seem very helpful right now.
+  components:
+  - type: WallMount
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Structures/Wallmounts/intercom.rsi
+    state: build
+  - type: Construction
+    graph: LoudSpeaker
+    node: assembly
+  - type: Transform
+    anchored: true
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount

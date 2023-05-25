@@ -3,6 +3,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Validation;
 using Robust.Shared.Serialization.TypeSerializers.Interfaces;
+using Content.Shared.SimpleStation14.Construction.Steps; // Parkstation-LoudSpeakers
 
 namespace Content.Shared.Construction.Steps
 {
@@ -40,6 +41,13 @@ namespace Content.Shared.Construction.Steps
             {
                 return typeof(TemperatureConstructionGraphStep);
             }
+
+            // Parkstation-LoudSpeakers-Start
+            if (node.Has("size") || node.Has("compBlacklist") || node.Has("tagBlacklist"))
+            {
+                return typeof(FilterConstructionGraphStep);
+            }
+            // Parkstation-LoudSpeakers-End
 
             return null;
         }
