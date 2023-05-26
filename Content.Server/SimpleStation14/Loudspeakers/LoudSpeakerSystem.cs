@@ -77,6 +77,9 @@ public sealed class DoorSignalControlSystem : EntitySystem
             case { } when TryComp<EmitSoundOnTriggerComponent>(entity, out var trigger) && trigger.Sound != null:
                 return trigger.Sound;
 
+            case { } when TryComp<EmitSoundOnActivateComponent>(entity, out var activate) && activate.Sound != null:
+                return activate.Sound;
+
             case { } when TryComp<EmitSoundOnUseComponent>(entity, out var use) && use.Sound != null:
                 return use.Sound;
 

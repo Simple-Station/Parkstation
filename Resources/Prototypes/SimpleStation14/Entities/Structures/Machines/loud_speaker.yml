@@ -35,10 +35,12 @@
     graph: LoudSpeaker
     node: loudspeaker
     containers:
+    - board
     - payload
   - type: ContainerContainer
     containers:
       payload: !type:Container
+      board: !type:Container
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -94,6 +96,9 @@
   - type: Construction
     graph: LoudSpeaker
     node: assembly
+    containers:
+    - board
+    - payload
   - type: Transform
     anchored: true
   placement:
