@@ -98,7 +98,9 @@ namespace Content.Client.Lobby.UI
             {
                 Sprite = _entityManager.GetComponent<SpriteComponent>(entity),
                 OverrideDirection = direction,
-                Scale = (4, 4)
+                Scale = (4, 4),
+                Stretch = SpriteView.StretchMode.None,
+                MaxSize = (128, 128)
             };
         }
 
