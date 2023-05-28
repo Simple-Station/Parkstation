@@ -17,15 +17,15 @@
             "name": "light-overlay"
         },
         {
-            "name": "equipped-body",
+            "name": "equipped-outerclothing",
             "directions": 4
         },
         {
-            "name": "equipped-body-light",
+            "name": "equipped-outerclothing-light",
             "directions": 4
         },
         {
-            "name": "equipped-body-unshaded",
+            "name": "equipped-outerclothing-unshaded",
             "directions": 4
         },
         {

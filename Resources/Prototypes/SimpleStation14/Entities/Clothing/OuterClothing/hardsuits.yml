@@ -77,13 +77,13 @@
     spriteLayer: light
     clothingVisuals:
       outerclothing:
-      - state: equipped-body-light
+      - state: equipped-outerclothing-light
         shader: unshaded
   - type: Clothing
     clothingVisuals:
       outerclothing:
-      - state: equipped-body
-      - state: equipped-body-unshaded
+      - state: equipped-outerclothing
+      - state: equipped-outerclothing-unshaded
         shader: unshaded
   - type: PowerCellSlot
     cellSlotId: cell_slot
