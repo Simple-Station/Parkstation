@@ -99,7 +99,7 @@
     netsync: false
     enabled: false
     radius: 8
-    energy: 2
+    energy: 8
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
   - type: Appearance
