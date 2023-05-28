@@ -65,6 +65,8 @@ public sealed class ShadowkinSystem : EntitySystem
         var min = _random.NextFloat(component.MinPowerMin, component.MinPowerMax);
         component.MinPowerAccumulator = min;
         component.MinPowerRoof = min;
+
+        _power.UpdateAlert(uid, true, component.PowerLevel);
     }
 
     private void OnShutdown(EntityUid uid, ShadowkinComponent component, ComponentShutdown args)
@@ -89,9 +91,10 @@ public sealed class ShadowkinSystem : EntitySystem
             if (oldPowerLevel != ShadowkinPowerSystem.GetLevelName(component.PowerLevel))
             {
                 _power.TryBlackeye(uid);
-                _power.UpdateAlert(uid, true, component.PowerLevel);
                 Dirty(component);
             }
+            // I can't figure out how to get this to go to the 100% filled state in the above if statement 😢
+            _power.UpdateAlert(uid, true, component.PowerLevel);
 
             #region MaxPower
             // Check if they're at max power

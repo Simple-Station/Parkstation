@@ -12,7 +12,7 @@ public sealed class ShadowkinPowerSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
 
-    private static readonly Dictionary<ShadowkinPowerThreshold, string> _powerDictionary = new Dictionary<ShadowkinPowerThreshold, string>
+    private static readonly Dictionary<ShadowkinPowerThreshold, string> PowerDictionary = new()
     {
         {ShadowkinPowerThreshold.Max, Loc.GetString("shadowkin-power-max")},
         {ShadowkinPowerThreshold.Great, Loc.GetString("shadowkin-power-great")},
@@ -42,8 +42,9 @@ public sealed class ShadowkinPowerSystem : EntitySystem
         }
 
         // Return the name of the threshold
-        _powerDictionary.TryGetValue(result, out var powerType);
-        return powerType ?? Loc.GetString("shadowkin-power-okay");
+        PowerDictionary.TryGetValue(result, out var powerType);
+        powerType ??= Loc.GetString("shadowkin-power-okay");
+        return powerType;
     }
 
     /// <summary>
@@ -67,8 +68,10 @@ public sealed class ShadowkinPowerSystem : EntitySystem
             return;
         }
 
-        // TODO: How the FUCK does this work??
-        var power = ContentHelpers.RoundToLevels((double) powerLevel, component.PowerLevelMax, 8);
+        // 250 / 7 ~= 35
+        // Pwr / 35 ~= (0-7)
+        // Round to ensure (0-7)
+        var power = Math.Clamp(Math.Round(component.PowerLevel / 35), 0, 7);
 
         // Set the alert level
         _alerts.ShowAlert(uid, AlertType.ShadowkinPower, (short) power);

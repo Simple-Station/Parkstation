@@ -110,7 +110,6 @@ public sealed partial class ShadowkinComponent : Component
     #endregion
 }
 
-[Serializable, NetSerializable]
 public enum ShadowkinPowerThreshold : byte
 {
     Max = 1 << 4,
