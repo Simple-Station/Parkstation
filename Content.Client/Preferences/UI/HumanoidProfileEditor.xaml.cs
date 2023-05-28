@@ -787,6 +787,8 @@ namespace Content.Client.Preferences.UI
             {
                 Sprite = sprite,
                 Scale = (6, 6),
+                Stretch = SpriteView.StretchMode.None,
+                MaxSize = (192, 192),
                 OverrideDirection = Direction.South,
                 VerticalAlignment = VAlignment.Center,
                 SizeFlagsStretchRatio = 1
@@ -797,6 +799,8 @@ namespace Content.Client.Preferences.UI
             {
                 Sprite = sprite,
                 Scale = (6, 6),
+                Stretch = SpriteView.StretchMode.None,
+                MaxSize = (192, 192),
                 OverrideDirection = Direction.East,
                 VerticalAlignment = VAlignment.Center,
                 SizeFlagsStretchRatio = 1
@@ -935,6 +939,8 @@ namespace Content.Client.Preferences.UI
                 {
                     Sprite = sprite,
                     Scale = (6, 6),
+                    Stretch = SpriteView.StretchMode.None,
+                    MaxSize = (192, 192),
                     OverrideDirection = Direction.South,
                     VerticalAlignment = VAlignment.Center,
                     SizeFlagsStretchRatio = 1
@@ -952,6 +958,8 @@ namespace Content.Client.Preferences.UI
                 {
                     Sprite = sprite,
                     Scale = (6, 6),
+                    Stretch = SpriteView.StretchMode.None,
+                    MaxSize = (192, 192),
                     OverrideDirection = Direction.East,
                     VerticalAlignment = VAlignment.Center,
                     SizeFlagsStretchRatio = 1
@@ -1712,6 +1720,8 @@ namespace Content.Client.Preferences.UI
                 {
                     Sprite = sprite,
                     Scale = (1, 1),
+                    Stretch = SpriteView.StretchMode.None,
+                    MaxSize = (32, 32),
                     OverrideDirection = Direction.South,
                     VerticalAlignment = VAlignment.Center,
                     SizeFlagsStretchRatio = 1
