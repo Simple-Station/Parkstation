@@ -146,6 +146,8 @@
     barks:
       - Squish.
       - Splort.
+      - Meow.
+      - Mew.
     chatlog: True
   - type: MovementSpeedModifier
     baseWalkSpeed : 8.0
