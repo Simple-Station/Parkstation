@@ -2,3 +2,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Recorded and edited by @Pspritechologist#9442"
   source: "Parkstation COMMIT HERE"
+
+- files: ["buzzer_one.ogg", "buzzer_two.ogg"]
+  license: "Pixabay Content License"
+  copyright: "By Pixabay"
+  source: "https://pixabay.com/sound-effects/buzz-buzz-95806/"

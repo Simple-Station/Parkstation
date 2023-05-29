@@ -1,0 +1,27 @@
+- type: entity
+  abstract: true
+  id: SoundBoxBase
+  parent: BaseItem
+  name: sound box
+  description: A small box designed to play a specific audio. It has no way to play on its own.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: id_mod
+  - type: Tag
+    tags:
+    - SoundBox
+  - type: EmitSoundOnTrigger
+    sound: Buzzer
+
+- type: entity
+  id: SoundBoxBuzzer
+  parent: SoundBoxBase
+  name: buzzer sound box
+  description: A sound box containing a small metal disc that vibrates when electricity is applied to it.
+  components:
+  - type: EmitSoundOnTrigger
+    sound: Buzzer
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: id_mod

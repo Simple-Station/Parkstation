@@ -1,11 +1,14 @@
 - type: Tag
+  id: SoundBox
+
+- type: Tag
   id: GlassesNearsight
+
+- type: Tag
+  id: LoudSpeakerElectronics
 
 - type: Tag
   id: Plushie
 
 - type: Tag
   id: WizardBook
-
-- type: Tag
-  id: LoudSpeakerElectronics

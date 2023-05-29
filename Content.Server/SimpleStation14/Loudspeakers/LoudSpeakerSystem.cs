@@ -7,6 +7,7 @@ using Robust.Shared.Containers;
 using Content.Server.Sound.Components;
 using Content.Shared.Sound.Components;
 using Content.Shared.Interaction;
+using Robust.Shared.Timing;
 
 namespace Content.Server.SimpleStation14.LoudSpeakers;
 
@@ -14,15 +15,24 @@ public sealed class DoorSignalControlSystem : EntitySystem
 {
     [Dependency] private readonly SignalLinkerSystem _signal = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<LoudSpeakerComponent, ComponentShutdown>(OnShutdown);
+
         SubscribeLocalEvent<LoudSpeakerComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<LoudSpeakerComponent, SignalReceivedEvent>(OnSignalReceived);
 
         SubscribeLocalEvent<LoudSpeakerComponent, InteractHandEvent>(OnInteractHand);
+    }
+
+    private void OnShutdown(EntityUid uid, LoudSpeakerComponent component, ComponentShutdown args)
+    {
+        if (component.CurrentPlayingSound != null)
+            component.CurrentPlayingSound.Stop();
     }
 
     private void OnInit(EntityUid uid, LoudSpeakerComponent component, ComponentInit args)
@@ -42,6 +52,9 @@ public sealed class DoorSignalControlSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
+        if (component.NextPlayTime > _timing.CurTime)
+            return false;
+
         if (TryComp<ApcPowerReceiverComponent>(uid, out var powerComp) && !powerComp.Powered)
             return false;
 
@@ -58,7 +71,12 @@ public sealed class DoorSignalControlSystem : EntitySystem
             .WithRolloffFactor(sound.Params.RolloffFactor * component.RolloffMod)
             .WithVariation((sound.Params.Variation !> 0 ? component.DefaultVariance : sound.Params.Variation) * component.VarianceMod);
 
-        _audio.Play(sound, Filter.Pvs(uid, component.RangeMod), uid, true, newParams);
+        if (component.Interrupt && component.CurrentPlayingSound != null)
+            component.CurrentPlayingSound.Stop();
+
+        component.NextPlayTime = _timing.CurTime + component.Cooldown;
+
+        component.CurrentPlayingSound = _audio.Play(sound, Filter.Pvs(uid, component.RangeMod), uid, true, newParams);
     }
 
     private SoundSpecifier GetSpeakerSound(EntityUid uid, LoudSpeakerComponent component)

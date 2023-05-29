@@ -81,8 +81,6 @@
               doAfter: 1
         - to: electronics
           conditions:
-            # - !type:AllWiresCut {}
-            # - !type:WirePanel {}
             - !type:ContainerNotEmpty
               container: board
             - !type:ContainerNotEmpty
@@ -95,8 +93,6 @@
               doAfter: 2
         - to: wired
           conditions:
-            # - !type:AllWiresCut {}
-            # - !type:WirePanel {}
             - !type:ContainerNotEmpty
               container: board
             - !type:ContainerEmpty
