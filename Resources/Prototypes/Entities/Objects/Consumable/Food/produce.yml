@@ -289,6 +289,9 @@
     sprite: Objects/Specific/Hydroponics/cabbage.rsi
   - type: Produce
     seedId: cabbage
+  - type: SliceableFood
+    count: 4
+    slice: FoodSliceCabbage
 
 - type: entity
   name: garlic

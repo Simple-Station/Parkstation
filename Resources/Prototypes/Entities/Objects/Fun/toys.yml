@@ -24,6 +24,7 @@
   - type: Tag
     tags:
     - Payload # yes, you can even make re-usable plushie grenades
+    - Plushie
   - type: UseDelay
     delay: 1.0
   - type: MeleeWeapon
