@@ -493,10 +493,10 @@
     - CannotSuicide
 
 - type: entity
-  name: Shiva
+  name: Geoff
   parent: MobGiantSpider
   id: MobSpiderShiva
-  description: The first defender of the station.
+  description: Widely recognized to be the literal best thing in existence.
   components:
   - type: Faction
     factions:
@@ -557,7 +557,7 @@
   - type: Grammar
     attributes:
       proper: true
-      gender: female
+      gender: male
   - type: Tag
     tags:
     - CannotSuicide
