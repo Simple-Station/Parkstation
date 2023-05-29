@@ -12,6 +12,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.SimpleStation14.EndOfRoundStats.EmitSound; // Parkstation-EndOfRoundStats
 
 namespace Content.Shared.Sound;
 
@@ -112,6 +113,11 @@ public abstract class SharedEmitSoundSystem : EntitySystem
             // don't predict sounds that client couldn't have played already
             _audioSystem.PlayPvs(component.Sound, uid);
         }
+
+        // Parkstation-EndOfRoundStats-Start
+        if (_netMan.IsServer)
+            RaiseLocalEvent(new EmitSoundStatEvent(uid, component.Sound));
+        // Parkstation-EndOfRoundStats-End
     }
 
     private void OnEmitSoundUnpaused(EntityUid uid, EmitSoundOnCollideComponent component, ref EntityUnpausedEvent args)
