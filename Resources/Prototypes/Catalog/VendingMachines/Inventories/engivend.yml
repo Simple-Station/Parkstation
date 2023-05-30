@@ -2,7 +2,6 @@
   id: EngiVendInventory
   startingInventory:
     ClothingEyesGlassesMeson: 4
-    ClothingEyesGlassesMesonPrescription: 2
     ClothingHeadHatWelding: 6
     Multitool: 4
     PowerCellMedium: 5

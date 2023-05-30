@@ -1,23 +1,5 @@
 - type: entity
   parent: ClothingEyesBase
-  id: ClothingEyesGlassesMesonPrescription
-  name: prescription engineering goggles
-  description: Green-tinted prescription lensed goggles useful for nearsighted engineers.
-  components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/meson.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/meson.rsi
-  - type: VisionCorrection
-  - type: ClothingGrantTag
-    tag: GlassesNearsight
-  - type: FlashImmunity
-  - type: EyeProtection
-  - type: DropOnSlip
-    chance: 5
-
-- type: entity
-  parent: ClothingEyesBase
   id: ClothingEyesGlassesSecurityPrescription
   name: prescription security sunglasses
   description: Someone decided to mix the prescription and tinted lenses. Why hasn't this been thought of sooner?
