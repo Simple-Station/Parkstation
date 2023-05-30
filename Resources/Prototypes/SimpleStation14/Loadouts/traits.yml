@@ -24,3 +24,19 @@
     components:
       - Nearsighted
   item: ClothingEyesHudMedicalPrescription
+
+- type: loadout
+  id: LoadoutNearsightedEyesSecurityGlasses
+  name: Prescription Security Glasses
+  description: Now you can see AND be stylish!
+  category: Traits
+  cost: 4
+  jobWhitelist:
+    - SecurityCadet
+    - SecurityOfficer
+    - Warden
+    - HeadOfSecurity
+  whitelist:
+    components:
+      - Nearsighted
+  item: ClothingEyesGlassesSecurityPrescription
