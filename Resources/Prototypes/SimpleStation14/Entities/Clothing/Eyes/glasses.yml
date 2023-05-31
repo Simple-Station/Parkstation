@@ -1,18 +1,11 @@
 - type: entity
-  parent: ClothingEyesBase
+  parent: ClothingEyesGlassesSecurity
   id: ClothingEyesGlassesSecurityPrescription
   name: prescription security sunglasses
   description: Someone decided to mix the prescription and tinted lenses. Why hasn't this been thought of sooner?
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/secglasses.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/secglasses.rsi
   - type: VisionCorrection
   - type: ClothingGrantTag
     tag: GlassesNearsight
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
   - type: DropOnSlip
     chance: 5

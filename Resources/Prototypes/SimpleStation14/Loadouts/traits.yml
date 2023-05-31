@@ -32,10 +32,10 @@
   category: Traits
   cost: 4
   jobWhitelist:
+    - HeadOfSecurity
     - SecurityCadet
     - SecurityOfficer
     - Warden
-    - HeadOfSecurity
   whitelist:
     components:
       - Nearsighted
