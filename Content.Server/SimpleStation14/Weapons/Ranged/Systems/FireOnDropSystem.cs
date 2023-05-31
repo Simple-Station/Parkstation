@@ -15,10 +15,10 @@ public sealed class FireOnDropSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GunComponent, LandEvent>(HandleEmitSoundOnDrop);
+        SubscribeLocalEvent<GunComponent, LandEvent>(HandleLand);
     }
 
-    private void HandleEmitSoundOnDrop(EntityUid uid, GunComponent component, ref LandEvent args)
+    private void HandleLand(EntityUid uid, GunComponent component, ref LandEvent args)
     {
         var physicsComp = EntityManager.GetComponent<PhysicsComponent>(uid);
 
