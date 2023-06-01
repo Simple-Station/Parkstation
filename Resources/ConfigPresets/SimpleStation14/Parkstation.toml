@@ -8,7 +8,7 @@ lobbyduration = 180
 role_timers = true
 fallbackpreset = "extended"
 map_pool = "ParkMapPool"
-panic_bunker.enabled = true
+panic_bunker.enabled = false
 admin_panic.enabled = true
 
 [npc]
