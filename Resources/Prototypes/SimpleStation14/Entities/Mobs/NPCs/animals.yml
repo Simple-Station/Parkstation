@@ -50,6 +50,7 @@
       sprite: SimpleStation14/Mobs/pets/shiro.rsi
       state: shiro
       color: "#FF00FF"
+      alpha: 200
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -148,7 +149,7 @@
       - Splort.
       - Meow.
       - Mew.
-    chatlog: True
+    chatlog: False
   - type: MovementSpeedModifier
     baseWalkSpeed : 8.0
     baseSprintSpeed : 4.0
