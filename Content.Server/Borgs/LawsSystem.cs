@@ -69,14 +69,14 @@ namespace Content.Server.Borgs
 
             if (_prototype.TryIndex<LawsPrototype>(component.LawsID, out var laws))
             {
-                AddLawsFromPrototype(component.LawsID, uid, component);
+                AddLawsFromPrototype(component, component.LawsID);
 
                 return;
             }
 
             if (_prototype.TryIndex<WeightedRandomPrototype>(component.LawsID, out var collection))
             {
-                AddLawsFromPrototype(collection.Pick(), uid, component);
+                AddLawsFromPrototype(component, collection.Pick());
 
                 return;
             }
@@ -84,26 +84,18 @@ namespace Content.Server.Borgs
             Logger.Warning($"No laws prototype or weighted random found with ID {component.LawsID} for entity {ToPrettyString(uid)}.");
         }
 
-        public void AddLawsFromPrototype(string prototypeID, EntityUid? uid = null, LawsComponent? component = null)
+        public void AddLawsFromPrototype(EntityUid uid, string prototypeID)
+        {
+            AddLawsFromPrototype(EnsureComp<LawsComponent>(uid), prototypeID);
+        }
+
+        public void AddLawsFromPrototype(LawsComponent component, string prototypeID)
         {
             var _prototype = IoCManager.Resolve<IPrototypeManager>();
 
-            if (uid != null)
-            {
-                if (!Resolve(uid.Value, ref component, false))
-                    component = EntityManager.EnsureComponent<LawsComponent>(uid.Value);
-            }
-
-            if (component == null)
-            {
-                Logger.Warning($"No Laws component given and no entity to add it to.");
-
-                return;
-            }
-
             var laws = _prototype.Index<LawsPrototype>(prototypeID);
 
-            // component.Laws.Clear();
+            component.Laws.Clear();
 
             // Add each law in the list.
             foreach (var law in laws.Laws)
