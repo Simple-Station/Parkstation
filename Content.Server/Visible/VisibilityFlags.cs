@@ -7,5 +7,6 @@ namespace Content.Server.Visible
         Normal = 1 << 0,
         Ghost  = 1 << 1,
         PsionicInvisibility = 1 << 2,
+        AIEye = 1 << 4,
     }
 }

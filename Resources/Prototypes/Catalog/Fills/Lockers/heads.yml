@@ -54,6 +54,7 @@
       - id: RubberStampCaptain
       - id: WeaponAntiqueLaser
       - id: JetpackCaptainFilled
+      - id: ClothingHeadHatBeretCap
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -65,24 +66,22 @@
       - id: ClothingNeckCloakHop
       - id: ClothingHeadHatHopcap
       - id: HoPIDCard
-        prob: 0.9
       - id: ClothingHeadsetAltCommand
       - id: BoxPDA
       - id: BoxID
       - id: BoxHeadset
-    #  - id: WeaponDisabler
       - id: ClothingShoesColorBlack
         prob: 0.7
       - id: PlushieLizard
         prob: 0.1
       - id: CigarGoldCase
         prob: 0.10
-        # Fuck the HoP they don't deserve fucking cigars.
-    #  - id: DoorRemoteService
       - id: ClothingNeckGoldmedal
       - id: RubberStampHop
+      - id: ClothingOuterHardsuitHoP
+      - id: BoxEncryptionKeyCommand
       - id: BoxEncryptionKeyPassenger
-      - id: BoxEncryptionKeyService
+      - id: DoorRemoteCommand
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -147,6 +146,7 @@
       - id: PlushieSlime
         prob: 0.1
       - id: DoorRemoteResearch
+      - id: ClothingHeadHatBeretRND
       - id: RubberStampRd
       - id: ClothingHeadsetAltScience
       - id: BoxEncryptionKeyScience
