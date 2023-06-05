@@ -128,6 +128,7 @@
         damage:
           types:
             Poison: 1
+        ignoreResistances: false # Parkstation-compliantpoison
       # dwarves take less toxin damage and heal a marginal amount of brute
       - !type:HealthChange
         conditions:
@@ -138,6 +139,7 @@
         damage:
           types:
             Poison: 0.2
+        ignoreResistances: false # Parkstation-compliantpoison
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -243,6 +245,7 @@
         damage:
           types:
             Poison: 1
+        ignoreResistances: false # Parkstation-compliantpoison
 
 - type: reagent
   id: Rum
@@ -1096,6 +1099,7 @@
         damage:
           types:
             Poison: 1
+        ignoreResistances: false # Parkstation-compliantpoison
 
 - type: reagent
   id: Patron

@@ -122,8 +122,16 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 2
             Piercing: 2
+        conditions:
+        - !type:HasTag
+          invert: true
+          tag: Bee
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+        ignoreResistances: false # Parkstation-compliantpoison
         conditions:
         - !type:HasTag
           invert: true

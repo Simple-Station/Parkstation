@@ -33,6 +33,7 @@
         damage:
           types:
             Poison: 4 # Overuse and it will poison you hard
+        ignoreResistances: false # Parkstation-compliantpoison
     Medicine:
       metabolismRate: 0.375
       effects:

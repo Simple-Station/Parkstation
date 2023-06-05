@@ -226,6 +226,7 @@
         damage:
           types:
             Poison: 1
+        ignoreResistances: false # Parkstation-compliantpoison
 
 - type: reagent
   id: SodaWater

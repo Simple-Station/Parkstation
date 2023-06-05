@@ -112,7 +112,7 @@
     Piercing: 0.5
     Cold: 1.6
     Heat: 0.4
-    Poison: -1 # Poison modifier doesn't do anything?
+    Poison: -1 # TODO: Medicine doesn't get inverted?
     Cellular: 0.2
     Asphyxiation: 0.9
     Bloodloss: 1.1
