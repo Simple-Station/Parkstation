@@ -309,7 +309,7 @@
         ignoreResistances: false
         damage:
           types:
-            Holy: 0.5
+            Holy: 0.25
   metabolisms: #Could nullify debuffs of feeding.
     Drink:
       effects:

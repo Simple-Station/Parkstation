@@ -66,7 +66,7 @@
         damage:
           types:
             Poison:
-              1
+              0.5
       # Cant be added until I add metabolism effects on reagent removal
       #- !type:AdjustAlert
       #  alertType: Toxins
@@ -101,7 +101,7 @@
         damage:
           types:
             Radiation:
-              1
+              0.5
       # Cant be added until I add metabolism effects on reagent removal
       #- !type:AdjustAlert
       #  alertType: Toxins
@@ -127,7 +127,7 @@
         damage:
           types:
             Poison:
-              0.2
+              0.1
       # Cant be added until I add metabolism effects on reagent removal
       #- !type:AdjustAlert
       #  alertType: CarbonDioxide
@@ -229,9 +229,9 @@
         ignoreResistances: true
         damage:
           types:
-            Blunt: -4
-            Slash: -3
-            Piercing: -3
+            Blunt: -2
+            Slash: -1.5
+            Piercing: -1.5
 
 - type: reagent
   id: NitrousOxide
