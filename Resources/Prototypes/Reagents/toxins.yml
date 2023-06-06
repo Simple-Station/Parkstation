@@ -133,7 +133,7 @@
         ignoreResistances: false
         damage:
           types:
-            Caustic: 0.5
+            Caustic: 0.25 # Parkstation-fixReagentSuperPotency
       - !type:Emote
         emote: Scream
         probability: 0.3
@@ -169,7 +169,7 @@
         ignoreResistances: false
         damage:
           types:
-            Caustic: 0.3
+            Caustic: 0.15 # Parkstation-fixReagentSuperPotency
       - !type:Emote
         emote: Scream
         probability: 0.2
@@ -212,7 +212,7 @@
         ignoreResistances: false
         damage:
           types:
-            Caustic: 0.1
+            Caustic: 0.05 # Parkstation-fixReagentSuperPotency
       - !type:Emote
         emote: Scream
         probability: 0.1
