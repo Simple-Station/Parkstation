@@ -3,7 +3,6 @@
   description: department-Command-description
   color: "#334E6D"
   roles:
-  - SAI
   - Captain
   - CentralCommandOfficial
   - ChiefServiceSupervisor
@@ -16,8 +15,9 @@
   - ERTSecurity
   - HeadOfPersonnel
   - HeadOfSecurity
-  - ResearchDirector
   - Mystagogue
+  - ResearchDirector
+  - SAI
 
 - type: department
   id: Service

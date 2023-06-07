@@ -1,3 +1,4 @@
+using Content.Server.SimpleStation14.EndOfRoundStats.Instruments; // Parkstation-EndOfRoundStats
 using Content.Server.Stunnable;
 using Content.Server.UserInterface;
 using Content.Shared.Instruments;
@@ -6,6 +7,7 @@ using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Timing; // Parkstation-EndOfRoundStats
 
 namespace Content.Server.Instruments;
 
@@ -15,6 +17,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly StunSystem _stunSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!; // Parkstation-EndOfRoundStats
 
     public override void Initialize()
     {
@@ -42,6 +45,8 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
 
         instrument.Playing = true;
         instrument.Dirty();
+
+        instrument.TimeStartedPlaying = _gameTiming.CurTime; // Parkstation-EndOfRoundStats
     }
 
     private void OnMidiStop(InstrumentStopMidiEvent msg, EntitySessionEventArgs args)
@@ -96,6 +101,18 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         if (instrument.Playing)
         {
             RaiseNetworkEvent(new InstrumentStopMidiEvent(uid));
+
+            // Parkstation-EndOfRoundStats-Start
+            if (instrument.TimeStartedPlaying != null && instrument.InstrumentPlayer != null)
+            {
+                var username = instrument.InstrumentPlayer.Name;
+                var entity = instrument.InstrumentPlayer.AttachedEntity;
+                var name = entity != null ? MetaData((EntityUid) entity).EntityName : "Unknown";
+
+                RaiseLocalEvent(new InstrumentPlayedStatEvent(name, (TimeSpan) (_gameTiming.CurTime - instrument.TimeStartedPlaying), username));
+            }
+            instrument.TimeStartedPlaying = null;
+            // Parkstation-EndOfRoundStats-End
         }
 
         instrument.Playing = false;

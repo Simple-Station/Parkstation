@@ -1,13 +1,15 @@
 [game]
 hostname = "🌳 | Parkstation"
 desc = "An English MRP server focused on higher RP expectations and calmer rounds."
-maxplayers = 64
-soft_max_players = 48
+maxplayers = 48
+soft_max_players = 32
 lobbyenabled = true
 lobbyduration = 180
 role_timers = true
 fallbackpreset = "extended"
 map_pool = "ParkMapPool"
+panic_bunker.enabled = false
+admin_panic.enabled = false
 
 [npc]
 enabled = true
@@ -19,10 +21,10 @@ id = "parkstation"
 
 [whitelist]
 enabled = true
-min_players = 32
+min_players = 16
 
 [rules]
-time = 60
+time = 120
 
 [events]
 ramping_average_end_time = 120.0
@@ -80,6 +82,7 @@ loginlocal = true
 
 [hub]
 advertise = true
+tags = "rp:med,region:am_n_e,lang:en,no_tag_infer"
 
 [auth]
 # 0 = Optional, 1 = Required, 2 = Disabled
@@ -100,7 +103,6 @@ log_late_msg = false
 
 [status]
 enabled = true
-tags = "rp:med,region:am_n_e,lang:en,no_tag_infer"
 
 
 [infolinks]

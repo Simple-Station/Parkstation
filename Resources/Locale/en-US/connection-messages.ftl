@@ -22,8 +22,11 @@ ban-banned-1 = You, or another user of this computer or connection, are banned f
 ban-banned-2 = The ban reason is: "{$reason}"
 
 soft-player-cap-full = The server is full!
-panic-bunker-account-denied = Due to Russian raiders recently, we are not accepting connections from new accounts right now.
-                              If you speak good English and are really interested, join the Discord at discord.gg/49KeKwXc8g
-panic-bunker-no-admins = No admins are on, and your account is new to us.
-                         To ensure game quality, we unfortunately have to reject this connection.
-                         If you're interested in Parkstation, please check out the website and Discord at discord.gg/49KeKwXc8g
+panic-bunker-account-denied =
+    Due to internal Administration issues, we are temporarily enabling the panic bunker.
+    This will be undone once we sort things out, hopefully very soon.
+    If you're interested in Parkstation, please check out the Discord at discord.gg/49KeKwXc8g
+panic-bunker-no-admins =
+    No Administrators are on currently, and your account is new to us.
+    To ensure game quality, we unfortunately have to reject this connection.
+    If you're interested in Parkstation, please check out the Discord at discord.gg/49KeKwXc8g
