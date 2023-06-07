@@ -190,6 +190,11 @@
     heldPrefix: pen
     size: 2
   - type: Recyclable
+  - type: EmitSoundOnUse
+    sound:
+      collection: PenClick
+  - type: UseDelay
+    delay: 0.2
 
 - type: entity
   name: Cybersun pen
