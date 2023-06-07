@@ -49,3 +49,10 @@
   completetime: 2
   materials:
     Glass: 50
+
+- type: latheRecipe
+  id: ChemicalCartridgeEmpty
+  result: ChemicalCartridgeEmpty
+  completetime: 2
+  materials:
+    Plastic: 100

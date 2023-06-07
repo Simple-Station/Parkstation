@@ -473,6 +473,7 @@
       - Saw
       - Hemostat
       - ChemicalPayload
+      - ChemicalCartridgeEmpty
       - Beaker
       - LargeBeaker
       - CryostasisBeaker

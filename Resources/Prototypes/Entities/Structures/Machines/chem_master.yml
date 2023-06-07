@@ -82,6 +82,7 @@
           tags:
           - Bottle
           - PillCanister
+          - ChemicalCartridgeEmpty
   - type: SolutionContainerManager
     solutions:
       buffer: {}

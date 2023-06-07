@@ -7,6 +7,8 @@ namespace Content.Shared.Chemistry.Components
     [NetworkedComponent()]
     public abstract class SharedHyposprayComponent : Component
     {
+        [DataField("solutionSlot")]
+        public string? SolutionSlot = null;
         [DataField("solutionName")]
         public string SolutionName = "hypospray";
     }

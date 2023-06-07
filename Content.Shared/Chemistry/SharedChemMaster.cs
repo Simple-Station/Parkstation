@@ -15,6 +15,7 @@ namespace Content.Shared.Chemistry
         public const string OutputSlotName = "outputSlot";
         public const string PillSolutionName = "food";
         public const string BottleSolutionName = "drink";
+        public const string CartridgeSolutionName = "cartridge";
         public const uint LabelMaxLength = 50;
     }
 
@@ -77,6 +78,19 @@ namespace Content.Shared.Chemistry
         public readonly string Label;
 
         public ChemMasterOutputToBottleMessage(uint dosage, string label)
+        {
+            Dosage = dosage;
+            Label = label;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterCreateCartridgeMessage : BoundUserInterfaceMessage
+    {
+        public readonly uint Dosage;
+        public readonly string Label;
+
+        public ChemMasterCreateCartridgeMessage(uint dosage, string label)
         {
             Dosage = dosage;
             Label = label;

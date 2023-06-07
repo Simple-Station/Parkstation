@@ -11,6 +11,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
+using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -34,8 +35,13 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly StorageSystem _storageSystem = default!;
         [Dependency] private readonly LabelSystem _labelSystem = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly TagSystem _tagSystem = default!;
 
         private const string PillPrototypeId = "Pill";
+        private const string CartridgePrototypeId = "ChemicalCartridge";
+
+        private const string CartridgeEmptyTag = "ChemicalCartridgeEmpty";
+        private const string CartridgeFullTag = "ChemicalCartridge";
 
         public override void Initialize()
         {
@@ -52,6 +58,7 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterReagentAmountButtonMessage>(OnReagentButtonMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterCreatePillsMessage>(OnCreatePillsMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterOutputToBottleMessage>(OnOutputToBottleMessage);
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterCreateCartridgeMessage>(OnCreateCartridgeMessage);
         }
 
         private void UpdateUiState(ChemMasterComponent chemMaster, bool updateLabel = false)
@@ -271,6 +278,53 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
+        private void OnCreateCartridgeMessage(
+            EntityUid uid, ChemMasterComponent chemMaster, ChemMasterCreateCartridgeMessage message)
+        {
+            var user = message.Session.AttachedEntity;
+            // Make sure there's an empty cartridge in the slot
+            var maybeContainer = _itemSlotsSystem.GetItemOrNull(chemMaster.Owner, SharedChemMaster.OutputSlotName);
+            if (maybeContainer is not { Valid: true } container
+                || !_tagSystem.HasTag(container, CartridgeEmptyTag)
+                || !_solutionContainerSystem.TryGetSolution(container, SharedChemMaster.CartridgeSolutionName, out var solution))
+            {
+                return;
+            }
+
+            // Ensure the amount is valid.
+           if (message.Dosage == 0 || message.Dosage > solution.AvailableVolume)
+                return;
+
+            // Ensure label length is within the character limit.
+            if (message.Label.Length > SharedChemMaster.LabelMaxLength)
+                return;
+
+            if (!WithdrawFromBuffer(chemMaster, message.Dosage, user, out var withdrawal))
+                return;
+
+            _labelSystem.Label(container, message.Label);
+            _solutionContainerSystem.TryAddSolution(container, solution, withdrawal);
+
+            _tagSystem.RemoveTag(container, CartridgeEmptyTag);
+            _tagSystem.AddTag(container, CartridgeFullTag);
+
+            if (user.HasValue)
+            {
+                // Log bottle creation by a user
+                _adminLogger.Add(LogType.Action, LogImpact.Low,
+                    $"{ToPrettyString(user.Value):user} filled {ToPrettyString(container):cartridge} {SolutionContainerSystem.ToPrettyString(solution)}");
+            }
+            else
+            {
+                // Log bottle creation by magic? This should never happen... right?
+                _adminLogger.Add(LogType.Action, LogImpact.Low,
+                    $"Unknown filled {ToPrettyString(container):cartridge} {SolutionContainerSystem.ToPrettyString(solution)}");
+            }
+
+            UpdateUiState(chemMaster);
+            ClickSound(chemMaster);
+        }
+
         private bool WithdrawFromBuffer(
             IComponent chemMaster,
             FixedPoint2 neededVolume, EntityUid? user,
@@ -329,8 +383,12 @@ namespace Content.Server.Chemistry.EntitySystems
 
             var name = Name(container.Value);
             {
+                Solution? solution = null;
+
                 if (_solutionContainerSystem.TryGetSolution(
-                        container.Value, SharedChemMaster.BottleSolutionName, out var solution))
+                        container.Value, SharedChemMaster.BottleSolutionName, out solution)
+                    || _solutionContainerSystem.TryGetSolution(
+                        container.Value, SharedChemMaster.CartridgeSolutionName, out solution))
                 {
                     return BuildContainerInfo(name, solution);
                 }

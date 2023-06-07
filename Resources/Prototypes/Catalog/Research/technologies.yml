@@ -147,6 +147,7 @@
   - PillCanister
   - ChemistryEmptyBottle01
   - ChemicalPayload
+  - ChemicalCartridgeEmpty
 
 - type: technology
   name: technologies-advanced-surgery
