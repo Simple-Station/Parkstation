@@ -310,7 +310,7 @@
         ignoreResistances: false
         damage:
           types:
-            Holy: 0.5
+            Holy: 0.25 # Parkstation-fixReagentSuperPotency
   metabolisms: #Could nullify debuffs of feeding.
     Drink:
       effects:

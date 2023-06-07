@@ -976,3 +976,23 @@ Entries:
       message: 'Added pride pins to loadout '
   id: 86
   time: '2023-05-22T23:39:12Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: Fixed reagents having roughly 2.5x the advertised damage effects
+  id: 87
+  time: '2023-06-06T03:15:24Z'
+- author: Pspritechologist
+  changes:
+    - type: add
+      message: >-
+        Nanotrasen have disabled the unneeded safeties on your guns- Make sure
+        you're carful with them!
+  id: 88
+  time: '2023-06-06T23:02:30Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Increased most job playtime requirements.
+  id: 89
+  time: '2023-06-07T06:06:19.0000000+00:00'
