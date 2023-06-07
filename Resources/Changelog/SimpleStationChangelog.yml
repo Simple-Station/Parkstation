@@ -990,3 +990,9 @@ Entries:
         you're carful with them!
   id: 88
   time: '2023-06-06T23:02:30Z'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Increased most job playtime requirements.
+  id: 89
+  time: '2023-06-07T06:06:19.0000000+00:00'
