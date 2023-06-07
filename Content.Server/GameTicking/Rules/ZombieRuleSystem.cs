@@ -1,7 +1,9 @@
 using System.Globalization;
 using System.Linq;
 using Content.Server.Actions;
+using Content.Server.Audio;
 using Content.Server.Chat.Managers;
+using Content.Server.Chat.Systems;
 using Content.Server.Disease;
 using Content.Server.Disease.Components;
 using Content.Server.Humanoid;
@@ -13,6 +15,7 @@ using Content.Server.RoundEnd;
 using Content.Server.Traitor;
 using Content.Server.Zombies;
 using Content.Shared.Actions.ActionTypes;
+using Content.Shared.Audio;
 using Content.Shared.CCVar;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
@@ -22,6 +25,7 @@ using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Zombies;
 using Robust.Server.Player;
+using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -43,6 +47,8 @@ public sealed class ZombieRuleSystem : GameRuleSystem
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly ZombifyOnDeathSystem _zombify = default!;
+    [Dependency] private readonly ServerGlobalSoundSystem _soundSystem = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     private Dictionary<string, string> _initialInfectedNames = new();
 
@@ -51,6 +57,8 @@ public sealed class ZombieRuleSystem : GameRuleSystem
     private const string PatientZeroPrototypeID = "InitialInfected";
     private const string InitialZombieVirusPrototype = "PassiveZombieVirus";
     private const string ZombifySelfActionPrototype = "TurnUndead";
+
+    private bool musicPlaying = false;
 
     public override void Initialize()
     {
@@ -152,10 +160,44 @@ public sealed class ZombieRuleSystem : GameRuleSystem
             return;
 
         var percent = GetInfectedPercentage(out var num);
-        if (num.Count == 1) //only one human left. spooky
-           _popup.PopupEntity(Loc.GetString("zombie-alone"), num[0], num[0]);
-        if (percent >= 1) //oops, all zombies
+        // TODO: So goddamn many CCVars..
+        if (num.Count == 1) // only one human left. spooky
+        {
+            _soundSystem.PlayGlobalOnStation(target, "/Audio/Announcements/blobalarm.ogg");
+            _popup.PopupEntity(Loc.GetString("zombie-alone"), num[0], num[0]);
+        }
+        if (percent >= 0.6 && musicPlaying == false) // Crew losing
+        {
+            _chat.DispatchGlobalAnnouncement("Extreme transmission of zombification virus detected on station. All remaining survivors are advised to report to evac and await shuttle arrival.");
+            _roundEndSystem.RequestRoundEnd();
+            _soundSystem.DispatchStationEventMusic(target, new SoundPathSpecifier("/Audio/Corvax/Announcements/epsilon_music.ogg"), StationEventMusicType.Zombies); // get another music pls
+            musicPlaying = true;
+        }
+        if (percent <= 0.2 && musicPlaying == true) // Crew recovered
+        {
+            _chat.DispatchGlobalAnnouncement("High lack of zombified lifeforms detected. Crew are advised to recover any injured crewmates and maintain station.");
+            _roundEndSystem.CancelRoundEndCountdown();
+            _soundSystem.StopStationEventMusic(target, StationEventMusicType.Zombies);
+            musicPlaying = false;
+        }
+        if (percent <= 0) // Crew won
+        {
+            // _chat.DispatchGlobalAnnouncement("Complete lack of zombified lifeforms detected. The crew is advised to report to CSS for cleanup instructions and then return to normal jobs.");
+            _roundEndSystem.CancelRoundEndCountdown();
+            if (musicPlaying == true)
+            {
+                _soundSystem.StopStationEventMusic(target, StationEventMusicType.Zombies);
+                musicPlaying = false;
+            }
+        }
+        if (percent >= 1) // oops, all zombies
+        {
+            _chat.DispatchGlobalAnnouncement("Lack of life signs detected aboard station. Voiding contracts and classifying as derelict.");
+            _roundEndSystem.CancelRoundEndCountdown();
+            if (musicPlaying == true) _soundSystem.StopStationEventMusic(target, StationEventMusicType.Zombies);
+            musicPlaying = false;
             _roundEndSystem.EndRound();
+        }
     }
 
     private void OnStartAttempt(RoundStartAttemptEvent ev)
