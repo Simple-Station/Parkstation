@@ -127,3 +127,6 @@
   - type: SpellbookUser2
   - type: Inventory
     templateId: aghost
+  - type: SightFeared
+    fears:
+      Phasmophobia: 2 # Spooky ghosts are spooky

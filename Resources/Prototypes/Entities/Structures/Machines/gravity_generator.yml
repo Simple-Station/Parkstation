@@ -12,7 +12,6 @@
     range: 7
     sound:
       path: /Audio/Ambience/Objects/gravity_gen_hum.ogg
-
   - type: Sprite
     netsync: false
     sprite: Structures/Machines/gravity_generator.rsi
@@ -74,6 +73,9 @@
     color: "#a8ffd9"
   - type: DynamicPrice
     price: 5000
+  - type: SightFeared
+    fears:
+      Barophobia: 2.5 # Big scary machine
 
 - type: entity
   id: GravityGeneratorMini
@@ -113,3 +115,6 @@
     lightRadiusMax: 2.5
   - type: DynamicPrice
     price: 2000
+  - type: SightFeared
+    fears:
+      Barophobia: 1.75 # Smaller, less scary

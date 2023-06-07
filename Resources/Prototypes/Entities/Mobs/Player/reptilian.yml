@@ -34,3 +34,7 @@
       damageRecovery:
         types:
           Asphyxiation: -1.0
+    - type: SightFeared
+      fears:
+        Anthropophobia: 0.75
+        Xenophobia: 0.7

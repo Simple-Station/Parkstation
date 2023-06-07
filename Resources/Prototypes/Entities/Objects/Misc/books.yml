@@ -32,6 +32,9 @@
     sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
   - type: EmitSoundOnLand
     sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: SightFeared
+    fears:
+      Bibliophobia: 0.75
 
 - type: entity
   parent: BookBase

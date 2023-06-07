@@ -212,6 +212,9 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: RandomBark
+  - type: SightFeared
+    fears:
+      Ornithophobia: 0.5
 
 - type: entity
   name: mallard duck #Quack
@@ -1111,6 +1114,9 @@
   - type: NoSlip
   - type: HTN
     rootTask: IdleEvadeCompound
+  - type: SightFeared
+    fears:
+      Ornithophobia: 0.75 # A bit spookier than the other birds
 
 - type: entity
   name: penguin
@@ -1174,6 +1180,9 @@
     barks:
       - Wank
     barkMultiplier: 0.6
+  - type: SightFeared
+    fears:
+      Ornithophobia: 0.5
 
 - type: entity
   name: grenade penguin
@@ -1298,6 +1307,9 @@
       - Hsssssss
       - Hss
       - Hsssss
+  - type: SightFeared
+    fears:
+      Ophidiophobia: 1.5
 
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
@@ -1362,6 +1374,9 @@
       types:
         Piercing: 10
   - type: RandomBark
+  - type: SightFeared
+    fears:
+      Arachnophobia: 1
 
 - type: entity
   name: tarantula

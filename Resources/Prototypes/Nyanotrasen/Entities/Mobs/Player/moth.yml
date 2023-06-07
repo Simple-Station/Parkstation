@@ -41,3 +41,8 @@
     - NanoTrasen
   - type: MailReceiver
   - type: PotentialPsionic
+  - type: SightFeared
+    fears:
+      Anthropophobia: 0.5
+      Xenophobia: 0.7
+      Arachnophobia: 0.2

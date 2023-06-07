@@ -27,3 +27,8 @@
         - NanoTrasen
     - type: MailReceiver
     - type: PotentialPsionic
+    - type: SightFeared
+      fears:
+        Anthropophobia: 0.75
+        Xenophobia: 0.9
+        Blennophobia: 1.25

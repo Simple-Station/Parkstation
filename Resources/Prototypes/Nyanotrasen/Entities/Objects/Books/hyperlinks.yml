@@ -14,6 +14,9 @@
     sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
   - type: EmitSoundOnLand
     sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: SightFeared
+    fears:
+      Bibliophobia: 1 # Spooky book that teaches you
 
 - type: entity
   parent: BaseHyperlinkBook

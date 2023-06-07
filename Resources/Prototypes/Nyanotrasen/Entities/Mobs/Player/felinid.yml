@@ -42,3 +42,7 @@
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
   - type: PotentialPsionic
+  - type: SightFeared
+    fears:
+      Anthropophobia: 0.9
+      Xenophobia: 0.25

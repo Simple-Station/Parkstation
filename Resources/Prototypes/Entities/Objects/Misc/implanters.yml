@@ -44,6 +44,9 @@
           implantOnly:
             True: {state: broken}
             False: {state: syringe_base0}
+    - type: SightFeared
+      fears:
+        Trypanophobia: 1
 
 - type: entity
   id: Implanter
