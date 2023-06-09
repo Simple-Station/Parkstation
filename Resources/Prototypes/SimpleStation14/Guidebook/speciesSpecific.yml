@@ -2,37 +2,37 @@
 - type: guideEntry
   id: SpeciesDiona
   name: guide-entry-diona
-  text: "/Server Info/SimpleStation14/Guidebook/Species/WizdenSpecies/Diona.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Species/WizdenSpecies/Diona.xml"
 
 - type: guideEntry
   id: SpeciesDwarf
   name: guide-entry-dwarf
-  text: "/Server Info/SimpleStation14/Guidebook/Species/WizdenSpecies/Dwarf.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Species/WizdenSpecies/Dwarf.xml"
 
 - type: guideEntry
   id: SpeciesHuman
   name: guide-entry-human
-  text: "/Server Info/SimpleStation14/Guidebook/Species/WizdenSpecies/Human.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Species/WizdenSpecies/Human.xml"
 
 - type: guideEntry
   id: SpeciesReptilian
   name: guide-entry-reptilian
-  text: "/Server Info/SimpleStation14/Guidebook/Species/WizdenSpecies/Reptilian.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Species/WizdenSpecies/Reptilian.xml"
 
 - type: guideEntry
   id: SpeciesSkeleton
   name: guide-entry-skeleton
-  text: "/Server Info/SimpleStation14/Guidebook/Species/WizdenSpecies/Skeleton.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Species/WizdenSpecies/Skeleton.xml"
 
 - type: guideEntry
   id: SpeciesSlime
   name: guide-entry-slime
-  text: "/Server Info/SimpleStation14/Guidebook/Species/WizdenSpecies/Slime.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Species/WizdenSpecies/Slime.xml"
 
 - type: guideEntry
   id: SpeciesVox
   name: guide-entry-vox
-  text: "/Server Info/SimpleStation14/Guidebook/Species/WizdenSpecies/Vox.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Species/WizdenSpecies/Vox.xml"
 
 
 # Nyano Species
@@ -40,31 +40,31 @@
 - type: guideEntry
   id: SpeciesArachne
   name: guide-entry-arachne
-  text: "/Server Info/SimpleStation14/Guidebook/Species/NyanoSpecies/Arachne.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Species/NyanoSpecies/Arachne.xml"
 
 - type: guideEntry
   id: SpeciesFelinid
   name: guide-entry-felinid
-  text: "/Server Info/SimpleStation14/Guidebook/Species/NyanoSpecies/Felinid.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Species/NyanoSpecies/Felinid.xml"
 
 - type: guideEntry
   id: SpeciesMoff
   name: guide-entry-moth
-  text: "/Server Info/SimpleStation14/Guidebook/Species/NyanoSpecies/Moth.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Species/NyanoSpecies/Moth.xml"
 
 - type: guideEntry
   id: SpeciesOni
   name: guide-entry-oni
-  text: "/Server Info/SimpleStation14/Guidebook/Species/NyanoSpecies/Oni.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Species/NyanoSpecies/Oni.xml"
 
 # SimpleStation Species
 
 # - type: guideEntry
 #   id: SpeciesPlasmaman
 #   name: guide-entry-plasmaman
-#   text: "/Server Info/SimpleStation14/Guidebook/Species/SimpleStationSpecies/Plasmaman.xml"
+#   text: "/ServerInfo/SimpleStation14/Guidebook/Species/SimpleStationSpecies/Plasmaman.xml"
 
 # - type: guideEntry
 #   id: SpeciesShadekin
 #   name: guide-entry-shadekin
-#   text: "/Server Info/SimpleStation14/Guidebook/Species/SimpleStationSpecies/Shadekin.xml"
+#   text: "/ServerInfo/SimpleStation14/Guidebook/Species/SimpleStationSpecies/Shadekin.xml"
