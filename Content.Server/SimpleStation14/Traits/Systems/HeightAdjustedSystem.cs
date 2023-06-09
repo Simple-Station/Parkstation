@@ -16,8 +16,9 @@ public sealed class HeightAdjustedSystem : EntitySystem
         SubscribeLocalEvent<HeightAdjustedComponent, ComponentShutdown>(Shutdown);
     }
 
+
     /// <summary>
-    ///     Sets the scale and density of the entity.
+    ///     Sets the density and zoom of the entity.
     /// </summary>
     private void Startup(EntityUid uid, HeightAdjustedComponent component, ComponentStartup args)
     {
@@ -34,6 +35,9 @@ public sealed class HeightAdjustedSystem : EntitySystem
 
             SetDensity(uid, newDensity);
         }
+
+        if (_entityManager.TryGetComponent<SharedEyeComponent>(uid, out var eye))
+            eye.Zoom *= new Vector2(component.Width, component.Height);
     }
 
     /// <summary>
