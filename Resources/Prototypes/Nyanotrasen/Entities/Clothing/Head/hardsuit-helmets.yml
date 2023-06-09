@@ -11,7 +11,7 @@
     sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/syndicate.rsi
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitCybersun
+  parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitJuggernautReverseEngineered
   noSpawn: true
   name: SA-127 combat hardsuit helmet
@@ -21,6 +21,9 @@
     sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/juggernaut.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/juggernaut.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitERTLeader
