@@ -29,6 +29,9 @@
     interfaces:
     - key: enum.TransferAmountUiKey.Key
       type: TransferAmountBoundUserInterface
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
   - type: EmitSoundOnPickup
     sound: /Audio/SimpleStation14/Items/Handling/drinkglass_pickup.ogg
   - type: EmitSoundOnDrop

@@ -17,6 +17,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Content.Server.NPC.Systems;
+using Content.Server.SimpleStation14.Announcements.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
@@ -24,7 +25,7 @@ using Content.Shared.Mobs.Components;
 
 namespace Content.Server.Dragon
 {
-    public sealed partial class DragonSystem : GameRuleSystem
+    public sealed partial class DragonSystem : GameRuleSystem<DragonRuleComponent>
     {
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
@@ -38,6 +39,7 @@ namespace Content.Server.Dragon
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly NPCSystem _npc = default!;
+        [Dependency] private readonly AnnouncerSystem _announce = default!;
 
         /// <summary>
         /// Minimum distance between 2 rifts allowed.
@@ -167,8 +169,9 @@ namespace Content.Server.Dragon
                     Dirty(comp);
                     var location = Transform(comp.Owner).LocalPosition;
 
-                    _chat.DispatchGlobalAnnouncement(Loc.GetString("carp-rift-warning", ("location", location)), playSound: false, colorOverride: Color.Red);
-                    _audioSystem.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
+                    // _chat.DispatchGlobalAnnouncement(Loc.GetString("carp-rift-warning", ("location", location)), playSound: false, colorOverride: Color.Red);
+                    // _audioSystem.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
+                    _announce.SendAnnouncement("notice", Filter.Broadcast(), Loc.GetString("carp-rift-warning", ("location", location)), colorOverride: Color.Red);
                 }
 
                 if (comp.SpawnAccumulator > comp.SpawnCooldown)

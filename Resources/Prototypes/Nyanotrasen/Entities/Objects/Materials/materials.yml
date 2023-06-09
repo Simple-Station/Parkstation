@@ -17,7 +17,8 @@
       - bluespace_2
       - bluespace_3
   - type: Material
-    materials:
+  - type: PhysicalComposition
+    materialComposition:
       Bluespace: 100
   - type: Tag
     tags:
@@ -37,3 +38,16 @@
     stackType: Bluespace
     maxCountOverride: 5
     count: 1
+
+- type: entity
+  parent: BaseItem
+  id: HideMothroach
+  name: mothroach hide
+  description: A thin layer of mothroach hide.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Materials/mothroach.rsi
+    state: mothroachhide
+  - type: Tag
+    tags:
+      - MothroachHide
