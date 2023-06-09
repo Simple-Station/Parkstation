@@ -26,9 +26,9 @@
     Desoxyephedrine: # Meth
       amount: 4
     Epinephrine: # More complexity for uh reasons
-      amount: 1
+      amount: 2
     Ethylredoxrazine: # Negating the alcohol effects of the delight
-      amount: 1
+      amount: 2
     DoctorsDelight: # Delight and negating the poison of the meth
       amount: 1
     Slime: # Squish tasty
