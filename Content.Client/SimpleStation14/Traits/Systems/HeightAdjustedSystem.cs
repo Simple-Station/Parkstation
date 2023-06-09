@@ -14,6 +14,7 @@ public sealed class HeightAdjustedSystem : EntitySystem
         SubscribeLocalEvent<HeightAdjustedComponent, ComponentShutdown>(Shutdown);
     }
 
+
     /// <summary>
     ///     Sets the scale and density of the entity.
     /// </summary>
@@ -54,15 +55,12 @@ public sealed class HeightAdjustedSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Sets the scale of the entity and its eye zoom level.
+    ///     Sets the sprite scale of the entity.
     /// </summary>
     /// <param name="uid">The entity to set the scale of.</param>
     /// <param name="scale">The (x, y) scale to set things to.</param>
     public void SetScale(EntityUid uid, Vector2 scale)
     {
         _appearance.SetData(uid, ScaleVisuals.Scale, scale);
-
-        if (TryComp<SharedEyeComponent>(uid, out var eye))
-            eye.Zoom = scale;
     }
 }
