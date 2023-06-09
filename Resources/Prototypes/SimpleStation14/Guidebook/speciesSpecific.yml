@@ -62,9 +62,9 @@
 # - type: guideEntry
 #   id: SpeciesPlasmaman
 #   name: guide-entry-plasmaman
-#   text: "/Server Info/SimpleStation14/Guidebook/Species/SimpleStationSpecies/Plasmaman.xml"
+#   text: "/ServerInfo/SimpleStation14/Guidebook/Species/SimpleStationSpecies/Plasmaman.xml"
 
 # - type: guideEntry
 #   id: SpeciesShadekin
 #   name: guide-entry-shadekin
-#   text: "/Server Info/SimpleStation14/Guidebook/Species/SimpleStationSpecies/Shadekin.xml"
+#   text: "/ServerInfo/SimpleStation14/Guidebook/Species/SimpleStationSpecies/Shadekin.xml"
