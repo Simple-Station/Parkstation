@@ -1,0 +1,30 @@
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: JukeboxBase
+  name: Jukebox
+  description: A jukebox, capable of playing music.
+  components:
+  - type: Jukebox
+    songs:
+      - DanyaVodovozFunkOMatic
+      - DanyaVodovozGoinOn
+      - DanyaVodovozGuacamole
+      - DanyaVodovozJazzFunkMySoul
+      - DanyaVodovozMothToAFlame
+      - DanyaVodovozNightInBrazil
+      - DanyaVodovozOffTheGrid
+      - DanyaVodovozPlanetOfTheAmazons
+  - type: ActivatableUI
+    key: enum.JukeboxUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      - key: enum.JukeboxUiKey.Key
+        type: JukeboxBoundUserInterface
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Machines/jukebox.rsi
+    layers:
+    - state: base
+    - state: powered
+    - state: powered_unlit
+      shader: unshaded

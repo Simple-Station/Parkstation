@@ -1,0 +1,55 @@
+- type: jukeboxTrack
+  id: DanyaVodovozFunkOMatic
+  name: "Funk O Matic"
+  path: "/Audio/SimpleStation14/JukeboxTracks/DanyaVodovoz/funk_o_matic.ogg"
+  duration: 2:43
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DanyaVodovoz/funk_o_matic.png"
+
+- type: jukeboxTrack
+  id: DanyaVodovozGoinOn
+  name: "Goin' On"
+  path: "/Audio/SimpleStation14/JukeboxTracks/DanyaVodovoz/goin'_on.ogg"
+  duration: 2:39
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DanyaVodovoz/goin'_on.png"
+
+- type: jukeboxTrack
+  id: DanyaVodovozGuacamole
+  name: "Guacamole"
+  path: "/Audio/SimpleStation14/JukeboxTracks/DanyaVodovoz/guacamole.ogg"
+  duration: 3:47
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DanyaVodovoz/guacamole.png"
+
+- type: jukeboxTrack
+  id: DanyaVodovozJazzFunkMySoul
+  name: "Jazz Funk My Soul"
+  path: "/Audio/SimpleStation14/JukeboxTracks/DanyaVodovoz/jazz_funk_my_soul.ogg"
+  duration: 3:09
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DanyaVodovoz/jazz_funk_my_soul.png"
+
+- type: jukeboxTrack
+  id: DanyaVodovozMothToAFlame
+  name: "Moth To A Flame"
+  path: "/Audio/SimpleStation14/JukeboxTracks/DanyaVodovoz/moth_to_a_flame.ogg"
+  duration: 3:41
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DanyaVodovoz/moth_to_a_flame.png"
+
+- type: jukeboxTrack
+  id: DanyaVodovozNightInBrazil
+  name: "A Night In Brazil"
+  path: "/Audio/SimpleStation14/JukeboxTracks/DanyaVodovoz/a_night_in_brazil.ogg"
+  duration: 3:25
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DanyaVodovoz/a_night_in_brazil.png"
+
+- type: jukeboxTrack
+  id: DanyaVodovozOffTheGrid
+  name: "Off The Grid"
+  path: "/Audio/SimpleStation14/JukeboxTracks/DanyaVodovoz/off_the_grid.ogg"
+  duration: 6:01
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DanyaVodovoz/off_the_grid.png"
+
+- type: jukeboxTrack
+  id: DanyaVodovozPlanetOfTheAmazons
+  name: "Planet Of The Amazons"
+  path: "/Audio/SimpleStation14/JukeboxTracks/DanyaVodovoz/planet_of_the_amazons.ogg"
+  duration: 2:55
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DanyaVodovoz/planet_of_the_amazons.png"

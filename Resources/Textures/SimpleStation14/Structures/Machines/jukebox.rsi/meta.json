@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TGStation at https://github.com/tgstation/tgstation/commit/1dd5021b2c5b64e954935bdf77bc973c34016a04",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "powered"
+    },
+    {
+      "name": "powered_unlit"
+    },
+    {
+      "name": "active",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.8,
+          0.4,
+          0.2
+        ]
+      ]
+    }
+  ]
+}
