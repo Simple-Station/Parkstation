@@ -199,7 +199,7 @@
         - map: ["enum.DamageStateVisualLayers.Base"]
           state: 4
         - map: ["enum.PowerDeviceVisualLayers.Powered"]
-          state: ai-blue
+          state: blue
           shader: unshaded
     - type: Damageable
       damageContainer: Inorganic
