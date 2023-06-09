@@ -1,7 +1,7 @@
 # - type: guideEntry
 #   id: Server
 #   name: guide-entry-server
-#   text: "/Server Info/SimpleStation14/Guidebook/AlertProcedure/Server.xml"
+#   text: "/ServerInfo/SimpleStation14/Guidebook/AlertProcedure/Server.xml"
 #   children:
 #     - AlertProcedure
 
