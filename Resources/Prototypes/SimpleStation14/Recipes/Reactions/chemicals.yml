@@ -24,14 +24,16 @@
   id: ShirosDelight
   reactants:
     Desoxyephedrine: # Meth
-      amount: 2
+      amount: 4
+    Epinephrine: # More complexity for uh reasons
+      amount: 1
     Ethylredoxrazine: # Negating the alcohol effects of the delight
-      amount: 2
+      amount: 1
     DoctorsDelight: # Delight and negating the poison of the meth
       amount: 1
     Slime: # Squish tasty
-      amount: 4
+      amount: 3
     JuiceApple: # Add just that little bit of extra work
       amount: 1
   products:
-    ShirosDelight: 1
+    ShirosDelight: 2
