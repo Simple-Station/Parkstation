@@ -6789,7 +6789,7 @@ entities:
       - 9009
       - 9008
       - 6778
-      - 6777
+      - invalid
       - 6776
       - 6784
       - 9016
@@ -6810,6 +6810,7 @@ entities:
       - 3671
       - 8497
       - 15584
+      - 3471
       type: DeviceList
   - uid: 15591
     components:
@@ -11503,7 +11504,7 @@ entities:
   entities:
   - uid: 3524
     components:
-    - pos: -16.443857,33.46222
+    - pos: -16.237007,33.457916
       parent: 1
       type: Transform
   - uid: 3618
@@ -11523,7 +11524,7 @@ entities:
   entities:
   - uid: 5734
     components:
-    - pos: 45.702072,2.8942413
+    - pos: 46.45655,2.5605865
       parent: 1
       type: Transform
 - proto: BlastDoor
@@ -11820,14 +11821,6 @@ entities:
     - pos: 47.390762,-33.346535
       parent: 1
       type: Transform
-- proto: BoxFolderBase
-  entities:
-  - uid: 3717
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: -21.38843,22.866081
-      parent: 1
-      type: Transform
 - proto: BoxFolderBlue
   entities:
   - uid: 623
@@ -11850,7 +11843,7 @@ entities:
       type: Transform
   - uid: 3850
     components:
-    - pos: -21.209053,20.526453
+    - pos: -21.060514,20.521421
       parent: 1
       type: Transform
   - uid: 4097
@@ -39961,7 +39954,7 @@ entities:
       type: Transform
   - uid: 8101
     components:
-    - pos: -14.089604,-8.117112
+    - pos: -13.873526,-8.38321
       parent: 1
       type: Transform
   - uid: 14450
@@ -40717,7 +40710,7 @@ entities:
   entities:
   - uid: 3477
     components:
-    - pos: -15.024929,31.473085
+    - pos: -15.486205,31.548914
       parent: 1
       type: Transform
 - proto: ClothingHeadHatPlaguedoctor
@@ -41033,6 +41026,22 @@ entities:
     - pos: -13.277651,-19.644531
       parent: 1
       type: Transform
+- proto: ClothingNeckLawyerbadge
+  entities:
+  - uid: 2659
+    components:
+    - pos: -21.455048,20.80816
+      parent: 1
+      type: Transform
+    - nextSound: 1442.7645907
+      type: EmitSoundOnCollide
+  - uid: 3228
+    components:
+    - pos: -21.383314,20.682713
+      parent: 1
+      type: Transform
+    - nextSound: 1443.498632
+      type: EmitSoundOnCollide
 - proto: ClothingNeckStethoscope
   entities:
   - uid: 843
@@ -42571,11 +42580,6 @@ entities:
       type: Transform
 - proto: CrateScienceSecure
   entities:
-  - uid: 10421
-    components:
-    - pos: 45.5,-25.5
-      parent: 1
-      type: Transform
   - uid: 10423
     components:
     - pos: 44.5,-25.5
@@ -42697,6 +42701,17 @@ entities:
       type: Transform
     - nextAttack: 3510.3811331
       type: MeleeWeapon
+- proto: Defibrillator
+  entities:
+  - uid: 16342
+    components:
+    - pos: -3.5437756,-38.38789
+      parent: 1
+      type: Transform
+    - nextUpdate: 55.6903703
+      type: PowerCellDraw
+    - nextSound: 55.8903703
+      type: EmitSoundOnCollide
 - proto: DefibrillatorCabinetFilled
   entities:
   - uid: 4075
@@ -42712,12 +42727,6 @@ entities:
   - uid: 16339
     components:
     - pos: -21.5,5.5
-      parent: 1
-      type: Transform
-  - uid: 16341
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 44.5,-13.5
       parent: 1
       type: Transform
 - proto: DeployableBarrier
@@ -47135,9 +47144,9 @@ entities:
       type: Transform
     - chance: 0.7
       type: RandomSpawner
-  - uid: 4552
+  - uid: 4375
     components:
-    - pos: 41.5,-9.5
+    - pos: 38.5,-9.5
       parent: 1
       type: Transform
   - uid: 5725
@@ -50050,12 +50059,26 @@ entities:
       type: Transform
 - proto: FaxMachineBase
   entities:
+  - uid: 849
+    components:
+    - pos: -25.5,2.5
+      parent: 1
+      type: Transform
+    - name: Warden's Office
+      type: FaxMachine
   - uid: 3293
     components:
     - pos: -14.5,31.5
       parent: 1
       type: Transform
     - name: Cargo
+      type: FaxMachine
+  - uid: 3470
+    components:
+    - pos: 49.5,-32.5
+      parent: 1
+      type: Transform
+    - name: Mystagogue's Office
       type: FaxMachine
   - uid: 3829
     components:
@@ -50077,6 +50100,20 @@ entities:
       parent: 1
       type: Transform
     - name: Head of Personnel's Office
+      type: FaxMachine
+  - uid: 4376
+    components:
+    - pos: 45.5,-25.5
+      parent: 1
+      type: Transform
+    - name: Epistemics
+      type: FaxMachine
+  - uid: 4380
+    components:
+    - pos: 18.5,20.5
+      parent: 1
+      type: Transform
+    - name: Kitchen
       type: FaxMachine
   - uid: 5493
     components:
@@ -50101,11 +50138,62 @@ entities:
       type: Transform
     - name: Chief Engineer's Office
       type: FaxMachine
+  - uid: 6777
+    components:
+    - pos: -21.5,22.5
+      parent: 1
+      type: Transform
+    - name: Lawyer's Office
+      type: FaxMachine
   - uid: 16724
     components:
     - pos: -6.5,11.5
       parent: 1
       type: Transform
+    - name: Security Lobby
+      type: FaxMachine
+  - uid: 16742
+    components:
+    - pos: -14.5,-8.5
+      parent: 1
+      type: Transform
+    - name: Dorms Public Fax
+      type: FaxMachine
+  - uid: 16745
+    components:
+    - pos: 45.5,2.5
+      parent: 1
+      type: Transform
+    - name: Engineering
+      type: FaxMachine
+  - uid: 16808
+    components:
+    - pos: -11.5,13.5
+      parent: 1
+      type: Transform
+    - name: Head of Security's Office
+      type: FaxMachine
+  - uid: 16814
+    components:
+    - pos: -14.5,36.5
+      parent: 1
+      type: Transform
+    - name: Chief Service Supervisor's Office
+      type: FaxMachine
+  - uid: 16815
+    components:
+    - pos: 34.5,-31.5
+      parent: 1
+      type: Transform
+    - name: Chaplain's Office
+      type: FaxMachine
+  - uid: 16822
+    components:
+    - pos: -15.5,-22.5
+      parent: 1
+      type: Transform
+    - name: Psychologist's Office
+      type: FaxMachine
 - proto: FaxMachineCaptain
   entities:
   - uid: 3830
@@ -50720,7 +50808,7 @@ entities:
       - 9009
       - 9008
       - 6778
-      - 6777
+      - invalid
       - 6776
       - 6784
       - 9016
@@ -50741,6 +50829,7 @@ entities:
       - 3671
       - 8497
       - 15584
+      - 3471
       type: DeviceList
   - uid: 15824
     components:
@@ -50757,7 +50846,7 @@ entities:
       - 9009
       - 9008
       - 6778
-      - 6777
+      - invalid
       - 6776
       - 6784
       - 9016
@@ -50778,6 +50867,7 @@ entities:
       - 3671
       - 8497
       - 15584
+      - 3471
       type: DeviceList
   - uid: 15825
     components:
@@ -51194,7 +51284,7 @@ entities:
       - 9009
       - 9008
       - 6778
-      - 6777
+      - invalid
       - 6776
       - 6784
       - 9016
@@ -51215,6 +51305,7 @@ entities:
       - 3671
       - 8497
       - 15584
+      - 3471
       type: DeviceList
   - uid: 16256
     components:
@@ -51988,6 +52079,12 @@ entities:
       pos: -26.5,31.5
       parent: 1
       type: Transform
+  - uid: 3471
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 0.5,-1.5
+      parent: 1
+      type: Transform
   - uid: 3666
     components:
     - pos: -23.5,24.5
@@ -52208,12 +52305,6 @@ entities:
     components:
     - rot: 3.141592653589793 rad
       pos: -0.5,-1.5
-      parent: 1
-      type: Transform
-  - uid: 6777
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 0.5,-1.5
       parent: 1
       type: Transform
   - uid: 6778
@@ -54313,7 +54404,7 @@ entities:
       type: Transform
   - uid: 3529
     components:
-    - pos: -15.357544,33.767914
+    - pos: -15.274938,33.655052
       parent: 1
       type: Transform
   - uid: 3692
@@ -54569,7 +54660,7 @@ entities:
   entities:
   - uid: 8104
     components:
-    - pos: -13.644666,-6.5238414
+    - pos: -13.356003,-7.226358
       parent: 1
       type: Transform
 - proto: FoodDonutChaos
@@ -86680,7 +86771,7 @@ entities:
   entities:
   - uid: 16331
     components:
-    - pos: 41.270996,-9.433413
+    - pos: 41.228195,-9.431929
       parent: 1
       type: Transform
   - uid: 16338
@@ -86724,7 +86815,7 @@ entities:
   entities:
   - uid: 16278
     components:
-    - pos: 41.687866,-9.422989
+    - pos: 41.62805,-9.43261
       parent: 1
       type: Transform
   - uid: 16282
@@ -87343,12 +87434,7 @@ entities:
       type: Transform
 - proto: KitchenSpike
   entities:
-  - uid: 2659
-    components:
-    - pos: 8.5,26.5
-      parent: 1
-      type: Transform
-  - uid: 2722
+  - uid: 3473
     components:
     - pos: 9.5,26.5
       parent: 1
@@ -87704,9 +87790,9 @@ entities:
       type: Transform
 - proto: LockerMystagogueFilled
   entities:
-  - uid: 10168
+  - uid: 4379
     components:
-    - pos: 49.5,-32.5
+    - pos: 49.699318,-33.244587
       parent: 1
       type: Transform
 - proto: LockerSalvageSpecialistFilled
@@ -88843,56 +88929,6 @@ entities:
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
-  - uid: 3228
-    components:
-    - pos: -15.035351,31.504358
-      parent: 1
-      type: Transform
-  - uid: 3468
-    components:
-    - pos: -15.035351,31.525206
-      parent: 1
-      type: Transform
-  - uid: 3469
-    components:
-    - pos: -15.066617,31.546053
-      parent: 1
-      type: Transform
-  - uid: 3470
-    components:
-    - pos: -15.066617,31.577326
-      parent: 1
-      type: Transform
-  - uid: 3471
-    components:
-    - pos: -15.097882,31.587751
-      parent: 1
-      type: Transform
-  - uid: 3472
-    components:
-    - pos: -15.0874605,31.587751
-      parent: 1
-      type: Transform
-  - uid: 3473
-    components:
-    - pos: -15.097882,31.587751
-      parent: 1
-      type: Transform
-  - uid: 3474
-    components:
-    - pos: -15.097882,31.598173
-      parent: 1
-      type: Transform
-  - uid: 3475
-    components:
-    - pos: -15.118726,31.598173
-      parent: 1
-      type: Transform
-  - uid: 3476
-    components:
-    - pos: -15.118726,31.629446
-      parent: 1
-      type: Transform
   - uid: 3714
     components:
     - rot: 1.5707963267948966 rad
@@ -88912,7 +88948,7 @@ entities:
       type: Transform
   - uid: 3756
     components:
-    - pos: -9.952303,-26.483715
+    - pos: -9.812768,-26.57275
       parent: 1
       type: Transform
   - uid: 3836
@@ -89200,6 +89236,99 @@ entities:
 
         pa.
       type: Paper
+  - uid: 16751
+    components:
+    - pos: 46.22213,2.7404542
+      parent: 1
+      type: Transform
+    - nextSound: 312.4973915
+      type: EmitSoundOnCollide
+  - uid: 16752
+    components:
+    - pos: 46.275887,2.6329274
+      parent: 1
+      type: Transform
+    - nextSound: 313.8618983
+      type: EmitSoundOnCollide
+  - uid: 16753
+    components:
+    - pos: 46.36547,2.5254006
+      parent: 1
+      type: Transform
+    - nextSound: 315.3304404
+      type: EmitSoundOnCollide
+  - uid: 16754
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 47.297516,-35.065475
+      parent: 1
+      type: Transform
+    - nextSound: 327.7226602
+      type: EmitSoundOnCollide
+  - uid: 16755
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 47.33335,-35.513504
+      parent: 1
+      type: Transform
+    - nextSound: 329.297954
+      type: EmitSoundOnCollide
+  - uid: 16756
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 47.207924,-35.208843
+      parent: 1
+      type: Transform
+    - nextSound: 330.831296
+      type: EmitSoundOnCollide
+  - uid: 16757
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 34.199028,-33.29309
+      parent: 1
+      type: Transform
+    - nextSound: 350.8789824
+      type: EmitSoundOnCollide
+  - uid: 16807
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 34.396126,-33.382698
+      parent: 1
+      type: Transform
+    - nextSound: 351.5431805
+      type: EmitSoundOnCollide
+- proto: PaperBin50
+  entities:
+  - uid: 2722
+    components:
+    - pos: 12.5,-35.5
+      parent: 1
+      type: Transform
+  - uid: 3468
+    components:
+    - pos: -13.5,-6.5
+      parent: 1
+      type: Transform
+  - uid: 3469
+    components:
+    - pos: -15.5,31.5
+      parent: 1
+      type: Transform
+  - uid: 3475
+    components:
+    - pos: -10.5,-26.5
+      parent: 1
+      type: Transform
+  - uid: 3476
+    components:
+    - pos: 29.5,-15.5
+      parent: 1
+      type: Transform
+  - uid: 3717
+    components:
+    - pos: 54.5,-12.5
+      parent: 1
+      type: Transform
 - proto: PaperDoor
   entities:
   - uid: 4591
@@ -89237,31 +89366,6 @@ entities:
   - uid: 2749
     components:
     - pos: 34.70894,-16.341373
-      parent: 1
-      type: Transform
-  - uid: 4375
-    components:
-    - pos: 34.71936,-16.351797
-      parent: 1
-      type: Transform
-  - uid: 4376
-    components:
-    - pos: 34.750626,-16.372646
-      parent: 1
-      type: Transform
-  - uid: 4377
-    components:
-    - pos: 34.750626,-16.372646
-      parent: 1
-      type: Transform
-  - uid: 4379
-    components:
-    - pos: 34.750626,-16.372646
-      parent: 1
-      type: Transform
-  - uid: 4380
-    components:
-    - pos: 34.750626,-16.372646
       parent: 1
       type: Transform
   - uid: 4382
@@ -89309,21 +89413,6 @@ entities:
 
         don says we gotta get something going on this station before security catches on.
       type: Paper
-  - uid: 16775
-    components:
-    - pos: 34.70894,-16.341373
-      parent: 1
-      type: Transform
-  - uid: 16777
-    components:
-    - pos: 34.70894,-16.341373
-      parent: 1
-      type: Transform
-  - uid: 16780
-    components:
-    - pos: 34.70894,-16.341373
-      parent: 1
-      type: Transform
 - proto: PaperWrittenAMEScribbles
   entities:
   - uid: 3635
@@ -89420,7 +89509,7 @@ entities:
       type: Transform
   - uid: 3748
     components:
-    - pos: -10.754785,-26.535833
+    - pos: -9.4003,-26.57275
       parent: 1
       type: Transform
   - uid: 4450
@@ -89507,7 +89596,7 @@ entities:
       type: Transform
   - uid: 10529
     components:
-    - pos: -14.797244,36.84611
+    - pos: -15.860727,35.855083
       parent: 1
       type: Transform
   - uid: 10530
@@ -89522,7 +89611,7 @@ entities:
       type: Transform
   - uid: 11871
     components:
-    - pos: -13.566536,-8.375048
+    - pos: -13.469542,-8.508657
       parent: 1
       type: Transform
 - proto: PianoInstrument
@@ -89684,7 +89773,7 @@ entities:
   entities:
   - uid: 3530
     components:
-    - pos: -16.104458,33.705368
+    - pos: -16.03991,33.601288
       parent: 1
       type: Transform
 - proto: PlasmaWindow
@@ -94125,7 +94214,7 @@ entities:
       type: Transform
   - uid: 3532
     components:
-    - pos: -15.486949,33.82959
+    - pos: -15.494541,33.583366
       parent: 1
       type: Transform
   - uid: 3711
@@ -97101,22 +97190,22 @@ entities:
   entities:
   - uid: 792
     components:
-    - pos: -25.850388,2.4044106
+    - pos: -26.028803,2.4725223
       parent: 1
       type: Transform
   - uid: 800
     components:
-    - pos: -25.834763,2.5294108
+    - pos: -25.831705,2.4187589
       parent: 1
       type: Transform
   - uid: 802
     components:
-    - pos: -25.834763,2.1700356
+    - pos: -26.04672,2.2395473
       parent: 1
       type: Transform
   - uid: 803
     components:
-    - pos: -25.834763,2.2637856
+    - pos: -25.831705,2.2216258
       parent: 1
       type: Transform
 - proto: ShuttersNormal
@@ -98867,7 +98956,7 @@ entities:
       pos: -5.5,21.5
       parent: 1
       type: Transform
-    - nextChargeTime: 369.6572462
+    - nextChargeTime: 369.6572461
       type: SolutionRegeneration
 - proto: SMESBasic
   entities:
@@ -99883,9 +99972,9 @@ entities:
       type: Transform
 - proto: SpawnMobMcGriff
   entities:
-  - uid: 849
+  - uid: 16811
     components:
-    - pos: -25.5,2.5
+    - pos: -24.5,4.5
       parent: 1
       type: Transform
 - proto: SpawnMobPossumMorty
@@ -101287,7 +101376,7 @@ entities:
   entities:
   - uid: 3531
     components:
-    - pos: -15.896022,33.528164
+    - pos: -15.79545,33.688892
       parent: 1
       type: Transform
   - uid: 3683
@@ -103536,6 +103625,11 @@ entities:
     - pos: 14.5,21.5
       parent: 1
       type: Transform
+  - uid: 2652
+    components:
+    - pos: 45.5,-25.5
+      parent: 1
+      type: Transform
   - uid: 2914
     components:
     - pos: 6.5,22.5
@@ -103679,6 +103773,11 @@ entities:
   - uid: 4188
     components:
     - pos: 9.5,46.5
+      parent: 1
+      type: Transform
+  - uid: 4377
+    components:
+    - pos: -15.5,-22.5
       parent: 1
       type: Transform
   - uid: 4543
@@ -104346,6 +104445,11 @@ entities:
     - pos: -12.5,13.5
       parent: 1
       type: Transform
+  - uid: 3474
+    components:
+    - pos: 49.5,-32.5
+      parent: 1
+      type: Transform
   - uid: 5281
     components:
     - pos: 49.5,-35.5
@@ -104369,6 +104473,11 @@ entities:
   - uid: 10166
     components:
     - pos: 47.5,-33.5
+      parent: 1
+      type: Transform
+  - uid: 16809
+    components:
+    - pos: -11.5,13.5
       parent: 1
       type: Transform
 - proto: TableReinforced
@@ -104656,6 +104765,11 @@ entities:
   - uid: 4325
     components:
     - pos: 56.5,-14.5
+      parent: 1
+      type: Transform
+  - uid: 4552
+    components:
+    - pos: 18.5,20.5
       parent: 1
       type: Transform
   - uid: 5627
@@ -105159,6 +105273,11 @@ entities:
     - pos: -20.5,20.5
       parent: 1
       type: Transform
+  - uid: 2566
+    components:
+    - pos: -21.5,22.5
+      parent: 1
+      type: Transform
   - uid: 2653
     components:
     - pos: 16.5,25.5
@@ -105480,6 +105599,16 @@ entities:
   - uid: 14697
     components:
     - pos: -24.5,-16.5
+      parent: 1
+      type: Transform
+  - uid: 16812
+    components:
+    - pos: -25.5,2.5
+      parent: 1
+      type: Transform
+  - uid: 16816
+    components:
+    - pos: 34.5,-31.5
       parent: 1
       type: Transform
 - proto: TableWoodReinforced
@@ -106278,11 +106407,11 @@ entities:
       type: Transform
 - proto: VendingMachineChefDrobe
   entities:
-  - uid: 2652
+  - uid: 3472
     components:
     - flags: SessionSpecific
       type: MetaData
-    - pos: 18.5,20.5
+    - pos: 8.5,26.5
       parent: 1
       type: Transform
 - proto: VendingMachineChefvend
@@ -106497,15 +106626,6 @@ entities:
     - flags: SessionSpecific
       type: MetaData
     - pos: -5.5,23.5
-      parent: 1
-      type: Transform
-- proto: VendingMachineLawDrobe
-  entities:
-  - uid: 2566
-    components:
-    - flags: SessionSpecific
-      type: MetaData
-    - pos: -21.5,22.5
       parent: 1
       type: Transform
 - proto: VendingMachineMailDrobe
@@ -106784,7 +106904,7 @@ entities:
   entities:
   - uid: 3523
     components:
-    - pos: -16.45428,33.639427
+    - pos: -16.565062,33.581367
       parent: 1
       type: Transform
 - proto: WallmountTelescreen
