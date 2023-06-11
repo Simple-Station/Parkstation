@@ -200,6 +200,11 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: monkey
       sprite: SimpleStation14/Mobs/pets/jackparker.rsi
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
   - type: Hands
   - type: Speech
     speechSounds: Monkey
@@ -228,6 +233,7 @@
   - type: DiseaseCarrier
   - type: CombatMode
     canDisarm: true
+  - type: Cuffable
 
   - type: MeleeWeapon
     hidden: true
@@ -256,6 +262,86 @@
   - type: Loadout
     prototypes: [ JacksThings ]
 
+- type: entity
+  name: gorilla
+  parent: MobMonkey
+  id: MobGorillaHughes
+  description: Don't sign up for human testin bud.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: crawling
+      sprite: Mobs/Animals/gorilla.rsi
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.48
+      density: 200
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: crawling
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 4
+  - type: Bloodstream
+    bloodMaxVolume: 300
+  - type: Puller
+  - type: UserInterface
+    interfaces:
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
+  - type: Oni
+    modifiers:
+      coefficients:
+        Blunt: 2
+        Slash: 1.7
+        Piercing: 1.7
+        Asphyxiation: 2
+    stamDamageBonus: 1.7
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Oni
+  - type: Stamina
+  - type: MeleeWeapon
+    hidden: true
+    angle: 0
+    animation: WeaponArcFist
+    damage:
+      types:
+        Blunt: 7 # See oni component
+  - type: RandomBark
+    barks:
+      - Grunt.
+  - type: Loadout
+    prototypes: []
+
+
 - type: startingGear
   id: ShirosVest
   equipment:
@@ -264,4 +350,5 @@
 - type: startingGear
   id: JacksThings
   equipment:
-    hands: BriefcaseBrownFilled
+    inhand:
+      right hand: BriefcaseBrownFilled
