@@ -10,6 +10,6 @@ Alert levels are set either via a communicatons console, or the AI internal comp
 </Box>
 <Box HorizontalAlignment="Left">
 <GuideEntityEmbed Entity="ComputerComms" Caption="" />
-<GuideEntityEmbed Entity="AI" Caption="" />
+<GuideEntityEmbed Entity="AICore" Caption="" />
 </Box>
 </Document>

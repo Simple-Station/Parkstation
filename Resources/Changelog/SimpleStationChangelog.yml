@@ -996,3 +996,29 @@ Entries:
       message: Increased most job playtime requirements.
   id: 89
   time: '2023-06-07T06:06:19.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: add
+      message: >-
+        Nanotrasen has slightly debungled the AI from its semi-lucid,
+        ludonarrative dissonance realm from which it resides and dragged it
+        kicking and screaming into the world of story. In other terms, the AI is
+        prettier, and NT is testing out a series of new laws that may make their
+        way onto a station near you! Be sure to mark down your satisfaction
+        level on the employee report, if you get that far.
+  id: 90
+  time: '2023-06-09T12:07:14.0000000+00:00'
+- author: OCOtheOmega
+  changes:
+    - type: fix
+      message: Fixed some guidebooks not opening
+  id: 91
+  time: '2023-06-09T16:04:05.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: >-
+        Fixed big and small traits setting eye zoom to (0,0), making you see
+        nothing.
+  id: 92
+  time: '2023-06-09T22:12:40.0000000+00:00'

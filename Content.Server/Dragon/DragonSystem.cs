@@ -18,6 +18,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Content.Server.NPC.Systems;
 using Content.Server.Station.Systems;
+using Content.Server.SimpleStation14.Announcements.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
@@ -40,6 +41,7 @@ namespace Content.Server.Dragon
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly NPCSystem _npc = default!;
+        [Dependency] private readonly AnnouncerSystem _announce = default!;
 
         /// <summary>
         /// Minimum distance between 2 rifts allowed.
@@ -143,8 +145,9 @@ namespace Content.Server.Dragon
                     Dirty(comp);
                     var location = Transform(comp.Owner).LocalPosition;
 
-                    _chat.DispatchGlobalAnnouncement(Loc.GetString("carp-rift-warning", ("location", location)), playSound: false, colorOverride: Color.Red);
-                    _audioSystem.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
+                    // _chat.DispatchGlobalAnnouncement(Loc.GetString("carp-rift-warning", ("location", location)), playSound: false, colorOverride: Color.Red);
+                    // _audioSystem.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
+                    _announce.SendAnnouncement("notice", Filter.Broadcast(), Loc.GetString("carp-rift-warning", ("location", location)), colorOverride: Color.Red);
                 }
 
                 if (comp.SpawnAccumulator > comp.SpawnCooldown)

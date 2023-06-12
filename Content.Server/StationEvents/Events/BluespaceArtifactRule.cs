@@ -1,18 +1,23 @@
 ﻿using Content.Server.GameTicking.Rules.Components;
+using Content.Server.SimpleStation14.Announcements.Systems;
 using Content.Server.StationEvents.Components;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
 public sealed class BluespaceArtifactRule : StationEventSystem<BluespaceArtifactRuleComponent>
 {
+    [Dependency] private readonly AnnouncerSystem _announce = default!;
+
     protected override void Added(EntityUid uid, BluespaceArtifactRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
 
         var str = Loc.GetString("bluespace-artifact-event-announcement",
             ("sighting", Loc.GetString(RobustRandom.Pick(component.PossibleSighting))));
-        ChatSystem.DispatchGlobalAnnouncement(str, colorOverride: Color.FromHex("#18abf5"));
+        // ChatSystem.DispatchGlobalAnnouncement(str, colorOverride: Color.FromHex("#18abf5"));
+        _announce.SendAnnouncement("artifact", Filter.Broadcast(), str, colorOverride: Color.FromHex("#18abf5"));
     }
 
     protected override void Started(EntityUid uid, BluespaceArtifactRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
