@@ -85,7 +85,7 @@
 - type: entity
   name: Shiro
   parent: MobSlimeCat
-  id: MobShiro
+  id: MobSlimeCatShiro
   description: Huh, so this is what Shiro really looks like.
   components:
   - type: RandomSprite
@@ -172,7 +172,7 @@
 - type: entity
   name: Problems
   id: MobCatProblems
-  parent: MobCat
+  parent: MobCatNoAccent
   description: Defender of the medbay... from mice anyway.
   components:
   - type: Sprite
@@ -195,7 +195,14 @@
     - CannotSuicide
   - type: Grammar
     attributes:
+      proper: true
       gender: neuter
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-cat
+    interactFailureString: petting-failure-generic
+    interactSuccessSound:
+      path: /Audio/Animals/cat_meow.ogg
 
 - type: entity
   name: Jack Parker
@@ -263,7 +270,6 @@
   - type: CombatMode
     canDisarm: true
   - type: Cuffable
-
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -293,9 +299,9 @@
 
 - type: entity
   name: Hughes
-  parent: MobMonkey
+  parent: MobMonkeyJackParker
   id: MobGorillaHughes
-  description: Don't sign up for human testin bud.
+  description: Don't sign up for human testin' bud.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -363,7 +369,7 @@
     animation: WeaponArcFist
     damage:
       types:
-        Blunt: 7 # See oni component
+        Blunt: 7
   - type: RandomBark
     barks:
       - Grunt.
@@ -384,4 +390,4 @@
 - type: startingGear
   id: HughesThings
   inhand:
-    right hand: FoodBanana
+    left hand: FoodBanana

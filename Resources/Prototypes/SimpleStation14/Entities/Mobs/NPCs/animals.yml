@@ -31,6 +31,84 @@
       gender: epicene
 
 - type: entity
+  name: cat
+  parent: SimpleMobBase
+  id: MobCatNoAccent
+  description: Feline pet, very funny.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Pets/cat.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cat
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.35
+      density: 15
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 2
+        Piercing: 5
+  - type: Appearance
+  - type: Inventory
+    speciesId: cat
+    templateId: pet
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: cat
+      Critical:
+        Base: cat_dead
+      Dead:
+        Base: cat_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: InteractionPopup
+    successChance: 0.7
+    interactSuccessString: petting-success-cat
+    interactFailureString: petting-failure-generic
+    interactSuccessSound:
+      path: /Audio/Animals/cat_meow.ogg
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: MobPrice
+    price: 200
+  - type: Faction
+    factions:
+    - Cat
+  - type: RandomBark
+    barkMultiplier: 1.0
+    barks:
+      - Meow!
+      - Mow.
+      - Meow.
+      - Mew.
+    chatlog: False
+
+- type: entity
   name: slime cat
   parent: SimpleMobBase
   id: MobSlimeCat
@@ -40,7 +118,6 @@
     available:
       - enum.DamageStateVisualLayers.Base:
           shiro: Sixteen
-
   - type: Sprite
     drawdepth: Mobs
     netsync: false
