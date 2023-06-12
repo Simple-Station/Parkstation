@@ -3,7 +3,7 @@
   description: department-Command-description
   color: "#334E6D"
   roles:
-  - SAI
+  - Captain
   - CentralCommandOfficial
   - ChiefServiceSupervisor
   - ChiefEngineer
@@ -15,8 +15,9 @@
   - ERTSecurity
   - HeadOfPersonnel
   - HeadOfSecurity
-  - ResearchDirector
   - Mystagogue
+  - ResearchDirector
+  - SAI
 
 - type: department
   id: Service
@@ -65,7 +66,7 @@
   - MedicalDoctor
   - MedicalIntern
   - Psychologist
-  - MedicalCyborg
+  - MedicalRobot
   - Paramedic
 
 - type: department
@@ -98,5 +99,5 @@
   color: "#8D9AAC"
   roles:
   - SAI
-  - Cyborg
-  - MedicalCyborg
+  - Robot
+  - MedicalRobot

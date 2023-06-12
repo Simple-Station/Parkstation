@@ -69,8 +69,8 @@
           ignoreResistances: true
           damage:
             types:
-              Poison: 0.5
-              Genetic: 0.25
+              Poison: 0.25
+              Genetic: 0.12
 
 - type: reagent
   id: CellularDivider
