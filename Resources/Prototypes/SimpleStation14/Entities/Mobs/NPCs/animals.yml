@@ -76,7 +76,7 @@
       Alive:
         Base: shiro
       Critical:
-        Base: shiro
+        Base: shiro_dead
       Dead:
         Base: shiro_dead
   - type: Butcherable

@@ -117,8 +117,8 @@
     reagent:
       solutionName: chemicals
       reagent: ShirosDelight
-      unitsPerUpdate: 3.0
-      accumulatorTime: 4.0
+      unitsPerUpdate: 1.0
+      accumulatorTime: 5.0
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -128,11 +128,12 @@
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 2.0
-  - type: AutoRegenReagent
+  - type: SolutionRegeneration
     solution: melee
-    unitsPerSecond: 0.5
-    reagents:
-      - Desoxyephedrine
+    generated:
+      reagents:
+        - ReagentId: Desoxyephedrine
+          Quantity: 0.5
   - type: MeleeWeapon
     animation: WeaponArcClaw
     attackRate: 2
@@ -167,6 +168,34 @@
     description: Be Shiro! Be fast! Always be fast!
   - type: Loadout
     prototypes: [ ShirosVest ]
+
+- type: entity
+  name: Problems
+  id: MobCatProblems
+  parent: MobCat
+  description: Defender of the medbay... from mice anyway.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: SimpleStation14/Mobs/Pets/problems.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cat
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: cat
+      Critical:
+        Base: cat_dead
+      Dead:
+        Base: cat_dead
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: Grammar
+    attributes:
+      gender: neuter
 
 - type: entity
   name: Jack Parker
@@ -263,7 +292,7 @@
     prototypes: [ JacksThings ]
 
 - type: entity
-  name: gorilla
+  name: Hughes
   parent: MobMonkey
   id: MobGorillaHughes
   description: Don't sign up for human testin bud.
@@ -339,7 +368,7 @@
     barks:
       - Grunt.
   - type: Loadout
-    prototypes: []
+    prototypes: [ HughesThings ]
 
 
 - type: startingGear
@@ -349,6 +378,10 @@
 
 - type: startingGear
   id: JacksThings
-  equipment:
-    inhand:
-      right hand: BriefcaseBrownFilled
+  inhand:
+    right hand: BriefcaseBrownFilled
+
+- type: startingGear
+  id: HughesThings
+  inhand:
+    right hand: FoodBanana
