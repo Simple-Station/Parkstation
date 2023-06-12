@@ -99,6 +99,17 @@
       state: shadowkin
 
 - type: marking
+  id: EarsShadowkinStriped
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/ears.rsi
+      state: shadowkin
+    - sprite: SimpleStation14/Mobs/Customization/ears.rsi
+      state: shadowkin_stripes
+
+- type: marking
   id: EarsSylveon
   bodyPart: HeadTop
   markingCategory: HeadTop

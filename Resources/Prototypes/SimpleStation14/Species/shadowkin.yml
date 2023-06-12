@@ -51,10 +51,6 @@
       points: 1
       required: true
       defaultMarkings: [EarsShadowkin]
-    Head:
-      # points: 2
-      points: 0
-      required: false
     Chest:
       points: 1
       required: false
@@ -63,13 +59,6 @@
       required: false
     Arms:
       points: 2
-      required: false
-    # no
-    HeadSide:
-      points: 0
-      required: false
-    Snout:
-      points: 0
       required: false
 
 - type: humanoidBaseSprite
