@@ -32,6 +32,9 @@
       amount: 2
   - type: RandomBark
     chatlog: True
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Old Ian
@@ -58,8 +61,16 @@
     attributes:
       proper: true
       gender: male
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatCorgi
+      amount: 2
+    - id: SheetSteel1
   - type: RandomBark
     chatlog: True
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Lisa
@@ -86,6 +97,13 @@
     attributes:
       proper: true
       gender: female
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatCorgi
+      amount: 2
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Runtime
@@ -96,6 +114,9 @@
   - type: Grammar
     attributes:
       gender: female
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Exception
@@ -106,6 +127,9 @@
   - type: Grammar
     attributes:
       gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Floppa
@@ -126,6 +150,9 @@
   - type: Grammar
     attributes:
       gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Bandito
@@ -139,6 +166,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: bingus
@@ -167,6 +197,7 @@
   - type: Inventory
     speciesId: cat
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
@@ -196,6 +227,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: McGriff
@@ -224,6 +258,7 @@
   - type: Inventory
     speciesId: puppy
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
@@ -257,6 +292,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
   - type: RandomBark
     barkMultiplier: 1.3
 
@@ -296,6 +334,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Walter
@@ -326,6 +367,9 @@
       gender: male
   - type: RandomMetadata
     nameSegments: null
+  - type: Tag
+    tags:
+    - CannotSuicide
   - type: RandomBark
     barkMultiplier: 1.1
 
@@ -344,6 +388,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Morticia
@@ -360,6 +407,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Alexander
@@ -373,6 +423,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Renault
@@ -392,6 +445,9 @@
     attributes:
       proper: true
       gender: female
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 
 - type: entity
@@ -400,13 +456,14 @@
   id: MobHamsterHamlet
   description: A grumpy, cute and fluffy hamster.
   components:
-#  - type: GhostTakeoverAvailable
+#  - type: GhostRole
 #    makeSentient: true
 #    allowSpeech: true
 #    allowMovement: true
 #    whitelistRequired: false
 #    name: ghost-role-information-hamlet-name
 #    description: ghost-role-information-hamlet-description
+  - type: GhostTakeoverAvailable
   # - type: InteractionPopup
   #   successChance: 1
 #  - type: Puller
@@ -419,3 +476,7 @@
     attributes:
       proper: true
       gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+

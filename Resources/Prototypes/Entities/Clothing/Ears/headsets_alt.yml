@@ -133,18 +133,6 @@
     containers:
       key_slots:
       - EncryptionKeySyndie
-    channels:
-    - Common
-    - Command
-    - CentCom
-    - Engineering
-    - Medical
-    - Science
-    - Security
-    - Service
-    - Supply
-    - Syndicate
-    defaultChannel: Syndicate
   - type: Sprite
     sprite: Clothing/Ears/Headsets/syndicate.rsi
   - type: Clothing

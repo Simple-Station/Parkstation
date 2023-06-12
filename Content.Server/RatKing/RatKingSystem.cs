@@ -2,15 +2,18 @@ using Content.Server.Actions;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
+using Content.Shared.Actions;
+using Content.Shared.Atmos;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
+using Robust.Server.GameObjects;
+using Robust.Shared.Player;
 using Content.Server.NPC.Systems;
 using Content.Server.NPC.Components;
 using Content.Server.NPC;
 using Content.Server.Pointing.EntitySystems;
-using Content.Shared.Actions;
-using Content.Shared.Atmos;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
@@ -18,9 +21,10 @@ namespace Content.Server.RatKing
 {
     public sealed class RatKingSystem : EntitySystem
     {
-        [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly ActionsSystem _action = default!;
         [Dependency] private readonly AtmosphereSystem _atmos = default!;
+        [Dependency] private readonly HungerSystem _hunger = default!;
+        [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly TransformSystem _xform = default!;
         [Dependency] private readonly NPCSystem _npc = default!;
         [Dependency] private readonly FactionSystem _factionSystem = default!;
@@ -129,7 +133,7 @@ namespace Content.Server.RatKing
                 return;
             }
             args.Handled = true;
-            hunger.CurrentHunger -= component.HungerPerArmyUse;
+            _hunger.ModifyHunger(uid, -component.HungerPerArmyUse, hunger);
             var servant = Spawn(component.ArmyMobSpawnId, Transform(uid).Coordinates); //spawn the little mouse boi
             component.Servants.Add(servant);
             UpdateAIFaction(servant, component.HostileServants);
@@ -162,7 +166,7 @@ namespace Content.Server.RatKing
                 return;
             }
             args.Handled = true;
-            hunger.CurrentHunger -= component.HungerPerDomainUse;
+            _hunger.ModifyHunger(uid, -component.HungerPerDomainUse, hunger);
 
             _popup.PopupEntity(Loc.GetString("rat-king-domain-popup"), uid);
 
@@ -184,6 +188,12 @@ namespace Content.Server.RatKing
 
             _action.SetToggled(component.ActionToggleFaction, component.HostileServants);
             args.Handled = true;
+
+            if (!_timing.IsFirstTimePredicted)
+                return;
+
+            var msg = component.HostileServants ? "rat-king-toggle-action-popup" : "rat-king-toggle-action-popup-enabled";
+            _popup.PopupEntity(Loc.GetString(msg), args.Performer);
         }
 
 
@@ -204,7 +214,14 @@ namespace Content.Server.RatKing
         }
     }
 
-    public sealed class RatKingRaiseArmyActionEvent : InstantActionEvent { };
-    public sealed class RatKingDomainActionEvent : InstantActionEvent { };
+    public sealed class RatKingRaiseArmyActionEvent : InstantActionEvent
+    {
+
+    }
+
+    public sealed class RatKingDomainActionEvent : InstantActionEvent
+    {
+
+    }
     public sealed class RatKingToggleFactionActionEvent : InstantActionEvent { };
 };

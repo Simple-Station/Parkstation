@@ -1,32 +1,62 @@
 - type: announcer
   id: Intern
-  name: Intern
+  name: Central Command
   basePath: /Audio/SimpleStation14/Announcements/Intern
   announcementPaths:
-    - id: aliens
-      path: aliens.ogg
+    # Communications console
     - id: announce
       path: announce.ogg
+    # Alert levels
+#    - id: alertgreen
+#      path: code_green.ogg
+#    - id: alertblue
+#      path: code_blue.ogg
+#    - id: alertviolet
+#      path: code_violet.ogg
+#    - id: alertwhite
+#      path: code_white.ogg
+#    - id: alertyellow
+#      path: code_yellow.ogg
+#    - id: alertred
+#      path: code_red.ogg
+#    - id: alertgamma
+#      path: code_gamma.ogg
+#    - id: alertdelta
+#      path: code_delta.ogg
+#    - id: alertepsilon
+#      path: code_epsilon.ogg
+    # Events
+    - id: aliens
+      path: aliens.ogg
     - id: attention
-      colleciton: InternAnnouncements
+      collection: InternAnnouncements
     - id: anomalyspawn
       path: anomaly.ogg
     - id: commandreport
       collection: InternCommandReportAnnouncements
     - id: diseaseoutbreak
       path: outbreak7.ogg
+    - id: ionstorm
+      path: ionstorm.ogg
+    - id: meteorswarm
+      path: meteors.ogg
     - id: powergridcheck
       path: poweroff.ogg
     - id: powergridcheckcomplete
       path: poweron.ogg
     - id: radiation
       path: radiation.ogg
+    # Shuttle
     - id: shuttlecalled
       path: shuttlecalled.ogg
     - id: shuttledock
       path: shuttledock.ogg
     - id: shuttlerecalled
       path: shuttlerecalled.ogg
+    # New AI
+    - id: newai
+      path: newai.ogg # This is the same as the MedBot announcer.
+    # Start of the shift
     - id: welcome
       collection: InternWelcomeAnnouncements
     # If there is no announcement for a specific event, the fallback will be played.

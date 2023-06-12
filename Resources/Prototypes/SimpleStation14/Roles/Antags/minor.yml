@@ -3,4 +3,4 @@
   name: roles-antag-minor-antag-name
   antagonist: true
   setPreference: true
-  objective: roles-antag-minor-antag-name
+  objective: roles-antag-minor-antag-objective

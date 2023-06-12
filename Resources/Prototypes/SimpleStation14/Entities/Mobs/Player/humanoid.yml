@@ -119,11 +119,6 @@
     - type: Access
       groups:
         - AllAccess
-    # - type: AutoRegenReagent
-    #   solution: chemicals
-    #   reagents:
-    #     - Ichor
-    #   unitsPerSecond: 0.1
     - type: Faction
       factions:
         - SimpleHostile

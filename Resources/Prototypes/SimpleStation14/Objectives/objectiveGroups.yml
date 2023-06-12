@@ -14,14 +14,3 @@
   id: MinorantagObjectiveGroupDangerous
   weights:
     MinorTwitchyObjective: 1
-
-# Wizard
-- type: weightedRandom
-  id: WizardObjectiveGroups
-  weights:
-    WizardObjectiveGroupKill: 1
-
-- type: weightedRandom
-  id: WizardObjectiveGroupKill
-  weights:
-    wKillRandomObjective: 1

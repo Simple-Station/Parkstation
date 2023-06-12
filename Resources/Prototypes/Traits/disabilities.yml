@@ -2,10 +2,11 @@
   id: Blindness
   name: trait-blindness-name
   description: trait-blindness-desc
+  # traitGear: WhiteCane
   cost: 7
   category: Negative
   components:
-    - type: PermanentBlindness
+    - type: Blindable
 
 - type: trait
   id: Narcolepsy

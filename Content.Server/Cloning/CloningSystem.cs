@@ -32,6 +32,7 @@ using Content.Server.SimpleStation14.Traits.Events;
 using Content.Server.Traits;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Zombies;
 using Content.Shared.Mobs.Systems;
 using Robust.Server.GameObjects;
 using Robust.Server.Containers;
@@ -59,7 +60,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly SpillableSystem _spillableSystem = default!;
+        [Dependency] private readonly PuddleSystem _puddleSystem = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly IConfigurationManager _configManager = default!;
         [Dependency] private readonly MaterialStorageSystem _material = default!;
@@ -237,7 +238,15 @@ namespace Content.Server.Cloning
                         AddComp<ActiveCloningPodComponent>(uid);
                         return true;
                     }
+                // Begin Nyano-code
+                // arachne have no genetics. we need to stop the cloner from cloning them.
+                } else
+                {
+                    if (clonePod.ConnectedConsole != null)
+                        _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-chat-no-genetics", ("units", cloningCost)), InGameICChatType.Speak, false);
+                    return false;
                 }
+                // End Nyano-code
             }
             // end of genetic damage checks
 
@@ -329,7 +338,7 @@ namespace Content.Server.Cloning
                 if (_robustRandom.Prob(0.2f))
                     i++;
             }
-            _spillableSystem.SpillAt(uid, bloodSolution, "PuddleBlood");
+            _puddleSystem.TrySpillAt(uid, bloodSolution, out _);
 
             _material.SpawnMultipleFromMaterial(_robustRandom.Next(1, (int) (clonePod.UsedBiomass / 2.5)), clonePod.RequiredMaterial, Transform(uid).Coordinates);
 
@@ -391,7 +400,12 @@ namespace Content.Server.Cloning
                     karma.Score += oldKarma.Score;
             }
 
-            MetaData(mob).EntityName = name;
+            var ev = new CloningEvent(bodyToClone, mob);
+            RaiseLocalEvent(bodyToClone, ref ev);
+
+            if (!ev.NameHandled)
+                MetaData(mob).EntityName = name;
+
             var mind = EnsureComp<MindComponent>(mob);
             _mind.SetExamineInfo(mob, true, mind);
 
@@ -416,6 +430,23 @@ namespace Content.Server.Cloning
         public void Reset(RoundRestartCleanupEvent ev)
         {
             ClonesWaitingForMind.Clear();
+        }
+    }
+
+    /// <summary>
+    /// Raised after a new mob got spawned when cloning a humanoid
+    /// </summary>
+    [ByRefEvent]
+    public struct CloningEvent
+    {
+        public bool NameHandled = false;
+
+        public readonly EntityUid Source;
+        public readonly EntityUid Target;
+
+        public CloningEvent(EntityUid source, EntityUid target) {
+            Source = source;
+            Target = target;
         }
     }
 }

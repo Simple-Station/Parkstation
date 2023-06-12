@@ -31,16 +31,17 @@ namespace Content.Server.Communications
         [Dependency] private readonly InteractionSystem _interaction = default!;
         [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
+        [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
-        [Dependency] private readonly ShuttleSystem _shuttle = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
 
         private const int MaxMessageLength = 256;
+        private const int MaxMessageNewlines = 2;
         private const float UIUpdateInterval = 5.0f;
 
         public override void Initialize()
@@ -188,7 +189,7 @@ namespace Content.Server.Communications
         private bool CanCallOrRecall(CommunicationsConsoleComponent comp)
         {
             // Defer to what the round end system thinks we should be able to do.
-            if (_shuttle.EmergencyShuttleArrived || !_roundEndSystem.CanCallOrRecall())
+            if (_emergency.EmergencyShuttleArrived || !_roundEndSystem.CanCallOrRecall())
                 return false;
 
             // Calling shuttle checks
@@ -225,7 +226,21 @@ namespace Content.Server.Communications
         private void OnAnnounceMessage(EntityUid uid, CommunicationsConsoleComponent comp,
             CommunicationsConsoleAnnounceMessage message)
         {
-            var msg = message.Message.Length <= MaxMessageLength ? message.Message.Trim() : $"{message.Message.Trim().Substring(0, MaxMessageLength)}...";
+            var msgChars = (message.Message.Length <= MaxMessageLength ? message.Message.Trim() : $"{message.Message.Trim().Substring(0, MaxMessageLength)}...").ToCharArray();
+
+            var newlines = 0;
+            for (var i = 0; i < msgChars.Length; i++)
+            {
+                if (msgChars[i] != '\n')
+                    continue;
+
+                if (newlines >= MaxMessageNewlines)
+                    msgChars[i] = ' ';
+
+                newlines++;
+            }
+
+            var msg = new string(msgChars);
             var author = Loc.GetString("comms-console-announcement-unknown-sender");
             if (message.Session.AttachedEntity is {Valid: true} mob)
             {
@@ -253,7 +268,8 @@ namespace Content.Server.Communications
             Loc.TryGetString(comp.AnnouncementDisplayName, out var title);
             title ??= comp.AnnouncementDisplayName;
 
-            msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
+            if (comp.ShowAuthor)
+                msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
             if (comp.AnnounceGlobal)
             {
                 // _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: comp.AnnouncementSound, colorOverride: comp.AnnouncementColor);

@@ -64,10 +64,8 @@ public sealed partial class MarkingPicker : Control
     }
 
     public bool Forced { get; set; }
-    // public bool Forced = true;
 
     private bool _ignoreSpecies;
-    // private bool _ignoreSpecies = true;
 
     public bool IgnoreSpecies
     {
@@ -75,8 +73,7 @@ public sealed partial class MarkingPicker : Control
         set
         {
             _ignoreSpecies = value;
-            // _ignoreSpecies = true;
-            Populate();
+            Populate(CMarkingSearch.Text);
         }
     }
 
@@ -95,7 +92,7 @@ public sealed partial class MarkingPicker : Control
         CurrentSkinColor = skinColor;
         CurrentEyeColor = eyeColor;
 
-        Populate();
+        Populate(CMarkingSearch.Text);
         PopulateUsed();
     }
 
@@ -112,7 +109,7 @@ public sealed partial class MarkingPicker : Control
         CurrentSkinColor = skinColor;
         CurrentEyeColor = eyeColor;
 
-        Populate();
+        Populate(CMarkingSearch.Text);
         PopulateUsed();
     }
 
@@ -139,6 +136,8 @@ public sealed partial class MarkingPicker : Control
 
         CMarkingRankUp.OnPressed += _ => SwapMarkingUp();
         CMarkingRankDown.OnPressed += _ => SwapMarkingDown();
+
+        CMarkingSearch.OnTextChanged += args => Populate(args.Text);
     }
 
     private void SetupCategoryButtons()
@@ -177,7 +176,7 @@ public sealed partial class MarkingPicker : Control
         return result;
     }
 
-    public void Populate()
+    public void Populate(string filter)
     {
         CMarkingsUnused.Clear();
         _selectedUnusedMarking = null;
@@ -186,7 +185,12 @@ public sealed partial class MarkingPicker : Control
             ? _markingManager.MarkingsByCategory(_selectedMarkingCategory)
             : _markingManager.MarkingsByCategoryAndSpecies(_selectedMarkingCategory, _currentSpecies);
 
-        foreach (var marking in markings.Values)
+        var sortedMarkings = markings.Values.Where(m =>
+            m.ID.ToLower().Contains(filter.ToLower()) ||
+            GetMarkingName(m).ToLower().Contains(filter.ToLower())
+        ).OrderBy(p => Loc.GetString(GetMarkingName(p)));
+
+        foreach (var marking in sortedMarkings)
         {
             if (_currentMarkings.TryGetMarking(_selectedMarkingCategory, marking.ID, out _))
             {
@@ -210,7 +214,7 @@ public sealed partial class MarkingPicker : Control
 
         if (!IgnoreSpecies)
         {
-            _currentMarkings.EnsureSpecies(_currentSpecies, null, _markingManager); 
+            _currentMarkings.EnsureSpecies(_currentSpecies, null, _markingManager);
         }
 
         // walk backwards through the list for visual purposes
@@ -316,7 +320,7 @@ public sealed partial class MarkingPicker : Control
         _currentMarkings = new(markingList, speciesPrototype.MarkingPoints, _markingManager, _prototypeManager);
         _currentMarkings.EnsureSpecies(species, null, _markingManager);
 
-        Populate();
+        Populate(CMarkingSearch.Text);
         PopulateUsed();
     }
 
@@ -333,7 +337,7 @@ public sealed partial class MarkingPicker : Control
     {
         CMarkingCategoryButton.SelectId(category.Id);
         _selectedMarkingCategory = _markingCategories[category.Id];
-        Populate();
+        Populate(CMarkingSearch.Text);
         PopulateUsed();
         UpdatePoints();
     }
@@ -429,7 +433,7 @@ public sealed partial class MarkingPicker : Control
         {
             markingSet.AddBack(MarkingCategories.Hair, HairMarking);
         }
-        if (FacialHairMarking != null) 
+        if (FacialHairMarking != null)
         {
             markingSet.AddBack(MarkingCategories.FacialHair, FacialHairMarking);
         }

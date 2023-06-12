@@ -65,6 +65,9 @@
     color: orange
   - type: Appearance
   - type: RequiresEyeProtection
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 200
   - type: DynamicPrice
     price: 40
   - type: IgnitionSource
@@ -129,6 +132,12 @@
     enabled: false
     radius: 1.5
     color: lightblue
+  - type: SolutionRegeneration
+    solution: Welder
+    generated:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 1
 
 - type: entity
   name: emergency welding tool
@@ -139,6 +148,7 @@
   - type: Sprite
     sprite: Objects/Tools/welder_mini.rsi
   - type: Item
+    size: 5
     sprite: Objects/Tools/welder_mini.rsi
   - type: RefillableSolution
     solution: Welder
