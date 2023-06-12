@@ -49,8 +49,8 @@ job-name-epistemologist = acolyte
 job-name-boxer = boxer
 job-name-mail-carrier = mail carrier
 job-name-cataloguer = cataloguer
-job-name-cyborg = cyborg
-job-name-medical-cyborg = medical cyborg
+job-name-robot = robot
+job-name-medical-robot = medical robot
 job-name-salvage-technician = salvage technician
 job-name-gladiator = gladiator
 job-name-fugitive = fugitive
@@ -104,3 +104,14 @@ JobTechnicalAssistant = technical assistant
 JobWarden = warden
 JobBoxer = boxer
 JobZookeeper = zookeeper
+
+# Nyano role timers
+JobCataloguer = cataloguer
+JobRobot = robot
+JobEpistemologist = acolyte
+JobForensicMantis = forensic mantis
+JobMailCarrier = mail carrier
+JobMystagogue = mystagogue
+JobPrisoner = prisoner
+JobSalvageTechnician = salvage technician
+JobValet = valet

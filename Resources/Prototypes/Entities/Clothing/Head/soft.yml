@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatBluesoft
   name: blue cap
   description: "It's a baseball hat in a tasteless blue colour."
@@ -12,7 +12,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatBluesoftFlipped
   name: blue cap flipped
   description: "It's a baseball hat in a tasteless blue colour. Flipped."
@@ -25,7 +25,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatCargosoft
   name: cargo cap
   description: "It's a baseball hat painted in Cargo colours."
@@ -38,7 +38,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatCargosoftFlipped
   name: cargo cap flipped
   description: "It's a baseball hat painted in Cargo colours. Flipped."
@@ -51,7 +51,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatQMsoft
   name: quartermaster's cap
   description: "It's a baseball hat painted in the Quartermaster's colors."
@@ -64,7 +64,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatQMsoftFlipped
   name: quartermaster's cap flipped
   description: "It's a baseball hat painted in the Quartermaster's colors. Flipped."
@@ -75,7 +75,7 @@
     sprite: Clothing/Head/Soft/qmsoft_flipped.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatCorpsoft
   name: corporate cap
   description: A baseball bat in corporation colors.
@@ -88,7 +88,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatCorpsoftFlipped
   name: corporate cap flipped
   description: A baseball bat in corporation colors. Flipped.
@@ -101,7 +101,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatGreensoft
   name: green cap
   description: "It's a baseball hat in a tasteless green colour."
@@ -114,7 +114,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatGreensoftFlipped
   name: green cap flipped
   description: "It's a baseball hat in a tasteless green colour. Flipped."
@@ -127,7 +127,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatGreysoft
   name: grey cap
   description: "It's a baseball hat in a tasteless grey colour."
@@ -140,7 +140,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatGreysoftFlipped
   name: grey cap flipped
   description: "It's a baseball hat in a tasteless grey colour. Flipped."
@@ -153,7 +153,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatMimesoft
   name: mime cap
   description: "It's a baseball hat in a tasteless white colour."
@@ -166,7 +166,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatMimesoftFlipped
   name: mime cap flipped
   description: It's a baseball hat in a tasteless white colour. Flipped.
@@ -179,7 +179,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatOrangesoft
   name: orange cap
   description: It's a baseball hat in a good-looking orange colour.
@@ -192,7 +192,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatOrangesoftFlipped
   name: orange cap flipped
   description: It's a baseball hat in a good-looking orange colour. Flipped.
@@ -205,7 +205,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatPurplesoft
   name: purple cap
   description: It's a baseball hat in a tasteless purple colour.
@@ -218,7 +218,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatPurplesoftFlipped
   name: purple cap flipped
   description: It's a baseball hat in a tasteless purple colour. Flipped.
@@ -231,7 +231,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatRedsoft
   name: red cap
   description: It's a baseball hat in a tasteless red colour.
@@ -244,7 +244,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatRedsoftFlipped
   name: red cap flipped
   description: It's a baseball hat in a tasteless purple colour. Flipped.
@@ -257,7 +257,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatSecsoft
   name: security cap
   description: It's a robust baseball hat in tasteful red colour.
@@ -270,7 +270,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatSecsoftFlipped
   name: security cap flipped
   description: It's a robust baseball hat in tasteful red colour. Flipped.
@@ -283,7 +283,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatYellowsoft
   name: yellow cap
   description: A yellow baseball hat.
@@ -296,7 +296,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatYellowsoftFlipped
   name: yellow cap flipped
   description: A yellow flipped baseball hat.
@@ -309,7 +309,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatBizarreSoft
   name: troublemaker's soft
   description: A truly.. bizarre accessory.
@@ -322,7 +322,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatBizarreSoftFlipped
   name: troublemaker's soft flipped
   description: A truly.. bizarre accessory, flipped.
@@ -335,7 +335,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatParamedicsoft
   name: paramedic cap
   description: "It's a paramedic's baseball hat with a medical logo."
@@ -348,7 +348,7 @@
     chance: 20
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatParamedicsoftFlipped
   name: paramedic cap flipped
   description: "It's a paramedic's baseball hat with a medical logo. Flipped."

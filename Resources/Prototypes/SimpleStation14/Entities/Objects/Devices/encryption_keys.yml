@@ -11,5 +11,6 @@
         - Service
       defaultChannel: Service
     - type: Sprite
-      sprite: Objects/Devices/encryption_keys.rsi
-      state: bin_cypherkey
+      layers:
+      - state: crypt_silver
+      - state: service_label

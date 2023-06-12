@@ -86,6 +86,23 @@ namespace Content.Server.Database
 
         Task AddServerBanAsync(ServerBanDef serverBan);
         Task AddServerUnbanAsync(ServerUnbanDef serverBan);
+
+        /// <summary>
+        /// Update ban exemption information for a player.
+        /// </summary>
+        /// <remarks>
+        /// Database rows are automatically created and removed when appropriate.
+        /// </remarks>
+        /// <param name="userId">The user to update</param>
+        /// <param name="flags">The new ban exemption flags.</param>
+        Task UpdateBanExemption(NetUserId userId, ServerBanExemptFlags flags);
+
+        /// <summary>
+        /// Get current ban exemption flags for a user
+        /// </summary>
+        /// <returns><see cref="ServerBanExemptFlags.None"/> if the user is not exempt from any bans.</returns>
+        Task<ServerBanExemptFlags> GetBanExemption(NetUserId userId);
+
         #endregion
 
         #region Role Bans
@@ -184,7 +201,7 @@ namespace Content.Server.Database
         #region Admin Logs
 
         Task<Server> AddOrGetServer(string serverName);
-        Task AddAdminLogs(List<QueuedLog> logs);
+        Task AddAdminLogs(List<AdminLog> logs);
         IAsyncEnumerable<string> GetAdminLogMessages(LogFilter? filter = null);
         IAsyncEnumerable<SharedAdminLog> GetAdminLogs(LogFilter? filter = null);
         IAsyncEnumerable<JsonDocument> GetAdminLogsJson(LogFilter? filter = null);
@@ -367,6 +384,18 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.AddServerUnbanAsync(serverUnban));
         }
 
+        public Task UpdateBanExemption(NetUserId userId, ServerBanExemptFlags flags)
+        {
+            DbWriteOpsMetric.Inc();
+            return _db.UpdateBanExemption(userId, flags);
+        }
+
+        public Task<ServerBanExemptFlags> GetBanExemption(NetUserId userId)
+        {
+            DbReadOpsMetric.Inc();
+            return _db.GetBanExemption(userId);
+        }
+
         #region Role Ban
         public Task<ServerRoleBanDef?> GetServerRoleBanAsync(int id)
         {
@@ -536,7 +565,7 @@ namespace Content.Server.Database
             return server;
         }
 
-        public Task AddAdminLogs(List<QueuedLog> logs)
+        public Task AddAdminLogs(List<AdminLog> logs)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.AddAdminLogs(logs));
@@ -787,10 +816,10 @@ namespace Content.Server.Database
                 return true;
             }
 
-            public IDisposable BeginScope<TState>(TState state)
+            public IDisposable? BeginScope<TState>(TState state) where TState : notnull
             {
                 // TODO: this
-                return null!;
+                return null;
             }
         }
     }

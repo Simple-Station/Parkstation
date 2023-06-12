@@ -10,7 +10,7 @@
       department: Medical
       time: 18000
     - !type:OverallPlaytimeRequirement
-      time: 72000
+      time: 86400
   weight: 10
   startingGear: CMOGear
   icon: "ChiefMedicalOfficer"
@@ -30,6 +30,7 @@
     - type: PsionicBonusChance
       flatBonus: 0.025
     - type: MedicalTraining
+  whitelistRequired: true
 
 - type: startingGear
   id: CMOGear

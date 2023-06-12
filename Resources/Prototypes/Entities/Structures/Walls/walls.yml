@@ -26,6 +26,8 @@
     drawdepth: Walls
   - type: Icon
     state: full
+  - type: PlacementReplacement
+    key: walls
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: MetallicStructure
@@ -74,6 +76,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
   - type: IconSmooth
     key: walls
     base: brick
@@ -426,6 +429,29 @@
               acts: [ "Destruction" ]
 
 - type: entity
+  parent: WallShuttleDiagonal
+  id: WallPlastitaniumDiagonal
+  name: plastitanium wall
+  suffix: diagonal
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    netsync: false
+    drawdepth: Walls
+    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
+  - type: Icon
+    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    state: state0
+
+- type: entity
   parent: BaseWall
   id: WallReinforced
   name: reinforced wall
@@ -466,8 +492,17 @@
     key: walls
     base: reinf_over
   - type: Appearance
+  - type: GenericVisualizer
     visuals:
-      - type: ReinforcedWallVisualizer
+      enum.ReinforcedWallVisuals.DeconstructionStage:
+        ReinforcedWallVisualLayers.Deconstruction:
+          -1: { visible: false }
+          0: { state: reinf_construct-0, visible: true}
+          1: { state: reinf_construct-1, visible: true}
+          2: { state: reinf_construct-2, visible: true}
+          3: { state: reinf_construct-3, visible: true}
+          4: { state: reinf_construct-4, visible: true}
+          5: { state: reinf_construct-5, visible: true}
   - type: DynamicPrice
     price: 150
   - type: RadiationBlocker
@@ -633,7 +668,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600 #excess damage (nuke?). avoid computational cost of spawning entities.
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -705,7 +746,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600 # #excess damage (nuke?). avoid computational cost of spawning entities.
+        damage: 600
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -725,6 +766,29 @@
   - type: IconSmooth
     key: walls
     base: solid
+
+- type: entity
+  parent: WallShuttleDiagonal
+  id: WallSolidDiagonal
+  name: solid wall
+  suffix: diagonal
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    netsync: false
+    drawdepth: Walls
+    sprite: Structures/Walls/solid_diagonal.rsi
+    state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
+  - type: Icon
+    sprite: Structures/Walls/solid_diagonal.rsi
+    state: state0
 
 - type: entity
   parent: BaseWall
@@ -818,7 +882,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300 # #excess damage (nuke?). avoid computational cost of spawning entities.
+        damage: 300
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]

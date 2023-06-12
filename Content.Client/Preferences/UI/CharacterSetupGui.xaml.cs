@@ -187,6 +187,8 @@ namespace Content.Client.Preferences.UI
                 {
                     Sprite = entityManager.GetComponent<SpriteComponent>(_previewDummy),
                     Scale = ((float) 1.45, (float) 1.45),
+                    Stretch = SpriteView.StretchMode.None,
+                    MaxSize = (46.4f, 46.4f),
                     OverrideDirection = Direction.South
                 };
 
