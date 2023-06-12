@@ -2,7 +2,7 @@
   id: ShirosDelight
   name: Shiro's Delight
   parent: BaseDrink
-  desc: It swirls with the slime and dissociation of an extraordinary paramedic. Due to its thick nature it lingers in the body a bit longer than usual. Overdrinking is incredibly dangerous.
+  desc: It swirls with the slime and dissociation of an extraordinary paramedic. Due to its thick nature it lingers in the body a bit longer than usual. Overdrinking is incredibly dangerous and will clog the user's system.
   physicalDesc: dissociated
   flavor: shirosDelight
   color: "#BDC7CE"
@@ -11,43 +11,45 @@
     state: icon
   metabolisms:
     Drink:
-      metabolismRate: 0.375
+      metabolismRate: 0.1
       effects:
       - !type:SatiateThirst
         factor: 1.5
       - !type:SatiateHunger
-        factor: 1.25 # Hunger factor from the slime divided by the slightly slower metab rate
+        factor: 1.5 # Hunger factor from the slime divided by the slightly slower metab rate
       - !type:AdjustReagent
         conditions:
           - !type:ReagentThreshold
-            min: 40
+            min: 30
         reagent: Ethanol
-        amount: 0.3 # Overuse and the alcohol will kick in hard
+        amount: 0.6 # Overuse and the alcohol will kick in hard
     Poison:
-      metabolismRate: 0.375
+      metabolismRate: 0.1
       effects:
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 40
+          min: 30
         damage:
           types:
-            Poison: 4 # Overuse and it will poison you hard
+            Poison: 6 # Overuse and it will poison you hard
+          groups:
+            Airloss: 6
     Medicine:
-      metabolismRate: 0.375
+      metabolismRate: 0.1
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Burn: -0.75
-            Brute: -0.75
-            Airloss: -0.75 # No poison recovery for you
+            Burn: -1
+            Brute: -1
+            Airloss: -1 # No poison recovery for you
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentThreshold
-          min: 15 # Because shiro was a narcoleptic
+          min: 5 # Because shiro was a narcoleptic also its an illegal stimulant
     Narcotic:
-      metabolismRate: 0.375
+      metabolismRate: 0.1
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 1.31 # Barely faster than stims haha
