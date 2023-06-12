@@ -158,7 +158,7 @@
         Base: shiro_dead
   - type: Butcherable
     spawned:
-    - id: FoodMeatSlime
+    - id: FoodMeatSlimeWithSlime
       amount: 3
   - type: InteractionPopup
     successChance: 1.0

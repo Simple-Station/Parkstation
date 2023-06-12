@@ -21,3 +21,16 @@
         reagents:
         - ReagentId: ShirosDelight
           Quantity: 30
+- type: entity
+  name: slimeball
+  parent: FoodMeatSlime
+  id: FoodMeatSlimeWithSlime
+  description: A gelatinous shaping of slime jelly.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Slime
+          Quantity: 30

@@ -383,7 +383,7 @@
   name: Wilson
   parent: MobFoxBaby
   id: MobFoxBabyWilson
-  description: "A two tailed fox of two tales: Music and salvage."
+  description: "A two-tailed fox of two tales: music and salvage."
   components:
   - type: Butcherable
     spawned:
@@ -397,7 +397,7 @@
       state: wilson
   - type: Appearance
   - type: Inventory
-    speciesId: wilson
+    speciesId: baby_fox
     templateId: pet
   - type: DamageStateVisuals
     states:
@@ -409,7 +409,11 @@
         Base: wilson_dead
   - type: Grammar
     attributes:
-      gender: epicene
+      gender: female
+      proper: true
+  - type: Faction
+    factions:
+    - Pet
 
 - type: startingGear
   id: ShirosVest
