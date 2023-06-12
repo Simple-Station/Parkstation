@@ -25,7 +25,7 @@ namespace Content.Server.Chemistry.ReagentEffects
         /// </summary>
         [JsonPropertyName("scaleByQuantity")]
         [DataField("scaleByQuantity")]
-        public bool ScaleByQuantity = false;
+        public bool ScaleByQuantity = true; // Parkstation-fixReagentSuperPotency
 
         [DataField("ignoreResistances")]
         [JsonPropertyName("ignoreResistances")]
@@ -33,7 +33,7 @@ namespace Content.Server.Chemistry.ReagentEffects
 
         public override void Effect(ReagentEffectArgs args)
         {
-            var scale = ScaleByQuantity ? args.Quantity : FixedPoint2.New(1);
+            var scale = ScaleByQuantity ? args.Quantity * 2 : FixedPoint2.New(1);  // Parkstation-fixReagentSuperPotency
             scale *= args.Scale;
 
             EntitySystem.Get<DamageableSystem>().TryChangeDamage(args.SolutionEntity, Damage * scale, IgnoreResistances);

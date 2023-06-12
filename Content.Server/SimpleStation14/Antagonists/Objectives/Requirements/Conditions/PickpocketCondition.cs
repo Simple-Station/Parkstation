@@ -24,7 +24,7 @@ namespace Content.Server.Objectives.Conditions
 
         public string Description => Loc.GetString("objective-condition-pickpocket-description");
 
-        public SpriteSpecifier Icon => new SpriteSpecifier.Rsi(new ResourcePath("Clothing/Hands/Gloves/fingerless.rsi"), "icon");
+        public SpriteSpecifier Icon => new SpriteSpecifier.Rsi(new ResPath("Clothing/Hands/Gloves/fingerless.rsi"), "icon");
 
         private bool IsAgentOnShuttle(TransformComponent agentXform, EntityUid? shuttle)
         {

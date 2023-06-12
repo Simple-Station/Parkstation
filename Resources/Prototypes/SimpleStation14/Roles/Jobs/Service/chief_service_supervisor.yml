@@ -6,9 +6,9 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Service
-      time: 3600
+      time: 21600
     - !type:OverallPlaytimeRequirement
-      time: 54000
+      time: 86400
   weight: 10
   startingGear: CSSGear
   icon: "ChiefServiceSupervisor"
