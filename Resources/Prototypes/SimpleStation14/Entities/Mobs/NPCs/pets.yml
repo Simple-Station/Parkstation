@@ -140,11 +140,8 @@
     damage:
       types:
         Blunt: 1
-        Slash: 1
-        Piercing: 1
-  - type: Faction
-    factions:
-    - Pet
+        Slash: 2
+        Piercing: 2
   - type: RandomBark
     barkMultiplier: 0.5
     barks:
@@ -294,6 +291,9 @@
   - type: Tag
     tags:
     - CannotSuicide
+  - type: Faction
+    factions:
+    - Pet
   - type: Loadout
     prototypes: [ JacksThings ]
 
@@ -373,9 +373,43 @@
   - type: RandomBark
     barks:
       - Grunt.
+  - type: Faction
+    factions:
+    - Pet
   - type: Loadout
     prototypes: [ HughesThings ]
 
+- type: entity
+  name: Wilson
+  parent: MobFoxBaby
+  id: MobFoxBabyWilson
+  description: "A two tailed fox of two tales: Music and salvage."
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: SimpleStation14/Mobs/Pets/fox.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: wilson
+  - type: Appearance
+  - type: Inventory
+    speciesId: wilson
+    templateId: pet
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: wilson
+      Critical:
+        Base: wilson_dead
+      Dead:
+        Base: wilson_dead
+  - type: Grammar
+    attributes:
+      gender: epicene
 
 - type: startingGear
   id: ShirosVest

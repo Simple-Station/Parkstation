@@ -32,6 +32,32 @@
                     1
                 ]
             ]
+        },
+        {
+            "name": "wilson",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "wilson_dead",
+            "delays": [
+                [
+                    1
+                ]
+            ]
         }
     ]
 }

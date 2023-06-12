@@ -1,0 +1,8 @@
+- type: faction
+  id: PetCat
+  hostile:
+    - RatPassive
+    - RatHostile
+    - SimpleHostile
+    - Xeno
+    - Dragon 

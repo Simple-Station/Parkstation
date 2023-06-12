@@ -61,7 +61,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Slash: 2
+        Slash: 3
         Piercing: 5
   - type: Appearance
   - type: Inventory
@@ -98,7 +98,7 @@
     price: 200
   - type: Faction
     factions:
-    - Cat
+    - PetCat
   - type: RandomBark
     barkMultiplier: 1.0
     barks:
@@ -218,7 +218,7 @@
         Piercing: 2
   - type: Faction
     factions:
-    - Pet
+    - PetCat
   - type: RandomBark
     barkMultiplier: 1.0
     barks:
