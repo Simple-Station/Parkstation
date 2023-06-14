@@ -28,3 +28,29 @@
       energy: 2
     - type: RgbLightController
       layers: [0]
+
+- type: entity
+  parent: PlushieNuke
+  id: PlushieNukeBomb
+  name: nukie plushie
+  suffix: Exploding
+  description: A stuffed toy that resembles a syndicate nuclear operative. The tag claims operatives to be purely fictitious.
+  components:
+  - type: EmitSoundOnUse
+    handle: false
+  - type: OnUseTimerTrigger
+    delay: 4
+    examinable: false
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    beepInterval: 1
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 8
+    intensitySlope: 3
+    totalIntensity: 60
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
