@@ -1,3 +1,5 @@
+# Wizard uplink
+
 # Template
 # - type: listing
 #   id: Wizard___
@@ -138,3 +140,74 @@
     Bluespace: 1
   categories:
   - WizardPointless
+
+# Syndicate Uplink
+
+# let me know when money actually becomes useful to normal people
+# - type: listing
+#   id: Uplink
+#   name: Briefcase of cash
+#   description: contains 2 bundles of 10000 zorkmids. Good for bribery or purchasing goods for nefarious purposes.
+#   productEntity: BriefcaseBrownCash
+#   cost:
+#     Telecrystal: 7
+#   categories:
+#   - UplinkJob
+#   conditions:
+#   - !type:BuyerJobCondition
+#     whitelist:
+#     - Quartermaster
+
+- type: listing
+  id: UplinkBriefcaseMG
+  name: Briefcase machine gun
+  description: It's a .25 caseless machine gun fitted into a standard brown briefcase. Reduced storage capacity. Comes preloaded with rubber rounds.
+  productEntity: BriefcaseBrownSMG
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Lawyer
+
+- type: listing
+  id: UplinkCaselessRifleShortRubber
+  name: Short magazine (.25 caseless rubber)
+  description: Short magazine with 20 rubber rounds. Compatible with the briefcase machine gun.
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag_short.rsi, state: rubber }
+  productEntity: MagazineCaselessRifleShortRubber
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Lawyer
+
+- type: listing
+  id: UplinkCaselessRifleShortLethal
+  name: Short magazine (.25 caseless)
+  description: Short magazine with 20 rounds. Compatible with the briefcase machine gun.
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag_short.rsi, state: red }
+  productEntity: MagazineCaselessRifleShort
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Lawyer
+
+- type: listing
+  id: UplinkNukiePlushBomb
+  name: Explosive Syndicate Plushie
+  description: An adorable explosive plushie resembling a syndicate nuclear operative. Squeeze in your hands to trigger the very obvious 3 second fuse.
+  productEntity: PlushieNukeBomb
+  cost:
+    Telecrystal: 3
+  categories:
+    - UplinkExplosives

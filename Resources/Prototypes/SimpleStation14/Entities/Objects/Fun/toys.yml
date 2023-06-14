@@ -39,18 +39,18 @@
   - type: EmitSoundOnUse
     handle: false
   - type: OnUseTimerTrigger
-    delay: 4
+    delay: 3.5
     examinable: false
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
       params:
-        volume: 5
-    initialBeepDelay: 0
+        volume: 2
+    initialBeepDelay: 1
     beepInterval: 1
   - type: Explosive
     explosionType: Default
     maxIntensity: 8
     intensitySlope: 3
-    totalIntensity: 60
+    totalIntensity: 65
     canCreateVacuum: false
   - type: ExplodeOnTrigger
