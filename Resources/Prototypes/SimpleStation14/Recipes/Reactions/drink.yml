@@ -1,0 +1,9 @@
+- type: reaction
+  id: ChocolateMilk
+  reactants:
+    Milk:
+      amount: 5
+    Theobromine:
+      amount: 1
+  products:
+    ChocolateMilk: 5

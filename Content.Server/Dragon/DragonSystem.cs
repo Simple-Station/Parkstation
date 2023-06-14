@@ -1,11 +1,9 @@
 using Content.Server.Body.Systems;
-using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using System.Threading;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
@@ -19,6 +17,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Content.Server.NPC.Systems;
+using Content.Server.SimpleStation14.Announcements.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
@@ -26,20 +25,21 @@ using Content.Shared.Mobs.Components;
 
 namespace Content.Server.Dragon
 {
-    public sealed partial class DragonSystem : GameRuleSystem
+    public sealed partial class DragonSystem : GameRuleSystem<DragonRuleComponent>
     {
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-        [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
         [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly NPCSystem _npc = default!;
+        [Dependency] private readonly AnnouncerSystem _announce = default!;
 
         /// <summary>
         /// Minimum distance between 2 rifts allowed.
@@ -63,7 +63,7 @@ namespace Content.Server.Dragon
             SubscribeLocalEvent<DragonComponent, DragonSpawnRiftActionEvent>(OnDragonRift);
             SubscribeLocalEvent<DragonComponent, RefreshMovementSpeedModifiersEvent>(OnDragonMove);
 
-            SubscribeLocalEvent<DragonComponent, DoAfterEvent>(OnDoAfter);
+            SubscribeLocalEvent<DragonComponent, DragonDevourDoAfterEvent>(OnDoAfter);
 
             SubscribeLocalEvent<DragonComponent, MobStateChangedEvent>(OnMobStateChanged);
 
@@ -75,7 +75,7 @@ namespace Content.Server.Dragon
             SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRiftRoundEnd);
         }
 
-        private void OnDoAfter(EntityUid uid, DragonComponent component, DoAfterEvent args)
+        private void OnDoAfter(EntityUid uid, DragonComponent component, DragonDevourDoAfterEvent args)
         {
             if (args.Handled || args.Cancelled)
                 return;
@@ -95,8 +95,7 @@ namespace Content.Server.Dragon
             else if (args.Args.Target != null)
                 EntityManager.QueueDeleteEntity(args.Args.Target.Value);
 
-            if (component.SoundDevour != null)
-                _audioSystem.PlayPvs(component.SoundDevour, uid, component.SoundDevour.Params);
+            _audioSystem.PlayPvs(component.SoundDevour, uid);
         }
 
         public override void Update(float frameTime)
@@ -170,8 +169,9 @@ namespace Content.Server.Dragon
                     Dirty(comp);
                     var location = Transform(comp.Owner).LocalPosition;
 
-                    _chat.DispatchGlobalAnnouncement(Loc.GetString("carp-rift-warning", ("location", location)), playSound: false, colorOverride: Color.Red);
-                    _audioSystem.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
+                    // _chat.DispatchGlobalAnnouncement(Loc.GetString("carp-rift-warning", ("location", location)), playSound: false, colorOverride: Color.Red);
+                    // _audioSystem.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
+                    _announce.SendAnnouncement("notice", Filter.Broadcast(), Loc.GetString("carp-rift-warning", ("location", location)), colorOverride: Color.Red);
                 }
 
                 if (comp.SpawnAccumulator > comp.SpawnCooldown)
@@ -355,11 +355,10 @@ namespace Content.Server.Dragon
                     case MobState.Critical:
                     case MobState.Dead:
 
-                        _doAfterSystem.DoAfter(new DoAfterEventArgs(uid, component.DevourTime, target:target)
+                        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(uid, component.DevourTime, new DragonDevourDoAfterEvent(), uid, target: target, used: uid)
                         {
                             BreakOnTargetMove = true,
                             BreakOnUserMove = true,
-                            BreakOnStun = true,
                         });
                         break;
                     default:
@@ -375,11 +374,10 @@ namespace Content.Server.Dragon
             if (component.SoundStructureDevour != null)
                 _audioSystem.PlayPvs(component.SoundStructureDevour, uid, component.SoundStructureDevour.Params);
 
-            _doAfterSystem.DoAfter(new DoAfterEventArgs(uid, component.StructureDevourTime, target:target)
+            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(uid, component.StructureDevourTime, new DragonDevourDoAfterEvent(), uid, target: target, used: uid)
             {
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
-                BreakOnStun = true,
             });
         }
     }

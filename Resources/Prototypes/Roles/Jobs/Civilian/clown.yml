@@ -30,9 +30,10 @@
     shoes: ClothingShoesClown
     mask: ClothingMaskClown
     pocket1: BikeHorn
+    pocket2: ClownRecorder
     id: ClownPDA
     ears: ClothingHeadsetService
-  satchel: ClothingBackpackSatchelFilled
+  satchel: ClothingBackpackSatchelClownFilled
   duffelbag: ClothingBackpackDuffelClownFilled
   underpants: ClothingUnderboxers_heart
   undershirt: ClothingUndershirt_clown

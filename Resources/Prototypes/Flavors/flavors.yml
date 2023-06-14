@@ -504,11 +504,6 @@
   description: flavor-complex-sake
 
 - type: flavor
-  id: soju
-  flavorType: Complex
-  description: flavor-complex-soju
-
-- type: flavor
   id: rum
   flavorType: Complex
   description: flavor-complex-rum
@@ -674,49 +669,9 @@
   description: flavor-complex-nuggie
 
 - type: flavor
-  id: orangecreamcicle
+  id: grape
   flavorType: Complex
-  description: flavor-complex-orangecreamcicle
-
-- type: flavor
-  id: silverjack
-  flavorType: Complex
-  description: flavor-complex-silverjack
-
-- type: flavor
-  id: brainbomb
-  flavorType: Complex
-  description: flavor-complex-brainbomb
-
-- type: flavor
-  id: atomicpunch
-  flavorType: Complex
-  description: flavor-complex-atomicpunch
-
-- type: flavor
-  id: circusjuice
-  flavorType: Complex
-  description: flavor-complex-circusjuice
-
-- type: flavor
-  id: pinkdrink
-  flavorType: Complex
-  description: flavor-complex-pinkdrink
-
-- type: flavor
-  id: sapopicante
-  flavorType: Complex
-  description: flavor-complex-sapopicante
-
-- type: flavor
-  id: graveyard
-  flavorType: Complex
-  description: flavor-complex-graveyard
-
-- type: flavor
-  id: bubbletea
-  flavorType: Complex
-  description: flavor-complex-bubbletea
+  description: flavor-complex-grape
 
 - type: flavor
   id: garlic
@@ -724,11 +679,71 @@
   description: flavor-complex-garlic
 
 - type: flavor
+  id: bad-joke
+  flavorType: Complex
+  description: flavor-complex-bad-joke
+
+- type: flavor
+  id: vegetables
+  flavorType: Complex
+  description: flavor-complex-vegetables
+
+- type: flavor
+  id: sadness
+  flavorType: Complex
+  description: flavor-complex-sadness
+
+- type: flavor
+  id: nettles
+  flavorType: Complex
+  description: flavor-complex-nettles
+
+- type: flavor
+  id: parents
+  flavorType: Complex
+  description: flavor-complex-parents
+
+- type: flavor
+  id: jungle
+  flavorType: Complex
+  description: flavor-complex-jungle
+
+- type: flavor
+  id: squirming
+  flavorType: Complex
+  description: flavor-complex-squirming
+
+- type: flavor
+  id: miso
+  flavorType: Complex
+  description: flavor-complex-miso
+
+- type: flavor
+  id: electrons
+  flavorType: Complex
+  description: flavor-complex-electrons
+
+- type: flavor
   id: bottledlightning
   flavorType: Complex
   description: flavor-complex-bottledlightning
 
 - type: flavor
-  id: corncob
+  id: meatballs
   flavorType: Complex
-  description: flavor-complex-corncob
+  description: flavor-complex-meatballs
+
+- type: flavor
+  id: hope
+  flavorType: Complex
+  description: flavor-complex-hope
+
+- type: flavor
+  id: chaos
+  flavorType: Complex
+  description: flavor-complex-chaos
+  
+- type: flavor
+  id: themartinez
+  flavorType: Complex
+  description: flavor-complex-themartinez

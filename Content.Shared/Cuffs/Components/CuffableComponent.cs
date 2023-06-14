@@ -39,28 +39,29 @@ public sealed class CuffableComponent : Component
     [DataField("canStillInteract"), ViewVariables(VVAccess.ReadWrite)]
     public bool CanStillInteract = true;
 
+    // Parkstation-EndOfRoundStats-Start
     /// <summary>
-    /// Whether or not the entity is currently in the process of being uncuffed.
+    ///     When this entity was cuffed, if currently cuffed.
+    ///     Used for end of round stats.
     /// </summary>
-    [DataField("uncuffing"), ViewVariables(VVAccess.ReadWrite)]
-    public bool Uncuffing;
+    [DataField("cuffedTime")]
+    public TimeSpan? CuffedTime { get; set; }
+    // Parkstation-EndOfRoundStats-End
 }
 
 [Serializable, NetSerializable]
 public sealed class CuffableComponentState : ComponentState
 {
     public readonly bool CanStillInteract;
-    public readonly bool Uncuffing;
     public readonly int NumHandsCuffed;
     public readonly string? RSI;
     public readonly string? IconState;
     public readonly Color? Color;
 
-    public CuffableComponentState(int numHandsCuffed, bool canStillInteract,  bool uncuffing, string? rsiPath, string? iconState, Color? color)
+    public CuffableComponentState(int numHandsCuffed, bool canStillInteract, string? rsiPath, string? iconState, Color? color)
     {
         NumHandsCuffed = numHandsCuffed;
         CanStillInteract = canStillInteract;
-        Uncuffing = uncuffing;
         RSI = rsiPath;
         IconState = iconState;
         Color = color;
