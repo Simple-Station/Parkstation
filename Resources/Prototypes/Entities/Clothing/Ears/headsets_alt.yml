@@ -137,5 +137,6 @@
     sprite: Clothing/Ears/Headsets/syndicate.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/syndicate.rsi
-  - tags:
-      - Syndimonkey
+  - type: Tag
+    tags:
+    - Syndimonkey
