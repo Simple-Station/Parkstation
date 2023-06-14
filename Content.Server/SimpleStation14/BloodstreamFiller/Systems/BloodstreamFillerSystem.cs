@@ -63,7 +63,7 @@ public sealed class BloodstreamFillerSystem : EntitySystem
     {
         // if (fillComp.SiliconOnly && !HasComp<SiliconComponent>(target)) // To be turned on once Silicons are merged :)
         // {
-        //     // Do failure stuff
+        //     _popup.PopupCursor(Loc.GetString(fillComp.TargetInvalidPopup, ("filler", filler)), user);
         //     return;
         // }
 
@@ -143,14 +143,14 @@ public sealed class BloodstreamFillerSystem : EntitySystem
         if (!TryComp<BloodstreamFillerComponent>(args.Args.Used, out var fillComp))
         {
             DebugTools.Assert("Filler component not found");
-            Logger.ErrorS("silicon", $"Filler component not found on entity {ToPrettyString(args.Args.Used.Value)}");
+            Logger.ErrorS("bloodfiller", $"Filler component not found on entity {ToPrettyString(args.Args.Used.Value)}");
 
             return;
         }
         if (!EntityManager.TryGetComponent<BloodstreamComponent>(args.Args.Target, out var bloodComp))
         {
             DebugTools.Assert("Bloodstream component not found");
-            Logger.ErrorS("silicon", $"Bloodstream component not found on entity {ToPrettyString(args.Args.Target.Value)}");
+            Logger.ErrorS("bloodfiller", $"Bloodstream component not found on entity {ToPrettyString(args.Args.Target.Value)}");
 
             return;
         }
