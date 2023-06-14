@@ -38,8 +38,8 @@
     capacity: 30
   - type: AmmoCounter
   - type: Gun
-    minAngle: 8
-    maxAngle: 8
+    minAngle: 16
+    maxAngle: 20
     fireRate: 5
     selectedMode: FullAuto
     availableModes:
@@ -52,7 +52,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineCaselessRifleShortRubber
+        startingItem: MagazineCaselessRifleShort
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
         priority: 2
@@ -61,7 +61,7 @@
             - MagazineCaselessRifle
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeCaselessRifleRubber
+        startingItem: CartridgeCaselessRifle
         priority: 1
         whitelist:
           tags:

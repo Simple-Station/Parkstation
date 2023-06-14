@@ -2,12 +2,12 @@
   parent: BaseItem
   id: SentientGorillaCube
   name: Sentient Gorilla Cube
-  description: It's actually a tiny teleportation device. After activation, once a syndicate-brand sentient gorilla is ready to take on the mission of assisting you, they will be teleported in to the device.
+  description: A tiny teleportation device. After activation, once a syndicate-brand sentient gorilla is ready to take on the mission of assisting you, they will be teleported in to the device's location.
   components:
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
+    sprite: SimpleStation14/Objects/Devices/gorillacube.rsi
     layers:
-    - state: old-radio
+    - state: gorillacube
     netsync: false
   - type: GhostRole
     name: Syndicate Gorilla

@@ -161,7 +161,7 @@
 - type: listing
   id: UplinkBriefcaseMG
   name: Briefcase machine gun
-  description: It's a .25 caseless machine gun fitted into a standard brown briefcase. Reduced storage capacity. Comes preloaded with rubber rounds.
+  description: It's a .25 caseless machine gun fitted into a standard brown briefcase. Reduced storage capacity.
   productEntity: BriefcaseBrownSMG
   cost:
     Telecrystal: 10
@@ -211,3 +211,17 @@
     Telecrystal: 3
   categories:
     - UplinkExplosives
+
+- type: listing
+  id: UplinkNukiePlushBomb
+  name: Sentient Gorilla Cube
+  description: A small teleportation device that lets the user request the assistance of a syndicate-enhanced gorilla.
+  productEntity: SentientGorillaCube
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chef

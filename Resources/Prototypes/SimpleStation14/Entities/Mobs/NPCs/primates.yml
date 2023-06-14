@@ -1,12 +1,23 @@
 - type: entity
   name: gorilla
   parent: MobGorilla
-  suffix: syndicate
+  suffix: Syndicate
   id: MobGorillaSyndicate
   description: Smashes, roars, looks cool. Don't stand near one.
   components:
-    - type: Inventory
-      speciesId: syndimonkey
-      templateId: syndimonkey
-  loadout:
-  prototype: []  
+  - type: Inventory
+    speciesId: syndimonkey
+    templateId: syndimonkey
+  - type: Loadout
+    prototypes: [ SyndimonkeyGear ]
+  - type: DraconicBloodstream
+    reagent:
+      solutionName: chemicals
+      reagent: Stimulants
+      unitsPerUpdate: 1.0
+      accumulatorTime: 5
+
+- type: startingGear
+  id: SyndimonkeyGear
+  equipment:
+    ears: ClothingHeadsetAltSyndicate
