@@ -1,0 +1,21 @@
+- type: entity
+  id: CrateMedicalBloodTank
+  name: blood tank crate
+  description: "Contains a tank of blood."
+  parent: CrateMedicalSecure
+  components:
+  - type: StorageFill
+    contents:
+      - id: BloodTankBloodFull
+        amount: 1
+
+- type: entity
+  id: CrateMedicalSlimeTank
+  name: slime tank crate
+  description: "Contains a tank of slime."
+  parent: CrateMedicalSecure
+  components:
+  - type: StorageFill
+    contents:
+      - id: BloodTankSlimeFull
+        amount: 1
