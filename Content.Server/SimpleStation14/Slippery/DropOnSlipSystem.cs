@@ -89,7 +89,7 @@ public sealed class DropOnSlipSystem : EntitySystem
             _throwing.TryThrow(item, direction, strength, entity);
         }
 
-        _popup.PopupEntity(popupString, entity, PopupType.MediumCaution);
+        _popup.PopupEntity(popupString, item, PopupType.MediumCaution);
 
         var logMessage = Loc.GetString("system-drop-on-slip-log", ("entity", ToPrettyString(entity)), ("item", ToPrettyString(item)));
         _adminLogger.Add(LogType.Slip, LogImpact.Low, $"{logMessage}");
