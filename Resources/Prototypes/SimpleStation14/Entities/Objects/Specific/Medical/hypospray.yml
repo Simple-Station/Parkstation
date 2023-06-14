@@ -49,3 +49,49 @@
       - reagents:
         - ReagentId: CellularDivider
           Quantity: 100
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BloodFillerBase
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: hypo
+  - type: Item
+    sprite: Objects/Specific/Medical/hypospray.rsi
+  - type: BloodstreamFiller
+    solution: filler
+    overfillDamage:
+      groups:
+        Brute: 18
+  - type: UseDelay
+    delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      filler:
+        maxVol: 250
+  # - type: RefillableSolution
+  #   solution: filler
+  - type: ExaminableSolution
+    solution: filler
+
+- type: entity
+  parent: BloodFillerBase
+  id: BloodFillerBlood
+  name: bloodfiller
+  description: A pump to inject blood into your body.
+  components:
+  - type: BloodstreamFiller
+    reagent: Blood
+    amount: 100
+
+- type: entity
+  parent: BloodFillerBase
+  id: BloodFillerSilicon
+  name: IPC coolant injector
+  description: A pump to inject coolant into an IPC.
+  components:
+  - type: BloodstreamFiller
+    reagent: Water
+    amount: 200
