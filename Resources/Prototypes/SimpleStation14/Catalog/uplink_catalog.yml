@@ -164,7 +164,7 @@
   description: It's a .25 caseless machine gun fitted into a standard brown briefcase. Reduced storage capacity.
   productEntity: BriefcaseBrownSMG
   cost:
-    Telecrystal: 10
+    Telecrystal: 12
   categories:
   - UplinkJob
   conditions:
@@ -225,3 +225,23 @@
   - !type:BuyerJobCondition
     whitelist:
     - Chef
+
+- type: listing
+  id: UplinkMk45C
+  name: Mk.45C
+  description: A powerful and not-so-subtle handgun. A certified anti-clown weapon.
+  productEntity: WeaponPistolMk45C
+  cost:
+    Telecrystal: 9
+  categories:
+  - UplinkWeapons
+
+- type: listing
+  id: UplinkMk45CMagazine
+  name: Magnum magazine (.45 magnum)
+  description: Magnum magazine with 10 rounds. Compatible with the Mk.45C.
+  productEntity: MagazineMagnum12
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkAmmo
