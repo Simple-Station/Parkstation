@@ -129,3 +129,4 @@
   - type: SpellbookUser2
   - type: Inventory
     templateId: aghost
+  - type: InventorySlots
