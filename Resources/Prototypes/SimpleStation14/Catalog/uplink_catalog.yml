@@ -213,7 +213,7 @@
     - UplinkExplosives
 
 - type: listing
-  id: UplinkNukiePlushBomb
+  id: UplinkGorillaCube
   name: Sentient Gorilla Cube
   description: A small teleportation device that lets the user request the assistance of a syndicate-enhanced gorilla.
   productEntity: SentientGorillaCube
