@@ -232,7 +232,7 @@
   description: A powerful and not-so-subtle handgun. A certified anti-clown weapon.
   productEntity: WeaponPistolMk45C
   cost:
-    Telecrystal: 9
+    Telecrystal: 8
   categories:
   - UplinkWeapons
 
