@@ -16,8 +16,9 @@
       state: baby_fox
   - type: Appearance
   - type: Inventory
-    speciesId: baby_fox
+    speciesId: fox
     templateId: pet
+  - type: InventorySlots
   - type: DamageStateVisuals
     states:
       Alive:
@@ -35,6 +36,7 @@
   parent: SimpleMobBase
   id: MobCatNoAccent
   description: Feline pet, very funny.
+  abstract: true
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -143,6 +145,7 @@
   - type: Inventory
     speciesId: shiro
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
