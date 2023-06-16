@@ -5,20 +5,19 @@
   id: MobGorillaSyndicate
   description: Smashes, roars, looks cool. Don't stand near one.
   components:
-  - type: Inventory
-    speciesId: syndimonkey
-    templateId: SyndicateMonkey
   - type: InventorySlots
-  - type: Loadout
-    prototypes: [ SyndimonkeyGear ]
   - type: SolutionRegeneration
     solution: chemstream
     generated:
       reagents:
         - ReagentId: Stimulants
           Quantity: 0.20
-
-- type: startingGear
-  id: SyndimonkeyGear
-  equipment:
-    ears: ClothingHeadsetAltSyndicate
+  - type: IntrinsicRadioReceiver
+    channels:
+      - Syndicate
+  - type: IntrinsicRadioTransmitter
+    channels:
+      - Syndicate
+  - type: ActiveRadio
+    channels:
+      - Syndicate

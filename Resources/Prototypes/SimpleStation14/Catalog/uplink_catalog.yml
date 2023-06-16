@@ -143,11 +143,13 @@
 
 # Syndicate Uplink
 
+# Job items
+
 # let me know when money actually becomes useful to normal people
 # - type: listing
 #   id: Uplink
 #   name: Briefcase of cash
-#   description: contains 2 bundles of 10000 zorkmids. Good for bribery or purchasing goods for nefarious purposes.
+#   description: contains 20 bundles of 1000 zorkmids. Good for bribery or purchasing goods for nefarious purposes.
 #   productEntity: BriefcaseBrownCash
 #   cost:
 #     Telecrystal: 7
@@ -159,7 +161,7 @@
 #     - Quartermaster
 
 - type: listing
-  id: UplinkBriefcaseMG
+  id: UplinkBriefcaseSMG
   name: Briefcase machine gun
   description: It's a .25 caseless machine gun fitted into a standard brown briefcase. Reduced storage capacity.
   productEntity: BriefcaseBrownSMG
@@ -171,6 +173,34 @@
   - !type:BuyerJobCondition
     whitelist:
     - Lawyer
+
+- type: listing
+  id: UplinkGorillaCube
+  name: Sentient Gorilla Cube
+  description: A small teleportation device that lets the user request the assistance of a syndicate-enhanced gorilla.
+  productEntity: SentientGorillaCube
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chef
+
+# Weapons
+
+- type: listing
+  id: UplinkMk45C
+  name: Mk.45C
+  description: A powerful and not-so-subtle handgun. A certified killing weapon.
+  productEntity: WeaponPistolMk45C
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWeapons
+
+# Ammo
 
 - type: listing
   id: UplinkCaselessRifleShortRubber
@@ -203,40 +233,6 @@
     - Lawyer
 
 - type: listing
-  id: UplinkNukiePlushBomb
-  name: Explosive Syndicate Plushie
-  description: An adorable explosive plushie resembling a syndicate nuclear operative. Squeeze in your hands to trigger the very obvious 3 second fuse.
-  productEntity: PlushieNukeBomb
-  cost:
-    Telecrystal: 3
-  categories:
-    - UplinkExplosives
-
-- type: listing
-  id: UplinkGorillaCube
-  name: Sentient Gorilla Cube
-  description: A small teleportation device that lets the user request the assistance of a syndicate-enhanced gorilla.
-  productEntity: SentientGorillaCube
-  cost:
-    Telecrystal: 8
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chef
-
-- type: listing
-  id: UplinkMk45C
-  name: Mk.45C
-  description: A powerful and not-so-subtle handgun. A certified anti-clown weapon.
-  productEntity: WeaponPistolMk45C
-  cost:
-    Telecrystal: 8
-  categories:
-  - UplinkWeapons
-
-- type: listing
   id: UplinkMk45CMagazine
   name: Magnum magazine (.45 magnum)
   description: Magnum magazine with 10 rounds. Compatible with the Mk.45C.
@@ -245,3 +241,15 @@
     Telecrystal: 3
   categories:
   - UplinkAmmo
+
+# explosives
+
+- type: listing
+  id: UplinkNukiePlushBomb
+  name: Explosive Syndicate Plushie
+  description: An adorable explosive plushie resembling a syndicate nuclear operative. Squeeze in your hands to trigger the very obvious 3 second fuse.
+  productEntity: PlushieNukeBomb
+  cost:
+    Telecrystal: 3
+  categories:
+    - UplinkExplosives
