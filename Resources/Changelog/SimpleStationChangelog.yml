@@ -1030,3 +1030,11 @@ Entries:
         can once again be present on station!
   id: 93
   time: '2023-06-16T04:25:43.0000000+00:00'
+- author: SomeCabbage
+  changes:
+    - type: tweak
+      message: >-
+        Resprited the paramedic voidsuit to make it look less saturated and hard
+        on the eyes
+  id: 94
+  time: '2023-06-16T06:46:39.0000000+00:00'
