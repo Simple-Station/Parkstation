@@ -146,3 +146,4 @@ public readonly record struct SlipEvent(EntityUid Slipped);
 ///     This is an event raised on an entity after they slip. Duh.
 /// </summary>
 public readonly record struct ParkSlipEvent(EntityUid Tripper);
+// Parkstation-DropOnSlip-End
