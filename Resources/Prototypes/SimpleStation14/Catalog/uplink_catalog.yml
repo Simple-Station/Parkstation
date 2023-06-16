@@ -146,19 +146,19 @@
 # Job items
 
 # let me know when money actually becomes useful to normal people
-# - type: listing
-#   id: Uplink
-#   name: Briefcase of cash
-#   description: contains 20 bundles of 1000 zorkmids. Good for bribery or purchasing goods for nefarious purposes.
-#   productEntity: BriefcaseBrownCash
-#   cost:
-#     Telecrystal: 7
-#   categories:
-#   - UplinkJob
-#   conditions:
-#   - !type:BuyerJobCondition
-#     whitelist:
-#     - Quartermaster
+- type: listing
+  id: Uplink
+  name: Briefcase of cash
+  description: contains 20 bundles of 1000 zorkmids. Good for bribery or purchasing goods for nefarious purposes.
+  productEntity: BriefcaseBrownCash
+  cost:
+    Telecrystal: 7
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Quartermaster
 
 - type: listing
   id: UplinkBriefcaseSMG
