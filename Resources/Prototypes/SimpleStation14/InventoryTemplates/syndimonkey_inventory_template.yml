@@ -1,5 +1,5 @@
 - type: inventoryTemplate
-  id: syndimonkey
+  id: SyndicateMonkey
   slots:
   - name: head
     slotTexture: head
@@ -31,4 +31,4 @@
     displayName: Ears
     whitelist:
       tags:
-        - Syndimonkey
+        - SyndicateMonkey
