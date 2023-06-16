@@ -1022,3 +1022,11 @@ Entries:
         nothing.
   id: 92
   time: '2023-06-09T22:12:40.0000000+00:00'
+- author: SomeCabbage
+  changes:
+    - type: fix
+      message: >-
+        Nanotrasen fixed up a typo in their paperwork, meaning robots (cyborgs)
+        can once again be present on station!
+  id: 93
+  time: '2023-06-16T04:25:43.0000000+00:00'
