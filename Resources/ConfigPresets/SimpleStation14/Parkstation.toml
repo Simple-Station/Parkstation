@@ -8,8 +8,8 @@ lobbyduration = 180
 role_timers = true
 fallbackpreset = "extended"
 map_pool = "ParkMapPool"
-panic_bunker.enabled = true
-admin_panic.enabled = true
+panic_bunker.enabled = false
+admin_panic.enabled = false
 
 [npc]
 enabled = true
@@ -50,7 +50,8 @@ space_wind_max_velocity = 22.0
 [shuttle]
 emergency_early_launch_allowed = true
 emergency_dock_time = 260.0
-emergency_transit_time = 180.0
+emergency_transit_time_min = 120.0
+emergency_transit_time_max = 240.0
 recall_turning_point = 0.75
 auto_call_time = 150
 arrivals = false

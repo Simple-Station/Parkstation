@@ -18,6 +18,9 @@
   - type: WarpPoint
     follow: true
     location: nuke disk
+  - type: Tag
+    tags:
+    - HighRiskItem
   - type: EmitSoundOnPickup
     sound: /Audio/SimpleStation14/Items/Handling/disk_pickup.ogg
   - type: EmitSoundOnDrop

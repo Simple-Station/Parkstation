@@ -1,5 +1,5 @@
 - type: entity
-  id: CrateFoodExoticMeats
+  id: CrateFoodExoticMeat
   name: Exotic meats crate
   description: "Contains a random variety of uncooked, exotic meats. Eat at your own peril."
   parent: CrateFreezerSecure
@@ -61,7 +61,7 @@
       amount: 1
 
 - type: entity
-  id: CrateFoodCababge
+  id: CrateFoodCabbages
   name: Cabbage crate
   description: "A crate containing a dozen cabbages."
   parent: CrateHydroponics
