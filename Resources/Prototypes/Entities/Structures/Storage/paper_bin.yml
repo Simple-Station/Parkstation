@@ -133,7 +133,6 @@
     - PaperOffice
     - PaperOffice
     - PaperOffice
-    - PaperOffice
     whitelist:
       tags:
       - Document
