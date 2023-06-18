@@ -106,7 +106,7 @@ public sealed class BloodstreamFillerSystem : EntitySystem
         if (fillComp.Overfill && bloodComp.BloodSolution.AvailableVolume == 0 && user != target)
         {
             overfill = true;
-            delay *= fillComp.OverfillMutli;
+            delay *= fillComp.OverfillMulti;
         }
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(user, delay, new BloodstreamFillerDoAfterEvent(overfill), target, target, filler)
@@ -132,12 +132,10 @@ public sealed class BloodstreamFillerSystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, BloodstreamComponent component, BloodstreamFillerDoAfterEvent args)
     {
-        if (args.Cancelled)
-        {
+        if (args.Handled || args.Cancelled)
             return;
-        }
 
-        if (args.Handled || args.Args.Target == null)
+        if (args.Args.Target == null)
             return;
 
         if (!TryComp<BloodstreamFillerComponent>(args.Args.Used, out var fillComp))
@@ -182,10 +180,8 @@ public sealed class BloodstreamFillerSystem : EntitySystem
 
     private void Overfill(EntityUid user, EntityUid target, EntityUid filler, BloodstreamFillerComponent fillComp, BloodstreamComponent bloodComp)
     {
-        if (!_solution.TryGetSolution(filler, fillComp.Solution!, out var fillerSolution))
-            return;
-
-        if (!TryComp<DamageableComponent>(target, out var damageableComp))
+        if (!_solution.TryGetSolution(filler, fillComp.Solution!, out var fillerSolution) ||
+            !TryComp<DamageableComponent>(target, out var damageableComp))
             return;
 
         _damageable.TryChangeDamage(target, fillComp.OverfillDamage, origin: user, damageable: damageableComp);
@@ -197,13 +193,9 @@ public sealed class BloodstreamFillerSystem : EntitySystem
 
     private void TryRefill(EntityUid user, EntityUid filler, EntityUid target, BloodstreamFillerComponent fillComp)
     {
-        if (!EntityManager.TryGetComponent<ReagentTankComponent>(target, out _))
-            return;
-
-        if (!_solution.TryGetDrainableSolution(target, out var targetSolution))
-            return;
-
-        if (!_solution.TryGetSolution(filler, fillComp.Solution!, out var fillerSolution))
+        if (!EntityManager.TryGetComponent<ReagentTankComponent>(target, out _) ||
+            !_solution.TryGetDrainableSolution(target, out var targetSolution) ||
+            !_solution.TryGetSolution(filler, fillComp.Solution!, out var fillerSolution))
             return;
 
         // Check that the tank is not empty.
@@ -252,12 +244,8 @@ public sealed class BloodstreamFillerSystem : EntitySystem
             _audio.PlayPvs(fillComp.UseSound, filler);
         }
         else if (fillerSolution.AvailableVolume <= 0)
-        {
             _popup.PopupCursor(Loc.GetString(fillComp.RefillFullPopup, ("filler", filler)), user);
-        }
         else
-        {
             _popup.PopupCursor(Loc.GetString(fillComp.RefillTankEmptyPopup, ("tank", target)), user);
-        }
     }
 }

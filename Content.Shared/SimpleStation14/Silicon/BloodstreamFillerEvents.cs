@@ -11,6 +11,7 @@ public sealed class BloodstreamFillerDoAfterEvent : DoAfterEvent
 
     private BloodstreamFillerDoAfterEvent()
     {
+
     }
     public BloodstreamFillerDoAfterEvent(bool overfill)
     {

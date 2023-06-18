@@ -20,10 +20,10 @@ public sealed class BloodstreamFillerComponent : Component
     public float SelfFillMutli = 3.5f;
 
     /// <summary>
-    /// The name of the volume to refill.
+    ///     The name of the volume to refill.
     /// </summary>
     /// <remarks>
-    /// Should match the <see cref="SolutionContainerComponent"/> name or otherwise.
+    ///     Should match the <see cref="SolutionContainerComponent"/> name or otherwise.
     /// </remarks>
     [DataField("solution"), ViewVariables(VVAccess.ReadWrite)]
     public string Solution { get; } = "filler";
@@ -64,8 +64,8 @@ public sealed class BloodstreamFillerComponent : Component
     /// <summary>
     ///     The multiplier for the DoAfter time when attempting to overfill someone.
     /// </summary>
-    [DataField("overfillMutli"), ViewVariables(VVAccess.ReadWrite)]
-    public float OverfillMutli = 5.5f;
+    [DataField("overfillMulti"), ViewVariables(VVAccess.ReadWrite)]
+    public float OverfillMulti = 5.5f;
 
     /// <summary>
     ///     The amount of damage dealt when overfilling someone.
@@ -163,5 +163,5 @@ public sealed class BloodstreamFillerComponent : Component
     /// </summary>
     [DataField("overfilledPopup")]
     public string OverfilledPopup = "bloodfiller-target-overfill";
-    #endregion
+    #endregion Player Feedback
 }
