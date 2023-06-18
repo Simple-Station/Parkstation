@@ -83,7 +83,9 @@
   suffix: 50
   components:
   - type: Bin
+    maxItems: 50
     initialContents:
+    - PaperOffice
     - PaperOffice
     - PaperOffice
     - PaperOffice
