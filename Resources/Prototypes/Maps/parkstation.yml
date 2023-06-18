@@ -6,7 +6,7 @@
   stations:
     parkstation:
       mapNameTemplate: '{0} Arborum {1}'
-      emergencyShuttlePath: /Maps/Shuttles/NTES_Kaeri.yml
+      emergencyShuttlePath: /Maps/Shuttles/Gnrs-Hellm.yml
       nameGenerator:
         !type:NanotrasenNameGenerator
         prefixCreator: '14'
