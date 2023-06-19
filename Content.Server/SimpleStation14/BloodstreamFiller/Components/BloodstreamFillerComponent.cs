@@ -40,8 +40,8 @@ public sealed class BloodstreamFillerComponent : Component
     /// <remarks>
     ///     If null, any reagent will be allowed.
     /// </remarks>
-    [DataField("reagent"), ViewVariables(VVAccess.ReadWrite)]
-    public string? Reagent = null;
+    [DataField("reagents"), ViewVariables(VVAccess.ReadWrite)]
+    public List<string> Reagents = new();
 
     /// <summary>
     ///     Will this filler only fill Silicons?

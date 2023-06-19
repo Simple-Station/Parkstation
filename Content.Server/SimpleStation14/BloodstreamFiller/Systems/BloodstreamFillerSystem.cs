@@ -72,7 +72,7 @@ public sealed class BloodstreamFillerSystem : EntitySystem
         if (!_solution.TryGetSolution(filler, fillComp.Solution!, out var fillerSolution)) // No solution
             return;
 
-        if (fillComp.Reagent != null && fillComp.Reagent != bloodComp.BloodReagent) // Wrong reagent as specified by the component
+        if (fillComp.Reagents.Count > 0 && !fillComp.Reagents.Contains(bloodComp.BloodReagent)) // Wrong reagent as specified by the component
         {
             _popup.PopupCursor(Loc.GetString(fillComp.TargetInvalidPopup, ("filler", filler)), user);
             return;
@@ -214,7 +214,7 @@ public sealed class BloodstreamFillerSystem : EntitySystem
 
         // Check that the tank's solution matches the filler's listed reagent.
         // This is seperate from checking the actual solution to prevent any funny business.
-        if (fillComp.Reagent != null && targetSolution.Contents[0].ReagentId != fillComp.Reagent)
+        if (fillComp.Reagents.Count > 0 && !fillComp.Reagents.Contains(targetSolution.Contents[0].ReagentId))
         {
             _popup.PopupCursor(Loc.GetString(fillComp.RefillReagentInvalidPopup, ("tank", target)), user);
             return;

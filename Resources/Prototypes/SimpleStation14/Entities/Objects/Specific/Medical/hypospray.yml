@@ -80,11 +80,21 @@
   parent: BloodFillerBase
   id: BloodFillerBlood
   name: bloodfiller
-  description: A pump to inject blood into your body.
+  description: A pump to inject blood into your body. Also accepts Slime.
   components:
+  - type: UseDelay
+    delay: 6
   - type: BloodstreamFiller
-    reagent: Blood
-    amount: 100
+    amount: 60
+    fillTime: 1.3
+    reagents:
+      - Blood
+      - Slime
+	  - Water
+  - type: SolutionContainerManager
+    solutions:
+      filler:
+        maxVol: 120
 
 - type: entity
   parent: BloodFillerBase
@@ -93,5 +103,11 @@
   description: A pump to inject coolant into an IPC.
   components:
   - type: BloodstreamFiller
-    reagent: Water
-    amount: 200
+    reagents: [ Water ]
+    amount: 150
+    fillTime: 0.85
+    siliconOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      filler:
+        maxVol: 250
