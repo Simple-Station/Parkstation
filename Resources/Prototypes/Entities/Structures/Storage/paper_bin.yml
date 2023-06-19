@@ -79,6 +79,7 @@
 
 - type: entity
   parent: PaperBin
+  suffix: Office Paper
   id: PaperBin50
   suffix: 50
   components:
