@@ -1,44 +1,43 @@
-using Content.Server.Power.Components;
-using Content.Server.Storage.Components;
-using Content.Shared.PowerCell.Components;
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
-using Robust.Shared.Prototypes;
-using Content.Shared.Damage.Prototypes;
-using Content.Server.Popups;
-using Robust.Shared.Player;
-using Content.Shared.Popups;
-using Content.Shared.StepTrigger.Components;
-using Robust.Shared.Physics.Events;
-using Robust.Shared.Timing;
-using Content.Shared.SimpleStation14.Silicon;
-using Robust.Shared.Audio;
-using Robust.Server.GameObjects;
-using Content.Shared.Inventory;
-using Content.Server.Hands.Systems;
 using Content.Server.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
-using Content.Shared.Interaction.Components;
-using Content.Shared.Power;
-using Content.Shared.Storage.Components;
+using Content.Server.Hands.Systems;
+using Content.Server.Popups;
+using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
+using Content.Server.Storage.Components;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Hands.Components;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Inventory;
+using Content.Shared.Popups;
+using Content.Shared.Power;
+using Content.Shared.PowerCell.Components;
+using Content.Shared.SimpleStation14.Silicon;
 using Content.Shared.SimpleStation14.Silicon.Charge;
+using Content.Shared.StepTrigger.Components;
+using Content.Shared.Storage.Components;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Physics.Events;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 
 public sealed class SiliconChargerSystem : EntitySystem
 {
-    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly SharedSiliconChargerSystem _sharedCharger = default!;
+    [Dependency] private readonly BatterySystem _battery = default!;
 
     public override void Initialize()
     {
@@ -95,10 +94,10 @@ public sealed class SiliconChargerSystem : EntitySystem
         #region Step Trigger Chargers
         // Check for any chargers with the StepTriggerComponent.
         var stepQuery = EntityQueryEnumerator<SiliconChargerComponent, StepTriggerComponent>();
-        while (stepQuery.MoveNext(out var uid, out var chargerComp, out var stepTrigger))
+        while (stepQuery.MoveNext(out var uid, out var chargerComp, out _))
         {
             if (chargerComp.PresentEntities.Count == 0 ||
-                (EntityManager.TryGetComponent<ApcPowerReceiverComponent>(uid, out var powerComp) && !powerComp.Powered))
+                TryComp<ApcPowerReceiverComponent>(uid, out var powerComp) && !powerComp.Powered)
             {
                 if (chargerComp.Active)
                 {
@@ -145,7 +144,7 @@ public sealed class SiliconChargerSystem : EntitySystem
 
         foreach (var entityToCharge in entitiesToCharge)
         {
-            if (EntityManager.TryGetComponent<BatteryComponent>(entityToCharge, out var batteryComp))
+            if (EntityManager.TryGetComponent<BatteryComponent>(entityToCharge, out _))
                 ChargeBattery(entityToCharge, EntityManager.GetComponent<BatteryComponent>(entityToCharge), chargeRate, chargerComp, chargerUid);
             else if (EntityManager.TryGetComponent<DamageableComponent>(entityToCharge, out var damageComp))
                 BurnEntity(entityToCharge, damageComp, frameTime, chargerComp, chargerUid);
@@ -157,7 +156,7 @@ public sealed class SiliconChargerSystem : EntitySystem
         var entitiesToCharge = new List<EntityUid>();
 
         // If the given entity has a battery, charge it.
-        if (!EntityManager.TryGetComponent<UnremoveableComponent>(entity, out var _) &&
+        if (!EntityManager.TryGetComponent<UnremoveableComponent>(entity, out _) &&
             EntityManager.TryGetComponent(entity, out BatteryComponent? batteryComp) &&
             batteryComp.CurrentCharge < batteryComp.MaxCharge)
         {
@@ -165,9 +164,9 @@ public sealed class SiliconChargerSystem : EntitySystem
         }
 
         // If the given entity contains a battery, charge it.
-        else if (!EntityManager.TryGetComponent<UnremoveableComponent>(entity, out var _) &&
+        else if (!EntityManager.TryGetComponent<UnremoveableComponent>(entity, out _) &&
                 EntityManager.TryGetComponent(entity, out PowerCellSlotComponent? cellSlotComp) &&
-                _itemSlotsSystem.TryGetSlot(entity, cellSlotComp.CellSlotId, out var slot) &&
+                _itemSlots.TryGetSlot(entity, cellSlotComp.CellSlotId, out var slot) &&
                 EntityManager.TryGetComponent<BatteryComponent>(slot.Item, out var cellComp) &&
                 cellComp.CurrentCharge < cellComp.MaxCharge)
         {
@@ -200,7 +199,7 @@ public sealed class SiliconChargerSystem : EntitySystem
         }
         if (EntityManager.TryGetComponent<ServerStorageComponent>(entity, out var storageComp))
         {
-            foreach ( var containedEntity in storageComp.StoredEntities!)
+            foreach (var containedEntity in storageComp.StoredEntities!)
             {
                 entitiesToCharge.AddRange(SearchThroughEntities(containedEntity));
             }
@@ -221,44 +220,40 @@ public sealed class SiliconChargerSystem : EntitySystem
         // Do some math so a charger never charges a battery from zero to full in less than 10 seconds, just for the effect of it.
         if (chargerComp.ChargeMulti * 10 > batteryComp.MaxCharge / 10)
         {
-            chargeRate /= (chargerComp.ChargeMulti * 10) / (batteryComp.MaxCharge / 10);
+            chargeRate /= chargerComp.ChargeMulti * 10 / (batteryComp.MaxCharge / 10);
         }
 
         if (batteryComp.CurrentCharge + chargeRate < batteryComp.MaxCharge)
-            batteryComp.CurrentCharge += chargeRate;
+            _battery.SetCharge(entity, batteryComp.CurrentCharge + chargeRate, batteryComp);
         else
-            batteryComp.CurrentCharge = batteryComp.MaxCharge;
+            _battery.SetCharge(entity, batteryComp.MaxCharge, batteryComp);
 
         // If the battery is too small, explode it.
         if ((batteryComp.MaxCharge - batteryComp.CurrentCharge) * 1.2 + batteryComp.MaxCharge < chargerComp.MinChargeSize)
         {
             if (EntityManager.TryGetComponent<ExplosiveComponent>(entity, out var explosiveComp))
-            {
                 _explosion.TriggerExplosive(entity, explosiveComp);
-            }
             else
-            {
                 _explosion.QueueExplosion(entity, "Default", batteryComp.MaxCharge / 50, 1.5f, 200, user: chargerUid);
-            }
         }
     }
 
     private void BurnEntity(EntityUid entity, DamageableComponent damageComp, float frameTime, SiliconChargerComponent chargerComp, EntityUid chargerUid)
     {
-        var damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Shock"), frameTime * chargerComp.ChargeMulti / 100);
-        var damageDealt = _damageableSystem.TryChangeDamage(entity, damage, false, true, damageComp, chargerUid);
-        chargerComp.warningAccumulator -= frameTime;
+        var damage = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>(chargerComp.DamageType), frameTime * chargerComp.ChargeMulti / 100);
+        var damageDealt = _damageable.TryChangeDamage(entity, damage, false, true, damageComp, chargerUid);
+        chargerComp.WarningAccumulator -= frameTime;
 
-        if (damageDealt != null && chargerComp.warningAccumulator <= 0 && damageDealt.Total > 0)
+        if (damageDealt != null && chargerComp.WarningAccumulator <= 0 && damageDealt.Total > 0)
         {
             var popupBurn = Loc.GetString("silicon-charger-burn", ("charger", chargerUid), ("entity", entity));
             _popup.PopupEntity(popupBurn, entity, PopupType.MediumCaution);
-            chargerComp.warningAccumulator += 5f;
+            chargerComp.WarningAccumulator += 5f;
         }
     }
 
     #region Charger specific
-        #region Step Trigger Chargers
+    #region Step Trigger Chargers
     // When an entity starts colliding with the charger, add it to the list of entities present on the charger if it has the StepTriggerComponent.
     private void OnStartCollide(EntityUid uid, SiliconChargerComponent component, ref StartCollideEvent args)
     {
@@ -294,6 +289,6 @@ public sealed class SiliconChargerSystem : EntitySystem
             component.PresentEntities.Remove(target);
         }
     }
-        #endregion Step Trigger Chargers
+    #endregion Step Trigger Chargers
     #endregion Charger specific
 }

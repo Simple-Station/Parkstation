@@ -14,6 +14,7 @@ using Content.Shared.Movement.Systems;
 using Content.Server.Body.Components;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server.Power.EntitySystems;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 
@@ -25,6 +26,7 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private readonly BatterySystem _battery = default!;
 
     public override void Initialize()
     {
@@ -80,7 +82,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             drainRate += Math.Clamp(drainRateFinalAddi, drainRate * -0.9f, batteryComp.MaxCharge / 240);
 
             // Drain the battery.
-            batteryComp.UseCharge(frameTime * drainRate);
+            _battery.UseCharge(silicon, frameTime * drainRate, batteryComp);
 
             // Figure out the current state of the Silicon.
             var chargePercent = batteryComp.CurrentCharge / batteryComp.MaxCharge;

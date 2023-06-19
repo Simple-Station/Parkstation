@@ -20,7 +20,7 @@ public sealed class SiliconChargerComponent : Component
     /// <summary>
     ///     Counter for handing out warnings to burning entities.
     /// </summary>
-    public float warningAccumulator = 0f;
+    public float WarningAccumulator = 0f;
 
 
     /// <summary>
@@ -45,6 +45,14 @@ public sealed class SiliconChargerComponent : Component
     [DataField("minChargeSize"), ViewVariables(VVAccess.ReadWrite)]
     public int MinChargeSize = 1000;
 
+    /// <summary>
+    ///     The minimum amount of time it will take to charge a battery, in seconds.
+    /// </summary>
+    /// <remarks>
+    ///     This is for the sake of feeling cooler- It's lame to just charge instantly.
+    /// </remarks>
+    [DataField("minChargeTime"), ViewVariables(VVAccess.ReadWrite)]
+    public float MinChargeTime = 10f;
 
     /// <summary>
     ///     The temperature the charger will stop heating up at.
@@ -54,6 +62,12 @@ public sealed class SiliconChargerComponent : Component
     /// </remarks>
     [DataField("targetTemp"), ViewVariables(VVAccess.ReadWrite)]
     public float TargetTemp = 373.15f;
+
+    /// <summary>
+    ///     The damage type to deal when a Biological entity is burned.
+    /// </summary>
+    [DataField("damageType")]
+    public string DamageType = "Shock";
 
 
     /// <summary>

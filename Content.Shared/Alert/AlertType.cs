@@ -27,7 +27,7 @@ namespace Content.Shared.Alert
         Starving,
         Thirsty,
         Parched,
-        Charge // Parkstation-IPC
+        Charge, // Parkstation-IPC
         Stamina,
         Pulled,
         Pulling,

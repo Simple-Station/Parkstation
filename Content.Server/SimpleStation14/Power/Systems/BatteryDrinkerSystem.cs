@@ -10,6 +10,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Content.Server.SimpleStation14.Silicon.Charge;
+using Content.Server.Power.EntitySystems;
 
 namespace Content.Server.SimpleStation14.Power;
 
@@ -18,6 +19,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly BatterySystem _battery = default!;
 
     public override void Initialize()
     {
@@ -40,9 +42,9 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
         AlternativeVerb verb = new()
         {
-            Act = () => DrinkBattery(uid, args.User, batteryComponent, drinkerBattery, drinkerComp),
+            Act = () => DrinkBattery(uid, args.User, drinkerComp),
             Text = "system-battery-drinker-verb-drink",
-            Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Interface/VerbIcons/drink.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/drink.svg.192dpi.png")),
         };
 
         args.Verbs.Add(verb);
@@ -59,8 +61,6 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
     private bool TryGetFillableBattery(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery)
     {
-        battery = null;
-
         if (EntityManager.TryGetComponent<BatteryComponent>(uid, out battery))
             return true;
 
@@ -73,7 +73,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         return false;
     }
 
-    private void DrinkBattery(EntityUid target, EntityUid user, BatteryComponent batteryComp, BatteryComponent drinkerBatteryComp, BatteryDrinkerComponent drinkerComp)
+    private void DrinkBattery(EntityUid target, EntityUid user, BatteryDrinkerComponent drinkerComp)
     {
         var doAfterTime = drinkerComp.DrinkSpeed;
 
@@ -92,7 +92,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             CancelDuplicate = false
         };
 
-        var doAfter = _doAfter.TryStartDoAfter(args);
+        _doAfter.TryStartDoAfter(args);
     }
 
     private void OnDoAfter(EntityUid uid, BatteryDrinkerComponent drinkerComp, DoAfterEvent args)
@@ -129,14 +129,14 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             return;
         }
 
-        if (sourceBattery.TryUseCharge(amountToDrink))
+        if (_battery.TryUseCharge(source, amountToDrink, sourceBattery))
         {
-            drinkerBattery.CurrentCharge += amountToDrink;
+            _battery.SetCharge(source, drinkerBattery.Charge + amountToDrink, sourceBattery);
         }
         else
         {
-            drinkerBattery.CurrentCharge += sourceBattery.CurrentCharge;
-            sourceBattery.CurrentCharge = 0;
+            _battery.SetCharge(drinker, sourceBattery.Charge, drinkerBattery);
+            _battery.SetCharge(source, 0, sourceBattery);
         }
 
         var sound = drinkerComp.DrinkSound ?? sourceComp?.DrinkSound;
