@@ -53,7 +53,7 @@
     drawdepth: Ghosts
     sprite: Mobs/Ghosts/ghost_human.rsi
     state: animated
-    color: "#fff8"
+    color: "#ffff"
     layers:
       - state: animated
         shader: unshaded
@@ -63,3 +63,11 @@
   - type: MovementIgnoreGravity
   - type: Pullable
   - type: Speech
+  - type: UserInterface
+    interfaces:
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
+  - type: Strippable
+  - type: Inventory
+    templateId: observer
+  - type: InventorySlots
