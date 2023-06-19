@@ -123,7 +123,7 @@
     solutions:
       melee:
         reagents:
-        - ReagentId: Desoxyephedrine
+        - ReagentId: Synaptizine
           Quantity: 40
   - type: MeleeChemicalInjector
     solution: melee
@@ -132,7 +132,7 @@
     solution: melee
     generated:
       reagents:
-        - ReagentId: Desoxyephedrine
+        - ReagentId: Synaptizine
           Quantity: 0.5
   - type: MeleeWeapon
     animation: WeaponArcClaw
@@ -167,7 +167,7 @@
     prototypes: [ ShirosVest ]
 
 - type: entity
-  name: Problems
+  name: problems
   id: MobCatProblems
   parent: MobCatNoAccent
   description: Defender of the medbay... from mice anyway.
@@ -309,7 +309,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: crawling
-      sprite: Mobs/Animals/gorilla.rsi
+      sprite: SimpleStation14/Mobs/Pets/hughes.rsi
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
@@ -358,8 +358,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
-      200: Dead
+      110: Critical
+      220: Dead
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Oni
@@ -370,7 +370,7 @@
     animation: WeaponArcFist
     damage:
       types:
-        Blunt: 7
+        Blunt: 8
   - type: RandomBark
     barks:
       - Grunt.
