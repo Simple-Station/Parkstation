@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Yogstation at commit  https://github.com/yogstation13/Yogstation/commit/a0362cb3d1276c4b275426c58d2da34e2d103021",
+  "copyright": "Taken from Yogstation at commit https://github.com/yogstation13/Yogstation/commit/a0362cb3d1276c4b275426c58d2da34e2d103021 / aieye: BasedUser",
   "size": {"x": 32, "y": 32},
   "states": [
     {
