@@ -130,6 +130,8 @@
       state: shiro
       color: "#FF00FF"
       alpha: 200
+  - type: Body
+    prototype: AnimalSlime
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -169,6 +171,8 @@
     interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
+  - type: ReplacementAccent
+    accent: slimecat
   - type: Grammar
     attributes:
       gender: epicene
@@ -218,7 +222,7 @@
       types:
         Blunt: 1
         Slash: 3
-        Piercing: 2
+        Piercing: 3
   - type: Faction
     factions:
     - PetCat

@@ -1,0 +1,18 @@
+- type: body
+  id: AnimalSlime
+  name: "animalslime"
+  root: torso
+  slots:
+    torso:
+      part: TorsoAnimal
+      connections:
+      - legs
+      organs:
+        core: SentientSlimeCore
+        lungs: OrganSlimeLungs
+    legs:
+      part: LegsAnimal
+      connections:
+      - feet
+    feet:
+      part: FeetAnimal

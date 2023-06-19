@@ -74,3 +74,27 @@ accent-words-mothroach-2 = Chirp!
 accent-words-mothroach-3 = Peep!
 accent-words-mothroach-4 = Eeee!
 accent-words-mothroach-5 = Eep!
+
+## Parkstation
+# Slimecat
+accent-words-slimecat-1 = Squish.
+accent-words-slimecat-2 = Splort.
+accent-words-slimecat-3 = Meow!
+accent-words-slimecat-4 = Mew!
+accent-words-slimecat-5 = Mow.
+
+# Shiro
+accent-words-shiro-1 = Shiro.
+accent-words-shiro-2 = Shiro!
+accent-words-shiro-3 = Meow!
+accent-words-shiro-4 = Squish.
+accent-words-shiro-5 = Squish!
+
+# problems
+accent-words-problems-1 = Meow!
+accent-words-problems-2 = Mew.
+accent-words-problems-3 = problems.
+accent-words-problems-4 = Squish!
+accent-words-problems-5 = Gurgle.
+accent-words-problems-6 = Merp.
+accent-words-problems-7 = uwu.

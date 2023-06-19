@@ -113,21 +113,23 @@
     attributes:
       proper: true
       gender: female
+  - type: ReplacementAccent
+    accent: shiro
   - type: DraconicBloodstream
     reagent:
       solutionName: chemicals
       reagent: ShirosDelight
-      unitsPerUpdate: 1.0
+      unitsPerUpdate: 0.5
       accumulatorTime: 5.0
   - type: SolutionContainerManager
     solutions:
       melee:
         reagents:
         - ReagentId: Synaptizine
-          Quantity: 40
+          Quantity: 30
   - type: MeleeChemicalInjector
     solution: melee
-    transferAmount: 2.0
+    transferAmount: 1.0
   - type: SolutionRegeneration
     solution: melee
     generated:
@@ -159,26 +161,36 @@
     tags:
     - CannotSuicide
   - type: GhostTakeoverAvailable
-    makeSentient: true
-    whitelistRequired: true
+  - type: GhostRole
+    makeSentient: false
+    whitelistRequired: false
     name: Shiro
-    description: Be Shiro! Be fast! Always be fast!
+    description: Be Shiro! Be fast! Always be fast! Don't be mean!
   - type: Loadout
     prototypes: [ ShirosVest ]
 
 - type: entity
   name: problems
-  id: MobCatProblems
-  parent: MobCatNoAccent
+  id: MobSlimeCatProblems
+  parent: MobSlimeCat
   description: Defender of the medbay... from mice anyway.
   components:
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          cat: ""
   - type: Sprite
     drawdepth: Mobs
     sprite: SimpleStation14/Mobs/Pets/problems.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: cat
+      alpha: 200
   - type: Appearance
+  - type: Butcherable
+    spawned:
+    - id: FoodShiroSlime
+      amount: 3
   - type: DamageStateVisuals
     states:
       Alive:
@@ -190,6 +202,8 @@
   - type: Tag
     tags:
     - CannotSuicide
+  - type: ReplacementAccent
+    accent: problems
   - type: Grammar
     attributes:
       proper: true
@@ -200,6 +214,12 @@
     interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/cat_meow.ogg
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: false
+    whitelistRequired: false
+    name: problems
+    description: Be a problems. Eat live power cables. Or not. Who cares? You're a cat.
 
 - type: entity
   name: Jack Parker
