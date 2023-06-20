@@ -1038,3 +1038,11 @@ Entries:
         on the eyes
   id: 94
   time: '2023-06-16T06:46:39.0000000+00:00'
+- author: SomeCabbage
+  changes:
+    - type: tweak
+      message: >-
+        Parkstation map tweaks. Defibrilators, fax machines, paperbins, and
+        breaching hammer. Some other minor changes as well.
+  id: 95
+  time: '2023-06-20T10:38:17.0000000+00:00'
