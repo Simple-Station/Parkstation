@@ -76,3 +76,66 @@
       tags:
       - Document
       - Write
+
+- type: entity
+  parent: PaperBin
+  id: PaperBin50
+  suffix: "50, Office Paper"
+  components:
+  - type: Bin
+    maxItems: 50
+    initialContents:
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    whitelist:
+      tags:
+      - Document
+      - Write
