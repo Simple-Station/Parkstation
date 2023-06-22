@@ -24,6 +24,16 @@
       4: 0.00
   - type: Carriable
   - type: BatteryDrinker
+  - type: EncryptionKeyHolder
+    keySlots: 3
+    examineWhileLocked: false
+    keysExtractionMethod: Cutting
+  - type: ActiveRadio
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+  - type: Wires
+    BoardName: "IPC"
+    LayoutId: IPC
 
 - type: entity
   save: false

@@ -13,5 +13,5 @@ namespace Content.Server.Radio.Components;
 public sealed class IntrinsicRadioTransmitterComponent : Component
 {
     [DataField("channels", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<RadioChannelPrototype>))]
-    public readonly HashSet<string> Channels = new() { SharedChatSystem.CommonChannel };
+    public HashSet<string> Channels = new() { SharedChatSystem.CommonChannel }; // Parkstation-IPC // Did this really need to be readonly? :prerealization:
 }
