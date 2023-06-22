@@ -1,3 +1,5 @@
+using System.Linq;
+using Content.Server.Construction;
 using Content.Server.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
@@ -12,17 +14,13 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
-using Content.Shared.Power;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.SimpleStation14.Silicon;
 using Content.Shared.SimpleStation14.Silicon.Charge;
 using Content.Shared.StepTrigger.Components;
-using Content.Shared.Storage.Components;
-using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Physics.Events;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
@@ -38,10 +36,15 @@ public sealed class SiliconChargerSystem : EntitySystem
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly SharedSiliconChargerSystem _sharedCharger = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<SiliconChargerComponent, RefreshPartsEvent>(OnRefreshParts);
+        SubscribeLocalEvent<SiliconChargerComponent, UpgradeExamineEvent>(OnExamineParts);
 
         SubscribeLocalEvent<SiliconChargerComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<SiliconChargerComponent, EndCollideEvent>(OnEndCollide);
@@ -49,6 +52,8 @@ public sealed class SiliconChargerSystem : EntitySystem
         SubscribeLocalEvent<SiliconChargerComponent, ComponentShutdown>(OnChargerShutdown);
     }
 
+    // TODO: Potentially refactor this so it chaches all found entities upon the storage being closed, or stepped on, etc.
+    // Perhaps a variable for it? Open chargers like the pad wouldn't update to things picked up, but it seems silly to redo it each frame for closed ones.
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -61,7 +66,7 @@ public sealed class SiliconChargerSystem : EntitySystem
             var wasActive = chargerComp.Active;
             chargerComp.Active = false;
 
-            if (EntityManager.TryGetComponent<ApcPowerReceiverComponent>(uid, out var powerComp) && !powerComp.Powered)
+            if (TryComp<ApcPowerReceiverComponent>(uid, out var powerComp) && !powerComp.Powered)
             {
                 if (chargerComp.Active != wasActive)
                     _sharedCharger.UpdateState(uid, chargerComp);
@@ -74,6 +79,8 @@ public sealed class SiliconChargerSystem : EntitySystem
                 chargerComp.Active = true;
 
                 var chargeRate = chargerComp.ChargeMulti * frameTime * 10;
+
+
 
                 HandleChargingEntity(entity, chargeRate, chargerComp, uid, frameTime);
 
@@ -115,7 +122,7 @@ public sealed class SiliconChargerSystem : EntitySystem
 
             var chargeRate = frameTime * chargerComp.ChargeMulti / chargerComp.PresentEntities.Count;
 
-            foreach (var entity in chargerComp.PresentEntities)
+            foreach (var entity in chargerComp.PresentEntities.ToList())
             {
                 HandleChargingEntity(entity, chargeRate, chargerComp, uid, frameTime);
             }
@@ -139,14 +146,16 @@ public sealed class SiliconChargerSystem : EntitySystem
         if (entitiesToCharge.Count == 0)
             return;
 
+        chargeRate *= chargerComp.PartsChargeMulti;
+
         // Now we charge the entities we found.
         chargeRate /= entitiesToCharge.Count;
 
-        foreach (var entityToCharge in entitiesToCharge)
+        foreach (var entityToCharge in entitiesToCharge.ToList())
         {
-            if (EntityManager.TryGetComponent<BatteryComponent>(entityToCharge, out _))
+            if (TryComp<BatteryComponent>(entityToCharge, out _))
                 ChargeBattery(entityToCharge, EntityManager.GetComponent<BatteryComponent>(entityToCharge), chargeRate, chargerComp, chargerUid);
-            else if (EntityManager.TryGetComponent<DamageableComponent>(entityToCharge, out var damageComp))
+            else if (TryComp<DamageableComponent>(entityToCharge, out var damageComp))
                 BurnEntity(entityToCharge, damageComp, frameTime, chargerComp, chargerUid);
         }
     }
@@ -156,40 +165,40 @@ public sealed class SiliconChargerSystem : EntitySystem
         var entitiesToCharge = new List<EntityUid>();
 
         // If the given entity has a battery, charge it.
-        if (!EntityManager.TryGetComponent<UnremoveableComponent>(entity, out _) &&
-            EntityManager.TryGetComponent(entity, out BatteryComponent? batteryComp) &&
+        if (!HasComp<UnremoveableComponent>(entity) && // Should probably be charge by the entity holding it, but also might be too small to be safe.
+            TryComp<BatteryComponent>(entity, out var batteryComp) &&
             batteryComp.CurrentCharge < batteryComp.MaxCharge)
         {
             entitiesToCharge.Add(entity);
         }
 
         // If the given entity contains a battery, charge it.
-        else if (!EntityManager.TryGetComponent<UnremoveableComponent>(entity, out _) &&
-                EntityManager.TryGetComponent(entity, out PowerCellSlotComponent? cellSlotComp) &&
+        else if (!HasComp<UnremoveableComponent>(entity) && // Should probably be charge by the entity holding it, but also might be too small to be safe.
+                TryComp<PowerCellSlotComponent>(entity, out var cellSlotComp) &&
                 _itemSlots.TryGetSlot(entity, cellSlotComp.CellSlotId, out var slot) &&
-                EntityManager.TryGetComponent<BatteryComponent>(slot.Item, out var cellComp) &&
-                cellComp.CurrentCharge < cellComp.MaxCharge)
+                TryComp<BatteryComponent>(slot.Item, out var cellBattComp) &&
+                cellBattComp.CurrentCharge < cellBattComp.MaxCharge)
         {
             entitiesToCharge.Add(slot.Item.Value);
         }
 
         // If the given entity is fleshy, burn the fucker.
         else if (burn &&
-                EntityManager.TryGetComponent<DamageableComponent>(entity, out var damageComp) &&
+                TryComp<DamageableComponent>(entity, out var damageComp) &&
                 damageComp.DamageContainerID == "Biological")
         {
             entitiesToCharge.Add(entity);
         }
 
         // Now the weird part, we check for any inventories the entities contained may have, and run this function on any entities contained, for a recursive charging effect.
-        if (EntityManager.TryGetComponent<HandsComponent>(entity, out var handsComp))
+        if (TryComp<HandsComponent>(entity, out var handsComp))
         {
             foreach (var heldEntity in _hands.EnumerateHeld(entity, handsComp))
             {
                 entitiesToCharge.AddRange(SearchThroughEntities(heldEntity));
             }
         }
-        if (EntityManager.TryGetComponent<InventoryComponent>(entity, out var inventoryComp))
+        if (TryComp<InventoryComponent>(entity, out var inventoryComp))
         {
             foreach (var slot in _inventory.GetSlots(entity, inventoryComp))
             {
@@ -197,14 +206,14 @@ public sealed class SiliconChargerSystem : EntitySystem
                     entitiesToCharge.AddRange(SearchThroughEntities(slotItem.Value));
             }
         }
-        if (EntityManager.TryGetComponent<ServerStorageComponent>(entity, out var storageComp))
+        if (TryComp<ServerStorageComponent>(entity, out var storageComp))
         {
             foreach (var containedEntity in storageComp.StoredEntities!)
             {
                 entitiesToCharge.AddRange(SearchThroughEntities(containedEntity));
             }
         }
-        if (EntityManager.TryGetComponent<EntityStorageComponent>(entity, out var entStorage))
+        if (TryComp<EntityStorageComponent>(entity, out var entStorage))
         {
             foreach (var containedEntity in entStorage.Contents.ContainedEntities)
             {
@@ -231,7 +240,7 @@ public sealed class SiliconChargerSystem : EntitySystem
         // If the battery is too small, explode it.
         if ((batteryComp.MaxCharge - batteryComp.CurrentCharge) * 1.2 + batteryComp.MaxCharge < chargerComp.MinChargeSize)
         {
-            if (EntityManager.TryGetComponent<ExplosiveComponent>(entity, out var explosiveComp))
+            if (TryComp<ExplosiveComponent>(entity, out var explosiveComp))
                 _explosion.TriggerExplosive(entity, explosiveComp);
             else
                 _explosion.QueueExplosion(entity, "Default", batteryComp.MaxCharge / 50, 1.5f, 200, user: chargerUid);
@@ -242,14 +251,29 @@ public sealed class SiliconChargerSystem : EntitySystem
     {
         var damage = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>(chargerComp.DamageType), frameTime * chargerComp.ChargeMulti / 100);
         var damageDealt = _damageable.TryChangeDamage(entity, damage, false, true, damageComp, chargerUid);
-        chargerComp.WarningAccumulator -= frameTime;
 
-        if (damageDealt != null && chargerComp.WarningAccumulator <= 0 && damageDealt.Total > 0)
+        if (damageDealt != null && damageDealt.Total > 0 && chargerComp.WarningTime < _timing.CurTime)
         {
-            var popupBurn = Loc.GetString("silicon-charger-burn", ("charger", chargerUid), ("entity", entity));
+            var popupBurn = Loc.GetString(chargerComp.OverheatString);
             _popup.PopupEntity(popupBurn, entity, PopupType.MediumCaution);
-            chargerComp.WarningAccumulator += 5f;
+
+            chargerComp.WarningTime = TimeSpan.FromSeconds(_random.Next(3, 7)) + _timing.CurTime;
         }
+    }
+
+    private void OnRefreshParts(EntityUid uid, SiliconChargerComponent component, RefreshPartsEvent args)
+    {
+        var chargeMod = args.PartRatings[component.ChargeSpeedPart];
+        var efficiencyMod = args.PartRatings[component.ChargeEfficiencyPart];
+
+        component.PartsChargeMulti = chargeMod * component.UpgradePartsMulti;
+        // TODO: Variable power draw, with efficiency.
+    }
+
+    private void OnExamineParts(EntityUid uid, SiliconChargerComponent component, UpgradeExamineEvent args)
+    {
+        args.AddPercentageUpgrade("silicon-charger-chargerate-string", component.PartsChargeMulti);
+        // TODO: Variable power draw, with efficiency.
     }
 
     #region Charger specific
@@ -257,32 +281,30 @@ public sealed class SiliconChargerSystem : EntitySystem
     // When an entity starts colliding with the charger, add it to the list of entities present on the charger if it has the StepTriggerComponent.
     private void OnStartCollide(EntityUid uid, SiliconChargerComponent component, ref StartCollideEvent args)
     {
-        if (!EntityManager.HasComponent<StepTriggerComponent>(uid))
+        if (!HasComp<StepTriggerComponent>(uid))
             return;
 
-        var target = args.OtherFixture.Body.Owner;
+        var target = args.OtherEntity;
 
-        if (!component.PresentEntities.Contains(target))
+        if (component.PresentEntities.Contains(target))
+            return;
+
+        if (component.PresentEntities.Count >= component.MaxEntities)
         {
-            if (component.PresentEntities.Count >= component.MaxEntities)
-            {
-                _popup.PopupEntity(Loc.GetString("silicon-charger-list-too-big"), target, target);
-                return;
-            }
-
-            _popup.PopupEntity(Loc.GetString("silicon-charger-add-to-list"), target, target);
-
-            component.PresentEntities.Add(target);
+            _popup.PopupEntity(Loc.GetString("silicon-charger-list-full", ("charger", args.OurEntity)), target, target);
+            return;
         }
+
+        component.PresentEntities.Add(target);
     }
 
     // When an entity stops colliding with the charger, remove it from the list of entities present on the charger.
     private void OnEndCollide(EntityUid uid, SiliconChargerComponent component, ref EndCollideEvent args)
     {
-        if (!EntityManager.HasComponent<StepTriggerComponent>(uid))
+        if (!HasComp<StepTriggerComponent>(uid))
             return;
 
-        var target = args.OtherFixture.Body.Owner;
+        var target = args.OtherEntity;
 
         if (component.PresentEntities.Contains(target))
         {

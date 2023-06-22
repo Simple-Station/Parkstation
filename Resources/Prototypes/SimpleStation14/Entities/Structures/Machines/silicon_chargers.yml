@@ -57,10 +57,30 @@
           state_closed: closed
     - type: ContainerContainer
       containers:
+        machine_board: !type:Container
+        machine_parts: !type:Container
         entity_storage: !type:Container
     - type: SiliconCharger
       chargeMulti: 1000
       targetTemp: 390
+    - type: Construction
+      graph: Machine
+      node: machine
+      containers:
+      - machine_board
+      - machine_parts
+    - type: Machine
+      board: IndustrialChargerCircuitboard
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 350
+        behaviors:
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
 
 - type: entity
   id: SiliconChargerChargePad
@@ -110,6 +130,28 @@
     - type: StepTrigger
     - type: SiliconCharger
       chargeMylti: 150
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+        machine_parts: !type:Container
+    - type: Construction
+      graph: Machine
+      node: machine
+      containers:
+      - machine_board
+      - machine_parts
+    - type: Machine
+      board: IndustrialChargerCircuitboard
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 350
+        behaviors:
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
 
   # Generated, maybe good?
   #

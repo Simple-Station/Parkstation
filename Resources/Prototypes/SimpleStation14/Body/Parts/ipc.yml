@@ -136,7 +136,7 @@
   - type: BodyPart
     partType: Leg
     symmetry: Left
-  - type: MovementSpeedModifier
+  - type: MovementBodyPart
 
 - type: entity
   id: RightLegIPC
@@ -153,7 +153,7 @@
   - type: BodyPart
     partType: Leg
     symmetry: Right
-  - type: MovementSpeedModifier
+  - type: MovementBodyPart
 
 - type: entity
   id: LeftFootIPC

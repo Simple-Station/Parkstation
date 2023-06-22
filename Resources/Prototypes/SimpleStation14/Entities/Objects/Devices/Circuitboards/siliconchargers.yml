@@ -1,0 +1,34 @@
+- type: entity
+  id: IndustrialChargerCircuitboard
+  parent: BaseMachineCircuitboard
+  name: industrial charger machine board
+  description: A machine printed circuit board for an industrial charger
+  components:
+    - type: Sprite
+      state: engineering
+    - type: MachineBoard
+      prototype: SiliconChargerIndustrial
+      requirements:
+        Capacitor: 8
+        Manipulator: 2
+      materialRequirements:
+        Plastic: 6
+        CableHV: 4
+        CableMV: 8
+
+- type: entity
+  id: ChargingPadCircuitboard
+  parent: BaseMachineCircuitboard
+  name: charging pad machine board
+  description: A machine printed circuit board for a charging pad
+  components:
+    - type: Sprite
+      state: engineering
+    - type: MachineBoard
+      prototype: SiliconChargerChargePad
+      requirements:
+        Capacitor: 3
+        Laser: 5
+      materialRequirements:
+        CableHV: 2
+        CableMV: 2

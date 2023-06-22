@@ -250,6 +250,7 @@
     - type: Hands
     - type: Inventory
       templateId: human
+    - type: InventorySlots
     - type: Appearance
     - type: GenericVisualizer
       visuals:

@@ -1,26 +1,15 @@
 using Content.Server.Power.Components;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.SimpleStation14.Silicon.Components;
 using Content.Shared.SimpleStation14.Silicon.Systems;
 using Robust.Shared.Utility;
-using Content.Shared.Stunnable;
-using Content.Shared.StatusEffect;
 using Content.Server.Bed.Sleep;
 using Content.Shared.Bed.Sleep;
-using Robust.Shared.Audio;
 using Content.Server.Sound.Components;
 
 namespace Content.Server.SimpleStation14.Silicon.Death;
 
 public sealed class SiliconDeathSystem : EntitySystem
 {
-    // [Dependency] private readonly IRobustRandom _random = default!;
-    // [Dependency] private readonly FlammableSystem _flammableSystem = default!;
-    // [Dependency] private readonly PopupSystem _popup = default!;
-    // [Dependency] private readonly IGameTiming _gameTiming = default!;
-    // [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
     [Dependency] private readonly SleepingSystem _sleepSystem = default!;
 
     public override void Initialize()
@@ -53,13 +42,13 @@ public sealed class SiliconDeathSystem : EntitySystem
 
     private void SiliconDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent batteryComp)
     {
-        var deadEvent = new SiliconChargeDeadEvent(uid, batteryComp);
+        var deadEvent = new SiliconChargeDyingEvent(uid, batteryComp);
         RaiseLocalEvent(uid, deadEvent);
 
         if (deadEvent.Cancelled)
             return;
 
-        var sleepComp = EntityManager.EnsureComponent<SleepingComponent>(uid);
+        EntityManager.EnsureComponent<SleepingComponent>(uid);
         RemComp<SpamEmitSoundComponent>(uid); // This is also fucking stupid, I once again hate the sleeping system.
         EntityManager.EnsureComponent<ForcedSleepingComponent>(uid);
 
@@ -73,29 +62,50 @@ public sealed class SiliconDeathSystem : EntitySystem
         _sleepSystem.TryWaking(uid, null, true);
 
         siliconDeadComp.Dead = false;
+
+        RaiseLocalEvent(uid, new SiliconChargeAliveEvent(uid, batteryComp));
     }
 }
 
-
-
-public sealed class SiliconChargeDeadEvent : CancellableEntityEventArgs
+/// <summary>
+///     A canellable event raised when a Silicon is about to go down due to charge.
+/// <summary>
+public sealed class SiliconChargeDyingEvent : CancellableEntityEventArgs
 {
     public EntityUid SiliconUid { get; }
     public BatteryComponent BatteryComp { get; }
 
-    public SiliconChargeDeadEvent(EntityUid siliconUid, BatteryComponent batteryComp)
+    public SiliconChargeDyingEvent(EntityUid siliconUid, BatteryComponent batteryComp)
     {
         SiliconUid = siliconUid;
         BatteryComp = batteryComp;
     }
 }
 
+/// <summary>
+///     An event raised after a Silicon has gone down due to charge.
+/// <summary>
 public sealed class SiliconChargeDeathEvent : EntityEventArgs
 {
     public EntityUid SiliconUid { get; }
     public BatteryComponent BatteryComp { get; }
 
     public SiliconChargeDeathEvent(EntityUid siliconUid, BatteryComponent batteryComp)
+    {
+        SiliconUid = siliconUid;
+        BatteryComp = batteryComp;
+    }
+}
+
+/// <summary>
+///     An event raised after a Silicon has reawoken due to an increase in charge.
+/// <summary>
+public sealed class SiliconChargeAliveEvent : EntityEventArgs
+{
+    public EntityUid SiliconUid { get; }
+    public BatteryComponent BatteryComp { get; }
+
+    public SiliconChargeAliveEvent(EntityUid siliconUid, BatteryComponent batteryComp)
     {
         SiliconUid = siliconUid;
         BatteryComp = batteryComp;

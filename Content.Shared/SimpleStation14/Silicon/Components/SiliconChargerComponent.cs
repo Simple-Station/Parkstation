@@ -20,7 +20,12 @@ public sealed class SiliconChargerComponent : Component
     /// <summary>
     ///     Counter for handing out warnings to burning entities.
     /// </summary>
-    public float WarningAccumulator = 0f;
+    public TimeSpan WarningTime = TimeSpan.Zero;
+
+    /// <summary>
+    ///     The current parts mutliplier.
+    /// </summary>
+    public float PartsChargeMulti = 1.2f;
 
 
     /// <summary>
@@ -68,6 +73,34 @@ public sealed class SiliconChargerComponent : Component
     /// </summary>
     [DataField("damageType")]
     public string DamageType = "Shock";
+
+    /// <summary>
+    ///     The modifier to apply to a used parts rating.
+    /// </summary>
+    /// <remarks>
+    ///     0.6 is the default as it provides a nice range where 2 is about normal, and 4 is about two and a half.
+    /// </remarks>
+    [DataField("upgradePartsMulti"), ViewVariables(VVAccess.ReadWrite)]
+    public float UpgradePartsMulti = 0.6f;
+
+    /// <summary>
+    ///     The part to be used for the charge speed.
+    /// </summary>
+    [DataField("chargeSpeedPart")]
+    public string ChargeSpeedPart = "Capacitor";
+
+    /// <summary>
+    ///     The part to be used for the charge efficiency.
+    /// </summary>
+    [DataField("chargeEfficiencyPart")]
+    public string ChargeEfficiencyPart = "Manipulator";
+
+
+    /// <summary>
+    ///     Charger overheat string
+    /// </summary>
+    [DataField("overheatString")]
+    public string OverheatString = "silicon-charger-overheatwarning";
 
 
     /// <summary>
