@@ -9,3 +9,6 @@ species-name-oni = Oni
 species-name-arachne = Arachne
 species-name-diona = Diona
 species-name-moth = Moth
+
+## Parkstation Names
+species-name-ipc = IPC
