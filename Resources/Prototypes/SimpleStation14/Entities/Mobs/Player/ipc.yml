@@ -9,13 +9,16 @@
     templateId: ipc
   - type: Battery
     maxCharge: 150000
+  - type: RandomBatteryCharge
+    batteryMaxMinMax: 0.85, 1.15
+    batteryChargeMinMax: 0.40, 0.90
   - type: Silicon
     entityType: enum.SiliconType.Player
     batteryPowered: true
     drainRateMulti: 5
-    chargeStateThresholdMid: 0.80
-    chargeStateThresholdLow: 0.35
-    chargeStateThresholdCritical: 0.10
+    chargeThresholdMid: 0.80
+    chargeThresholdLow: 0.35
+    chargeThresholdCritical: 0.10
     speedModifierThresholds:
       0: 1
       1: 1

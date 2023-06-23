@@ -54,11 +54,11 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
 
         foreach (var state in speedModThresholds)
         {
-            if (component.ChargeState >= state.Key && ((float) state.Key) > closest)
-                closest = ((float) state.Key);
+            if (component.ChargeState >= state.Key && (float) state.Key > closest)
+                closest = (float) state.Key;
         }
 
-        var speedMod = speedModThresholds[(ChargeState)closest];
+        var speedMod = speedModThresholds[(ChargeState) closest];
 
         args.ModifySpeed(speedMod, speedMod);
     }
@@ -74,19 +74,11 @@ public enum SiliconType
 
 public enum ChargeState
 {
-    Charging = -1,
     Full,
     Mid,
     Low,
     Critical,
     Dead
-}
-
-public enum StartChargedData
-{
-    False,
-    True,
-    Randomized
 }
 
 

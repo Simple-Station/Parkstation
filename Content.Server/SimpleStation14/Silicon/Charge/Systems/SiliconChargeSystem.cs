@@ -11,41 +11,55 @@ using Content.Shared.SimpleStation14.Silicon.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Server.Body.Components;
 using Content.Server.Power.EntitySystems;
+using Robust.Shared.Containers;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 
 public sealed class SiliconChargeSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly FlammableSystem _flammableSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        // Subscribe for init on entities with both SiliconComponent and BatteryComponent
-        SubscribeLocalEvent<BatteryComponent, ComponentInit>(OnBatteryInit);
+        SubscribeLocalEvent<SiliconComponent, ComponentStartup>(OnSiliconStartup);
     }
 
-
-    private void OnBatteryInit(EntityUid uid, BatteryComponent component, ComponentInit args)
+    public bool TryGetSiliconBattery(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? batteryComp)
     {
-        if (!EntityManager.TryGetComponent<SiliconComponent>(uid, out var siliconComp) ||
-            !siliconComp.BatteryPowered)
+        batteryComp = null;
+
+        if (!EntityManager.TryGetComponent(uid, out SiliconComponent? siliconComp))
+            return false;
+
+        if (siliconComp.BatteryContainer != null &&
+            siliconComp.BatteryContainer.ContainedEntities.Count > 0 &&
+            TryComp(siliconComp.BatteryContainer.ContainedEntities[0], out batteryComp))
+        {
+            return true;
+        }
+
+        if (TryComp(uid, out batteryComp))
+            return true;
+
+        return false;
+    }
+
+    private void OnSiliconStartup(EntityUid uid, SiliconComponent component, ComponentStartup args)
+    {
+        if (component.BatterySlot == null)
             return;
 
-        _battery.SetMaxCharge(uid, component.MaxCharge * _random.NextFloat(0.85f, 1.15f));
-
-        var batteryLevelFill = component.MaxCharge;
-
-        if (siliconComp.StartCharged.Equals(StartChargedData.Randomized))
-            batteryLevelFill *= _random.NextFloat(0.40f, 0.80f);
-
-        _battery.SetCharge(uid, batteryLevelFill);
+        var container = _container.EnsureContainer<Container>(uid, component.BatterySlot);
+        component.BatteryContainer = container;
     }
 
     public override void Update(float frameTime)
@@ -53,11 +67,14 @@ public sealed class SiliconChargeSystem : EntitySystem
         base.Update(frameTime);
 
         // For each siliconComp entity with a battery component, drain their charge.
-        var query = EntityQueryEnumerator<SiliconComponent, BatteryComponent>();
-        while (query.MoveNext(out var silicon, out var siliconComp, out var batteryComp))
+        var query = EntityQueryEnumerator<SiliconComponent>();
+        while (query.MoveNext(out var silicon, out var siliconComp))
         {
+            if (!siliconComp.BatteryPowered || !TryGetSiliconBattery(silicon, out var batteryComp))
+                continue;
+
             // If the silicon is dead, skip it.
-            if (_mobStateSystem.IsDead(silicon))
+            if (_mobState.IsDead(silicon))
                 continue;
 
             var drainRate = 10 * siliconComp.DrainRateMulti;
@@ -84,10 +101,10 @@ public sealed class SiliconChargeSystem : EntitySystem
 
             var currentState = chargePercent switch
             {
-                var x when x > siliconComp.ChargeStateThresholdMid => ChargeState.Full,
-                var x when x > siliconComp.ChargeStateThresholdLow => ChargeState.Mid,
-                var x when x > siliconComp.ChargeStateThresholdCritical => ChargeState.Low,
-                var x when x > 0 || siliconComp.ChargeStateThresholdCritical == 0 => ChargeState.Critical,
+                var x when x > siliconComp.ChargeThresholdMid => ChargeState.Full,
+                var x when x > siliconComp.ChargeThresholdLow => ChargeState.Mid,
+                var x when x > siliconComp.ChargeThresholdCritical => ChargeState.Low,
+                var x when x > 0 || siliconComp.ChargeThresholdCritical == 0 => ChargeState.Critical,
                 _ => ChargeState.Dead,
             };
 
@@ -98,7 +115,9 @@ public sealed class SiliconChargeSystem : EntitySystem
 
                 RaiseLocalEvent(silicon, new SiliconChargeStateUpdateEvent(currentState));
 
-                _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(silicon);
+                Logger.DebugS("silicon", $"Silicon {silicon} charge state updated to {currentState}.");
+
+                _moveMod.RefreshMovementSpeedModifiers(silicon);
             }
         }
     }
@@ -135,7 +154,7 @@ public sealed class SiliconChargeSystem : EntitySystem
                     !flamComp.OnFire &&
                     _random.Prob(Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 5), 0.001f, 0.9f)))
                 {
-                    _flammableSystem.Ignite(silicon, flamComp);
+                    _flammable.Ignite(silicon, flamComp);
                 }
                 else if ((flamComp == null || !flamComp.OnFire) &&
                         _random.Prob(Math.Clamp(temperComp.CurrentTemperature / upperThresh, 0.001f, 0.75f)))

@@ -1,6 +1,7 @@
 using Robust.Shared.GameStates;
 using Content.Shared.SimpleStation14.Silicon.Systems;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
+using Robust.Shared.Containers;
 
 namespace Content.Shared.SimpleStation14.Silicon.Components;
 
@@ -21,6 +22,11 @@ public sealed class SiliconComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public new EntityUid Owner = EntityUid.Invalid;
+
+    /// <summary>
+    ///     The Silicon's battery slot, if it has one.
+    /// </summary>
+    public Container? BatteryContainer = null;
 
     /// <summary>
     ///     Is the Silicon currently dead?
@@ -47,13 +53,11 @@ public sealed class SiliconComponent : Component
     public bool BatteryPowered = false;
 
     /// <summary>
-    ///     Should this silicon start charged?
+    ///     Slot this entity's battery is contained in.
+    ///     Leave null if using a battery component.
     /// </summary>
-    /// <remarks>
-    ///     Valid values are: <see cref="StartChargedData.True"/>, <see cref="StartChargedData.False"/>, and <see cref="StartChargedData.Randomized"/>.
-    /// </remarks>
-    [DataField("startCharged", customTypeSerializer: typeof(EnumSerializer)), ViewVariables(VVAccess.ReadOnly)]
-    public Enum StartCharged = StartChargedData.Randomized;
+    [DataField("batterySlot")]
+    public string? BatterySlot = null;
 
     /// <summary>
     ///     Multiplier for the drain rate of the silicon.
@@ -70,16 +74,16 @@ public sealed class SiliconComponent : Component
     ///     Setting a value to null will disable that state.
     ///     Setting Critical to 0 will cause the Silicon to never enter the dead state.
     /// </remarks>
-    [DataField("chargeStateThresholdMid"), ViewVariables(VVAccess.ReadWrite)]
-    public float? ChargeStateThresholdMid = 0.5f;
+    [DataField("chargeThresholdMid"), ViewVariables(VVAccess.ReadWrite)]
+    public float? ChargeThresholdMid = 0.5f;
 
-    /// <inheritdoc cref="ChargeStateThresholdMid"/>
-    [DataField("chargeStateThresholdLow"), ViewVariables(VVAccess.ReadWrite)]
-    public float? ChargeStateThresholdLow = 0.25f;
+    /// <inheritdoc cref="ChargeThresholdMid"/>
+    [DataField("chargeThresholdLow"), ViewVariables(VVAccess.ReadWrite)]
+    public float? ChargeThresholdLow = 0.25f;
 
-    /// <inheritdoc cref="ChargeStateThresholdMid"/>
-    [DataField("chargeStateThresholdCritical"), ViewVariables(VVAccess.ReadWrite)]
-    public float? ChargeStateThresholdCritical = 0.0f;
+    /// <inheritdoc cref="ChargeThresholdMid"/>
+    [DataField("chargeThresholdCritical"), ViewVariables(VVAccess.ReadWrite)]
+    public float? ChargeThresholdCritical = 0.0f;
 
 
     /// <summary>

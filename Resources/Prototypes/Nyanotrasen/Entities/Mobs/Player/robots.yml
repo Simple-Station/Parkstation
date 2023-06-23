@@ -193,9 +193,9 @@
     batteryPowered: true
     drainRateMulti: 4
     chargeRateMulti: 6
-    chargeStateThresholdMid: 0.60
-    chargeStateThresholdLow: 0.30
-    chargeStateThresholdCritical: 0
+    chargeThresholdMid: 0.60
+    chargeThresholdLow: 0.30
+    chargeThresholdCritical: 0
     speedModifierThresholds:
       0: 1
       1: 1

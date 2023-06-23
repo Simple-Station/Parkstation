@@ -38,6 +38,7 @@ public sealed class SiliconChargerSystem : EntitySystem
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SiliconChargeSystem _silicon = default!;
 
     public override void Initialize()
     {
@@ -153,8 +154,8 @@ public sealed class SiliconChargerSystem : EntitySystem
 
         foreach (var entityToCharge in entitiesToCharge.ToList())
         {
-            if (TryComp<BatteryComponent>(entityToCharge, out _))
-                ChargeBattery(entityToCharge, EntityManager.GetComponent<BatteryComponent>(entityToCharge), chargeRate, chargerComp, chargerUid);
+            if (_silicon.TryGetSiliconBattery(entityToCharge, out var batteryComp))
+                ChargeBattery(entityToCharge, batteryComp, chargeRate, chargerComp, chargerUid);
             else if (TryComp<DamageableComponent>(entityToCharge, out var damageComp))
                 BurnEntity(entityToCharge, damageComp, frameTime, chargerComp, chargerUid);
         }
@@ -164,22 +165,28 @@ public sealed class SiliconChargerSystem : EntitySystem
     {
         var entitiesToCharge = new List<EntityUid>();
 
-        // If the given entity has a battery, charge it.
-        if (!HasComp<UnremoveableComponent>(entity) && // Should probably be charge by the entity holding it, but also might be too small to be safe.
-            TryComp<BatteryComponent>(entity, out var batteryComp) &&
-            batteryComp.CurrentCharge < batteryComp.MaxCharge)
+        if (_silicon.TryGetSiliconBattery(entity, out var siliconBatteryComp))
         {
-            entitiesToCharge.Add(entity);
+            if (siliconBatteryComp.CurrentCharge < siliconBatteryComp.MaxCharge)
+                entitiesToCharge.Add(entity);
+        }
+
+        // If the given entity has a battery, charge it.
+        else if (!HasComp<UnremoveableComponent>(entity) && // Should probably be charged by the entity holding it. Might be too small to be safe.
+            TryComp<BatteryComponent>(entity, out var batteryComp))
+        {
+            if (batteryComp.CurrentCharge < batteryComp.MaxCharge)
+                entitiesToCharge.Add(entity);
         }
 
         // If the given entity contains a battery, charge it.
-        else if (!HasComp<UnremoveableComponent>(entity) && // Should probably be charge by the entity holding it, but also might be too small to be safe.
+        else if (!HasComp<UnremoveableComponent>(entity) && // Should probably be charged by the entity holding it. Might be too small to be safe.
                 TryComp<PowerCellSlotComponent>(entity, out var cellSlotComp) &&
                 _itemSlots.TryGetSlot(entity, cellSlotComp.CellSlotId, out var slot) &&
-                TryComp<BatteryComponent>(slot.Item, out var cellBattComp) &&
-                cellBattComp.CurrentCharge < cellBattComp.MaxCharge)
+                TryComp<BatteryComponent>(slot.Item, out var cellBattComp))
         {
-            entitiesToCharge.Add(slot.Item.Value);
+            if (cellBattComp.CurrentCharge < cellBattComp.MaxCharge)
+                entitiesToCharge.Add(slot.Item.Value);
         }
 
         // If the given entity is fleshy, burn the fucker.

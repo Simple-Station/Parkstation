@@ -20,6 +20,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly SiliconChargeSystem _silicon = default!;
 
     public override void Initialize()
     {
@@ -52,7 +53,6 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
     private bool TestDrinkableBattery(EntityUid target, BatteryDrinkerComponent drinkerComp)
     {
-
         if (!drinkerComp.DrinkAll && !HasComp<BatteryDrinkerSourceComponent>(target))
             return false;
 
@@ -61,13 +61,16 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
     private bool TryGetFillableBattery(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery)
     {
-        if (EntityManager.TryGetComponent<BatteryComponent>(uid, out battery))
+        if (_silicon.TryGetSiliconBattery(uid, out battery))
+            return true;
+
+        if (EntityManager.TryGetComponent(uid, out battery))
             return true;
 
         if (EntityManager.TryGetComponent<PowerCellSlotComponent>(uid, out var powerCellSlot) &&
             _slots.TryGetSlot(uid, powerCellSlot.CellSlotId, out var slot) &&
             slot.Item != null &&
-            EntityManager.TryGetComponent<BatteryComponent>(slot.Item.Value, out battery))
+            EntityManager.TryGetComponent(slot.Item.Value, out battery))
             return true;
 
         return false;

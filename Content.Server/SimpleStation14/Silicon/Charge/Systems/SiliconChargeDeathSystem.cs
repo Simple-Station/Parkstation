@@ -1,16 +1,17 @@
 using Content.Server.Power.Components;
-using Content.Shared.SimpleStation14.Silicon.Components;
 using Content.Shared.SimpleStation14.Silicon.Systems;
-using Robust.Shared.Utility;
 using Content.Server.Bed.Sleep;
 using Content.Shared.Bed.Sleep;
 using Content.Server.Sound.Components;
+using Content.Server.SimpleStation14.Silicon.Charge;
+using Serilog;
 
 namespace Content.Server.SimpleStation14.Silicon.Death;
 
 public sealed class SiliconDeathSystem : EntitySystem
 {
-    [Dependency] private readonly SleepingSystem _sleepSystem = default!;
+    [Dependency] private readonly SleepingSystem _sleep = default!;
+    [Dependency] private readonly SiliconChargeSystem _silicon = default!;
 
     public override void Initialize()
     {
@@ -21,14 +22,10 @@ public sealed class SiliconDeathSystem : EntitySystem
 
     private void OnSiliconChargeStateUpdate(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, SiliconChargeStateUpdateEvent args)
     {
-        EntityManager.TryGetComponent<BatteryComponent>(uid, out var batteryComp);
-        EntityManager.TryGetComponent<SiliconComponent>(uid, out var siliconComp);
+        _silicon.TryGetSiliconBattery(uid, out var batteryComp);
 
-        DebugTools.AssertNotNull(batteryComp);
-        DebugTools.AssertNotNull(siliconComp);
-
-        if (batteryComp == null || siliconComp == null)
-            return;
+        Logger.Debug($"Silicon charge state update: {args.ChargeState}");
+        Logger.Debug($"Silicon battery: {batteryComp?.CurrentCharge}");
 
         if (args.ChargeState == ChargeState.Dead && !siliconDeadComp.Dead)
         {
@@ -40,7 +37,7 @@ public sealed class SiliconDeathSystem : EntitySystem
         }
     }
 
-    private void SiliconDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent batteryComp)
+    private void SiliconDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent? batteryComp)
     {
         var deadEvent = new SiliconChargeDyingEvent(uid, batteryComp);
         RaiseLocalEvent(uid, deadEvent);
@@ -57,9 +54,9 @@ public sealed class SiliconDeathSystem : EntitySystem
         RaiseLocalEvent(uid, new SiliconChargeDeathEvent(uid, batteryComp));
     }
 
-    private void SiliconUnDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent batteryComp)
+    private void SiliconUnDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent? batteryComp)
     {
-        _sleepSystem.TryWaking(uid, null, true);
+        _sleep.TryWaking(uid, null, true);
 
         siliconDeadComp.Dead = false;
 
@@ -73,9 +70,9 @@ public sealed class SiliconDeathSystem : EntitySystem
 public sealed class SiliconChargeDyingEvent : CancellableEntityEventArgs
 {
     public EntityUid SiliconUid { get; }
-    public BatteryComponent BatteryComp { get; }
+    public BatteryComponent? BatteryComp { get; }
 
-    public SiliconChargeDyingEvent(EntityUid siliconUid, BatteryComponent batteryComp)
+    public SiliconChargeDyingEvent(EntityUid siliconUid, BatteryComponent? batteryComp)
     {
         SiliconUid = siliconUid;
         BatteryComp = batteryComp;
@@ -88,9 +85,9 @@ public sealed class SiliconChargeDyingEvent : CancellableEntityEventArgs
 public sealed class SiliconChargeDeathEvent : EntityEventArgs
 {
     public EntityUid SiliconUid { get; }
-    public BatteryComponent BatteryComp { get; }
+    public BatteryComponent? BatteryComp { get; }
 
-    public SiliconChargeDeathEvent(EntityUid siliconUid, BatteryComponent batteryComp)
+    public SiliconChargeDeathEvent(EntityUid siliconUid, BatteryComponent? batteryComp)
     {
         SiliconUid = siliconUid;
         BatteryComp = batteryComp;
@@ -103,9 +100,9 @@ public sealed class SiliconChargeDeathEvent : EntityEventArgs
 public sealed class SiliconChargeAliveEvent : EntityEventArgs
 {
     public EntityUid SiliconUid { get; }
-    public BatteryComponent BatteryComp { get; }
+    public BatteryComponent? BatteryComp { get; }
 
-    public SiliconChargeAliveEvent(EntityUid siliconUid, BatteryComponent batteryComp)
+    public SiliconChargeAliveEvent(EntityUid siliconUid, BatteryComponent? batteryComp)
     {
         SiliconUid = siliconUid;
         BatteryComp = batteryComp;
