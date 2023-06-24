@@ -1,7 +1,7 @@
 namespace Content.Server.SimpleStation14.Power.Components;
 
 [RegisterComponent]
-public class RandomBatteryChargeComponent : Component
+public sealed class RandomBatteryChargeComponent : Component
 {
     /// <summary>
     ///     The minimum and maximum max charge the battery can have.

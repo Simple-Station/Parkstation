@@ -16,7 +16,7 @@ namespace Content.Server.Borgs
             base.Initialize();
             SubscribeLocalEvent<CyborgComponent, MobStateChangedEvent>(OnChangeState);
         }
-        
+
         private void OnChangeState(EntityUid uid, CyborgComponent component, MobStateChangedEvent args)
         {
             if (args.NewMobState == MobState.Dead){
@@ -28,7 +28,7 @@ namespace Content.Server.Borgs
 
                 // Stop dead borg from being movable AA cards by removing their ability to bump doors.
                 _tagSystem.RemoveTag(uid, "DoorBumpOpener");
-            
+
             }
             else if(args.NewMobState == MobState.Alive && args.OldMobState == MobState.Dead)
             {

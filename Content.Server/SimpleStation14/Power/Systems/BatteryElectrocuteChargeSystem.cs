@@ -1,6 +1,7 @@
 using Content.Server.Electrocution;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Shared.Electrocution;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -11,7 +12,7 @@ public sealed class BatteryElectrocuteChargeSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly BatterySystem _battery = default!;
 
     public override void Initialize()
     {
@@ -30,7 +31,7 @@ public sealed class BatteryElectrocuteChargeSystem : EntitySystem
         var damage = args.ShockDamage.Value * args.SiemensCoefficient;
         var charge = Math.Min(damage / damagePerWatt, battery.MaxCharge * 0.25f) * _random.NextFloat(0.75f, 1.25f);
 
-        battery.CurrentCharge += charge;
+        _battery.SetCharge(uid, battery.CurrentCharge + charge);
 
         _popup.PopupEntity(Loc.GetString("battery-electrocute-charge"), uid, uid);
     }

@@ -18,7 +18,7 @@ revenant-soul-finish-harvest = {CAPITALIZE(THE($target))} slumps onto the ground
 
 revenant-psionic-power = a spirit power
 
-#UI
+# UI
 revenant-user-interface-title = Ability Shop
 revenant-user-interface-essence-amount = [color=plum]{$amount}[/color] Stolen Essence
 

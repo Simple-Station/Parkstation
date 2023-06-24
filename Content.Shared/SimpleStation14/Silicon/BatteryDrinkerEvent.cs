@@ -4,9 +4,9 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.SimpleStation14.Silicon;
 
 [Serializable, NetSerializable]
-public sealed class BatteryDrinkerEvent : SimpleDoAfterEvent
+public sealed class BatteryDrinkerDoAfterEvent : SimpleDoAfterEvent
 {
-    public BatteryDrinkerEvent()
+    public BatteryDrinkerDoAfterEvent()
     {
     }
 }

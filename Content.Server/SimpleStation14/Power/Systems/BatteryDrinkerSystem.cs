@@ -2,15 +2,13 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server.Power.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
-using Content.Shared.Interaction.Helpers;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.SimpleStation14.Silicon;
 using Content.Shared.Verbs;
-using Robust.Shared.Audio;
-using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Content.Server.SimpleStation14.Silicon.Charge;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Popups;
 
 namespace Content.Server.SimpleStation14.Power;
 
@@ -21,6 +19,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly SiliconChargeSystem _silicon = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -28,7 +27,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
         SubscribeLocalEvent<BatteryComponent, GetVerbsEvent<AlternativeVerb>>(AddAltVerb);
 
-        SubscribeLocalEvent<BatteryDrinkerComponent, BatteryDrinkerEvent>(OnDoAfter);
+        SubscribeLocalEvent<BatteryDrinkerComponent, BatteryDrinkerDoAfterEvent>(OnDoAfter);
     }
 
     private void AddAltVerb(EntityUid uid, BatteryComponent batteryComponent, GetVerbsEvent<AlternativeVerb> args)
@@ -36,16 +35,16 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract)
             return;
 
-        if (!EntityManager.TryGetComponent<BatteryDrinkerComponent>(args.User, out var drinkerComp) ||
+        if (!TryComp<BatteryDrinkerComponent>(args.User, out var drinkerComp) ||
             !TestDrinkableBattery(uid, drinkerComp) ||
-            !TryGetFillableBattery(args.User, out var drinkerBattery))
+            !TryGetFillableBattery(args.User, out var drinkerBattery, out _))
             return;
 
         AlternativeVerb verb = new()
         {
             Act = () => DrinkBattery(uid, args.User, drinkerComp),
             Text = "system-battery-drinker-verb-drink",
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/drink.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")),
         };
 
         args.Verbs.Add(verb);
@@ -59,19 +58,22 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         return true;
     }
 
-    private bool TryGetFillableBattery(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery)
+    private bool TryGetFillableBattery(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery, [NotNullWhen(true)] out EntityUid batteryUid)
     {
-        if (_silicon.TryGetSiliconBattery(uid, out battery))
+        if (_silicon.TryGetSiliconBattery(uid, out battery, out batteryUid))
             return true;
 
-        if (EntityManager.TryGetComponent(uid, out battery))
+        if (TryComp(uid, out battery))
             return true;
 
-        if (EntityManager.TryGetComponent<PowerCellSlotComponent>(uid, out var powerCellSlot) &&
+        if (TryComp<PowerCellSlotComponent>(uid, out var powerCellSlot) &&
             _slots.TryGetSlot(uid, powerCellSlot.CellSlotId, out var slot) &&
             slot.Item != null &&
-            EntityManager.TryGetComponent(slot.Item.Value, out battery))
+            TryComp(slot.Item.Value, out battery))
+        {
+            batteryUid = slot.Item.Value;
             return true;
+        }
 
         return false;
     }
@@ -80,12 +82,12 @@ public sealed class BatteryDrinkerSystem : EntitySystem
     {
         var doAfterTime = drinkerComp.DrinkSpeed;
 
-        if (EntityManager.TryGetComponent<BatteryDrinkerSourceComponent>(target, out var sourceComp))
+        if (TryComp<BatteryDrinkerSourceComponent>(target, out var sourceComp))
             doAfterTime *= sourceComp.DrinkSpeedMulti;
         else
-            doAfterTime *= 2.5f;
+            doAfterTime *= drinkerComp.DrinkAllMultiplier;
 
-        var args = new DoAfterArgs(user, doAfterTime, new BatteryDrinkerEvent(), user, target)
+        var args = new DoAfterArgs(user, doAfterTime, new BatteryDrinkerDoAfterEvent(), user, target) // TODO: Make this doafter loop, once we merge Upstream.
         {
             BreakOnDamage = true,
             BreakOnTargetMove = true,
@@ -105,11 +107,11 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
         var source = args.Target.Value;
         var drinker = uid;
-        var sourceBattery = EntityManager.GetComponent<BatteryComponent>(source);
+        var sourceBattery = Comp<BatteryComponent>(source);
 
-        TryGetFillableBattery(drinker, out var drinkerBattery);
+        TryGetFillableBattery(drinker, out var drinkerBattery, out var drinkerBatteryUid);
 
-        EntityManager.TryGetComponent<BatteryDrinkerSourceComponent>(source, out var sourceComp);
+        TryComp<BatteryDrinkerSourceComponent>(source, out var sourceComp);
 
         DebugTools.AssertNotNull(drinkerBattery);
 
@@ -126,26 +128,19 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
         if (amountToDrink <= 0)
         {
-            // Do empty stuff
+            _popup.PopupEntity(Loc.GetString("battery-drinker-empty", ("target", source)), drinker, drinker);
             return;
         }
 
         if (_battery.TryUseCharge(source, amountToDrink, sourceBattery))
-        {
-            _battery.SetCharge(source, drinkerBattery.Charge + amountToDrink, sourceBattery);
-        }
+            _battery.SetCharge(drinkerBatteryUid, drinkerBattery.Charge + amountToDrink, drinkerBattery);
         else
         {
-            _battery.SetCharge(drinker, sourceBattery.Charge, drinkerBattery);
+            _battery.SetCharge(drinker, sourceBattery.Charge + drinkerBattery.Charge, drinkerBattery);
             _battery.SetCharge(source, 0, sourceBattery);
         }
 
-        var sound = drinkerComp.DrinkSound ?? sourceComp?.DrinkSound;
-
-        if (sound != null)
-            _audio.PlayPvs(sound, source);
-
-        // if (sourceBattery.CurrentCharge > 0)  // Make use proper looping doafters when we merge Upstream.
-        //     DrinkBattery(source, drinker, sourceBattery, drinkerBattery, drinkerComp);
+        if (sourceComp != null && sourceComp.DrinkSound != null)
+            _audio.PlayPvs(sourceComp.DrinkSound, source);
     }
 }

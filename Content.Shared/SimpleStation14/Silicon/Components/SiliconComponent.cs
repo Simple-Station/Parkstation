@@ -18,20 +18,30 @@ public sealed class SiliconComponent : Component
     public float OverheatAccumulator = 0.0f;
 
     /// <summary>
-    ///     The owner of this component.
+    ///     The last time the Silicon was drained.
+    ///     Used for NPC Silicons to avoid over updating.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public new EntityUid Owner = EntityUid.Invalid;
+    /// <remarks>
+    ///     Time between drains can be specified in
+    ///     <see cref="SimpleStationCcvars.SiliconNpc"/>
+    /// </remarks>
+    public TimeSpan LastDrainTime = TimeSpan.Zero;
 
     /// <summary>
     ///     The Silicon's battery slot, if it has one.
     /// </summary>
-    public Container? BatteryContainer = null;
+    public IContainer? BatteryContainer = null;
 
     /// <summary>
     ///     Is the Silicon currently dead?
     /// </summary>
     public bool Dead = false;
+
+    // BatterySystem took issue with how this was used, so I'm coming back to it at a later date, when more foundational Silicon stuff is implemented.
+    // /// <summary>
+    // ///     The entity to get the battery from.
+    // /// </summary>
+    // public EntityUid BatteryOverride? = EntityUid.Invalid;
 
 
     /// <summary>
@@ -41,7 +51,7 @@ public sealed class SiliconComponent : Component
     ///     Any new types of Silicons should be added to the enum.
     /// </remarks>
     [DataField("entityType", customTypeSerializer: typeof(EnumSerializer))]
-    public Enum EntityType = SiliconType.NPC;
+    public Enum EntityType = SiliconType.Npc;
 
     /// <summary>
     ///     Is this silicon battery powered?
@@ -60,10 +70,10 @@ public sealed class SiliconComponent : Component
     public string? BatterySlot = null;
 
     /// <summary>
-    ///     Multiplier for the drain rate of the silicon.
+    ///     How much power is drained by this Silicon every second by default.
     /// </summary>
-    [DataField("drainRateMulti"), ViewVariables(VVAccess.ReadWrite)]
-    public float DrainRateMulti = 5.0f;
+    [DataField("drainPerSecond"), ViewVariables(VVAccess.ReadWrite)]
+    public float DrainPerSecond = 50f;
 
 
     /// <summary>

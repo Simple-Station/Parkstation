@@ -24,14 +24,14 @@ device-address-prefix-vent = Vnt-
 device-address-prefix-scrubber = Scr-
 device-address-prefix-sensor = Sns-
 
-#PDAs and terminals
+# PDAs and terminals
 device-address-prefix-console = Cls-
 device-address-prefix-fire-alarm = Fir-
 device-address-prefix-air-alarm = Air-
 
 device-address-examine-message = The device's address is {$address}.
 
-#Device net ID names
+# Device net ID names
 device-net-id-private = Private
 device-net-id-wired = Wired
 device-net-id-wireless = Wireless

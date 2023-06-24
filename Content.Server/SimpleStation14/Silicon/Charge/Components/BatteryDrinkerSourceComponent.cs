@@ -3,10 +3,11 @@ using Robust.Shared.Audio;
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 
 [RegisterComponent]
-public class BatteryDrinkerSourceComponent : Component
+public sealed class BatteryDrinkerSourceComponent : Component
 {
     /// <summary>
-    ///     The max amount of power to give when drunk from.
+    ///     The max amount of power this source can provide in one sip.
+    ///     No limit if null.
     /// </summary>
     [DataField("maxAmount"), ViewVariables(VVAccess.ReadWrite)]
     public int? MaxAmount = null;

@@ -18,6 +18,7 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
         {ChargeState.Low, 2},
         {ChargeState.Critical, 1},
         {ChargeState.Dead, 0},
+        {ChargeState.Invalid, -1},
     };
 
     public override void Initialize()
@@ -31,17 +32,13 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
 
     private void OnSiliconInit(EntityUid uid, SiliconComponent component, ComponentInit args)
     {
-        component.Owner = uid;
-
         if (component.BatteryPowered)
-        {
-            _alertsSystem.ShowAlert(uid, AlertType.Charge, ChargeStateAlert[component.ChargeState]);
-        }
+            _alertsSystem.ShowAlert(uid, AlertType.Charge, (short) component.ChargeState);
     }
 
     private void OnSiliconChargeStateUpdate(EntityUid uid, SiliconComponent component, SiliconChargeStateUpdateEvent ev)
     {
-        _alertsSystem.ShowAlert(uid, AlertType.Charge, ChargeStateAlert[component.ChargeState]);
+        _alertsSystem.ShowAlert(uid, AlertType.Charge, (short) ev.ChargeState);
     }
 
     private void OnRefreshMovespeed(EntityUid uid, SiliconComponent component, RefreshMovementSpeedModifiersEvent args)
@@ -51,7 +48,7 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
 
         var speedModThresholds = component.SpeedModifierThresholds;
 
-        var closest = -0.5f;
+        var closest = 0f;
 
         foreach (var state in speedModThresholds)
         {
@@ -70,16 +67,17 @@ public enum SiliconType
 {
     Player,
     GhostRole,
-    NPC
+    Npc,
 }
 
 public enum ChargeState
 {
-    Full,
-    Mid,
-    Low,
+    Invalid = -1,
+    Dead,
     Critical,
-    Dead
+    Low,
+    Mid,
+    Full,
 }
 
 

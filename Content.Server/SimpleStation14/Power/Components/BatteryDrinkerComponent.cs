@@ -1,9 +1,7 @@
-using Robust.Shared.Audio;
-
 namespace Content.Server.SimpleStation14.Power;
 
 [RegisterComponent]
-public class BatteryDrinkerComponent : Component
+public sealed class BatteryDrinkerComponent : Component
 {
     /// <summary>
     ///     Is this drinker allowed to drink batteries not tagged as <see cref="BatteryDrinkSource"/>?
@@ -26,16 +24,8 @@ public class BatteryDrinkerComponent : Component
     public float DrinkMultiplier = 5f;
 
     /// <summary>
-    ///     The sound to override the standard drink sound with.
-    ///     Uses per source sound if null.
+    ///     The multiplier for how long it takes to drink a non-source battery, if <see cref="DrinkAll"/> is true.
     /// </summary>
-    [DataField("drinkSoundOverride")]
-    public SoundSpecifier? DrinkSound = new SoundPathSpecifier("/Audio/Items/drink.ogg");
-
-    /// <summary>
-    ///     The localised string to display when drinking from a battery.
-    ///     Doesn't _need_ to be localised, but come on, man.
-    /// </summary>
-    [DataField("drinkText")]
-    public string DrinkText = "aaaaaaaaaa";
+    [DataField("drinkAllMultiplier"), ViewVariables(VVAccess.ReadWrite)]
+    public float DrinkAllMultiplier = 2.5f;
 }

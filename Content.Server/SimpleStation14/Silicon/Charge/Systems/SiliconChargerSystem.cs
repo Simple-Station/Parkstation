@@ -150,49 +150,50 @@ public sealed class SiliconChargerSystem : EntitySystem
         // Now we charge the entities we found.
         chargeRate /= entitiesToCharge.Count;
 
-        foreach (var entityToCharge in entitiesToCharge.ToList())
+        foreach (var (entityToCharge, batteryComp) in entitiesToCharge.ToList())
         {
-            if (_silicon.TryGetSiliconBattery(entityToCharge, out var batteryComp))
+            if (batteryComp != null)
                 ChargeBattery(entityToCharge, batteryComp, chargeRate, chargerComp, chargerUid);
             else if (TryComp<DamageableComponent>(entityToCharge, out var damageComp))
                 BurnEntity(entityToCharge, damageComp, frameTime, chargerComp, chargerUid);
         }
     }
 
-    private List<EntityUid> SearchThroughEntities(EntityUid entity, bool burn = true)
+    private List<(EntityUid, BatteryComponent?)> SearchThroughEntities(EntityUid entity, bool burn = true)
     {
-        var entitiesToCharge = new List<EntityUid>();
+        var entitiesToCharge = new List<(EntityUid, BatteryComponent?)>();
 
-        if (_silicon.TryGetSiliconBattery(entity, out var siliconBatteryComp))
+        // If the given entity is a silicon, charge their respective battery.
+        if (_silicon.TryGetSiliconBattery(entity, out var siliconBatteryComp, out var siliconBatteryUid))
         {
             if (siliconBatteryComp.CurrentCharge < siliconBatteryComp.MaxCharge)
-                entitiesToCharge.Add(entity);
+                entitiesToCharge.Add((siliconBatteryUid, siliconBatteryComp));
         }
 
-        // If the given entity has a battery, charge it.
+        // Or if the given entity has a battery, charge it.
         else if (!HasComp<UnremoveableComponent>(entity) && // Should probably be charged by the entity holding it. Might be too small to be safe.
             TryComp<BatteryComponent>(entity, out var batteryComp))
         {
             if (batteryComp.CurrentCharge < batteryComp.MaxCharge)
-                entitiesToCharge.Add(entity);
+                entitiesToCharge.Add((entity, batteryComp));
         }
 
-        // If the given entity contains a battery, charge it.
+        // Or if the given entity contains a battery, charge it.
         else if (!HasComp<UnremoveableComponent>(entity) && // Should probably be charged by the entity holding it. Might be too small to be safe.
                 TryComp<PowerCellSlotComponent>(entity, out var cellSlotComp) &&
                 _itemSlots.TryGetSlot(entity, cellSlotComp.CellSlotId, out var slot) &&
                 TryComp<BatteryComponent>(slot.Item, out var cellBattComp))
         {
             if (cellBattComp.CurrentCharge < cellBattComp.MaxCharge)
-                entitiesToCharge.Add(slot.Item.Value);
+                entitiesToCharge.Add((slot.Item.Value, cellBattComp));
         }
 
-        // If the given entity is fleshy, burn the fucker.
+        // Or if the given entity is fleshy, burn the fucker.
         else if (burn &&
                 TryComp<DamageableComponent>(entity, out var damageComp) &&
                 damageComp.DamageContainerID == "Biological")
         {
-            entitiesToCharge.Add(entity);
+            entitiesToCharge.Add((entity, null));
         }
 
         // Now the weird part, we check for any inventories the entities contained may have, and run this function on any entities contained, for a recursive charging effect.

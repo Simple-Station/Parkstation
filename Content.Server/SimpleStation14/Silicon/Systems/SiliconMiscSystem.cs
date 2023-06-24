@@ -4,7 +4,6 @@ using Content.Shared.Bed.Sleep;
 namespace Content.Server.SimpleStation14.Silicon.Misc;
 
 // This entire thing is fucking stupid and I hate it.
-// I will never forgive them for what they did with sleeping...
 public sealed class SiliconMiscSystem : EntitySystem
 {
     public override void Initialize()
