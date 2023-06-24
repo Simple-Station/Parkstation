@@ -28,13 +28,9 @@ public sealed class SiliconDeathSystem : EntitySystem
         Logger.Debug($"Silicon battery: {batteryComp?.CurrentCharge}");
 
         if (args.ChargeState == ChargeState.Dead && !siliconDeadComp.Dead)
-        {
             SiliconDead(uid, siliconDeadComp, batteryComp);
-        }
         else if (args.ChargeState != ChargeState.Dead && siliconDeadComp.Dead)
-        {
             SiliconUnDead(uid, siliconDeadComp, batteryComp);
-        }
     }
 
     private void SiliconDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent? batteryComp)
@@ -65,7 +61,7 @@ public sealed class SiliconDeathSystem : EntitySystem
 }
 
 /// <summary>
-///     A canellable event raised when a Silicon is about to go down due to charge.
+///     A cancellable event raised when a Silicon is about to go down due to charge.
 /// <summary>
 public sealed class SiliconChargeDyingEvent : CancellableEntityEventArgs
 {

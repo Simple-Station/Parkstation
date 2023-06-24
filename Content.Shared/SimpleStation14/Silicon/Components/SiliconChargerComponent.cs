@@ -54,6 +54,7 @@ public sealed class SiliconChargerComponent : Component
     ///     The minimum amount of time it will take to charge a battery, in seconds.
     /// </summary>
     /// <remarks>
+    ///     Note that this is from empty. A battery that is already half full will take half as long as this value to reach full, if it would've been faster from empty.
     ///     This is for the sake of feeling cooler- It's lame to just charge instantly.
     /// </remarks>
     [DataField("minChargeTime"), ViewVariables(VVAccess.ReadWrite)]

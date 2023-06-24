@@ -61,8 +61,8 @@ public sealed class SiliconChargerSystem : EntitySystem
 
         #region Entity Storage Chargers
         // Check for any chargers with the EntityStorageComponent.
-        var entstorQuery = EntityQueryEnumerator<SiliconChargerComponent, EntityStorageComponent>();
-        while (entstorQuery.MoveNext(out var uid, out var chargerComp, out var entStorage))
+        var entityStorageQuery = EntityQueryEnumerator<SiliconChargerComponent, EntityStorageComponent>();
+        while (entityStorageQuery.MoveNext(out var uid, out var chargerComp, out var entStorage))
         {
             var wasActive = chargerComp.Active;
             chargerComp.Active = false;
@@ -80,8 +80,6 @@ public sealed class SiliconChargerSystem : EntitySystem
                 chargerComp.Active = true;
 
                 var chargeRate = chargerComp.ChargeMulti * frameTime * 10;
-
-
 
                 HandleChargingEntity(entity, chargeRate, chargerComp, uid, frameTime);
 
@@ -234,10 +232,8 @@ public sealed class SiliconChargerSystem : EntitySystem
     private void ChargeBattery(EntityUid entity, BatteryComponent batteryComp, float chargeRate, SiliconChargerComponent chargerComp, EntityUid chargerUid)
     {
         // Do some math so a charger never charges a battery from zero to full in less than 10 seconds, just for the effect of it.
-        if (chargerComp.ChargeMulti * 10 > batteryComp.MaxCharge / 10)
-        {
-            chargeRate /= chargerComp.ChargeMulti * 10 / (batteryComp.MaxCharge / 10);
-        }
+        if (chargerComp.ChargeMulti * 10 > batteryComp.MaxCharge / chargerComp.MinChargeTime)
+            chargeRate /= chargerComp.ChargeMulti * 10 / (batteryComp.MaxCharge / chargerComp.MinChargeTime);
 
         if (batteryComp.CurrentCharge + chargeRate < batteryComp.MaxCharge)
             _battery.SetCharge(entity, batteryComp.CurrentCharge + chargeRate, batteryComp);

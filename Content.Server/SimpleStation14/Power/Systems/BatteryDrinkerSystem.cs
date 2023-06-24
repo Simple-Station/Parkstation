@@ -122,9 +122,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         amountToDrink = MathF.Min(amountToDrink, drinkerBattery.MaxCharge - drinkerBattery.CurrentCharge);
 
         if (sourceComp != null && sourceComp.MaxAmount > 0)
-        {
             amountToDrink = MathF.Min(amountToDrink, (float) sourceComp.MaxAmount);
-        }
 
         if (amountToDrink <= 0)
         {

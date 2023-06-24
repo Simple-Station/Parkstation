@@ -32,8 +32,6 @@ public sealed class BatteryElectrocuteChargeSystem : EntitySystem
 
         battery.CurrentCharge += charge;
 
-        var message = Loc.GetString("battery-electrocute-charge");
-
-        _popup.PopupEntity(message, uid, uid);
+        _popup.PopupEntity(Loc.GetString("battery-electrocute-charge"), uid, uid);
     }
 }

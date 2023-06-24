@@ -115,8 +115,6 @@ public sealed class SiliconChargeSystem : EntitySystem
 
                 RaiseLocalEvent(silicon, new SiliconChargeStateUpdateEvent(currentState));
 
-                Logger.DebugS("silicon", $"Silicon {silicon} charge state updated to {currentState}.");
-
                 _moveMod.RefreshMovementSpeedModifiers(silicon);
             }
         }

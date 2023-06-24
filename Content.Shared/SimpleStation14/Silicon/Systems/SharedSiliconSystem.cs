@@ -5,6 +5,7 @@ using Content.Shared.Movement.Systems;
 
 namespace Content.Shared.SimpleStation14.Silicon.Systems;
 
+
 public sealed class SharedSiliconChargeSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;

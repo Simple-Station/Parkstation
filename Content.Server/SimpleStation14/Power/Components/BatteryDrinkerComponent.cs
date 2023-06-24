@@ -13,7 +13,7 @@ public class BatteryDrinkerComponent : Component
 
     /// <summary>
     ///     How long it takes to drink from a battery, in seconds.
-    ///     Is mutliplied by the source.
+    ///     Is multiplied by the source.
     /// </summary>
     [DataField("drinkSpeed"), ViewVariables(VVAccess.ReadWrite)]
     public float DrinkSpeed = 1.5f;

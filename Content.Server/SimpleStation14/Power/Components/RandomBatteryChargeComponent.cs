@@ -19,5 +19,5 @@ public class RandomBatteryChargeComponent : Component
     ///     True if the current charge is based on the preexisting current charge, or false if it's based on the max charge.
     /// </summary>
     [DataField("basedOnMaxCharge")]
-    public bool BasedOnMaxCharge = false;
+    public bool BasedOnMaxCharge = true;
 }
