@@ -19,3 +19,21 @@
       amount: 1
   products:
     LiquidMiasma: 1
+
+- type: reaction
+  id: ShirosDelight
+  reactants:
+    Desoxyephedrine: # Meth
+      amount: 4
+    Epinephrine: # More complexity for uh reasons
+      amount: 2
+    Ethylredoxrazine: # Negating the alcohol effects of the delight
+      amount: 2
+    DoctorsDelight: # Delight and negating the poison of the meth
+      amount: 1
+    Slime: # Squish tasty
+      amount: 3
+    JuiceApple: # Add just that little bit of extra work
+      amount: 1
+  products:
+    ShirosDelight: 2

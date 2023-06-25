@@ -41,6 +41,7 @@ namespace Content.Server.Communications
         [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
 
         private const int MaxMessageLength = 256;
+        private const int MaxMessageNewlines = 2;
         private const float UIUpdateInterval = 5.0f;
 
         public override void Initialize()
@@ -225,7 +226,21 @@ namespace Content.Server.Communications
         private void OnAnnounceMessage(EntityUid uid, CommunicationsConsoleComponent comp,
             CommunicationsConsoleAnnounceMessage message)
         {
-            var msg = message.Message.Length <= MaxMessageLength ? message.Message.Trim() : $"{message.Message.Trim().Substring(0, MaxMessageLength)}...";
+            var msgChars = (message.Message.Length <= MaxMessageLength ? message.Message.Trim() : $"{message.Message.Trim().Substring(0, MaxMessageLength)}...").ToCharArray();
+
+            var newlines = 0;
+            for (var i = 0; i < msgChars.Length; i++)
+            {
+                if (msgChars[i] != '\n')
+                    continue;
+
+                if (newlines >= MaxMessageNewlines)
+                    msgChars[i] = ' ';
+
+                newlines++;
+            }
+
+            var msg = new string(msgChars);
             var author = Loc.GetString("comms-console-announcement-unknown-sender");
             if (message.Session.AttachedEntity is {Valid: true} mob)
             {
@@ -253,7 +268,8 @@ namespace Content.Server.Communications
             Loc.TryGetString(comp.AnnouncementDisplayName, out var title);
             title ??= comp.AnnouncementDisplayName;
 
-            msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
+            if (comp.ShowAuthor)
+                msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
             if (comp.AnnounceGlobal)
             {
                 // _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: comp.AnnouncementSound, colorOverride: comp.AnnouncementColor);

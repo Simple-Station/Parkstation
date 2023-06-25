@@ -32,7 +32,6 @@
     - Trash
   - type: Appearance
   - type: PaperVisuals
-  - type: Recyclable
   - type: EmitSoundOnPickup
     sound: /Audio/SimpleStation14/Items/Handling/paper_pickup.ogg
   - type: EmitSoundOnDrop
@@ -189,7 +188,9 @@
     sprite: Objects/Misc/bureaucracy.rsi
     heldPrefix: pen
     size: 2
-  - type: Recyclable
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
 
 - type: entity
   name: Cybersun pen

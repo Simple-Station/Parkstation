@@ -6,12 +6,12 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 3600
+      time: 14400
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 18000
+      time: 21600
     - !type:OverallPlaytimeRequirement
-      time: 54000
+      time: 93600
   weight: 10
   startingGear: HoSGear
   icon: "HeadOfSecurity"

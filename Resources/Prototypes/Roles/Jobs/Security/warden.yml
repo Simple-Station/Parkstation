@@ -7,6 +7,8 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 10800
+    - !type:OverallPlaytimeRequirement
+      time: 36000
   startingGear: WardenGear
   icon: "Warden"
   supervisors: job-supervisors-hos

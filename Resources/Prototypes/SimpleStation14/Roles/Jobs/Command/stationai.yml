@@ -4,18 +4,35 @@
   description: job-description-sai
   playTimeTracker: JobSAI
   requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 14400
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 14400
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 14400
+    - !type:DepartmentTimeRequirement
+      department: Service
+      time: 14400
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 14400
     - !type:OverallPlaytimeRequirement
-      time: 60000
+      time: 86400
   weight: 30
   icon: "StationAI"
   supervisors: "all crew"
   accessGroups:
     - AllAccess
   canBeAntag: false
-  jobEntity: AI
-  startingGear: CyborgGear # for char preview only
+  jobEntity: AICore
+  startingGear: RobotGear # for char preview only
   alwaysUseSpawner: true
   canHaveTraits: false
+  joinNotifyCrew: true
+  whitelistRequired: true
 
 # - type: startingGear
 #   id: AIGear
