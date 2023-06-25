@@ -200,7 +200,6 @@ public sealed class StationSpawningSystem : EntitySystem
         // EncryptionKeyHolderComponent on it, move the keys over, and delete the headset.
         if (TryComp<EncryptionKeyHolderComponent>(entity, out var keyHolderComp))
         {
-            // Resolve SharedContainerSystem
             var containerMan = EntityManager.System<SharedContainerSystem>();
 
             var earEquipString = startingGear.GetGear("ears", profile);
