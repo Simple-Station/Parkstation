@@ -117,6 +117,7 @@ public static class SkinColor
     /// <returns>Tinted hue color</returns>
     public static Color TintedHues(Color color)
     {
+        // Parkstation-IPC-Start
         var hsv = Color.ToHsv(color);
 
         hsv.Y = Math.Min(hsv.Y, 0.6f);
@@ -124,6 +125,7 @@ public static class SkinColor
         hsv.Z = Math.Max(hsv.Z, 0.25f);
 
         return Color.FromHsv(hsv);
+        // Parkstation-IPC-End
     }
 
     /// <summary>
@@ -133,9 +135,11 @@ public static class SkinColor
     /// <returns>True if valid, false otherwise</returns>
     public static bool VerifyTintedHues(Color color)
     {
+        // Parkstation-IPC-Start
         var hsv = Color.ToHsv(color);
 
         return hsv.Y <= 0.6 && hsv.Z >= 0.25;
+        // Parkstation-IPC-End
     }
 
     public static bool VerifySkinColor(HumanoidSkinColor type, Color color)
