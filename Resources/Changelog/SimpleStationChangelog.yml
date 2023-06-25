@@ -1048,13 +1048,9 @@ Entries:
   time: '2023-06-20T10:38:17.0000000+00:00'
 - author: Pspritechologist
   changes:
-    - type: add
-      message: Added fun!
-    - type: tweak
-      message: Tweaked fun!
     - type: fix
-      message: Fixed fun!
-    - type: remove
-      message: Removed fun!
+      message: >-
+        The DropOnSlip system has been fixed, and greatly improved! I'm sure
+        you all missed having your hats fall off :)
   id: 96
   time: '2023-06-25T10:48:21.0000000+00:00'
