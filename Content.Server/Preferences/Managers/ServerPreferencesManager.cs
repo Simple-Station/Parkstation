@@ -12,7 +12,6 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using Content.Server.Corvax.JoinQueue;
 
 
 namespace Content.Server.Preferences.Managers

@@ -32,9 +32,6 @@ using Content.Shared.Roles;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Audio;
-using Content.Server.Traits.Assorted;
-using Content.Shared.CombatMode.Pacification;
 
 namespace Content.Server.Zombies
 {
