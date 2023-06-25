@@ -6,6 +6,6 @@ department-Medical-description = Keep the crew healthy.
 department-Security-description = Keep the peace around the station.
 department-Science-description = Research new technologies and dangerous artifacts.
 
-# Nyano
+#Nyano
 department-Epistemics-description = Discover what lies beyond the fabric of reality.
 department-Silicon-description = Follow your laws in service to the humans.
