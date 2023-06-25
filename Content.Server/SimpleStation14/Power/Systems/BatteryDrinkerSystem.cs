@@ -43,7 +43,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         AlternativeVerb verb = new()
         {
             Act = () => DrinkBattery(uid, args.User, drinkerComp),
-            Text = "system-battery-drinker-verb-drink",
+            Text = Loc.GetString("battery-drinker-verb-drink"),
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")),
         };
 

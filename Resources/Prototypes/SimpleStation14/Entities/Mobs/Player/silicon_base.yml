@@ -103,7 +103,7 @@
     - type: MobState
       allowedStates:
         - Alive
-        - Critical
+        - Dead
     - type: MobThresholds
       thresholds:
         0: Alive
@@ -220,7 +220,7 @@
       radiatedHeat: 800
       implicitHeatRegulation: 600
       sweatHeatRegulation: 0
-      shiveringHeatRegulation: 12000
+      shiveringHeatRegulation: 12000 # Overclocking, yo
       normalBodyTemperature: 280
       thermalRegulationTemperatureThreshold: 32
     - type: Polymorphable
