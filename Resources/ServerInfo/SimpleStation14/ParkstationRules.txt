@@ -1,5 +1,3 @@
-[color=#ff0000]Players who are suspected of being underage will be banned. As long as everyone can act maturely, they're welcome in the server.[/color]
-
 [color=#ff0000]DISCONNECTING FROM OR IGNORING/EVADING COMMUNICATION FROM ADMINS WILL RESULT IN AN APPEAL ONLY BAN. The job gets really hard when you refuse to talk to the Admins, just come to our Discord and talk it out, hurt feelings will not be held.[/color]
 
 [color=#bb00bb]This is the only source of server rules that apply to Parkstation, which ideally has all the information any regular player should need. Please do not ever hesitate to ask either an Admin in[/color] [color=#DC143C]AHelp (F1)[/color][color=#bb00bb] or in the Discord server if you ever want clarification on the rules. Chances are, if you were confused, we'll update them.[/color]
@@ -104,3 +102,6 @@ The overall intention for this server is to do MRP right. NRP behavior will be d
     - Team antag objectives take precedence over solo antag objectives.
     - Ghost roles must follow their description upon taking said role.
     - Try to play with some standard improv and RP sense. The world isn't expected of you, but putting effort into being an interesting element of the round is.
+
+
+[color=#a4885c]The minimum age of players is 17.[/color]
