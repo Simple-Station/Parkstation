@@ -54,3 +54,13 @@ signal-port-description-artifact-analyzer-sender = Analysis console signal sende
 
 signal-port-name-artifact-analyzer-receiver = Pad
 signal-port-description-artifact-analyzer-receiver = Artifact analyzer signal receiver
+
+## Parkstation
+signal-port-name-bolt = Bolt
+signal-port-description-bolt = Bolts the door.
+
+signal-port-name-unbolt = Unbolt
+signal-port-description-unbolt = Unbolts the door.
+
+signal-port-name-togglebolt = Toggle bolt
+signal-port-description-togglebolt = Toggles the bolt state of the door.
