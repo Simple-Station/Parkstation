@@ -98,6 +98,26 @@ public sealed class AirlockComponent : Component
     [DataField("autoClosePort", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
     public string AutoClosePort = "AutoClose";
 
+    // Parkstation-BoltSignal-Start
+    /// <summary>
+    /// The receiver port for bolting the airlock.
+    /// </summary>
+    [DataField("boltPort", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
+    public string BoltPort = "Bolt";
+
+    /// <summary>
+    /// The receiver port for unbolt the airlock.
+    /// </summary>
+    [DataField("unBoltPort", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
+    public string UnBoltPort = "UnBolt";
+
+    /// <summary>
+    /// The receiver port for toggling the bolt state of the airlock.
+    /// </summary>
+    [DataField("toggleBoltPort", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
+    public string ToggleBoltPort = "ToggleBolt";
+    // Parkstation-BoltSignal-End
+
     #region Graphics
 
     /// <summary>

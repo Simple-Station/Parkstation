@@ -83,6 +83,9 @@
       Close: []
       Toggle: []
       AutoClose: []
+      Bolt: []
+      UnBolt: []
+      ToggleBolt: []
   - type: UserInterface
     interfaces:
     - key: enum.WiresUiKey.Key
