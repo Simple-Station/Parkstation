@@ -230,7 +230,7 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-primate
   - type: Inventory
-    templateId: monkey
+    templateId: jackparker
   - type: InventorySlots
   - type: Fixtures
     fixtures:
@@ -301,7 +301,7 @@
     barkMultiplier: 0.65
     barks:
       - Oooook.
-      - Aaaaaaah.
+      - Ahahah. 
       - Ook ah.
       - Ook.
       - Ook ook!
@@ -309,6 +309,8 @@
     attributes:
       proper: true
       gender: male
+  - type: TypingIndicator
+    proto: lawyer
   - type: Tag
     tags:
     - CannotSuicide
