@@ -1050,7 +1050,13 @@ Entries:
   changes:
     - type: fix
       message: >-
-        The DropOnSlip system has been fixed, and greatly improved! I'm sure
-        you all missed having your hats fall off :)
+        The DropOnSlip system has been fixed, and greatly improved! I'm sure you
+        all missed having your hats fall off :)
   id: 96
   time: '2023-06-25T10:48:21.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: add
+      message: Airlocks now have various Bolt signal ports.
+  id: 97
+  time: '2023-06-29T04:23:59.0000000+00:00'
