@@ -24,7 +24,7 @@ namespace Content.Server.Objectives.Conditions
 
         public string Description => Loc.GetString("objective-condition-twitchy-description");
 
-        public SpriteSpecifier Icon => new SpriteSpecifier.Rsi(new ResourcePath("Actions/implants.rsi"), "explosive");
+        public SpriteSpecifier Icon => new SpriteSpecifier.Rsi(new ResPath("Actions/implants.rsi"), "explosive");
 
         private bool IsAgentOnShuttle(TransformComponent agentXform, EntityUid? shuttle)
         {

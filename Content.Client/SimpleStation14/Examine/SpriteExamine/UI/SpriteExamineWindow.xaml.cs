@@ -26,6 +26,8 @@ namespace Content.Client.SimpleStation14.Examine.SpriteExamine.UI
             {
                 Sprite = sprite,
                 Scale = (6, 6),
+                Stretch = SpriteView.StretchMode.None,
+                MaxSize = (192, 192),
                 OverrideDirection = Direction.South,
                 Margin = new Thickness(8, 8, 8, 8),
             });
@@ -34,6 +36,8 @@ namespace Content.Client.SimpleStation14.Examine.SpriteExamine.UI
             {
                 Sprite = sprite,
                 Scale = (6, 6),
+                Stretch = SpriteView.StretchMode.None,
+                MaxSize = (192, 192),
                 OverrideDirection = Direction.North,
                 Margin = new Thickness(8, 8, 8, 8),
             });
@@ -42,6 +46,8 @@ namespace Content.Client.SimpleStation14.Examine.SpriteExamine.UI
             {
                 Sprite = sprite,
                 Scale = (6, 6),
+                Stretch = SpriteView.StretchMode.None,
+                MaxSize = (192, 192),
                 OverrideDirection = Direction.West,
                 Margin = new Thickness(8, 8, 8, 8),
             });
@@ -50,6 +56,8 @@ namespace Content.Client.SimpleStation14.Examine.SpriteExamine.UI
             {
                 Sprite = sprite,
                 Scale = (6, 6),
+                Stretch = SpriteView.StretchMode.None,
+                MaxSize = (192, 192),
                 OverrideDirection = Direction.East,
                 Margin = new Thickness(8, 8, 8, 8),
             });

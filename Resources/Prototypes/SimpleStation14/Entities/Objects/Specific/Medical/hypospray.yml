@@ -20,14 +20,32 @@
   - type: Hypospray
     solutionName: hypospray
     transferAmount: 5
-  - type: AutoRegenReagent
+  - type: SolutionRegeneration
     solution: hypospray
-    reagents:
-      - Ichor
-      - MindbreakerToxin
-      - Nocturine
-      - Desoxyephedrine
-      - LiquidMiasma
-      - Lexorin
-      - CellularDivider
-    unitsPerSecond: 100
+    generated:
+      reagents:
+        - ReagentId: Ichor
+          Quantity: 100
+  - type: SolutionRegenerationSwitcher
+    options:
+      - reagents:
+        - ReagentId: Ichor
+          Quantity: 100
+      - reagents:
+        - ReagentId: MindbreakerToxin
+          Quantity: 100
+      - reagents:
+        - ReagentId: Nocturine
+          Quantity: 100
+      - reagents:
+        - ReagentId: Desoxyephedrine
+          Quantity: 100
+      - reagents:
+        - ReagentId: LiquidMiasma
+          Quantity: 100
+      - reagents:
+        - ReagentId: Lexorin
+          Quantity: 100
+      - reagents:
+        - ReagentId: CellularDivider
+          Quantity: 100

@@ -766,49 +766,49 @@ Entries:
         Added a new examine verb to open a UI showing an 6x scale sprite view of
         any humanoid.
   id: 60
-  time: '2023-04-02T00:57:38Z'
+  time: '2023-04-02T00:57:38.0000000+00:00'
 - author: Pspritechologist
   changes:
     - message: Several minor additions and tweaks to ParkStation.
       type: Tweak
   id: 61
-  time: '2023-04-03T05:31:40Z'
+  time: '2023-04-03T05:31:40.0000000+00:00'
 - author: BlitzGunner225
   changes:
     - type: tweak
       message: Changed Syndicate reinforcement radio cost from 12TC to 13TC
   id: 62
-  time: '2023-04-07T00:04:42Z'
+  time: '2023-04-07T00:04:42.0000000+00:00'
 - author: Pixel
   changes:
     - type: add
       message: Added node scanner to loadout
   id: 63
-  time: '2023-04-07T00:25:51Z'
+  time: '2023-04-07T00:25:51.0000000+00:00'
 - author: Pspritechologist
   changes:
     - message: Recovered Walter from his own ashes.
       type: Tweak
   id: 64
-  time: '2023-04-07T18:26:04Z'
+  time: '2023-04-07T18:26:04.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - type: fix
       message: Fixed cloning not applying traits.
   id: 65
-  time: '2023-04-09T03:42:37Z'
+  time: '2023-04-09T03:42:37.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - type: add
       message: Added pickup/drop/throw sounds to tons of items
   id: 66
-  time: '2023-04-09T05:28:16Z'
+  time: '2023-04-09T05:28:16.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - type: tweak
       message: Changes to the lists of controlled substances and items
   id: 67
-  time: '2023-04-09T06:32:50Z'
+  time: '2023-04-09T06:32:50.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - type: add
@@ -816,19 +816,19 @@ Entries:
     - type: add
       message: Added 3 new announcer voices.
   id: 68
-  time: '2023-04-09T06:50:03Z'
+  time: '2023-04-09T06:50:03.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - type: tweak
       message: Changed some trait point costs.
   id: 69
-  time: '2023-04-09T06:50:51Z'
+  time: '2023-04-09T06:50:51.0000000+00:00'
 - author: Cabbage
   changes:
     - type: add
       message: Added head of personnel's plated hardsuit.
   id: 70
-  time: '2023-04-22T22:53:43Z'
+  time: '2023-04-22T22:53:43.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - type: fix
@@ -842,13 +842,13 @@ Entries:
     - type: tweak
       message: Fugitives send a command report announcement
   id: 71
-  time: '2023-04-23T13:57:10Z'
+  time: '2023-04-23T13:57:10.0000000+00:00'
 - author: SomeCabbage
   changes:
     - type: tweak
       message: HoP's hardsuit helmet now looks more like the hat and less boring
   id: 72
-  time: '2023-04-28T10:06:30Z'
+  time: '2023-04-28T10:06:30.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - type: tweak
@@ -856,13 +856,13 @@ Entries:
         The chemists have suddenly decided to greatly improve the look of their
         pills, making patients much happier to ingest them.
   id: 73
-  time: '2023-04-30T02:23:55Z'
+  time: '2023-04-30T02:23:55.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - type: tweak
       message: Airlocks now check your belt slot for accesses
   id: 74
-  time: '2023-05-01T04:08:37Z'
+  time: '2023-05-01T04:08:37.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - type: tweak
@@ -874,7 +874,7 @@ Entries:
     - type: fix
       message: SAI no longer has a body :) -Psprite
   id: 75
-  time: '2023-05-01T04:13:49Z'
+  time: '2023-05-01T04:13:49.0000000+00:00'
 - author: SomeCabbage
   changes:
     - type: tweak
@@ -885,25 +885,25 @@ Entries:
         up. AI core now has telecom servers. Salvage now has 3 pre-placed GPSs.
         HoP locker is better now and contains cool stuff.
   id: 76
-  time: '2023-05-03T14:41:38Z'
+  time: '2023-05-03T14:41:38.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - type: add
       message: Added chocolate milk, made with 5 Milk and 1 Theobromine.
   id: 77
-  time: '2023-05-06T22:47:18Z'
+  time: '2023-05-06T22:47:18.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - type: fix
       message: Station AI and CSS are now whitelisted jobs.
   id: 78
-  time: '2023-05-07T00:27:35Z'
+  time: '2023-05-07T00:27:35.0000000+00:00'
 - author: JasperStingtail
   changes:
     - type: add
       message: Added Ohio
   id: 79
-  time: '2023-05-11T17:46:12Z'
+  time: '2023-05-11T17:46:12.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
     - type: fix
@@ -911,7 +911,7 @@ Entries:
         The spirits from beyond have decided to stop repairing catatonic beings'
         eyesight
   id: 80
-  time: '2023-05-11T18:55:51Z'
+  time: '2023-05-11T18:55:51.0000000+00:00'
 - author: SomeCabbage
   changes:
     - type: add
@@ -919,4 +919,144 @@ Entries:
         Added Shiro's Delight, a fun drink that is time consuming and somewhat
         difficult to make, but provides funny buffs. Ask Shiro for the recipe
   id: 81
-  time: '2023-05-11T19:01:57Z'
+  time: '2023-05-11T19:01:57.0000000+00:00'
+- author: JasperStingtail
+  changes:
+    - type: fix
+      message: Fixed cargo spacing
+    - type: fix
+      message: 'Fixed an unpowered engineering door '
+    - type: fix
+      message: Fixed epi scanning modules to have a vessel machine
+    - type: fix
+      message: Fixed cloning to work now
+    - type: add
+      message: Added a door in epi hallways for ease of access
+    - type: add
+      message: Added more directional signs
+    - type: add
+      message: Reluctantly added mouse timed spawners
+    - type: add
+      message: Added bottle of nothing to clown/mime room
+    - type: add
+      message: Added navigational decals
+    - type: fix
+      message: East and west evac have been fixed to dock properly
+  id: 82
+  time: '2023-05-17T21:54:03.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: add
+      message: >-
+        CentCom realized they weren't properly tracking you, and decided to
+        update the telemetry terms of your contracts,. Expect to see some
+        interesting stats at the end of the shift regarding things you may have,
+        or may have not done well!
+  id: 83
+  time: '2023-05-19T19:04:52.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: remove
+      message: Removes Ohiostation from the map pool until further notice.
+  id: 84
+  time: '2023-05-20T04:24:27.0000000+00:00'
+- author: SomeCabbage
+  changes:
+    - type: add
+      message: >-
+        Added a few new cargo orders to the request terminal. Includes the Fox
+        crate, Exotic meats, and more.
+    - type: add
+      message: Cabbages can now be cut into leaves (request by Pspritechologist)
+  id: 85
+  time: '2023-05-21T05:35:18.0000000+00:00'
+- author: Devianartaro
+  changes:
+    - type: add
+      message: 'Added pride pins to loadout '
+  id: 86
+  time: '2023-05-22T23:39:12.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: Fixed reagents having roughly 2.5x the advertised damage effects
+  id: 87
+  time: '2023-06-06T03:15:24.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: add
+      message: >-
+        Nanotrasen have disabled the unneeded safeties on your guns- Make sure
+        you're carful with them!
+  id: 88
+  time: '2023-06-06T23:02:30.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Increased most job playtime requirements.
+  id: 89
+  time: '2023-06-07T06:06:19.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: add
+      message: >-
+        Nanotrasen has slightly debungled the AI from its semi-lucid,
+        ludonarrative dissonance realm from which it resides and dragged it
+        kicking and screaming into the world of story. In other terms, the AI is
+        prettier, and NT is testing out a series of new laws that may make their
+        way onto a station near you! Be sure to mark down your satisfaction
+        level on the employee report, if you get that far.
+  id: 90
+  time: '2023-06-09T12:07:14.0000000+00:00'
+- author: OCOtheOmega
+  changes:
+    - type: fix
+      message: Fixed some guidebooks not opening
+  id: 91
+  time: '2023-06-09T16:04:05.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: >-
+        Fixed big and small traits setting eye zoom to (0,0), making you see
+        nothing.
+  id: 92
+  time: '2023-06-09T22:12:40.0000000+00:00'
+- author: SomeCabbage
+  changes:
+    - type: fix
+      message: >-
+        Nanotrasen fixed up a typo in their paperwork, meaning robots (cyborgs)
+        can once again be present on station!
+  id: 93
+  time: '2023-06-16T04:25:43.0000000+00:00'
+- author: SomeCabbage
+  changes:
+    - type: tweak
+      message: >-
+        Resprited the paramedic voidsuit to make it look less saturated and hard
+        on the eyes
+  id: 94
+  time: '2023-06-16T06:46:39.0000000+00:00'
+- author: SomeCabbage
+  changes:
+    - type: tweak
+      message: >-
+        Parkstation map tweaks. Defibrilators, fax machines, paperbins, and
+        breaching hammer. Some other minor changes as well.
+  id: 95
+  time: '2023-06-20T10:38:17.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: fix
+      message: >-
+        The DropOnSlip system has been fixed, and greatly improved! I'm sure you
+        all missed having your hats fall off :)
+  id: 96
+  time: '2023-06-25T10:48:21.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: add
+      message: Airlocks now have various Bolt signal ports.
+  id: 97
+  time: '2023-06-29T04:23:59.0000000+00:00'
