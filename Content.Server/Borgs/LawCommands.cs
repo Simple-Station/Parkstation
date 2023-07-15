@@ -10,9 +10,10 @@ namespace Content.Server.Borgs;
 [AdminCommand(AdminFlags.Logs)]
 public sealed class ListLawsCommand : IConsoleCommand
 {
-    public string Command => "lslaws";
-    public string Description => Loc.GetString("command-lslaws-description");
-    public string Help => Loc.GetString("command-lslaws-help");
+    public string Command => "lawls";
+    public string Description => Loc.GetString("command-lawls-description");
+    public string Help => Loc.GetString("command-lawls-help");
+
     public async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         var entityManager = IoCManager.Resolve<IEntityManager>();
@@ -43,6 +44,11 @@ public sealed class ListLawsCommand : IConsoleCommand
             shell.WriteLine("Entity has no laws.");
             return;
         }
+
+        // Parkstation-Laws-Start
+        shell.WriteLine($"Name: {Loc.GetString($"lawset-name-{laws.LawsID}")}");
+        shell.WriteLine($"Description: {Loc.GetString($"lawset-description-{laws.LawsID}")}");
+        // Parkstation-Laws-End
 
         shell.WriteLine($"Laws for {entityManager.ToPrettyString(entity.Value)}:");
         foreach (var law in laws.Laws)
