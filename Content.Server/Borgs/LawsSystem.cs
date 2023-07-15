@@ -3,7 +3,6 @@ using Content.Server.Chat.Systems;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
 using JetBrains.Annotations;
-using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Content.Shared.Random;
 using Content.Shared.SimpleStation14.Prototypes;
@@ -59,7 +58,6 @@ namespace Content.Server.Borgs
         }
 
         // Parkstation-Laws-Start
-
         private void OnInit(EntityUid uid, LawsComponent component, ComponentInit args)
         {
             if (component.LawsID == null)
@@ -103,9 +101,11 @@ namespace Content.Server.Borgs
                 component.Laws.Add(Loc.GetString(law));
             }
 
+            // Set LawsID to the prototype ID.
+            component.LawsID = prototypeID;
+
             Dirty(component);
         }
-
         // Parkstation-Laws-End
 
         [PublicAPI]
@@ -115,6 +115,7 @@ namespace Content.Server.Borgs
                 return;
 
             component.Laws.Clear();
+            component.LawsID = null; // Parkstation-Laws
             Dirty(component);
         }
 
@@ -128,7 +129,7 @@ namespace Content.Server.Borgs
 
             index = Math.Clamp((int) index, 0, component.Laws.Count);
 
-            component.Laws.Insert((int) index, law);
+            component.Laws.Insert((int) index, Loc.GetString(law)); // Parkstation-Laws
             Dirty(component);
         }
 
