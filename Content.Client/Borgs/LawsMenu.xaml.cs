@@ -37,11 +37,16 @@ namespace Content.Client.Borgs
 
             Laws.DisposeAllChildren();
 
+            var nameDescLabel = new LawUIContainer();
+            nameDescLabel.SetHeading(Loc.GetString(Loc.GetString($"lawset-name-{laws.LawsID}")));
+            nameDescLabel.SetDescription(Loc.GetString(Loc.GetString($"lawset-description-{laws.LawsID}")));
+            Laws.AddChild(nameDescLabel);
+
             foreach (var law in laws.Laws)
             {
                 var newLabel = new LawUIContainer();
                 var heading = Loc.GetString("silicon-laws-law-heading",
-                        ("lawDisplayNumber", Laws.ChildCount + 1));
+                        ("lawDisplayNumber", Laws.ChildCount));
                 newLabel.SetHeading(heading);
                 newLabel.SetDescription(law);
                 Laws.AddChild(newLabel);
