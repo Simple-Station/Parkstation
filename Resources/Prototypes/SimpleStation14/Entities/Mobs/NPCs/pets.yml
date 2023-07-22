@@ -10,6 +10,11 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: monkey
       sprite: SimpleStation14/Mobs/Pets/punpun.rsi
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
   - type: Faction
     factions:
     - Pet

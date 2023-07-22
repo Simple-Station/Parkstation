@@ -1,0 +1,14 @@
+- type: receiverPort
+  id: Bolt
+  name: signal-port-name-bolt
+  description: signal-port-description-bolt
+
+- type: receiverPort
+  id: UnBolt
+  name: signal-port-name-unbolt
+  description: signal-port-description-unbolt
+
+- type: receiverPort
+  id: ToggleBolt
+  name: signal-port-name-togglebolt
+  description: signal-port-description-togglebolt
