@@ -144,7 +144,7 @@
         Piercing: 1
   - type: InputMover
   - type: MobMover
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - SimpleHostile
   - type: Bloodstream
@@ -202,7 +202,7 @@
     accent: chicken
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive
   - type: RandomBark
@@ -258,7 +258,7 @@
     accent: duck
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive
   - type: RandomBark
@@ -319,7 +319,6 @@
     baseSprintSpeed : 4
   - type: Sprite
     drawdepth: Mobs
-    netsync: false
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: butterfly
@@ -424,7 +423,7 @@
       path: /Audio/Animals/cow_moo.ogg
   - type: Perishable
     molsPerSecondPerUnitMass: 0.0015
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive
   - type: Body
@@ -450,6 +449,7 @@
   components:
   - type: Inventory
     templateId: crab
+  - type: InventorySlots
   - type: Fixtures
     fixtures:
       fix1:
@@ -584,7 +584,7 @@
     damage:
       types:
         Piercing: 5
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive
   - type: Body
@@ -638,9 +638,84 @@
   - type: Bloodstream
     bloodMaxVolume: 100
   - type: Puller
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive
+
+- type: entity
+  name: gorilla
+  parent: MobMonkey
+  id: MobGorilla
+  description: Smashes, roars, looks cool. Don't stand near one.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: crawling
+      sprite: Mobs/Animals/gorilla.rsi
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.48
+        density: 200
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: crawling
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 4
+  - type: Bloodstream
+    bloodMaxVolume: 300
+  - type: Puller
+  - type: UserInterface
+    interfaces:
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
+  - type: Oni
+    modifiers:
+      coefficients:
+        Blunt: 2
+        Slash: 1.7
+        Piercing: 1.7
+        Asphyxiation: 2
+    stamDamageBonus: 1.7
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Oni
+  - type: Stamina
+  - type: MeleeWeapon
+    hidden: true
+    angle: 0
+    animation: WeaponArcFist
+    damage:
+      types:
+        Blunt: 7 # See oni component
 
 - type: entity
   name: kangaroo
@@ -732,30 +807,91 @@
     prototypes: [ BoxingKangarooGear ]
   - type: HTN
     rootTask: SimpleHostileCompound
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - SimpleHostile
 
 - type: entity
-  name: judge kangaroo
-  parent: MobKangaroo
-  id: MobKangarooJudge
-  description: This case is in the bag... or, pouch...
+  name: monkey
+  id: MobMonkey
+  parent: SimpleMobBase
+  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
   components:
+  - type: CombatMode
+    canDisarm: true
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-primate
+  - type: Inventory
+    templateId: monkey
+  - type: InventorySlots
+  - type: Cuffable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Strippable
+  - type: Stripping
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
   - type: Sprite
     drawdepth: Mobs
     layers:
-      - map: ["enum.DamageStateVisualLayers.Base"]
-        state: kangaroo-judge
-        sprite: Mobs/Animals/kangaroo.rsi
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: kangaroo-judge
-      Critical:
-        Base: kangaroo-dead
-      Dead:
-        Base: kangaroo-dead
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: monkey
+      sprite: Mobs/Animals/monkey.rsi
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: Hands
+  - type: Speech
+    speechSounds: Monkey
+  - type: Body
+    prototype: Primate
+    requiredLegs: 1 # TODO: More than 1 leg
+  - type: Appearance
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Monkey_burning
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: MonkeyAccent
+  - type: Puller
+  - type: CanHostGuardian
+  - type: DiseaseCarrier
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: MeleeWeapon
+    hidden: true
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 3
+        Pierce: 2
+  - type: Clumsy
+    clumsyDamage:
+      types:
+        Blunt: 5
+        Piercing: 4
+      groups:
+        Burn: 3
+    clumsySound:
+      path: /Audio/Animals/monkey_scream.ogg
 
 - type: entity
   name: guidebook monkey
@@ -796,7 +932,7 @@
     equippedPrefix: 0
     slots:
     - HEAD
-  - type: Faction
+  - type: NpcFactionMember
     factions:
       - RatPassive
   - type: HTN
@@ -839,10 +975,8 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Blood
-          Quantity: 50
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 3
   - type: Butcherable
     spawned:
     - id: FoodMeatRat
@@ -853,6 +987,7 @@
     tags:
     - Trash
     - CannotSuicide
+    - Mouse
   - type: Respirator
     damage:
       types:
@@ -949,7 +1084,7 @@
 
 
 - type: entity
-  name: lizard #Weh
+  name: lizard
   parent: SimpleMobBase
   id: MobLizard
   description: A harmless dragon.
@@ -1229,7 +1364,9 @@
     coldDamage:
       types:
         Cold: 0.1 #per second, scales with temperature & other constants
-  - type: Faction
+    interactSuccessSound:
+      path: /Audio/Animals/penguin_squawk.ogg
+  - type: NpcFactionMember
     factions:
     - Passive
   - type: RandomBark
@@ -1248,7 +1385,7 @@
     baseSprintSpeed : 3.5
   - type: InputMover
   - type: MobMover
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Syndicate
   - type: Sprite
@@ -1440,7 +1577,7 @@
   id: MobGiantSpiderAngry
   suffix: Angry
   components:
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - Xeno
     - type: InputMover
@@ -1623,7 +1760,7 @@
       gender: epicene
   - type: Bloodstream
     bloodMaxVolume: 100
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
 
@@ -1671,7 +1808,7 @@
   - type: Appearance
   - type: Butcherable
     spawned:
-    - id: FoodMeat
+    - id: FoodMeatCorgi
       amount: 2
   - type: ReplacementAccent
     accent: dog
@@ -1689,7 +1826,7 @@
   - type: MobPrice
     price: 200
   - type: DogVision
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: RandomBark
@@ -1729,7 +1866,7 @@
   - type: MobMover
   - type: Psionic
     removable: false
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - SimpleHostile
     - PsionicInterloper
@@ -1857,7 +1994,7 @@
     price: 200
   - type: HTN
     rootTask: SimpleHostileCompound
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Cat
   - type: RandomBark
@@ -2145,7 +2282,9 @@
         - ReagentId: Nutriment
           Quantity: 10
         - ReagentId: Blood
-          Quantity: 60
+          Quantity: 55
+        - ReagentId: Fat
+          Quantity: 5
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -2196,7 +2335,7 @@
     price: 60
   - type: HTN
     rootTask: IdleEvadeCompound
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: RandomBark
@@ -2260,7 +2399,7 @@
     accent: pig
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive
   - type: RandomBark

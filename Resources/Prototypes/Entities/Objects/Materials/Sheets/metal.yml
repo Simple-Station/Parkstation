@@ -5,11 +5,11 @@
   description: A sheet of metal, used often on the station in various applications.
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Materials/Sheets/metal.rsi
     scale: 0.65, 0.65
   - type: Item
     sprite: Objects/Materials/Sheets/metal.rsi
+    size: 30
   - type: DynamicPrice
     price: 0
   - type: ItemStatus
@@ -65,6 +65,8 @@
   name: steel
   suffix: Single
   components:
+  - type: Item
+    size: 1
   - type: Sprite
     state: steel
   - type: Stack
@@ -108,3 +110,5 @@
   - type: Stack
     stackType: Plasteel
     count: 1
+  - type: Item
+    size: 1

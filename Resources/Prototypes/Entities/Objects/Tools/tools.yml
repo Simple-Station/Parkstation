@@ -17,7 +17,6 @@
     - Wirecutter
   - type: Sprite
     sprite: Objects/Tools/wirecutters.rsi
-    netsync: false
     layers:
     - state: cutters
       map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -65,7 +64,6 @@
     - Screwdriver
   - type: Sprite
     sprite: Objects/Tools/screwdriver.rsi
-    netsync: false
     layers:
       - state: screwdriver
         map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -113,7 +111,6 @@
   - type: Sprite
     sprite: Objects/Tools/wrench.rsi
     state: icon
-    netsync: false
   - type: Item
     sprite: Objects/Tools/wrench.rsi
   - type: ItemCooldown
@@ -156,7 +153,6 @@
   - type: Sprite
     sprite: Objects/Tools/crowbar.rsi
     state: icon
-    netsync: false
   - type: Item
     sprite: Objects/Tools/crowbar.rsi
   - type: ItemCooldown
@@ -263,7 +259,7 @@
       sprite: Objects/Tools/network_configurator.rsi
       layers:
         - state: icon
-        - state: mode-list
+        - state: mode-link
           map: ["enum.NetworkConfiguratorLayers.ModeLight"]
           shader: unshaded
     - type: Item

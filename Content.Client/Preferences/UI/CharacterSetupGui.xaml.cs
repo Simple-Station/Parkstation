@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Client.Humanoid;
 using Content.Client.Info;
 using Content.Client.Lobby.UI;
@@ -186,7 +187,7 @@ namespace Content.Client.Preferences.UI
                 var view = new SpriteView
                 {
                     Sprite = entityManager.GetComponent<SpriteComponent>(_previewDummy),
-                    Scale = ((float) 1.45, (float) 1.45),
+                    Scale = new Vector2((float) 1.45, (float) 1.45),
                     Stretch = SpriteView.StretchMode.None,
                     MaxSize = (46.4f, 46.4f),
                     OverrideDirection = Direction.South

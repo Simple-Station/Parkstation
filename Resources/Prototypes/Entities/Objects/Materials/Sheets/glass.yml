@@ -2,14 +2,15 @@
   abstract: true
   parent: BaseItem
   id: SheetGlassBase
+  name: glass
   description: A sheet of glass, used often on the station in various applications.
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Materials/Sheets/glass.rsi
     scale: 0.65, 0.65
   - type: Item
     sprite: Objects/Materials/Sheets/glass.rsi
+    size: 30
   - type: DynamicPrice
     price: 0
   - type: ItemStatus
@@ -17,9 +18,11 @@
     tags:
     - Sheet
     - DroneUsable
+  - type: Material
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Glass
+  - type: Appearance
   - type: Destructible
     thresholds:
     - trigger:
@@ -38,7 +41,7 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           ShardGlass:
-            min: 0
+            min: 1
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -46,10 +49,8 @@
 - type: entity
   parent: SheetGlassBase
   id: SheetGlass
-  name: glass
   suffix: Full
   components:
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Glass: 100
@@ -67,7 +68,6 @@
       map: ["base"]
   - type: Item
     heldPrefix: glass
-  - type: Appearance
   - type: FloorTile
     outputs:
     - FloorGlass
@@ -78,7 +78,6 @@
 - type: entity
   parent: SheetGlass
   id: SheetGlass1
-  name: glass
   suffix: Single
   components:
   - type: Sprite
@@ -86,6 +85,8 @@
   - type: Stack
     stackType: Glass
     count: 1
+  - type: Item
+    size: 1
 
 - type: entity
   parent: SheetGlassBase
@@ -94,7 +95,6 @@
   description: A reinforced sheet of glass.
   suffix: Full
   components:
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       ReinforcedGlass: 100
@@ -112,13 +112,34 @@
       map: ["base"]
   - type: Item
     heldPrefix: rglass
-  - type: Appearance
   - type: FloorTile
     outputs:
     - FloorRGlass
   - type: Construction
     graph: Glass
     node: SheetRGlass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlassReinforced:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   parent: SheetRGlass
@@ -131,6 +152,8 @@
   - type: Stack
     stackType: ReinforcedGlass
     count: 1
+  - type: Item
+    size: 1
 
 - type: entity
   parent: SheetGlassBase
@@ -139,7 +162,6 @@
   description: A sheet of translucent plasma.
   suffix: Full
   components:
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       PlasmaGlass: 100
@@ -157,10 +179,32 @@
       map: ["base"]
   - type: Item
     heldPrefix: pglass
-  - type: Appearance
+    size: 30
   - type: Construction
     graph: Glass
     node: SheetPGlass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlassPlasma:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   parent: SheetPGlass
@@ -173,15 +217,16 @@
   - type: Stack
     stackType: PlasmaGlass
     count: 1
+  - type: Item
+    size: 1
 
 - type: entity
-  parent: SheetGlassBase
+  parent: SheetPGlass
   id: SheetRPGlass
   name: reinforced plasma glass
   description: A reinforced sheet of translucent plasma.
   suffix: Full
   components:
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       ReinforcedPlasmaGlass: 100
@@ -199,7 +244,6 @@
       map: ["base"]
   - type: Item
     heldPrefix: rpglass
-  - type: Appearance
   - type: Construction
     graph: Glass
     node: SheetRPGlass
@@ -215,3 +259,5 @@
   - type: Stack
     stackType: ReinforcedPlasmaGlass
     count: 1
+  - type: Item
+    size: 1

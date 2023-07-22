@@ -12,7 +12,6 @@
       - sprite: Nyanotrasen/Structures/web.rsi
         state: web1
         map: [ "enum.DamageStateVisualLayers.Base" ]
-    netsync: false
   - type: RandomSprite
     available:
       - enum.DamageStateVisualLayers.Base:
@@ -80,6 +79,9 @@
       path: /Audio/Effects/plant_rustle.ogg
     unbuckleSound: !type:SoundPathSpecifier
       path: /Audio/Effects/plant_rustle.ogg
+    allowedEntities:
+      components:
+        - Arachne
   - type: HealOnBuckle
     damage:
       groups:
@@ -109,7 +111,6 @@
       - sprite: Nyanotrasen/Structures/cocoon.rsi
         state: cocoon_large1
         map: [ "enum.DamageStateVisualLayers.Base" ]
-    netsync: false
   - type: RandomSprite
     available:
       - enum.DamageStateVisualLayers.Base:
@@ -181,7 +182,6 @@
       - sprite: Nyanotrasen/Structures/cocoon.rsi
         state: cocoon1
         map: [ "enum.DamageStateVisualLayers.Base" ]
-    netsync: false
   - type: RandomSprite
     available:
       - enum.DamageStateVisualLayers.Base:

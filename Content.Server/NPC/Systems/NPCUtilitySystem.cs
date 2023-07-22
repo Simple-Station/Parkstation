@@ -1,5 +1,7 @@
 using System.Linq;
+using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Examine;
+using Content.Server.Fluids.EntitySystems;
 using Content.Server.NPC.Queries;
 using Content.Server.NPC.Queries.Considerations;
 using Content.Server.NPC.Queries.Curves;
@@ -8,8 +10,10 @@ using Content.Server.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Storage.Components;
 using Content.Shared.Examine;
+using Content.Shared.Fluids.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Server.Containers;
+using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.NPC.Systems;
@@ -22,10 +26,12 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly FactionSystem _faction = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly FoodSystem _food = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly PuddleSystem _puddle = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SolutionContainerSystem _solutions = default!;
 
     /// <summary>
     /// Runs the UtilityQueryPrototype and returns the best-matching entities.
@@ -257,7 +263,7 @@ public sealed class NPCUtilitySystem : EntitySystem
 
                 break;
             case NearbyHostilesQuery:
-                foreach (var ent in _faction.GetNearbyHostiles(owner, vision))
+                foreach (var ent in _npcFaction.GetNearbyHostiles(owner, vision))
                 {
                     entities.Add(ent);
                 }
@@ -269,10 +275,31 @@ public sealed class NPCUtilitySystem : EntitySystem
 
     private void Filter(NPCBlackboard blackboard, HashSet<EntityUid> entities, UtilityQueryFilter filter)
     {
-        var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-
         switch (filter)
         {
+            case PuddleFilter:
+            {
+                var puddleQuery = GetEntityQuery<PuddleComponent>();
+
+                var toRemove = new ValueList<EntityUid>();
+
+                foreach (var ent in entities)
+                {
+                    if (!puddleQuery.TryGetComponent(ent, out var puddleComp) ||
+                        !_solutions.TryGetSolution(ent, puddleComp.SolutionName, out var sol) ||
+                        _puddle.CanFullyEvaporate(sol))
+                    {
+                        toRemove.Add(ent);
+                    }
+                }
+
+                foreach (var ent in toRemove)
+                {
+                    entities.Remove(ent);
+                }
+
+                break;
+            }
             default:
                 throw new NotImplementedException();
         }

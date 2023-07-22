@@ -81,6 +81,8 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 25
+  - type: ExaminableSolution
+    solution: drink
 
 # Transformable container - normal glass
 - type: entity
@@ -111,6 +113,7 @@
     metamorphicDefaultSprite:
       sprite: Objects/Consumable/Drinks/glass_clear.rsi
       state: icon
+  - type: TransformableContainer
 
 - type: entity
   name: Coupe glass

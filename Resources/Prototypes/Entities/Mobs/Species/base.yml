@@ -67,6 +67,7 @@
         Bloodloss:
           -1
   - type: Stamina
+  - type: StatusIcon
   - type: StatusEffects
     allowed:
       - Stun
@@ -95,7 +96,6 @@
     sprite: Mobs/Species/Human/parts.rsi
     state: full
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     layers:
@@ -115,16 +115,16 @@
       - shader: StencilMask
         map: ["enum.HumanoidVisualLayers.StencilMask"]
         sprite: Mobs/Customization/masking_helpers.rsi
-        state: female_full
+        state: unisex_full
         visible: false
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: ["socks"]
       - map: ["underpants"]
       - map: ["undershirt"]
       - map: ["jumpsuit"]
-      - map: ["enum.HumanoidVisualLayers.LHand"]
-      - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: ["enum.HumanoidVisualLayers.Handcuffs"]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi
@@ -309,6 +309,8 @@
     deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
   - type: CanEscapeInventory
   - type: SpriteExaminable
+  - type: ContentEye
+  - type: SleepEmitSound
 
 - type: entity
   save: false
@@ -325,7 +327,6 @@
       sprite: Mobs/Species/Human/parts.rsi
       state: full
     - type: Sprite
-      netsync: false
       drawdepth: Mobs
       noRot: true
       # TODO BODY Turn these into individual body parts?
@@ -346,16 +347,16 @@
         - shader: StencilMask
           map: ["enum.HumanoidVisualLayers.StencilMask"]
           sprite: Mobs/Customization/masking_helpers.rsi
-          state: female_full
+          state: unisex_full
           visible: false
         - map: ["enum.HumanoidVisualLayers.LFoot"]
         - map: ["enum.HumanoidVisualLayers.RFoot"]
+        - map: ["enum.HumanoidVisualLayers.LHand"]
+        - map: ["enum.HumanoidVisualLayers.RHand"]
         - map: ["socks"]
         - map: ["underpants"]
         - map: ["undershirt"]
         - map: ["jumpsuit"]
-        - map: ["enum.HumanoidVisualLayers.LHand"]
-        - map: ["enum.HumanoidVisualLayers.RHand"]
         - map: ["enum.HumanoidVisualLayers.Handcuffs"]
           color: "#ffffff"
           sprite: Objects/Misc/handcuffs.rsi

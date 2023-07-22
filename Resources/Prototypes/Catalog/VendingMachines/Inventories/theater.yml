@@ -9,6 +9,7 @@
     ClothingOuterWinterClown: 1
     ClothingOuterWinterMime: 1
     ClothingOuterWinterMusician: 1
+    ClothingUniformDressRed: 1
     ClothingMaskJoy: 2
     ClothingHeadHatCardborg: 2
     ClothingOuterCardborg: 2
@@ -19,8 +20,6 @@
     ClothingOuterPoncho: 2
     ClothingHeadHatSantahat: 2
     ClothingOuterSanta: 2
-    ClothingHeadHatSkub: 2
-    ClothingOuterSkub: 2
     ClothingOuterSuitChicken: 2
     ClothingHeadHatChickenhead: 2
     ClothingOuterSuitMonkey: 2
@@ -33,6 +32,8 @@
     ClothingHeadPaperSackSmile: 2
     ClothingHeadRastaHat: 2
     ClothingEyesBlindfold: 1
+    ClothingUniformTracksuitBlack: 2
+    ClothingUniformSchoolGakuranBlack: 2
     UniformSchoolgirlBlack: 1
     UniformSchoolgirlBlue: 1
     UniformSchoolgirlCyan: 1
@@ -54,11 +55,13 @@
     ClothingCostumeArcDress: 1
     ClothingOuterCoatPirateBlack: 1
     ClothingCostumeMioSkirt: 1
+    ClothingCostumeNaota: 1
     ClothingUniformJumpsuitDameDane: 1
     ClothingShoesDameDane: 1
     ClothingOuterDameDane: 1
     ClothingOuterClownPriest: 1
     ClothingUniformSkirtTurtle: 2
+    ClothingUniformSwimsuitBlue: 2
     ClothingCostumeBunnySuit: 2
     ClothingHeadHatBunny: 2
   emaggedInventory:

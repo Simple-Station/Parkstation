@@ -40,7 +40,6 @@
         layer:
         - TabletopMachineLayer
   - type: Sprite
-    netsync: false
     sprite: Structures/Machines/microwave.rsi
     offset: 0, 0.1
     drawdepth: SmallObjects
@@ -61,9 +60,6 @@
         acts: ["Breakage"]
   - type: ApcPowerReceiver
     powerLoad: 400
-  - type: UpgradePowerDraw
-    powerDrawMultiplier: 0.75
-    scaling: Exponential
   - type: Machine
     board: MicrowaveMachineCircuitboard
   - type: ContainerContainer

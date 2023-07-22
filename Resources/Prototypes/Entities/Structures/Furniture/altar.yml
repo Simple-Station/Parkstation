@@ -7,7 +7,6 @@
   components:
   - type: Anchorable
   - type: Transform
-    noRot: true
   - type: Prayable
   - type: Damageable
     damageContainer: Inorganic
@@ -25,7 +24,6 @@
         layer:
         - TableLayer
   - type: Sprite
-    netsync: false
     snapCardinals: true
   - type: Clickable
   # - type: GhostTakeoverAvailable
@@ -68,14 +66,17 @@
           path: /Audio/Effects/metalbreak.ogg
       - !type:SpawnEntitiesBehavior
         spawn:
-          SheetSteel1:
+          SheetPlasteel1:
             min: 1
             max: 5
-          MaterialCloth1:
+          MaterialBluespace:
             min: 1
-            max: 3
+            max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Construction
+    graph: Altar
+    node: nanotrasen
 
 - type: entity
   id: AltarChaos
@@ -88,6 +89,9 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: chaos
+  - type: Construction
+    graph: Altar
+    node: chaos
 
 - type: entity
   id: AltarDruid
@@ -100,6 +104,9 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: druid
+  - type: Construction
+    graph: Altar
+    node: druid
 
 - type: entity
   id: AltarToolbox
@@ -112,6 +119,9 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: toolbox
+  - type: Construction
+    graph: Altar
+    node: toolbox
 
 - type: entity
   id: AltarSpaceChristian
@@ -131,6 +141,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: Altar
+    node: spacechristian
 
 - type: entity
   id: AltarSatana
@@ -150,6 +163,9 @@
     radius: 1.5
     energy: 1
     color: "#ff6347"
+  - type: Construction
+    graph: Altar
+    node: satana
 
 - type: entity
   id: AltarTechnology
@@ -169,6 +185,9 @@
     radius: 1.5
     energy: 1
     color: "#e0ffff"
+  - type: Construction
+    graph: Altar
+    node: technology
 
 - type: entity
   id: AltarConvertFestival
@@ -200,17 +219,20 @@
           path: /Audio/Effects/woodhit.ogg
       - !type:SpawnEntitiesBehavior
         spawn:
-          MaterialWoodPlank:
+          SheetPlasteel1:
             min: 1
             max: 5
-          MaterialCloth1:
+          MaterialBluespace:
             min: 1
-            max: 3
+            max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Tag
     tags:
     - Wooden
+  - type: Construction
+    graph: Altar
+    node: festival
 
 - type: entity
   id: AltarConvertMaint
@@ -230,6 +252,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: Altar
+    node: maint
 
 - type: entity
   id: AltarConvertBlue
@@ -249,6 +274,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: Altar
+    node: blue
 
 - type: entity
   id: AltarConvertBurden
@@ -258,16 +286,19 @@
   - type: Sprite
     sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
     layers:
-    - state: convertaltar
+    - state: burden
     - state: lightning
       shader: unshaded
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
-    state: convertaltar
+    state: burden
   - type: PointLight
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: Altar
+    node: burden
 
 - type: entity
   id: AltarConvert
@@ -287,6 +318,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: Altar
+    node: convert
 
 - type: entity
   id: AltarConvertOrange
@@ -306,6 +340,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: Altar
+    node: orange
 
 - type: entity
   id: AltarConvertRed
@@ -325,6 +362,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: Altar
+    node: red
 
 - type: entity
   id: AltarConvertWhite
@@ -344,6 +384,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: Altar
+    node: white
 
 - type: entity
   id: AltarConvertYellow
@@ -363,6 +406,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: Altar
+    node: yellow
 
 - type: entity
   id: AltarHeaven
@@ -395,15 +441,21 @@
           path: /Audio/Effects/metalbreak.ogg
       - !type:SpawnEntitiesBehavior
         spawn:
-          SheetSteel1:
+          SheetPlasteel1:
             min: 1
             max: 5
+          MaterialBluespace:
+            min: 1
+            max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: PointLight
     radius: 1.5
     energy: 1
     color: "#f08080"
+  - type: Construction
+    graph: Altar
+    node: heaven
 
 - type: entity
   id: AltarFangs
@@ -414,3 +466,6 @@
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
   - type: Icon
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+  - type: Construction
+    graph: Altar
+    node: fanged

@@ -36,6 +36,7 @@
     energy: 2
     color: "#fca3c0"
   - type: Appearance
+  - type: WiresPanel
   - type: Wires
     BoardName: "Vessel"
     LayoutId: Vessel
@@ -164,6 +165,10 @@
     - AnomalousParticleDelta
     - AnomalousParticleEpsilon
     - AnomalousParticleZeta
+    setTypePorts:
+      SetParticleDelta: AnomalousParticleDelta
+      SetParticleEpsilon: AnomalousParticleEpsilon
+      SetParticleZeta: AnomalousParticleZeta
     fireBurstSize: 1
     baseFireBurstDelayMin: 2
     baseFireBurstDelayMax: 6
@@ -181,6 +186,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: Appearance
+  - type: WiresPanel
   - type: WiresVisuals
   - type: Wires
     BoardName: "Ape"
@@ -191,6 +197,19 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+      - On
+      - Off
+      - Toggle
+      - SetParticleDelta
+      - SetParticleEpsilon
+      - SetParticleZeta
 
 - type: entity
   id: MachineAnomalyGenerator
@@ -202,7 +221,6 @@
   components:
   - type: SpriteFade
   - type: Sprite
-    netsync: false
     sprite: Structures/Machines/Anomaly/anomaly_generator.rsi
     offset: 0,1
     drawdepth: Mobs
@@ -258,6 +276,7 @@
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 5
+  - type: WiresPanel
   - type: Wires
     BoardName: "AnomalyGenerator"
     LayoutId: AnomalyGenerator
