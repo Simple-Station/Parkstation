@@ -4,13 +4,13 @@
   name: ai internal computer
   description: Your integrated personal computer, inside the personal computer!
   components:
-  - type: PDA
+  - type: Pda
     state: pda-ai
     id: AIIDCard
   - type: Sprite
     sprite: SimpleStation14/Objects/Devices/pda.rsi
     netsync: false
-  - type: PDABorderColor
+  - type: PdaBorderColor
     borderColor: "#00FFFF77"
   - type: Icon
     sprite: SimpleStation14/Objects/Devices/pda.rsi
@@ -22,7 +22,7 @@
   name: chief service supervisor PDA
   description: Smells like pine and Febreze.
   components:
-  - type: PDA
+  - type: Pda
     state: pda-css
     id: CSSIDCard
     penSlot:

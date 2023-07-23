@@ -61,7 +61,7 @@
     - type: Hands
       showInHands: false
     # Allow examining things
-    - type: Mind
+    - type: MindContainer
       showExamineInfo: true
     - type: Input
       context: "human"
@@ -222,7 +222,7 @@
     - type: StaticPrice
       price: 50000
     - type: CargoSellBlacklist
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - NanoTrasen
     - type: Laws

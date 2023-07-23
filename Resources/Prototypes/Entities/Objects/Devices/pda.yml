@@ -123,7 +123,7 @@
   name: technical assistant PDA
   description: Why isn't it yellow?
   components:
-  - type: PDA
+  - type: Pda
     id: TechnicalAssistantIDCard
   - type: Icon
     state: pda-interntech
@@ -134,7 +134,7 @@
   name: medical intern PDA
   description: Why isn't it white? Has a built-in health analyzer.
   components:
-  - type: PDA
+  - type: Pda
     id: MedicalInternIDCard
   - type: Icon
     state: pda-internmed
@@ -164,7 +164,7 @@
   name: service worker PDA
   description: Why isn't it gray?
   components:
-  - type: PDA
+  - type: Pda
     id: ServiceWorkerIDCard
   - type: Icon
     state: pda-internservice
@@ -299,7 +299,7 @@
   name: cargo PDA
   description: PDA for the guys that order the pizzas.
   components:
-  - type: PDA
+  - type: Pda
     id: CargoIDCard
   - type: Icon
     state: pda-cargo
@@ -310,7 +310,7 @@
   name: salvage PDA
   description: Smells like ash.
   components:
-  - type: PDA
+  - type: Pda
     id: SalvageIDCard
   - type: Icon
     state: pda-miner
@@ -335,7 +335,7 @@
   name: cataloguer PDA
   description: Smells like books.
   components:
-  - type: PDA
+  - type: Pda
     id: LibrarianIDCard
   - type: Icon
     state: pda-library
@@ -490,9 +490,9 @@
   name: chemistry PDA
   description: It has a few discolored blotches here and there.
   components:
-  - type: PDA
+  - type: Pda
     id: ChemistIDCard
-  - type: PDABorderColor
+  - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#B34200"
   - type: Icon
@@ -504,7 +504,7 @@
   name: mystagogue PDA
   description: It appears surprisingly ordinary.
   components:
-  - type: PDA
+  - type: Pda
     id: RDIDCard
   - type: Icon
     state: pda-rd
@@ -515,7 +515,7 @@
   name: epistemics PDA
   description: It's covered with an unknown gooey substance.
   components:
-  - type: PDA
+  - type: Pda
     id: ResearchIDCard
   - type: Icon
     state: pda-science
@@ -697,7 +697,7 @@
   name: zookeeper PDA
   description: Made with genuine synthetic leather. Crikey!
   components:
-  - type: PDA
+  - type: Pda
     id: ZookeeperIDCard
   - type: Icon
     state: pda-zookeeper
@@ -723,9 +723,9 @@
   name: detective PDA
   description: Smells like rain... pouring down the rooftops...
   components:
-  - type: PDA
+  - type: Pda
     id: DetectiveIDCard
-  - type: PDABorderColor
+  - type: PdaBorderColor
     borderColor: "#774705"
   - type: Icon
     state: pda-detective

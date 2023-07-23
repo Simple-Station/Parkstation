@@ -52,17 +52,20 @@ namespace Content.Server.Doors.Systems
                 component.AutoClose = false;
             }
             // Parkstation-BoltSignal-Start
-            else if (args.Port == component.BoltPort)
+            else if (EntityManager.TryGetComponent<DoorBoltComponent>(uid, out var boltComponent))
             {
-                SetBoltsWithAudio(uid, component, true);
-            }
-            else if (args.Port == component.UnBoltPort)
-            {
-                SetBoltsWithAudio(uid, component, false);
-            }
-            else if (args.Port == component.ToggleBoltPort)
-            {
-                SetBoltsWithAudio(uid, component, !component.BoltsDown);
+                if (args.Port == component.BoltPort)
+                {
+                    _bolts.SetBoltsWithAudio(uid, boltComponent, true);
+                }
+                else if (args.Port == component.UnBoltPort)
+                {
+                    _bolts.SetBoltsWithAudio(uid, boltComponent, false);
+                }
+                else if (args.Port == component.ToggleBoltPort)
+                {
+                    _bolts.SetBoltsWithAudio(uid, boltComponent, !boltComponent.BoltsDown);
+                }
             }
             // Parkstation-BoltSignal-End
         }

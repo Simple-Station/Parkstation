@@ -7,6 +7,8 @@
       collection: SlimeMaleScreams
     Laugh:
       collection: SlimeMaleLaughs
+    Squish:
+      collection: Squishes
 
 - type: emoteSounds
   id: FemaleSlime
@@ -17,6 +19,8 @@
       collection: SlimeFemaleScreams
     Laugh:
       collection: SlimeFemaleLaughs
+    Squish:
+      collection: Squishes
 
 - type: emoteSounds
   id: UnisexSlime
@@ -27,6 +31,8 @@
       collection: SlimeUnisexScreams
     Laugh:
       collection: SlimeUnisexLaughs
+    Squish:
+      collection: Squishes
 
 - type: emoteSounds
   id: GeneralSlimeEmotes
@@ -37,7 +43,7 @@
       collection: Snaps
       params:
         volume: -6
-    SlimeSquish:
+    Squish:
       collection: SlimeSquishes
       params:
         variation: 0.125

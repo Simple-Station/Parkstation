@@ -38,7 +38,7 @@ public sealed class CuffedTimeStatSystem : EntitySystem
     {
         string? username = null;
 
-        if (EntityManager.TryGetComponent<MindComponent>(uid, out var mindComponent) &&
+        if (EntityManager.TryGetComponent<MindContainerComponent>(uid, out var mindComponent) &&
             mindComponent.Mind != null &&
             mindComponent.Mind.Session != null)
             username = mindComponent.Mind.Session.Name;

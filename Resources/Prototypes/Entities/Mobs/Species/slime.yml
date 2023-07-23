@@ -21,8 +21,8 @@
     speechSounds: Slime
   - type: Vocal
     sounds:
-      Male: UnisexSlime
-      Female: UnisexSlime
+      Male: MalaeSlime
+      Female: FemaleSlime
       Unsexed: UnisexSlime
   - type: Damageable
     damageContainer: Biological
@@ -79,11 +79,6 @@
     - BleedersBite
   - type: BodyEmotes
     soundsId: GeneralSlimeEmotes
-  - type: Vocal
-    sounds:
-      Male: MaleSlime
-      Female: FemaleSlime
-      Unsexed: UnisexSlime
 
 - type: entity
   save: false

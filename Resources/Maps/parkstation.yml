@@ -54298,7 +54298,7 @@ entities:
     - pos: -22.5,-17.5
       parent: 1
       type: Transform
-- proto: DrinkBeer
+- proto: DrinkBeerBottleFull
   entities:
   - uid: 2726
     components:
@@ -61538,21 +61538,21 @@ entities:
     - pos: 16.684126,27.990952
       parent: 1
       type: Transform
-- proto: FoodCondimentBottleSmallColdsauce
+- proto: FoodCondimentBottleColdsauce
   entities:
   - uid: 4635
     components:
     - pos: 14.807863,18.251076
       parent: 1
       type: Transform
-- proto: FoodCondimentBottleSmallHotsauce
+- proto: FoodCondimentBottleHotsauce
   entities:
   - uid: 4636
     components:
     - pos: 14.245085,18.240652
       parent: 1
       type: Transform
-- proto: FoodCondimentBottleSmallKetchup
+- proto: FoodCondimentBottleKetchup
   entities:
   - uid: 4637
     components:
@@ -61574,7 +61574,7 @@ entities:
     - pos: 17.47604,17.681068
       parent: 1
       type: Transform
-- proto: FoodCondimentBottleSmallVinegar
+- proto: FoodCondimentBottleVinegar
   entities:
   - uid: 785
     components:
@@ -88566,7 +88566,7 @@ entities:
     - pos: -3.4205797,44.004253
       parent: 1
       type: Transform
-- proto: HatBandBotany
+- proto: ClothingHeadBandBotany
   entities:
   - uid: 396
     components:
@@ -88583,7 +88583,7 @@ entities:
     - pos: -3.3244443,32.38539
       parent: 1
       type: Transform
-- proto: HatBandRed
+- proto: ClothingHeadBandRed
   entities:
   - uid: 10574
     components:
@@ -90355,29 +90355,6 @@ entities:
     - pos: -0.43014622,-38.279263
       parent: 1
       type: Transform
-- proto: MicroLaserStockPart
-  entities:
-  - uid: 10200
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: -37.657143,-43.41699
-      parent: 1
-      type: Transform
-  - uid: 16345
-    components:
-    - pos: 43.764175,-27.909233
-      parent: 1
-      type: Transform
-  - uid: 16346
-    components:
-    - pos: 43.72249,-27.89881
-      parent: 1
-      type: Transform
-  - uid: 16347
-    components:
-    - pos: 43.73291,-27.815418
-      parent: 1
-      type: Transform
 - proto: MicrophoneInstrument
   entities:
   - uid: 3713
@@ -91176,7 +91153,7 @@ entities:
     - pos: -5.251523,6.925836
       parent: 1
       type: Transform
-    - stampState: paper_stamp-cent
+    - stampState: paper_stamp-centcom
       stampedBy:
       - CentCom
       content: >
@@ -92119,18 +92096,6 @@ entities:
   - uid: 5639
     components:
     - pos: 23.5,17.5
-      parent: 1
-      type: Transform
-- proto: PosterContrabandVoteWeh
-  entities:
-  - uid: 4158
-    components:
-    - pos: 14.5,-36.5
-      parent: 1
-      type: Transform
-  - uid: 8043
-    components:
-    - pos: 12.5,-28.5
       parent: 1
       type: Transform
 - proto: PosterLegit12Gauge
@@ -98744,33 +98709,6 @@ entities:
   - uid: 3319
     components:
     - pos: -19.717896,16.481615
-      parent: 1
-      type: Transform
-- proto: ScanningModuleStockPart
-  entities:
-  - uid: 16323
-    components:
-    - pos: 39.344635,-27.292126
-      parent: 1
-      type: Transform
-  - uid: 16333
-    components:
-    - pos: 39.39675,-27.375517
-      parent: 1
-      type: Transform
-  - uid: 16334
-    components:
-    - pos: 39.334213,-27.323397
-      parent: 1
-      type: Transform
-  - uid: 16335
-    components:
-    - pos: 39.428017,-27.312973
-      parent: 1
-      type: Transform
-  - uid: 16336
-    components:
-    - pos: 39.3759,-27.312973
       parent: 1
       type: Transform
 - proto: ScienceTechFab
@@ -107806,18 +107744,6 @@ entities:
   - uid: 14707
     components:
     - pos: -23.96867,-15.981747
-      parent: 1
-      type: Transform
-- proto: ToyAmongPequeno
-  entities:
-  - uid: 753
-    components:
-    - pos: -11.503697,0.6087394
-      parent: 1
-      type: Transform
-  - uid: 4518
-    components:
-    - pos: 41.677933,-4.523551
       parent: 1
       type: Transform
 - proto: ToyHonk

@@ -78,14 +78,6 @@
       collection: MaleCry
 
 - type: emoteSounds
-  id: UnisexSlime
-  sounds:
-    Squish:
-      collection: Squishes
-  params:
-    variation: 0.125
-
-- type: emoteSounds
   id: UnisexVox
   sound:
     path: /Audio/Voice/Vox/shriek1.ogg

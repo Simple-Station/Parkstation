@@ -102,7 +102,7 @@ namespace Content.Client.Lobby.UI
                 OverrideDirection = direction,
                 Scale = new Vector2(4, 4),
                 Stretch = SpriteView.StretchMode.None,
-                MaxSize = (128, 128)
+                MaxSize = new Vector2(128, 128)
             };
         }
 
