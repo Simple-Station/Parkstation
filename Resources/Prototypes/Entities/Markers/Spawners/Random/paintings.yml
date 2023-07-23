@@ -34,8 +34,6 @@
     rarePrototypes:
       - PaintingSkeletonBoof
       - PaintingEmpty
-      - PaintingMoony
-      - PaintingAmogusTriptych
       # Parkstation
       - PaintingLois
       - PaintingCM

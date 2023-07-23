@@ -56,3 +56,12 @@
 #   description: trait-muted-desc
 #   components:
 #     - type: Muted
+
+- type: trait
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  cost: 4
+  category: Negative
+  components:
+    - type: Uncloneable

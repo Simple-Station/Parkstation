@@ -1,11 +1,10 @@
-﻿- type: entity
+- type: entity
   id: BaseSpellbook
   name: spellbook
   parent: BaseItem
   abstract: true
   components:
     - type: Sprite
-      netsync: false
       sprite: Objects/Misc/books.rsi
       layers:
         - state: book_demonomicon
@@ -16,7 +15,7 @@
     - type: Tag
       tags:
       - WizardBook
-      - Book
+      - Spellbook
     - type: EmitSoundOnPickup
       sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
     - type: EmitSoundOnDrop
@@ -41,7 +40,6 @@
   parent: BaseSpellbook
   components:
     - type: Sprite
-      netsync: false
       sprite: Objects/Magic/spellbooks.rsi
       layers:
         - state: bookforcewall
@@ -55,7 +53,6 @@
   parent: BaseSpellbook
   components:
     - type: Sprite
-      netsync: false
       sprite: Objects/Magic/spellbooks.rsi
       layers:
         - state: spellbook
@@ -69,7 +66,6 @@
   parent: BaseSpellbook
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Magic/spellbooks.rsi
     layers:
     - state: spellbook
@@ -83,7 +79,6 @@
   parent: BaseSpellbook
   components:
     - type: Sprite
-      netsync: false
       sprite: Objects/Magic/spellbooks.rsi
       layers:
         - state: bookknock
@@ -97,7 +92,6 @@
   parent: BaseSpellbook
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Magic/spellbooks.rsi
     layers:
     - state: bookfireball
@@ -111,7 +105,6 @@
   parent: BaseSpellbook
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Magic/magicactions.rsi
     layers:
     - state: spell_default

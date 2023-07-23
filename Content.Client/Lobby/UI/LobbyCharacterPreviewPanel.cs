@@ -1,4 +1,6 @@
 using System.Linq;
+using System.Numerics;
+using Content.Client.Alerts;
 using Content.Client.Humanoid;
 using Content.Client.Inventory;
 using Content.Client.Preferences;
@@ -98,9 +100,9 @@ namespace Content.Client.Lobby.UI
             {
                 Sprite = _entityManager.GetComponent<SpriteComponent>(entity),
                 OverrideDirection = direction,
-                Scale = (4, 4),
+                Scale = new Vector2(4, 4),
                 Stretch = SpriteView.StretchMode.None,
-                MaxSize = (128, 128)
+                MaxSize = new Vector2(128, 128)
             };
         }
 

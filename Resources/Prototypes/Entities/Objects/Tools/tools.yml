@@ -17,7 +17,6 @@
     - Wirecutter
   - type: Sprite
     sprite: Objects/Tools/wirecutters.rsi
-    netsync: false
     layers:
     - state: cutters
       map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -65,7 +64,6 @@
     - Screwdriver
   - type: Sprite
     sprite: Objects/Tools/screwdriver.rsi
-    netsync: false
     layers:
       - state: screwdriver
         map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -113,7 +111,6 @@
   - type: Sprite
     sprite: Objects/Tools/wrench.rsi
     state: icon
-    netsync: false
   - type: Item
     sprite: Objects/Tools/wrench.rsi
   - type: ItemCooldown
@@ -156,7 +153,6 @@
   - type: Sprite
     sprite: Objects/Tools/crowbar.rsi
     state: icon
-    netsync: false
   - type: Item
     sprite: Objects/Tools/crowbar.rsi
   - type: ItemCooldown
@@ -223,21 +219,21 @@
   - type: Tool
     qualities:
       - Pulsing
-  - type: SignalLinker
   - type: NetworkConfigurator
   - type: ActivatableUI
     key: enum.NetworkConfiguratorUiKey.List
     inHandsOnly: true
   - type: UserInterface
     interfaces:
-    - key: enum.SignalLinkerUiKey.Key
-      type: SignalPortSelectorBoundUserInterface
-    - key: enum.NetworkConfiguratorUiKey.List
-      type: NetworkConfiguratorBoundUserInterface
-    - key: enum.NetworkConfiguratorUiKey.Configure
-      type: NetworkConfiguratorBoundUserInterface
+      - key: enum.NetworkConfiguratorUiKey.List
+        type: NetworkConfiguratorBoundUserInterface
+      - key: enum.NetworkConfiguratorUiKey.Configure
+        type: NetworkConfiguratorBoundUserInterface
+      - key: enum.NetworkConfiguratorUiKey.Link
+        type: NetworkConfiguratorBoundUserInterface
   - type: Tag
     tags:
+      - Multitool
       - DroneUsable
   - type: PhysicalComposition
     materialComposition:
@@ -249,6 +245,57 @@
     damage:
       types:
         Shock: 2
+
+- type: entity
+  name: network configurator
+  parent: BaseItem
+  id: NetworkConfigurator
+  description: A tool for linking devices together. Has two modes, a list mode for mass linking devices and a linking mode for advanced device linking.
+  components:
+    - type: EmitSoundOnLand
+      sound:
+        path: /Audio/Items/multitool_drop.ogg
+    - type: Sprite
+      sprite: Objects/Tools/network_configurator.rsi
+      layers:
+        - state: icon
+        - state: mode-link
+          map: ["enum.NetworkConfiguratorLayers.ModeLight"]
+          shader: unshaded
+    - type: Item
+      size: 5
+    - type: Clothing
+      sprite: Objects/Tools/network_configurator.rsi
+      quickEquip: false
+      slots:
+        - Belt
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.NetworkConfiguratorVisuals.Mode:
+          enum.NetworkConfiguratorLayers.ModeLight:
+            True: { state: mode-link }
+            False: { state: mode-list }
+    - type: NetworkConfigurator
+    - type: ActivatableUI
+      key: enum.NetworkConfiguratorUiKey.List
+      inHandsOnly: true
+    - type: UserInterface
+      interfaces:
+        - key: enum.NetworkConfiguratorUiKey.List
+          type: NetworkConfiguratorBoundUserInterface
+        - key: enum.NetworkConfiguratorUiKey.Configure
+          type: NetworkConfiguratorBoundUserInterface
+        - key: enum.NetworkConfiguratorUiKey.Link
+          type: NetworkConfiguratorBoundUserInterface
+    - type: Tag
+      tags:
+        - DroneUsable
+    - type: StaticPrice
+      price: 60
+    - type: GuideHelp
+      guides:
+        - NetworkConfigurator
 
 - type: entity
   name: power drill
@@ -394,7 +441,7 @@
     bluntStaminaDamageFactor: 2.0 # 9.1 stamina damage
   - type: Wieldable
   - type: IncreaseDamageOnWield #TODO dynamic attackrate and stamina damage
-    attackRate: 1
+    # attackRate: 1
     damage:
       types:
         Blunt: 12
@@ -428,13 +475,10 @@
   - type: Item
     sprite: Objects/Tools/omnitool.rsi
     size: 20
+  - type: Tag
+    tags:
+    - Multitool
   - type: TilePrying
-  - type: SignalLinker
-    requiredQuality: Pulsing
-  - type: UserInterface
-    interfaces:
-      - key: enum.SignalLinkerUiKey.Key
-        type: SignalPortSelectorBoundUserInterface
   - type: Tool
     qualities:
       - Screwing

@@ -11,6 +11,8 @@
         path: /Audio/Effects/shuttle_thruster.ogg
     - type: Transform
       anchored: true
+    - type: Physics
+      bodyType: Static
     - type: Rotatable
       rotateWhileAnchored: true
     - type: Thruster
@@ -19,7 +21,6 @@
           Heat: 40
     - type: InteractionOutline
     - type: Sprite
-      netsync: false
     - type: Appearance
     - type: ThrusterVisuals
     - type: ApcPowerReceiver
@@ -48,9 +49,6 @@
   - type: Thruster
   - type: Machine
     board: ThrusterMachineCircuitboard
-  - type: UpgradePowerDraw
-    powerDrawMultiplier: 0.75
-    scaling: Exponential
   - type: Sprite
     sprite: Structures/Shuttles/thruster.rsi
     layers:
@@ -162,4 +160,3 @@
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
-      offset: 0, 1

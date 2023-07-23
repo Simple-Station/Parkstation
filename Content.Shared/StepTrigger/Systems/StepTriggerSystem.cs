@@ -30,7 +30,7 @@ public sealed class StepTriggerSystem : EntitySystem
             return;
 
         if (!TryComp(uid, out FixturesComponent? fixtures) || fixtures.FixtureCount == 0)
-            Logger.Warning($"{ToPrettyString(uid)} has an active step trigger without any fixtures.");
+            Log.Warning($"{ToPrettyString(uid)} has an active step trigger without any fixtures.");
 #endif
     }
 
@@ -98,7 +98,7 @@ public sealed class StepTriggerSystem : EntitySystem
             return;
         }
 
-        if (otherPhysics.LinearVelocity.Length < component.RequiredTriggerSpeed
+        if (otherPhysics.LinearVelocity.Length() < component.RequiredTriggerSpeed
             || component.CurrentlySteppedOn.Contains(otherUid)
             || otherAabb.IntersectPercentage(ourAabb) < component.IntersectRatio
             || !CanTrigger(component.Owner, otherUid, component))
@@ -128,7 +128,7 @@ public sealed class StepTriggerSystem : EntitySystem
 
     private void OnStartCollide(EntityUid uid, StepTriggerComponent component, ref StartCollideEvent args)
     {
-        var otherUid = args.OtherFixture.Body.Owner;
+        var otherUid = args.OtherEntity;
 
         if (!args.OtherFixture.Hard)
             return;
@@ -146,7 +146,7 @@ public sealed class StepTriggerSystem : EntitySystem
 
     private void OnEndCollide(EntityUid uid, StepTriggerComponent component, ref EndCollideEvent args)
     {
-        var otherUid = args.OtherFixture.Body.Owner;
+        var otherUid = args.OtherEntity;
 
         if (!component.Colliding.Remove(otherUid))
             return;

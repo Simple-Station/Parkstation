@@ -1,9 +1,2 @@
 - type: roundAnnouncement
   id: Welcome
-  presets:
-    - Peaceful
-    - Extended
-    - Survival
-    - Sandbox
-    - Secret
-    - Traitor

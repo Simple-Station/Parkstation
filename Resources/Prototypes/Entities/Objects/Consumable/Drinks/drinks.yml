@@ -81,6 +81,8 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 25
+  - type: ExaminableSolution
+    solution: drink
 
 # Transformable container - normal glass
 - type: entity
@@ -111,6 +113,7 @@
     metamorphicDefaultSprite:
       sprite: Objects/Consumable/Drinks/glass_clear.rsi
       state: icon
+  - type: TransformableContainer
 
 - type: entity
   name: Coupe glass
@@ -529,23 +532,6 @@
   - type: Drink
   - type: Sprite
     sprite: Objects/Consumable/Drinks/chocolateglass.rsi
-
-- type: entity
-  parent: DrinkGlassBase
-  id: DrinkCafeLatte
-  name: cafe latte
-  description: A nice, strong and tasty beverage while you are reading.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: CafeLatte
-          Quantity: 30
-  - type: Drink
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/cafe_latte.rsi
 
 - type: entity
   parent: DrinkGlassBase

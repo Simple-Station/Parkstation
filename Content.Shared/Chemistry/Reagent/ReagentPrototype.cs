@@ -52,8 +52,20 @@ namespace Content.Shared.Chemistry.Reagent
         [ViewVariables(VVAccess.ReadOnly)]
         public string LocalizedPhysicalDescription => Loc.GetString(PhysicalDescription);
 
+        /// <summary>
+        ///     Is this reagent recognizable to the average spaceman (water, welding fuel, ketchup, etc)?
+        /// </summary>
+        [DataField("recognizable")]
+        public bool Recognizable = false;
+
         [DataField("flavor")]
         public string Flavor { get; } = default!;
+
+        /// <summary>
+        /// There must be at least this much quantity in a solution to be tasted.
+        /// </summary>
+        [DataField("flavorMinimum")]
+        public FixedPoint2 FlavorMinimum = FixedPoint2.New(0.1f);
 
         [DataField("color")]
         public Color SubstanceColor { get; } = Color.White;
@@ -79,6 +91,13 @@ namespace Content.Shared.Chemistry.Reagent
         /// </summary>
         [DataField("slippery")]
         public bool Slippery = false;
+
+        /// <summary>
+        /// How much reagent slows entities down if it's part of a puddle.
+        /// 0 - no slowdown; 1 - can't move.
+        /// </summary>
+        [DataField("viscosity")]
+        public float Viscosity = 0;
 
         [DataField("metabolisms", serverOnly: true, customTypeSerializer: typeof(PrototypeIdDictionarySerializer<ReagentEffectsEntry, MetabolismGroupPrototype>))]
         public Dictionary<string, ReagentEffectsEntry>? Metabolisms = null;

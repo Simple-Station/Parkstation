@@ -1,7 +1,7 @@
+using System.Numerics;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
-using Content.Server.Coordinates.Helpers;
 using Content.Server.Doors.Systems;
 using Content.Server.Magic.Components;
 using Content.Server.Magic.Events;
@@ -9,6 +9,7 @@ using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Body.Components;
+using Content.Shared.Coordinates.Helpers;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
@@ -42,7 +43,7 @@ public sealed class MagicSystem : EntitySystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly AirlockSystem _airlock = default!;
+    [Dependency] private readonly DoorBoltSystem _boltsSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedDoorSystem _doorSystem = default!;
@@ -183,8 +184,8 @@ public sealed class MagicSystem : EntitySystem
         {
             // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
             var mapPos = pos.ToMap(EntityManager);
-            var spawnCoords = _mapManager.TryFindGridAt(mapPos, out var grid)
-                ? pos.WithEntityId(grid.Owner, EntityManager)
+            var spawnCoords = _mapManager.TryFindGridAt(mapPos, out var gridUid, out _)
+                ? pos.WithEntityId(gridUid, EntityManager)
                 : new(_mapManager.GetMapEntityId(mapPos.MapId), mapPos.Position);
 
             var ent = Spawn(ev.Prototype, spawnCoords);
@@ -227,52 +228,52 @@ public sealed class MagicSystem : EntitySystem
             case TargetCasterPos:
                 return new List<EntityCoordinates>(1) { casterXform.Coordinates };
             case TargetInFront:
-                {
-                    // This is shit but you get the idea.
-                    var directionPos = casterXform.Coordinates.Offset(casterXform.LocalRotation.ToWorldVec().Normalized);
+            {
+                // This is shit but you get the idea.
+                var directionPos = casterXform.Coordinates.Offset(casterXform.LocalRotation.ToWorldVec().Normalized());
 
-                    if (!_mapManager.TryGetGrid(casterXform.GridUid, out var mapGrid))
-                        return new List<EntityCoordinates>();
-
-                    if (!directionPos.TryGetTileRef(out var tileReference, EntityManager, _mapManager))
-                        return new List<EntityCoordinates>();
-
-                    var tileIndex = tileReference.Value.GridIndices;
-                    var coords = mapGrid.GridTileToLocal(tileIndex);
-                    EntityCoordinates coordsPlus;
-                    EntityCoordinates coordsMinus;
-
-                    var dir = casterXform.LocalRotation.GetCardinalDir();
-                    switch (dir)
-                    {
-                        case Direction.North:
-                        case Direction.South:
-                            {
-                                coordsPlus = mapGrid.GridTileToLocal(tileIndex + (1, 0));
-                                coordsMinus = mapGrid.GridTileToLocal(tileIndex + (-1, 0));
-                                return new List<EntityCoordinates>(3)
-                        {
-                            coords,
-                            coordsPlus,
-                            coordsMinus,
-                        };
-                            }
-                        case Direction.East:
-                        case Direction.West:
-                            {
-                                coordsPlus = mapGrid.GridTileToLocal(tileIndex + (0, 1));
-                                coordsMinus = mapGrid.GridTileToLocal(tileIndex + (0, -1));
-                                return new List<EntityCoordinates>(3)
-                        {
-                            coords,
-                            coordsPlus,
-                            coordsMinus,
-                        };
-                            }
-                    }
-
+                if (!_mapManager.TryGetGrid(casterXform.GridUid, out var mapGrid))
                     return new List<EntityCoordinates>();
+
+                if (!directionPos.TryGetTileRef(out var tileReference, EntityManager, _mapManager))
+                    return new List<EntityCoordinates>();
+
+                var tileIndex = tileReference.Value.GridIndices;
+                var coords = mapGrid.GridTileToLocal(tileIndex);
+                EntityCoordinates coordsPlus;
+                EntityCoordinates coordsMinus;
+
+                var dir = casterXform.LocalRotation.GetCardinalDir();
+                switch (dir)
+                {
+                    case Direction.North:
+                    case Direction.South:
+                        {
+                            coordsPlus = mapGrid.GridTileToLocal(tileIndex + (1, 0));
+                            coordsMinus = mapGrid.GridTileToLocal(tileIndex + (-1, 0));
+                            return new List<EntityCoordinates>(3)
+                    {
+                        coords,
+                        coordsPlus,
+                        coordsMinus,
+                    };
+                        }
+                    case Direction.East:
+                    case Direction.West:
+                        {
+                            coordsPlus = mapGrid.GridTileToLocal(tileIndex + (0, 1));
+                            coordsMinus = mapGrid.GridTileToLocal(tileIndex + (0, -1));
+                            return new List<EntityCoordinates>(3)
+                    {
+                        coords,
+                        coordsPlus,
+                        coordsMinus,
+                    };
+                        }
                 }
+
+                return new List<EntityCoordinates>();
+            }
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -319,8 +320,8 @@ public sealed class MagicSystem : EntitySystem
         //Look for doors and don't open them if they're already open.
         foreach (var entity in _lookup.GetEntitiesInRange(coords, args.Range))
         {
-            if (TryComp<AirlockComponent>(entity, out var airlock))
-                _airlock.SetBoltsDown(entity, airlock, false);
+            if (TryComp<DoorBoltComponent>(entity, out var bolts))
+                _boltsSystem.SetBoltsDown(entity, bolts, false);
 
             if (TryComp<DoorComponent>(entity, out var doorComp) && doorComp.State is not DoorState.Open)
                 _doorSystem.StartOpening(doorComp.Owner);

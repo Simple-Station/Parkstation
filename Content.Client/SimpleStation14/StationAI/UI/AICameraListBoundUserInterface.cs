@@ -10,10 +10,10 @@ namespace Content.Client.SimpleStation14.StationAI.UI
     {
         private AICameraList _window = new AICameraList();
 
-        public AICameraListBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey)
+        public AICameraListBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
-            _window.TryUpdateCameraList += () => SendMessage(new AICameraListMessage(Owner.Owner));
-            _window.WarpToCamera += (uid) => SendMessage(new AICameraWarpMessage(Owner.Owner, uid));
+            _window.TryUpdateCameraList += () => SendMessage(new AICameraListMessage(Owner));
+            _window.WarpToCamera += (uid) => SendMessage(new AICameraWarpMessage(Owner, uid));
         }
 
         protected override void Open()
