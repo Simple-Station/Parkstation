@@ -14,6 +14,9 @@
         - state: borgcharger_closed_unlit
           shader: unshaded
           map: ["enum.SiliconChargerVisuals.Lights"]
+    - type: EntityStorageVisuals
+      stateDoorOpen: open
+      stateDoorClosed: closed
     - type: GenericVisualizer
       visuals:
         enum.PowerDeviceVisuals.VisualState:
@@ -116,17 +119,19 @@
     - type: Appearance
     - type: Fixtures
       fixtures:
-        - shape: !type:PhysShapeAabb
-            bounds: "-0.35,-0.35,0.35,0.35"
-          id: "slips"
-          hard: false
-          layer:
-            - SlipLayer
-        - shape: !type:PhysShapeAabb
-            bounds: "-0.35,-0.35,0.35,0.35"
-          density: 10
-          mask:
-            - MachineMask
+          fix1:
+            shape: !type:PhysShapeAabb
+              bounds: "-0.35,-0.35,0.35,0.35"
+            id: "slips"
+            hard: false
+            layer:
+              - SlipLayer
+          fix2:
+            shape: !type:PhysShapeAabb
+              bounds: "-0.35,-0.35,0.35,0.35"
+            density: 10
+            mask:
+              - MachineMask
     - type: StepTrigger
     - type: SiliconCharger
       chargeMylti: 150
