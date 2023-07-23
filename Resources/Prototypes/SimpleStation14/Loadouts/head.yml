@@ -174,7 +174,7 @@
   description: A bandana.
   category: Accessories
   cost: 1
-  item: HatBandBlack
+  item: ClothingHeadBandBlack
 
 - type: loadout
   id: LoadoutHeadHatBandBlue
@@ -182,7 +182,7 @@
   description: A bandana.
   category: Accessories
   cost: 1
-  item: HatBandBlue
+  item: ClothingHeadBandBlue
 
 - type: loadout
   id: LoadoutHeadHatBandGold
@@ -190,7 +190,7 @@
   description: A bandana.
   category: Accessories
   cost: 1
-  item: HatBandGold
+  item: ClothingHeadBandGold
 
 - type: loadout
   id: LoadoutHeadHatBandGreen
@@ -198,7 +198,7 @@
   description: A bandana.
   category: Accessories
   cost: 1
-  item: HatBandGreen
+  item: ClothingHeadBandGreen
 
 - type: loadout
   id: LoadoutHeadHatBandGrey
@@ -206,7 +206,7 @@
   description: A bandana.
   category: Accessories
   cost: 1
-  item: HatBandGrey
+  item: ClothingHeadBandGrey
 
 - type: loadout
   id: LoadoutHeadHatBandRed
@@ -214,7 +214,7 @@
   description: A bandana.
   category: Accessories
   cost: 1
-  item: HatBandRed
+  item: ClothingHeadBandRed
 
 - type: loadout
   id: LoadoutHeadHatBandSkull
@@ -222,7 +222,7 @@
   description: A bandana.
   category: Accessories
   cost: 1
-  item: HatBandSkull
+  item: ClothingHeadBandSkull
 
 - type: loadout
   id: LoadoutHeadHatBandLightBlue

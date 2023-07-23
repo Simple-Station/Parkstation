@@ -6,7 +6,6 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    netsync: false
     sprite: Nyanotrasen/Mobs/Player/Borgs/cyborg.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -28,7 +27,7 @@
     needsHands: false
   - type: Speech
     speechSounds: Bass
-  - type: Mind
+  - type: MindContainer
     showExamineInfo: true
   - type: SlowOnDamage
     speedModifierThresholds:
@@ -59,14 +58,15 @@
   - type: NoSlip
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 400
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 400
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: Repairable
     fuelcost: 60
     doAfterDelay: 32
@@ -209,7 +209,7 @@
   - type: InnateTool
     tools:
       - id: WelderIndustrial
-      - id: HoloprojectorEngineering
+      - id: HoloprojectorEngineeringBorg
       - id: BorgToolStandard
       - id: MopItem
       - id: FireExtinguisher
@@ -253,7 +253,7 @@
         name: TrashBag
         startingItem: TrashBag
         locked: true
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - NanoTrasen
   - type: TypingIndicator
@@ -274,7 +274,6 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    netsync: false
     sprite: Nyanotrasen/Mobs/Player/Borgs/cyborg_medical.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -322,4 +321,6 @@
       - Finally, all that you may discover in your daily commerce with the crew, if it is not already known, keep secret and never reveal.
   - type: FabricateCandy
   - type: ShowHealthBars
-    damageContainer: Biological
+    damageContainers:
+    - Biological
+    - HalfSpirit

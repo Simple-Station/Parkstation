@@ -32,7 +32,8 @@
     - type: InteractionOutline
     - type: Fixtures
       fixtures:
-        - shape:
+        fix1:
+          shape:
             # Circles, cuz rotation of rectangles looks very bad
             !type:PhysShapeCircle
             radius: 0.35
@@ -49,7 +50,6 @@
       state: full
       noRot: true
       drawdepth: Mobs
-      netsync: false
     - type: Physics
       bodyType: KinematicController
     - type: Body
@@ -118,7 +118,6 @@
       sprite: SimpleStation14/Mobs/Species/IPC/parts.rsi
       state: full
     - type: Sprite
-      netsync: false
       noRot: true
       drawdepth: Mobs
       layers:

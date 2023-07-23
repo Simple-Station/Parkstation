@@ -28,6 +28,7 @@
     belt: BoxerPDA
     ears: ClothingHeadsetService
     gloves: ClothingHandsGlovesBoxingRed
+    shoes: ClothingShoesColorRed
   # innerclothingskirt: UniformShortsRedWithTop
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled

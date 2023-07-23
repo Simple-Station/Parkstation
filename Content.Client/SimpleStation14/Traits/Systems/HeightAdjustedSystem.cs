@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.SimpleStation14.Traits;
 using Robust.Client.GameObjects;
 

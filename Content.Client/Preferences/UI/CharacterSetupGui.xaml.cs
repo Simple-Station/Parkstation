@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Client.Humanoid;
 using Content.Client.Info;
 using Content.Client.Lobby.UI;
@@ -186,9 +187,9 @@ namespace Content.Client.Preferences.UI
                 var view = new SpriteView
                 {
                     Sprite = entityManager.GetComponent<SpriteComponent>(_previewDummy),
-                    Scale = ((float) 1.45, (float) 1.45),
+                    Scale = new Vector2((float) 1.45, (float) 1.45),
                     Stretch = SpriteView.StretchMode.None,
-                    MaxSize = (46.4f, 46.4f),
+                    MaxSize = new Vector2(46.4f, 46.4f),
                     OverrideDirection = Direction.South
                 };
 
@@ -205,7 +206,7 @@ namespace Content.Client.Preferences.UI
                 {
                     Text = description,
                     ClipText = true,
-                    MinSize = (180, 0),
+                    MinSize = new Vector2(180, 0),
                     HorizontalExpand = true
                 };
                 var deleteButton = new Button
@@ -235,7 +236,7 @@ namespace Content.Client.Preferences.UI
                 {
                     Orientation = LayoutOrientation.Horizontal,
                     HorizontalExpand = true,
-                    MinSize = (200, 0),
+                    MinSize = new Vector2(200, 0),
                     SeparationOverride = 0,
                     Children =
                     {

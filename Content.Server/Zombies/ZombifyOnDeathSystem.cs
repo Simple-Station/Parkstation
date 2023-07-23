@@ -1,3 +1,4 @@
+using Content.Server.Administration.Commands;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -14,6 +15,7 @@ using Content.Server.Mind.Commands;
 using Content.Server.Mind.Components;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
+using Content.Server.Roles;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Traitor;
@@ -21,9 +23,11 @@ using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Server.Mind;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
@@ -57,6 +61,10 @@ namespace Content.Server.Zombies
         [Dependency] private readonly SharedCombatModeSystem _combat = default!;
         [Dependency] private readonly IChatManager _chatMan = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
+        [Dependency] private readonly MobStateSystem _mobState = default!;
+        [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+        [Dependency] private readonly MindSystem _mindSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
         public override void Initialize()
         {
@@ -70,8 +78,7 @@ namespace Content.Server.Zombies
         /// </summary>
         private void OnDamageChanged(EntityUid uid, ZombifyOnDeathComponent component, MobStateChangedEvent args)
         {
-            if (args.NewMobState == MobState.Dead ||
-                args.NewMobState == MobState.Critical)
+            if (args.NewMobState == MobState.Dead)
             {
                 ZombifyEntity(uid, args.Component);
             }
@@ -188,9 +195,16 @@ namespace Content.Server.Zombies
             if (TryComp<TemperatureComponent>(target, out var tempComp))
                 tempComp.ColdDamage.ClampMax(0);
 
+            // Zombies can revive themselves
+            _mobThreshold.SetAllowRevives(target, true);
+
             //Heals the zombie from all the damage it took while human
             if (TryComp<DamageableComponent>(target, out var damageablecomp))
                 _damageable.SetAllDamage(target, damageablecomp, 0);
+
+            // Revive them now
+            if (TryComp<MobStateComponent>(target, out var mobstate) && mobstate.CurrentState==MobState.Dead)
+                _mobState.ChangeMobState(target, MobState.Alive, mobstate);
 
             //gives it the funny "Zombie ___" name.
             var meta = MetaData(target);
@@ -200,16 +214,22 @@ namespace Content.Server.Zombies
             _identity.QueueIdentityUpdate(target);
 
             //He's gotta have a mind
-            var mindcomp = EnsureComp<MindComponent>(target);
-            if (mindcomp.Mind != null && mindcomp.Mind.TryGetSession(out var session))
+            var mindComp = EnsureComp<MindContainerComponent>(target);
+            if (_mindSystem.TryGetMind(target, out var mind, mindComp) && _mindSystem.TryGetSession(mind, out var session))
             {
                 //Zombie role for player manifest
-                mindcomp.Mind.AddRole(new TraitorRole(mindcomp.Mind, _proto.Index<AntagPrototype>(zombiecomp.ZombieRoleId)));
+                _mindSystem.AddRole(mind, new ZombieRole(mind, _proto.Index<AntagPrototype>(zombiecomp.ZombieRoleId)));
+
                 //Greeting message for new bebe zombers
                 _chatMan.DispatchServerMessage(session, Loc.GetString("zombie-infection-greeting"));
+
+                // Notificate player about new role assignment
+                _audioSystem.PlayGlobal(zombiecomp.GreetSoundNotification, session);
             }
 
-            if (!HasComp<GhostRoleMobSpawnerComponent>(target) && !mindcomp.HasMind) //this specific component gives build test trouble so pop off, ig
+            // Begin Nyano-code: disable ghost roles for zombies.
+            /*
+            if (!HasComp<GhostRoleMobSpawnerComponent>(target) && !mindComp.HasMind) //this specific component gives build test trouble so pop off, ig
             {
                 //yet more hardcoding. Visit zombie.ftl for more information.
                 var ghostRole = EnsureComp<GhostRoleComponent>(target);
@@ -218,6 +238,8 @@ namespace Content.Server.Zombies
                 ghostRole.RoleDescription = Loc.GetString("zombie-role-desc");
                 ghostRole.RoleRules = Loc.GetString("zombie-role-rules");
             }
+            */
+            // End Nyano-code.
 
             //Goes through every hand, drops the items in it, then removes the hand
             //may become the source of various bugs.
