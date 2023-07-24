@@ -147,8 +147,16 @@ public sealed class SiliconChargerSystem : EntitySystem
 
         chargeRate *= chargerComp.PartsChargeMulti;
 
+        var entitiesToChargeCount = entitiesToCharge.Count;
+
+        foreach (var (entityToCharge, batteryComp) in entitiesToCharge.ToList())
+        {
+            if (batteryComp != null && batteryComp.CurrentCharge >= batteryComp.MaxCharge)
+                entitiesToChargeCount--; // Remove any full batteries from the count, so they don't impact charge rate.
+        }
+
         // Now we charge the entities we found.
-        chargeRate /= entitiesToCharge.Count;
+        chargeRate /= entitiesToChargeCount;
 
         foreach (var (entityToCharge, batteryComp) in entitiesToCharge.ToList())
         {
@@ -166,16 +174,14 @@ public sealed class SiliconChargerSystem : EntitySystem
         // If the given entity is a silicon, charge their respective battery.
         if (_silicon.TryGetSiliconBattery(entity, out var siliconBatteryComp, out var siliconBatteryUid))
         {
-            if (siliconBatteryComp.CurrentCharge < siliconBatteryComp.MaxCharge)
-                entitiesToCharge.Add((siliconBatteryUid, siliconBatteryComp));
+            entitiesToCharge.Add((siliconBatteryUid, siliconBatteryComp));
         }
 
         // Or if the given entity has a battery, charge it.
         else if (!HasComp<UnremoveableComponent>(entity) && // Should probably be charged by the entity holding it. Might be too small to be safe.
             TryComp<BatteryComponent>(entity, out var batteryComp))
         {
-            if (batteryComp.CurrentCharge < batteryComp.MaxCharge)
-                entitiesToCharge.Add((entity, batteryComp));
+            entitiesToCharge.Add((entity, batteryComp));
         }
 
         // Or if the given entity contains a battery, charge it.
@@ -184,8 +190,7 @@ public sealed class SiliconChargerSystem : EntitySystem
                 _itemSlots.TryGetSlot(entity, cellSlotComp.CellSlotId, out var slot) &&
                 TryComp<BatteryComponent>(slot.Item, out var cellBattComp))
         {
-            if (cellBattComp.CurrentCharge < cellBattComp.MaxCharge)
-                entitiesToCharge.Add((slot.Item.Value, cellBattComp));
+            entitiesToCharge.Add((slot.Item.Value, cellBattComp));
         }
 
         // Or if the given entity is fleshy, burn the fucker.
