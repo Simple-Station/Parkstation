@@ -29,7 +29,7 @@ public sealed class EmitSoundOnCritSystem : EntitySystem
     private void OnAlive(EntityUid uid, SiliconEmitSoundOnDrainedComponent component, SiliconChargeAliveEvent args)
     {
         RemComp<SpamEmitSoundComponent>(uid); // This component is bad and I don't feel like making a janky work around because of it.
-        // If you give something the EmitSoundOnCritComponent, know that it can't have the SpamEmitSoundComponent, and any other systems that play with it will just be broken.
+        // If you give something the SiliconEmitSoundOnDrainedComponent, know that it can't have the SpamEmitSoundComponent, and any other systems that play with it will just be broken.
     }
 
     public void OnStateChange(EntityUid uid, SiliconEmitSoundOnDrainedComponent component, MobStateChangedEvent args)

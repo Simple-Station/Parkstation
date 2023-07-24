@@ -18,7 +18,8 @@ public sealed class RandomBatteryChargeComponent : Component
     public Vector2 BatteryChargeMinMax = new(1f, 1f);
 
     /// <summary>
-    ///     True if the current charge is based on the preexisting current charge, or false if it's based on the max charge.
+    ///     False if the randomized charge of the battery should be a multiple of the preexisting current charge of the battery.
+    ///    True if the randomized charge of the battery should be a multiple of the max charge of the battery post max charge randomization.
     /// </summary>
     [DataField("basedOnMaxCharge")]
     public bool BasedOnMaxCharge = true;

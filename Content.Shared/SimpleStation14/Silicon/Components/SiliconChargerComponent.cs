@@ -23,7 +23,7 @@ public sealed class SiliconChargerComponent : Component
     public TimeSpan WarningTime = TimeSpan.Zero;
 
     /// <summary>
-    ///     The current parts mutliplier.
+    ///     The current parts multiplier.
     /// </summary>
     public float PartsChargeMulti = 1.2f;
 

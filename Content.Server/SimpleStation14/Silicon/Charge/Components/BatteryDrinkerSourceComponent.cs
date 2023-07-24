@@ -19,7 +19,7 @@ public sealed class BatteryDrinkerSourceComponent : Component
     public float DrinkSpeedMulti = 1f;
 
     /// <summary>
-    ///     The sound to play when the APC gets drunk from.
+    ///     The sound to play when the battery gets drunk from.
     ///     Can be null.
     /// </summary>
     [DataField("drinkSound")]

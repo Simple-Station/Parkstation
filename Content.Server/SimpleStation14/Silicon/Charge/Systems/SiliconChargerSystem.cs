@@ -232,7 +232,7 @@ public sealed class SiliconChargerSystem : EntitySystem
 
     private void ChargeBattery(EntityUid entity, BatteryComponent batteryComp, float chargeRate, SiliconChargerComponent chargerComp, EntityUid chargerUid)
     {
-        // Do some math so a charger never charges a battery from zero to full in less than 10 seconds, just for the effect of it.
+        // Do some math so a charger never charges a battery from zero to full in less than the minimum time, just for the effect of it.
         if (chargerComp.ChargeMulti * 10 > batteryComp.MaxCharge / chargerComp.MinChargeTime)
             chargeRate /= chargerComp.ChargeMulti * 10 / (batteryComp.MaxCharge / chargerComp.MinChargeTime);
 
