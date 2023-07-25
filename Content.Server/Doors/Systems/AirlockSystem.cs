@@ -50,6 +50,20 @@ namespace Content.Server.Doors.Systems
             {
                 component.AutoClose = false;
             }
+            // Parkstation-BoltSignal-Start
+            else if (args.Port == component.BoltPort)
+            {
+                SetBoltsWithAudio(uid, component, true);
+            }
+            else if (args.Port == component.UnBoltPort)
+            {
+                SetBoltsWithAudio(uid, component, false);
+            }
+            else if (args.Port == component.ToggleBoltPort)
+            {
+                SetBoltsWithAudio(uid, component, !component.BoltsDown);
+            }
+            // Parkstation-BoltSignal-End
         }
 
         private void OnPowerChanged(EntityUid uid, AirlockComponent component, ref PowerChangedEvent args)
