@@ -19,7 +19,7 @@
     - type: Clickable
     - type: Damageable
       damageContainer: Inorganic
-    # - type: Bloodstream # There's a chance they won't want this.
+    # - type: Bloodstream # This is left commented out because it's not necessary for a robot, but you may want it.
     #   bloodReagent: MotorOil
     #   bloodlossDamage:
     #     types:
@@ -34,7 +34,6 @@
       fixtures:
         fix1:
           shape:
-            # Circles, cuz rotation of rectangles looks very bad
             !type:PhysShapeCircle
             radius: 0.35
           density: 50
@@ -60,6 +59,8 @@
     #   safe: false
     - type: StandingState
     - type: Alerts
+    # - type: EyeProtection # You'll want this if your robot can't wear glasses, like an IPC.
+    #   protectionTime: 12
     - type: Silicon
       entityType: enum.SiliconType.Player
       batteryPowered: false # Needs to also have a battery!

@@ -19,6 +19,8 @@
       0: Alive
       140: Critical
       180: Dead
+  - type: TypingIndicator
+    proto: robot
   - type: Destructible
     thresholds:
       - trigger:
@@ -35,6 +37,8 @@
   - type: SiliconDownOnDead
   - type: Inventory
     templateId: ipc
+  - type: EyeProtection
+    protectionTime: 12
   - type: Battery
     maxCharge: 150000
   - type: RandomBatteryCharge

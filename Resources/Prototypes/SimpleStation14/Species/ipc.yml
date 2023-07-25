@@ -7,6 +7,11 @@
   markingLimits: MobIPCMarkingLimits
   dollPrototype: MobIPCDummy
   skinColoration: TintedHues
+  minAge: 1
+  maxAge: 240
+  oldAge: 50
+  youngAge: 50
+
   sexes:
   - Unsexed
 
@@ -36,13 +41,13 @@
   id: MobIPCMarkingLimits
   points:
     Chest:
-      points: 1
+      points: 0
       required: false
     Legs:
-      points: 2
+      points: 0
       required: false
     Arms:
-      points: 2
+      points: 0
       required: false
 
 - type: humanoidBaseSprite
