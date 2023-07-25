@@ -13,66 +13,6 @@
 
 - type: entity
   parent: ClothingEyesBase
-  id: ClothingEyesGlassesGar
-  name: gar glasses
-  description: Go beyond impossible and kick reason to the curb!
-  components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/gar.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/gar.rsi
-  - type: MeleeWeapon
-    attackRate: 1.1
-    damage:
-      types:
-        Blunt: 5
-  - type: DropOnSlip
-    chance: 30
-
-- type: entity
-  parent: ClothingEyesBase
-  id: ClothingEyesGlassesGarOrange
-  name: orange gar glasses
-  description: Just who the hell do you think I am?!
-  components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/gar.rsi
-    state: icon-alt
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/gar.rsi
-    equippedPrefix: alt
-  - type: Item
-    heldPrefix: alt
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 5
-  - type: DropOnSlip
-    chance: 20
-
-- type: entity
-  parent: ClothingEyesBase
-  id: ClothingEyesGlassesGarGiga
-  name: giga gar glasses
-  description: We evolve past the person we were a minute before. Little by little we advance with each turn. That's how a drill works!
-  components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/gar.rsi
-    state: icon-super
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/gar.rsi
-    equippedPrefix: super
-  - type: Item
-    heldPrefix: super
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 6
-  - type: DropOnSlip
-    chance: 10
-
-- type: entity
-  parent: ClothingEyesBase
   id: ClothingEyesGlassesMeson
   name: engineering goggles #less confusion
   description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
@@ -135,19 +75,21 @@
     enabled: false
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.2,-0.2,0.2,0.2"
-      id: "slips"
-      hard: false
-      layer:
-      - LowImpassable
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.2,-0.2,0.2,0.2"
-      density: 30
-      mask:
-      - ItemMask
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        id: "slips"
+        hard: false
+        layer:
+        - LowImpassable
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 30
+        mask:
+        - ItemMask
   - type: TriggerOnStepTrigger
   - type: StepTrigger
     intersectRatio: 0.2

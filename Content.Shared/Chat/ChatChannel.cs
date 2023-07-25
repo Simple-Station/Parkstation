@@ -93,5 +93,7 @@ namespace Content.Shared.Chat
         ///     Channels considered to be IC.
         /// </summary>
         IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Telepathic | Empathy,
+
+        AdminRelated = Admin | AdminAlert | AdminChat,
     }
 }

@@ -9,12 +9,14 @@
     - type: MobMover
     - type: HTN
       rootTask: SimpleHostileCompound
-    - type: Faction
+      blackboard:
+        NavSmash: !type:Bool
+          true
+    - type: NpcFactionMember
       factions:
         - SimpleHostile
     - type: Sprite
       drawdepth: Mobs
-      netsync: false
       sprite: Mobs/Aliens/Carps/space.rsi
       layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -23,7 +25,8 @@
     - type: Physics
     - type: Fixtures
       fixtures:
-        - shape:
+        fix1:
+          shape:
             !type:PhysShapeCircle
             radius: 0.40
           density: 80
@@ -57,6 +60,7 @@
         - id: FoodMeatFish
           amount: 2
     - type: MeleeWeapon
+      altDisarm: false
       hidden: true
       angle: 0
       animation: WeaponArcBite
@@ -115,7 +119,8 @@
     - type: Physics
     - type: Fixtures
       fixtures:
-        - shape:
+        fix1:
+          shape:
             !type:PhysShapeCircle
             radius: 0.40
           density: 10
@@ -133,11 +138,10 @@
   components:
     - type: GhostRole
       prob: 0.33
-      name: space carp on salvage wreck
+      name: ghost-role-information-salvage-carp-name
       allowMovement: true
       allowSpeech: true
-      description: |
-        Defend the loot inside the salvage wreck!
+      description: ghost-role-information-salvage-carp-description
     - type: GhostTakeoverAvailable
     - type: SalvageMobRestrictions
 
@@ -152,8 +156,18 @@
       allowSpeech: true
       makeSentient: true
       whitelistRequired: false
-      name: Sentient Carp
-      description: Help the dragon flood the station with carps!
+      name: ghost-role-information-sentient-carp-name
+      description: ghost-role-information-sentient-carp-description
     - type: GhostTakeoverAvailable
     - type: HTN
       rootTask: DragonCarpCompound
+
+- type: entity
+  id: MobCarpDungeon
+  parent: MobCarp
+  suffix: Dungeon
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 5

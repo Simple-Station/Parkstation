@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Inventory;
@@ -83,8 +84,8 @@ public sealed class DropOnSlipSystem : EntitySystem
 
         if (entPhysComp != null)
         {
-            var strength = entPhysComp.LinearVelocity.Length / 1.5f;
-            Vector2 direction = (_random.Next(-8, 8), _random.Next(-8, 8));
+            var strength = entPhysComp.LinearVelocity.Length() / 1.5f;
+            Vector2 direction = new Vector2(_random.Next(-8, 8), _random.Next(-8, 8));
 
             _throwing.TryThrow(item, direction, strength, entity);
         }

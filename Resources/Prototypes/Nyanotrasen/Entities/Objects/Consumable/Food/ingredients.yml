@@ -10,12 +10,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 60
+        maxVol: 100
         reagents:
         - ReagentId: Butter
           Quantity: 10
         - ReagentId: THC
-          Quantity: 45
+          Quantity: 82
   - type: Extractable
     grindableSolutionName: food
 
@@ -163,7 +163,6 @@
   - type: SolutionTransfer
     maxTransferAmount: 15
   - type: Sprite
-    netsync: false
     sprite: Nyanotrasen/Objects/Consumable/Food/ingredients.rsi
     state: condimentbowl
   - type: Icon

@@ -14,6 +14,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Inventory;
 using Content.Server.Administration.Logs;
+using Content.Server.Mind;
 using Content.Shared.Database;
 
 namespace Content.Server.Administration.Commands.Cryostasis
@@ -32,6 +33,8 @@ namespace Content.Server.Administration.Commands.Cryostasis
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
+            var _mind = _entitysys.GetEntitySystem<MindSystem>();
+
             var player = shell.Player as IPlayerSession;
             // No player (probably the server console).
             if (player == null)
@@ -64,7 +67,7 @@ namespace Content.Server.Administration.Commands.Cryostasis
             }
 
             // No job (unemployed people are not allowed to go into cryostasis).
-            if (!mind.HasRole<Job>() && !force)
+            if (!_mind.HasRole<Job>(mind) && !force)
             {
                 shell.WriteLine("You do not have a job, you are not accessible by Nanotrasen, therefore unable to cryo.");
                 return;
@@ -99,7 +102,7 @@ namespace Content.Server.Administration.Commands.Cryostasis
 
                 // A job has been found, remove it from the mind (you are passing this job onto a latejoiner).
                 job = role;
-                mind.RemoveRole(role);
+                _mind.RemoveRole(mind, role);
             }
 
             // No job, you aren't a Nanotrasen employee. Probably some off-station role or random ghost(role).
@@ -160,7 +163,7 @@ namespace Content.Server.Administration.Commands.Cryostasis
             // TODO: when multiple stations ever get loaded regularly at the same time, both with jobs, do something about this var maybe?
             // Find the first station (very likely the one with the jobs)
             EntityUid? station = null;
-            station = EntitySystem.Get<StationSystem>().Stations.ToList()[0];
+            station = EntitySystem.Get<StationSystem>().GetStations()[0];
 
             if (station != null && jobprotot != null)
             {

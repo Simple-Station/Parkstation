@@ -36,7 +36,7 @@ namespace Content.Server.SimpleStation14.Speech.RandomBark
                 if (barker.BarkAccumulator <= 0)
                 {
                     barker.BarkAccumulator = _random.NextFloat(barker.MinTime, barker.MaxTime)*barker.BarkMultiplier;
-                    if (_entities.TryGetComponent<MindComponent>(barker.Owner, out var actComp))
+                    if (_entities.TryGetComponent<MindContainerComponent>(barker.Owner, out var actComp))
                     {
                         if (actComp.HasMind)
                         {
