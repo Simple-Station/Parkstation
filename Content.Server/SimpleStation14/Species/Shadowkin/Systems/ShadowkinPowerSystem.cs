@@ -1,6 +1,4 @@
-using System.Linq;
 using Content.Shared.Alert;
-using Content.Shared.Rounding;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
 using System.Threading.Tasks;
@@ -12,19 +10,26 @@ public sealed class ShadowkinPowerSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
 
-    private static readonly Dictionary<ShadowkinPowerThreshold, string> PowerDictionary = new()
+    private readonly Dictionary<ShadowkinPowerThreshold, string> _powerDictionary;
+
+    public ShadowkinPowerSystem()
     {
-        {ShadowkinPowerThreshold.Max, Loc.GetString("shadowkin-power-max")},
-        {ShadowkinPowerThreshold.Great, Loc.GetString("shadowkin-power-great")},
-        {ShadowkinPowerThreshold.Good, Loc.GetString("shadowkin-power-good")},
-        {ShadowkinPowerThreshold.Okay, Loc.GetString("shadowkin-power-okay")},
-        {ShadowkinPowerThreshold.Tired, Loc.GetString("shadowkin-power-tired")},
-        {ShadowkinPowerThreshold.Min, Loc.GetString("shadowkin-power-min")}
-    };
+        var Locale = IoCManager.Resolve<ILocalizationManager>(); // Whyyyy
+
+        _powerDictionary = new Dictionary<ShadowkinPowerThreshold, string>
+        {
+            { ShadowkinPowerThreshold.Max, Locale.GetString("shadowkin-power-max") },
+            { ShadowkinPowerThreshold.Great, Locale.GetString("shadowkin-power-great") },
+            { ShadowkinPowerThreshold.Good, Locale.GetString("shadowkin-power-good") },
+            { ShadowkinPowerThreshold.Okay, Locale.GetString("shadowkin-power-okay") },
+            { ShadowkinPowerThreshold.Tired, Locale.GetString("shadowkin-power-tired") },
+            { ShadowkinPowerThreshold.Min, Locale.GetString("shadowkin-power-min") }
+        };
+    }
 
     /// <param name="powerLevel">The current power level.</param>
     /// <returns>The name of the power level.</returns>
-    public static string GetLevelName(float powerLevel)
+    public string GetLevelName(float powerLevel)
     {
         // Placeholders
         var result = ShadowkinPowerThreshold.Min;
@@ -42,7 +47,7 @@ public sealed class ShadowkinPowerSystem : EntitySystem
         }
 
         // Return the name of the threshold
-        PowerDictionary.TryGetValue(result, out var powerType);
+        _powerDictionary.TryGetValue(result, out var powerType);
         powerType ??= Loc.GetString("shadowkin-power-okay");
         return powerType;
     }

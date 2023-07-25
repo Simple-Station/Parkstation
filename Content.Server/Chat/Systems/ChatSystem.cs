@@ -209,7 +209,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 _nyanoChatSystem.SendTelepathicChat(source, message, range == ChatTransmitRange.HideChat);
                 break;
             case InGameICChatType.Empathy:
-                _simpleStationChatSystem.SendEmpathyChat(source, message, hideChat);
+                _simpleStationChatSystem.SendEmpathyChat(source, message, range == ChatTransmitRange.HideChat);
                 break;
         }
     }

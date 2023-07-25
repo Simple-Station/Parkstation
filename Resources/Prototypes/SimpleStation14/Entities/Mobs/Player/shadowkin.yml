@@ -63,7 +63,8 @@
         Heat : 0.25 #per second, scales with temperature & other constants
   - type: Fixtures
     fixtures:
-      - shape:
+      fix1:
+        shape:
           !type:PhysShapeCircle
           radius: 0.35
         density: 130 #lower density
@@ -97,7 +98,7 @@
       Unsexed: UnisexSlime
   - type: CombatMode
     canDisarm: true
-  - type: Mind
+  - type: MindContainer
     showExamineInfo: true
   - type: Input
     context: "human"
@@ -108,7 +109,7 @@
   - type: CameraRecoil
   - type: Examiner
   - type: CanHostGuardian
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - NanoTrasen
   - type: MailReceiver

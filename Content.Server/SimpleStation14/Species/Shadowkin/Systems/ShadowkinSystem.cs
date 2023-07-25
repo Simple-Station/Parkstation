@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.SimpleStation14.Species.Shadowkin.Events;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
@@ -32,7 +33,7 @@ public sealed class ShadowkinSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        var powerType = ShadowkinPowerSystem.GetLevelName(component.PowerLevel);
+        var powerType = _power.GetLevelName(component.PowerLevel);
 
         // Show exact values for yourself
         if (args.Examined == args.Examiner)
@@ -84,11 +85,11 @@ public sealed class ShadowkinSystem : EntitySystem
         // Update power level for all shadowkin
         while (query.MoveNext(out var uid, out var component))
         {
-            var oldPowerLevel = ShadowkinPowerSystem.GetLevelName(component.PowerLevel);
+            var oldPowerLevel = _power.GetLevelName(component.PowerLevel);
 
             _power.TryUpdatePowerLevel(uid, frameTime);
 
-            if (oldPowerLevel != ShadowkinPowerSystem.GetLevelName(component.PowerLevel))
+            if (oldPowerLevel != _power.GetLevelName(component.PowerLevel))
             {
                 _power.TryBlackeye(uid);
                 Dirty(component);

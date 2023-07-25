@@ -89,7 +89,8 @@ public sealed class ChatUIController : UIController
         {ChatSelectChannel.Admin, SharedChatSystem.AdminPrefix},
         {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
         {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix},
-        {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix}
+        {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix},
+        {ChatSelectChannel.Empathy, SharedChatSystem.EmpathyPrefix}
     };
 
     /// <summary>

@@ -87,7 +87,7 @@ public sealed class ShadowkinDarkenSystem : EntitySystem
                     shadowkinLight.OldEnergyEdited = true;
                 }
 
-                var distance = (lightPos - playerPos).Length;
+                var distance = (lightPos - playerPos).Length();
 
                 var radius = distance * 2f;
                 if (shadowkinLight.OldRadiusEdited && radius > shadowkinLight.OldRadius)
