@@ -4,6 +4,8 @@ using Content.Server.Bed.Sleep;
 using Content.Shared.Bed.Sleep;
 using Content.Server.Sound.Components;
 using Content.Server.SimpleStation14.Silicon.Charge;
+using System.Threading;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.SimpleStation14.Silicon.Death;
 
@@ -23,10 +25,35 @@ public sealed class SiliconDeathSystem : EntitySystem
     {
         _silicon.TryGetSiliconBattery(uid, out var batteryComp, out var batteryUid);
 
+        if (args.ChargeState == ChargeState.Dead && siliconDeadComp.Dead)
+        {
+            siliconDeadComp.WakeToken?.Cancel();
+            return;
+        }
+
         if (args.ChargeState == ChargeState.Dead && !siliconDeadComp.Dead)
             SiliconDead(uid, siliconDeadComp, batteryComp, batteryUid);
         else if (args.ChargeState != ChargeState.Dead && siliconDeadComp.Dead)
-            SiliconUnDead(uid, siliconDeadComp, batteryComp, batteryUid);
+        {
+            if (siliconDeadComp.DeadBuffer > 0)
+            {
+                siliconDeadComp.WakeToken?.Cancel(); // This should never matter, but better safe than loose timers.
+
+                var wakeToken = new CancellationTokenSource();
+                siliconDeadComp.WakeToken = wakeToken;
+
+                // If battery is dead, wait the dead buffer time and then wake it up.
+                Timer.Spawn(TimeSpan.FromSeconds(siliconDeadComp.DeadBuffer), () =>
+                {
+                    if (wakeToken.IsCancellationRequested)
+                        return;
+
+                    SiliconUnDead(uid, siliconDeadComp, batteryComp, batteryUid);
+                }, wakeToken.Token);
+            }
+            else
+                SiliconUnDead(uid, siliconDeadComp, batteryComp, batteryUid);
+        }
     }
 
     private void SiliconDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent? batteryComp, EntityUid batteryUid)
@@ -38,7 +65,6 @@ public sealed class SiliconDeathSystem : EntitySystem
             return;
 
         EntityManager.EnsureComponent<SleepingComponent>(uid);
-        RemComp<SpamEmitSoundComponent>(uid); // This is also fucking stupid, I once again hate the sleeping system.
         EntityManager.EnsureComponent<ForcedSleepingComponent>(uid);
 
         siliconDeadComp.Dead = true;

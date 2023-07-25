@@ -16,7 +16,6 @@ using System.Diagnostics.CodeAnalysis;
 using Robust.Shared.Timing;
 using Content.Shared.SimpleStation14.CCVar;
 using Robust.Shared.Configuration;
-using System.Diagnostics;
 using Robust.Shared.Utility;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;

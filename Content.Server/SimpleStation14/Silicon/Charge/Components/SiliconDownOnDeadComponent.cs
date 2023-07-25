@@ -1,3 +1,5 @@
+using System.Threading;
+
 namespace Content.Server.SimpleStation14.Silicon.Death;
 
 /// <summary>
@@ -9,6 +11,22 @@ namespace Content.Server.SimpleStation14.Silicon.Death;
 [RegisterComponent]
 public sealed class SiliconDownOnDeadComponent : Component
 {
+    /// <summary>
+    ///     Cancellation token for the silicon's wake timer.
+    /// </summary>
+    public CancellationTokenSource? WakeToken { get; set; }
+
+    /// <summary>
+    ///     The time it will take for a Silicon to "wake up" after leaving the Dead state, in seconds.
+    /// </summary>
+    /// <remarks>
+    ///     If not zero, the Silicon will not actually come back to life until after this much time has passed.
+    ///     This can prevent 'flickering' between the two states.
+    /// </remarks>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("deadBuffer")]
+    public float DeadBuffer { get; set; } = 2.5f;
+
     /// <summary>
     ///     Is this Silicon currently dead?
     /// </summary>
