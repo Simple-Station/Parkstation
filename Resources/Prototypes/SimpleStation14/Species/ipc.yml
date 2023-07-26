@@ -11,7 +11,10 @@
   maxAge: 240
   oldAge: 50
   youngAge: 50
-
+  maleFirstNames: IpcFirst
+  femaleFirstNames: IpcFirst
+  lastNames: IpcLast
+  naming: FirstDashLast
   sexes:
   - Unsexed
 
