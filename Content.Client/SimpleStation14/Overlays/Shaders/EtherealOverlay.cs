@@ -11,7 +11,7 @@ public sealed class EtherealOverlay : Overlay
     [Dependency] private readonly IPlayerManager _player = default!;
 
     public override bool RequestScreenTexture => true;
-    public override OverlaySpace Space => OverlaySpace.WorldSpace;
+    public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
     private readonly ShaderInstance _shader;
 
     public EtherealOverlay()
