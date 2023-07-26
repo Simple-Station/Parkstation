@@ -353,6 +353,9 @@ namespace Content.Shared.Preferences
                     list.Remove(loadoutId);
                 }
             }
+
+            list = list.Distinct().ToList();
+
             return new(this, _jobPriorities, _antagPreferences, _traitPreferences, list);
         }
 
