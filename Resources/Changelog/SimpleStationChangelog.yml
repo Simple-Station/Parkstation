@@ -1060,3 +1060,12 @@ Entries:
       message: Airlocks now have various Bolt signal ports.
   id: 97
   time: '2023-06-29T04:23:59.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: add
+      message: >-
+        Added IPC to the game as a new species! Your favourite robot people are
+        finally around to suffer like the rest of us. Be sure to stop by
+        Engineering for a charge!
+  id: 98
+  time: '2023-07-27T04:10:39.0000000+00:00'
