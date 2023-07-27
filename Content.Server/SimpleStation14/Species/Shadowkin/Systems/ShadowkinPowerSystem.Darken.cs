@@ -17,6 +17,8 @@ public sealed class ShadowkinDarkenSystem : EntitySystem
 
     public void ResetLight(PointLightComponent light, ShadowkinLightComponent sLight)
     {
+        sLight.AttachedEntity = EntityUid.Invalid;
+
         if (sLight.OldRadiusEdited)
             _light.SetRadius(light.Owner, sLight.OldRadius);
         sLight.OldRadiusEdited = false;
@@ -35,11 +37,13 @@ public sealed class ShadowkinDarkenSystem : EntitySystem
 
         while (shadowkins.MoveNext(out var uid, out var shadowkin))
         {
+            // Don't do anything if this Shadowkin isn't darkening
             if (!shadowkin.Darken)
                 continue;
 
             var transform = Transform(uid);
 
+            // Cooldown
             shadowkin.DarkenAccumulator -= frameTime;
             if (shadowkin.DarkenAccumulator > 0f)
                 continue;
@@ -47,15 +51,18 @@ public sealed class ShadowkinDarkenSystem : EntitySystem
 
 
             var darkened = new List<EntityUid>();
+            // Get all lights in range
             var lightQuery = _lookup.GetEntitiesInRange(transform.MapID, transform.WorldPosition, shadowkin.DarkenRange, flags: LookupFlags.StaticSundries)
                 .Where(x => _entity.HasComponent<ShadowkinLightComponent>(x) && _entity.HasComponent<PointLightComponent>(x));
 
+            // Add all lights in range to the list if not already there
             foreach (var entity in lightQuery)
             {
                 if (!darkened.Contains(entity))
                     darkened.Add(entity);
             }
 
+            // Randomize the list to avoid bias
             _random.Shuffle(darkened);
             shadowkin.DarkenedLights = darkened;
 
@@ -67,8 +74,10 @@ public sealed class ShadowkinDarkenSystem : EntitySystem
                 var pointLight = _entity.GetComponent<PointLightComponent>(light);
 
 
+                // Not a light we should affect
                 if (!_entity.TryGetComponent(light, out ShadowkinLightComponent? shadowkinLight))
                     continue;
+                // Not powered, undo changes
                 if (!_entity.TryGetComponent(light, out PoweredLightComponent? powered) || !powered.On)
                 {
                     ResetLight(pointLight, shadowkinLight);
@@ -76,6 +85,28 @@ public sealed class ShadowkinDarkenSystem : EntitySystem
                 }
 
 
+                // If the light isn't attached to an entity, attach it to this Shadowkin
+                if (shadowkinLight.AttachedEntity == EntityUid.Invalid)
+                {
+                    shadowkinLight.AttachedEntity = uid;
+                }
+                // Check if the light is being updated by the correct Shadowkin
+                // Prevents horrible flickering when the light is in range of multiple Shadowkin
+                if (shadowkinLight.AttachedEntity != EntityUid.Invalid &&
+                    shadowkinLight.AttachedEntity != uid)
+                {
+                    shadowkin.DarkenedLights.Remove(light);
+                    continue;
+                }
+                // 10% chance to remove the attached entity so it can become another Shadowkin's light
+                if (shadowkinLight.AttachedEntity == uid)
+                {
+                    if (_random.Prob(0.1f))
+                        shadowkinLight.AttachedEntity = EntityUid.Invalid;
+                }
+
+
+                // If we haven't edited the radius yet, save the old radius
                 if (!shadowkinLight.OldRadiusEdited)
                 {
                     shadowkinLight.OldRadius = pointLight.Radius;
@@ -88,19 +119,22 @@ public sealed class ShadowkinDarkenSystem : EntitySystem
                 }
 
                 var distance = (lightPos - playerPos).Length();
-
                 var radius = distance * 2f;
+                var energy = distance * 0.8f;
+
+                // Set new radius based on distance
                 if (shadowkinLight.OldRadiusEdited && radius > shadowkinLight.OldRadius)
                     radius = shadowkinLight.OldRadius;
                 if (shadowkinLight.OldRadiusEdited && radius < shadowkinLight.OldRadius * 0.20f)
                     radius = shadowkinLight.OldRadius * 0.20f;
 
-                var energy = distance * 0.8f;
+                // Set new energy based on distance
                 if (shadowkinLight.OldEnergyEdited && energy > shadowkinLight.OldEnergy)
                     energy = shadowkinLight.OldEnergy;
                 if (shadowkinLight.OldEnergyEdited && energy < shadowkinLight.OldEnergy * 0.20f)
                     energy = shadowkinLight.OldEnergy * 0.20f;
 
+                // Put changes into effect
                 _light.SetRadius(pointLight.Owner, radius);
                 pointLight.Energy = energy;
             }

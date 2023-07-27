@@ -4,6 +4,10 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Components;
 public sealed class ShadowkinLightComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid AttachedEntity = EntityUid.Invalid;
+
+
+    [ViewVariables(VVAccess.ReadOnly)]
     public float OldRadius = 0f;
 
     [ViewVariables(VVAccess.ReadOnly)]
