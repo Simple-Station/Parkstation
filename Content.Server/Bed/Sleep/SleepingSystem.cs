@@ -30,7 +30,6 @@ namespace Content.Server.Bed.Sleep
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
         [Dependency] private readonly ActionsSystem _actionsSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
 
         public override void Initialize()
@@ -101,7 +100,7 @@ namespace Content.Server.Bed.Sleep
 
         private void OnSleepAction(EntityUid uid, MobStateComponent component, SleepActionEvent args)
         {
-            if (TrySleeping(uid)) args.Handled = true;
+            TrySleeping(uid);
         }
 
         private void OnWakeAction(EntityUid uid, MobStateComponent component, WakeActionEvent args)
