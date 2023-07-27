@@ -5,3 +5,4 @@ namepreset-x-no-y = {$last}-no-{$first}
 
 ## Parkstation
 namepreset-firstdashlast = {$first}-{$last}
+namepreset-first = {$first}

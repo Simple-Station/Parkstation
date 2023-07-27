@@ -107,6 +107,7 @@
   components:
   - type: Sprite
     state: off
+  - type: ShadowkinLight
   - type: PointLight
     enabled: true
   - type: PoweredLight

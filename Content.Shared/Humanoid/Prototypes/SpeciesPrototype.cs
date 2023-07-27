@@ -129,4 +129,5 @@ public enum SpeciesNaming : byte
     XnoY,
     TheFirstofLast,
     FirstDashLast, // Parkstation-IPC
+    First, // Parkstation-Shadowkin
 }

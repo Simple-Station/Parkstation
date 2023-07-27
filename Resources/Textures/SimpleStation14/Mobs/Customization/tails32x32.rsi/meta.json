@@ -106,6 +106,14 @@
         {
             "name": "tentacle",
             "directions": 4
+        },
+        {
+            "name": "shadowkin_shorter",
+            "directions": 4
+        },
+        {
+            "name": "shadowkin_medium",
+            "directions": 4
         }
     ]
 }
