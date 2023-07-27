@@ -14,7 +14,7 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
     private JukeboxWindow? _window;
 
-    public JukeboxBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base (owner, uiKey)
+    public JukeboxBoundUserInterface(EntityUid owner, Enum uiKey) : base (owner, uiKey)
     {
     }
 
@@ -22,15 +22,15 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        if (!_entity.TryGetComponent<JukeboxComponent>(Owner.Owner, out var jukeboxComp))
+        if (!_entity.TryGetComponent<JukeboxComponent>(Owner, out var jukeboxComp))
         {
-            Logger.Error($"No Jukebox component found for {_entity.ToPrettyString(Owner.Owner)}!");
+            Logger.Error($"No Jukebox component found for {_entity.ToPrettyString(Owner)}!");
             return;
         }
 
-        _window = new JukeboxWindow(this, Owner.Owner, jukeboxComp)
+        _window = new JukeboxWindow(this, Owner, jukeboxComp)
         {
-            Title = _entity.GetComponent<MetaDataComponent>(Owner.Owner).EntityName
+            Title = _entity.GetComponent<MetaDataComponent>(Owner).EntityName
         };
 
         _window.OpenCentered();
