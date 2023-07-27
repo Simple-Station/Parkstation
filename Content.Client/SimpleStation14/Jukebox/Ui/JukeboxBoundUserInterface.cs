@@ -28,7 +28,7 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
             return;
         }
 
-        _window = new JukeboxWindow(this, Owner, jukeboxComp)
+        _window = new JukeboxWindow(this, jukeboxComp)
         {
             Title = _entity.GetComponent<MetaDataComponent>(Owner).EntityName
         };

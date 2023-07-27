@@ -114,14 +114,14 @@
                             </BoxContainer>
 
                             <!-- Next up -->
-                            <ScrollContainer
+                            <!-- <ScrollContainer
                                 Name="NextUpScroll"
                                 Margin="5 2 5 0"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Left"
                                 HScrollEnabled="False"
                                 HorizontalExpand="True"
-                                SizeFlagsStretchRatio="2">
+                                SizeFlagsStretchRatio="2"> -->
 
                                 <BoxContainer
                                     Name="NextSongsBox"
@@ -134,7 +134,7 @@
 
                                 </BoxContainer>
 
-                            </ScrollContainer>
+                            <!-- </ScrollContainer> -->
 
                         </BoxContainer>
 
@@ -169,14 +169,14 @@
                             <gfx:StyleBoxFlat BackgroundColor="#767676"/>
                         </PanelContainer.PanelOverride>
 
-                        <ScrollContainer
+                        <!-- <ScrollContainer
                             Name="SongPickerScroll"
                             Margin="5 2 5 0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left"
                             HScrollEnabled="False"
                             HorizontalExpand="True"
-                            SizeFlagsStretchRatio="2">
+                            SizeFlagsStretchRatio="2"> -->
 
                             <BoxContainer
                                 Name="SongPickerBox"
@@ -189,7 +189,7 @@
 
                             </BoxContainer>
 
-                        </ScrollContainer>
+                        <!-- </ScrollContainer> -->
 
                     </PanelContainer>
 

@@ -28,6 +28,8 @@ public sealed partial class JukeboxWindow : FancyWindow
 
     private TimeSpan _timeStopped = TimeSpan.Zero;
 
+    private TimeSpan _songDuration = TimeSpan.Zero;
+
     public Action? OnPlayButtonPressed;
 
     public Action? OnSkipButtonPressed;
@@ -35,7 +37,7 @@ public sealed partial class JukeboxWindow : FancyWindow
     public Action<string>? OnSongSelected;
 
 
-    public JukeboxWindow(JukeboxBoundUserInterface bui, EntityUid owner, JukeboxComponent jukeboxComp)
+    public JukeboxWindow(JukeboxBoundUserInterface bui, JukeboxComponent jukeboxComp)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
@@ -47,12 +49,12 @@ public sealed partial class JukeboxWindow : FancyWindow
 
         SkipButton.OnPressed += _ => OnSkipButtonPressed?.Invoke();
 
-        BG_1.PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex(jukeboxComp.JukeboxBG)};
-        Panel_1.PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex(jukeboxComp.JukeboxPanel)};
-        Panel_2.PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex(jukeboxComp.JukeboxPanel)};
-        Accent_1.PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent)};
-        Accent_2.PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent)};
-        Accent_3.PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent)};
+        BG_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxBG) };
+        Panel_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxPanel) };
+        Panel_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxPanel) };
+        Accent_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
+        Accent_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
+        Accent_3.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
 
         UpdateState(true);
     }
@@ -70,7 +72,8 @@ public sealed partial class JukeboxWindow : FancyWindow
 
         if (_jukeboxComp.Playing)
         {
-            RunTimeBar.Value = (float) (_timing.CurTime.TotalSeconds / _timeWillFinish.TotalSeconds);
+            RunTimeBar.Value = (float) ((float)
+                (_songDuration.TotalSeconds - (_timeWillFinish.TotalSeconds - _timing.CurTime.TotalSeconds)) / _songDuration.TotalSeconds);
 
             return;
         }
@@ -82,11 +85,14 @@ public sealed partial class JukeboxWindow : FancyWindow
             return;
         }
 
-        RunTimeBar.Value = (float) (_timeStopped.TotalSeconds / _timeWillFinish.TotalSeconds);
+        RunTimeBar.Value = (float) ((float)
+            (_songDuration.TotalSeconds - (_timeWillFinish.TotalSeconds - _timeStopped.TotalSeconds)) / _songDuration.TotalSeconds);
     }
 
     private void PopulateSongs()
     {
+        Logger.Error("Populating songs!");
+
         SongPickerBox.RemoveAllChildren();
 
         var songsToAdd = _jukeboxComp.Songs;
@@ -96,8 +102,10 @@ public sealed partial class JukeboxWindow : FancyWindow
         if (_jukeboxComp.Emagged)
             songsToAdd.AddRange(_jukeboxComp.EmaggedSongs.OrderBy(song => song).ToList());
 
-        foreach (var trackId in _jukeboxComp.Songs)
+        foreach (var trackId in songsToAdd)
         {
+            Logger.Error($"Adding {trackId}!");
+
             if (!_prototype.TryIndex<JukeboxTrackPrototype>(trackId, out var track))
             {
                 Logger.Error($"No JukeboxTrackPrototype found for {trackId}!");
@@ -174,6 +182,8 @@ public sealed partial class JukeboxWindow : FancyWindow
         _timeWillFinish = _jukeboxComp.FinishPlayingTime!.Value;
 
         _timeStopped = _jukeboxComp.StoppedTime ?? TimeSpan.Zero;
+
+        _songDuration = _jukeboxComp.CurrentlyPlayingTrack.Duration;
 
         var track = _jukeboxComp.CurrentlyPlayingTrack;
 
