@@ -31,11 +31,11 @@ public sealed class ShadowkinBlackeyeSystem : EntitySystem
             !sprite.TryGetLayer(index, out var layer))
             return;
 
-        // TODO: Blackeye if eye color is similar to black, not just exact
-        // if (layer.Color is { R: < 100, G: < 100, B: < 100 })
-        // {
-        //     RaiseNetworkEvent(new ShadowkinBlackeyeEvent(uid, false));
-        // }
+        // Blackeye if none of the RGB values are greater than 75
+        if (layer.Color.R * 255 < 75 && layer.Color.G * 255 < 75 && layer.Color.B * 255 < 75)
+        {
+            RaiseNetworkEvent(new ShadowkinBlackeyeEvent(uid, false));
+        }
     }
 
 
