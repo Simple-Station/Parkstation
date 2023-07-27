@@ -2,12 +2,12 @@
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ui="clr-namespace:Content.Client.ContextMenu.UI"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     Title="null"
     SetSize="550 730">
 
     <PanelContainer
+        StyleClasses="AngleRect"
         Name="BG_1"
         VerticalAlignment="Center"
         HorizontalAlignment="Center">
@@ -31,6 +31,7 @@
 
                 <!-- Left side of upper portion -->
                 <PanelContainer
+                    StyleClasses="AngleRect"
                     Name="Panel_1"
                     VerticalAlignment="Center">
                     <PanelContainer.PanelOverride>
@@ -50,16 +51,12 @@
                             SetSize="270 212"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center">
-
                             <TextureRect
                                 Name="SongIcon"
                                 Stretch="KeepAspectCentered"
                                 SetSize="170 170" />
 
-                            <Label
-                                Name="SongName"
-                                Text="Song Name" />
-
+                            <Label Name="SongName" Text="Song Name" />
                         </BoxContainer>
 
                         <!-- Controls/Next up -->
@@ -78,6 +75,7 @@
                                 SetSize="80 180">
 
                                 <PanelContainer
+                                    StyleClasses="AngleRect"
                                     Name="Accent_1"
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Center">
@@ -91,10 +89,10 @@
                                         TexturePath="/Textures/SimpleStation14/Interface/MediaControls/playpause.png"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"/>
-
                                 </PanelContainer>
 
                                 <PanelContainer
+                                    StyleClasses="AngleRect"
                                     Name="Accent_2"
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Center">
@@ -108,9 +106,7 @@
                                         TexturePath="/Textures/SimpleStation14/Interface/MediaControls/skip.png"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"/>
-
                                 </PanelContainer>
-
                             </BoxContainer>
 
                             <!-- Next up -->
@@ -122,20 +118,15 @@
                                 HScrollEnabled="False"
                                 HorizontalExpand="True"
                                 SizeFlagsStretchRatio="2"> -->
-
-                                <BoxContainer
+                            <BoxContainer
                                     Name="NextSongsBox"
                                     Orientation="Vertical"
                                     HorizontalExpand="True"
                                     VerticalExpand="True"
                                     VerticalAlignment="Center">
-
                                     <!-- Songs are added here by code -->
-
                                 </BoxContainer>
-
                             <!-- </ScrollContainer> -->
-
                         </BoxContainer>
 
                         <!-- Track bar -->
@@ -146,9 +137,7 @@
                             MinValue="0"
                             SetHeight="25"
                             VerticalAlignment="Center"/>
-
                     </BoxContainer>
-
                 </PanelContainer>
 
                 <!-- Right side of upper portion -->
@@ -159,16 +148,15 @@
                     SetHeight="485">
 
                     <!-- Song picker -->
-                    <Label
-                        Text="Available Songs" />
+                    <Label Text="Available Songs" />
 
                     <PanelContainer
+                        StyleClasses="AngleRect"
                         Name="Panel_2"
                         VerticalAlignment="Center">
                         <PanelContainer.PanelOverride>
                             <gfx:StyleBoxFlat BackgroundColor="#767676"/>
                         </PanelContainer.PanelOverride>
-
                         <!-- <ScrollContainer
                             Name="SongPickerScroll"
                             Margin="5 2 5 0"
@@ -177,24 +165,17 @@
                             HScrollEnabled="False"
                             HorizontalExpand="True"
                             SizeFlagsStretchRatio="2"> -->
-
-                            <BoxContainer
+                        <BoxContainer
                                 Name="SongPickerBox"
                                 Orientation="Vertical"
                                 HorizontalExpand="True"
                                 VerticalExpand="True"
                                 VerticalAlignment="Center">
-
                                 <!-- Songs are added here by code -->
-
                             </BoxContainer>
-
                         <!-- </ScrollContainer> -->
-
                     </PanelContainer>
-
                 </BoxContainer>
-
             </BoxContainer>
 
             <PanelContainer
@@ -215,6 +196,7 @@
 
                 <!-- Serial number plate -->
                 <PanelContainer
+                    StyleClasses="AngleRect"
                     VerticalAlignment="Center">
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#767676"/>
@@ -223,39 +205,34 @@
                     <BoxContainer
                         SetSize="265 175">
                     </BoxContainer>
-
                 </PanelContainer>
 
                 <!-- Coins marker -->
                 <PanelContainer
+                    StyleClasses="AngleRect"
                     VerticalAlignment="Center">
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#767676"/>
+                        <gfx:StyleBoxFlat BackgroundColor="#903131"/>
                     </PanelContainer.PanelOverride>
 
                     <BoxContainer
                         SetSize="80 172">
                     </BoxContainer>
-
                 </PanelContainer>
 
                 <!-- Coin slot -->
                 <PanelContainer
+                    StyleClasses="AngleRect"
                     VerticalAlignment="Center">
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#767676"/>
+                        <gfx:StyleBoxFlat BackgroundColor="#480f0f"/>
                     </PanelContainer.PanelOverride>
 
                     <BoxContainer
                         SetSize="78 172">
                     </BoxContainer>
-
                 </PanelContainer>
-
             </BoxContainer>
-
         </BoxContainer>
-
     </PanelContainer>
-
 </controls:FancyWindow>
