@@ -61,7 +61,7 @@ public sealed class ShadowkinSystem : EntitySystem
     private void OnInit(EntityUid uid, ShadowkinComponent component, ComponentInit args)
     {
         if (component.PowerLevel <= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Min] + 1f)
-            _power.SetPowerLevel(uid, ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Okay]);
+            _power.SetPowerLevel(uid, ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Good]);
 
         var max = _random.NextFloat(component.MaxedPowerRateMin, component.MaxedPowerRateMax);
         component.MaxedPowerAccumulator = max;
