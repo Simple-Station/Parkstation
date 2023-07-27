@@ -1,8 +1,11 @@
 using System.Numerics;
+using Content.Server.Mind;
+using Content.Server.Mind.Components;
 using Content.Server.SimpleStation14.Species.Shadowkin.Events;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
@@ -17,6 +20,7 @@ public sealed class ShadowkinSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -83,59 +87,65 @@ public sealed class ShadowkinSystem : EntitySystem
         var query = _entity.EntityQueryEnumerator<ShadowkinComponent>();
 
         // Update power level for all shadowkin
-        while (query.MoveNext(out var uid, out var component))
+        while (query.MoveNext(out var uid, out var shadowkin))
         {
-            var oldPowerLevel = _power.GetLevelName(component.PowerLevel);
+            // Skip if the shadowkin is dead or catatonic
+            if (_mobState.IsDead(uid) ||
+                !_entity.System<MindSystem>().TryGetMind(uid, out var mind) ||
+                mind.Session == null)
+                continue;
+
+            var oldPowerLevel = _power.GetLevelName(shadowkin.PowerLevel);
 
             _power.TryUpdatePowerLevel(uid, frameTime);
 
-            if (oldPowerLevel != _power.GetLevelName(component.PowerLevel))
+            if (oldPowerLevel != _power.GetLevelName(shadowkin.PowerLevel))
             {
                 _power.TryBlackeye(uid);
-                Dirty(component);
+                Dirty(shadowkin);
             }
             // I can't figure out how to get this to go to the 100% filled state in the above if statement 😢
-            _power.UpdateAlert(uid, true, component.PowerLevel);
+            _power.UpdateAlert(uid, true, shadowkin.PowerLevel);
 
             #region MaxPower
             // Check if they're at max power
-            if (component.PowerLevel >= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Max])
+            if (shadowkin.PowerLevel >= ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Max])
             {
                 // If so, start the timer
-                component.MaxedPowerAccumulator -= frameTime;
+                shadowkin.MaxedPowerAccumulator -= frameTime;
 
                 // If the time's up, do things
-                if (component.MaxedPowerAccumulator <= 0f)
+                if (shadowkin.MaxedPowerAccumulator <= 0f)
                 {
                     // Randomize the timer
-                    var next = _random.NextFloat(component.MaxedPowerRateMin, component.MaxedPowerRateMax);
-                    component.MaxedPowerRoof = next;
-                    component.MaxedPowerAccumulator = next;
+                    var next = _random.NextFloat(shadowkin.MaxedPowerRateMin, shadowkin.MaxedPowerRateMax);
+                    shadowkin.MaxedPowerRoof = next;
+                    shadowkin.MaxedPowerAccumulator = next;
 
                     var chance = _random.Next(7);
 
                     if (chance <= 2)
                     {
-                        ForceDarkSwap(uid, component);
+                        ForceDarkSwap(uid, shadowkin);
                     }
                     else if (chance <= 7)
                     {
-                        ForceTeleport(uid, component);
+                        ForceTeleport(uid, shadowkin);
                     }
                 }
             }
             else
             {
                 // Slowly regenerate if not maxed
-                component.MaxedPowerAccumulator += frameTime / 5f;
-                component.MaxedPowerAccumulator = Math.Clamp(component.MaxedPowerAccumulator, 0f, component.MaxedPowerRoof);
+                shadowkin.MaxedPowerAccumulator += frameTime / 5f;
+                shadowkin.MaxedPowerAccumulator = Math.Clamp(shadowkin.MaxedPowerAccumulator, 0f, shadowkin.MaxedPowerRoof);
             }
             #endregion
 
             #region MinPower
             // Check if they're at the average of the Tired and Okay thresholds
             // Just Tired is too little, and Okay is too much, get the average
-            if (component.PowerLevel <=
+            if (shadowkin.PowerLevel <=
                 (
                     ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Tired] +
                     ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Okay]
@@ -143,15 +153,15 @@ public sealed class ShadowkinSystem : EntitySystem
             )
             {
                 // If so, start the timer
-                component.MinPowerAccumulator -= frameTime;
+                shadowkin.MinPowerAccumulator -= frameTime;
 
                 // If the timer is up, force rest
-                if (component.MinPowerAccumulator <= 0f)
+                if (shadowkin.MinPowerAccumulator <= 0f)
                 {
                     // Random new timer
-                    var next = _random.NextFloat(component.MinPowerMin, component.MinPowerMax);
-                    component.MinPowerRoof = next;
-                    component.MinPowerAccumulator = next;
+                    var next = _random.NextFloat(shadowkin.MinPowerMin, shadowkin.MinPowerMax);
+                    shadowkin.MinPowerRoof = next;
+                    shadowkin.MinPowerAccumulator = next;
 
                     // Send event to rest
                     RaiseLocalEvent(uid, new ShadowkinRestEvent { Performer = uid });
@@ -160,8 +170,8 @@ public sealed class ShadowkinSystem : EntitySystem
             else
             {
                 // Slowly regenerate if not tired
-                component.MinPowerAccumulator += frameTime / 5f;
-                component.MinPowerAccumulator = Math.Clamp(component.MinPowerAccumulator, 0f, component.MinPowerRoof);
+                shadowkin.MinPowerAccumulator += frameTime / 5f;
+                shadowkin.MinPowerAccumulator = Math.Clamp(shadowkin.MinPowerAccumulator, 0f, shadowkin.MinPowerRoof);
             }
             #endregion
         }
