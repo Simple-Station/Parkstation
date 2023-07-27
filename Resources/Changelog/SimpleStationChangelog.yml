@@ -1069,3 +1069,13 @@ Entries:
         Engineering for a charge!
   id: 98
   time: '2023-07-27T04:10:39.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: add
+      message: Added Shadowkin, a new playable species with several unique abilities!
+    - type: tweak
+      message: Renamed "Dragonite" ears to "Shadowkin"
+    - type: tweak
+      message: Slimepeople can no longer use the Shadowkin ears
+  id: 99
+  time: '2023-07-27T04:17:42.0000000+00:00'
