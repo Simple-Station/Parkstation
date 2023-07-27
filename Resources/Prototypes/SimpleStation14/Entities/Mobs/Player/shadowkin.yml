@@ -2,6 +2,7 @@
   save: false
   parent: BaseMobHuman
   id: MobShadowkin
+  name: Urist McFloof
   components:
   - type: HumanoidAppearance
     species: Shadowkin
