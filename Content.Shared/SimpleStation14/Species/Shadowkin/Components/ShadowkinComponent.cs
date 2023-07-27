@@ -59,7 +59,7 @@ public sealed partial class ShadowkinComponent : Component
         get => _powerLevel;
         set => _powerLevel = Math.Clamp(value, PowerLevelMin, PowerLevelMax);
     }
-    public float _powerLevel = 25f;
+    public float _powerLevel = 150f;
 
     /// <summary>
     ///     Don't let PowerLevel go above this value.
