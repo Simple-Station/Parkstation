@@ -128,5 +128,5 @@ public enum SpeciesNaming : byte
     FirstDashFirst,
     XnoY,
     TheFirstofLast,
-    First
+    First,
 }
