@@ -29,16 +29,16 @@
   - type: Clickable
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.4
-      density: 360
-      restitution: 0.0
-      mask:
-      - MobMask
-      layer:
-      - TableLayer
-  - type: VehicleVisuals
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 360
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - TableLayer
   - type: Appearance
   - type: Repairable
     fuelcost: 20
@@ -79,13 +79,17 @@
   - type: DynamicPrice
     price: 750 # Grand Theft Auto.
 
+
 - type: entity
-  id: VehiclePussyWagon
+  id: VehicleJanicart
   parent: BaseVehicle
   name: janicart
   description: The janitor's trusty steed.
   components:
   - type: Vehicle
+    southOver: true
+    westOver: true
+    eastOver: true
     northOverride: -0.15
     southOverride: 0.22
   - type: Sprite
@@ -93,7 +97,6 @@
     layers:
     - state: vehicle
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
-    netsync: false
     noRot: true
   - type: UnpoweredFlashlight
     toggleAction:
@@ -128,7 +131,7 @@
       - !type:ExplodeBehavior
       - !type:SpawnEntitiesBehavior # in future should also emit a cloud of hot gas
         spawn:
-          VehiclePussyWagonDestroyed:
+          VehicleJanicartDestroyed:
             min: 1
             max: 1
   - type: ItemSlots
@@ -139,7 +142,7 @@
           requireAll: true
           tags:
           - VehicleKey
-          - PussyWagonKeys
+          - JanicartKeys
         insertSound:
           path: /Audio/Effects/Vehicle/vehiclestartup.ogg
           params:
@@ -159,7 +162,7 @@
   - type: Appearance
 
 - type: entity
-  id: VehiclePussyWagonDestroyed
+  id: VehicleJanicartDestroyed
   parent: MachineFrameDestroyed
   name: destroyed janicart
   description: R.I.P. (Rest In Pussy)
@@ -167,7 +170,6 @@
   - type: Sprite
     sprite: Objects/Vehicles/pussywagon.rsi
     state: destroyed
-    netsync: false
 
 - type: entity
   id: VehicleSecway
@@ -176,7 +178,9 @@
   description: The future of transportation. Popularized by St. James, the patron saint of security officers and internet forum moderators.
   components:
   - type: Vehicle
-    northOnly: true
+    northOver: true
+    westOver: true
+    eastOver: true
     northOverride: -0.1
     southOverride: 0.1
     hornSound:
@@ -186,7 +190,6 @@
     layers:
     - state: vehicle
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
-    netsync: false
     noRot: true
   - type: Strap
     buckleOffset: "0.15, -0.05"
@@ -223,6 +226,8 @@
   description: All-Tile Vehicle.
   components:
   - type: Vehicle
+    southOver: true
+    northOver: true
     northOverride: -0.1
     southOverride: 0.1
   - type: Sprite
@@ -230,7 +235,6 @@
     layers:
     - state: vehicle
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
-    netsync: false
     noRot: true
   - type: RandomMetadata
     descriptionSegments: [ATVDescriptions]
@@ -276,7 +280,9 @@
   description: Be an enemy of the corporation, in style.
   components:
     - type: Vehicle
-      northOnly: true
+      southOver: true
+      westOver: true
+      eastOver: true
       northOverride: -0.1
       southOverride: 0.1
       hornSound:
@@ -286,7 +292,6 @@
       layers:
         - state: vehicle
           map: ["enum.VehicleVisualLayers.AutoAnimate"]
-      netsync: false
       noRot: true
     - type: Strap
       buckleOffset: "0.15, -0.05"
@@ -318,6 +323,8 @@
   description: Bad to the Bone.
   components:
     - type: Vehicle
+      southOver: true
+      northOver: true
       northOverride: -0.1
       southOverride: 0.1
       hornSound:
@@ -327,7 +334,6 @@
       layers:
         - state: vehicle
           map: ["enum.VehicleVisualLayers.AutoAnimate"]
-      netsync: false
       noRot: true
     - type: Strap
       buckleOffset: "0.1, -0.05"

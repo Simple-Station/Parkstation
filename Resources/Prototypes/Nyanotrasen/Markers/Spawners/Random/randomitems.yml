@@ -55,6 +55,12 @@
       - LedLightTube
       - LightTube
       - LightBulb
+      - BlueLightTube
+      - LightBulbMaintenance
+      - ColoredLightTubeRed
+      - ColoredLightTubeFrostyBlue
+      - ColoredLightTubeBlackLight
+      - LightBulbMaintenanceRed
       - PowerCellPotato
       - PowerCellSmallPrinted
       - ChemistryEmptyBottle03
@@ -182,7 +188,6 @@
       - ClothingHandsGlovesBoxingBlue
       - ClothingHandsGlovesBoxingGreen
       - ClothingHandsGlovesBoxingYellow
-      - ClothingHandsGlovesIhscombat
       - ClothingHandsGlovesNitrile
       - ClothingOuterStraightjacket
       - ClothingShoesGaloshes

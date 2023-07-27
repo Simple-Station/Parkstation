@@ -53,9 +53,9 @@
   description: Oh my God, it's a black hoodie!
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
+    sprite: Nyanotrasen/Clothing/Misc/hoodie_black.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
+    sprite: Nyanotrasen/Clothing/Misc/hoodie_black.rsi
   - type: TemperatureProtection
     coefficient: 0.6
 
@@ -209,17 +209,6 @@
 
 - type: entity
   parent: ClothingOuterBase
-  id: ClothingOuterSkub
-  name: skub suit
-  description: 'Skub is crudely written on the outside of this cylindrical suit.'
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Misc/skubbody.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Misc/skubbody.rsi
-
-- type: entity
-  parent: ClothingOuterBase
   id: ClothingOuterPlagueSuit
   name: plague doctor suit
   description: A bad omen.
@@ -250,3 +239,8 @@
     sprite: Clothing/OuterClothing/Misc/ghostsheet.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/ghostsheet.rsi
+  - type: Construction
+    graph: GhostSheet
+    node: ghost_sheet
+  - type: IdentityBlocker
+

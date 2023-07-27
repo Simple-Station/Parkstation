@@ -1,14 +1,14 @@
 using System.Linq;
-using Content.Server.Actions.Events;
+using System.Numerics;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.EntitySystems;
-using Content.Server.CombatMode;
 using Content.Server.CombatMode.Disarm;
 using Content.Server.Contests;
 using Content.Server.Examine;
 using Content.Server.Movement.Systems;
+using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -26,6 +26,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
+using Robust.Shared.Physics;
 using Robust.Shared.Player;
 using Robust.Shared.Players;
 using Robust.Shared.Random;
@@ -56,16 +57,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!args.CanInteract || !args.CanAccess || component.HideFromExamine)
             return;
 
-        var getDamage = new MeleeHitEvent(new List<EntityUid>(), args.User, component.Damage, false);
-        getDamage.IsHit = false;
-        RaiseLocalEvent(uid, getDamage);
-
-        var damageSpec = GetDamage(component);
-
-        if (damageSpec == null)
-            damageSpec = new DamageSpecifier();
-
-        damageSpec += getDamage.BonusDamage;
+        var damageSpec = GetDamage(uid, args.User, component);
 
         if (damageSpec.Total == FixedPoint2.Zero)
             return;
@@ -80,16 +72,35 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             Text = Loc.GetString("damage-examinable-verb-text"),
             Message = Loc.GetString("damage-examinable-verb-message"),
             Category = VerbCategory.Examine,
-            Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")),
         };
 
         args.Verbs.Add(verb);
     }
 
-    private DamageSpecifier? GetDamage(MeleeWeaponComponent component)
+    protected override bool ArcRaySuccessful(EntityUid targetUid, Vector2 position, Angle angle, Angle arcWidth, float range, MapId mapId,
+        EntityUid ignore, ICommonSession? session)
     {
-        return component.Damage.Total > FixedPoint2.Zero ? component.Damage : null;
+        // Originally the client didn't predict damage effects so you'd intuit some level of how far
+        // in the future you'd need to predict, but then there was a lot of complaining like "why would you add artifical delay" as if ping is a choice.
+        // Now damage effects are predicted but for wide attacks it differs significantly from client and server so your game could be lying to you on hits.
+        // This isn't fair in the slightest because it makes ping a huge advantage and this would be a hidden system.
+        // Now the client tells us what they hit and we validate if it's plausible.
+
+        // Even if the client is sending entities they shouldn't be able to hit:
+        // A) Wide-damage is split anyway
+        // B) We run the same validation we do for click attacks.
+
+        // Could also check the arc though future effort + if they're aimbotting it's not really going to make a difference.
+
+        // (This runs lagcomp internally and is what clickattacks use)
+        if (!Interaction.InRangeUnobstructed(ignore, targetUid, range + 0.1f))
+            return false;
+
+        // TODO: Check arc though due to the aforementioned aimbot + damage split comments it's less important.
+        return true;
     }
+
 
     protected override void Popup(string message, EntityUid? uid, EntityUid? user)
     {
@@ -207,7 +218,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         RaiseNetworkEvent(new DamageEffectEvent(Color.Red, targets), filter);
     }
 
-    private float CalculateDisarmChance(EntityUid disarmer, EntityUid disarmed, EntityUid? inTargetHand, SharedCombatModeComponent disarmerComp)
+    private float CalculateDisarmChance(EntityUid disarmer, EntityUid disarmed, EntityUid? inTargetHand, CombatModeComponent disarmerComp)
     {
         if (HasComp<DisarmProneComponent>(disarmer))
             return 1.0f;
@@ -227,9 +238,20 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         return Math.Clamp(chance, 0f, 1f);
     }
 
-    public override void DoLunge(EntityUid user, Angle angle, Vector2 localPos, string? animation)
+    public override void DoLunge(EntityUid user, Angle angle, Vector2 localPos, string? animation, bool predicted = true)
     {
-        RaiseNetworkEvent(new MeleeLungeEvent(user, angle, localPos, animation), Filter.PvsExcept(user, entityManager: EntityManager));
+        Filter filter;
+
+        if (predicted)
+        {
+            filter = Filter.PvsExcept(user, entityManager: EntityManager);
+        }
+        else
+        {
+            filter = Filter.Pvs(user, entityManager: EntityManager);
+        }
+
+        RaiseNetworkEvent(new MeleeLungeEvent(user, angle, localPos, animation), filter);
     }
 
     private void OnChemicalInjectorHit(EntityUid owner, MeleeChemicalInjectorComponent comp, MeleeHitEvent args)

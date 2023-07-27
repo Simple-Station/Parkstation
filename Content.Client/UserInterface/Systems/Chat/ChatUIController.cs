@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Linq;
+using System.Numerics;
 using Content.Client.Administration.Managers;
 using Content.Client.Chat;
 using Content.Client.Chat.Managers;
@@ -11,6 +12,7 @@ using Content.Client.Ghost;
 using Content.Client.Lobby.UI;
 using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
+using Content.Client.SimpleStation14.Chat;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -30,6 +32,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -47,10 +50,13 @@ public sealed class ChatUIController : UIController
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IStateManager _state = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IReplayRecordingManager _replayRecording = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     [UISystemDependency] private readonly ExamineSystem? _examine = default;
     [UISystemDependency] private readonly GhostSystem? _ghost = default;
     [UISystemDependency] private readonly PsionicChatUpdateSystem? _psionic = default!;
+    [UISystemDependency] private readonly ShadowkinChatUpdateSystem? _shadowkin = default!;
     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
     [UISystemDependency] private readonly ChatSystem? _chatSys = default;
 
@@ -64,14 +70,28 @@ public sealed class ChatUIController : UIController
         {SharedChatSystem.LOOCPrefix, ChatSelectChannel.LOOC},
         {SharedChatSystem.OOCPrefix, ChatSelectChannel.OOC},
         {SharedChatSystem.EmotesPrefix, ChatSelectChannel.Emotes},
+        {SharedChatSystem.EmotesAltPrefix, ChatSelectChannel.Emotes},
         {SharedChatSystem.AdminPrefix, ChatSelectChannel.Admin},
         {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
         {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead},
-        {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic}
+        {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic},
+        {SharedChatSystem.EmpathyPrefix, ChatSelectChannel.Empathy}
     };
 
-    public static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes =
-        PrefixToChannel.ToDictionary(kv => kv.Value, kv => kv.Key);
+    public static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes = new()
+    {
+        {ChatSelectChannel.Local, SharedChatSystem.LocalPrefix},
+        {ChatSelectChannel.Whisper, SharedChatSystem.WhisperPrefix},
+        {ChatSelectChannel.Console, SharedChatSystem.ConsolePrefix},
+        {ChatSelectChannel.LOOC, SharedChatSystem.LOOCPrefix},
+        {ChatSelectChannel.OOC, SharedChatSystem.OOCPrefix},
+        {ChatSelectChannel.Emotes, SharedChatSystem.EmotesPrefix},
+        {ChatSelectChannel.Admin, SharedChatSystem.AdminPrefix},
+        {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
+        {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix},
+        {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix},
+        {ChatSelectChannel.Empathy, SharedChatSystem.EmpathyPrefix}
+    };
 
     /// <summary>
     ///     The max amount of chars allowed to fit in a single speech bubble.
@@ -165,8 +185,14 @@ public sealed class ChatUIController : UIController
         _input.SetInputCommand(ContentKeyFunctions.FocusLocalChat,
             InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.Local)));
 
+        _input.SetInputCommand(ContentKeyFunctions.FocusEmote,
+            InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.Emotes)));
+
         _input.SetInputCommand(ContentKeyFunctions.FocusWhisperChat,
             InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.Whisper)));
+
+        _input.SetInputCommand(ContentKeyFunctions.FocusLOOC,
+            InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.LOOC)));
 
         _input.SetInputCommand(ContentKeyFunctions.FocusOOC,
             InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.OOC)));
@@ -504,6 +530,7 @@ public sealed class ChatUIController : UIController
             FilterableChannels |= ChatChannel.AdminChat;
             CanSendChannels |= ChatSelectChannel.Admin;
             FilterableChannels |= ChatChannel.Telepathic;
+            FilterableChannels |= ChatChannel.Empathy;
         }
 
         // psionics
@@ -511,6 +538,13 @@ public sealed class ChatUIController : UIController
         {
             FilterableChannels |= ChatChannel.Telepathic;
             CanSendChannels |= ChatSelectChannel.Telepathic;
+        }
+
+        // Shadowkin
+        if (_shadowkin != null && _shadowkin.IsShadowkin)
+        {
+            FilterableChannels |= ChatChannel.Empathy;
+            CanSendChannels |= ChatSelectChannel.Empathy;
         }
 
         SelectableChannels = CanSendChannels;
@@ -764,7 +798,17 @@ public sealed class ChatUIController : UIController
         _manager.SendMessage(text, prefixChannel == 0 ? channel : prefixChannel);
     }
 
-    private void OnChatMessage(MsgChatMessage message) => ProcessChatMessage(message.Message);
+    private void OnChatMessage(MsgChatMessage message)
+    {
+        var msg = message.Message;
+        ProcessChatMessage(msg);
+
+        if ((msg.Channel & ChatChannel.AdminRelated) == 0 ||
+            _cfg.GetCVar(CCVars.ReplayRecordAdminChat))
+        {
+            _replayRecording.RecordClientMessage(msg);
+        }
+    }
 
     public void ProcessChatMessage(ChatMessage msg, bool speechBubble = true)
     {

@@ -6,13 +6,16 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 18000
+      time: 14400
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 18000
+      time: 14400
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 14400
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 18000
+      time: 14400
     - !type:OverallPlaytimeRequirement
       time: 108000
   weight: 20

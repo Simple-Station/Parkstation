@@ -136,7 +136,7 @@
     capacity: 60
     whitelist:
       components:
-      - PDA
+      - Pda
 
 - type: entity
   name: ID card box
@@ -216,6 +216,8 @@
   id: BoxHugHealing
   description: A special box for sensitive people.
   components:
+  - type: Storage
+    capacity: 30
   - type: Sprite
     layers:
       - state: box_hug
@@ -225,7 +227,7 @@
   - type: StorageFill
     contents:
       - id: Brutepack
-        amount: 6
+        amount: 3
   - type: Tag
     tags:
       - BoxHug
@@ -373,7 +375,7 @@
         amount: 6
 
 - type: entity
-  name: science encryption key box
+  name: epistemics encryption key box
   parent: BoxEncryptionKeyPassenger
   id: BoxEncryptionKeyScience
   components:
@@ -411,3 +413,18 @@
     contents:
       - id: EncryptionKeyCommand
         amount: 4
+
+- type: entity
+  name: syndicate encryption key box
+  parent: BoxEncryptionKeyPassenger
+  id: BoxEncryptionKeySyndie
+  description: Two syndicate encryption keys for the price of one. Miniaturized for ease of use.
+  components:
+  - type: Item
+    size: 15
+  - type: StorageFill
+    contents:
+      - id: EncryptionKeySyndie
+        amount: 2
+  - type: Storage
+    capacity: 15

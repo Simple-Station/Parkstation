@@ -1,4 +1,3 @@
-using System.Threading;
 using Content.Shared.Doors.Systems;
 using Content.Shared.MachineLinking;
 using Robust.Shared.Audio;
@@ -24,18 +23,6 @@ public sealed class AirlockComponent : Component
     public bool EmergencyAccess = false;
 
     /// <summary>
-    /// Sound to play when the bolts on the airlock go up.
-    /// </summary>
-    [DataField("boltUpSound")]
-    public SoundSpecifier BoltUpSound = new SoundPathSpecifier("/Audio/Machines/boltsup.ogg");
-
-    /// <summary>
-    /// Sound to play when the bolts on the airlock go down.
-    /// </summary>
-    [DataField("boltDownSound")]
-    public SoundSpecifier BoltDownSound = new SoundPathSpecifier("/Audio/Machines/boltsdown.ogg");
-
-    /// <summary>
     /// Pry modifier for a powered airlock.
     /// Most anything that can pry powered has a pry speed bonus,
     /// so this default is closer to 6 effectively on e.g. jaws (9 seconds when applied to other default.)
@@ -55,16 +42,6 @@ public sealed class AirlockComponent : Component
     /// </summary>
     [DataField("keepOpenIfClicked")]
     public bool KeepOpenIfClicked = false;
-
-    public bool BoltsDown;
-
-    public bool BoltLightsEnabled = true;
-
-    /// <summary>
-    /// True if the bolt wire is cut, which will force the airlock to always be bolted as long as it has power.
-    /// </summary>
-    [ViewVariables]
-    public bool BoltWireCut;
 
     /// <summary>
     /// Whether the airlock should auto close. This value is reset every time the airlock closes.
@@ -86,11 +63,100 @@ public sealed class AirlockComponent : Component
     public float AutoCloseDelayModifier = 1.0f;
 
     /// <summary>
-    ///     The receiver port for turning off automatic closing.
-    ///     Needed for brig timers. Copied from rolfero on GitHub.
+    /// The receiver port for turning off automatic closing.
     /// </summary>
     [DataField("autoClosePort", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
     public string AutoClosePort = "AutoClose";
+
+    // Parkstation-BoltSignal-Start
+    /// <summary>
+    /// The receiver port for bolting the airlock.
+    /// </summary>
+    [DataField("boltPort", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
+    public string BoltPort = "Bolt";
+
+    /// <summary>
+    /// The receiver port for unbolt the airlock.
+    /// </summary>
+    [DataField("unBoltPort", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
+    public string UnBoltPort = "UnBolt";
+
+    /// <summary>
+    /// The receiver port for toggling the bolt state of the airlock.
+    /// </summary>
+    [DataField("toggleBoltPort", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
+    public string ToggleBoltPort = "ToggleBolt";
+    // Parkstation-BoltSignal-End
+
+    #region Graphics
+
+    /// <summary>
+    /// Whether the door lights should be visible.
+    /// </summary>
+    [DataField("openUnlitVisible")]
+    public bool OpenUnlitVisible = false;
+
+    /// <summary>
+    /// Whether the door should display emergency access lights.
+    /// </summary>
+    [DataField("emergencyAccessLayer")]
+    public bool EmergencyAccessLayer = true;
+
+    /// <summary>
+    /// Whether or not to animate the panel when the door opens or closes.
+    /// </summary>
+    [DataField("animatePanel")]
+    public bool AnimatePanel = true;
+
+    /// <summary>
+    /// The sprite state used to animate the airlock frame when the airlock opens.
+    /// </summary>
+    [DataField("openingSpriteState")]
+    public string OpeningSpriteState = "opening_unlit";
+
+    /// <summary>
+    /// The sprite state used to animate the airlock panel when the airlock opens.
+    /// </summary>
+    [DataField("openingPanelSpriteState")]
+    public string OpeningPanelSpriteState = "panel_opening";
+
+    /// <summary>
+    /// The sprite state used to animate the airlock frame when the airlock closes.
+    /// </summary>
+    [DataField("closingSpriteState")]
+    public string ClosingSpriteState = "closing_unlit";
+
+    /// <summary>
+    /// The sprite state used to animate the airlock panel when the airlock closes.
+    /// </summary>
+    [DataField("closingPanelSpriteState")]
+    public string ClosingPanelSpriteState = "panel_closing";
+
+    /// <summary>
+    /// The sprite state used for the open airlock lights.
+    /// </summary>
+    [DataField("openSpriteState")]
+    public string OpenSpriteState = "open_unlit";
+
+    /// <summary>
+    /// The sprite state used for the closed airlock lights.
+    /// </summary>
+    [DataField("closedSpriteState")]
+    public string ClosedSpriteState = "closed_unlit";
+
+    /// <summary>
+    /// The sprite state used for the 'access denied' lights animation.
+    /// </summary>
+    [DataField("denySpriteState")]
+    public string DenySpriteState = "deny_unlit";
+
+    /// <summary>
+    /// How long the animation played when the airlock denies access is in seconds.
+    /// </summary>
+    [DataField("denyAnimationTime")]
+    public float DenyAnimationTime = 0.3f;
+
+    #endregion Graphics
 }
 
 [Serializable, NetSerializable]

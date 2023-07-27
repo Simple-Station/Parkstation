@@ -15,6 +15,7 @@
     ClothingHeadHelmetInsulated: 2
     ClothingHeadCage: 2
     HyperlinkBookSpaceLaw: 2
+    ClothingEyesGlassesSecurityPrescription: 2
   # security officers need to follow a diet regimen!
   contrabandInventory:
     FoodDonutHomer: 12

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BaseStockPart
   name: stock part
   parent: BaseItem
@@ -6,11 +6,10 @@
   abstract: true
   components:
     - type: Sprite
-      netsync: false
       sprite: Objects/Misc/stock_parts.rsi
       scale: 0.8, 0.8
-    - type: MachinePart
-      rating: 1
+    - type: Item
+      size: 1
     - type: GuideHelp
       guides:
       - MachineUpgrading
@@ -28,6 +27,7 @@
   name: capacitor
   parent: BaseStockPart
   description: A basic capacitor used in the construction of a variety of devices.
+  suffix: Rating 1
   components:
     - type: Sprite
       state: capacitor
@@ -39,25 +39,11 @@
         - CapacitorStockPart
 
 - type: entity
-  id: ScanningModuleStockPart
-  name: scanning module
-  parent: BaseStockPart
-  description: A compact, high resolution scanning module used in the construction of certain devices.
-  components:
-    - type: Sprite
-      state: scan_module
-    - type: MachinePart
-      part: ScanningModule
-      rating: 1
-    - type: ReverseEngineering
-      recipes:
-        - ScanningModuleStockPart
-
-- type: entity
   id: MicroManipulatorStockPart
-  name: micro-manipulator
+  name: manipulator
   parent: BaseStockPart
-  description: A tiny little manipulator used in the construction of certain devices.
+  description: A basic manipulator used in the construction of a variety of devices.
+  suffix: Rating 1
   components:
     - type: Sprite
       state: micro_mani
@@ -69,25 +55,11 @@
         - MicroManipulatorStockPart
 
 - type: entity
-  id: MicroLaserStockPart
-  name: micro-laser
-  parent: BaseStockPart
-  description: A tiny laser used in certain devices.
-  components:
-    - type: Sprite
-      state: micro_laser
-    - type: MachinePart
-      part: Laser
-      rating: 1
-    - type: ReverseEngineering
-      recipes:
-        - MicroLaserStockPart
-
-- type: entity
   id: MatterBinStockPart
   name: matter bin
   parent: BaseStockPart
-  description: A container designed to hold compressed matter awaiting reconstruction.
+  description: A basic matter bin used in the construction of a variety of devices.
+  suffix: Rating 1
   components:
     - type: Sprite
       state: matter_bin
@@ -105,6 +77,7 @@
   name: advanced capacitor
   parent: CapacitorStockPart
   description: An advanced capacitor used in the construction of a variety of devices.
+  suffix: Rating 2
   components:
     - type: Sprite
       state: adv_capacitor
@@ -116,25 +89,11 @@
         - AdvancedCapacitorStockPart
 
 - type: entity
-  id: AdvancedScanningModuleStockPart
-  name: advanced scanning module
-  parent: ScanningModuleStockPart
-  description: A compact, high resolution scanning module used in the construction of certain devices.
-  components:
-    - type: Sprite
-      state: adv_scan_module
-    - type: MachinePart
-      rating: 2
-    - type: ReverseEngineering
-      difficulty: 2
-      recipes:
-        - AdvancedScanningModuleStockPart
-
-- type: entity
   id: NanoManipulatorStockPart
-  name: nano-manipulator
+  name: advanced manipulator
   parent: MicroManipulatorStockPart
-  description: A tiny little manipulator used in the construction of certain devices.
+  description: An advanced manipulator used in the construction of a variety of devices.
+  suffix: Rating 2
   components:
     - type: Sprite
       state: nano_mani
@@ -146,25 +105,11 @@
         - NanoManipulatorStockPart
 
 - type: entity
-  id: HighPowerMicroLaserStockPart
-  name: high-power micro-laser
-  parent: MicroLaserStockPart
-  description: A tiny laser used in certain devices.
-  components:
-    - type: Sprite
-      state: high_micro_laser
-    - type: MachinePart
-      rating: 2
-    - type: ReverseEngineering
-      difficulty: 2
-      recipes:
-        - HighPowerMicroLaserStockPart
-
-- type: entity
   id: AdvancedMatterBinStockPart
   name: advanced matter bin
   parent: MatterBinStockPart
-  description: A container designed to hold compressed matter awaiting reconstruction.
+  description: An advanced matter bin used in the construction of a variety of devices.
+  suffix: Rating 2
   components:
     - type: Sprite
       state: advanced_matter_bin
@@ -181,7 +126,8 @@
   id: SuperCapacitorStockPart
   name: super capacitor
   parent: CapacitorStockPart
-  description: A super-high capacity capacitor used in the construction of a variety of devices.
+  description: A super capacitor used in the construction of a variety of devices.
+  suffix: Rating 3
   components:
     - type: Sprite
       state: super_capacitor
@@ -193,25 +139,11 @@
         - SuperCapacitorStockPart
 
 - type: entity
-  id: PhasicScanningModuleStockPart
-  name: phasic scanning module
-  parent: ScanningModuleStockPart
-  description: A compact, high resolution phasic scanning module used in the construction of certain devices.
-  components:
-    - type: Sprite
-      state: super_scan_module
-    - type: MachinePart
-      rating: 3
-    - type: ReverseEngineering
-      difficulty: 3
-      recipes:
-        - PhasicScanningModuleStockPart
-
-- type: entity
   id: PicoManipulatorStockPart
-  name: pico-manipulator
+  name: super manipulator
   parent: MicroManipulatorStockPart
-  description: A tiny little manipulator used in the construction of certain devices.
+  description: A super manipulator used in the construction of a variety of devices.
+  suffix: Rating 3
   components:
     - type: Sprite
       state: pico_mani
@@ -223,25 +155,11 @@
         - PicoManipulatorStockPart
 
 - type: entity
-  id: UltraHighPowerMicroLaserStockPart
-  name: ultra-high-power micro-laser
-  parent: MicroLaserStockPart
-  description: A tiny laser used in certain devices.
-  components:
-    - type: Sprite
-      state: ultra_high_micro_laser
-    - type: MachinePart
-      rating: 3
-    - type: ReverseEngineering
-      difficulty: 3
-      recipes:
-        - UltraHighPowerMicroLaserStockPart
-
-- type: entity
   id: SuperMatterBinStockPart
   name: super matter bin
   parent: MatterBinStockPart
-  description: A container designed to hold compressed matter awaiting reconstruction.
+  description: A super matter bin used in the construction of a variety of devices.
+  suffix: Rating 3
   components:
     - type: Sprite
       state: super_matter_bin
@@ -256,9 +174,10 @@
 
 - type: entity
   id: QuadraticCapacitorStockPart
-  name: quadratic capacitor
+  name: bluespace capacitor
   parent: CapacitorStockPart
-  description: A quadratic capacity capacitor used in the construction of a variety of devices.
+  description: A bluespace capacitor used in the construction of a variety of devices.
+  suffix: Rating 4
   components:
     - type: Sprite
       state: quadratic_capacitor
@@ -270,25 +189,11 @@
         - QuadraticCapacitorStockPart
 
 - type: entity
-  id: TriphasicScanningModuleStockPart
-  name: triphasic scanning module
-  parent: ScanningModuleStockPart
-  description: A compact, ultra resolution triphasic scanning module used in the construction of certain devices.
-  components:
-    - type: Sprite
-      state: triphasic_scan_module
-    - type: MachinePart
-      rating: 4
-    - type: ReverseEngineering
-      difficulty: 4
-      recipes:
-        - TriphasicScanningModuleStockPart
-
-- type: entity
   id: FemtoManipulatorStockPart
-  name: femto-manipulator
+  name: bluespace manipulator
   parent: MicroManipulatorStockPart
-  description: A tiny little manipulator used in the construction of certain devices.
+  description: A bluespace manipulator used in the construction of a variety of devices.
+  suffix: Rating 4
   components:
     - type: Sprite
       state: femto_mani
@@ -300,25 +205,11 @@
         - FemtoManipulatorStockPart
 
 - type: entity
-  id: QuadUltraMicroLaserStockPart
-  name: quad-ultra micro-laser
-  parent: MicroLaserStockPart
-  description: A tiny laser used in certain devices.
-  components:
-    - type: Sprite
-      state: quadultra_micro_laser
-    - type: MachinePart
-      rating: 4
-    - type: ReverseEngineering
-      difficulty: 4
-      recipes:
-        - QuadUltraMicroLaserStockPart
-
-- type: entity
   id: BluespaceMatterBinStockPart
   name: bluespace matter bin
   parent: MatterBinStockPart
-  description: A container designed to hold compressed matter in bluespace awaiting reconstruction.
+  description: A bluespace matter bin used in the construction of a variety of devices.
+  suffix: Rating 4
   components:
     - type: Sprite
       state: bluespace_matter_bin
@@ -329,7 +220,7 @@
       recipes:
         -  BluespaceMatterBinStockPart
 
-# Subspace stock parts
+# Subspace stock parts (REMOVE THESE)
 
 - type: entity
   id: AnsibleSubspaceStockPart
@@ -339,8 +230,6 @@
   components:
     - type: Sprite
       state: subspace_ansible
-    - type: MachinePart
-      part: Ansible
 
 - type: entity
   id: FilterSubspaceStockPart
@@ -350,8 +239,6 @@
   components:
     - type: Sprite
       state: hyperwave_filter
-    - type: MachinePart
-      part: Filter
 
 - type: entity
   id: AmplifierSubspaceStockPart
@@ -361,8 +248,6 @@
   components:
     - type: Sprite
       state: subspace_amplifier
-    - type: MachinePart
-      part: Amplifier
 
 - type: entity
   id: TreatmentSubspaceStockPart
@@ -372,8 +257,6 @@
   components:
     - type: Sprite
       state: treatment_disk
-    - type: MachinePart
-      part: Treatment
 
 - type: entity
   id: AnalyzerSubspaceStockPart
@@ -383,8 +266,6 @@
   components:
     - type: Sprite
       state: wavelength_analyzer
-    - type: MachinePart
-      part: Analyzer
 
 - type: entity
   id: CrystalSubspaceStockPart
@@ -394,8 +275,6 @@
   components:
     - type: Sprite
       state: ansible_crystal
-    - type: MachinePart
-      part: Crystal
 
 - type: entity
   id: TransmitterSubspaceStockPart
@@ -405,5 +284,3 @@
   components:
     - type: Sprite
       state: subspace_transmitter
-    - type: MachinePart
-      part: Transmitter

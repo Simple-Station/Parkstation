@@ -4,7 +4,6 @@
   abstract: true
   components:
   - type: Sprite
-    netsync: false
   - type: EmitSoundOnPickup
     sound: /Audio/SimpleStation14/Items/Handling/toolbox_pickup.ogg
   - type: EmitSoundOnDrop
@@ -32,7 +31,8 @@
     hit: 5
   - type: Tag
     tags:
-      - DroneUsable
+    - DroneUsable
+    - Toolbox
 
 - type: entity
   name: emergency toolbox
@@ -94,7 +94,7 @@
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_syn.rsi
   - type: Storage
-    capacity: 120
+    capacity: 170 # this seems silly high
   - type: MeleeWeapon
     damage:
       types:

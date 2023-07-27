@@ -4,12 +4,15 @@
   description: job-description-guard
   playTimeTracker: JobSecurityOfficer
   requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 10800
     - !type:OverallPlaytimeRequirement
-      time: 18000
+      time: 36000
   startingGear: PrisonGuardGear
   alwaysUseSpawner: true
   canBeAntag: false
-  icon: "Warden" 
+  icon: "Warden"
   supervisors: job-supervisors-warden
   setPreference: true
   whitelistRequired: true

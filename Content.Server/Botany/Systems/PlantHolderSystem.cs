@@ -2,7 +2,6 @@ using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Botany.Components;
 using Content.Server.Chemistry.EntitySystems;
-using Content.Server.Coordinates.Helpers;
 using Content.Server.Fluids.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Kitchen.Components;
@@ -10,6 +9,7 @@ using Content.Server.Popups;
 using Content.Shared.Botany;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.Components;
@@ -609,9 +609,10 @@ namespace Content.Server.Botany.Systems
 
             if (component.Seed.Sentient)
             {
-                var comp = EnsureComp<GhostTakeoverAvailableComponent>(uid);
-                comp.RoleName = MetaData(uid).EntityName;
-                comp.RoleDescription = Loc.GetString("station-event-random-sentience-role-description", ("name", comp.RoleName));
+                var ghostRole = EnsureComp<GhostRoleComponent>(uid);
+                EnsureComp<GhostTakeoverAvailableComponent>(uid);
+                ghostRole.RoleName = MetaData(uid).EntityName;
+                ghostRole.RoleDescription = Loc.GetString("station-event-random-sentience-role-description", ("name", ghostRole.RoleName));
             }
 
             if (component.UpdateSpriteAfterUpdate)

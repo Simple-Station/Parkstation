@@ -7,7 +7,6 @@
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Guardians/guardians.rsi
-    netsync: false
     layers:
       - state: magic_base
         map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -21,14 +20,15 @@
           magic_flare: Sixteen
   - type: Fixtures
     fixtures:
-      - shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 225
-        mask:
-          - FlyingMobMask
-        layer:
-          - FlyingMobLayer
+      fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 225
+          mask:
+            - FlyingMobMask
+          layer:
+            - FlyingMobLayer
   - type: Bloodstream
     bloodReagent: Phlogiston
   - type: MeleeWeapon
@@ -52,7 +52,7 @@
     tags:
     - Chapel
     - Research
-  - type: Mind
+  - type: MindContainer
     showExamineInfo: true
   - type: Familiar
   - type: Dispellable
@@ -84,9 +84,8 @@
     attributes:
       proper: true
   - type: MovementIgnoreGravity
-  - type: Blindable
-    blindResistance: 10
-  - type: Faction
+  - type: EyeProtection
+  - type: NpcFactionMember
     factions:
     - PsionicInterloper
     - NanoTrasen
@@ -129,10 +128,12 @@
 # similar to EnergySword. will have to go in ToolSystem.Welder.cs
 # for now, just make it sound like it's on fire no matter what because it
 # sounds cooler than the default fizzling noise.
-  - type: AutoRegenReagent
+  - type: SolutionRegeneration
     solution: Welder
-    reagents:
-      - Phlogiston
+    generated:
+      reagents:
+        - ReagentId: Phlogiston
+          Quantity: 1
   - type: PointLight
     enabled: false
     radius: 2

@@ -19,6 +19,16 @@ namespace Content.Shared.Borgs
 
         [DataField("stateCD")]
         public TimeSpan StateCD = TimeSpan.FromSeconds(30);
+
+        // Parkstation-Laws-Start
+
+        /// <summary>
+        ///     The ID of either a Laws prototype, or a WeightedRandom of Laws prototypes.
+        /// </summary>
+        [DataField("lawsID")]
+        public string? LawsID;
+
+        // Parkstation-Laws-End
     }
 
     [Serializable, NetSerializable]

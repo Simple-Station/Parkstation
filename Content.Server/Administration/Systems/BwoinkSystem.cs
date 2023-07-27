@@ -15,6 +15,7 @@ using JetBrains.Annotations;
 using Robust.Server.Player;
 using Robust.Shared;
 using Robust.Shared.Configuration;
+using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
 
@@ -63,8 +64,17 @@ namespace Content.Server.Administration.Systems
             _config.OnValueChanged(CVars.GameHostName, OnServerNameChanged, true);
             _sawmill = IoCManager.Resolve<ILogManager>().GetSawmill("AHELP");
             _maxAdditionalChars = GenerateAHelpMessage("", "", true).Length;
+            _playerManager.PlayerStatusChanged += OnPlayerStatusChanged;
 
             SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameRunLevelChanged);
+        }
+
+        private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
+        {
+            if (e.NewStatus != SessionStatus.InGame)
+                return;
+
+            RaiseNetworkEvent(new BwoinkDiscordRelayUpdated(!string.IsNullOrWhiteSpace(_webhookUrl)), e.Session);
         }
 
         private void OnGameRunLevelChanged(GameRunLevelChangedEvent args)
@@ -120,13 +130,13 @@ namespace Content.Server.Administration.Systems
             if (!match.Success)
             {
                 // TODO: Ideally, CVar validation during setting should be better integrated
-                Logger.Warning("Webhook URL does not appear to be valid. Using anyways...");
+                Log.Warning("Webhook URL does not appear to be valid. Using anyways...");
                 return;
             }
 
             if (match.Groups.Count <= 2)
             {
-                Logger.Error("Could not get webhook ID or token.");
+                Log.Error("Could not get webhook ID or token.");
                 return;
             }
 

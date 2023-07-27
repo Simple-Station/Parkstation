@@ -6,6 +6,7 @@
   - type: Sprite
     sprite: Objects/Specific/Medical/medical.rsi
   - type: Item
+    size: 10
     sprite: Objects/Specific/Medical/medical.rsi
     heldPrefix: ointment
   # Inherited
@@ -17,6 +18,7 @@
   description: Used to treat those nasty burns. Less effective on caustic burns.
   parent: BaseHealingItem
   id: Ointment
+  suffix: Full
   components:
   - type: Tag
     tags:
@@ -26,7 +28,9 @@
   - type: Item
     heldPrefix: ointment
   - type: Healing
-    damageContainer: Biological
+    damageContainers:
+      - Biological
+      - HalfSpirit
     damage:
       types:
         Heat: -5
@@ -44,10 +48,22 @@
     price: 10
 
 - type: entity
+  id: Ointment1
+  parent: Ointment
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: Ointment
+    count: 1
+  - type: Item
+    size: 1
+
+- type: entity
   name: bruise pack
   description: A therapeutic gel pack and bandages designed to treat blunt-force trauma.
   parent: BaseHealingItem
   id: Brutepack
+  suffix: Full
   components:
   - type: Tag
     tags:
@@ -55,11 +71,12 @@
   - type: Sprite
     state: brutepack
   - type: Healing
-    damageContainer: Biological
+    damageContainers:
+      - Biological
+      - HalfSpirit
     damage:
       groups:
         Brute: -15 # 5 for each type in the group
-    bloodlossModifier: -3 # a little bit of bloodloss healing.
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
@@ -71,11 +88,52 @@
     price: 10
 
 - type: entity
+  id: Brutepack1
+  parent: Brutepack
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: Brutepack
+    count: 1
+  - type: Item
+    size: 1
+
+- type: entity
+  name: blood pack
+  description: Contains a groundbreaking universal blood replacement created by Nanotrasen's advanced medical science.
+  parent: BaseHealingItem
+  id: Bloodpack
+  suffix: Full
+  components:
+  - type: Tag
+    tags:
+    - Bloodpack
+  - type: Sprite
+    state: bloodpack
+  - type: Healing
+    damageContainers:
+      - Biological
+      - HalfSpirit
+    damage:
+      types:
+        Bloodloss: -0.5 #lowers bloodloss damage
+    ModifyBloodLevel: 15 #restores about 5% blood per use on standard humanoids.
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+  - type: Stack
+    stackType: Bloodpack
+    count: 10
+  - type: StackPrice
+    price: 10
+
+- type: entity
   name: roll of gauze
   description: Some sterile gauze to wrap around bloody stumps.
-  suffix: Full
   parent: BaseHealingItem
   id: Gauze
+  suffix: Full
   components:
   - type: Tag
     tags:
@@ -86,7 +144,9 @@
     graph: Gauze
     node: gauze
   - type: Healing
-    damageContainer: Biological
+    damageContainers:
+      - Biological
+      - HalfSpirit
     damage:
       types:
         Slash: -2.5
@@ -103,12 +163,14 @@
     price: 10
 
 - type: entity
-  suffix: Single
   id: Gauze1
   parent: Gauze
+  suffix: Single
   components:
   - type: Stack
     count: 1
+  - type: Item
+    size: 1
 
 - type: entity
   name: aloe cream
@@ -117,7 +179,6 @@
   id: AloeCream
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Specific/Hydroponics/aloe.rsi
     state: cream
   - type: Stack

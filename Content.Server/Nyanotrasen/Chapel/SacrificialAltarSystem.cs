@@ -14,6 +14,7 @@ using Content.Shared.Humanoid;
 using Content.Server.Bible.Components;
 using Content.Server.Stunnable;
 using Content.Server.DoAfter;
+using Content.Server.Mind;
 using Content.Server.Players;
 using Content.Server.Popups;
 using Content.Server.Soul;
@@ -33,12 +34,13 @@ namespace Content.Server.Chapel
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
-        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly AudioSystem _audioSystem = default!;
         [Dependency] private readonly PopupSystem _popups = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly BodySystem _bodySystem = default!;
+        [Dependency] private readonly MindSystem _mindSystem = default!;
 
         public override void Initialize()
         {
@@ -78,7 +80,7 @@ namespace Content.Server.Chapel
             args.Verbs.Add(verb);
         }
 
-        private void OnBuckleChanged(EntityUid uid, SacrificialAltarComponent component, BuckleChangeEvent args)
+        private void OnBuckleChanged(EntityUid uid, SacrificialAltarComponent component, ref BuckleChangeEvent args)
         {
             if (component.DoAfter != null)
             {
@@ -97,6 +99,9 @@ namespace Content.Server.Chapel
 
             // note: we checked this twice in case they could have gone SSD in the doafter time.
             if (!TryComp<ActorComponent>(args.Args.Target.Value, out var actor))
+                return;
+
+            if (!_mindSystem.TryGetMind(args.Args.Target.Value, out var mind))
                 return;
 
             _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(args.Args.User):player} sacrificed {ToPrettyString(args.Args.Target.Value):target} on {ToPrettyString(uid):altar}");
@@ -123,7 +128,7 @@ namespace Content.Server.Chapel
             if (actor.PlayerSession.ContentData()?.Mind != null)
             {
                 var trap = Spawn(component.TrapPrototype, Transform(uid).Coordinates);
-                actor.PlayerSession.ContentData()?.Mind?.TransferTo(trap);
+                _mindSystem.TransferTo(mind, trap);
 
                 if (TryComp<SoulCrystalComponent>(trap, out var crystalComponent))
                     crystalComponent.TrueName = MetaData(args.Args.Target.Value).EntityName;

@@ -13,7 +13,8 @@
   - type: ClothingGrantComponent
     component:
     - type: ShowHealthBars
-      damageContainer: Inorganic
+      damageContainers: 
+      - Inorganic
   - type: ReverseEngineering
     difficulty: 3
     recipes:
@@ -32,7 +33,9 @@
   - type: ClothingGrantComponent
     component:
     - type: ShowHealthBars
-      damageContainer: Biological
+      damageContainers: 
+      - Biological
+      - HalfSpirit
   - type: ReverseEngineering
     difficulty: 3
     recipes:

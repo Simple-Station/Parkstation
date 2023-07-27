@@ -1,4 +1,4 @@
-﻿# APC
+# APC
 - type: entity
   id: APCElectronics
   parent: BaseElectronics
@@ -9,10 +9,14 @@
     - type: Sprite
       sprite: Objects/Misc/module.rsi
       state: charger_APC
-      netsync: false
     - type: ReverseEngineering
       recipes:
         - APCElectronics
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 50
+      chemicalComposition:
+        Silicon: 20
 
 # Wallmount Substation
 - type: entity
@@ -24,7 +28,6 @@
     - type: Sprite
       sprite: Objects/Misc/module.rsi
       state: charger_APC
-      netsync: false
     - type: Tag
       tags:
         - DroneUsable
@@ -40,7 +43,6 @@
     - type: Sprite
       sprite: Objects/Misc/module.rsi
       state: charger_APC
-      netsync: false
     - type: Tag
       tags:
         - DroneUsable
@@ -56,7 +58,6 @@
     - type: Sprite
       sprite: Objects/Misc/module.rsi
       state: charger_APC
-      netsync: false
     - type: Tag
       tags:
         - DroneUsable
@@ -72,7 +73,6 @@
     - type: Sprite
       sprite: Objects/Misc/module.rsi
       state: generic
-      netsync: false
     - type: Tag
       tags:
         - DroneUsable

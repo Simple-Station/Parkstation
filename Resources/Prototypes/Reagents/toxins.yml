@@ -17,7 +17,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 2
+            Poison: 4
 
 - type: reagent
   id: CarpoToxin
@@ -85,6 +85,7 @@
   desc: reagent-desc-mold
   flavor: bitter
   color: "#8a9a5b"
+  recognizable: true
   physicalDesc: reagent-physical-desc-fuzzy
   metabolisms:
     Poison:
@@ -133,7 +134,7 @@
         ignoreResistances: false
         damage:
           types:
-            Caustic: 0.5
+            Caustic: 0.25 # Parkstation-fixReagentSuperPotency
       - !type:Emote
         emote: Scream
         probability: 0.3
@@ -169,7 +170,7 @@
         ignoreResistances: false
         damage:
           types:
-            Caustic: 0.3
+            Caustic: 0.15 # Parkstation-fixReagentSuperPotency
       - !type:Emote
         emote: Scream
         probability: 0.2
@@ -194,6 +195,7 @@
   physicalDesc: reagent-physical-desc-oily
   flavor: acidic
   color: "#BF8C00"
+  recognizable: true
   boilingPoint: 337.0
   meltingPoint: 10.31
   plantMetabolism:
@@ -212,7 +214,7 @@
         ignoreResistances: false
         damage:
           types:
-            Caustic: 0.1
+            Caustic: 0.05 # Parkstation-fixReagentSuperPotency
       - !type:Emote
         emote: Scream
         probability: 0.1
@@ -408,6 +410,7 @@
 - type: reagent
   id: VentCrud
   name: reagent-name-vent-crud
+  group: Toxins
   desc: reagent-desc-vent-crud
   physicalDesc: reagent-physical-desc-sticky
   flavor: bitter
@@ -426,6 +429,7 @@
 - type: reagent
   id: Corpium
   name: reagent-name-corpium
+  group: Toxins
   desc: reagent-desc-corpium
   physicalDesc: reagent-physical-desc-necrotic
   flavor: bitter
@@ -444,6 +448,7 @@
 - type: reagent
   id: UncookedAnimalProteins
   name: reagent-name-uncooked-animal-proteins
+  group: Foods
   desc: reagent-desc-uncooked-animal-proteins
   physicalDesc: reagent-physical-desc-clumpy
   flavor: bitter
@@ -468,6 +473,7 @@
 - type: reagent
   id: Allicin
   name: reagent-name-allicin
+  group: Foods
   desc: reagent-desc-allicin
   physicalDesc: reagent-physical-desc-pungent
   flavor: bitter
@@ -489,6 +495,7 @@
 - type: reagent
   id: Pax
   name: reagent-name-pax
+  group: Narcotics
   desc: reagent-desc-pax
   physicalDesc: reagent-physical-desc-soothing
   color: "#AAAAAA"

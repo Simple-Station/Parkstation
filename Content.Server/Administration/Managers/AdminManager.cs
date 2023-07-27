@@ -197,7 +197,7 @@ namespace Content.Server.Administration.Managers
             }
 
             // Load flags for engine commands, since those don't have the attributes.
-            if (_res.TryContentFileRead(new ResourcePath("/engineCommandPerms.yml"), out var efs))
+            if (_res.TryContentFileRead(new ResPath("/engineCommandPerms.yml"), out var efs))
             {
                 _commandPermissions.LoadPermissionsFromStream(efs);
             }
@@ -292,7 +292,11 @@ namespace Content.Server.Administration.Managers
 
         private async Task<(AdminData dat, int? rankId, bool specialLogin)?> LoadAdminData(IPlayerSession session)
         {
-            if (IsLocal(session) && _cfg.GetCVar(CCVars.ConsoleLoginLocal) || _promotedPlayers.Contains(session.UserId))
+            var promoteHost = IsLocal(session) && _cfg.GetCVar(CCVars.ConsoleLoginLocal)
+                              || _promotedPlayers.Contains(session.UserId)
+                              || session.Name == _cfg.GetCVar(CCVars.ConsoleLoginHostUser);
+
+            if (promoteHost)
             {
                 var data = new AdminData
                 {

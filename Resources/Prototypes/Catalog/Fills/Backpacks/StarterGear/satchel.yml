@@ -146,3 +146,13 @@
   - type: Tag
     tags:
     - InnateDontDelete
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelMime
+  id: ClothingBackpackSatchelMimeFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: RubberStampMime

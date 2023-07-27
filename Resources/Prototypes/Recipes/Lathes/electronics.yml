@@ -15,6 +15,22 @@
     Plastic: 50
 
 - type: latheRecipe
+  id: CellRechargerCircuitboard
+  result: CellRechargerCircuitboard
+  completetime: 2
+  materials:
+    Steel: 50
+    Plastic: 50
+
+- type: latheRecipe
+  id: WeaponCapacitorRechargerCircuitboard
+  result: WeaponCapacitorRechargerCircuitboard
+  completetime: 2
+  materials:
+    Steel: 50
+    Plastic: 50
+
+- type: latheRecipe
   id: DoorElectronics
   result: DoorElectronics
   completetime: 2
@@ -31,6 +47,14 @@
      Plastic: 50
 
 - type: latheRecipe
+  id: StationMapElectronics
+  result: StationMapCircuitboard
+  completetime: 2
+  materials:
+     Steel: 50
+     Plastic: 50
+
+- type: latheRecipe
   id: IntercomElectronics
   result: IntercomElectronics
   completetime: 2
@@ -41,6 +65,14 @@
 - type: latheRecipe
   id: FireAlarmElectronics
   result: FireAlarmElectronics
+  completetime: 2
+  materials:
+     Steel: 50
+     Plastic: 50
+
+- type: latheRecipe
+  id: SignalTimerElectronics
+  result: SignalTimerElectronics
   completetime: 2
   materials:
      Steel: 50
@@ -119,22 +151,6 @@
 - type: latheRecipe
   id: HydroponicsTrayMachineCircuitboard
   result: HydroponicsTrayMachineCircuitboard
-  completetime: 4
-  materials:
-     Steel: 100
-     Glass: 900
-
-- type: latheRecipe
-  id: AutolatheMachineCircuitboard
-  result: AutolatheMachineCircuitboard
-  completetime: 4
-  materials:
-     Steel: 100
-     Glass: 900
-
-- type: latheRecipe
-  id: ProtolatheMachineCircuitboard
-  result: ProtolatheMachineCircuitboard
   completetime: 4
   materials:
      Steel: 100
@@ -284,6 +300,14 @@
     Gold: 100
 
 - type: latheRecipe
+  id: MaterialReclaimerMachineCircuitboard
+  result: MaterialReclaimerMachineCircuitboard
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 900
+
+- type: latheRecipe
   id: OreProcessorMachineCircuitboard
   result: OreProcessorMachineCircuitboard
   completetime: 4
@@ -382,6 +406,14 @@
   materials:
      Steel: 100
      Glass: 900
+
+- type: latheRecipe
+  id: SolarTrackerElectronics
+  result: SolarTrackerElectronics
+  completetime: 4
+  materials:
+     Steel: 150
+     Glass: 600
 
 - type: latheRecipe
   id: PowerComputerCircuitboard
@@ -503,6 +535,15 @@
   materials:
      Steel: 100
      Glass: 900
+
+- type: latheRecipe
+  id: CargoTelepadMachineCircuitboard
+  result: CargoTelepadMachineCircuitboard
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 900
+    Gold: 100
 
 - type: latheRecipe
   id: SodaDispenserMachineCircuitboard

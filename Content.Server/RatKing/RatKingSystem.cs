@@ -1,20 +1,20 @@
+using System.Numerics;
 using Content.Server.Actions;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
+using Content.Shared.Actions;
+using Content.Shared.Atmos;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
+using Robust.Server.GameObjects;
+using Robust.Shared.Player;
 using Content.Server.NPC.Systems;
 using Content.Server.NPC.Components;
 using Content.Server.NPC;
 using Content.Server.Pointing.EntitySystems;
-using Content.Shared.Actions;
-using Content.Shared.Atmos;
-/* <<<<<<< HEAD */
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-/* ======= */
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
-/* >>>>>>> 0f0b534239 (Hunger ECS (#14939)) */
-using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
@@ -28,7 +28,7 @@ namespace Content.Server.RatKing
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly TransformSystem _xform = default!;
         [Dependency] private readonly NPCSystem _npc = default!;
-        [Dependency] private readonly FactionSystem _factionSystem = default!;
+        [Dependency] private readonly NpcFactionSystem _npcFactonSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
 
         private const string NeutralAIFaction = "RatPassive";
@@ -108,10 +108,20 @@ namespace Content.Server.RatKing
             if (!HasComp<MobStateComponent>(args.Target))
                 return;
 
-            foreach (var servant in component.Servants)
+            if (args.Target == uid)
             {
-                var targeted = EnsureComp<NPCCombatTargetComponent>(servant);
-                targeted.EngagingEnemies.Add(args.Target);
+                // Pointed to self, cancel all attacks.
+                foreach (var servant in component.Servants)
+                    RemComp<NPCCombatTargetComponent>(servant);
+            }
+            else
+            {
+                // Pointed to someone else, go kill.
+                foreach (var servant in component.Servants)
+                {
+                    var targeted = EnsureComp<NPCCombatTargetComponent>(servant);
+                    targeted.EngagingEnemies.Add(args.Target);
+                }
             }
         }
 
@@ -142,8 +152,8 @@ namespace Content.Server.RatKing
             var servComp = EnsureComp<RatServantComponent>(servant);
             servComp.RatKing = uid;
 
-            var faction = EnsureComp<FactionComponent>(servant);
-            _factionSystem.AddFriendlyEntity(servant, uid, faction);
+            var faction = EnsureComp<NpcFactionMemberComponent>(servant);
+            _npcFactonSystem.AddFriendlyEntity(servant, uid, faction);
 
             _npc.SetBlackboard(servant, NPCBlackboard.FollowTarget, new EntityCoordinates(uid, Vector2.Zero));
         }
@@ -189,22 +199,28 @@ namespace Content.Server.RatKing
 
             _action.SetToggled(component.ActionToggleFaction, component.HostileServants);
             args.Handled = true;
+
+            if (!_timing.IsFirstTimePredicted)
+                return;
+
+            var msg = component.HostileServants ? "rat-king-toggle-action-popup" : "rat-king-toggle-action-popup-enabled";
+            _popup.PopupEntity(Loc.GetString(msg), args.Performer);
         }
 
 
-        private void UpdateAIFaction(EntityUid servant, bool hostile, FactionComponent? component = null)
+        private void UpdateAIFaction(EntityUid servant, bool hostile, NpcFactionMemberComponent? component = null)
         {
             if (!Resolve(servant, ref component, false))
                 return;
 
             if (hostile)
             {
-                _factionSystem.RemoveFaction(servant, NeutralAIFaction);
-                _factionSystem.AddFaction(servant, HostileAIFaction);
+                _npcFactonSystem.RemoveFaction(servant, NeutralAIFaction);
+                _npcFactonSystem.AddFaction(servant, HostileAIFaction);
             } else
             {
-                _factionSystem.RemoveFaction(servant, HostileAIFaction);
-                _factionSystem.AddFaction(servant, NeutralAIFaction);
+                _npcFactonSystem.RemoveFaction(servant, HostileAIFaction);
+                _npcFactonSystem.AddFaction(servant, NeutralAIFaction);
             }
         }
     }

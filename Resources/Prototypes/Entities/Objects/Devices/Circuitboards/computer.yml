@@ -13,6 +13,11 @@
         - DroneUsable
     - type: DynamicPrice
       price: 100
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 400
+      chemicalComposition:
+        Silicon: 20
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -71,6 +76,26 @@
       prototype: ComputerCargoOrders
     - type: DynamicPrice
       price: 750
+    - type: Tag
+      tags:
+      - DroneUsable
+      - HighRiskItem
+
+- type: entity
+  id: CargoBountyComputerCircuitboard
+  parent: BaseComputerCircuitboard
+  name: cargo bounty computer board
+  description: A computer printed circuit board for a cargo bounty computer.
+  components:
+  - type: Sprite
+    state: cpu_supply
+  - type: ComputerBoard
+    prototype: ComputerCargoBounty
+  - type: DynamicPrice
+    price: 750
+  - type: Tag
+    tags:
+    - DroneUsable
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -85,12 +110,32 @@
 
 - type: entity
   parent: BaseComputerCircuitboard
+  id: SalvageExpeditionsComputerCircuitboard
+  name: salvage expeditions computer board
+  description: A computer printed circuit board for a salvage expeditions computer.
+  components:
+    - type: Sprite
+      state: cpu_supply
+    - type: ComputerBoard
+      prototype: ComputerSalvageExpedition
+
+- type: entity
+  parent: BaseComputerCircuitboard
   id: CargoShuttleConsoleCircuitboard
-  name: supply shuttle console board
+  name: cargo shuttle console board
   description: A computer printed circuit board for a cargo shuttle console.
   components:
     - type: ComputerBoard
       prototype: ComputerShuttleCargo
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: SalvageShuttleConsoleCircuitboard
+  name: salvage shuttle console board
+  description: A computer printed circuit board for a salvage shuttle console.
+  components:
+    - type: ComputerBoard
+      prototype: ComputerShuttleSalvage
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -156,7 +201,7 @@
 - type: entity
   parent: BaseComputerCircuitboard
   id: TechDiskComputerCircuitboard
-  name: technology disk terminal board
+  name: tech disk terminal board
   description: A computer printed circuit board for a technology disk terminal.
   components:
   - type: Sprite
@@ -193,6 +238,10 @@
       prototype: ComputerId
     - type: DynamicPrice
       price: 750
+    - type: Tag
+      tags:
+      - DroneUsable
+      - HighRiskItem
 
 - type: entity
   parent: BaseComputerCircuitboard

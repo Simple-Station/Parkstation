@@ -15,7 +15,4 @@ public sealed class RoundAnnouncementPrototype : IPrototype
     public string ID { get; } = default!;
 
     [DataField("message")] public string? Message;
-
-    [DataField("presets", customTypeSerializer: typeof(PrototypeIdListSerializer<GamePresetPrototype>))]
-    public List<string> GamePresets = new();
 }

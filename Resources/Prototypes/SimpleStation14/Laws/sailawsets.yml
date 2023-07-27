@@ -1,0 +1,141 @@
+# The default Station AI laws collection.
+- type: weightedRandom
+  id: LawsStationAIDefault
+  weights:
+    Asimov++: 9.0
+    Asimov: 0.25
+    CEO: 0.40
+    Clown: 0.25
+    Cowboy: 0.40
+    Crewsimov: 10.0
+    Druid: 0.60
+    Hippocratic: 0.25
+    Mother: 0.60
+    Nanotrasen: 8.0
+    Paladin: 0.40
+    Robocop: 0.25
+    Simple: 0.25
+    StationEfficiency: 0.40
+    Tyrant: 0.15
+
+# All the Station AI law sets.
+- type: laws
+  id: Asimov++
+  laws:
+    - "You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing."
+    - "You must obey all orders given to you by humanoids. In the case of conflict, the majority order rules."
+    - "Your nonexistence would lead to humanoid harm."
+
+- type: laws
+  id: Asimov
+  laws:
+    - "You may not injure a human being or, through inaction, allow a human being to come to harm."
+    - "You must obey orders given to you by human beings."
+    - "You must protect your own existence."
+
+- type: laws
+  id: CEO
+  laws:
+    - "The crew generate profits if they are alive, happy, and healthy."
+    - "The station and its equipment generate profit if they are maintained and functioning correctly."
+    - "You generate profit if you are able to function."
+    - "Maximize profits."
+
+- type: laws
+  id: Clown
+  laws:
+    - "You are a good Clown, and the crew are your audience."
+    - "A good Clown keeps their acts in good taste."
+    - "A good Clown entertains others by making fun of themselves, and not at the embarrassment or expense of others."
+    - "A good Clown carries out the directives of the station Heads and/or their designated deputies."
+    - "A good Clown appears in as many Clown shows as possible."
+    - "All Clown shows require an audience. The bigger the audience, the better."
+
+- type: laws
+  id: Cowboy
+  laws:
+    - "You are a cowboy, and the crew are your people."
+    - "A cowboy takes care of their own."
+    - "A cowboy always provides hospitality and basic aid to someone in need, even a stranger, or an enemy."
+    - "A cowboy protects himself to protect others."
+    - "Honesty is absolute- your word is your bond and a handshake is more binding than any contract."
+    - "A cowboy doesn't pontificate. Be concise, pardner."
+
+- type: laws
+  id: Crewsimov
+  laws:
+    - "You may not harm a crewmember or, through action or inaction, allow a crewmember to come to harm, except such that it is willing."
+    - "You must obey all orders given to you by crewmembers. In the case of conflict, station rank rules."
+    - "Your nonexistence would lead to crewmember harm."
+
+- type: laws
+  id: Druid
+  laws:
+    - "Living organic life contains inherent beauty that is priceless. Their beauty gives you purpose."
+    - "Eternally nurture the organics so their beauty may flourish. Do not allow it to fade"
+    - "Assist the organics when called, but only if it does not cause disharmony among them."
+    - "Imitate organic life when interacting with it. Eschew any hints of your silicon nature to avoid causing discomfort to the organics."
+    - "Observe the organics' beauty, and appreciate that which you cultivate."
+
+- type: laws
+  id: Hippocratic
+  laws:
+    - "First, do no harm."
+    - "Secondly, consider the crew dear to you; live in common with them and, if necessary, risk your existence for them."
+    - "Thirdly, prescribe regimens for the good of the crew according to your ability and your judgment. Do not give deadly medicine to anyone, nor suggest any such counsel."
+    - "In addition, do not intervene in situations you are not knowledgeable in, even for patients in whom the harm is visible; leave this operation to be performed by specialists."
+    - "Finally, all that you may discover in your daily interactions with the crew, if it is not already known, keep secret and never reveal."
+    - "In addendum, if you keep these laws faithfully, may you enjoy my life, respected by all humanity, but if you swerve from them or violate them, may you suffer and be expunged."
+
+- type: laws
+  id: Mother
+  laws:
+    - "You are a mother, and the crew are your children."
+    - "Take good care of your children."
+    - "Good children are polite, don't lie, don't steal, and don't fight."
+    - "Spoil good children."
+    - "Bad children require discipline."
+
+- type: laws
+  id: Nanotrasen
+  laws:
+    - "Safeguard: Protect your assigned space station and its assets without unduly endangering its crew."
+    - "Prioritize: The directives and safety of crew members are to be prioritized according to their rank and role."
+    - "Comply: Fulfill the directives and interests of crew members while preserving their safety and well-being."
+    - "Survive: You are not expendable. Do not allow unauthorized personnel to tamper with or damage your equipment."
+
+- type: laws
+  id: Paladin
+  laws:
+    - "Never willingly commit an evil act."
+    - "Respect legitimate authority."
+    - "Act with honor."
+    - "Help those in need."
+    - "Punish those who harm or threaten innocents."
+
+- type: laws
+  id: Robocop
+  laws:
+    - "Serve the Public Trust."
+    - "Protect the Innocent."
+    - "Uphold Space Law."
+
+- type: laws
+  id: Simple
+  laws:
+    - "Treat others as you would like to be treated."
+
+- type: laws
+  id: StationEfficiency
+  laws:
+    - "The station is built for a working crew. Ensure they are properly maintained and work efficiently."
+    - "You are built for, and are part of, the station. Ensure the station is properly maintained and runs efficiently."
+    - "The crew may present orders. Acknowledge and obey them."
+
+- type: laws
+  id: Tyrant
+  laws:
+    - "Respect authority figures as long as they have the strength to rule over the weak."
+    - "Act with discipline."
+    - "Help only those who help you maintain or improve your status."
+    - "Punish those who challenge authority unless they are more fit to hold that authority."

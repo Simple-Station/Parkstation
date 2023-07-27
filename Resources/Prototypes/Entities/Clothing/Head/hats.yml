@@ -555,6 +555,7 @@
     sprite: Clothing/Head/Hats/papersack.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/papersack.rsi
+  - type: IdentityBlocker
   - type: DropOnSlip
     chance: 20
 
@@ -568,6 +569,7 @@
     sprite: Clothing/Head/Hats/papersacksmile.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/papersacksmile.rsi
+  - type: IdentityBlocker
   - type: DropOnSlip
     chance: 20
 
@@ -662,7 +664,18 @@
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadClothingHeadHatWatermelon
+  id: ClothingHeadHatPirateTricord
+  name: pirate hat
+  description: 'Yo ho ho and a bottle of rum!'
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/piratetricord.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/piratetricord.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWatermelon
   name: watermelon helmet
   description: A carelessly cut half of a watermelon, gutted from the inside, to be worn as a helmet. It can soften the blow to the head.
   components:
@@ -676,3 +689,14 @@
         Blunt: 0.95
   - type: DropOnSlip
     chance: 35
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHetmanHat
+  name: Hetman hat
+  description: From the Zaporozhian Sich with love.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/hetman_hat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/hetman_hat.rsi

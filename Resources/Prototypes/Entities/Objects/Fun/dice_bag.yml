@@ -2,6 +2,7 @@
   parent: BaseStorageItem
   id: DiceBag
   name: bag of dice
+  suffix: Capacity 18
   description: Contains all the luck you'll ever need.
   components:
   - type: StorageFill
@@ -14,7 +15,6 @@
       - id: d20Dice
       - id: PercentileDie
   - type: Sprite
-    netsync: false
     sprite: Objects/Fun/dice.rsi
     state: dicebag
   - type: Item
@@ -29,9 +29,9 @@
   parent: DiceBag
   id: MagicDiceBag
   name: bag of dice
+  suffix: Capacity 30, "Magic"
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Fun/dice.rsi
     state: magicdicebag
   - type: Storage
