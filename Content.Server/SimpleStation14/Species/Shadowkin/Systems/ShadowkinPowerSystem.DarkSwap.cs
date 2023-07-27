@@ -1,4 +1,5 @@
 using Content.Server.Ghost.Components;
+using Content.Server.Magic;
 using Content.Server.SimpleStation14.Species.Shadowkin.Components;
 using Content.Server.SimpleStation14.Species.Shadowkin.Events;
 using Content.Server.Visible;
@@ -27,6 +28,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly MagicSystem _magic = default!;
 
     private InstantAction _action = default!;
 
@@ -75,6 +77,8 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             args.SoundOff,
             args.VolumeOff
         );
+
+        _magic.Speak(args);
 
         args.Handled = true;
     }

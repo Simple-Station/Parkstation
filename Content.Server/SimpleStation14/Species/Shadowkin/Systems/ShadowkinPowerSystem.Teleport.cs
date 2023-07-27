@@ -1,3 +1,4 @@
+using Content.Server.Magic;
 using Content.Server.Pulling;
 using Content.Server.SimpleStation14.Species.Shadowkin.Components;
 using Content.Server.SimpleStation14.Species.Shadowkin.Events;
@@ -21,6 +22,7 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly MagicSystem _magic = default!;
 
     private WorldTargetAction _action = default!;
 
@@ -95,6 +97,9 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
         // Take power and deal stamina damage
         _power.TryAddPowerLevel(comp.Owner, -args.PowerCost);
         _stamina.TakeStaminaDamage(args.Performer, args.StaminaCost);
+
+        // Speak
+        _magic.Speak(args);
 
         args.Handled = true;
     }

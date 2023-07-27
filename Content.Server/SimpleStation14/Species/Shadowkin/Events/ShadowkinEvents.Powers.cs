@@ -1,3 +1,4 @@
+using Content.Server.Magic.Events;
 using Content.Shared.Actions;
 using Robust.Shared.Audio;
 
@@ -6,7 +7,7 @@ namespace Content.Server.SimpleStation14.Species.Shadowkin.Events;
 /// <summary>
 ///     Raised when the shadowkin teleport action is used.
 /// </summary>
-public sealed class ShadowkinTeleportEvent : WorldTargetActionEvent
+public sealed class ShadowkinTeleportEvent : WorldTargetActionEvent, ISpeakSpell
 {
     [DataField("sound")]
     public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/SimpleStation14/Effects/Shadowkin/Powers/teleport.ogg");
@@ -20,12 +21,16 @@ public sealed class ShadowkinTeleportEvent : WorldTargetActionEvent
 
     [DataField("staminaCost")]
     public float StaminaCost = 30f;
+
+
+    [DataField("speech")]
+    public string? Speech { get; }
 }
 
 /// <summary>
 ///     Raised when the shadowkin darkSwap action is used.
 /// </summary>
-public sealed class ShadowkinDarkSwapEvent : InstantActionEvent
+public sealed class ShadowkinDarkSwapEvent : InstantActionEvent, ISpeakSpell
 {
     [DataField("soundOn")]
     public SoundSpecifier SoundOn = new SoundPathSpecifier("/Audio/SimpleStation14/Effects/Shadowkin/Powers/darkswapon.ogg");
@@ -63,6 +68,10 @@ public sealed class ShadowkinDarkSwapEvent : InstantActionEvent
     /// </summary>
     [DataField("staminaCostOff")]
     public float StaminaCostOff;
+
+
+    [DataField("speech")]
+    public string? Speech { get; }
 }
 
 public sealed class ShadowkinDarkSwapAttemptEvent : CancellableEntityEventArgs
