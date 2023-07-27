@@ -39778,18 +39778,45 @@ entities:
       pos: -4.5,-1.5
       parent: 1
       type: Transform
+    - containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 333
+          - 331
+          - 335
+      type: ContainerContainer
   - uid: 142
     components:
     - rot: 3.141592653589793 rad
       pos: -8.5,-1.5
       parent: 1
       type: Transform
+    - containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 332
+          - 330
+          - 334
+      type: ContainerContainer
   - uid: 143
     components:
     - rot: 3.141592653589793 rad
       pos: -12.5,-1.5
       parent: 1
       type: Transform
+    - containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 327
+          - 329
+          - 328
+      type: ContainerContainer
 - proto: ClothingBackpackDuffelSecurity
   entities:
   - uid: 790
@@ -40892,19 +40919,31 @@ entities:
       type: Transform
   - uid: 328
     components:
-    - pos: -12.371683,-0.47576106
-      parent: 1
+    - flags: InContainer
+      type: MetaData
+    - parent: 143
       type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
   - uid: 334
     components:
-    - pos: -8.342577,-0.55915225
-      parent: 1
+    - flags: InContainer
+      type: MetaData
+    - parent: 142
       type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
   - uid: 335
     components:
-    - pos: -4.36341,-0.47576106
-      parent: 1
+    - flags: InContainer
+      type: MetaData
+    - parent: 31
       type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
 - proto: ClothingUniformJumpsuitAncient
   entities:
   - uid: 16094
@@ -40945,19 +40984,31 @@ entities:
       type: Transform
   - uid: 327
     components:
-    - pos: -12.60085,-0.71551096
-      parent: 1
+    - flags: InContainer
+      type: MetaData
+    - parent: 143
       type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
   - uid: 332
     components:
-    - pos: -8.67591,-0.69466305
-      parent: 1
+    - flags: InContainer
+      type: MetaData
+    - parent: 142
       type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
   - uid: 333
     components:
-    - pos: -4.51966,-0.7676306
-      parent: 1
+    - flags: InContainer
+      type: MetaData
+    - parent: 31
       type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
 - proto: ComfyChair
   entities:
   - uid: 1477
@@ -81063,19 +81114,31 @@ entities:
   entities:
   - uid: 329
     components:
-    - pos: -12.517516,-0.52788067
-      parent: 1
+    - flags: InContainer
+      type: MetaData
+    - parent: 143
       type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
   - uid: 330
     components:
-    - pos: -8.48233,-0.5487286
-      parent: 1
+    - flags: InContainer
+      type: MetaData
+    - parent: 142
       type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
   - uid: 331
     components:
-    - pos: -4.4927464,-0.56957656
-      parent: 1
+    - flags: InContainer
+      type: MetaData
+    - parent: 31
       type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
   - uid: 808
     components:
     - pos: -33.97704,-6.4402103
@@ -92900,6 +92963,60 @@ entities:
     - pos: -4.5,-40.5
       parent: 1
       type: Transform
+- proto: SiliconChargerChargePad
+  entities:
+  - uid: 10769
+    components:
+    - pos: 34.5,18.5
+      parent: 1
+      type: Transform
+  - uid: 16341
+    components:
+    - pos: 35.5,18.5
+      parent: 1
+      type: Transform
+- proto: SiliconChargerIndustrial
+  entities:
+  - uid: 3375
+    components:
+    - pos: 26.5,15.5
+      parent: 1
+      type: Transform
+    - containers:
+      - machine_board
+      - machine_parts
+      - entity_storage
+      type: Construction
+  - uid: 3377
+    components:
+    - pos: 27.5,15.5
+      parent: 1
+      type: Transform
+    - containers:
+      - machine_board
+      - machine_parts
+      - entity_storage
+      type: Construction
+  - uid: 5623
+    components:
+    - pos: 30.5,15.5
+      parent: 1
+      type: Transform
+    - containers:
+      - machine_board
+      - machine_parts
+      - entity_storage
+      type: Construction
+  - uid: 5624
+    components:
+    - pos: 29.5,15.5
+      parent: 1
+      type: Transform
+    - containers:
+      - machine_board
+      - machine_parts
+      - entity_storage
+      type: Construction
 - proto: SinkStemlessWater
   entities:
   - uid: 4580
@@ -95752,6 +95869,7 @@ entities:
       cameraName: Command Hall
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4605
     components:
     - rot: 1.5707963267948966 rad
@@ -95768,6 +95886,7 @@ entities:
       cameraName: Head of Personnel's Office
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4606
     components:
     - rot: 3.141592653589793 rad
@@ -95784,6 +95903,7 @@ entities:
       cameraName: Command Conference Room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4607
     components:
     - rot: -1.5707963267948966 rad
@@ -95798,6 +95918,7 @@ entities:
       cameraName: Bridge
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4608
     components:
     - rot: 3.141592653589793 rad
@@ -95814,6 +95935,7 @@ entities:
       cameraName: EVA Supplies
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4609
     components:
     - rot: 3.141592653589793 rad
@@ -95830,6 +95952,7 @@ entities:
       cameraName: The Vault
       enabled: True
       type: AICamera
+    - type: Visibility
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 2527
@@ -95848,6 +95971,7 @@ entities:
       cameraName: Antimatter engine
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 2809
     components:
     - pos: 54.5,-2.5
@@ -95863,6 +95987,7 @@ entities:
       cameraName: Atmospherics mix chamber
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 2832
     components:
     - pos: 40.5,11.5
@@ -95878,6 +96003,7 @@ entities:
       cameraName: Engineering lobby
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3313
     components:
     - rot: 3.141592653589793 rad
@@ -95894,6 +96020,7 @@ entities:
       cameraName: Atmospherics control center
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3551
     components:
     - rot: 3.141592653589793 rad
@@ -95910,6 +96037,7 @@ entities:
       cameraName: Repair shop
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3700
     components:
     - rot: -1.5707963267948966 rad
@@ -95926,6 +96054,7 @@ entities:
       cameraName: Atmospherics locker room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5672
     components:
     - rot: 1.5707963267948966 rad
@@ -95942,6 +96071,7 @@ entities:
       cameraName: Chief Engineer's Office
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5750
     components:
     - pos: 44.5,2.5
@@ -95957,6 +96087,7 @@ entities:
       cameraName: Engineering Locker Room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15755
     components:
     - rot: -1.5707963267948966 rad
@@ -95973,6 +96104,7 @@ entities:
       cameraName: Robotics workshop
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15756
     components:
     - rot: 3.141592653589793 rad
@@ -95989,6 +96121,7 @@ entities:
       cameraName: Salvage
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15757
     components:
     - pos: 57.5,19.5
@@ -96004,6 +96137,7 @@ entities:
       cameraName: Salvage locker room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15758
     components:
     - rot: 1.5707963267948966 rad
@@ -96020,6 +96154,7 @@ entities:
       cameraName: Engineering EVA hall
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15759
     components:
     - rot: 3.141592653589793 rad
@@ -96035,6 +96170,7 @@ entities:
       cameraName: Gravity generator
       enabled: True
       type: AICamera
+    - type: Visibility
 - proto: SurveillanceCameraGeneral
   entities:
   - uid: 2415
@@ -96053,6 +96189,7 @@ entities:
       cameraName: Main ring NE
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 2416
     components:
     - rot: 3.141592653589793 rad
@@ -96069,6 +96206,7 @@ entities:
       cameraName: Engineering exterior
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 2607
     components:
     - pos: 1.5,25.5
@@ -96084,6 +96222,7 @@ entities:
       cameraName: Service hall entrance
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 2608
     components:
     - rot: -1.5707963267948966 rad
@@ -96100,6 +96239,7 @@ entities:
       cameraName: Main ring E
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 2609
     components:
     - rot: 1.5707963267948966 rad
@@ -96116,6 +96256,7 @@ entities:
       cameraName: Main ring entrance hall
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 2727
     components:
     - rot: 1.5707963267948966 rad
@@ -96132,6 +96273,7 @@ entities:
       cameraName: Dorms Hall 3
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 2745
     components:
     - rot: -1.5707963267948966 rad
@@ -96148,6 +96290,7 @@ entities:
       cameraName: Dorms Hall 2
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 2747
     components:
     - pos: -19.5,-13.5
@@ -96163,6 +96306,7 @@ entities:
       cameraName: Dorms Hall 1
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 2864
     components:
     - rot: -1.5707963267948966 rad
@@ -96179,6 +96323,7 @@ entities:
       cameraName: Main ring W
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 2865
     components:
     - rot: -1.5707963267948966 rad
@@ -96195,6 +96340,7 @@ entities:
       cameraName: Arrivals hall
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3431
     components:
     - rot: -1.5707963267948966 rad
@@ -96211,6 +96357,7 @@ entities:
       cameraName: Evac hall
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3441
     components:
     - rot: -1.5707963267948966 rad
@@ -96227,6 +96374,7 @@ entities:
       cameraName: Main ring SW
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3442
     components:
     - rot: 3.141592653589793 rad
@@ -96243,6 +96391,7 @@ entities:
       cameraName: Main ring S
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3664
     components:
     - rot: -1.5707963267948966 rad
@@ -96259,6 +96408,7 @@ entities:
       cameraName: Main ring NW
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3665
     components:
     - rot: -1.5707963267948966 rad
@@ -96275,6 +96425,7 @@ entities:
       cameraName: Main ring SE
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4604
     components:
     - pos: 27.5,-1.5
@@ -96290,6 +96441,7 @@ entities:
       cameraName: Bathroom Commons
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5019
     components:
     - rot: -1.5707963267948966 rad
@@ -96306,6 +96458,7 @@ entities:
       cameraName: Common Room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5020
     components:
     - rot: 3.141592653589793 rad
@@ -96322,6 +96475,7 @@ entities:
       cameraName: Dorms Lobby
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5021
     components:
     - rot: -1.5707963267948966 rad
@@ -96338,6 +96492,7 @@ entities:
       cameraName: Park NW
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5022
     components:
     - rot: 1.5707963267948966 rad
@@ -96354,6 +96509,7 @@ entities:
       cameraName: Park SE
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5023
     components:
     - rot: -1.5707963267948966 rad
@@ -96370,6 +96526,7 @@ entities:
       cameraName: Theatre Prep
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5024
     components:
     - pos: 13.5,9.5
@@ -96385,6 +96542,7 @@ entities:
       cameraName: Parlour Front
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5025
     components:
     - rot: 3.141592653589793 rad
@@ -96401,6 +96559,7 @@ entities:
       cameraName: Parlour Bar
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5030
     components:
     - rot: -1.5707963267948966 rad
@@ -96417,6 +96576,7 @@ entities:
       cameraName: Cargo Waiting Area
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5031
     components:
     - rot: 3.141592653589793 rad
@@ -96433,6 +96593,7 @@ entities:
       cameraName: Service Hall Rear
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5032
     components:
     - pos: -6.5,25.5
@@ -96448,6 +96609,7 @@ entities:
       cameraName: Service Hall Fore
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5033
     components:
     - rot: -1.5707963267948966 rad
@@ -96464,6 +96626,7 @@ entities:
       cameraName: Service Hall Top
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5619
     components:
     - rot: -1.5707963267948966 rad
@@ -96480,6 +96643,7 @@ entities:
       cameraName: Evac
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15742
     components:
     - rot: 1.5707963267948966 rad
@@ -96496,6 +96660,7 @@ entities:
       cameraName: Arrivals
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15743
     components:
     - rot: -1.5707963267948966 rad
@@ -96512,6 +96677,7 @@ entities:
       cameraName: Arrivals diner
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15744
     components:
     - rot: -1.5707963267948966 rad
@@ -96528,6 +96694,7 @@ entities:
       cameraName: Arrivals holding cell
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15745
     components:
     - pos: 11.5,-36.5
@@ -96543,6 +96710,7 @@ entities:
       cameraName: Courtroom
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15746
     components:
     - rot: -1.5707963267948966 rad
@@ -96559,6 +96727,7 @@ entities:
       cameraName: Jury waiting room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15747
     components:
     - rot: -1.5707963267948966 rad
@@ -96575,6 +96744,7 @@ entities:
       cameraName: Courtroom entrance
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 16779
     components:
     - rot: -1.5707963267948966 rad
@@ -96591,6 +96761,7 @@ entities:
       cameraName: Common Room Lobby
       enabled: True
       type: AICamera
+    - type: Visibility
 - proto: SurveillanceCameraMedical
   entities:
   - uid: 4037
@@ -96609,6 +96780,7 @@ entities:
       cameraName: Psychologist's Office
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4038
     components:
     - rot: -1.5707963267948966 rad
@@ -96625,6 +96797,7 @@ entities:
       cameraName: Psychologist's Room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4039
     components:
     - rot: -1.5707963267948966 rad
@@ -96641,6 +96814,7 @@ entities:
       cameraName: Medical Locker Room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4040
     components:
     - rot: 1.5707963267948966 rad
@@ -96657,6 +96831,7 @@ entities:
       cameraName: Clone Bay
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4041
     components:
     - pos: -6.5,-33.5
@@ -96672,6 +96847,7 @@ entities:
       cameraName: Medical Lobby
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4042
     components:
     - rot: -1.5707963267948966 rad
@@ -96684,6 +96860,7 @@ entities:
       cameraName: Chemistry lab
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4043
     components:
     - rot: 1.5707963267948966 rad
@@ -96699,6 +96876,7 @@ entities:
       cameraName: Chief Medical Officer's office
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4044
     components:
     - pos: -10.5,-46.5
@@ -96714,6 +96892,7 @@ entities:
       cameraName: Morgue
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4045
     components:
     - rot: 3.141592653589793 rad
@@ -96730,6 +96909,7 @@ entities:
       cameraName: Virology
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4051
     components:
     - rot: -1.5707963267948966 rad
@@ -96746,6 +96926,7 @@ entities:
       cameraName: Medical Staff Room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4057
     components:
     - rot: 3.141592653589793 rad
@@ -96762,6 +96943,7 @@ entities:
       cameraName: Medical Seating Area
       enabled: True
       type: AICamera
+    - type: Visibility
 - proto: SurveillanceCameraRouterCommand
   entities:
   - uid: 2626
@@ -96829,6 +97011,7 @@ entities:
       cameraName: Chapel
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15749
     components:
     - pos: 41.5,-31.5
@@ -96844,6 +97027,7 @@ entities:
       cameraName: Epistemics lab
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15750
     components:
     - rot: -1.5707963267948966 rad
@@ -96860,6 +97044,7 @@ entities:
       cameraName: Epistemics locker room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15751
     components:
     - rot: 1.5707963267948966 rad
@@ -96876,6 +97061,7 @@ entities:
       cameraName: Mystagogue's office
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15752
     components:
     - rot: 1.5707963267948966 rad
@@ -96892,6 +97078,7 @@ entities:
       cameraName: Artifact testing lab
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15753
     components:
     - pos: 42.5,-46.5
@@ -96907,6 +97094,7 @@ entities:
       cameraName: Artifact control room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 15754
     components:
     - rot: 1.5707963267948966 rad
@@ -96923,6 +97111,7 @@ entities:
       cameraName: Golemancer's office
       enabled: True
       type: AICamera
+    - type: Visibility
 - proto: SurveillanceCameraSecurity
   entities:
   - uid: 271
@@ -96940,6 +97129,7 @@ entities:
       cameraName: Perma
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 850
     components:
     - rot: 3.141592653589793 rad
@@ -96956,6 +97146,7 @@ entities:
       cameraName: Level one armory
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 851
     components:
     - rot: -1.5707963267948966 rad
@@ -96972,6 +97163,7 @@ entities:
       cameraName: Level two armory
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 854
     components:
     - rot: -1.5707963267948966 rad
@@ -96988,6 +97180,7 @@ entities:
       cameraName: Sec medical
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 855
     components:
     - rot: -1.5707963267948966 rad
@@ -97004,6 +97197,7 @@ entities:
       cameraName: Warden's office
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 856
     components:
     - rot: 1.5707963267948966 rad
@@ -97020,6 +97214,7 @@ entities:
       cameraName: Perma entry
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 857
     components:
     - pos: -15.5,-0.5
@@ -97035,6 +97230,7 @@ entities:
       cameraName: Evidence lockers
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 858
     components:
     - rot: -1.5707963267948966 rad
@@ -97051,6 +97247,7 @@ entities:
       cameraName: Cell 3
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 859
     components:
     - rot: -1.5707963267948966 rad
@@ -97067,6 +97264,7 @@ entities:
       cameraName: Cell 2
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 860
     components:
     - rot: -1.5707963267948966 rad
@@ -97083,6 +97281,7 @@ entities:
       cameraName: Cell 1
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 861
     components:
     - rot: 3.141592653589793 rad
@@ -97099,6 +97298,7 @@ entities:
       cameraName: Security entrance closet
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 862
     components:
     - rot: 1.5707963267948966 rad
@@ -97115,6 +97315,7 @@ entities:
       cameraName: Security entrance
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 863
     components:
     - rot: -1.5707963267948966 rad
@@ -97131,6 +97332,7 @@ entities:
       cameraName: Security lobby
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 864
     components:
     - rot: 1.5707963267948966 rad
@@ -97147,6 +97349,7 @@ entities:
       cameraName: Security locker room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 865
     components:
     - rot: 1.5707963267948966 rad
@@ -97163,6 +97366,7 @@ entities:
       cameraName: Interrogation room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 866
     components:
     - rot: 3.141592653589793 rad
@@ -97179,6 +97383,7 @@ entities:
       cameraName: Head of Security's office
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 876
     components:
     - pos: -10.5,2.5
@@ -97194,6 +97399,7 @@ entities:
       cameraName: Cells hallway
       enabled: True
       type: AICamera
+    - type: Visibility
 - proto: SurveillanceCameraService
   entities:
   - uid: 3570
@@ -97212,6 +97418,7 @@ entities:
       cameraName: Janitor's Closet
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3571
     components:
     - rot: 1.5707963267948966 rad
@@ -97227,6 +97434,7 @@ entities:
       cameraName: Chief Service Supervisor's office
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3572
     components:
     - rot: -1.5707963267948966 rad
@@ -97243,6 +97451,7 @@ entities:
       cameraName: Clownin' Room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3574
     components:
     - rot: -1.5707963267948966 rad
@@ -97259,6 +97468,7 @@ entities:
       cameraName: Hydroponics
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3702
     components:
     - rot: 1.5707963267948966 rad
@@ -97275,6 +97485,7 @@ entities:
       cameraName: Lawyer's Office
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3753
     components:
     - pos: -8.5,19.5
@@ -97290,6 +97501,7 @@ entities:
       cameraName: Reporter's Office
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 4656
     components:
     - rot: 3.141592653589793 rad
@@ -97306,6 +97518,7 @@ entities:
       cameraName: Kitchen
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5026
     components:
     - rot: 1.5707963267948966 rad
@@ -97322,6 +97535,7 @@ entities:
       cameraName: Bartender's Room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5028
     components:
     - rot: -1.5707963267948966 rad
@@ -97338,6 +97552,7 @@ entities:
       cameraName: Pantry
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 5029
     components:
     - rot: -1.5707963267948966 rad
@@ -97354,6 +97569,7 @@ entities:
       cameraName: Freezer
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 7929
     components:
     - pos: 10.5,33.5
@@ -97369,6 +97585,7 @@ entities:
       cameraName: Service Breakroom
       enabled: True
       type: AICamera
+    - type: Visibility
 - proto: SurveillanceCameraSupply
   entities:
   - uid: 3421
@@ -97387,6 +97604,7 @@ entities:
       cameraName: Cargo Locker Room
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3422
     components:
     - rot: 1.5707963267948966 rad
@@ -97399,6 +97617,7 @@ entities:
       cameraName: Cargo Lobby
       enabled: True
       type: AICamera
+    - type: Visibility
   - uid: 3423
     components:
     - rot: -1.5707963267948966 rad
@@ -97415,6 +97634,7 @@ entities:
       cameraName: Cargo Dock
       enabled: True
       type: AICamera
+    - type: Visibility
 - proto: SurveillanceCameraWirelessRouterCircuitboard
   entities:
   - uid: 9910
@@ -97439,6 +97659,7 @@ entities:
       type: Transform
     - zoom: 0.4,0.4
       type: Eye
+    - type: Visibility
 - proto: SurveillanceWirelessCameraAnchoredEntertainment
   entities:
   - uid: 3705
@@ -97456,6 +97677,7 @@ entities:
       type: SurveillanceCamera
     - zoom: 0.7,0.7
       type: Eye
+    - type: Visibility
 - proto: SurveillanceWirelessCameraMovableEntertainment
   entities:
   - uid: 5537
@@ -97471,6 +97693,7 @@ entities:
       nameSet: True
       id: Theatre Troupe
       type: SurveillanceCamera
+    - type: Visibility
   - uid: 15844
     components:
     - name: reporter's camera
@@ -97486,6 +97709,7 @@ entities:
       type: SurveillanceCamera
     - zoom: 0.5,0.5
       type: Eye
+    - type: Visibility
 - proto: SurvivalKnife
   entities:
   - uid: 9078
@@ -100095,28 +100319,6 @@ entities:
         - port: Close
           uid: 2740
       type: SignalTransmitter
-- proto: UnfinishedMachineFrame
-  entities:
-  - uid: 3375
-    components:
-    - pos: 27.5,15.5
-      parent: 1
-      type: Transform
-  - uid: 3377
-    components:
-    - pos: 26.5,15.5
-      parent: 1
-      type: Transform
-  - uid: 5623
-    components:
-    - pos: 29.5,15.5
-      parent: 1
-      type: Transform
-  - uid: 5624
-    components:
-    - pos: 30.5,15.5
-      parent: 1
-      type: Transform
 - proto: UniformJabroni
   entities:
   - uid: 14520
