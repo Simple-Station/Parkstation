@@ -1,0 +1,12 @@
+- type: entity
+  id: BriefcaseBrownCash
+  name: brown briefcase
+  parent: BriefcaseBrown
+  suffix: Cash
+  components:
+  - type: StorageFill
+    contents:
+      - id: SpaceCash1000
+        amount: 20
+  - type: Storage
+    capacity: 100

@@ -1,0 +1,22 @@
+- type: entity
+  parent: BaseItem
+  id: SentientGorillaCube
+  name: Sentient Gorilla Cube
+  description: A tiny teleportation device. After activation, once a syndicate-brand sentient gorilla is ready to take on the mission of assisting you, they will be teleported in to the device's location.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Devices/gorillacube.rsi
+    layers:
+    - state: gorillacube
+    netsync: false
+  - type: GhostRole
+    name: Syndicate Gorilla
+    description: Someone needs reinforcements. You, the first gorilla the syndicate could find and upgrade, will help them.
+    rules: Normal syndicate antagonist rules apply. Work with whoever called you in, and don't harm them.
+  - type: GhostRoleMobSpawner
+    prototype: MobGorillaSyndicate
+  - type: EmitSoundOnUse
+    sound: /Audio/Misc/emergency_meeting.ogg
+  - type: ItemCooldown
+  - type: UseDelay
+    delay: 300

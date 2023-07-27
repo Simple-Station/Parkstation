@@ -27,7 +27,7 @@
   name: Mk.45C
   parent: BaseWeaponPistol
   id: WeaponPistolMk45C
-  description: "Incredibly Robust 'Sidearm'. Good against most anything. Certified Anti-Clown Device"
+  description: "Incredibly robust 'sidearm'. Good against most anything, and a certified anti-clown device."
   components:
   - type: Sprite
     sprite: SimpleStation14/Objects/Weapons/Guns/Pistols/mk45c.rsi
