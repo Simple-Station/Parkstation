@@ -33,6 +33,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
+using Content.Shared.SimpleStation14.Silicon.Components; // Parkstation-IPCs
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
@@ -101,10 +102,10 @@ namespace Content.Server.Zombies
             if (HasComp<ZombieComponent>(target))
                 return;
 
-            // Begin Nyano-code: Don't zombify cyborg
-            if (HasComp<CyborgComponent>(target))
+            // Parkstation-IPC-Start
+            if (HasComp<SiliconComponent>(target))
                 return;
-            // End Nyano-code.
+            // Parkstation-IPC-End
 
             if (!Resolve(target, ref mobState, logMissing: false))
                 return;
