@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Server.SimpleStation14.Species.Shadowkin.Events;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
@@ -163,7 +164,9 @@ public sealed class ShadowkinSystem : EntitySystem
                 (
                     ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Tired] +
                     ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Okay]
-                ) / 2f
+                ) / 2f &&
+                // Don't sleep if asleep
+                !_entity.HasComponent<SleepingComponent>(uid)
             )
             {
                 // If so, start the timer
