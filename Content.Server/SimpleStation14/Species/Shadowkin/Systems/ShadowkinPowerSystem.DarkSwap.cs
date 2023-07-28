@@ -6,6 +6,7 @@ using Content.Server.Visible;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
@@ -57,6 +58,16 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
     private void DarkSwap(EntityUid uid, ShadowkinDarkSwapPowerComponent component, ShadowkinDarkSwapEvent args)
     {
+        // Need power to drain power
+        if (!_entity.HasComponent<ShadowkinComponent>(args.Performer))
+            return;
+
+        // Don't activate abilities if handcuffed
+        // TODO: Something like the Psionic Headcage to disable powers for Shadowkin
+        if (_entity.HasComponent<HandcuffComponent>(args.Performer))
+            return;
+
+
         var hasComp = _entity.HasComponent<ShadowkinDarkSwappedComponent>(args.Performer);
 
         SetDarkened(

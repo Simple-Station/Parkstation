@@ -3,6 +3,7 @@ using Content.Server.SimpleStation14.Species.Shadowkin.Events;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Cuffs.Components;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Robust.Shared.Prototypes;
 
@@ -38,8 +39,15 @@ public sealed class ShadowkinRestSystem : EntitySystem
 
     private void Rest(EntityUid uid, ShadowkinRestPowerComponent component, ShadowkinRestEvent args)
     {
+        // Need power to modify power
         if (!_entity.HasComponent<ShadowkinComponent>(args.Performer))
             return;
+
+        // Rest is a funny ability, keep it :)
+        // // Don't activate abilities if handcuffed
+        // if (_entity.HasComponent<HandcuffComponent>(args.Performer))
+        //     return;
+
 
         // Now doing what you weren't before
         component.IsResting = !component.IsResting;

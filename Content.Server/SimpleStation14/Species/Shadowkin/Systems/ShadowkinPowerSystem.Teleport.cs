@@ -4,6 +4,7 @@ using Content.Server.SimpleStation14.Species.Shadowkin.Components;
 using Content.Server.SimpleStation14.Species.Shadowkin.Events;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
+using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Pulling.Components;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
@@ -48,8 +49,13 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
 
     private void Teleport(EntityUid uid, ShadowkinTeleportPowerComponent component, ShadowkinTeleportEvent args)
     {
-        if (args.Handled ||
-            !_entity.TryGetComponent<ShadowkinComponent>(args.Performer, out var comp))
+        // Need power to drain power
+        if (!_entity.TryGetComponent<ShadowkinComponent>(args.Performer, out var comp))
+            return;
+
+        // Don't activate abilities if handcuffed
+        // TODO: Something like the Psionic Headcage to disable powers for Shadowkin
+        if (_entity.HasComponent<HandcuffComponent>(args.Performer))
             return;
 
 

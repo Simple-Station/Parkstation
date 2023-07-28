@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Server.SimpleStation14.Species.Shadowkin.Events;
+using Content.Shared.Cuffs.Components;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -113,6 +114,12 @@ public sealed class ShadowkinSystem : EntitySystem
             }
             // I can't figure out how to get this to go to the 100% filled state in the above if statement 😢
             _power.UpdateAlert(uid, true, shadowkin.PowerLevel);
+
+
+            // Don't randomly activate abilities if handcuffed
+            // TODO: Something like the Psionic Headcage to disable powers for Shadowkin
+            if (_entity.HasComponent<HandcuffComponent>(uid))
+                continue;
 
             #region MaxPower
             // Check if they're at max power
