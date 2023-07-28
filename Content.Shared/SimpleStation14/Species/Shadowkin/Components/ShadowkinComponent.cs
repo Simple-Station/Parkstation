@@ -77,7 +77,7 @@ public sealed partial class ShadowkinComponent : Component
     ///     How much energy is gained per second.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public float PowerLevelGain = 2f;
+    public float PowerLevelGain = 0.75f;
 
     /// <summary>
     ///     Power gain multiplier
