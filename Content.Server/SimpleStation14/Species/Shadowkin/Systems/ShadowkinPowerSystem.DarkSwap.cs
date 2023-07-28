@@ -75,12 +75,11 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             args.StaminaCostOff,
             args.PowerCostOff,
             args.SoundOff,
-            args.VolumeOff
+            args.VolumeOff,
+            args
         );
 
-        _magic.Speak(args);
-
-        args.Handled = true;
+        _magic.Speak(args, false);
     }
 
 
@@ -96,10 +95,11 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         float staminaCostOff,
         float powerCostOff,
         SoundSpecifier soundOff,
-        float volumeOff
+        float volumeOff,
+        ShadowkinDarkSwapEvent? args
     )
     {
-        var ev = new ShadowkinDarkSwapAttemptEvent();
+        var ev = new ShadowkinDarkSwapAttemptEvent(performer);
         RaiseLocalEvent(ev);
         if (ev.Cancelled)
             return;
@@ -127,6 +127,9 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             _power.TryAddPowerLevel(performer, -powerCostOff);
             _stamina.TakeStaminaDamage(performer, staminaCostOff);
         }
+
+        if (args != null)
+            args.Handled = true;
     }
 
 

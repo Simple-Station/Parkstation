@@ -179,32 +179,24 @@ public sealed class ShadowkinSystem : EntitySystem
 
     private void ForceDarkSwap(EntityUid uid, ShadowkinComponent component)
     {
-        // Add/Remove DarkSwapped component, which will handle the rest
+        // Add/Remove the component, which should handle the rest
         if (_entity.HasComponent<ShadowkinDarkSwappedComponent>(uid))
-        {
-            RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(uid, false));
             _entity.RemoveComponent<ShadowkinDarkSwappedComponent>(uid);
-        }
         else
-        {
-            RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(uid, true));
-            _entity.EnsureComponent<ShadowkinDarkSwappedComponent>(uid);
-        }
+            _entity.AddComponent<ShadowkinDarkSwappedComponent>(uid);
     }
 
     private void ForceTeleport(EntityUid uid, ShadowkinComponent component)
     {
         // Create the event we'll later raise, and set it to our Shadowkin.
-        var args = new ShadowkinTeleportEvent
-        {
-            Performer = uid
-        };
+        var args = new ShadowkinTeleportEvent { Performer = uid };
 
         // Pick a random location on the map until we find one that can be reached.
         var coords = Transform(uid).Coordinates;
         EntityCoordinates? target = null;
 
-        for (var i = 8; i != 0; i--) // It'll iterate up to 8 times, shrinking in distance each time, and if it doesn't find a valid location, it'll return.
+        // It'll iterate up to 8 times, shrinking in distance each time, and if it doesn't find a valid location, it'll return.
+        for (var i = 8; i != 0; i--)
         {
             var angle = Angle.FromDegrees(_random.Next(360));
             var offset = new Vector2((float) (i * Math.Cos(angle)), (float) (i * Math.Sin(angle)));
