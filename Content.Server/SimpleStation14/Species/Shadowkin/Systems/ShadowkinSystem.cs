@@ -89,14 +89,21 @@ public sealed class ShadowkinSystem : EntitySystem
         // Update power level for all shadowkin
         while (query.MoveNext(out var uid, out var shadowkin))
         {
-            // Skip if the shadowkin is dead or catatonic
+            // Ensure dead or critical shadowkin aren't swapped, skip them
             if (_mobState.IsDead(uid) ||
-                !_entity.System<MindSystem>().TryGetMind(uid, out var mind) ||
+                _mobState.IsCritical(uid))
+            {
+                _entity.RemoveComponent<ShadowkinDarkSwappedComponent>(uid);
+                continue;
+            }
+
+            // Don't update things for ssd shadowkin
+            if (!_entity.System<MindSystem>().TryGetMind(uid, out var mind) ||
                 mind.Session == null)
                 continue;
 
-            var oldPowerLevel = _power.GetLevelName(shadowkin.PowerLevel);
 
+            var oldPowerLevel = _power.GetLevelName(shadowkin.PowerLevel);
             _power.TryUpdatePowerLevel(uid, frameTime);
 
             if (oldPowerLevel != _power.GetLevelName(shadowkin.PowerLevel))
