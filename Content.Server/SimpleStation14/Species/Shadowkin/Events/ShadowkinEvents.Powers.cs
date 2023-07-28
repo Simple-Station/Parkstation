@@ -17,10 +17,10 @@ public sealed class ShadowkinTeleportEvent : WorldTargetActionEvent, ISpeakSpell
 
 
     [DataField("powerCost")]
-    public float PowerCost = 35f;
+    public float PowerCost = 40f;
 
     [DataField("staminaCost")]
-    public float StaminaCost = 30f;
+    public float StaminaCost = 20f;
 
 
     [DataField("speech")]
@@ -49,13 +49,13 @@ public sealed class ShadowkinDarkSwapEvent : InstantActionEvent, ISpeakSpell
     ///     How much stamina to drain when darkening.
     /// </summary>
     [DataField("powerCostOn")]
-    public float PowerCostOn = 45f;
+    public float PowerCostOn = 60f;
 
     /// <summary>
     ///     How much stamina to drain when lightening.
     /// </summary>
     [DataField("powerCostOff")]
-    public float PowerCostOff = 35f;
+    public float PowerCostOff = 45f;
 
     /// <summary>
     ///     How much stamina to drain when darkening.
@@ -71,12 +71,17 @@ public sealed class ShadowkinDarkSwapEvent : InstantActionEvent, ISpeakSpell
 
 
     [DataField("speech")]
-    public string? Speech { get; }
+    public string? Speech { get; set; }
 }
 
 public sealed class ShadowkinDarkSwapAttemptEvent : CancellableEntityEventArgs
 {
+    EntityUid Performer;
 
+    public ShadowkinDarkSwapAttemptEvent(EntityUid performer)
+    {
+        Performer = performer;
+    }
 }
 
 
