@@ -227,46 +227,54 @@ namespace Content.Server.GameTicking
             // }
 
             // Parkstation-loadouts start
-            var invSystem = EntitySystem.Get<InventorySystem>();
-            if (invSystem.TryGetSlotEntity(mob, "back", out var item))
+            foreach (var loadout in character.LoadoutPreferences.Distinct().ToArray())
             {
-                EntityManager.TryGetComponent<ServerStorageComponent>(item, out var inventory);
+                var slot = "";
+                if (!_prototypeManager.TryIndex<LoadoutPrototype>(loadout, out var loadoutProto))
+                    continue;
 
-                foreach (var loadout in character.LoadoutPreferences)
+                if (loadoutProto.JobWhitelist != null && !loadoutProto.JobWhitelist.Contains(jobPrototype.ID))
+                    continue;
+                if (loadoutProto.JobBlacklist != null && loadoutProto.JobBlacklist.Contains(jobPrototype.ID))
+                    continue;
+
+                var spawned = EntityManager.SpawnEntity(loadoutProto.Item, EntityManager.GetComponent<TransformComponent>(mob).Coordinates);
+
+                var invSystem = Get<InventorySystem>();
+                if (EntityManager.TryGetComponent<ClothingComponent>(spawned, out var clothingComp))
                 {
-                    var slot = "";
-                    if (!_prototypeManager.TryIndex<LoadoutPrototype>(loadout, out var loadoutProto)) continue;
-
-                    if (loadoutProto.JobWhitelist != null) if (!loadoutProto.JobWhitelist.Contains(jobPrototype.ID)) continue;
-                    if (loadoutProto.JobBlacklist != null) if (loadoutProto.JobBlacklist.Contains(jobPrototype.ID)) continue;
-
-                    var spawned = EntityManager.SpawnEntity(loadoutProto.Item, EntityManager.GetComponent<TransformComponent>(mob).Coordinates);
-
-                    if (EntityManager.TryGetComponent<ClothingComponent>(spawned, out var clothingComp))
+                    if (invSystem.TryGetSlots(mob, out var slotDefinitions))
                     {
-                        if (invSystem.TryGetSlots(mob, out var slotDefinitions) && slotDefinitions != null)
+                        var deleted = false;
+                        foreach (var slotCur in slotDefinitions)
                         {
-                            var deleted = false;
-                            foreach (var slotCur in slotDefinitions)
+                            if (!clothingComp.Slots.HasFlag(slotCur.SlotFlags) || deleted)
+                                continue;
+
+                            if (invSystem.TryGetSlotEntity(mob, slotCur.Name, out var slotItem))
                             {
-                                if (!clothingComp.Slots.HasFlag(slotCur.SlotFlags) || deleted) continue;
-
-                                if (invSystem.TryGetSlotEntity(mob, slotCur.Name, out var slotItem)) {
-                                    var slotItemMeta = EntityManager.GetComponent<MetaDataComponent>(slotItem.Value);
-                                    if (loadoutProto.Exclusive || slotItemMeta.EntityName == "grey jumpsuit")
+                                var slotItemMeta = EntityManager.GetComponent<MetaDataComponent>(slotItem.Value);
+                                if (loadoutProto.Exclusive || slotItemMeta.EntityName == "grey jumpsuit")
                                     EntityManager.DeleteEntity((EntityUid)slotItem);
-                                }
-
-                                slot = slotCur.Name;
-                                deleted = true;
                             }
+
+                            slot = slotCur.Name;
+                            deleted = true;
                         }
                     }
-
-                    if (invSystem.TryEquip(mob, spawned, slot)) continue;
-                    if (inventory?.Storage == null) continue;
-                    if (inventory.Storage.CanInsert(spawned)) inventory.Storage.Insert(spawned);
                 }
+
+                if (!invSystem.TryGetSlotEntity(mob, "back", out var item))
+                    continue;
+
+                EntityManager.TryGetComponent<ServerStorageComponent>(item, out var inventory);
+
+                if (invSystem.TryEquip(mob, spawned, slot) ||
+                    inventory?.Storage == null)
+                    continue;
+
+                if (inventory.Storage.CanInsert(spawned))
+                    inventory.Storage.Insert(spawned);
             }
             // Parkstation-loadouts end
 
