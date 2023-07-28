@@ -30,13 +30,9 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly MagicSystem _magic = default!;
 
-    private InstantAction _action = default!;
-
     public override void Initialize()
     {
         base.Initialize();
-
-        _action = new InstantAction(_prototype.Index<InstantActionPrototype>("ShadowkinDarkSwap"));
 
         SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ComponentStartup>(Startup);
         SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ComponentShutdown>(Shutdown);
@@ -50,12 +46,12 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
     private void Startup(EntityUid uid, ShadowkinDarkSwapPowerComponent component, ComponentStartup args)
     {
-        _actions.AddAction(uid, _action, uid);
+        _actions.AddAction(uid, new InstantAction(_prototype.Index<InstantActionPrototype>("ShadowkinDarkSwap")), null);
     }
 
     private void Shutdown(EntityUid uid, ShadowkinDarkSwapPowerComponent component, ComponentShutdown args)
     {
-        _actions.RemoveAction(uid, _action);
+        _actions.RemoveAction(uid, new InstantAction(_prototype.Index<InstantActionPrototype>("ShadowkinDarkSwap")));
     }
 
 

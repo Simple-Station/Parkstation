@@ -15,13 +15,9 @@ public sealed class ShadowkinRestSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ShadowkinPowerSystem _power = default!;
 
-    private InstantAction _action = default!;
-
     public override void Initialize()
     {
         base.Initialize();
-
-        _action = new InstantAction(_prototype.Index<InstantActionPrototype>("ShadowkinRest"));
 
         SubscribeLocalEvent<ShadowkinRestPowerComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ShadowkinRestPowerComponent, ComponentShutdown>(OnShutdown);
@@ -32,12 +28,12 @@ public sealed class ShadowkinRestSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, ShadowkinRestPowerComponent component, ComponentStartup args)
     {
-        _actions.AddAction(uid, _action, uid);
+        _actions.AddAction(uid, new InstantAction(_prototype.Index<InstantActionPrototype>("ShadowkinRest")), null);
     }
 
     private void OnShutdown(EntityUid uid, ShadowkinRestPowerComponent component, ComponentShutdown args)
     {
-        _actions.RemoveAction(uid, _action);
+        _actions.RemoveAction(uid, new InstantAction(_prototype.Index<InstantActionPrototype>("ShadowkinRest")));
     }
 
     private void Rest(EntityUid uid, ShadowkinRestPowerComponent component, ShadowkinRestEvent args)

@@ -24,13 +24,9 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly MagicSystem _magic = default!;
 
-    private WorldTargetAction _action = default!;
-
     public override void Initialize()
     {
         base.Initialize();
-
-        _action = new WorldTargetAction(_prototype.Index<WorldTargetActionPrototype>("ShadowkinTeleport"));
 
         SubscribeLocalEvent<ShadowkinTeleportPowerComponent, ComponentStartup>(Startup);
         SubscribeLocalEvent<ShadowkinTeleportPowerComponent, ComponentShutdown>(Shutdown);
@@ -41,12 +37,12 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
 
     private void Startup(EntityUid uid, ShadowkinTeleportPowerComponent component, ComponentStartup args)
     {
-        _actions.AddAction(uid, _action, uid);
+        _actions.AddAction(uid, new WorldTargetAction(_prototype.Index<WorldTargetActionPrototype>("ShadowkinTeleport")), null);
     }
 
     private void Shutdown(EntityUid uid, ShadowkinTeleportPowerComponent component, ComponentShutdown args)
     {
-        _actions.RemoveAction(uid, _action);
+        _actions.RemoveAction(uid, new WorldTargetAction(_prototype.Index<WorldTargetActionPrototype>("ShadowkinTeleport")));
     }
 
 
