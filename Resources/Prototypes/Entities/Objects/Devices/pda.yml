@@ -57,6 +57,7 @@
       icon: { sprite: Objects/Tools/flashlight.rsi, state: flashlight }
       iconOn: Objects/Tools/flashlight.rsi/flashlight-on.png
       event: !type:ToggleActionEvent
+  - type: ShadowkinLight
   - type: PointLight
     enabled: false
     radius: 1.5
