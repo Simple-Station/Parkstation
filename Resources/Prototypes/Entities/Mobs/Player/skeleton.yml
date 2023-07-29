@@ -8,7 +8,7 @@
       interactSuccessString: hugging-success-generic
       interactSuccessSound: /Audio/Effects/thudswoosh.ogg
       messagePerceivedByOthers: hugging-success-generic-others
-    - type: Mind
+    - type: MindContainer
       showExamineInfo: true
     - type: Input
       context: "human"
@@ -22,7 +22,7 @@
     - type: CanHostGuardian
     - type: MailReceiver
     - type: PotentialPsionic
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - NanoTrasen
 
@@ -32,8 +32,8 @@
   id: MobSkeletonPirate
   components:
   - type: GhostRole
-    name: Skeleton Pirate
-    description: Cause chaos and loot the station for treasure.
+    name: ghost-role-information-skeleton-pirate-name
+    description: ghost-role-information-skeleton-pirate-description
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [PirateGear]
@@ -46,8 +46,8 @@
   id: MobSkeletonBiker
   components:
   - type: GhostRole
-    name: Skeleton Biker
-    description: Ride around on your sweet ride.
+    name: ghost-role-information-skeleton-biker-name
+    description: ghost-role-information-skeleton-biker-description
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [SkeletonBiker]

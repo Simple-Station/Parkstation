@@ -16,11 +16,8 @@ using Robust.Shared.Physics.Controllers;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Mech.Components;
-using Content.Shared.Parallax.Biomes;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Noise;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
@@ -34,6 +31,7 @@ namespace Content.Shared.Movement.Systems
     {
         [Dependency] private readonly IConfigurationManager _configManager = default!;
         [Dependency] protected readonly IGameTiming Timing = default!;
+        [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
@@ -49,8 +47,6 @@ namespace Content.Shared.Movement.Systems
         private const float StepSoundMoveDistanceWalking = 1.5f;
 
         private const float FootstepVariation = 0f;
-        private const float FootstepVolume = 3f;
-        private const float FootstepWalkingAddedVolumeMultiplier = 0f;
 
         protected ISawmill Sawmill = default!;
 
@@ -113,26 +109,20 @@ namespace Content.Shared.Movement.Systems
             EntityQuery<SharedPullableComponent> pullableQuery,
             EntityQuery<MovementSpeedModifierComponent> modifierQuery)
         {
-            bool canMove = mover.CanMove;
-            if (relayTargetQuery.TryGetComponent(uid, out var relayTarget) && relayTarget.Entities.Count > 0)
+            var canMove = mover.CanMove;
+            if (relayTargetQuery.TryGetComponent(uid, out var relayTarget))
             {
-                DebugTools.Assert(relayTarget.Entities.Count <= 1, "Multiple relayed movers are not supported at the moment");
-
-                bool found = false;
-                foreach (var ent in relayTarget.Entities)
+                if (_mobState.IsIncapacitated(relayTarget.Source) ||
+                    !moverQuery.TryGetComponent(relayTarget.Source, out var relayedMover))
                 {
-                    if (_mobState.IsIncapacitated(ent) || !moverQuery.TryGetComponent(ent, out var relayedMover))
-                        continue;
-
-                    found = true;
+                    canMove = false;
+                }
+                else
+                {
                     mover.RelativeEntity = relayedMover.RelativeEntity;
                     mover.RelativeRotation = relayedMover.RelativeRotation;
                     mover.TargetRelativeRotation = relayedMover.TargetRelativeRotation;
-                    break;
                 }
-
-                // lets just hope that this is the same entity that set the movement keys/direction.
-                canMove &= found;
             }
 
             // Update relative movement
@@ -144,35 +134,7 @@ namespace Content.Shared.Movement.Systems
                 }
             }
 
-            var angleDiff = Angle.ShortestDistance(mover.RelativeRotation, mover.TargetRelativeRotation);
-
-            // if we've just traversed then lerp to our target rotation.
-            if (!angleDiff.EqualsApprox(Angle.Zero, 0.001))
-            {
-                var adjustment = angleDiff * 5f * frameTime;
-                var minAdjustment = 0.01 * frameTime;
-
-                if (angleDiff < 0)
-                {
-                    adjustment = Math.Min(adjustment, -minAdjustment);
-                    adjustment = Math.Clamp(adjustment, angleDiff, -angleDiff);
-                }
-                else
-                {
-                    adjustment = Math.Max(adjustment, minAdjustment);
-                    adjustment = Math.Clamp(adjustment, -angleDiff, angleDiff);
-                }
-
-                mover.RelativeRotation += adjustment;
-                mover.RelativeRotation.FlipPositive();
-                Dirty(mover);
-            }
-            else if (!angleDiff.Equals(Angle.Zero))
-            {
-                mover.TargetRelativeRotation.FlipPositive();
-                mover.RelativeRotation = mover.TargetRelativeRotation;
-                Dirty(mover);
-            }
+            LerpRotation(mover, frameTime);
 
             if (!canMove
                 || physicsComponent.BodyStatus != BodyStatus.OnGround
@@ -196,8 +158,8 @@ namespace Content.Shared.Movement.Systems
 
                 if (!touching)
                 {
-                    var ev = new CanWeightlessMoveEvent();
-                    RaiseLocalEvent(uid, ref ev);
+                    var ev = new CanWeightlessMoveEvent(uid);
+                    RaiseLocalEvent(uid, ref ev, true);
                     // No gravity: is our entity touching anything?
                     touching = ev.CanMove;
 
@@ -219,7 +181,7 @@ namespace Content.Shared.Movement.Systems
             var parentRotation = GetParentGridAngle(mover, xformQuery);
             var worldTotal = _relativeMovement ? parentRotation.RotateVec(total) : total;
 
-            DebugTools.Assert(MathHelper.CloseToPercent(total.Length, worldTotal.Length));
+            DebugTools.Assert(MathHelper.CloseToPercent(total.Length(), worldTotal.Length()));
 
             var velocity = physicsComponent.LinearVelocity;
             float friction;
@@ -264,19 +226,16 @@ namespace Content.Shared.Movement.Systems
                 if (!weightless && mobMoverQuery.TryGetComponent(uid, out var mobMover) &&
                     TryGetSound(weightless, uid, mover, mobMover, xform, out var sound))
                 {
-                    var soundModifier = mover.Sprinting ? 1.0f : FootstepWalkingAddedVolumeMultiplier;
+                    var soundModifier = mover.Sprinting ? 3.5f : 1.5f;
 
                     var audioParams = sound.Params
-                        .WithVolume(FootstepVolume * soundModifier)
+                        .WithVolume(sound.Params.Volume + soundModifier)
                         .WithVariation(sound.Params.Variation ?? FootstepVariation);
 
                     // If we're a relay target then predict the sound for all relays.
                     if (relayTarget != null)
                     {
-                        foreach (var ent in relayTarget.Entities)
-                        {
-                            _audio.PlayPredicted(sound, uid, ent, audioParams);
-                        }
+                        _audio.PlayPredicted(sound, uid, relayTarget.Source, audioParams);
                     }
                     else
                     {
@@ -296,9 +255,42 @@ namespace Content.Shared.Movement.Systems
             PhysicsSystem.SetAngularVelocity(physicsUid, 0, body: physicsComponent);
         }
 
+        public void LerpRotation(InputMoverComponent mover, float frameTime)
+        {
+            var angleDiff = Angle.ShortestDistance(mover.RelativeRotation, mover.TargetRelativeRotation);
+
+            // if we've just traversed then lerp to our target rotation.
+            if (!angleDiff.EqualsApprox(Angle.Zero, 0.001))
+            {
+                var adjustment = angleDiff * 5f * frameTime;
+                var minAdjustment = 0.01 * frameTime;
+
+                if (angleDiff < 0)
+                {
+                    adjustment = Math.Min(adjustment, -minAdjustment);
+                    adjustment = Math.Clamp(adjustment, angleDiff, -angleDiff);
+                }
+                else
+                {
+                    adjustment = Math.Max(adjustment, minAdjustment);
+                    adjustment = Math.Clamp(adjustment, -angleDiff, angleDiff);
+                }
+
+                mover.RelativeRotation += adjustment;
+                mover.RelativeRotation.FlipPositive();
+                Dirty(mover);
+            }
+            else if (!angleDiff.Equals(Angle.Zero))
+            {
+                mover.TargetRelativeRotation.FlipPositive();
+                mover.RelativeRotation = mover.TargetRelativeRotation;
+                Dirty(mover);
+            }
+        }
+
         private void Friction(float minimumFrictionSpeed, float frameTime, float friction, ref Vector2 velocity)
         {
-            var speed = velocity.Length;
+            var speed = velocity.Length();
 
             if (speed < minimumFrictionSpeed)
                 return;
@@ -319,8 +311,8 @@ namespace Content.Shared.Movement.Systems
 
         private void Accelerate(ref Vector2 currentVelocity, in Vector2 velocity, float accel, float frameTime)
         {
-            var wishDir = velocity != Vector2.Zero ? velocity.Normalized : Vector2.Zero;
-            var wishSpeed = velocity.Length;
+            var wishDir = velocity != Vector2.Zero ? velocity.Normalized() : Vector2.Zero;
+            var wishSpeed = velocity.Length();
 
             var currentSpeed = Vector2.Dot(currentVelocity, wishDir);
             var addSpeed = wishSpeed - currentSpeed;
@@ -348,7 +340,8 @@ namespace Content.Shared.Movement.Systems
 
             foreach (var otherCollider in broadPhaseSystem.GetCollidingEntities(transform.MapID, enlargedAABB))
             {
-                if (otherCollider == collider) continue; // Don't try to push off of yourself!
+                if (otherCollider == collider)
+                    continue; // Don't try to push off of yourself!
 
                 // Only allow pushing off of anchored things that have collision.
                 if (otherCollider.BodyType != BodyType.Static ||

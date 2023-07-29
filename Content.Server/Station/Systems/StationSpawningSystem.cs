@@ -24,6 +24,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared.Radio.Components; // Parkstation-IPC
+using Content.Shared.Containers; // Parkstation-IPC
+using Robust.Shared.Containers; // Parkstation-IPC
 
 namespace Content.Server.Station.Systems;
 
@@ -41,7 +44,7 @@ public sealed class StationSpawningSystem : EntitySystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly PDASystem _pdaSystem = default!;
+    [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
 
@@ -50,13 +53,7 @@ public sealed class StationSpawningSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<StationInitializedEvent>(OnStationInitialized);
         _configurationManager.OnValueChanged(CCVars.ICRandomCharacters, e => _randomizeCharacters = e, true);
-    }
-
-    private void OnStationInitialized(StationInitializedEvent ev)
-    {
-        AddComp<StationSpawningComponent>(ev.Station);
     }
 
     /// <summary>
@@ -95,16 +92,19 @@ public sealed class StationSpawningSystem : EntitySystem
     /// <param name="job">Job to assign to the character, if any.</param>
     /// <param name="profile">Appearance profile to use for the character.</param>
     /// <param name="station">The station this player is being spawned on.</param>
+    /// <param name="entity">The entity to use, if one already exists.</param>
     /// <returns>The spawned entity</returns>
     public EntityUid SpawnPlayerMob(
         EntityCoordinates coordinates,
         Job? job,
         HumanoidCharacterProfile? profile,
-        EntityUid? station)
+        EntityUid? station,
+        EntityUid? entity = null)
     {
         // If we're not spawning a humanoid, we're gonna exit early without doing all the humanoid stuff.
         if (job?.JobEntity != null)
         {
+            DebugTools.Assert(entity is null);
             var jobEntity = EntityManager.SpawnEntity(job.JobEntity, coordinates);
             MakeSentientCommand.MakeSentient(jobEntity, EntityManager);
             DoJobSpecials(job, jobEntity);
@@ -131,7 +131,7 @@ public sealed class StationSpawningSystem : EntitySystem
         if (!_prototypeManager.TryIndex<SpeciesPrototype>(speciesId, out var species))
             throw new ArgumentException($"Invalid species prototype was used: {speciesId}");
 
-        var entity = Spawn(species.Prototype, coordinates);
+        entity ??= Spawn(species.Prototype, coordinates);
 
         if (_randomizeCharacters)
         {
@@ -141,24 +141,24 @@ public sealed class StationSpawningSystem : EntitySystem
         if (job?.StartingGear != null)
         {
             var startingGear = _prototypeManager.Index<StartingGearPrototype>(job.StartingGear);
-            EquipStartingGear(entity, startingGear, profile);
+            EquipStartingGear(entity.Value, startingGear, profile);
             if (profile != null)
-                EquipIdCard(entity, profile.Name, job.Prototype, station);
+                EquipIdCard(entity.Value, profile.Name, job.Prototype, station);
         }
 
         if (profile != null)
         {
-            _humanoidSystem.LoadProfile(entity, profile);
-            MetaData(entity).EntityName = profile.Name;
+            _humanoidSystem.LoadProfile(entity.Value, profile);
+            MetaData(entity.Value).EntityName = profile.Name;
             if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
             {
-                AddComp<DetailExaminableComponent>(entity).Content = profile.FlavorText;
+                AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
             }
         }
 
-        DoJobSpecials(job, entity);
-        _identity.QueueIdentityUpdate(entity);
-        return entity;
+        DoJobSpecials(job, entity.Value);
+        _identity.QueueIdentityUpdate(entity.Value);
+        return entity.Value;
     }
 
     private void DoJobSpecials(Job? job, EntityUid entity)
@@ -190,6 +190,39 @@ public sealed class StationSpawningSystem : EntitySystem
             }
         }
 
+        // Parkstation-IPC-Start
+        // This is kinda gross, and weird, and very hardcoded, but it's the best way I could think of to do it.
+        // This is replicated in SetOutfitCommand.SetOutfit.
+        // If they have an EncryptionKeyHolderComponent, spawn in their headset, find the
+        // EncryptionKeyHolderComponent on it, move the keys over, and delete the headset.
+        if (TryComp<EncryptionKeyHolderComponent>(entity, out var keyHolderComp))
+        {
+            var containerMan = EntityManager.System<SharedContainerSystem>();
+
+            var earEquipString = startingGear.GetGear("ears", profile);
+
+            if (!string.IsNullOrEmpty(earEquipString))
+            {
+                var earEntity = Spawn(earEquipString, Transform(entity).Coordinates);
+
+                if (TryComp<EncryptionKeyHolderComponent>(earEntity, out _) && // I had initially wanted this to spawn the headset, and simply move all the keys over, but the headset didn't seem to have any keys in it when spawned...
+                    TryComp<ContainerFillComponent>(earEntity, out var fillComp) &&
+                    fillComp.Containers.TryGetValue(EncryptionKeyHolderComponent.KeyContainerName, out var defaultKeys))
+                {
+                    containerMan.CleanContainer(keyHolderComp.KeyContainer);
+
+                    foreach (var key in defaultKeys)
+                    {
+                        var keyEntity = Spawn(key, Transform(entity).Coordinates);
+                        keyHolderComp.KeyContainer.Insert(keyEntity, force: true);
+                    }
+                }
+
+                EntityManager.QueueDeleteEntity(earEntity);
+            }
+        }
+        // Parkstation-IPC-End
+
         if (!TryComp(entity, out HandsComponent? handsComponent))
             return;
 
@@ -214,10 +247,10 @@ public sealed class StationSpawningSystem : EntitySystem
         if (!_inventorySystem.TryGetSlotEntity(entity, "id", out var idUid))
             return;
 
-        if (!EntityManager.TryGetComponent(idUid, out PDAComponent? pdaComponent) || pdaComponent.ContainedID == null)
+        if (!EntityManager.TryGetComponent(idUid, out PdaComponent? pdaComponent) || pdaComponent.ContainedId == null)
             return;
 
-        var card = pdaComponent.ContainedID;
+        var card = pdaComponent.ContainedId;
         var cardId = card.Owner;
         _cardSystem.TryChangeFullName(cardId, characterName, card);
         _cardSystem.TryChangeJobTitle(cardId, jobPrototype.LocalizedName, card);
@@ -231,7 +264,7 @@ public sealed class StationSpawningSystem : EntitySystem
 
         _accessSystem.SetAccessToJob(cardId, jobPrototype, extendedAccess);
 
-        _pdaSystem.SetOwner(pdaComponent, characterName);
+        _pdaSystem.SetOwner(idUid.Value, pdaComponent, characterName);
     }
 
 

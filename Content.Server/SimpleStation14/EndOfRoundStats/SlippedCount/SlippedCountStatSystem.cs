@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.GameTicking;
+using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.SimpleStation14.CCVar;
@@ -12,6 +13,7 @@ namespace Content.Server.SimpleStation14.EndOfRoundStats.SlippedCount;
 public sealed class SlippedCountStatSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
 
     Dictionary<PlayerData, int> userSlipStats = new();
 
@@ -39,9 +41,9 @@ public sealed class SlippedCountStatSystem : EntitySystem
 
         var entity = args.Slipped;
 
-        if (EntityManager.TryGetComponent<MindComponent>(entity, out var mindComp) &&
+        if (EntityManager.TryGetComponent<MindContainerComponent>(entity, out var mindComp) &&
             mindComp.Mind != null &&
-            mindComp.Mind.TryGetSession(out var session))
+            _mind.TryGetSession(mindComp.Mind, out var session))
         {
             username = session.Name;
         }

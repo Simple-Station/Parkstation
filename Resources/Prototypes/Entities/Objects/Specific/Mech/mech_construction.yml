@@ -12,14 +12,15 @@
     fixedRotation: false
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.25,-0.25,0.25,0.25"
-      density: 100
-      mask:
-      - ItemMask
-      restitution: 0.3  # fite me
-      friction: 0.2
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 100
+        mask:
+        - ItemMask
+        restitution: 0.3  # fite me
+        friction: 0.2
   - type: Pullable
 
 # Ripley APLU
@@ -32,7 +33,6 @@
   - type: Sprite
     drawdepth: Items
     noRot: false
-    netsync: false
     sprite: Objects/Specific/Mech/ripley_construction.rsi
 
 - type: entity

@@ -555,6 +555,7 @@
     sprite: Clothing/Head/Hats/papersack.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/papersack.rsi
+  - type: IdentityBlocker
   - type: DropOnSlip
     chance: 20
 
@@ -568,6 +569,7 @@
     sprite: Clothing/Head/Hats/papersacksmile.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/papersacksmile.rsi
+  - type: IdentityBlocker
   - type: DropOnSlip
     chance: 20
 

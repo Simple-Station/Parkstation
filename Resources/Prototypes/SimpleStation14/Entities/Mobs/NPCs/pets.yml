@@ -10,7 +10,12 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: monkey
       sprite: SimpleStation14/Mobs/Pets/punpun.rsi
-  - type: Faction
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: Grammar
@@ -29,7 +34,7 @@
   components:
   - type: InteractionPopup
     successChance: 0.7
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: Grammar
@@ -45,7 +50,7 @@
   components:
   - type: InteractionPopup
     successChance: 0.35
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: Grammar
@@ -61,7 +66,7 @@
   components:
   - type: InteractionPopup
     successChance: 0.25
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: Grammar

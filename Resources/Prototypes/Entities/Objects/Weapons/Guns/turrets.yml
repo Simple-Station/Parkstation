@@ -7,11 +7,28 @@
     - type: Clickable
     - type: InteractionOutline
     - type: Sprite
-      netsync: false
       sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
       drawdepth: WallMountedItems
       layers:
         - state: syndie_broken
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 450
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                path: /Audio/Effects/metalbreak.ogg
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel1:
+                  min: 2
+                  max: 4
 
 - type: entity
   parent: BaseStructure
@@ -24,7 +41,8 @@
     - type: Actions
     - type: Fixtures
       fixtures:
-        - shape:
+        fix1:
+          shape:
             !type:PhysShapeAabb
             bounds: "-0.45,-0.45,0.45,0.45"
           density: 60
@@ -36,7 +54,6 @@
       containers:
         ballistic-ammo: !type:Container
     - type: Sprite
-      netsync: false
       sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
       drawdepth: WallMountedItems
       layers:
@@ -99,7 +116,7 @@
   id: WeaponTurretSyndicate
   suffix: Syndicate
   components:
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - Syndicate
 
@@ -108,7 +125,7 @@
   id: WeaponTurretNanoTrasen
   suffix: NanoTrasen
   components:
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - NanoTrasen
 
@@ -117,7 +134,7 @@
   id: WeaponTurretHostile
   suffix: Hostile
   components:
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - SimpleHostile
 
@@ -128,11 +145,10 @@
   id: WeaponTurretXeno
   suffix: Xeno
   components:
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - Xeno
     - type: Sprite
-      netsync: false
       sprite: Objects/Weapons/Guns/Turrets/xenoturret.rsi
       noRot: true
       layers:

@@ -7,8 +7,6 @@
   components:
   - type: HumanoidAppearance
     species: Moth
-  - type: Hunger
-  - type: Thirst
   - type: Icon
     sprite: Nyanotrasen/Mobs/Species/Moth/parts.rsi
     state: full
@@ -44,7 +42,8 @@
   - type: MovementAlwaysTouching
   - type: Fixtures
     fixtures:
-      - shape:
+      fix1:
+        shape:
           !type:PhysShapeCircle
           radius: 0.35
         density: 125 #lower density
@@ -54,7 +53,6 @@
         layer:
           - MobLayer
   - type: Sprite # sprite again because we want different layer ordering
-    netsync: false
     noRot: true
     drawdepth: Mobs
     layers:
@@ -76,14 +74,14 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: female_full
         visible: false
-      - map: [ "enum.HumanoidVisualLayers.LHand" ]
-      - map: [ "enum.HumanoidVisualLayers.RHand" ]
       - map: [ "enum.HumanoidVisualLayers.LFoot" ]
       - map: [ "enum.HumanoidVisualLayers.RFoot" ]
       - map: ["socks"]
       - map: ["underpants"]
       - map: ["undershirt"]
       - map: [ "jumpsuit" ]
+      - map: [ "enum.HumanoidVisualLayers.LHand" ]
+      - map: [ "enum.HumanoidVisualLayers.RHand" ]
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi
@@ -119,5 +117,3 @@
   components:
   - type: HumanoidAppearance
     species: Moth
-
-#Weh

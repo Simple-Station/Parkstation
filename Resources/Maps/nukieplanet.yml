@@ -1,7 +1,5 @@
 meta:
-  format: 4
-  name: DemoStation
-  author: Space-Wizards
+  format: 5
   postmapinit: false
 tilemap:
   0: Space
@@ -111,7 +109,7 @@ entities:
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
-    - fixtures: []
+    - fixtures: {}
       type: Fixtures
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
@@ -366,6 +364,18 @@ entities:
             190: 3,-17
             191: 3,-16
         - node:
+            color: '#A4610647'
+            id: CheckerNWSE
+          decals:
+            210: -13,6
+            211: -14,6
+            212: -15,6
+            213: -15,7
+            214: -14,7
+            215: -13,7
+            216: -14,8
+            217: -15,8
+        - node:
             color: '#D381C996'
             id: CheckerNWSE
           decals:
@@ -384,18 +394,6 @@ entities:
             233: 11,-18
             234: 10,-18
             235: 10,-17
-        - node:
-            color: '#A4610647'
-            id: CheckerNWSE
-          decals:
-            210: -13,6
-            211: -14,6
-            212: -15,6
-            213: -15,7
-            214: -14,7
-            215: -13,7
-            216: -14,8
-            217: -15,8
         - node:
             color: '#FFFFFFFF'
             id: Delivery
@@ -419,11 +417,6 @@ entities:
             198: 6,-16
             199: 4,-16
         - node:
-            color: '#DE3A3A96'
-            id: HalfTileOverlayGreyscale
-          decals:
-            328: 13,-7
-        - node:
             color: '#52B4E996'
             id: HalfTileOverlayGreyscale
           decals:
@@ -436,6 +429,11 @@ entities:
           decals:
             341: 11,-2
         - node:
+            color: '#DE3A3A96'
+            id: HalfTileOverlayGreyscale
+          decals:
+            328: 13,-7
+        - node:
             color: '#52B4E996'
             id: HalfTileOverlayGreyscale180
           decals:
@@ -443,16 +441,16 @@ entities:
             244: 0,-16
             245: -1,-16
         - node:
+            color: '#9FED5896'
+            id: HalfTileOverlayGreyscale180
+          decals:
+            342: 11,0
+        - node:
             color: '#DE3A3A96'
             id: HalfTileOverlayGreyscale180
           decals:
             329: 14,-9
             330: 13,-9
-        - node:
-            color: '#9FED5896'
-            id: HalfTileOverlayGreyscale180
-          decals:
-            342: 11,0
         - node:
             color: '#52B4E996'
             id: HalfTileOverlayGreyscale270
@@ -513,15 +511,15 @@ entities:
           decals:
             94: 15,-9
         - node:
-            color: '#DE3A3A96'
-            id: ThreeQuarterTileOverlayGreyscale270
-          decals:
-            96: 12,-9
-        - node:
             color: '#52B4E996'
             id: ThreeQuarterTileOverlayGreyscale270
           decals:
             250: -2,-16
+        - node:
+            color: '#DE3A3A96'
+            id: ThreeQuarterTileOverlayGreyscale270
+          decals:
+            96: 12,-9
         - node:
             color: '#DE3A3A96'
             id: ThreeQuarterTileOverlayGreyscale90
@@ -533,11 +531,11 @@ entities:
           decals:
             138: -5,-3
         - node:
-            angle: 4.71238898038469 rad
+            angle: -1.5707963267948966 rad
             color: '#FFFFFFFF'
             id: WarnCorner
           decals:
-            14: 17,-6
+            21: 18,-5
         - node:
             color: '#FFFFFFFF'
             id: WarnCorner
@@ -546,18 +544,11 @@ entities:
             1: 18,-11
             2: 19,-11
         - node:
-            angle: -1.5707963267948966 rad
+            angle: 4.71238898038469 rad
             color: '#FFFFFFFF'
             id: WarnCorner
           decals:
-            21: 18,-5
-        - node:
-            angle: 1.5707963267948966 rad
-            color: '#FFFFFFFF'
-            id: WarnCornerFlipped
-          decals:
-            11: 23,-6
-            12: 22,-5
+            14: 17,-6
         - node:
             color: '#FFFFFFFF'
             id: WarnCornerFlipped
@@ -565,6 +556,13 @@ entities:
             7: 23,-10
             13: 16,-6
             19: 22,-11
+        - node:
+            angle: 1.5707963267948966 rad
+            color: '#FFFFFFFF'
+            id: WarnCornerFlipped
+          decals:
+            11: 23,-6
+            12: 22,-5
         - node:
             color: '#DE3A3A96'
             id: WarnCornerGreyscaleNW
@@ -689,16 +687,16 @@ entities:
             9: 24,-8
             10: 24,-7
         - node:
+            color: '#FFFFFFFF'
+            id: WarningLineCornerFlipped
+          decals:
+            20: 22,-4
+        - node:
             angle: 4.71238898038469 rad
             color: '#FFFFFFFF'
             id: WarningLineCornerFlipped
           decals:
             18: 24,-10
-        - node:
-            color: '#FFFFFFFF'
-            id: WarningLineCornerFlipped
-          decals:
-            20: 22,-4
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinInnerSw
@@ -1533,13 +1531,13 @@ entities:
     - type: RadiationGridResistance
     - type: OccluderTree
     - type: Shuttle
-    - type: GridPathfinding
     - nextShake: 0
       shakeTimes: 10
       type: GravityShake
     - type: GasTileOverlay
     - nextUpdate: 0
       type: SpreaderGrid
+    - type: GridPathfinding
   - uid: 1295
     components:
     - type: MetaData
@@ -1569,6 +1567,8 @@ entities:
         - 0
       type: MapAtmosphere
     - type: LoadedMap
+    - type: GridTree
+    - type: MovedGrids
 - proto: AirlockCargoGlass
   entities:
   - uid: 650
@@ -1595,499 +1595,67 @@ entities:
     - pos: -21.5,1.5
       parent: 104
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 428
     components:
     - pos: -17.5,1.5
       parent: 104
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 433
     components:
     - pos: -13.5,1.5
       parent: 104
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 816
     components:
     - rot: 3.141592653589793 rad
       pos: -17.5,-20.5
       parent: 104
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 835
     components:
     - rot: 3.141592653589793 rad
       pos: -25.5,-20.5
       parent: 104
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 854
     components:
     - pos: -33.5,1.5
       parent: 104
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 860
     components:
     - pos: -29.5,1.5
       parent: 104
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 862
     components:
     - rot: 3.141592653589793 rad
       pos: -29.5,-20.5
       parent: 104
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 863
     components:
     - pos: -25.5,1.5
       parent: 104
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 908
     components:
     - rot: 3.141592653589793 rad
       pos: -33.5,-20.5
       parent: 104
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 914
     components:
     - rot: 3.141592653589793 rad
       pos: -21.5,-20.5
       parent: 104
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 935
     components:
     - rot: 3.141592653589793 rad
       pos: -13.5,-20.5
       parent: 104
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
 - proto: AirlockMedicalGlass
   entities:
   - uid: 1119
@@ -2470,18 +2038,6 @@ entities:
       pos: 7.5,-3.5
       parent: 104
       type: Transform
-- proto: Beaker
-  entities:
-  - uid: 1333
-    components:
-    - pos: 4.7242413,-12.192329
-      parent: 104
-      type: Transform
-  - uid: 1334
-    components:
-    - pos: 3.7053413,-12.135814
-      parent: 104
-      type: Transform
 - proto: BedsheetMedical
   entities:
   - uid: 1872
@@ -2517,13 +2073,6 @@ entities:
     components:
     - rot: 3.141592653589793 rad
       pos: 2.5,-8.5
-      parent: 104
-      type: Transform
-- proto: BoxBeaker
-  entities:
-  - uid: 2095
-    components:
-    - pos: 4.348109,-12.412251
       parent: 104
       type: Transform
 - proto: BoxFolderBlack
@@ -5741,48 +5290,36 @@ entities:
       pos: -3.5,-4.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 1376
     components:
     - rot: 3.141592653589793 rad
       pos: -4.5,-4.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 1878
     components:
     - rot: -1.5707963267948966 rad
       pos: -35.5,-21.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 1879
     components:
     - rot: -1.5707963267948966 rad
       pos: -35.5,-22.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 2312
     components:
     - rot: -1.5707963267948966 rad
       pos: 7.5,-13.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 2313
     components:
     - rot: -1.5707963267948966 rad
       pos: 7.5,-14.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
 - proto: ChairOfficeDark
   entities:
   - uid: 1298
@@ -5844,95 +5381,71 @@ entities:
       pos: 20.5,-6.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 327
     components:
     - rot: -1.5707963267948966 rad
       pos: 19.5,-7.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 328
     components:
     - rot: 1.5707963267948966 rad
       pos: 21.5,-7.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 329
     components:
     - pos: 20.5,-8.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 330
     components:
     - rot: 1.5707963267948966 rad
       pos: 18.5,-6.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 331
     components:
     - rot: 1.5707963267948966 rad
       pos: 19.5,-5.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 332
     components:
     - rot: -1.5707963267948966 rad
       pos: 21.5,-5.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 333
     components:
     - rot: -1.5707963267948966 rad
       pos: 22.5,-6.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 334
     components:
     - rot: -1.5707963267948966 rad
       pos: 22.5,-8.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 335
     components:
     - rot: -1.5707963267948966 rad
       pos: 21.5,-9.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 336
     components:
     - rot: 1.5707963267948966 rad
       pos: 19.5,-9.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 337
     components:
     - rot: 1.5707963267948966 rad
       pos: 18.5,-8.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
 - proto: ChairWood
   entities:
   - uid: 2429
@@ -5947,20 +5460,6 @@ entities:
     - pos: 3.4476795,-2.4108348
       parent: 104
       type: Transform
-- proto: chem_master
-  entities:
-  - uid: 2031
-    components:
-    - pos: 5.5,-10.5
-      parent: 104
-      type: Transform
-- proto: ChemDispenser
-  entities:
-  - uid: 2021
-    components:
-    - pos: 4.5,-10.5
-      parent: 104
-      type: Transform
 - proto: ChemicalPayload
   entities:
   - uid: 2380
@@ -5971,13 +5470,6 @@ entities:
   - uid: 3110
     components:
     - pos: 3.6284866,-17.287361
-      parent: 104
-      type: Transform
-- proto: ChemistryHotplate
-  entities:
-  - uid: 1257
-    components:
-    - pos: 3.5,-10.5
       parent: 104
       type: Transform
 - proto: ClosetEmergencyFilledRandom
@@ -6122,13 +5614,6 @@ entities:
       pos: -14.5,6.5
       parent: 104
       type: Transform
-- proto: CrateChemistrySupplies
-  entities:
-  - uid: 1299
-    components:
-    - pos: 5.5,-12.5
-      parent: 104
-      type: Transform
 - proto: CrateInternals
   entities:
   - uid: 350
@@ -6140,13 +5625,6 @@ entities:
       - EntityStorageComponent
       - entity_storage
       type: Construction
-- proto: CryostasisBeaker
-  entities:
-  - uid: 3112
-    components:
-    - pos: 3.4240913,-12.323509
-      parent: 104
-      type: Transform
 - proto: CyberPen
   entities:
   - uid: 696
@@ -6161,7 +5639,7 @@ entities:
     - pos: 3.9415665,-8.34479
       parent: 104
       type: Transform
-- proto: DrinkBeer
+- proto: DrinkBeerBottleFull
   entities:
   - uid: 161
     components:
@@ -6251,14 +5729,14 @@ entities:
     - pos: -4.5,-2.5
       parent: 104
       type: Transform
-    - fixtures: []
+    - fixtures: {}
       type: Fixtures
   - uid: 2438
     components:
     - pos: 10.5,-3.5
       parent: 104
       type: Transform
-    - fixtures: []
+    - fixtures: {}
       type: Fixtures
 - proto: FloraRockSolid01
   entities:
@@ -6729,13 +6207,6 @@ entities:
     - pos: 3.5,-11.5
       parent: 104
       type: Transform
-- proto: LargeBeaker
-  entities:
-  - uid: 1335
-    components:
-    - pos: 3.8615913,-12.386074
-      parent: 104
-      type: Transform
 - proto: LightPostSmall
   entities:
   - uid: 214
@@ -6922,13 +6393,6 @@ entities:
   - uid: 1894
     components:
     - pos: 7.5339637,-10.889339
-      parent: 104
-      type: Transform
-- proto: MedkitCombatFilled
-  entities:
-  - uid: 1844
-    components:
-    - pos: 3.1661625,-6.4598556
       parent: 104
       type: Transform
 - proto: MedkitFilled
@@ -11729,24 +11193,6 @@ entities:
     - pos: -15.435635,22.055351
       parent: 104
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.90000004,-0.90000004
-          - 0.90000004,0.90000004
-          - -0.90000004,0.90000004
-          - -0.90000004,-0.90000004
-        mask:
-        - Impassable
-        - HighImpassable
-        layer: []
-        density: 1
-        hard: True
-        restitution: 0.3
-        friction: 0.2
-        id: null
-      type: Fixtures
   - uid: 2315
     components:
     - pos: -1.5,-16.5
@@ -12930,13 +12376,6 @@ entities:
     - pos: 20.5,-16.5
       parent: 104
       type: Transform
-- proto: SheetPlasma1
-  entities:
-  - uid: 2114
-    components:
-    - pos: 3.505671,-10.842375
-      parent: 104
-      type: Transform
 - proto: SheetPlasteel
   entities:
   - uid: 2423
@@ -13410,8 +12849,6 @@ entities:
       nameSet: True
       id: Weeh
       type: SurveillanceCamera
-    - bodyType: Static
-      type: Physics
 - proto: SyringeInaprovaline
   entities:
   - uid: 1151
@@ -13774,8 +13211,6 @@ entities:
       pos: 15.5,-1.5
       parent: 104
       type: Transform
-    - bodyType: Static
-      type: Physics
 - proto: ToolboxElectricalFilled
   entities:
   - uid: 206

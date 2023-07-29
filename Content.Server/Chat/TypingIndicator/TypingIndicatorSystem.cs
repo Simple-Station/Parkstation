@@ -25,7 +25,7 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         // when player poses entity we want to make sure that there is typing indicator
         EnsureComp<TypingIndicatorComponent>(ev.Entity);
         // we also need appearance component to sync visual state
-        EnsureComp<ServerAppearanceComponent>(ev.Entity);
+        EnsureComp<AppearanceComponent>(ev.Entity);
     }
 
     private void OnPlayerDetached(EntityUid uid, TypingIndicatorComponent component, PlayerDetachedEvent args)
@@ -54,7 +54,9 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         SetTypingIndicatorEnabled(uid.Value, ev.IsTyping);
     }
 
-    private void SetTypingIndicatorEnabled(EntityUid uid, bool isEnabled, AppearanceComponent? appearance = null)
+    // Begin Nyano-code: API made public for conversational NPCs.
+    public void SetTypingIndicatorEnabled(EntityUid uid, bool isEnabled, AppearanceComponent? appearance = null)
+    // End Nyano-code.
     {
         if (!Resolve(uid, ref appearance, false))
             return;

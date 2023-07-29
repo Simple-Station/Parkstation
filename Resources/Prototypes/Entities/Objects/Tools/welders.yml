@@ -13,7 +13,6 @@
       path: /Audio/Items/welder_drop.ogg
   - type: Sprite
     sprite: Objects/Tools/welder.rsi
-    netsync: false
     layers:
     - state: icon
       map: ["enum.WelderLayers.Base"]
@@ -59,10 +58,10 @@
         Heat: 7
         Blunt: -5.5
   - type: PointLight
-    netsync: false
     enabled: false
     radius: 1.5
     color: orange
+    netsync: false
   - type: Appearance
   - type: RequiresEyeProtection
   - type: PhysicalComposition
