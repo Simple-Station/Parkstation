@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Vehicle.Components;
@@ -121,8 +122,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             Dirty(component);
             Appearance.SetData(uid, VehicleVisuals.HideRider, true);
 
-            var relay = EnsureComp<RelayInputMoverComponent>(args.BuckledEntity);
-            _mover.SetRelay(args.BuckledEntity, uid, relay);
+            _mover.SetRelay(args.BuckledEntity, uid);
             rider.Vehicle = uid;
 
             // Update appearance stuff, add actions
@@ -301,11 +301,11 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         strap.BuckleOffsetUnclamped = xform.LocalRotation.Degrees switch
         {
-            < 45f => (0, component.SouthOverride),
+            < 45f => new(0, component.SouthOverride),
             <= 135f => component.BaseBuckleOffset,
-            < 225f  => (0, component.NorthOverride),
-            <= 315f => (component.BaseBuckleOffset.X * -1, component.BaseBuckleOffset.Y),
-            _ => (0, component.SouthOverride)
+            < 225f  => new(0, component.NorthOverride),
+            <= 315f => new(component.BaseBuckleOffset.X * -1, component.BaseBuckleOffset.Y),
+            _ => new(0, component.SouthOverride)
         };
 
         if (!oldOffset.Equals(strap.BuckleOffsetUnclamped))

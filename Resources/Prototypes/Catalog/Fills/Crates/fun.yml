@@ -16,10 +16,6 @@
         amount: 1
       - id: PlushieSnake
         amount: 1
-      - id: PlushieLizard
-        amount: 1
-      - id: PlushieSpaceLizard
-        amount: 1
       - id: PlushieVox
         amount: 1
       - id: PlushieRouny
@@ -38,15 +34,9 @@
         prob: 0.20
       - id: PlushieAtmosian
         amount: 1
-
-- type: entity
-  id: CrateFunCrewmates
-  parent: CrateGenericSteel
-  components:
-  - type: StorageFill
-    contents:
-      - id: ToyAmongPequeno
-        amount: 5
+      - id: PlushieShadowkin
+        amount: 1
+        prob: 0.50
 
 - type: entity
   id: CrateFunInstrumentsVariety
@@ -230,6 +220,16 @@
         amount: 1
 
 - type: entity
+  id: CrateFunWaterGuns
+  parent: CratePlastic
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponWaterBlaster
+      - id: WeaponWaterPistol
+        amount: 5
+
+- type: entity
   id: CrateFunSyndicateSegway
   parent: CrateLivestock
   components:
@@ -237,6 +237,21 @@
       contents:
         - id: VehicleSyndicateSegway
         - id: VehicleKeySyndicateSegway
+
+- type: entity
+  id: CrateFunBoxing
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHandsGlovesBoxingRed
+      - id: ClothingHandsGlovesBoxingBlue
+      - id: ClothingHandsGlovesBoxingYellow
+      - id: ClothingHandsGlovesBoxingGreen
+      - id: UniformShortsRed
+        amount: 3
+      - id: UniformShortsRedWithTop
+        amount: 3
 
 - type: entity
   id: CrateFunPirate
@@ -250,6 +265,6 @@
       - id: ClothingOuterCoatPirate
       - id: ClothingShoesBootsLaceup
         amount: 2
-      - id: HatBandRed
+      - id: ClothingHeadBandRed
       - id: FoamCutlass
         amount: 2

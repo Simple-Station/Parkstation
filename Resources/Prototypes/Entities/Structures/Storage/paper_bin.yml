@@ -6,7 +6,6 @@
   suffix: Empty
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Misc/bureaucracy.rsi
     state: paper_bin0
     drawdepth: SmallObjects
@@ -22,12 +21,13 @@
           - Write
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.10,-0.10,0.10,0.10"
-      density: 500
-      mask:
-        - TabletopMachineMask
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.10,0.10,0.10"
+        density: 500
+        mask:
+          - TabletopMachineMask
   - type: InteractionOutline
   - type: Bin
     whitelist:
@@ -72,6 +72,69 @@
     - Paper
     - Paper
     - Paper
+    whitelist:
+      tags:
+      - Document
+      - Write
+
+- type: entity
+  parent: PaperBin
+  id: PaperBin50
+  suffix: "50, Office Paper"
+  components:
+  - type: Bin
+    maxItems: 50
+    initialContents: # What the hell?
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
+    - PaperOffice
     whitelist:
       tags:
       - Document

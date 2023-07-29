@@ -578,9 +578,14 @@
   description: uplink-carp-dehydrated-desc
   productEntity: DehydratedSpaceCarp
   cost:
-    Telecrystal: 2
+    Telecrystal: 3
   categories:
   - UplinkTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 # Job Specific
 
@@ -691,6 +696,24 @@
       whitelist:
         - Epistemologist
 
+- type: listing
+  id: uplinkProximityMine
+  name: uplink-proximity-mine-name
+  description: uplink-proximity-mine-desc
+  productEntity: WetFloorSignMineExplosive
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Janitor
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
 # Armor
 
 - type: listing
@@ -771,7 +794,7 @@
   id: UplinkEVASyndie
   name: uplink-eva-syndie-name
   description: uplink-eva-syndie-desc
-  icon: { sprite: /Textures/Clothing/OuterClothing/Suits/syndicate.rsi, state: icon }
+  icon: { sprite: /Textures/Clothing/OuterClothing/Suits/eva_syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEVABundle
   cost:
     Telecrystal: 2
@@ -891,21 +914,6 @@
     Telecrystal: 12
   categories:
   - UplinkMisc
-
-- type: listing
-  id: UplinkStimpackExperimental
-  name: uplink-experimental-stimpack-name
-  description: uplink-experimental-stimpack-desc
-  productEntity: StimpackExperimental
-  cost:
-    Telecrystal: 15
-  categories:
-  - UplinkMisc
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkSyndicateSegwayCrate

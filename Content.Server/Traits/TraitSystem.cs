@@ -83,8 +83,6 @@ public sealed class TraitSystem : EntitySystem
                     conflictingTrait = Loc.GetString(traitPrototype.Name);
                     break;
                 }
-                else
-                    continue;
             }
 
             if (traitPrototype.Blacklist != null && traitPrototype.Blacklist.IsValid(mob))
@@ -96,8 +94,6 @@ public sealed class TraitSystem : EntitySystem
                     conflictingTrait = Loc.GetString(traitPrototype.Name);
                     break;
                 }
-                else
-                    continue;
             }
 
             traits.Add(traitPrototype);
@@ -139,7 +135,7 @@ public sealed class TraitSystem : EntitySystem
                 if (!TryComp(mob, out HandsComponent? handsComponent))
                     continue;
 
-                var coords = EntityManager.GetComponent<TransformComponent>(mob).Coordinates;
+                var coords = Transform(mob).Coordinates;
                 var inhandEntity = EntityManager.SpawnEntity(trait.TraitGear, coords);
                 _sharedHandsSystem.TryPickup(mob, inhandEntity, checkActionBlocker: false,
                     handsComp: handsComponent);

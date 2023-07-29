@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
@@ -230,6 +231,18 @@ public sealed class PlayTimeTrackingManager
         _net.ServerSendMessage(msg, playerSession.ConnectedClient);
     }
 
+    public void SendWhitelistCached(IPlayerSession playerSession)
+    {
+        var whitelist = playerSession.ContentData()?.Whitelisted ?? false;
+
+        var msg = new MsgWhitelist
+        {
+            Whitelisted = whitelist
+        };
+
+        _net.ServerSendMessage(msg, playerSession.ConnectedClient);
+    }
+
     /// <summary>
     /// Save all modified time trackers for all players to the database.
     /// </summary>
@@ -366,6 +379,19 @@ public sealed class PlayTimeTrackingManager
     public TimeSpan GetOverallPlaytime(IPlayerSession id)
     {
         return GetPlayTimeForTracker(id, PlayTimeTrackingShared.TrackerOverall);
+    }
+
+    public bool TryGetTrackerTimes(IPlayerSession id, [NotNullWhen(true)] out Dictionary<string, TimeSpan>? time)
+    {
+        time = null;
+
+        if (!_playTimeData.TryGetValue(id, out var data) || !data.Initialized)
+        {
+            return false;
+        }
+
+        time = data.TrackerTimes;
+        return true;
     }
 
     public Dictionary<string, TimeSpan> GetTrackerTimes(IPlayerSession id)

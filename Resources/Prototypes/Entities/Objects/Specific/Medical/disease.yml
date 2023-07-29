@@ -7,12 +7,12 @@
   - type: Item
     size: 1
   - type: Sprite
-    netsync: false
     sprite: Objects/Specific/Medical/mouth_swab.rsi
     state: icon
   - type: Tag
     tags:
     - Recyclable
+    - Trash
   - type: DiseaseSwab
   - type: BotanySwab
 
@@ -26,7 +26,6 @@
     size: 3
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
-    netsync: false
     layers:
     - state: salpen
       map: [ "enum.ToggleVisuals.Layer" ]

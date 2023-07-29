@@ -7,7 +7,6 @@
   components:
   - type: SolutionContainerManager
   - type: Sprite
-    netsync: false
     state: produce
   - type: Produce
   - type: PotencyVisuals
@@ -24,7 +23,6 @@
   components:
   - type: SolutionContainerManager
   - type: Sprite
-    netsync: false
     state: produce
   - type: Produce
   - type: PotencyVisuals
@@ -188,19 +186,20 @@
     bodyType: Dynamic
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.2,-0.2,0.2,0.2"
-      id: "slips"
-      hard: false
-      layer:
-      - SlipLayer
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.2,-0.2,0.2,0.2"
-      density: 30
-      mask:
-      - ItemMask
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        layer:
+        - SlipLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 30
+        mask:
+        - ItemMask
   - type: Tag
     tags:
     - Recyclable
@@ -344,6 +343,9 @@
       reagents:
       - ReagentId: JuiceLemon
         Quantity: 10
+  - type: Tag
+    tags:
+    - Lemon
 
 - type: entity
   name: lime
@@ -363,6 +365,9 @@
       reagents:
       - ReagentId: JuiceLime
         Quantity: 10
+  - type: Tag
+    tags:
+    - Lime
 
 - type: entity
   name: orange
@@ -576,6 +581,9 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 4
+  - type: Tag
+    tags:
+    - Corn
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/corn.rsi
   - type: Produce
@@ -597,7 +605,6 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/corn.rsi
     state: cob
-    netsync: false
   - type: Item
     size: 1
   - type: Tag
@@ -692,7 +699,6 @@
         - ReagentId: Nutriment
           Quantity: 2
   - type: Sprite
-    netsync: false
     state: slice
   - type: Extractable
     grindableSolutionName: food
@@ -922,6 +928,9 @@
     seedId: galaxythistle
   - type: Extractable
     grindableSolutionName: food
+  - type: Tag
+    tags:
+    - Galaxythistle
 
 - type: entity
   name: fly amanita

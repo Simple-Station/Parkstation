@@ -36,19 +36,21 @@
   - type: Physics
     bodyType: KinematicController
   - type: Clickable
+  - type: WiresPanel
   - type: Wires #we just want the panel
     BoardName: Mech
     LayoutId: Mech
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.45
-      density: 1000
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: Appearance
   - type: ContainerContainer
     containers:
@@ -69,7 +71,6 @@
   description: Versatile and lightly armored, the Ripley is useful for almost any heavy work scenario. The "APLU" stands for Autonomous Power Loading Unit.
   components:
   - type: Sprite
-    netsync: false
     drawdepth: Mobs
     noRot: true
     sprite: Objects/Specific/Mech/mecha.rsi
