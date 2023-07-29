@@ -1079,3 +1079,23 @@ Entries:
       message: Slimepeople can no longer use the Shadowkin ears
   id: 99
   time: '2023-07-27T04:17:42.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: Critical/Dead Shadowkin are returned from The Dark.
+    - type: tweak
+      message: Critical Shadowkin will not gain power or activate any powers randomly.
+    - type: tweak
+      message: Cuffed Shadowkin will not be able to use powers, random or otherwise.
+    - type: tweak
+      message: More lights are affected by Shadowkin Darkening.
+    - type: fix
+      message: >-
+        Shadowkin should no longer randomly lose the ability to use their
+        powers.
+    - type: fix
+      message: >-
+        Being a super tired Shadowkin won't make you sleep so hard that you wake
+        up.
+  id: 100
+  time: '2023-07-29T15:24:26.0000000+00:00'
