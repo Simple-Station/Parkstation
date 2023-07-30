@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Server.Database.Migrations.Postgres;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -14,6 +15,7 @@ using Content.Shared.Preferences;
 using Microsoft.EntityFrameworkCore;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
+using BackpackPreference = Content.Shared.Preferences.BackpackPreference;
 
 namespace Content.Server.Database
 {
@@ -163,6 +165,7 @@ namespace Content.Server.Database
             var jobs = profile.Jobs.ToDictionary(j => j.JobName, j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => a.AntagName);
             var traits = profile.Traits.Select(t => t.TraitName);
+            var loadouts = profile.Loadouts.Select(l => l.LoadoutName);
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
@@ -218,7 +221,8 @@ namespace Content.Server.Database
                 jobs,
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToList(),
-                traits.ToList()
+                traits.ToList(),
+                loadouts.ToList()
             );
         }
 
@@ -268,6 +272,12 @@ namespace Content.Server.Database
             profile.Traits.AddRange(
                 humanoid.TraitPreferences
                         .Select(t => new Trait {TraitName = t})
+            );
+
+            profile.Loadouts.Clear();
+            profile.Loadouts.AddRange(
+                humanoid.LoadoutPreferences
+                    .Select(l => new Loadout {LoadoutName = l})
             );
 
             return profile;
