@@ -190,7 +190,7 @@ public sealed class StationSpawningSystem : EntitySystem
             }
         }
 
-        // Parkstation-IPC-Start
+        // Parkstation-Ipc-Start
         // This is kinda gross, and weird, and very hardcoded, but it's the best way I could think of to do it.
         // This is replicated in SetOutfitCommand.SetOutfit.
         // If they have an EncryptionKeyHolderComponent, spawn in their headset, find the
@@ -221,7 +221,7 @@ public sealed class StationSpawningSystem : EntitySystem
                 EntityManager.QueueDeleteEntity(earEntity);
             }
         }
-        // Parkstation-IPC-End
+        // Parkstation-Ipc-End
 
         if (!TryComp(entity, out HandsComponent? handsComponent))
             return;

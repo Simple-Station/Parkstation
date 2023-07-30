@@ -168,7 +168,7 @@ namespace Content.Server.Temperature.Systems
             }
         }
 
-        // Parkstation-IPCs-Start
+        // Parkstation-Ipc-Start
         /// <summary>
         ///     Finds the TemperatureComponent and the ThermalRegulatorComponent, and uses _alertsSystem to set the alert level based on the range of temperatures as allowed by those components.
         ///     Does some math to determine the alert level based on the current temperature and the range of temperatures allowed by the ThermalRegulatorComponent.
@@ -241,7 +241,7 @@ namespace Content.Server.Temperature.Systems
                 return;
             }
         }
-        /// Parkstation-IPCs-End
+        /// Parkstation-Ipc-End
 
         private void EnqueueDamage(EntityUid uid, TemperatureComponent component, OnTemperatureChangeEvent args)
         {

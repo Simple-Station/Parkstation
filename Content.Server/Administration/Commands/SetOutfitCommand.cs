@@ -131,7 +131,7 @@ namespace Content.Server.Administration.Commands
                 }
             }
 
-            // Parkstation-IPC-Start
+            // Parkstation-Ipc-Start
             // Pretty much copied from StationSpawningSystem.SpawnStartingGear
             if (entityManager.TryGetComponent<EncryptionKeyHolderComponent>(target, out var keyHolderComp))
             {
@@ -158,7 +158,7 @@ namespace Content.Server.Administration.Commands
                     entityManager.QueueDeleteEntity(earEntity);
                 }
             }
-            // Parkstation-IPC-End
+            // Parkstation-Ipc-End
 
             return true;
         }

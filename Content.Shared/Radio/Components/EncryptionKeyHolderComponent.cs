@@ -42,14 +42,14 @@ public sealed class EncryptionKeyHolderComponent : Component
     public Container KeyContainer = default!;
     public const string KeyContainerName = "key_slots";
 
-    // Parkstation-IPC-Start
+    // Parkstation-Ipc-Start
     /// <summary>
     ///     Whether or not the headset can be examined to see the encryption keys while the keys aren't accessible.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("examineWhileLocked")]
     public bool ExamineWhileLocked = true;
-    // Parkstation-IPC-End
+    // Parkstation-Ipc-End
 
     /// <summary>
     ///     Combined set of radio channels provided by all contained keys.

@@ -102,10 +102,10 @@ namespace Content.Server.Zombies
             if (HasComp<ZombieComponent>(target))
                 return;
 
-            // Parkstation-IPC-Start
+            // Parkstation-Ipc-Start
             if (HasComp<SiliconComponent>(target))
                 return;
-            // Parkstation-IPC-End
+            // Parkstation-Ipc-End
 
             if (!Resolve(target, ref mobState, logMissing: false))
                 return;

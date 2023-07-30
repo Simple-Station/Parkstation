@@ -18,7 +18,7 @@
         path: /Audio/Effects/hit_kick.ogg
     - type: Clickable
     - type: Damageable
-      damageContainer: Inorganic
+      damageContainer: Inorganic # Note that for dumb reasons, this essentially makes them a wall.
     # - type: Bloodstream # This is left commented out because it's not necessary for a robot, but you may want it.
     #   bloodReagent: MotorOil
     #   bloodlossDamage:
@@ -82,10 +82,10 @@
       specificHeat: 24
       coldDamage:
         types:
-          Cold: 0.1 #per second, scales with temperature & other constants
+          Cold: 0.1 # Per second, scales with temperature & other constants.
       heatDamage:
         types:
-          Heat: 0.25 #per second, scales with temperature & other constants
+          Heat: 0.25 # Per second, scales with temperature & other constants.
       atmosTemperatureTransferEfficiency: 0.05
     - type: ThermalRegulator
       metabolismHeat: 600
@@ -109,6 +109,8 @@
       thresholds:
         0: Alive
         165: Dead
+    - type: Damageable
+      damageContainer: Silicon # Not a wall.
     - type: Destructible
       thresholds:
         - trigger: !type:DamageTrigger
@@ -253,7 +255,7 @@
     - type: GenericVisualizer
       visuals:
         enum.CreamPiedVisuals.Creamed:
-          clownedon: # Not 'creampied' bc I can already see Skyrat complaining about conflicts.
+          clownedon:
             True: { visible: true }
             False: { visible: false }
     - type: RotationVisuals
@@ -362,11 +364,12 @@
         - Electrocution
         # - Drunk
         - SlurredSpeech
-        - PressureImmunity
+        # - PressureImmunity
         - Muted
         # - ForcedSleep
         - TemporaryBlindness
         - Pacified
         # - PsionicsDisabled
         # - PsionicallyInsulated
+        - SeeingStatic
     - type: Blindable

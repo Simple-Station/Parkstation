@@ -8,3 +8,9 @@
 #     - Genetic
 #   supportedTypes:
 #     - Bloodloss
+
+- type: damageContainer
+  id: Silicon
+  supportedGroups:
+    - Brute
+    - Burn
