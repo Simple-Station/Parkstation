@@ -331,8 +331,8 @@
     - type: MobMover
     - type: InputMover
     - type: MovementSpeedModifier
-      baseWalkSpeed: 12
-      baseSprintSpeed: 8
+      baseWalkSpeed: 8
+      baseSprintSpeed: 12
     - type: MovementIgnoreGravity
     - type: Physics
       bodyType: KinematicController
