@@ -4,6 +4,7 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Body.Components; // Parkstation-IPCs
 using Content.Server.Temperature.Components;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
@@ -37,7 +38,7 @@ namespace Content.Server.Temperature.Systems
         {
             SubscribeLocalEvent<TemperatureComponent, OnTemperatureChangeEvent>(EnqueueDamage);
             SubscribeLocalEvent<TemperatureComponent, AtmosExposedUpdateEvent>(OnAtmosExposedUpdate);
-            SubscribeLocalEvent<AlertsComponent, OnTemperatureChangeEvent>(ServerAlert);
+            SubscribeLocalEvent<AlertsComponent, OnTemperatureChangeEvent>(ServerAlertNotDumb); // Parkstation-IPCs // See ServerAlert for how upstream handled it.
             SubscribeLocalEvent<TemperatureProtectionComponent, InventoryRelayedEvent<ModifyChangedTemperatureEvent>>(
                 OnTemperatureChangeAttempt);
 
@@ -128,7 +129,7 @@ namespace Content.Server.Temperature.Systems
 
         private void ServerAlert(EntityUid uid, AlertsComponent status, OnTemperatureChangeEvent args)
         {
-            switch (args.CurrentTemperature)
+            switch (args.CurrentTemperature) // Why the hell would you do temperature alerts like this?? - Parkstation.
             {
                 // Cold strong.
                 case <= 260:
@@ -166,6 +167,81 @@ namespace Content.Server.Temperature.Systems
                     break;
             }
         }
+
+        // Parkstation-IPCs-Start
+        /// <summary>
+        ///     Finds the TemperatureComponent and the ThermalRegulatorComponent, and uses _alertsSystem to set the alert level based on the range of temperatures as allowed by those components.
+        ///     Does some math to determine the alert level based on the current temperature and the range of temperatures allowed by the ThermalRegulatorComponent.
+        /// </summary>
+        private void ServerAlertNotDumb(EntityUid uid, AlertsComponent status, OnTemperatureChangeEvent args)
+        {
+            if (!EntityManager.TryGetComponent(uid, out TemperatureComponent? temperatureComponent))
+                return;
+
+            var temp = args.CurrentTemperature;
+            var minSafeTemp = temperatureComponent.ColdDamageThreshold;
+            var maxSafeTemp = temperatureComponent.HeatDamageThreshold;
+
+            if (!EntityManager.TryGetComponent(uid, out ThermalRegulatorComponent? thermalRegulator))
+            {
+                // If the entity does not have a ThermalRegularComponent, set the alert to 1 at 90% of the DamageThresholds, 2 at 130% of the DamageThresholds, and 3 at 180% of the DamageThresholds.
+                if (temp >= maxSafeTemp * 0.9)
+                {
+                    short alertLevel = (short) (temp >= maxSafeTemp * 1.6 ? 3 :
+                        temp >= maxSafeTemp * 1.2 ? 2 :
+                        1);
+
+                    _alertsSystem.ShowAlert(uid, AlertType.Hot, alertLevel);
+                    return;
+                }
+
+                if (temp <= minSafeTemp * 1.1)
+                {
+                    short alertLevel = (short) (temp <= minSafeTemp * 0.4 ? 3 :
+                        temp <= minSafeTemp * 0.8 ? 2 :
+                        1);
+
+                    _alertsSystem.ShowAlert(uid, AlertType.Cold, alertLevel);
+                    return;
+                }
+
+                _alertsSystem.ClearAlertCategory(uid, AlertCategory.Temperature);
+                return;
+            }
+
+            var minComfTemp = thermalRegulator.NormalBodyTemperature - thermalRegulator.ThermalRegulationTemperatureThreshold;
+            var maxComfTemp = thermalRegulator.NormalBodyTemperature + thermalRegulator.ThermalRegulationTemperatureThreshold;
+
+            // If the temperature is within the range of temperatures allowed by the ThermalRegulatorComponent, clear the alert.
+            if (temp >= minSafeTemp && temp <= maxSafeTemp)
+            {
+                _alertsSystem.ClearAlertCategory(uid, AlertCategory.Temperature);
+                return;
+            }
+
+            // If the temperature is below the minimum temperature allowed by the ThermalRegulatorComponent, set the alert to Cold.
+            if (temp < minComfTemp)
+            {
+                short alertLevel = (short) (temp <= minSafeTemp * 0.75 ? 3 :
+                    temp <= minSafeTemp ? 2 :
+                    Math.Max(Math.Floor(temp / minComfTemp), 2));
+
+                _alertsSystem.ShowAlert(uid, AlertType.Cold, alertLevel);
+                return;
+            }
+
+            // If the temperature is above the maximum temperature allowed by the ThermalRegulatorComponent, set the alert to Hot.
+            if (temp > maxComfTemp)
+            {
+                short alertLevel = (short) (temp >= maxSafeTemp * 1.25 ? 3 :
+                    temp >= maxSafeTemp ? 2 :
+                    Math.Max(Math.Floor(temp / maxComfTemp), 2));
+
+                _alertsSystem.ShowAlert(uid, AlertType.Hot, alertLevel);
+                return;
+            }
+        }
+        /// Parkstation-IPCs-End
 
         private void EnqueueDamage(EntityUid uid, TemperatureComponent component, OnTemperatureChangeEvent args)
         {

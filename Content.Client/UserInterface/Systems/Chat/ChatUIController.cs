@@ -12,6 +12,7 @@ using Content.Client.Ghost;
 using Content.Client.Lobby.UI;
 using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
+using Content.Client.SimpleStation14.Chat;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -55,6 +56,7 @@ public sealed class ChatUIController : UIController
     [UISystemDependency] private readonly ExamineSystem? _examine = default;
     [UISystemDependency] private readonly GhostSystem? _ghost = default;
     [UISystemDependency] private readonly PsionicChatUpdateSystem? _psionic = default!;
+    [UISystemDependency] private readonly ShadowkinChatUpdateSystem? _shadowkin = default!;
     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
     [UISystemDependency] private readonly ChatSystem? _chatSys = default;
 
@@ -72,7 +74,8 @@ public sealed class ChatUIController : UIController
         {SharedChatSystem.AdminPrefix, ChatSelectChannel.Admin},
         {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
         {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead},
-        {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic}
+        {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic},
+        {SharedChatSystem.EmpathyPrefix, ChatSelectChannel.Empathy}
     };
 
     public static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes = new()
@@ -86,7 +89,8 @@ public sealed class ChatUIController : UIController
         {ChatSelectChannel.Admin, SharedChatSystem.AdminPrefix},
         {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
         {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix},
-        {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix}
+        {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix},
+        {ChatSelectChannel.Empathy, SharedChatSystem.EmpathyPrefix}
     };
 
     /// <summary>
@@ -526,6 +530,7 @@ public sealed class ChatUIController : UIController
             FilterableChannels |= ChatChannel.AdminChat;
             CanSendChannels |= ChatSelectChannel.Admin;
             FilterableChannels |= ChatChannel.Telepathic;
+            FilterableChannels |= ChatChannel.Empathy;
         }
 
         // psionics
@@ -533,6 +538,13 @@ public sealed class ChatUIController : UIController
         {
             FilterableChannels |= ChatChannel.Telepathic;
             CanSendChannels |= ChatSelectChannel.Telepathic;
+        }
+
+        // Shadowkin
+        if (_shadowkin != null && _shadowkin.IsShadowkin)
+        {
+            FilterableChannels |= ChatChannel.Empathy;
+            CanSendChannels |= ChatSelectChannel.Empathy;
         }
 
         SelectableChannels = CanSendChannels;

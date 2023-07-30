@@ -35,6 +35,6 @@
   id: SimpleStationSpecies
   name: guide-entry-simplestation-species
   text: "/ServerInfo/SimpleStation14/Guidebook/Species/SimpleStationSpecies.xml"
-  # children:
+  children:
     # - SpeciesPlasmaman
-    # - SpeciesShadekin
+    - SpeciesShadowkin

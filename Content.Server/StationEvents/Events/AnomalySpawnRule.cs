@@ -1,4 +1,4 @@
-﻿using Content.Server.Anomaly;
+using Content.Server.Anomaly;
 using Content.Server.SimpleStation14.Announcements.Systems;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Station.Components;
