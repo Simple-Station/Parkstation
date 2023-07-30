@@ -39,7 +39,7 @@ public sealed class StaticOverlay : Overlay
         if (playerEntity == null)
             return;
 
-        if (!_entityManager.HasComponent<SeeingStaticComponent>(playerEntity)
+        if (!_entityManager.TryGetComponent<SeeingStaticComponent>(playerEntity, out var staticComp)
             || !_entityManager.TryGetComponent<StatusEffectsComponent>(playerEntity, out var statusComp))
             return;
 
@@ -63,7 +63,7 @@ public sealed class StaticOverlay : Overlay
 
         _curTimeLeft -= args.DeltaSeconds;
 
-        MixAmount = Math.Clamp(_curTimeLeft.Value / _fullTimeLeft.Value, 0, 1);
+        MixAmount = Math.Clamp(_curTimeLeft.Value / _fullTimeLeft.Value * staticComp.Multiplier, 0, 1);
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)

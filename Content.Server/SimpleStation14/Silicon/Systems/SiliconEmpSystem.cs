@@ -31,7 +31,7 @@ public sealed class SiliconEmpSystem : EntitySystem
     {
         args.EnergyConsumption *= 0.25f; // EMPs drain a lot of freakin power.
 
-        if (!TryComp<StatusEffectsComponent>(uid, out var statusComp)) // We check for this now, since we use it so many times.
+        if (!TryComp<StatusEffectsComponent>(uid, out var statusComp))
             return;
 
         args.Affected = true;
