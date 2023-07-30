@@ -19,6 +19,9 @@
       0: Alive
       140: Critical
       180: Dead
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
   - type: TypingIndicator
     proto: robot
   - type: Destructible
