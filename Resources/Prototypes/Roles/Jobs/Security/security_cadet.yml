@@ -25,6 +25,7 @@
     pocket2: Handcuffs
     back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsCombatFilled
+    outerClothing: ClothingOuterArmorBasic
     id: SecurityCadetPDA
     ears: ClothingHeadsetSecurity
     belt: WeaponDisabler

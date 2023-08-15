@@ -1,4 +1,4 @@
-﻿- type: accessGroup
+- type: accessGroup
   id: AllAccess
   tags:
   - EmergencyShuttleRepealAll
@@ -11,9 +11,9 @@
   - ChiefServiceSupervisor
   - Command
   - Security
+  - Detective
   - Armory
   - Brig
-  - Detective
   - Engineering
   - Medical
   - Mail

@@ -219,6 +219,9 @@
     state: cube
     color: "#8A9A5B"
     scale: 1, 1
+  - type: GuideHelp
+    guides:
+    - Cloning
   - type: Item
     size: 100
 

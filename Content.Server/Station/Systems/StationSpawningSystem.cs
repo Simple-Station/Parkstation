@@ -7,6 +7,7 @@ using Content.Server.Mind.Commands;
 using Content.Server.PDA;
 using Content.Server.Roles;
 using Content.Server.Station.Components;
+using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Hands.Components;
@@ -47,6 +48,7 @@ public sealed class StationSpawningSystem : EntitySystem
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
+    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
 
     private bool _randomizeCharacters;
 
@@ -76,7 +78,7 @@ public sealed class StationSpawningSystem : EntitySystem
         var ev = new PlayerSpawningEvent(job, profile, station, lateJoin);
         RaiseLocalEvent(ev);
 
-        DebugTools.Assert(ev.SpawnResult is {Valid: true} or null);
+        DebugTools.Assert(ev.SpawnResult is { Valid: true } or null);
 
         return ev.SpawnResult;
     }
@@ -116,7 +118,7 @@ public sealed class StationSpawningSystem : EntitySystem
         if (_randomizeCharacters)
         {
             var weightId = _configurationManager.GetCVar(CCVars.ICRandomSpeciesWeights);
-            var weights = _prototypeManager.Index<WeightedRandomPrototype>(weightId);
+            var weights = _prototypeManager.Index<WeightedRandomSpeciesPrototype>(weightId);
             speciesId = weights.Pick(_random);
         }
         else if (profile != null)
@@ -149,7 +151,7 @@ public sealed class StationSpawningSystem : EntitySystem
         if (profile != null)
         {
             _humanoidSystem.LoadProfile(entity.Value, profile);
-            MetaData(entity.Value).EntityName = profile.Name;
+            _metaSystem.SetEntityName(entity.Value, profile.Name);
             if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
             {
                 AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
@@ -161,7 +163,7 @@ public sealed class StationSpawningSystem : EntitySystem
         return entity.Value;
     }
 
-    private void DoJobSpecials(Job? job, EntityUid entity)
+    private static void DoJobSpecials(Job? job, EntityUid entity)
     {
         foreach (var jobSpecial in job?.Prototype.Special ?? Array.Empty<JobSpecial>())
         {
@@ -247,11 +249,10 @@ public sealed class StationSpawningSystem : EntitySystem
         if (!_inventorySystem.TryGetSlotEntity(entity, "id", out var idUid))
             return;
 
-        if (!EntityManager.TryGetComponent(idUid, out PdaComponent? pdaComponent) || pdaComponent.ContainedId == null)
+        if (!EntityManager.TryGetComponent(idUid, out PdaComponent? pdaComponent) || !TryComp<IdCardComponent>(pdaComponent.ContainedId, out var card))
             return;
 
-        var card = pdaComponent.ContainedId;
-        var cardId = card.Owner;
+        var cardId = pdaComponent.ContainedId.Value;
         _cardSystem.TryChangeFullName(cardId, characterName, card);
         _cardSystem.TryChangeJobTitle(cardId, jobPrototype.LocalizedName, card);
 
