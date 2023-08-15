@@ -16,7 +16,7 @@ enabled = true
 pathfinding = true
 
 [server]
-rules_file = "Park_Rules.txt"
+rules_file = "SimpleStation14/ParkstationRules.txt"
 id = "parkstation"
 
 [whitelist]
