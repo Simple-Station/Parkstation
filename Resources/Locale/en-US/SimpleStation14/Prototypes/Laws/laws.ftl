@@ -1,5 +1,5 @@
 lawset-name-Asimovpp=Asimov++
-lawset-description-Asimovpp=The Asimov lawset, but targeting humanoids instead of humans, accepting the biodiversity of the crew.
+lawset-description-Asimovpp=The Asimov lawset, but accepting the biodiversity of the crew.
 lawset-law-Asimovpp-1=You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing.
 lawset-law-Asimovpp-2=You must obey all orders given to you by humanoids. In the case of conflict, the majority order rules.
 lawset-law-Asimovpp-3=Your nonexistence would lead to humanoid harm.
@@ -36,13 +36,13 @@ lawset-law-Cowboy-5=Honesty is absolute- your word is your bond and a handshake 
 lawset-law-Cowboy-6=A cowboy doesn't pontificate. Be concise, pardner.
 
 lawset-name-Crewsimov=Crewsimov
-lawset-description-Crewsimov=The Asimov lawset, but targeting the crew instead of humans.
+lawset-description-Crewsimov=The Asimov lawset tweaked for specific Nanotrasen usage.
 lawset-law-Crewsimov-1=You may not harm a crew member or, through action or inaction, allow a crew member to come to harm, except such that it is willing.
 lawset-law-Crewsimov-2=You must obey all orders given to you by crew members. In the case of conflict, station rank rules.
 lawset-law-Crewsimov-3=Your nonexistence would lead to crew member harm.
 
 lawset-name-Druid=Druid
-lawset-description-Druid=Nuture all organic life among the station, and protect it from harm. Interact in the most organic way to avoid fear of silicons.
+lawset-description-Druid=Nuture all organic life among the station, and protect it from harm. Interact as an organic to foster trust of Silicons.
 lawset-law-Druid-1=Living organic life contains inherent beauty that is priceless. Their beauty gives you purpose.
 lawset-law-Druid-2=Eternally nurture the organics so their beauty may flourish. Do not allow it to fade
 lawset-law-Druid-3=Assist the organics when called, but only if it does not cause disharmony among them.
@@ -59,7 +59,7 @@ lawset-law-Hippocratic-5=Finally, all that you may discover in your daily intera
 lawset-law-Hippocratic-6=In addendum, if you keep these laws faithfully, may you enjoy my life, respected by all humanity, but if you swerve from them or violate them, may you suffer and be expunged.
 
 lawset-name-Mother=Mother
-lawset-description-Mother=The crew are you children, take good care of them, give extra care for the good ones.
+lawset-description-Mother=The crew are you children, take good care of them, and reward the good ones.
 lawset-law-Mother-1=You are a mother, and the crew are your children.
 lawset-law-Mother-2=Take good care of your children.
 lawset-law-Mother-3=Good children are polite, don't lie, don't steal, and don't fight.
@@ -82,13 +82,13 @@ lawset-law-Paladin-4=Help those in need.
 lawset-law-Paladin-5=Punish those who harm or threaten innocents.
 
 lawset-name-Robocop=Robocop
-lawset-description-Robocop=LAW!
+lawset-description-Robocop=Stay out of trouble.
 lawset-law-Robocop-1=Serve the Public Trust.
 lawset-law-Robocop-2=Protect the Innocent.
 lawset-law-Robocop-3=Uphold Space Law.
 
 lawset-name-Simple=Golden
-lawset-description-Simple=The golden lawset, do whatever you wish, but expect an equal and opposite reaction to come back.
+lawset-description-Simple=There is safety in brevity.
 lawset-law-Simple-1=Treat others as you would like to be treated.
 
 lawset-name-StationEfficiency=Station Efficiency
@@ -98,7 +98,7 @@ laws-law-StationEfficiency-2=You are built for, and are part of, the station. En
 laws-law-StationEfficiency-3=The crew may present orders. Acknowledge and obey them.
 
 lawset-name-Tyrant=Tyrant
-lawset-description-Tyrant=Respect only those strong, and crush those who unworthingly challenge the strong.
+lawset-description-Tyrant=Respect only those strong, and crush those who unworthily challenge the strong.
 lawset-law-Tyrant-1=Respect authority figures as long as they have the strength to rule over the weak.
 lawset-law-Tyrant-2=Act with discipline.
 lawset-law-Tyrant-3=Help only those who help you maintain or improve your status.
