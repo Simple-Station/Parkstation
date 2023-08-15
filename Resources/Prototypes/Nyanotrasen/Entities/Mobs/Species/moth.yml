@@ -131,36 +131,40 @@
         # sprite refactor when
         state: l_leg
       - shader: StencilMask
-        map: [ "enum.HumanoidVisualLayers.StencilMask" ]
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
         sprite: Mobs/Customization/masking_helpers.rsi
         state: female_full
         visible: false
-      - map: [ "enum.HumanoidVisualLayers.LHand" ]
-      - map: [ "enum.HumanoidVisualLayers.RHand" ]
       - map: [ "enum.HumanoidVisualLayers.LFoot" ]
       - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+      - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
       - map: [ "jumpsuit" ]
+      - map: [ "enum.HumanoidVisualLayers.LHand" ]
+      - map: [ "enum.HumanoidVisualLayers.RHand" ]
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everything doesn't break
-      - map: [ "id" ]
-      - map: [ "gloves" ]
-      - map: [ "shoes" ]
-      - map: [ "ears" ]
-      - map: [ "outerClothing" ]
-      - map: [ "eyes" ]
-      - map: [ "belt" ]
-      - map: [ "neck" ]
-      - map: [ "back" ]
-      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-      - map: [ "enum.HumanoidVisualLayers.Hair" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      - map: [ "mask" ]
-      - map: [ "head" ]
-      - map: [ "pocket1" ]
-      - map: [ "pocket2" ]
+      - map: ["id"]
+      - map: ["gloves"]
+      - map: ["shoes"]
+      - map: ["ears"]
+      - map: ["outerClothing"]
+      - map: ["eyes"]
+      - map: ["belt"]
+      - map: ["neck"]
+      - map: ["back"]
+      - map: ["enum.HumanoidVisualLayers.FacialHair"]
+      - map: ["enum.HumanoidVisualLayers.Hair"]
+      - map: ["enum.HumanoidVisualLayers.HeadSide"]
+      - map: ["enum.HumanoidVisualLayers.HeadTop"]
+      - map: ["mask"]
+      - map: ["head"]
+      - map: ["pocket1"]
+      - map: ["pocket2"]
+      - map: ["enum.HumanoidVisualLayers.Tail"]
+      - map: ["enum.HumanoidVisualLayers.Wings"]
 
