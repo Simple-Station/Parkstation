@@ -1,15 +1,3 @@
-- type: entity
-  name: Punpun Spawner
-  id: SpawnMobPunpun
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-      - state: green
-      - state: ai
-  - type: ConditionalSpawner
-    prototypes:
-      - MobMonkeyPunpun
 
 - type: entity
   name: Lois Spawner

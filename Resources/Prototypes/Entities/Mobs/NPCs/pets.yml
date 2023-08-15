@@ -668,13 +668,13 @@
   id: MobMonkeyPunpun
   description: A prominent representative of monkeys with unlimited access to alcohol.
   components:
-  - type: GhostRole
-    prob: 1
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    name: ghost-role-information-punpun-name
-    description: ghost-role-information-punpun-description
+  # - type: GhostRole
+  #   prob: 1
+  #   makeSentient: true
+  #   allowSpeech: true
+  #   allowMovement: true
+  #   name: ghost-role-information-punpun-name
+  #   description: ghost-role-information-punpun-description
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike
@@ -689,3 +689,13 @@
     - DoorBumpOpener
   - type: Loadout
     prototypes: [ MobMonkeyGear ]
+  - type: NpcFactionMember
+    factions:
+    - Pet
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: RandomBark
+    chatlog: True
+  - type: Punpun
