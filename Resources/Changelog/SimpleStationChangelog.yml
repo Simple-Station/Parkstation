@@ -1099,3 +1099,9 @@ Entries:
         up.
   id: 100
   time: '2023-07-29T15:24:26.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: add
+      message: Law UIs show a name and description for the current lawset.
+  id: 101
+  time: '2023-08-15T22:59:47.0000000+00:00'
