@@ -77,8 +77,6 @@
     naturalImmunities:
     - Ultragigacancer
     - BleedersBite
-  - type: BodyEmotes
-    soundsId: GeneralSlimeEmotes
 
 - type: entity
   save: false
