@@ -1,0 +1,23 @@
+- type: cargoProduct
+  id: MedicalBloodTank
+  name: Blood tank crate
+  description: "Contains a tank of blood."
+  icon:
+    sprite: SimpleStation14/Structures/Storage/tanks.rsi
+    state: bloodtankblood
+  product: CrateMedicalBloodTank
+  cost: 2500
+  category: Medical
+  group: market
+
+- type: cargoProduct
+  id: MedicalSlimeTank
+  name: slime tank crate
+  description: "Contains a tank of slime."
+  icon:
+    sprite: SimpleStation14/Structures/Storage/tanks.rsi
+    state: bloodtankblood
+  product: CrateMedicalSlimeTank
+  cost: 2500
+  category: Medical
+  group: market

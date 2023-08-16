@@ -1,0 +1,55 @@
+- type: entity
+  abstract: true
+  id: BloodTankBase
+  parent: StorageTank
+  suffix: Empty
+  components:
+  - type: DynamicPrice
+    price: 2000
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Storage/tanks.rsi
+    state: bloodtankblood
+  - type: ExaminableSolution
+    solution: tank
+
+- type: entity
+  id: BloodTankBlood
+  parent: BloodTankBase
+  suffix: Empty
+  components:
+  - type: Sprite
+    state: bloodtankblood
+
+- type: entity
+  parent: BloodTankBlood
+  id: BloodTankBloodFull
+  suffix: Full
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 1500
+
+- type: entity
+  id: BloodTankSlime
+  parent: BloodTankBase
+  suffix: Empty
+  components:
+  - type: DynamicPrice
+    price: 2500
+  - type: Sprite
+    state: bloodtankslime
+
+- type: entity
+  parent: BloodTankSlime
+  id: BloodTankSlimeFull
+  suffix: Full
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Slime
+          Quantity: 1500
