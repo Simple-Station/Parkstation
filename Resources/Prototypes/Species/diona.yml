@@ -6,7 +6,7 @@
   sprites: MobDionaSprites
   markingLimits: MobDionaMarkingLimits
   dollPrototype: MobDionaDummy
-  skinColoration: TintedHues
+  skinColoration: None
   maleFirstNames: DionaFirst
   femaleFirstNames: DionaFirst
   lastNames: DionaLast

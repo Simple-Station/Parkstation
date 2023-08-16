@@ -284,7 +284,7 @@
   productEntity: ReinforcementRadioSyndicate
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
   cost:
-    Telecrystal: 13
+    Telecrystal: 12
   categories:
   - UplinkUtility
 
@@ -392,7 +392,7 @@
   icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
   productEntity: MacroBombImplanter
   cost:
-    Telecrystal: 18
+    Telecrystal: 25
   categories:
   - UplinkImplants
   conditions:
@@ -474,7 +474,7 @@
   icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
   productEntity: ClothingBackpackDuffelZombieBundle
   cost:
-    Telecrystal: 36
+    Telecrystal: 40
   categories:
   - UplinkBundles
   conditions:
@@ -578,9 +578,14 @@
   description: uplink-carp-dehydrated-desc
   productEntity: DehydratedSpaceCarp
   cost:
-    Telecrystal: 2
+    Telecrystal: 3
   categories:
   - UplinkTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 # Job Specific
 
@@ -691,6 +696,24 @@
       whitelist:
         - Epistemologist
 
+- type: listing
+  id: uplinkProximityMine
+  name: uplink-proximity-mine-name
+  description: uplink-proximity-mine-desc
+  productEntity: WetFloorSignMineExplosive
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Janitor
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
 # Armor
 
 - type: listing
@@ -771,7 +794,7 @@
   id: UplinkEVASyndie
   name: uplink-eva-syndie-name
   description: uplink-eva-syndie-desc
-  icon: { sprite: /Textures/Clothing/OuterClothing/Suits/syndicate.rsi, state: icon }
+  icon: { sprite: /Textures/Clothing/OuterClothing/Suits/eva_syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEVABundle
   cost:
     Telecrystal: 2
@@ -844,14 +867,6 @@
   categories:
   - UplinkMisc
 
-- type: listing
-  id: UplinkCostumeCentcom
-  productEntity: ClothingBackpackDuffelSyndicateCostumeCentcom
-  cost:
-    Telecrystal: 4
-  categories:
-  - UplinkMisc
-
 # - type: listing
 #   id: UplinkGigacancerScanner
 #   name: Ultragigacancer Health Analyzer
@@ -868,7 +883,7 @@
   description: uplink-nocturine-chemistry-bottle-desc
   productEntity: NocturineChemistryBottle
   cost:
-    Telecrystal: 4
+    Telecrystal: 5
   categories:
   - UplinkMisc
 
@@ -893,21 +908,6 @@
   - UplinkMisc
 
 - type: listing
-  id: UplinkStimpackExperimental
-  name: uplink-experimental-stimpack-name
-  description: uplink-experimental-stimpack-desc
-  productEntity: StimpackExperimental
-  cost:
-    Telecrystal: 15
-  categories:
-  - UplinkMisc
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing
   id: UplinkSyndicateSegwayCrate
   name: uplink-syndicate-segway-crate-name
   description: uplink-syndicate-segway-crate-desc
@@ -925,103 +925,3 @@
 
  # Pointless
 
-- type: listing
-  id: UplinkRevolverCapGun
-  name: uplink-revolver-cap-gun-name
-  description: uplink-revolver-cap-gun-desc
-  productEntity: RevolverCapGun
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkPointless
-
-
-- type: listing
-  id: UplinkSyndicateStamp
-  name: uplink-syndicate-stamp-name
-  description: uplink-syndicate-stamp-desc
-  productEntity: RubberStampSyndicate
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkPointless
-
-- type: listing
-  id: UplinkCatEars
-  name: uplink-cat-ears-name
-  description: uplink-cat-ears-desc
-  productEntity: ClothingHeadHatCatEars
-  cost:
-    Telecrystal: 4
-  categories:
-  - UplinkPointless
-
-- type: listing
-  id: UplinkOutlawHat
-  name: uplink-outlaw-hat-name
-  description: uplink-outlaw-hat-desc
-  productEntity: ClothingHeadHatOutlawHat
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkPointless
-
-- type: listing
-  id: UplinkOutlawGlasses
-  name: uplink-outlaw-glasses-name
-  description: uplink-outlaw-glasses-desc
-  productEntity: ClothingEyesGlassesOutlawGlasses
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkPointless
-
-- type: listing
-  id: UplinkCostumePyjama
-  name: uplink-costume-pyjama-name
-  description: uplink-costume-pyjama-desc
-  productEntity: ClothingBackpackDuffelSyndicatePyjamaBundle
-  cost:
-    Telecrystal: 4
-  categories:
-  - UplinkPointless
-
-- type: listing
-  id: UplinkCostumeClown
-  name: uplink-costume-clown-name
-  description: uplink-costume-clown-desc
-  productEntity: ClothingBackpackDuffelSyndicateCostumeClown
-  cost:
-    Telecrystal: 4
-  categories:
-  - UplinkPointless
-
-- type: listing
-  id: UplinkOperativeSuit
-  name: uplink-operative-suit-name
-  description: uplink-operative-suit-desc
-  productEntity: ClothingUniformJumpsuitOperative
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkPointless
-
-- type: listing
-  id: UplinkOperativeSkirt
-  name: uplink-operative-skirt-name
-  description: uplink-operative-skirt-desc
-  productEntity: ClothingUniformJumpskirtOperative
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkPointless
-
-- type: listing
-  id: UplinkBalloon
-  name: uplink-balloon-name
-  description: uplink-balloon-desc
-  productEntity: BalloonSyn
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkPointless

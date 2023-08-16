@@ -1,4 +1,4 @@
-﻿using System.Collections.Immutable;
+using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Server.GameTicking;
@@ -32,6 +32,7 @@ namespace Content.Server.Connection
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IAdminManager _admin = default!;
         [Dependency] private readonly RedialManager _redial = default!;
+        [Dependency] private readonly ILocalizationManager _loc = default!;
 
         public void Initialize()
         {
@@ -160,7 +161,8 @@ namespace Content.Server.Connection
             if (bans.Count > 0)
             {
                 var firstBan = bans[0];
-                return (ConnectionDenyReason.Ban, firstBan.DisconnectMessage, bans);
+                var message = firstBan.FormatBanMessage(_cfg, _loc);
+                return (ConnectionDenyReason.Ban, message, bans);
             }
 
             var minPlayers = _cfg.GetCVar(CCVars.WhitelistMinPlayers);
@@ -169,7 +171,7 @@ namespace Content.Server.Connection
                 && await _db.GetWhitelistStatusAsync(userId) == false
                 && adminData is null)
             {
-                return (ConnectionDenyReason.Whitelist, Loc.GetString("whitelist-not-whitelisted", ("num", minPlayers)), null);
+                return (ConnectionDenyReason.Whitelist, Loc.GetString(_cfg.GetCVar(CCVars.WhitelistReason)), null);
             }
 
             return null;

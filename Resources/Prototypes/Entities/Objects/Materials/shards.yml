@@ -10,7 +10,6 @@
       - sprite: Objects/Materials/Shards/shard.rsi
         state: shard1
         map: [ "enum.DamageStateVisualLayers.Base" ]
-    netsync: false
     scale: 0.65, 0.65
   - type: RandomSprite
     available:
@@ -32,19 +31,20 @@
     enabled: false
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.2,-0.2,0.2,0.2"
-      id: "slips"
-      hard: false
-      layer:
-      - LowImpassable
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.2,-0.2,0.2,0.2"
-      density: 30
-      mask:
-      - ItemMask
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        layer:
+        - LowImpassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 30
+        mask:
+        - ItemMask
   - type: DamageOtherOnHit
     damage:
       types:
@@ -116,7 +116,11 @@
   - type: DamageUserOnTrigger
     damage:
       types:
-        Piercing: 10
+        Piercing: 5
+  - type: Tag
+    tags:
+      - ReinforcedGlassShard
+      - Trash
 
 - type: entity
   parent: ShardBase
@@ -133,4 +137,9 @@
   - type: DamageUserOnTrigger
     damage:
       types:
-        Piercing: 15
+        Piercing: 5
+  - type: Tag
+    tags:
+      - PlasmaGlassShard
+      - Trash
+

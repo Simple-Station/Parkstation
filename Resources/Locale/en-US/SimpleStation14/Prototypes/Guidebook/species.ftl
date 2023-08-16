@@ -20,4 +20,4 @@ guide-entry-moth = Moth
 guide-entry-oni = Oni
 # parkstation-species
 guide-entry-plasmaman = Plasmaman
-guide-entry-shadekin = Shadowkin
+guide-entry-shadowkin = Shadowkin

@@ -6,6 +6,7 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.NodeGroups;
+using Content.Server.Weapons.Melee;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Database;
@@ -37,6 +38,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedJitteringSystem _jittering = default!;
+    [Dependency] private readonly MeleeWeaponSystem _meleeWeapon = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedStutteringSystem _stuttering = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -46,12 +48,13 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
 
     private const string StatusEffectKey = "Electrocution";
     private const string DamageType = "Shock";
 
     // Yes, this is absurdly small for a reason.
-    private const float ElectrifiedDamagePerWatt = 0.0015f;
+    public const float ElectrifiedDamagePerWatt = 0.0015f; // Parkstation-IPC // This information is allowed to be public, and was needed in BatteryElectrocuteChargeSystem.cs
 
     private const float RecursiveDamageMultiplier = 0.75f;
     private const float RecursiveTimeMultiplier = 0.8f;
@@ -153,7 +156,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     private void OnElectrifiedStartCollide(EntityUid uid, ElectrifiedComponent electrified, ref StartCollideEvent args)
     {
         if (electrified.OnBump)
-            TryDoElectrifiedAct(uid, args.OtherFixture.Body.Owner, 1, electrified);
+            TryDoElectrifiedAct(uid, args.OtherEntity, 1, electrified);
     }
 
         private void OnElectrifiedAttacked(EntityUid uid, ElectrifiedComponent electrified, AttackedEvent args)
@@ -161,12 +164,8 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             if (!electrified.OnAttacked)
                 return;
 
-            //Dont shock if the attacker used a toy
-            if (EntityManager.TryGetComponent<MeleeWeaponComponent>(args.Used, out var meleeWeaponComponent))
-            {
-                if (meleeWeaponComponent.Damage.Total == 0)
-                    return;
-            }
+            if (_meleeWeapon.GetDamage(args.Used, args.User).Total == 0)
+                return;
 
             TryDoElectrifiedAct(uid, args.User, 1, electrified);
     }
@@ -220,7 +219,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
                     entity,
                     uid,
                     (int) (electrified.ShockDamage * MathF.Pow(RecursiveDamageMultiplier, depth)),
-                    TimeSpan.FromSeconds(electrified.ShockTime * MathF.Pow(RecursiveTimeMultiplier, depth)), 
+                    TimeSpan.FromSeconds(electrified.ShockTime * MathF.Pow(RecursiveTimeMultiplier, depth)),
                     true,
                     electrified.SiemensCoefficient
                 );
@@ -249,7 +248,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
                     uid,
                     node,
                     (int) (electrified.ShockDamage * MathF.Pow(RecursiveDamageMultiplier, depth) * damageMult),
-                    TimeSpan.FromSeconds(electrified.ShockTime * MathF.Pow(RecursiveTimeMultiplier, depth) * timeMult), 
+                    TimeSpan.FromSeconds(electrified.ShockTime * MathF.Pow(RecursiveTimeMultiplier, depth) * timeMult),
                     true,
                     electrified.SiemensCoefficient);
             }
@@ -267,7 +266,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         Node? TryNode(string? id)
         {
             if (id != null &&
-                nodeContainer.TryGetNode<Node>(id, out var tryNode) &&
+                _nodeContainer.TryGetNode<Node>(nodeContainer, id, out var tryNode) &&
                 tryNode.NodeGroup is IBasePowerNet { NetworkNode: { LastCombinedSupply: > 0 } })
             {
                 return tryNode;
@@ -293,7 +292,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
                 || !DoCommonElectrocution(uid, sourceUid, shockDamage, time, refresh, siemensCoefficient, statusEffects))
                 return false;
 
-            RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient), true);
+            RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Parkstation-IPC
             return true;
         }
 
@@ -322,7 +321,12 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             return true;
 
         var electrocutionEntity = Spawn($"VirtualElectrocutionLoad{node.NodeGroupID}", sourceTransform.Coordinates);
-        var electrocutionNode = Comp<NodeContainerComponent>(electrocutionEntity).GetNode<ElectrocutionNode>("electrocution");
+
+        var nodeContainer = Comp<NodeContainerComponent>(electrocutionEntity);
+
+        if (!_nodeContainer.TryGetNode<ElectrocutionNode>(nodeContainer, "electrocution", out var electrocutionNode))
+            return false;
+
         var electrocutionComponent = Comp<ElectrocutionComponent>(electrocutionEntity);
 
         electrocutionNode.CableEntity = sourceUid;
@@ -334,7 +338,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         electrocutionComponent.Electrocuting = uid;
         electrocutionComponent.Source = sourceUid;
 
-        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient), true);
+        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Parkstation-IPC
 
         return true;
     }
@@ -374,7 +378,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         {
             return false;
         }
-        
+
         if (!_statusEffects.TryAddStatusEffect<ElectrocutedComponent>(uid, StatusEffectKey, time, refresh, statusEffects))
             return false;
 

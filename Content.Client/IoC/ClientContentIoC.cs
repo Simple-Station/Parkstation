@@ -19,6 +19,7 @@ using Content.Client.Redial;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Logs;
 using Content.Client.Guidebook;
+using Content.Client.Replay;
 using Content.Shared.Administration.Managers;
 
 namespace Content.Client.IoC
@@ -40,16 +41,16 @@ namespace Content.Client.IoC
             IoCManager.Register<ChangelogManager, ChangelogManager>();
             IoCManager.Register<RulesManager, RulesManager>();
             IoCManager.Register<ViewportManager, ViewportManager>();
-            IoCManager.Register<IGamePrototypeLoadManager, GamePrototypeLoadManager>();
-            IoCManager.Register<NetworkResourceManager>();
             IoCManager.Register<ISharedAdminLogManager, SharedAdminLogManager>();
             IoCManager.Register<GhostKickManager>();
             IoCManager.Register<ExtendedDisconnectInformationManager>();
+            IoCManager.Register<JobRequirementsManager>();
             IoCManager.Register<PlayTimeTrackingManager>();
             IoCManager.Register<JoinQueueManager>(); // Corvax-Queue
             IoCManager.Register<DiscordAuthManager>(); // Corvax-DiscordAuth
             IoCManager.Register<DocumentParsingManager>();
             IoCManager.Register<RedialManager>();
+            IoCManager.Register<ContentReplayPlaybackManager, ContentReplayPlaybackManager>();
         }
     }
 }

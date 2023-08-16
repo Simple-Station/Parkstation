@@ -9,7 +9,7 @@ namespace Content.Shared.SimpleStation14.Clothing
     {
         [DataField("component", required: true)]
         [AlwaysPushInheritance]
-        public EntityPrototype.ComponentRegistry Components { get; } = new();
+        public ComponentRegistry Components { get; } = new();
 
         [ViewVariables(VVAccess.ReadWrite)]
         public bool IsActive = false;
