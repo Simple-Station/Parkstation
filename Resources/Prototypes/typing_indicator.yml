@@ -22,11 +22,13 @@
   id: holo
   typingState: holo0
   idleState: holo3 # Corvax-TypingIndicator
+  offset: 0, 0.0625
 
 - type: typingIndicator
   id: lawyer
   typingState: lawyer0
   idleState: lawyer3 # Corvax-TypingIndicator
+  offset: 0, 0.125
 
 
 # Parkstation-TypingIndicators-Start
@@ -59,4 +61,5 @@
 - type: typingIndicator
   id: moth
   typingState: moth0
-  idleState: moth3  # Corvax-TypingIndicator
+  idleState: moth3 # Corvax-TypingIndicator
+  offset: 0.5, 0.5 # Corvax-TypingIndicator
