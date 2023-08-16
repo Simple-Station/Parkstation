@@ -45,7 +45,6 @@ namespace Content.Client.IoC
             IoCManager.Register<GhostKickManager>();
             IoCManager.Register<ExtendedDisconnectInformationManager>();
             IoCManager.Register<JobRequirementsManager>();
-            IoCManager.Register<PlayTimeTrackingManager>();
             IoCManager.Register<JoinQueueManager>(); // Corvax-Queue
             IoCManager.Register<DiscordAuthManager>(); // Corvax-DiscordAuth
             IoCManager.Register<DocumentParsingManager>();
