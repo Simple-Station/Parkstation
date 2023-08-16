@@ -199,8 +199,8 @@
 - type: entity
   parent: BaseHyperlinkBook
   id: HyperlinkBookMedical
-  name: Guide to Medical
-  description: A guide to the medical department.
+  name: The Hippocratic Oath and You
+  description: "There's a concerning number of times that this book refers to it as the 'Hippocratic Suggestion...'"
   components:
   - type: Sprite
     layers:
