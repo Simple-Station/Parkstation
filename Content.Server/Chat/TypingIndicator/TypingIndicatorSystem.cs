@@ -31,7 +31,7 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
     private void OnPlayerDetached(EntityUid uid, TypingIndicatorComponent component, PlayerDetachedEvent args)
     {
         // player left entity body - hide typing indicator
-        SetTypingIndicatorEnabled(uid, false); // Corvax-TypingIndicator
+        SetTypingIndicatorState(uid, TypingIndicatorState.None); // Corvax-TypingIndicator
     }
 
     private void OnClientTypingChanged(TypingChangedEvent ev, EntitySessionEventArgs args)
@@ -47,11 +47,11 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         if (!_actionBlocker.CanEmote(uid.Value) && !_actionBlocker.CanSpeak(uid.Value))
         {
             // nah, make sure that typing indicator is disabled
-            SetTypingIndicatorEnabled(uid.Value, false); // Corvax-TypingIndicator
+            SetTypingIndicatorState(uid.Value, TypingIndicatorState.None); // Corvax-TypingIndicator
             return;
         }
 
-        SetTypingIndicatorEnabled(uid.Value, ev.State == TypingIndicatorState.None ? false : true); // Corvax-TypingIndicator
+        SetTypingIndicatorState(uid.Value, ev.State); // Corvax-TypingIndicator
     }
 
     // Begin Nyano-code: API made public for conversational NPCs.
@@ -61,6 +61,14 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         if (!Resolve(uid, ref appearance, false))
             return;
 
-        appearance.SetData(TypingIndicatorVisuals.State, appearance); // Corvax-TypingIndicator
+        _appearance.SetData(uid, TypingIndicatorVisuals.State, isEnabled ? TypingIndicatorState.Typing : TypingIndicatorState.None, appearance); // Corvax-TypingIndicator
+    }
+
+    private void SetTypingIndicatorState(EntityUid uid, TypingIndicatorState state, AppearanceComponent? appearance = null) // Corvax-TypingIndicator
+    {
+        // if (!Resolve(uid, ref appearance, false)) // Corvax-TypingIndicator
+        //     return;
+
+        _appearance.SetData(uid, TypingIndicatorVisuals.State, state); // Corvax-TypingIndicator
     }
 }
