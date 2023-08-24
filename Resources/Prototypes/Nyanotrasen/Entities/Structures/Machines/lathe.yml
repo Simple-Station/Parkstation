@@ -164,6 +164,11 @@
       - Welder # TODO: needs empty version
       - Wirecutter
       - Wrench
+      # BEGIN: machine parts
+      - CapacitorStockPart
+      - MatterBinStockPart
+      - MicroManipulatorStockPart
+      # END: machine parts
     dynamicRecipes:
       - ClothingEyesHudDiagnostic
       - ClothingEyesHudDiagnosticPrescription
@@ -186,10 +191,7 @@
       - AdvancedCapacitorStockPart
       - AdvancedMatterBinStockPart
       - BluespaceMatterBinStockPart
-      - CapacitorStockPart
       - FemtoManipulatorStockPart
-      - MatterBinStockPart
-      - MicroManipulatorStockPart
       - NanoManipulatorStockPart
       - PicoManipulatorStockPart
       - QuadraticCapacitorStockPart

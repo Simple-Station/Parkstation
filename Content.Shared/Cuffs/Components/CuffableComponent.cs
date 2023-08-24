@@ -40,18 +40,6 @@ public sealed class CuffableComponent : Component
     [DataField("canStillInteract"), ViewVariables(VVAccess.ReadWrite)]
     public bool CanStillInteract = true;
 
-    /// <summary>
-    /// Damage is applied to someone when they try to uncuff themselves.
-    /// </summary>
-    [DataField("damageOnResist"), ViewVariables(VVAccess.ReadWrite)]
-    public DamageSpecifier DamageOnResist = new()
-    {
-        DamageDict = new()
-             {
-                 { "Blunt", 3.0 },
-             }
-    };
-
     // Parkstation-EndOfRoundStats-Start
     /// <summary>
     ///     When this entity was cuffed, if currently cuffed.
