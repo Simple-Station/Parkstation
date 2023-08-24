@@ -56,8 +56,7 @@
   idleState: alienroyal3
 # Parkstation-TypingIndicators-End
 
-# TODO: need sprite for this maybe
 - type: typingIndicator
   id: moth
   typingState: moth0
-  # idleState: moth3
+  idleState: moth3  # Corvax-TypingIndicator
