@@ -1,56 +1,41 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Created by discord:IAmRasputin#5242",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "icon"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e; equipped, icon, inhand left and right remade by 𝚆𝚊𝚛𝚝𝚊𝚐𝚕𝚎𝚡#0912",
+    "size": {
+      "x": 32,
+      "y": 32
     },
-    {
-      "name": "visorlit"
-    },
-    {
-      "name": "headlight"
-    },
-    {
-      "name": "equipped-HELMET",
-      "directions": 4
-    },
-    {
-      "name": "visorlit-equipped-HELMET",
-      "directions": 4
-    },
-    {
-      "name": "headlight-equipped-HELMET",
-      "directions": 4
-    },
-    {
-      "name": "inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "visorlit-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "visorlit-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "headlight-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "headlight-inhand-right",
-      "directions": 4
-    }
-  ]
-}
+    "states": [
+      {
+        "name": "icon"
+      },
+      {
+        "name": "icon-open"
+      },
+      {
+        "name": "equipped-OUTERCLOTHING",
+        "directions": 4
+      },
+      {
+        "name": "open-equipped-OUTERCLOTHING",
+        "directions": 4
+      },
+      {
+        "name": "inhand-left",
+        "directions": 4
+      },
+      {
+        "name": "inhand-right",
+        "directions": 4
+      },
+      {
+        "name": "open-inhand-left",
+        "directions": 4
+      },
+      {
+        "name": "open-inhand-right",
+        "directions": 4
+      }
+    ]
+  }
