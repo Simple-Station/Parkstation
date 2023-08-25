@@ -1105,3 +1105,9 @@ Entries:
       message: Law UIs show a name and description for the current lawset.
   id: 101
   time: '2023-08-15T22:59:47.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: Parkstation changelogs should work again!
+  id: 102
+  time: '2023-08-25T04:14:31.0000000+00:00'
