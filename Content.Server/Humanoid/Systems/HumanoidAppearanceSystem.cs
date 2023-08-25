@@ -1,5 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server.DetailExaminable;
+using Content.Shared.CCVar;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -7,6 +9,7 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Preferences;
 using Content.Shared.Verbs;
+using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Prototypes;
 
@@ -16,6 +19,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 {
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
 
     public override void Initialize()
     {
@@ -144,6 +148,11 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         // Begin Nyano-code: save the last profile for paradox anomalies.
         humanoid.LastProfileLoaded = profile;
         // End Nyano-code.
+
+        if (!string.IsNullOrEmpty(profile.FlavorText) && _configurationManager.GetCVar(CCVars.FlavorText))
+        {
+            EnsureComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
+        }
 
         Dirty(humanoid);
     }
