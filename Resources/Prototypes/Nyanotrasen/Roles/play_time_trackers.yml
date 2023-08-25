@@ -21,7 +21,4 @@
   id: JobCataloguer
 
 - type: playTimeTracker
-  id: JobParamedic
-
-- type: playTimeTracker
   id: JobPrisoner

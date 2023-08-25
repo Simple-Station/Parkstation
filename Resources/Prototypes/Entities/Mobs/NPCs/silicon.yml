@@ -97,6 +97,9 @@
   - type: Alerts
   - type: TypingIndicator
     proto: robot
+  - type: GuideHelp
+    guides:
+    - Robotics
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ItemSlots

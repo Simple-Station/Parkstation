@@ -430,6 +430,9 @@
     prototype: AnimalRuminant
   - type: HTN
     rootTask: RuminantCompound
+  - type: GuideHelp
+    guides:
+    - Chef
   - type: RandomBark
     barks:
       - Mooooooo
@@ -1031,6 +1034,17 @@
       - RatHive
   - type: RandomBark
     barkMultiplier: 0.3
+
+- type: entity
+  parent: MobMouse
+  id: MobMouseAdmeme
+  suffix: Admeme
+  components:
+  # allow admeme mouse to eat pills
+  - type: IgnoreBadFood
+  # intended for swarms that eat pills so only temporary
+  - type: TimedDespawn
+    lifetime: 60
 
 - type: entity
   parent: MobMouse

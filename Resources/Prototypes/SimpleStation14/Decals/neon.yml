@@ -1,0 +1,122 @@
+- type: decal
+  id: NeonFull
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_full
+
+
+- type: decal
+  id: NeonLongSideN
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_long_side_n
+
+- type: decal
+  id: NeonLongSideE
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_long_side_e
+
+- type: decal
+  id: NeonLongSideS
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_long_side_s
+
+- type: decal
+  id: NeonLongSideW
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_long_side_w
+
+
+- type: decal
+  id: NeonLongEdgeN
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_long_edge_n
+
+- type: decal
+  id: NeonLongEdgeE
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_long_edge_e
+
+- type: decal
+  id: NeonLongEdgeS
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_long_edge_s
+
+- type: decal
+  id: NeonLongEdgeW
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_long_edge_w
+
+
+- type: decal
+  id: NeonShortCCWNE
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_short_ccw_ne
+
+- type: decal
+  id: NeonShortCCWSE
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_short_ccw_se
+
+- type: decal
+  id: NeonShortCCWSW
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_short_ccw_sw
+
+- type: decal
+  id: NeonShortCCWNW
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_short_ccw_nw
+
+
+- type: decal
+  id: NeonShortCWNE
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_short_cw_ne
+
+- type: decal
+  id: NeonShortCWSE
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_short_cw_se
+
+- type: decal
+  id: NeonShortCWSW
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_short_cw_sw
+
+- type: decal
+  id: NeonShortCWNW
+  tags: ["markings", "neon", "station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/neon.rsi
+    state: neon_short_cw_nw

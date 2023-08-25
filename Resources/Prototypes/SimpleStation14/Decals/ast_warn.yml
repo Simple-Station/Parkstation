@@ -1,0 +1,129 @@
+- type: decal
+  id: AstWarnBox
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_box
+
+- type: decal
+  id: AstWarnFull
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_full
+
+
+- type: decal
+  id: AstWarnCornerNE
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_corner_ne
+
+- type: decal
+  id: AstWarnCornerSE
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_corner_se
+
+- type: decal
+  id: AstWarnCornerSW
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_corner_sw
+
+- type: decal
+  id: AstWarnCornerNW
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_corner_nw
+
+
+- type: decal
+  id: AstWarnSideN
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_side_n
+
+- type: decal
+  id: AstWarnSideE
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_side_e
+
+- type: decal
+  id: AstWarnSideS
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_side_s
+
+- type: decal
+  id: AstWarnSideW
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_side_w
+
+
+- type: decal
+  id: AstWarnSideNE
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_side_ne
+
+- type: decal
+  id: AstWarnSideSE
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_side_se
+
+- type: decal
+  id: AstWarnSideSW
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_side_sw
+
+- type: decal
+  id: AstWarnSideNW
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_side_nw
+
+
+- type: decal
+  id: AstWarnEndN
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_end_n
+
+- type: decal
+  id: AstWarnEndE
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_end_e
+
+- type: decal
+  id: AstWarnEndS
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_end_s
+
+- type: decal
+  id: AstWarnEndW
+  tags: ["station", "warning"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/ast.rsi
+    state: ast_warn_end_w
