@@ -17,6 +17,10 @@
         - AllAccess
     - type: DoorRemote
       defaultMode: enum.OperatingMode.OpenClose
+    - type: Tag
+      tags:
+        - InnateItemBeforeInteract
+        - InnateItemRepeat
 
 # Innate items, not meant to be spawned as there isn't any functional difference between them and the parent
 - type: entity

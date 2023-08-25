@@ -41,7 +41,6 @@
       showAuthor: false
     # Innate door remotes (bolting, emergency access, etc)
     - type: InnateItem
-      afterInteract: false
       startingPriority: 25
     - type: ItemSlots
       slots:

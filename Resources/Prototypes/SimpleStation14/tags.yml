@@ -2,6 +2,12 @@
   id: GlassesNearsight
 
 - type: Tag
+  id: InnateItemBeforeInteract
+
+- type: Tag
+  id: InnateItemRepeat
+
+- type: Tag
   id: Plushie
 
 - type: Tag

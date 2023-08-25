@@ -55,7 +55,6 @@
   - type: Inventory
     templateId: aghost
   - type: InnateItem
-    afterInteract: false
     startingPriority: 15
   - type: ItemSlots
     slots:

@@ -23,7 +23,6 @@ namespace Content.Server.Borgs
 
         private void OnMindAdded(EntityUid uid, InnateItemComponent component, MindAddedMessage args)
         {
-            Logger.ErrorS("innate", $"OnMindAdded: {uid}");
             if (!component.AlreadyInitialized)
                 RefreshItems(uid, component);
 
@@ -42,41 +41,25 @@ namespace Content.Server.Borgs
                     _tagSystem.HasTag(sourceItem, "NoAction"))
                     continue;
 
-                _actionsSystem.AddAction(uid, component.AfterInteract
-                    ? CreateAfterInteractAction(sourceItem, priority)
-                    : CreateBeforeInteractAction(sourceItem, priority),
-                    uid
-                );
+                _actionsSystem.AddAction(uid, CreateInteractAction(sourceItem, priority), null);
 
                 priority--;
             }
         }
 
-        private EntityTargetAction CreateAfterInteractAction(EntityUid uid, int priority)
+
+        private EntityTargetAction CreateInteractAction(EntityUid uid, int priority)
         {
             EntityTargetAction action = new()
             {
                 DisplayName = MetaData(uid).EntityName,
                 Description = MetaData(uid).EntityDescription,
                 EntityIcon = uid,
-                Event = new InnateAfterInteractActionEvent(uid),
-                Priority = priority,
-            };
-
-            return action;
-        }
-
-        private EntityTargetAction CreateBeforeInteractAction(EntityUid uid, int priority)
-        {
-            EntityTargetAction action = new()
-            {
-                DisplayName = MetaData(uid).EntityName,
-                Description = MetaData(uid).EntityDescription,
-                EntityIcon = uid,
-                Event = new InnateBeforeInteractActionEvent(uid),
+                Event = _tagSystem.HasTag(uid, "InnateItemBeforeInteract") ? new InnateBeforeInteractActionEvent(uid) : new InnateAfterInteractActionEvent(uid),
                 Priority = priority,
                 CheckCanAccess = false,
                 Range = 25f,
+                Repeat = _tagSystem.HasTag(uid, "InnateItemRepeat"),
             };
 
             return action;
