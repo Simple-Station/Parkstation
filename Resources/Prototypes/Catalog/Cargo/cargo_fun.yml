@@ -79,21 +79,21 @@
   group: market
 
 - type: cargoProduct
+  id: CrateFunWaterGuns
+  icon:
+    sprite: Objects/Weapons/Guns/Pistols/water_pistol.rsi
+    state: display
+  product: CrateFunWaterGuns
+  cost: 800
+  category: Fun
+  group: market
+
+- type: cargoProduct
   id: FunPlushies
   icon:
     sprite: Objects/Fun/toys.rsi
     state: plushie_h
   product: CrateFunPlushie
-  cost: 1000
-  category: Fun
-  group: market
-
-- type: cargoProduct
-  id: FunCrewmates
-  icon:
-    sprite: Objects/Fun/pequeno.rsi
-    state: icon
-  product: CrateFunCrewmates
   cost: 1000
   category: Fun
   group: market
@@ -135,5 +135,35 @@
     state: syringe_base0
   product: CrateFunLightImplants
   cost: 1000
+  category: Fun
+  group: market
+
+- type: cargoProduct
+  id: FunBoxing
+  icon:
+    sprite: Clothing/Hands/Gloves/Boxing/boxingred.rsi
+    state: icon
+  product: CrateFunBoxing
+  cost: 500
+  category: Fun
+  group: market
+
+- type: cargoProduct
+  id: FunPirate
+  icon:
+    sprite: Structures/Storage/Crates/piratechest.rsi
+    state: crate_icon
+  product: CrateFunPirate
+  cost: 400
+  category: Fun
+  group: market
+
+- type: cargoProduct
+  id: FunToyBox
+  icon:
+    sprite: Structures/Storage/Crates/toybox.rsi
+    state: crate_icon
+  product: CrateFunToyBox
+  cost: 900
   category: Fun
   group: market

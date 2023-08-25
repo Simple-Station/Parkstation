@@ -1,3 +1,5 @@
+using System.Numerics;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using JetBrains.Annotations;
@@ -13,7 +15,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Shuttles.UI;
@@ -21,13 +22,12 @@ namespace Content.Client.Shuttles.UI;
 /// <summary>
 /// Displays nearby grids inside of a control.
 /// </summary>
-public sealed class RadarControl : Control
+public sealed class RadarControl : MapGridControl
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+    private SharedTransformSystem _transform;
 
-    private const float ScrollSensitivity = 8f;
     private const float GridLinesDistance = 32f;
 
     /// <summary>
@@ -36,26 +36,6 @@ public sealed class RadarControl : Control
     private EntityCoordinates? _coordinates;
 
     private Angle? _rotation;
-
-    private float _radarMinRange = SharedRadarConsoleSystem.DefaultMinRange;
-    private float _radarMaxRange = SharedRadarConsoleSystem.DefaultMaxRange;
-    public float RadarRange { get; private set; } = SharedRadarConsoleSystem.DefaultMinRange;
-
-    /// <summary>
-    /// We'll lerp between the radarrange and actual range
-    /// </summary>
-    private float _actualRadarRange = SharedRadarConsoleSystem.DefaultMinRange;
-
-    /// <summary>
-    /// Controls the maximum distance that IFF labels will display.
-    /// </summary>
-    public float MaxRadarRange { get; private set; } = 256f * 10f;
-
-    private int MinimapRadius => (int) Math.Min(Size.X, Size.Y) / 2;
-    private Vector2 MidPoint => (Size / 2) * UIScale;
-    private int SizeFull => (int) (MinimapRadius * 2 * UIScale);
-    private int ScaledMinimapRadius => (int) (MinimapRadius * UIScale);
-    private float MinimapScale => RadarRange != 0 ? ScaledMinimapRadius / RadarRange : 0f;
 
     /// <summary>
     /// Shows a label on each radar object.
@@ -72,43 +52,20 @@ public sealed class RadarControl : Control
     /// </summary>
     public EntityUid? HighlightedDock;
 
-    public Action<float>? OnRadarRangeChanged;
-
     /// <summary>
     /// Raised if the user left-clicks on the radar control with the relevant entitycoordinates.
     /// </summary>
     public Action<EntityCoordinates>? OnRadarClick;
 
-    public RadarControl()
+    public RadarControl() : base(64f, 256f, 256f)
     {
-        IoCManager.InjectDependencies(this);
-        MinSize = (SizeFull, SizeFull);
-        RectClipContent = true;
+        _transform = _entManager.System<SharedTransformSystem>();
     }
 
     public void SetMatrix(EntityCoordinates? coordinates, Angle? angle)
     {
         _coordinates = coordinates;
         _rotation = angle;
-    }
-
-    public void UpdateState(RadarConsoleBoundInterfaceState ls)
-    {
-        _radarMaxRange = ls.MaxRange;
-
-        if (_radarMaxRange < _radarMinRange)
-            _radarMinRange = _radarMaxRange;
-
-        _actualRadarRange = Math.Clamp(_actualRadarRange, _radarMinRange, _radarMaxRange);
-
-        _docks.Clear();
-
-        foreach (var state in ls.Docks)
-        {
-            var coordinates = state.Coordinates;
-            var grid = _docks.GetOrNew(coordinates.EntityId);
-            grid.Add(state);
-        }
     }
 
     protected override void KeyBindUp(GUIBoundKeyEventArgs args)
@@ -148,32 +105,38 @@ public sealed class RadarControl : Control
         return coords;
     }
 
-    protected override void MouseWheel(GUIMouseWheelEventArgs args)
+    public void UpdateState(RadarConsoleBoundInterfaceState ls)
     {
-        base.MouseWheel(args);
-        AddRadarRange(-args.Delta.Y * 1f / ScrollSensitivity * RadarRange);
-    }
+        WorldMaxRange = ls.MaxRange;
 
-    public void AddRadarRange(float value)
-    {
-        _actualRadarRange = Math.Clamp(_actualRadarRange + value, _radarMinRange, _radarMaxRange);
+        if (WorldMaxRange < WorldRange)
+        {
+            ActualRadarRange = WorldMaxRange;
+        }
+
+        if (WorldMaxRange < WorldMinRange)
+            WorldMinRange = WorldMaxRange;
+
+        ActualRadarRange = Math.Clamp(ActualRadarRange, WorldMinRange, WorldMaxRange);
+
+        _docks.Clear();
+
+        foreach (var state in ls.Docks)
+        {
+            var coordinates = state.Coordinates;
+            var grid = _docks.GetOrNew(coordinates.EntityId);
+            grid.Add(state);
+        }
     }
 
     protected override void Draw(DrawingHandleScreen handle)
     {
-        if (!_actualRadarRange.Equals(RadarRange))
-        {
-            var diff = _actualRadarRange - RadarRange;
-            var lerpRate = 10f;
-
-            RadarRange += (float) Math.Clamp(diff, -lerpRate * MathF.Abs(diff) * _timing.FrameTime.TotalSeconds, lerpRate * MathF.Abs(diff) * _timing.FrameTime.TotalSeconds);
-            OnRadarRangeChanged?.Invoke(RadarRange);
-        }
+        base.Draw(handle);
 
         var fakeAA = new Color(0.08f, 0.08f, 0.08f);
 
-        handle.DrawCircle((MidPoint.X, MidPoint.Y), ScaledMinimapRadius + 1, fakeAA);
-        handle.DrawCircle((MidPoint.X, MidPoint.Y), ScaledMinimapRadius, Color.Black);
+        handle.DrawCircle(new Vector2(MidPoint, MidPoint), ScaledMinimapRadius + 1, fakeAA);
+        handle.DrawCircle(new Vector2(MidPoint, MidPoint), ScaledMinimapRadius, Color.Black);
 
         // No data
         if (_coordinates == null || _rotation == null)
@@ -184,18 +147,18 @@ public sealed class RadarControl : Control
 
         var gridLines = new Color(0.08f, 0.08f, 0.08f);
         var gridLinesRadial = 8;
-        var gridLinesEquatorial = (int) Math.Floor(RadarRange / GridLinesDistance);
+        var gridLinesEquatorial = (int) Math.Floor(WorldRange / GridLinesDistance);
 
         for (var i = 1; i < gridLinesEquatorial + 1; i++)
         {
-            handle.DrawCircle((MidPoint.X, MidPoint.Y), GridLinesDistance * MinimapScale * i, gridLines, false);
+            handle.DrawCircle(new Vector2(MidPoint, MidPoint), GridLinesDistance * MinimapScale * i, gridLines, false);
         }
 
         for (var i = 0; i < gridLinesRadial; i++)
         {
             Angle angle = (Math.PI / gridLinesRadial) * i;
             var aExtent = angle.ToVec() * ScaledMinimapRadius;
-            handle.DrawLine((MidPoint.X, MidPoint.Y) - aExtent, (MidPoint.X, MidPoint.Y) + aExtent, gridLines);
+            handle.DrawLine(new Vector2(MidPoint, MidPoint) - aExtent, new Vector2(MidPoint, MidPoint) + aExtent, gridLines);
         }
 
         var metaQuery = _entManager.GetEntityQuery<MetaDataComponent>();
@@ -203,29 +166,26 @@ public sealed class RadarControl : Control
         var fixturesQuery = _entManager.GetEntityQuery<FixturesComponent>();
         var bodyQuery = _entManager.GetEntityQuery<PhysicsComponent>();
 
-        var mapPosition = _coordinates.Value.ToMap(_entManager);
-
-        if (mapPosition.MapId == MapId.Nullspace || !xformQuery.TryGetComponent(_coordinates.Value.EntityId, out var xform))
+        if (!xformQuery.TryGetComponent(_coordinates.Value.EntityId, out var xform)
+            || xform.MapID == MapId.Nullspace)
         {
             Clear();
             return;
         }
 
+        var (pos, rot) = _transform.GetWorldPositionRotation(xform);
         var offset = _coordinates.Value.Position;
-        var offsetMatrix = Matrix3.CreateInverseTransform(
-            mapPosition.Position,
-            xform.WorldRotation + _rotation.Value);
+        var offsetMatrix = Matrix3.CreateInverseTransform(pos, rot + _rotation.Value);
 
         // Draw our grid in detail
-        var ourGridId = _coordinates.Value.GetGridUid(_entManager);
+        var ourGridId = xform.GridUid;
         if (_entManager.TryGetComponent<MapGridComponent>(ourGridId, out var ourGrid) &&
-            fixturesQuery.TryGetComponent(ourGridId, out var ourFixturesComp))
+            fixturesQuery.HasComponent(ourGridId.Value))
         {
-            var ourGridMatrix = xformQuery.GetComponent(ourGridId.Value).WorldMatrix;
-
+            var ourGridMatrix = _transform.GetWorldMatrix(ourGridId.Value);
             Matrix3.Multiply(in ourGridMatrix, in offsetMatrix, out var matrix);
 
-            DrawGrid(handle, matrix, ourFixturesComp, ourGrid, Color.MediumSpringGreen, true);
+            DrawGrid(handle, matrix, ourGrid, Color.MediumSpringGreen, true);
             DrawDocks(handle, ourGridId.Value, matrix);
         }
 
@@ -239,20 +199,21 @@ public sealed class RadarControl : Control
         var shown = new HashSet<EntityUid>();
 
         // Draw other grids... differently
-        foreach (var grid in _mapManager.FindGridsIntersecting(mapPosition.MapId,
-                     new Box2(mapPosition.Position - MaxRadarRange, mapPosition.Position + MaxRadarRange)))
+        foreach (var grid in _mapManager.FindGridsIntersecting(xform.MapID,
+                     new Box2(pos - MaxRadarRangeVector, pos + MaxRadarRangeVector)))
         {
-            if (grid.Owner == ourGridId || !fixturesQuery.TryGetComponent(grid.Owner, out var fixturesComp))
+            var gUid = grid.Owner;
+            if (gUid == ourGridId || !fixturesQuery.HasComponent(gUid))
                 continue;
 
-            var gridBody = bodyQuery.GetComponent(grid.Owner);
+            var gridBody = bodyQuery.GetComponent(gUid);
             if (gridBody.Mass < 10f)
             {
-                ClearLabel(grid.Owner);
+                ClearLabel(gUid);
                 continue;
             }
 
-            _entManager.TryGetComponent<IFFComponent>(grid.Owner, out var iff);
+            _entManager.TryGetComponent<IFFComponent>(gUid, out var iff);
 
             // Hide it entirely.
             if (iff != null &&
@@ -261,14 +222,13 @@ public sealed class RadarControl : Control
                 continue;
             }
 
-            shown.Add(grid.Owner);
-            var name = metaQuery.GetComponent(grid.Owner).EntityName;
+            shown.Add(gUid);
+            var name = metaQuery.GetComponent(gUid).EntityName;
 
             if (name == string.Empty)
                 name = Loc.GetString("shuttle-console-unknown");
 
-            var gridXform = xformQuery.GetComponent(grid.Owner);
-            var gridMatrix = gridXform.WorldMatrix;
+            var gridMatrix = _transform.GetWorldMatrix(gUid);
             Matrix3.Multiply(in gridMatrix, in offsetMatrix, out var matty);
             var color = iff?.Color ?? Color.Gold;
 
@@ -283,14 +243,14 @@ public sealed class RadarControl : Control
                 var gridBounds = grid.LocalAABB;
                 Label label;
 
-                if (!_iffControls.TryGetValue(grid.Owner, out var control))
+                if (!_iffControls.TryGetValue(gUid, out var control))
                 {
                     label = new Label()
                     {
                         HorizontalAlignment = HAlignment.Left,
                     };
 
-                    _iffControls[grid.Owner] = label;
+                    _iffControls[gUid] = label;
                     AddChild(label);
                 }
                 else
@@ -301,7 +261,7 @@ public sealed class RadarControl : Control
                 label.FontColorOverride = color;
                 var gridCentre = matty.Transform(gridBody.LocalCenter);
                 gridCentre.Y = -gridCentre.Y;
-                var distance = gridCentre.Length;
+                var distance = gridCentre.Length();
 
                 // y-offset the control to always render below the grid (vertically)
                 var yOffset = Math.Max(gridBounds.Height, gridBounds.Width) * MinimapScale / 1.8f / UIScale;
@@ -320,13 +280,13 @@ public sealed class RadarControl : Control
             }
             else
             {
-                ClearLabel(grid.Owner);
+                ClearLabel(gUid);
             }
 
             // Detailed view
-            DrawGrid(handle, matty, fixturesComp, grid, color, true);
+            DrawGrid(handle, matty, grid, color, true);
 
-            DrawDocks(handle, grid.Owner, matty);
+            DrawDocks(handle, gUid, matty);
         }
 
         foreach (var (ent, _) in _iffControls)
@@ -368,7 +328,8 @@ public sealed class RadarControl : Control
                 var position = state.Coordinates.Position;
                 var uiPosition = matrix.Transform(position);
 
-                if (uiPosition.Length > RadarRange - DockScale) continue;
+                if (uiPosition.Length() > WorldRange - DockScale)
+                    continue;
 
                 var color = HighlightedDock == ent ? state.HighlightedColor : state.Color;
 
@@ -395,7 +356,7 @@ public sealed class RadarControl : Control
         }
     }
 
-    private void DrawGrid(DrawingHandleScreen handle, Matrix3 matrix, FixturesComponent fixturesComp, MapGridComponent grid, Color color, bool drawInterior)
+    private void DrawGrid(DrawingHandleScreen handle, Matrix3 matrix, MapGridComponent grid, Color color, bool drawInterior)
     {
         var rator = grid.GetAllTilesEnumerator();
         var edges = new ValueList<Vector2>();
@@ -446,7 +407,7 @@ public sealed class RadarControl : Control
                 var adjustedStart = matrix.Transform(start);
                 var adjustedEnd = matrix.Transform(end);
 
-                if (adjustedStart.Length > RadarRange || adjustedEnd.Length > RadarRange)
+                if (adjustedStart.Length() > ActualRadarRange || adjustedEnd.Length() > ActualRadarRange)
                     continue;
 
                 start = ScalePosition(new Vector2(adjustedStart.X, -adjustedStart.Y));
@@ -462,11 +423,11 @@ public sealed class RadarControl : Control
 
     private Vector2 ScalePosition(Vector2 value)
     {
-        return value * MinimapScale + MidPoint;
+        return value * MinimapScale + MidpointVector;
     }
 
     private Vector2 InverseScalePosition(Vector2 value)
     {
-        return (value - MidPoint) / MinimapScale;
+        return (value - MidpointVector) / MinimapScale;
     }
 }

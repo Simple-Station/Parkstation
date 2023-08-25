@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Events;
 using Content.Shared.CombatMode;
@@ -12,6 +13,7 @@ namespace Content.Server.NPC.Systems;
 
 public sealed partial class NPCCombatSystem
 {
+    [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly RotateToFaceSystem _rotate = default!;
 
     // TODO: Don't predict for hitscan
@@ -29,6 +31,7 @@ public sealed partial class NPCCombatSystem
         SubscribeLocalEvent<NPCRangedCombatComponent, ComponentShutdown>(OnRangedShutdown);
     }
 
+    // Begin Nyano-code: support for mobile ranged NPCs.
     private void OnRangedSteering(EntityUid uid, NPCRangedCombatComponent component, ref NPCSteeringEvent args)
     {
         args.Steering.CanSeek = true;
@@ -38,7 +41,7 @@ public sealed partial class NPCCombatSystem
 
         var idealDistance = 4f;
         var obstacleDirection = pointB - args.WorldPosition;
-        var obstacleDistance = obstacleDirection.Length;
+        var obstacleDistance = obstacleDirection.Length();
 
         if (obstacleDistance > idealDistance || obstacleDistance < 1f)
         {
@@ -47,7 +50,7 @@ public sealed partial class NPCCombatSystem
 
         args.Steering.CanSeek = false;
         obstacleDirection = args.OffsetRotation.RotateVec(obstacleDirection);
-        var norm = obstacleDirection.Normalized;
+        var norm = obstacleDirection.Normalized();
 
         var weight = (idealDistance - obstacleDistance) / idealDistance;
 
@@ -61,13 +64,14 @@ public sealed partial class NPCCombatSystem
             args.Interest[i] = MathF.Max(args.Interest[i], result);
         }
     }
+    // End Nyano-code.
 
 
     private void OnRangedStartup(EntityUid uid, NPCRangedCombatComponent component, ComponentStartup args)
     {
-        if (TryComp<SharedCombatModeComponent>(uid, out var combat))
+        if (TryComp<CombatModeComponent>(uid, out var combat))
         {
-            combat.IsInCombatMode = true;
+            _combat.SetInCombatMode(uid, true, combat);
         }
         else
         {
@@ -77,9 +81,9 @@ public sealed partial class NPCCombatSystem
 
     private void OnRangedShutdown(EntityUid uid, NPCRangedCombatComponent component, ComponentShutdown args)
     {
-        if (TryComp<SharedCombatModeComponent>(uid, out var combat))
+        if (TryComp<CombatModeComponent>(uid, out var combat))
         {
-            combat.IsInCombatMode = false;
+            _combat.SetInCombatMode(uid, false, combat);
         }
 
         _steering.Unregister(component.Owner);
@@ -89,10 +93,10 @@ public sealed partial class NPCCombatSystem
     {
         var bodyQuery = GetEntityQuery<PhysicsComponent>();
         var xformQuery = GetEntityQuery<TransformComponent>();
-        var combatQuery = GetEntityQuery<SharedCombatModeComponent>();
-        var query = EntityQueryEnumerator<NPCRangedCombatComponent, TransformComponent>();
+        var combatQuery = GetEntityQuery<CombatModeComponent>();
+        var query = EntityQueryEnumerator<NPCRangedCombatComponent, TransformComponent, ActiveNPCComponent>();
 
-        while (query.MoveNext(out var uid, out var comp, out var xform))
+        while (query.MoveNext(out var uid, out var comp, out var xform, out _))
         {
             if (comp.Status == CombatStatus.Unspecified)
                 continue;
@@ -114,7 +118,7 @@ public sealed partial class NPCCombatSystem
 
             if (combatQuery.TryGetComponent(uid, out var combatMode))
             {
-                combatMode.IsInCombatMode = true;
+                _combat.SetInCombatMode(uid, true, combatMode);
             }
 
             if (!_gun.TryGetGun(uid, out var gunUid, out var gun))
@@ -130,7 +134,7 @@ public sealed partial class NPCCombatSystem
             var (targetPos, targetRot) = _transform.GetWorldPositionRotation(targetXform, xformQuery);
 
             // We'll work out the projected spot of the target and shoot there instead of where they are.
-            var distance = (targetPos - worldPos).Length;
+            var distance = (targetPos - worldPos).Length();
             var oldInLos = comp.TargetInLOS;
 
             // TODO: Should be doing these raycasts in parallel
@@ -144,15 +148,15 @@ public sealed partial class NPCCombatSystem
             if (!comp.TargetInLOS)
             {
                 comp.ShootAccumulator = 0f;
+
+                // Begin Nyano-code: support for mobile ranged NPCs.
                 if (!comp.CanMove || distance >= 9f)
-                {
                     comp.Status = CombatStatus.TargetUnreachable;
-                    continue;
-                }
                 else
-                {
                     comp.Status = CombatStatus.NotInSight;
-                }
+                // End Nyano-code.
+
+                continue;
             }
 
             if (!oldInLos && comp.SoundTargetInLOS != null)
@@ -209,9 +213,9 @@ public sealed partial class NPCCombatSystem
 
             EntityCoordinates targetCordinates;
 
-            if (_mapManager.TryFindGridAt(xform.MapID, targetPos, out var mapGrid))
+            if (_mapManager.TryFindGridAt(xform.MapID, targetPos, out var gridUid, out var mapGrid))
             {
-                targetCordinates = new EntityCoordinates(mapGrid.Owner, mapGrid.WorldToLocal(targetSpot));
+                targetCordinates = new EntityCoordinates(gridUid, mapGrid.WorldToLocal(targetSpot));
             }
             else
             {

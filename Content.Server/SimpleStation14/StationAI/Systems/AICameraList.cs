@@ -28,7 +28,7 @@ namespace Content.Server.SimpleStation14.StationAI.Systems
 
             var ui = _userInterfaceSystem.GetUi(args.Owner, args.UiKey);
             var state = new AIBoundUserInterfaceState(cameraList);
-            _userInterfaceSystem.SetUiState(ui, state);
+            _userInterfaceSystem.TrySetUiState(args.Owner, ui.UiKey, state);
         }
     }
 }

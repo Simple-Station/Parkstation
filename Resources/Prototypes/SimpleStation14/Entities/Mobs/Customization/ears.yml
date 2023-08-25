@@ -2,7 +2,7 @@
   id: EarsAvali
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [SlimePerson, Reptilian]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
       state: avali_inner
@@ -90,13 +90,24 @@
       state: mouse
 
 - type: marking
-  id: EarsShadekin
+  id: EarsShadowkin
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [SlimePerson, Reptilian]
+  speciesRestriction: [Shadowkin]
   sprites:
     - sprite: SimpleStation14/Mobs/Customization/ears.rsi
-      state: shadekin
+      state: shadowkin
+
+- type: marking
+  id: EarsShadowkinStriped
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  sprites:
+    - sprite: SimpleStation14/Mobs/Customization/ears.rsi
+      state: shadowkin
+    - sprite: SimpleStation14/Mobs/Customization/ears.rsi
+      state: shadowkin_stripes
 
 - type: marking
   id: EarsSylveon

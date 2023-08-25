@@ -11,6 +11,7 @@
       Oni,
       Arachne,
       Moth,
+      Shadowkin,
     ]
   coloring:
     default:
@@ -34,6 +35,7 @@
       Oni,
       Arachne,
       Moth,
+      Shadowkin,
     ]
   coloring:
     default:
@@ -57,6 +59,7 @@
       Oni,
       Arachne,
       Moth,
+      Shadowkin,
     ]
   coloring:
     default:
@@ -80,6 +83,7 @@
       Oni,
       Arachne,
       Moth,
+      Shadowkin,
     ]
   coloring:
     default:
@@ -103,6 +107,7 @@
       Oni,
       Arachne,
       Moth,
+      Shadowkin,
     ]
   coloring:
     default:
@@ -126,6 +131,7 @@
       Oni,
       Arachne,
       Moth,
+      Shadowkin,
     ]
   coloring:
     default:
@@ -149,6 +155,7 @@
       Oni,
       Arachne,
       Moth,
+      Shadowkin,
     ]
   coloring:
     default:
@@ -172,6 +179,7 @@
       Oni,
       Arachne,
       Moth,
+      Shadowkin,
     ]
   coloring:
     default:
@@ -193,8 +201,6 @@
       Reptilian,
       SlimePerson,
       Oni,
-      Arachne,
-      Moth,
     ]
   coloring:
     default:
@@ -216,8 +222,6 @@
       Reptilian,
       SlimePerson,
       Oni,
-      Arachne,
-      Moth,
     ]
   coloring:
     default:

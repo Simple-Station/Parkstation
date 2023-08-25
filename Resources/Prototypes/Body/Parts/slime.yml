@@ -24,7 +24,6 @@
   parent: PartSlime
   components:
     - type: Sprite
-      netsync: false
       sprite: Mobs/Species/Slime/parts.rsi
       state: "torso_m"
     - type: Icon
@@ -39,7 +38,6 @@
   parent: PartSlime
   components:
     - type: Sprite
-      netsync: false
       sprite: Mobs/Species/Slime/parts.rsi
       state: "head_m"
     - type: Icon
@@ -50,11 +48,6 @@
       vital: true
     - type: Input
       context: "ghost"
-    - type: MovementSpeedModifier
-      baseWalkSpeed: 0
-      baseSprintSpeed: 0
-    - type: InputMover
-    - type: GhostOnMove
     - type: Tag
       tags:
         - Head
@@ -65,7 +58,6 @@
   parent: PartSlime
   components:
     - type: Sprite
-      netsync: false
       sprite: Mobs/Species/Slime/parts.rsi
       state: "l_arm"
     - type: Icon
@@ -81,7 +73,6 @@
   parent: PartSlime
   components:
     - type: Sprite
-      netsync: false
       sprite: Mobs/Species/Slime/parts.rsi
       state: "r_arm"
     - type: Icon
@@ -97,7 +88,6 @@
   parent: PartSlime
   components:
     - type: Sprite
-      netsync: false
       sprite: Mobs/Species/Slime/parts.rsi
       state: "l_hand"
     - type: Icon
@@ -113,7 +103,6 @@
   parent: PartSlime
   components:
     - type: Sprite
-      netsync: false
       sprite: Mobs/Species/Slime/parts.rsi
       state: "r_hand"
     - type: Icon
@@ -129,7 +118,6 @@
   parent: PartSlime
   components:
     - type: Sprite
-      netsync: false
       sprite: Mobs/Species/Slime/parts.rsi
       state: "l_leg"
     - type: Icon
@@ -138,7 +126,7 @@
     - type: BodyPart
       partType: Leg
       symmetry: Left
-    - type: MovementSpeedModifier
+    - type: MovementBodyPart
 
 - type: entity
   id: RightLegSlime
@@ -146,7 +134,6 @@
   parent: PartSlime
   components:
     - type: Sprite
-      netsync: false
       sprite: Mobs/Species/Slime/parts.rsi
       state: "r_leg"
     - type: Icon
@@ -155,7 +142,7 @@
     - type: BodyPart
       partType: Leg
       symmetry: Right
-    - type: MovementSpeedModifier
+    - type: MovementBodyPart
 
 - type: entity
   id: LeftFootSlime
@@ -163,7 +150,6 @@
   parent: PartSlime
   components:
     - type: Sprite
-      netsync: false
       sprite: Mobs/Species/Slime/parts.rsi
       state: "l_foot"
     - type: Icon
@@ -179,7 +165,6 @@
   parent: PartSlime
   components:
     - type: Sprite
-      netsync: false
       sprite: Mobs/Species/Slime/parts.rsi
       state: "r_foot"
     - type: Icon

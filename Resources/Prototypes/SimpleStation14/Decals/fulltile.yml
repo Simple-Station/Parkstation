@@ -1,0 +1,122 @@
+- type: decal
+  id: TileFull
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_full
+
+
+- type: decal
+  id: TileAntiCornerContrastedNE
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_anticorner_contrasted_ne
+
+- type: decal
+  id: TileAntiCornerContrastedNW
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_anticorner_contrasted_nw
+
+- type: decal
+  id: TileAntiCornerContrastedSE
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_anticorner_contrasted_se
+
+- type: decal
+  id: TileAntiCornerContrastedSW
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_anticorner_contrasted_sw
+
+
+- type: decal
+  id: TileAntiCornerNE
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_anticorner_ne
+
+- type: decal
+  id: TileAntiCornerNW
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_anticorner_nw
+
+- type: decal
+  id: TileAntiCornerSE
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_anticorner_se
+
+- type: decal
+  id: TileAntiCornerSW
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_anticorner_sw
+
+
+- type: decal
+  id: TileCornerNE
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_corner_ne
+
+- type: decal
+  id: TileCornerNW
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_corner_nw
+
+- type: decal
+  id: TileCornerSE
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_corner_se
+
+- type: decal
+  id: TileCornerSW
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_corner_sw
+
+
+- type: decal
+  id: TileHalfN
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_half_n
+
+- type: decal
+  id: TileHalfE
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_half_e
+
+- type: decal
+  id: TileHalfS
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_half_s
+
+- type: decal
+  id: TileHalfW
+  tags: ["station"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/tile.rsi
+    state: tile_half_w

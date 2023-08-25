@@ -1,5 +1,5 @@
 [game]
-hostname = "🌳 | Parkstation"
+hostname = "🌳 | Parkstation - IPC & Shadowkin Custom Species Update"
 desc = "An English MRP server focused on higher RP expectations and calmer rounds."
 maxplayers = 48
 soft_max_players = 32
@@ -16,12 +16,12 @@ enabled = true
 pathfinding = true
 
 [server]
-rules_file = "Park_Rules.txt"
+rules_file = "SimpleStation14/ParkstationRules.txt"
 id = "parkstation"
 
 [whitelist]
 enabled = true
-min_players = 16
+min_players = 24
 
 [rules]
 time = 120
@@ -50,7 +50,8 @@ space_wind_max_velocity = 22.0
 [shuttle]
 emergency_early_launch_allowed = true
 emergency_dock_time = 260.0
-emergency_transit_time = 180.0
+emergency_transit_time_min = 120.0
+emergency_transit_time_max = 240.0
 recall_turning_point = 0.75
 auto_call_time = 150
 arrivals = false

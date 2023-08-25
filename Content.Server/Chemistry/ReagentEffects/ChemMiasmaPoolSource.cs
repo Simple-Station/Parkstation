@@ -2,6 +2,7 @@ using Content.Shared.Chemistry.Reagent;
 using JetBrains.Annotations;
 using Content.Server.Atmos.Miasma;
 using Content.Server.Disease;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Chemistry.ReagentEffects
 {
@@ -13,12 +14,15 @@ namespace Content.Server.Chemistry.ReagentEffects
     [UsedImplicitly]
     public sealed class ChemMiasmaPoolSource : ReagentEffect
     {
+        protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+            => Loc.GetString("reagent-effect-guidebook-chem-miasma-pool", ("chance", Probability));
+
         public override void Effect(ReagentEffectArgs args)
         {
             if (args.Scale != 1f)
                 return;
 
-            string disease = EntitySystem.Get<MiasmaSystem>().RequestPoolDisease();
+            string disease = EntitySystem.Get<RottingSystem>().RequestPoolDisease();
 
             EntitySystem.Get<DiseaseSystem>().TryAddDisease(args.SolutionEntity, disease);
         }

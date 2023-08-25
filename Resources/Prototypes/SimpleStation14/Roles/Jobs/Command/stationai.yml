@@ -28,7 +28,7 @@
     - AllAccess
   canBeAntag: false
   jobEntity: AICore
-  startingGear: CyborgGear # for char preview only
+  startingGear: RobotGear # for char preview only
   alwaysUseSpawner: true
   canHaveTraits: false
   joinNotifyCrew: true

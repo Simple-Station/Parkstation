@@ -66,8 +66,8 @@
   - MedicalDoctor
   - MedicalIntern
   - Psychologist
-  - MedicalCyborg
   - Paramedic
+  - MedicalRobot
 
 - type: department
   id: Security
@@ -99,5 +99,5 @@
   color: "#8D9AAC"
   roles:
   - SAI
-  - Cyborg
-  - MedicalCyborg
+  - Robot
+  - MedicalRobot

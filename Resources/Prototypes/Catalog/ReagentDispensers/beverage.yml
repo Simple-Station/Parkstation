@@ -60,6 +60,7 @@
     - Histamine
     - THC
     - CapsaicinOil
+    - GrapeSoda
 
 - type: reagentDispenserInventory
   id: BoozeDispenserEmagInventory

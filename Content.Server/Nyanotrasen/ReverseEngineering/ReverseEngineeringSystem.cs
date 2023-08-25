@@ -199,7 +199,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         var state = new ReverseEngineeringMachineScanUpdateState(item, canScan, component.CachedMessage, scanning, component.SafetyOn, component.AutoScan, component.Progress, remaining, component.AnalysisDuration);
 
-        _ui.SetUiState(bui, state);
+        UserInterfaceSystem.SetUiState(bui, state);
     }
 
     private ReverseEngineeringTickResult Roll(ReverseEngineeringMachineComponent component, out int actualRoll)
@@ -251,7 +251,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
                 _slots.SetLock(uid, TargetSlot, false);
                 _audio.PlayPvs(component.FailSound1, uid);
                 _audio.PlayPvs(component.FailSound2, uid);
-                _popupSystem.PopupEntity(Loc.GetString("reverse-engineering-failure", ("machine", uid)), uid, Shared.Popups.PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("reverse-engineering-popup-failure", ("machine", uid)), uid, Shared.Popups.PopupType.MediumCaution);
                 CancelProbe(uid, component);
             } else
             {

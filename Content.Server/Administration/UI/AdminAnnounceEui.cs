@@ -39,11 +39,10 @@ namespace Content.Server.Administration.UI
 
         public override void HandleMessage(EuiMessageBase msg)
         {
+            base.HandleMessage(msg);
+
             switch (msg)
             {
-                case AdminAnnounceEuiMsg.Close:
-                    Close();
-                    break;
                 case AdminAnnounceEuiMsg.DoAnnounce doAnnounce:
                     if (!_adminManager.HasAdminFlag(Player, AdminFlags.Admin))
                     {
@@ -58,15 +57,7 @@ namespace Content.Server.Administration.UI
                             break;
                         // TODO: Per-station announcement support
                         case AdminAnnounceType.Station:
-                            // _chatSystem.DispatchGlobalAnnouncement(doAnnounce.Announcement, doAnnounce.Announcer, colorOverride: Color.Gold);
-                            var tmp = _announcerSystem.Announcer;
-                            _proto.TryIndex<AnnouncerPrototype>(doAnnounce.AnnouncerVoice, out var announcer);
-                            _announcerSystem.Announcer = announcer ?? tmp;
-
-                            _announcerSystem.SendAnnouncement(string.IsNullOrEmpty(doAnnounce.AnnouncerSound) ? "commandreport" : doAnnounce.AnnouncerSound,
-                                Filter.Broadcast(), doAnnounce.Announcement, doAnnounce.Announcer, Color.Gold);
-
-                            _announcerSystem.Announcer = tmp;
+                            _chatSystem.DispatchGlobalAnnouncement(doAnnounce.Announcement, doAnnounce.Announcer, colorOverride: Color.Gold);
                             break;
                     }
 

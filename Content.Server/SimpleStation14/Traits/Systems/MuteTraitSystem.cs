@@ -1,9 +1,7 @@
 using Content.Server.Popups;
-using Content.Server.Coordinates.Helpers;
 using Content.Shared.Speech;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
-using Robust.Shared.Player;
 
 namespace Content.Server.SimpleStation14.Traits
 {

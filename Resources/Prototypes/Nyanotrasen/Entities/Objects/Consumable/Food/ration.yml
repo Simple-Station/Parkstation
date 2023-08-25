@@ -21,7 +21,6 @@
     state: psb
   - type: Item
     size: 3
-  - type: Recyclable
   - type: SpaceGarbage
   - type: DynamicPrice
     price: 0
@@ -66,7 +65,6 @@
   - type: Item
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/ration.rsi
-    netsync: false
   - type: SolutionContainerManager
     solutions:
       food:

@@ -1,6 +1,7 @@
-using Content.Server.CombatMode;
+using System.Numerics;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Events;
+using Content.Shared.CombatMode;
 using Content.Shared.NPC;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Map;
@@ -27,17 +28,31 @@ public sealed partial class NPCCombatSystem
         if (TryComp<MeleeWeaponComponent>(component.Weapon, out var weapon))
         {
             var cdRemaining = weapon.NextAttack - _timing.CurTime;
+            var attackCooldown = TimeSpan.FromSeconds(1f / _melee.GetAttackRate(component.Weapon, uid, weapon));
 
-            // If CD remaining then backup.
-            if (cdRemaining < TimeSpan.FromSeconds(1f / weapon.AttackRate) * 0.5f)
+            // Might as well get in range.
+            if (cdRemaining < attackCooldown * 0.45f)
                 return;
 
             if (!_physics.TryGetNearestPoints(uid, component.Target, out var pointA, out var pointB))
                 return;
 
-            var idealDistance = weapon.Range * 1.5f;
             var obstacleDirection = pointB - args.WorldPosition;
-            var obstacleDistance = obstacleDirection.Length;
+
+            // If they're moving away then pursue anyway.
+            // If just hit then always back up a bit.
+            if (cdRemaining < attackCooldown * 0.90f &&
+                TryComp<PhysicsComponent>(component.Target, out var targetPhysics) &&
+                Vector2.Dot(targetPhysics.LinearVelocity, obstacleDirection) > 0f)
+            {
+                return;
+            }
+
+            if (cdRemaining < TimeSpan.FromSeconds(1f / _melee.GetAttackRate(component.Weapon, uid, weapon)) * 0.45f)
+                return;
+
+            var idealDistance = weapon.Range * 4f;
+            var obstacleDistance = obstacleDirection.Length();
 
             if (obstacleDistance > idealDistance || obstacleDistance == 0f)
             {
@@ -47,7 +62,7 @@ public sealed partial class NPCCombatSystem
 
             args.Steering.CanSeek = false;
             obstacleDirection = args.OffsetRotation.RotateVec(obstacleDirection);
-            var norm = obstacleDirection.Normalized;
+            var norm = obstacleDirection.Normalized();
 
             var weight = (obstacleDistance <= args.AgentRadius
                 ? 1f
@@ -69,7 +84,7 @@ public sealed partial class NPCCombatSystem
     {
         if (TryComp<CombatModeComponent>(uid, out var combatMode))
         {
-            combatMode.IsInCombatMode = false;
+            _combat.SetInCombatMode(uid, false, combatMode);
         }
 
         _steering.Unregister(component.Owner);
@@ -79,7 +94,7 @@ public sealed partial class NPCCombatSystem
     {
         if (TryComp<CombatModeComponent>(uid, out var combatMode))
         {
-            combatMode.IsInCombatMode = true;
+            _combat.SetInCombatMode(uid, true, combatMode);
         }
 
         // TODO: Cleanup later, just looking for parity for now.
@@ -150,6 +165,9 @@ public sealed partial class NPCCombatSystem
             return;
         }
 
+        // TODO: When I get parallel operators move this as NPC combat shouldn't be handling this.
+        _steering.Register(uid, new EntityCoordinates(component.Target, Vector2.Zero), steering);
+
         if (distance > weapon.Range)
         {
             component.Status = CombatStatus.TargetOutOfRange;
@@ -167,7 +185,7 @@ public sealed partial class NPCCombatSystem
 
         if (_random.Prob(component.MissChance) &&
             physicsQuery.TryGetComponent(component.Target, out var targetPhysics) &&
-            targetPhysics.LinearVelocity.LengthSquared != 0f)
+            targetPhysics.LinearVelocity.LengthSquared() != 0f)
         {
             _melee.AttemptLightAttackMiss(uid, component.Weapon, weapon, targetXform.Coordinates.Offset(_random.NextVector2(0.5f)));
         }
