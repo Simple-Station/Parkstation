@@ -11,8 +11,8 @@
   text: station-goal-solar-panels
 
 - type: stationGoal
-  id: StationGoalArtifacts
-  text: station-goal-artifacts
+  id: StationGoalAnomalies
+  text: station-goal-anomalies
 
 - type: stationGoal
   id: StationGoalBank
@@ -22,12 +22,45 @@
   id: StationGoalZoo
   text: station-goal-zoo
 
+- type: stationGoal
+  id: StationGoalXeno
+  text: station-goal-xeno
+
+- type: stationGoal
+  id: StationGoalArea
+  text: station-goal-area
+
+- type: stationGoal
+  id: StationGoalBureaucraticError
+  text: station-goal-bureaucratic-error
+
+- type: stationGoal
+  id: StationGoalMuseum
+  text: station-goal-museum
+
+- type: stationGoal
+  id: StationGoalCombat
+  text: station-goal-combat
+
+- type: stationGoal
+  id: StationGoalArtifacts
+  text: station-goal-artifacts
+
+- type: stationGoal
+  id: StationGoalLabor
+  text: station-goal-labor
+
+- type: stationGoal
+  id: StationGoalLectures
+  text: station-goal-lectures
+
+
 
 - type: weightedRandom
   id: StationGoals
   weights:
-    StationGoalPower: 1
     StationGoalDepartment: 1
+    StationGoalPower: 1
     StationGoalStation: 1
 
 
@@ -35,22 +68,35 @@
   id: StationGoalDepartment
   weights:
     StationGoalScience: 1
+    StationGoalSecurity: 1
 
 
 - type: weightedRandom
   id: StationGoalPower
   weights:
-    StationGoalSolarPanels: 1
     StationGoalSingularity: 1
+    StationGoalSolarPanels: 1
 
 - type: weightedRandom
   id: StationGoalScience
   weights:
+    StationGoalAnomalies: 1
     StationGoalArtifacts: 1
+    StationGoalXeno: 1
+
+- type: weightedRandom
+  id: StationGoalSecurity
+  weights:
+    StationGoalCombat: 1
 
 - type: weightedRandom
   id: StationGoalStation
   weights:
-    StationGoalShuttle: 1
+    StationGoalArea: 1
     StationGoalBank: 1
+    StationGoalBureaucraticError: 1
+    StationGoalLabor: 1
+    StationGoalLectures: 1
+    StationGoalMuseum: 1
+    StationGoalShuttle: 1
     StationGoalZoo: 1
