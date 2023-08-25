@@ -2,12 +2,12 @@ station-goal-fax-paper-name = Station Goal
 
 station-goal-xeno=
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     Dear station Command, the purpose of your shift is to build a xenobiology lab and then study exotic life forms.
     Two containment chambers must be constructed according to the following requirements:
     1. Must be reinforced well;
@@ -26,16 +26,16 @@ station-goal-xeno=
     Experience Requirements:
     1. Experience should be documented in detail;
     2. Test activities may include: working with gases, smoke, foam, or injecting experimental reagents (e.g. Cognizine) into captured fauna.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
 
 station-goal-museum=
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     Dear command of the station, the purpose of your shift is to build a museum, the exhibits for which will be unique objects collected from the station.
 
     Below are the requirements for the design of the museum:
@@ -63,16 +63,16 @@ station-goal-museum=
     10. Found treasures or items not available on the market.
 
     Upon completion of the museum, it is required to provide the crew with at least 20 minutes of free time from work so that they can visit the museum.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
 
 station-goal-area=
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     Dear station Command, the goal of your shift is to increase the effective use of space at the station.
 
     It is required to bring the abandoned premises into proper form and find a use for them.
@@ -80,16 +80,16 @@ station-goal-area=
     Sufficiently spacious maintenance tunnels need to be converted into residential areas.
     The remaining tunnels should be provided with floor coverings and adequate lighting.
     In addition, it is necessary to provide a public, well-lit corridor connecting all the restored compartments and new bedrooms.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
 
 station-goal-bureaucratic-error =
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     ACCESS TO THIS DOCUMENT IS PROHIBITED FOR PERSONS WHO DO NOT HAVE LEGAL IMMUNITY
 
     Dear station Command, we inform you that the purpose of your shift was lost as a result of a bureaucratic error.
@@ -102,16 +102,16 @@ station-goal-bureaucratic-error =
 
     Please note that distribution of the contents of this document to persons who do not have legal immunity is strictly prohibited due to the possibility of discrediting the management of the Corporation.
     Therefore, in order to present a new goal to the crew, the command staff must contact Central Command for approval of your ideas.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
 
 station-goal-anomalies=
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     Dear station Command, the purpose of your shift is to provide new information about anomalies to NanoTrasen.
 
     It is necessary to conduct experimental studies aimed at testing the consequences of the collapse of at least 4 unique anomalies.
@@ -126,16 +126,16 @@ station-goal-anomalies=
     6. Location of the anomaly.
 
     The document must be certified by the stamp of the supervisor and faxed to Central Command.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
 
 station-goal-combat=
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     Dear station Command, due to the increase in attacks of pirate ships in this sector, the purpose of your shift is to raise the overall combat readiness of the station.
 
     Required:
@@ -157,16 +157,16 @@ station-goal-combat=
         Avoid providing lethal weaponry to unauthorized personnel.
     6. Encourage the use of the station boxing ring.
         If there is no boxing ring, you must create one.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
 
 station-goal-shuttle=
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     Dear station Command, the purpose of your shift is to build a space shuttle capable of being piloted.
 
     Shuttle requirements:
@@ -186,48 +186,48 @@ station-goal-shuttle=
         1 security officer.
 
     The shuttle should take on board all the station Command representatives as passengers and, in parallel with the evacuation shuttle, go to the Central Command station.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
 
 station-goal-singularity=
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     Dear station Command, the goal of your shift is to build a generator based on the gravitational singularity.
 
     The design requirements are:
     1. The structure must be located at a significant distance from the station.
     2. The structure must be protected from meteorites and space debris.
     3. The containment field must be able to prevent the loss of a class 4 singularity.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
 
 station-goal-solar-panels=
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     Dear station Command, the purpose of your shift is to organize a backup power system.
 
     The following work is required:
     1. Build two new branches of solar panels.
     2. Allocate an area for a compartment with spare batteries.
         This compartment should accommodate at least 3 fully charged SMES', which should not be connected to the main power system of the station unless needed.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
 
 station-goal-artifacts=
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     Dear station Command, the purpose of your shift is to provide new information about alien artifacts to NanoTrasen.
 
     It is required to organize the work of salvagers to search for and deliver artifacts from the wreckage around the station or expeditions.
@@ -242,16 +242,16 @@ station-goal-artifacts=
     5. Additional notes.
 
     The document must be certified by the stamp of the supervisor.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
 
 station-goal-storage=
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     Dear station Command, the purpose of your shift is to build an orbital storage facility with supplies and technology.
 
     The storage should be placed in space separately from the main station, make sure its design is strong, a random meteorite should not damage it.
@@ -263,16 +263,16 @@ station-goal-storage=
     - Valuable, but not unique boards.
 
     Monitor the safety of the contents in the storage until the end of the shift, a cleanup crew will come retrieve the contents as they prepare the station.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
 
 station-goal-zoo=
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     Dear station Command, the purpose of your shift is to improve the recreational value of the personnel at the station.
 
     It is necessary to build a zoo with at least 5 enclosures containing different types of animals ordered from the supply department.
@@ -280,16 +280,16 @@ station-goal-zoo=
     It is also necessary to build a bathhouse for the animals, water vapor must be supplied by Atmospheric Technicians.
 
     Upon completion of the zoo, it is required to provide the crew with at least 20 minutes of free time from work so that they can visit the new zoo.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
 
 station-goal-labor=
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     Dear station Command, the purpose of your shift is to increase the motivation of the personnel for the growth of labor productivity.
 
     This requires that each of the heads during the shift closely monitors the performance of the duties of their employees and evaluates them.
@@ -300,16 +300,16 @@ station-goal-labor=
 
     The duration of the shift for a more accurate assessment of the work of the personnel should be set by the Command staff.
     After the dinner someone must announce the end of the shift and call the evacuation shuttle.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
 
 station-goal-lectures=
     ███╗░░██╗████████╗
-    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC-CMD-DCR
+    ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
     ██╔██╗██║░░░██║░░░ Target Order
     ██║╚████║░░░██║░░░ Date: {$date}
     ██║░╚███║░░░██║░░░
     ╚═╝░░╚══╝░░░╚═╝░░░
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
     Dear station Command, the purpose of your shift is to carry out a number of events within the framework of the Corporation's plan to increase the knowledge of its employees.
 
     The Command staff are instructed to organize a platform for public lectures, if none exists, create one nearby the bridge entry.
@@ -321,4 +321,4 @@ station-goal-lectures=
     There may be breaks between lectures to allow guests to read brochures and catch their breath.
 
     After the end of the event someone must announce the end of the shift and call the evacuation shuttle.
-    ═════════════════════════════════════════
+    ════════════════════════════════════════
