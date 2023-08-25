@@ -15,10 +15,6 @@
   text: station-goal-anomalies
 
 - type: stationGoal
-  id: StationGoalBank
-  text: station-goal-bank
-
-- type: stationGoal
   id: StationGoalZoo
   text: station-goal-zoo
 
@@ -93,7 +89,6 @@
   id: StationGoalStation
   weights:
     StationGoalArea: 1
-    StationGoalBank: 1
     StationGoalBureaucraticError: 1
     StationGoalLabor: 1
     StationGoalLectures: 1
