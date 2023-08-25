@@ -82,6 +82,10 @@
     {
       "name": "cursed",
       "directions": 4
+    },
+    {
+      "name": "meat",
+      "directions": 4
     }
   ]
 }
