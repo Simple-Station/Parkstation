@@ -8,6 +8,9 @@
   id: AirSensor
 
 - type: Tag
+  id: Ambrosia
+
+- type: Tag
   id: AppraisalTool
 
 - type: Tag
@@ -23,7 +26,10 @@
   id: Baguette
 
 - type: Tag
-  id: BaseballBat
+  id: BaseballBat  
+
+- type: Tag
+  id: BBQsauce
 
 - type: Tag
   id: Bee
@@ -177,7 +183,10 @@
   id: ClownShoes
 
 - type: Tag #Ohioans die happy
-  id: Corn
+  id: Corn  
+
+- type: Tag
+  id: Coldsauce
 
 - type: Tag
   id: Crayon
@@ -398,6 +407,9 @@
 - type: Tag
   id: HolosignProjector
 
+- type: Tag
+  id: Hotsauce
+
 - type: Tag #Drop this innate tool instead of deleting it.
   id: InnateDontDelete
 
@@ -422,6 +434,8 @@
 - type: Tag
   id: Kangaroo
 
+- type: Tag
+  id: Ketchup
 
 - type: Tag
   id: KeyedInstrument
@@ -784,6 +798,9 @@
   id: Unstackable # To prevent things like atmos devices (filters etc) being stacked on one tile. See NoUnstackableInTile
 
 - type: Tag
+  id: UraniumGlassShard
+
+- type: Tag
   id: VehicleKey
 
 - type: Tag
@@ -827,3 +844,9 @@
 
 - type: Tag
   id: Write
+
+- type: Tag
+  id: RifleStock
+
+- type: Tag
+  id: ModularReceiver

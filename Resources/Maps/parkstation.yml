@@ -94100,7 +94100,7 @@ entities:
     - pos: -9.5,-45.5
       parent: 1
       type: Transform
-- proto: SpawnMobPunpun
+- proto: SpawnMobMonkeyPunpun
   entities:
   - uid: 2401
     components:

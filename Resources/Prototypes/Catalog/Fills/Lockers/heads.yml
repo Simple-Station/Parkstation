@@ -58,6 +58,7 @@
       - id: ClothingHeadCaptainHat
       - id: ClothingHeadCaptainCap
       - id: ClothingOuterCoatCaptain
+      - id: ClothingHeadHatCapcap
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
