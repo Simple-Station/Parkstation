@@ -1117,3 +1117,9 @@ Entries:
       message: The keybind "walk" has been renamed to "sprint"
   id: 103
   time: '2023-08-25T12:17:00.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Most guide books use the Guidebook system.
+  id: 104
+  time: '2023-08-25T12:59:48.0000000+00:00'
