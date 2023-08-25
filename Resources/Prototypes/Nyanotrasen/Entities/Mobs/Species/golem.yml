@@ -99,8 +99,8 @@
   - type: Identity
   - type: Hands
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 1.8
+    baseWalkSpeed: 1.8
+    baseSprintSpeed: 3
   - type: MovedByPressure
   - type: DamageOnHighSpeedImpact
     damage:

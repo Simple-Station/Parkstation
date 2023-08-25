@@ -5,5 +5,5 @@
   save: false
   components:
   - type: MovementSpeedModifier
-    baseSprintSpeed: 24
+    baseSprintSpeed: 25
     baseWalkSpeed: 16

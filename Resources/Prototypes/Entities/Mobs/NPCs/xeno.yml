@@ -183,8 +183,8 @@
       groups:
         Brute: 5
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.5
-    baseSprintSpeed: 2.0
+    baseWalkSpeed: 2.0
+    baseSprintSpeed: 2.5
   - type: SlowOnDamage
     speedModifierThresholds:
       100: 0.4
@@ -220,8 +220,8 @@
   - type: Stamina
     excess: 1500
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.8
-    baseSprintSpeed: 2.8
+    baseWalkSpeed : 2.8
+    baseSprintSpeed : 3.8
   - type: MeleeWeapon
     hidden: true
     damage:
@@ -265,8 +265,8 @@
   - type: Stamina
     excess: 550
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4.2
-    baseSprintSpeed: 2.3
+    baseWalkSpeed : 2.3
+    baseSprintSpeed : 4.2
   - type: MeleeWeapon
     hidden: true
     damage:
@@ -303,8 +303,8 @@
   - type: Stamina
     excess: 250
   - type: MovementSpeedModifier
-    baseWalkSpeed: 6
-    baseSprintSpeed: 2.7
+    baseWalkSpeed : 2.7
+    baseSprintSpeed : 6
   - type: MeleeWeapon
     hidden: true
     damage:

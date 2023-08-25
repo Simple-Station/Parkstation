@@ -189,8 +189,8 @@
       Forcibly activate your nodes for good or for evil.
   - type: GhostTakeoverAvailable
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.5
-    baseSprintSpeed: 0.25
+    baseWalkSpeed: 0.25
+    baseSprintSpeed: 0.5
 
 - type: artifactEffect
   id: EffectMultitool

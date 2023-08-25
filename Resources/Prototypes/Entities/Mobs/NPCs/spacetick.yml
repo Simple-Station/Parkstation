@@ -20,8 +20,8 @@
       scale: 0.8, 0.8
   - type: Physics
   - type: MovementSpeedModifier
-    baseWalkSpeed : 5
-    baseSprintSpeed : 3.5
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 5
   - type: Fixtures
     fixtures:
       fix1:
