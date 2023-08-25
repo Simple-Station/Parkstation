@@ -48,7 +48,7 @@ public sealed class CharacterInformationSystem : EntitySystem
             Message = Loc.GetString("character-information-verb-message"),
             Category = VerbCategory.Examine,
             Disabled = !_examine.IsInDetailsRange(args.User, uid),
-            Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Interface/VerbIcons/information.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/information.svg.192dpi.png")),
             ClientExclusive = true,
         };
 
@@ -66,17 +66,10 @@ public sealed class CharacterInformationSystem : EntitySystem
         string? flavorText = null;
 
         // Get ID from inventory, get name and job from ID
-        if (_inventory.TryGetSlotEntity(uid, "id", out var idUid))
-        {
-            var id = GetId(idUid);
-            if (id is not null)
-            {
-                var info = GetNameAndJob(id);
+        var info = GetNameAndJob(uid);
 
-                name = info.Item1;
-                job = info.Item2;
-            }
-        }
+        name = info.Item1;
+        job = info.Item2;
 
         // Fancy job title
         if (!string.IsNullOrEmpty(job))
@@ -97,17 +90,12 @@ public sealed class CharacterInformationSystem : EntitySystem
         }
 
         // Get and set flavor text
-        if (!_config.GetCVar(CCVars.FlavorText))
-        {
-            flavorText = Loc.GetString("character-information-ui-flavor-text-disabled");
-        }
-        else if (_entity.TryGetComponent<DetailExaminableComponent>(uid, out var detail))
-        {
+        if (_config.GetCVar(CCVars.FlavorText) &&
+            _entity.TryGetComponent<DetailExaminableComponent>(uid, out var detail))
             flavorText = detail.Content;
-        }
 
         _window.UpdateUi(uid, name, job, flavorText);
-        _window.OpenCentered();
+        _window.Open();
     }
 
     /// <summary>
@@ -118,8 +106,8 @@ public sealed class CharacterInformationSystem : EntitySystem
     private IdCardComponent? GetId(EntityUid? idUid)
     {
         // PDA
-        if (_entity.TryGetComponent(idUid, out PDAComponent? pda) && pda.ContainedID is not null)
-            return pda.ContainedID;
+        if (_entity.TryGetComponent(idUid, out PdaComponent? pda) && pda.ContainedId is not null)
+            return _entity.GetComponent<IdCardComponent>(pda.ContainedId.Value);
         // ID Card
         if (_entity.TryGetComponent(idUid, out IdCardComponent? id))
             return id;
@@ -130,19 +118,28 @@ public sealed class CharacterInformationSystem : EntitySystem
     /// <summary>
     ///     Gets the name and job title from an ID card component
     /// </summary>
-    /// <param name="id">The ID card to retrieve the information from</param>
+    /// <param name="uid">The entity to attempt information retrieval from</param>
     /// <returns>Name, Job Title</returns>
-    private static (string, string) GetNameAndJob(IdCardComponent id)
+    private (string, string) GetNameAndJob(EntityUid uid)
     {
-        var name = id.FullName;
-        if (string.IsNullOrEmpty(name))
-            name = "Unknown";
+        if (_inventory.TryGetSlotEntity(uid, "id", out var idUid))
+        {
+            var id = GetId(idUid);
+            if (id is not null)
+            {
+                var name = id.FullName;
+                if (string.IsNullOrEmpty(name))
+                    name = "Unknown";
 
-        var jobTitle = id.JobTitle;
-        if (string.IsNullOrEmpty(jobTitle))
-            jobTitle = "Unknown";
-        jobTitle = string.Join(" ", jobTitle.Split(' ').Select(s => s[0].ToString().ToUpper() + s[1..].ToLower()));
+                var jobTitle = id.JobTitle;
+                if (string.IsNullOrEmpty(jobTitle))
+                    jobTitle = "Unknown";
+                jobTitle = string.Join(" ", jobTitle.Split(' ').Select(s => s[0].ToString().ToUpper() + s[1..].ToLower()));
 
-        return (name, jobTitle);
+                return (name, jobTitle);
+            }
+        }
+
+        return ("Unknown", "Unknown");
     }
 }

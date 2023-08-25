@@ -3,7 +3,7 @@
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:style="clr-namespace:Content.Client.Stylesheets"
-    Title="{Loc 'character-information-ui-title'}" MinSize="675 384" Resizable="True">
+    Title="{Loc 'character-information-ui-title'}" Name="RootWindow" MinSize="675 384" Resizable="True">
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" Margin="8">
         <BoxContainer Orientation="Vertical">
             <GridContainer Name="SpriteContainer" Columns="2">
@@ -14,18 +14,18 @@
                 <SpriteView Name="SpriteViewE" />
                 -->
             </GridContainer>
-            <!-- Character name, job title and icon, etc goes here -->
+            <!-- Character name, job title, etc goes here -->
             <RichTextLabel Name="Name" HorizontalAlignment="Center" />
             <RichTextLabel Name="Job" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </BoxContainer>
 
-        <PanelContainer MinSize="2 5" MaxWidth="2" Margin="8 0 8 0">
+        <PanelContainer Name="Separator" MinSize="2 5" MaxWidth="2" Margin="8 0 8 0">
             <PanelContainer.PanelOverride>
                 <graphics:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
             </PanelContainer.PanelOverride>
         </PanelContainer>
 
-        <ScrollContainer HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True">
+        <ScrollContainer Name="FlavorTextScroll" HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True">
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
                 <!-- Character description goes here -->
                 <RichTextLabel Name="FlavorText" HorizontalExpand="True" />
