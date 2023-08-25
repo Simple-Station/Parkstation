@@ -38,12 +38,11 @@ public sealed class CharacterInformationSystem : EntitySystem
 
     private void OnGetExamineVerbs(EntityUid uid, CharacterInformationComponent component, GetVerbsEvent<ExamineVerb> args)
     {
-        var verb = new ExamineVerb()
+        var verb = new ExamineVerb
         {
             Act = () =>
             {
-                // TODO: Better name?
-                Do(args.Target);
+                ShowInfoWindow(args.Target);
             },
             Text = Loc.GetString("character-information-verb-text"),
             Message = Loc.GetString("character-information-verb-message"),
@@ -57,7 +56,7 @@ public sealed class CharacterInformationSystem : EntitySystem
     }
 
 
-    private void Do(EntityUid uid)
+    private void ShowInfoWindow(EntityUid uid)
     {
         if (_window == null)
             return;
