@@ -152,6 +152,10 @@ public sealed class StationSpawningSystem : EntitySystem
         {
             _humanoidSystem.LoadProfile(entity.Value, profile);
             _metaSystem.SetEntityName(entity.Value, profile.Name);
+            if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
+            {
+                AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
+            }
         }
 
         DoJobSpecials(job, entity.Value);
