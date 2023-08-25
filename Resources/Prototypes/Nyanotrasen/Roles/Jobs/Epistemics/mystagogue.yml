@@ -10,7 +10,7 @@
       department: Epistemics
       time: 18000
     - !type:OverallPlaytimeRequirement
-      time: 72000
+      time: 86400
   icon: "ResearchDirector"
   antagAdvantage: 6
   requireAdminNotify: true
@@ -29,6 +29,7 @@
     - type: BibleUser #Lets them heal with bibles
     - type: Psionic
     - type: DispelPower
+  whitelistRequired: true
 
 - type: startingGear
   id: MystagogueGear
@@ -41,6 +42,6 @@
     belt: BibleMystagogue
     id: MystaPDA
     ears: ClothingHeadsetAltMystagogue
-  innerclothingskirt: ClothingUniformJumpskirtColorWhite
+  innerclothingskirt: ClothingUniformJumpskirtMystagogue
   satchel: ClothingBackpackSatchelScienceFilled
   duffelbag: ClothingBackpackDuffelScienceFilled

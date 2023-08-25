@@ -29,7 +29,7 @@
     id: MimePDA
     ears: ClothingHeadsetService
   innerclothingskirt: ClothingUniformJumpskirtMime
-  satchel: ClothingBackpackSatchelFilled
+  satchel: ClothingBackpackSatchelMimeFilled
   duffelbag: ClothingBackpackDuffelMimeFilled
   underpantsskirt: ClothingUnderstriped_panties
   undershirt: ClothingUndershirt_stripes

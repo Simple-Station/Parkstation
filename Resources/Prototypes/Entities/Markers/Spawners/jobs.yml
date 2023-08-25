@@ -113,6 +113,10 @@
   components:
   - type: SpawnPoint
     job_id: SecurityCadet
+  - type: Sprite
+    layers:
+      - state: green
+      - state: security_cadet
 
 - type: entity
   id: SpawnPointServiceWorker
@@ -330,6 +334,18 @@
     layers:
       - state: green
       - state: doctor
+      
+- type: entity
+  id: SpawnPointParamedic
+  parent: SpawnPointJobBase
+  name: paramedic
+  components:
+  - type: SpawnPoint
+    job_id: Paramedic
+  - type: Sprite
+    layers:
+      - state: green
+      - state: paramedic
 
 - type: entity
   id: SpawnPointChemist

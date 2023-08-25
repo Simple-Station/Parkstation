@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Chemistry;
@@ -38,7 +39,7 @@ namespace Content.Client.Chemistry.UI
 
             // Pill type selection buttons, in total there are 20 pills.
             // Pill rsi file should have states named as pill1, pill2, and so on.
-            var resourcePath = new ResourcePath(PillsRsiPath);
+            var resourcePath = new ResPath(PillsRsiPath);
             var pillTypeGroup = new ButtonGroup();
             PillTypeButtons = new Button[20];
             for (uint i = 0; i < PillTypeButtons.Length; i++)
@@ -59,7 +60,7 @@ namespace Content.Client.Chemistry.UI
                 {
                     Access = AccessLevel.Public,
                     StyleClasses = { styleBase },
-                    MaxSize = (42, 28),
+                    MaxSize = new Vector2(42, 28),
                     Group = pillTypeGroup
                 };
 
@@ -68,7 +69,7 @@ namespace Content.Client.Chemistry.UI
                 TextureRect pillTypeTexture = new TextureRect
                 {
                     Texture = specifier.Frame0(),
-                    TextureScale = (1.75f, 1.75f),
+                    TextureScale = new Vector2(1.75f, 1.75f),
                     Stretch = TextureRect.StretchMode.KeepCentered,
                 };
 

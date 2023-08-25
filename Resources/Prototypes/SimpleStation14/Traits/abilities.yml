@@ -40,8 +40,8 @@
 
 - type: trait
   id: LightWeight
-  name: trait-lightweight-name
-  description: trait-lightweight-description
+  name: trait-real-lightweight-name
+  description: trait-real-lightweight-description
   cost: -5
   category: Positive
   components:

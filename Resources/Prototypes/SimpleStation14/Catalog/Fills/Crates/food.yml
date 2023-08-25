@@ -1,0 +1,75 @@
+- type: entity
+  id: CrateFoodExoticMeat
+  name: Exotic meats crate
+  description: "Contains a random variety of uncooked, exotic meats. Eat at your own peril."
+  parent: CrateFreezerSecure
+  components:
+  - type: StorageFill
+    contents:
+    # guaranteed meats
+    - id: FoodMeatFish
+      amount: 2
+    - id: FoodMeatBear
+      amount: 1
+    - id: FoodMeatPenguin
+      amount: 1
+    # random meats
+    - id: FoodMeatFish
+      prob: 0.45
+      amount: 2
+    - id: FoodMeatFish
+      prob: 0.45
+      amount: 2
+    - id: FoodMeatBear
+      prob: 0.40
+      amount: 2
+    - id: FoodMeatBear
+      prob: 0.50
+      amount: 1
+    - id: FoodMeatPenguin
+      prob: 0.30
+      amount: 1
+    - id: FoodMeatPenguin
+      prob: 0.30
+      amount: 1
+    - id: FoodMeatRat
+      prob: 0.20
+      amount: 1
+    - id: FoodMeatRat
+      prob: 0.30
+      amount: 1
+    - id: FoodMeatRat
+      prob: 0.30
+      amount: 1
+    - id: FoodMeatLizard
+      prob: 0.30
+      amount: 1
+    - id: FoodMeatLizard
+      prob: 0.30
+      amount: 1
+    - id: FoodMeatSpider
+      prob: 0.30
+      amount: 2
+    - id: FoodMeatSpider
+      prob: 0.30
+      amount: 1
+    - id: FoodMeatXeno
+      prob: 0.02
+      amount: 2
+    - id: FoodMeatXeno
+      prob: 0.05
+      amount: 1
+
+- type: entity
+  id: CrateFoodCabbages
+  name: Cabbage crate
+  description: "A crate containing a dozen cabbages."
+  parent: CrateHydroponics
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodCabbage
+      amount: 12
+    - id: FoodCabbage
+      amount: 1
+      prob: 0.3

@@ -24,6 +24,12 @@
       collection: MaleYawn
     Snore:
       collection: Snores
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
 
 - type: emoteSounds
   id: FemaleHuman
@@ -50,6 +56,12 @@
       collection: FemaleYawn
     Snore:
       collection: Snores
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
 
 - type: emoteSounds
   id: UnisexReptilian
@@ -60,6 +72,78 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
+    Whistle:
+      collection: Whistles
+    Crying:
+      collection: MaleCry
+
+- type: emoteSounds
+  id: MaleSlime
+  sounds:
+    Squish:
+      collection: Squishes
+    Scream:
+      collection: MaleScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+  params:
+    variation: 0.125
+
+- type: emoteSounds
+  id: FemaleSlime
+  sounds:
+    Squish:
+      collection: Squishes
+    Scream:
+      collection: FemaleScreams
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
+  params:
+    variation: 0.125
 
 - type: emoteSounds
   id: UnisexVox
@@ -69,72 +153,39 @@
       variation: 0.125
 
 - type: emoteSounds
-  id: MaleFelinid
-  params:
-    variation: 0.125
-  sounds:
-    Scream:
-      collection: FelinidScreams
-    Laugh:
-      collection: MaleLaugh
-    Hiss:
-      collection: FelinidHisses
-    Meow:
-      collection: FelinidMeows
-    Mew:
-      collection: FelinidMews
-    Growl:
-      collection: FelinidGrowls
-    Purr:
-      collection: FelinidPurrs
-
-- type: emoteSounds
-  id: FemaleFelinid
-  params:
-    variation: 0.125
-  sounds:
-    Scream:
-      collection: FelinidScreams
-    Laugh:
-      collection: FemaleLaugh
-    Hiss:
-      collection: FelinidHisses
-    Meow:
-      collection: FelinidMeows
-    Mew:
-      collection: FelinidMews
-    Growl:
-      collection: FelinidGrowls
-    Purr:
-      collection: FelinidPurrs
-
-- type: emoteSounds
-  id: MaleMoth
-  params:
-    variation: 0.125
-  sounds:
-    Scream:
-      path: /Audio/Voice/Moth/scream_moth.ogg
-    Laugh:
-      path: /Audio/Voice/Moth/laugh_moth.ogg
-
-- type: emoteSounds
-  id: FemaleMoth
-  params:
-    variation: 0.125
-  sounds:
-    Scream:
-      path: /Audio/Voice/Moth/scream_moth.ogg
-    Laugh:
-      path: /Audio/Voice/Moth/laugh_moth.ogg
-
-- type: emoteSounds
   id: UnisexDwarf
   sounds:
     Scream:
       collection: MaleScreams
     Laugh:
       collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+  params:
+    variation: 0.125
+    pitchscale: 0.75
+
+- type: emoteSounds
+  id: FemaleDwarf
+  sounds:
+    Scream:
+      collection: FemaleScreams
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
   params:
     variation: 0.125
     pitchscale: 0.75
@@ -149,6 +200,8 @@
       collection: Snaps
       params:
         volume: -3
+    Salute:
+      collection: Salutes
 
 # mobs
 - type: emoteSounds
@@ -169,5 +222,26 @@
   id: Mouse
   sound:
     path: /Audio/Animals/mouse_squeak.ogg
+    params:
+      variation: 0.125
+
+- type: emoteSounds
+  id: Bear
+  sound:
+    path: /Audio/Animals/bear.ogg
+    params:
+      variation: 0.125
+
+- type: emoteSounds
+  id: Cerberus
+  sound:
+    path: /Audio/Animals/cerberus.ogg
+    params:
+      variation: 0.125
+
+- type: emoteSounds
+  id: Kangaroo
+  sound:
+    path: /Audio/Animals/kangaroo_grunt.ogg
     params:
       variation: 0.125

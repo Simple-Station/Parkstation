@@ -1,0 +1,15 @@
+<Document>
+# Alert Procedure
+
+During your time on the station, you will definitely encounter an "Alert Level" being changed.
+There are various possible alert levels, including some only activated by Central Command.
+Each alert level has different "Operating Procedures" that you must follow, shown in detail in the subcategories of this page.
+
+<Box HorizontalAlignment="Left">
+Alert levels are set either via a communications console, or the AI internal computer.
+</Box>
+<Box HorizontalAlignment="Left">
+<GuideEntityEmbed Entity="ComputerComms" Caption="" />
+<GuideEntityEmbed Entity="AICore" Caption="" />
+</Box>
+</Document>

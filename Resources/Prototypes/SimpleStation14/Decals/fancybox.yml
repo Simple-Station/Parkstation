@@ -1,0 +1,56 @@
+- type: decal
+  id: FancyBoxCornersWhiteNE
+  tags: ["station", "markings", "box"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/box.rsi
+    state: box_corners_white_ne
+
+- type: decal
+  id: FancyBoxCornersWhiteNW
+  tags: ["station", "markings", "box"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/box.rsi
+    state: box_corners_white_nw
+
+- type: decal
+  id: FancyBoxCornersWhiteSE
+  tags: ["station", "markings", "box"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/box.rsi
+    state: box_corners_white_se
+
+- type: decal
+  id: FancyBoxCornersWhiteSW
+  tags: ["station", "markings", "box"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/box.rsi
+    state: box_corners_white_sw
+
+
+- type: decal
+  id: FancyBoxCornersYellowNE
+  tags: ["station", "markings", "box"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/box.rsi
+    state: box_corners_yellow_ne
+
+- type: decal
+  id: FancyBoxCornersYellowNW
+  tags: ["station", "markings", "box"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/box.rsi
+    state: box_corners_yellow_nw
+
+- type: decal
+  id: FancyBoxCornersYellowSE
+  tags: ["station", "markings", "box"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/box.rsi
+    state: box_corners_yellow_se
+
+- type: decal
+  id: FancyBoxCornersYellowSW
+  tags: ["station", "markings", "box"]
+  sprite:
+    sprite: SimpleStation14/Decals/Flooring/box.rsi
+    state: box_corners_yellow_sw

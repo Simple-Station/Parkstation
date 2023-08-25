@@ -1,0 +1,16 @@
+- type: reagent
+  parent: BaseDrink
+  id: ChocolateMilk
+  name: reagent-name-choccy-milk
+  desc: reagent-desc-butter
+  physicalDesc: reagent-physical-desc-milky
+  flavor: chocolate
+  color: "#623412"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.2

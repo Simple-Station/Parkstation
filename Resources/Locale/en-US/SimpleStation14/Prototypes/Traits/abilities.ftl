@@ -7,8 +7,8 @@ trait-arachnid-description = You have the ability to produce a webbing from your
 trait-voracious-name = Voracious
 trait-voracious-description = You are able to eat and drink significantly faster
 
-trait-lightweight-name = Lightweight
-trait-lightweight-description = You move faster and can climb easier, though this allows others to lift you onto things easier too
+trait-real-lightweight-name = Lightweight
+trait-real-lightweight-description = You move faster and can climb easier, though this allows others to lift you onto things easier too
 
 trait-bigger-name = Bigger
 trait-bigger-description = Bigger

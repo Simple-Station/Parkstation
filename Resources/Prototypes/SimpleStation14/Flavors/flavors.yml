@@ -1,0 +1,4 @@
+- type: flavor
+  id: shirosDelight
+  flavorType: Complex
+  description: flavor-complex-shirosdelight

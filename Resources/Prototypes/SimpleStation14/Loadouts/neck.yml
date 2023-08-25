@@ -29,3 +29,76 @@
   category: Accessories
   cost: 1
   item: ClothingNeckScarfStripedZebra
+
+- type: loadout
+  id: LoadoutNeckLGBTPin
+  name: LGBT pin
+  description: "be gay do crime"
+  category: Accessories
+  cost: 1
+  item: ClothingNeckLGBTPin
+
+- type: loadout
+  id: LoadoutNeckAromanticPin
+  name: aromantic pin
+  description: "be aro do crime"
+  category: Accessories
+  cost: 1
+  item: ClothingNeckAromanticPin
+
+- type: loadout
+  id: LoadoutNeckAsexualPin
+  name: asexual pin
+  description: "be ace do crime"
+  category: Accessories
+  cost: 1
+  item: ClothingNeckAsexualPin
+
+- type: loadout
+  id: LoadoutNeckBisexualPin
+  name: bisexual pin
+  description: "be bi do crime"
+  category: Accessories
+  cost: 1
+  item: ClothingNeckBisexualPin
+
+- type: loadout
+  id: LoadoutNeckIntersexPin
+  name: intersex pin
+  description: "be intersex do crime"
+  category: Accessories
+  cost: 1
+  item: ClothingNeckIntersexPin
+
+- type: loadout
+  id: LoadoutNeckNonBinaryPin
+  name: non-binary pin
+  description: "01100010 01100101 00100000 01100101 01101110 01100010 01111001 00100000 01100100 01101111 00100000 01100011 01110010 01101001 01101101 01100101"
+  category: Accessories
+  cost: 1
+  item: ClothingNeckNonBinaryPin
+
+- type: loadout
+  id: LoadoutNeckLesbianPin
+  name: lesbian pin
+  description: "be lesbian do crime"
+  category: Accessories
+  cost: 1
+  item: ClothingNeckLesbianPin
+
+- type: loadout
+  id: LoadoutNeckPansexualPin
+  name: pansexual pin
+  description: "be pan do crime"
+  category: Accessories
+  cost: 1
+  item: ClothingNeckPansexualPin
+
+- type: loadout
+  id: LoadoutNeckTransPin
+  name: transgender pin
+  description: "be trans do crime"
+  category: Accessories
+  cost: 1
+  item: ClothingNeckTransPin
+

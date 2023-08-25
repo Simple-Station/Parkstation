@@ -1,0 +1,23 @@
+- type: cargoProduct
+  id: FoodExoticMeat
+  name: Exotic meats crate
+  description: "Contains a variety of exotic looking meats."
+  icon:
+    sprite: Objects/Consumable/Food/meat.rsi
+    state: xeno
+  product: CrateFoodExoticMeat
+  cost: 2500
+  category: Food
+  group: market
+
+- type: cargoProduct
+  id: FoodCabbages
+  name: Cabbage crate
+  description: "A crate containing a dozen cabbages."
+  icon:
+    sprite: Objects/Specific/Hydroponics/cabbage.rsi
+    state: produce
+  product: CrateFoodCabbages
+  cost: 425
+  category: Food
+  group: market

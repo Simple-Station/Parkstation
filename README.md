@@ -1,5 +1,13 @@
 # Parkstation
 
+![GithubAction](https://github.com/Park-Station/Parkstation/actions/workflows/changelog.yml/badge.svg)
+![GithubAction](https://github.com/Park-Station/Parkstation/actions/workflows/yaml-linter.yml/badge.svg)
+![GithubAction](https://github.com/Park-Station/Parkstation/actions/workflows/validate-rgas.yml/badge.svg)
+![GithubAction](https://github.com/Park-Station/Parkstation/actions/workflows/validate_mapfiles.yml/badge.svg)
+![GithubAction](https://github.com/Park-Station/Parkstation/actions/workflows/build-test-debug.yml/badge.svg)
+![GithubAction](https://github.com/Park-Station/Parkstation/actions/workflows/build-test-release.yml/badge.svg)
+![GithubAction](https://github.com/Park-Station/Parkstation/actions/workflows/test-packaging.yml/badge.svg)
+
 ## Links
 
 [Discord](https://discord.gg/49KeKwXc8g) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Standalone Download](https://spacestation14.io/about/nightlies/)

@@ -42,7 +42,7 @@ async function main() {
     let time = merged_at;
     if (time)
     {
-        time = time.replace("z", ".0000000+00:00");
+        time = time.replace("z", ".0000000+00:00").replace("Z", ".0000000+00:00");
     }
     else
     {

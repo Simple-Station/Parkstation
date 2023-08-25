@@ -1,6 +1,7 @@
 ﻿using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind.Components;
+using Content.Server.Mind;
 using Content.Server.Players;
 using Content.Shared.Administration;
 using Content.Shared.Ghost;
@@ -35,10 +36,14 @@ namespace Content.Server.Administration.Commands
                 return;
             }
 
-            if (mind.VisitingEntity != default && _entities.HasComponent<GhostComponent>(mind.VisitingEntity))
+            var mindSystem = _entities.System<MindSystem>();
+
+            if (mind.VisitingEntity != default && _entities.TryGetComponent<GhostComponent>(mind.VisitingEntity, out var oldGhostComponent))
             {
-                player.ContentData()!.Mind?.UnVisit();
-                return;
+                mindSystem.UnVisit(mind);
+                // If already an admin ghost, then return to body.
+                if (oldGhostComponent.CanGhostInteract)
+                    return;
             }
 
             var canReturn = mind.CurrentEntity != null
@@ -57,12 +62,12 @@ namespace Content.Server.Administration.Commands
                 else if (!string.IsNullOrWhiteSpace(mind.Session?.Name))
                     _entities.GetComponent<MetaDataComponent>(ghost).EntityName = mind.Session.Name;
 
-                mind.Visit(ghost);
+                mindSystem.Visit(mind, ghost);
             }
             else
             {
                 _entities.GetComponent<MetaDataComponent>(ghost).EntityName = player.Name;
-                mind.TransferTo(ghost);
+                mindSystem.TransferTo(mind, ghost);
             }
 
             // Mind doesn't seem to do this for us?

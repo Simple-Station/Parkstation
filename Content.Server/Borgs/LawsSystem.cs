@@ -3,6 +3,10 @@ using Content.Server.Chat.Systems;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
 using JetBrains.Annotations;
+using Robust.Shared.Prototypes;
+using Content.Shared.Random;
+using Content.Shared.SimpleStation14.Prototypes;
+using Content.Shared.Random.Helpers;
 
 namespace Content.Server.Borgs
 {
@@ -17,6 +21,8 @@ namespace Content.Server.Borgs
             base.Initialize();
             SubscribeLocalEvent<LawsComponent, StateLawsMessage>(OnStateLaws);
             SubscribeLocalEvent<LawsComponent, PlayerAttachedEvent>(OnPlayerAttached);
+
+            SubscribeLocalEvent<LawsComponent, ComponentInit>(OnInit); // Parkstation-Laws
         }
 
         private void OnStateLaws(EntityUid uid, LawsComponent component, StateLawsMessage args)
@@ -51,6 +57,57 @@ namespace Content.Server.Borgs
             }
         }
 
+        // Parkstation-Laws-Start
+        private void OnInit(EntityUid uid, LawsComponent component, ComponentInit args)
+        {
+            if (component.LawsID == null)
+                return;
+
+            var _prototype = IoCManager.Resolve<IPrototypeManager>();
+
+            if (_prototype.TryIndex<LawsPrototype>(component.LawsID, out var laws))
+            {
+                AddLawsFromPrototype(component, component.LawsID);
+
+                return;
+            }
+
+            if (_prototype.TryIndex<WeightedRandomPrototype>(component.LawsID, out var collection))
+            {
+                AddLawsFromPrototype(component, collection.Pick());
+
+                return;
+            }
+
+            Logger.Warning($"No laws prototype or weighted random found with ID {component.LawsID} for entity {ToPrettyString(uid)}.");
+        }
+
+        public void AddLawsFromPrototype(EntityUid uid, string prototypeID)
+        {
+            AddLawsFromPrototype(EnsureComp<LawsComponent>(uid), prototypeID);
+        }
+
+        public void AddLawsFromPrototype(LawsComponent component, string prototypeID)
+        {
+            var _prototype = IoCManager.Resolve<IPrototypeManager>();
+
+            var laws = _prototype.Index<LawsPrototype>(prototypeID);
+
+            component.Laws.Clear();
+
+            // Add each law in the list.
+            foreach (var law in laws.Laws)
+            {
+                component.Laws.Add(Loc.GetString(law));
+            }
+
+            // Set LawsID to the prototype ID.
+            component.LawsID = prototypeID;
+
+            Dirty(component);
+        }
+        // Parkstation-Laws-End
+
         [PublicAPI]
         public void ClearLaws(EntityUid uid, LawsComponent? component = null)
         {
@@ -58,6 +115,7 @@ namespace Content.Server.Borgs
                 return;
 
             component.Laws.Clear();
+            component.LawsID = null; // Parkstation-Laws
             Dirty(component);
         }
 
@@ -71,7 +129,7 @@ namespace Content.Server.Borgs
 
             index = Math.Clamp((int) index, 0, component.Laws.Count);
 
-            component.Laws.Insert((int) index, law);
+            component.Laws.Insert((int) index, Loc.GetString(law)); // Parkstation-Laws
             Dirty(component);
         }
 

@@ -16,6 +16,7 @@ using Content.Server.Construction;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.SimpleStation14.Silicon.Components; // Parkstation-IPCs // I shouldn't have to modify this.
 
 namespace Content.Server.Bed
 {
@@ -40,7 +41,7 @@ namespace Content.Server.Bed
             SubscribeLocalEvent<StasisBedComponent, UpgradeExamineEvent>(OnUpgradeExamine);
         }
 
-        private void ManageUpdateList(EntityUid uid, HealOnBuckleComponent component, BuckleChangeEvent args)
+        private void ManageUpdateList(EntityUid uid, HealOnBuckleComponent component, ref BuckleChangeEvent args)
         {
             _prototypeManager.TryIndex<InstantActionPrototype>("Sleep", out var sleepAction);
             if (args.Buckling)
@@ -74,7 +75,7 @@ namespace Content.Server.Bed
 
                 foreach (var healedEntity in strapComponent.BuckledEntities)
                 {
-                    if (_mobStateSystem.IsDead(healedEntity))
+                    if (_mobStateSystem.IsDead(healedEntity) || HasComp<SiliconComponent>(healedEntity)) // Parkstation-IPCs // I shouldn't have to modify this.
                         continue;
 
                     var damage = bedComponent.Damage;
@@ -92,7 +93,7 @@ namespace Content.Server.Bed
             _appearance.SetData(uid, StasisBedVisuals.IsOn, isOn);
         }
 
-        private void OnBuckleChange(EntityUid uid, StasisBedComponent component, BuckleChangeEvent args)
+        private void OnBuckleChange(EntityUid uid, StasisBedComponent component, ref BuckleChangeEvent args)
         {
             // In testing this also received an unbuckle event when the bed is destroyed
             // So don't worry about that

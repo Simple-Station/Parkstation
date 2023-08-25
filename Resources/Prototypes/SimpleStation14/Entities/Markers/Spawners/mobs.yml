@@ -1,28 +1,3 @@
-- type: entity
-  name: Punpun Spawner
-  id: SpawnMobPunpun
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-      - state: green
-      - state: ai
-  - type: ConditionalSpawner
-    prototypes:
-      - MobMonkeyPunpun
-
-- type: entity
-  name: Lizard Spawner
-  id: SpawnMobLizard
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-      - state: green
-      - state: ai
-  - type: ConditionalSpawner
-    prototypes:
-      - MobLizard
 
 - type: entity
   name: Lois Spawner
@@ -38,19 +13,6 @@
       - MobLizardLois
 
 - type: entity
-  name: Frog Spawner
-  id: SpawnMobFrog
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-      - state: green
-      - state: ai
-  - type: ConditionalSpawner
-    prototypes:
-      - MobFrog
-
-- type: entity
   name: Randall Spawner
   id: SpawnMobFrogRandall
   parent: MarkerBase
@@ -62,19 +24,6 @@
   - type: ConditionalSpawner
     prototypes:
       - MobFrogRandall
-
-- type: entity
-  name: Slug Spawner
-  id: SpawnMobSlug
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-      - state: green
-      - state: ai
-  - type: ConditionalSpawner
-    prototypes:
-      - MobSlug
 
 - type: entity
   name: Terrance Spawner

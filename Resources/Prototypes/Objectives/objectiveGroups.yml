@@ -11,7 +11,7 @@
   id: TraitorObjectiveGroupSteal
   weights:
     # CaptainIDStealObjective: 1
-    CMOHyposprayStealObjective: 1
+    CMOHypospraySteclothingeyesalObjective: 1
     RDHardsuitStealObjective: 1
     NukeDiskStealObjective: 1
     IDComputerBoardStealObjective: 1
@@ -24,13 +24,14 @@
   id: TraitorObjectiveGroupKill
   weights:
     KillRandomObjective: 1
+    KillRandomHeadObjective: 0.25
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState
   weights:
     EscapeShuttleObjective: 1
-    # BecomePsionicObjective: 0.5
-    # BecomeGolemObjective: 0.25
+    # BecomePsionicObjective: 1
+    # BecomeGolemObjective: 0.5
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial

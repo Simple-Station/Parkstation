@@ -55,6 +55,7 @@
       - id: WeaponAntiqueLaser
       - id: JetpackCaptainFilled
       - id: ClothingHeadHatBeretCap
+      - id: ClothingHeadHatCapcap
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -72,8 +73,6 @@
       - id: BoxHeadset
       - id: ClothingShoesColorBlack
         prob: 0.7
-      - id: PlushieLizard
-        prob: 0.1
       - id: CigarGoldCase
         prob: 0.10
       - id: ClothingNeckGoldmedal
@@ -82,6 +81,8 @@
       - id: BoxEncryptionKeyCommand
       - id: BoxEncryptionKeyPassenger
       - id: DoorRemoteCommand
+      - id: ClothingBackpackIan
+        prob: 0.5
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -119,6 +120,7 @@
       - id: ClothingEyesHudMedical
       - id: ClothingEyesHudMedicalPrescription
       - id: ClothingHeadsetAltMedical
+      - id: ClothingBeltMilitaryWebbingCMO
       - id: ClothingCloakCmo
       - id: ClothingBackpackDuffelSurgeryFilled
       - id: ClothingOuterCoatLabCmo
@@ -175,7 +177,7 @@
       - id: ClothingUniformJumpskirtHoSParadeMale
         prob: 0.1
       - id: ClothingOuterHardsuitSecurityRed
-      - id: ClothingMaskGasSecurity
+      - id: ClothingMaskGasSwat
       - id: DrinkVacuumFlask
         prob: 0.8
       - id: ClothingBeltSecurityFilled
@@ -191,6 +193,7 @@
       - id: JetpackSecurityFilled
       - id: HyperlinkBookSpaceLaw
       - id: BoxEncryptionKeySecurity
+      - id: HoloprojectorSecurity
       # Captain items
       - id: ClothingNeckBronzeheart
       - id: NukeDisk
