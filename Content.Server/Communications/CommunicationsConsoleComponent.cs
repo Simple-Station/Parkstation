@@ -58,5 +58,8 @@ namespace Content.Server.Communications
         public SoundSpecifier AnnouncementSound = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
 
         public BoundUserInterface? UserInterface => Owner.GetUIOrNull(CommunicationsConsoleUiKey.Key);
+
+        [DataField("showAuthor")]
+        public bool ShowAuthor = true;
     }
 }

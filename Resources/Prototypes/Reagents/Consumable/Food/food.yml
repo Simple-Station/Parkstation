@@ -51,6 +51,10 @@
           type: Vampiric
           shouldHave: false
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+          shouldHave: false
   pricePerUnit: 2.5
 
 - type: reagent
@@ -91,6 +95,9 @@
         - !type:ReagentThreshold #Only satiates when eaten with nutriment
           reagent: Nutriment
           min: 0.1
+        - !type:OrganType
+          type: Vampiric
+          shouldHave: false
         factor: 1
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -99,28 +106,3 @@
     amount: 2
   - !type:PlantAdjustPests
     amount: 2
-
-- type: reagent
-  id: Nausium
-  name: reagent-name-nausium
-  group: Foods
-  desc: reagent-desc-nausium
-  physicalDesc: reagent-physical-desc-sickly
-  color: brown
-  metabolisms:
-    Food:
-      effects:
-      - !type:ChemVomit
-        probability: 0.9
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Nausium
-          min: 5
-      - !type:PopupMessage
-        type: Local
-        messages: [ "disease-sick-stomach" ]
-        probability: 0.25
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Nausium
-          min: 2.5

@@ -58,8 +58,9 @@
     - FourteenLoko
     - Ephedrine
     - Histamine
-    - THCOil
+    - THC
     - CapsaicinOil
+    - GrapeSoda
 
 - type: reagentDispenserInventory
   id: BoozeDispenserEmagInventory

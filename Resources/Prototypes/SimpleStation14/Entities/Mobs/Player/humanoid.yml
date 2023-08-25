@@ -71,7 +71,7 @@
   id: MobHumanSyndicateCommsAgent
   name: Syndicate Comms Agent
   components:
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - Syndicate
     - type: Loadout
@@ -119,12 +119,7 @@
     - type: Access
       groups:
         - AllAccess
-    # - type: AutoRegenReagent
-    #   solution: chemicals
-    #   reagents:
-    #     - Ichor
-    #   unitsPerSecond: 0.1
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - SimpleHostile
         - Xeno
@@ -167,7 +162,7 @@
         - SlowedDown
         - Stutter
         - Electrocution
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - SimpleHostile
     - type: BibleUser
@@ -245,7 +240,7 @@
         - KnockedDown
         - SlowedDown
         - Electrocution
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - SimpleHostile
     - type: BibleUser

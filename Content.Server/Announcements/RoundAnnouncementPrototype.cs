@@ -14,10 +14,5 @@ public sealed class RoundAnnouncementPrototype : IPrototype
     [IdDataField]
     public string ID { get; } = default!;
 
-    [DataField("sound")] public SoundSpecifier? Sound;
-
     [DataField("message")] public string? Message;
-
-    [DataField("presets", customTypeSerializer: typeof(PrototypeIdListSerializer<GamePresetPrototype>))]
-    public List<string> GamePresets = new();
 }

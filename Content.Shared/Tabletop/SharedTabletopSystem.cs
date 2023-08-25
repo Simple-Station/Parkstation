@@ -1,3 +1,6 @@
+using Robust.Shared.Audio;
+using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
@@ -76,6 +79,26 @@ namespace Content.Shared.Tabletop
                 _appearance.SetData(dragged, TabletopItemVisuals.Scale, Vector2.One, appearance);
                 _appearance.SetData(dragged, TabletopItemVisuals.DrawDepth, (int) DrawDepth.DrawDepth.Items, appearance);
             }
+
+            // Begin Nyano-code:
+            // This is a hacky patch because the upstream system now subscribes to the event previously only subscribed to by the Shogi subsystem.
+            // I would prefer to refactor the upstream system at some point to support this, but for now, here it goes.
+            if (!_gameTiming.IsFirstTimePredicted)
+                return;
+
+            if (msg.IsDragging == true)
+                return;
+
+            if (args.SenderSession.AttachedEntity is not { Valid: true } playerEntity)
+                return;
+
+            if (!TryComp<TabletopShogiPieceComponent>(msg.DraggedEntityUid, out var component))
+                return;
+
+            // Play the signature Shogi sound.
+            var clack = new SoundPathSpecifier("/Audio/Nyanotrasen/shogi_piece_clack.ogg");
+            _audio.PlayPredicted(clack, playerEntity, playerEntity, AudioParams.Default.WithVariation(0.06f));
+            // End Nyano-code.
         }
 
 
@@ -118,7 +141,7 @@ namespace Content.Shared.Tabletop
             // CanSeeTable checks interaction action blockers. So no need to check them here.
             // If this ever changes, so that ghosts can spectate games, then the check needs to be moved here.
 
-            return TryComp(playerEntity, out SharedHandsComponent? hands) && hands.Hands.Count > 0;
+            return TryComp(playerEntity, out HandsComponent? hands) && hands.Hands.Count > 0;
         }
         #endregion
     }

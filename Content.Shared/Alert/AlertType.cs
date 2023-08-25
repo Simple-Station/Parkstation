@@ -27,7 +27,9 @@ namespace Content.Shared.Alert
         Starving,
         Thirsty,
         Parched,
+        Charge, // Parkstation-IPC
         Stamina,
+        ShadowkinPower,
         Pulled,
         Pulling,
         Magboots,
@@ -38,13 +40,15 @@ namespace Content.Shared.Alert
         VowBroken,
         Essence,
         Corporeal,
+        Bleed,
+        Pacified,
         Caged,
         Debug1,
         Debug2,
         Debug3,
         Debug4,
         Debug5,
-        Debug6
+        Debug6,
     }
 
 }

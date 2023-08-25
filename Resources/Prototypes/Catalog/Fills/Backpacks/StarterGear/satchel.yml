@@ -7,14 +7,15 @@
     contents:
       - id: BoxSurvival
 
-#- type: entity
-#  noSpawn: true
-#  parent: ClothingBackpackSatchelClown
-#  id: ClothingBackpackSatchelClownFilled
-#  components:
-#  - type: StorageFill
-#    contents:
-#      - id: BoxHug
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelClown
+  id: ClothingBackpackSatchelClownFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxHug
+      - id: RubberStampClown
 
 - type: entity
   noSpawn: true
@@ -37,6 +38,17 @@
 
 - type: entity
   noSpawn: true
+  parent: ClothingBackpackSatchelMedical
+  id: ClothingBackpackSatchelParamedicFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: CheapRollerBedSpawnFolded
+      - id: BodyBag_Folded
+
+- type: entity
+  noSpawn: true
   parent: ClothingBackpackSatchelCaptain
   id: ClothingBackpackSatchelCaptainFilled
   components:
@@ -50,6 +62,15 @@
   noSpawn: true
   parent: ClothingBackpackSatchelEngineering
   id: ClothingBackpackSatchelEngineeringFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalEngineering
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelAtmospherics
+  id: ClothingBackpackSatchelAtmosphericsFilled
   components:
   - type: StorageFill
     contents:
@@ -107,6 +128,16 @@
 - type: entity
   noSpawn: true
   parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelLibrarianFilled
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+        - id: BookRandom
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelDetectiveFilled
   components:
     - type: StorageFill
@@ -134,3 +165,13 @@
   - type: Tag
     tags:
     - InnateDontDelete
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelMime
+  id: ClothingBackpackSatchelMimeFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: RubberStampMime

@@ -17,7 +17,6 @@
     - Wirecutter
   - type: Sprite
     sprite: Objects/Tools/wirecutters.rsi
-    netsync: false
     layers:
     - state: cutters
       map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -41,8 +40,11 @@
   - type: Item
     sprite: Objects/Tools/wirecutters.rsi
   - type: LatticeCutting
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
   - type: DynamicPrice
-    price: 40
+    price: 30
 
 - type: entity
   name: screwdriver
@@ -62,7 +64,6 @@
     - Screwdriver
   - type: Sprite
     sprite: Objects/Tools/screwdriver.rsi
-    netsync: false
     layers:
       - state: screwdriver
         map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -85,8 +86,11 @@
     available:
       - enum.DamageStateVisualLayers.Base:
           screwdriver: Rainbow
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
   - type: DynamicPrice
-    price: 40
+    price: 30
 
 - type: entity
   name: wrench
@@ -107,7 +111,6 @@
   - type: Sprite
     sprite: Objects/Tools/wrench.rsi
     state: icon
-    netsync: false
   - type: Item
     sprite: Objects/Tools/wrench.rsi
   - type: ItemCooldown
@@ -125,8 +128,11 @@
       - Anchoring
     useSound:
       path: /Audio/Items/ratchet.ogg
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
   - type: DynamicPrice
-    price: 40
+    price: 22
 
 - type: entity
   name: crowbar
@@ -147,7 +153,6 @@
   - type: Sprite
     sprite: Objects/Tools/crowbar.rsi
     state: icon
-    netsync: false
   - type: Item
     sprite: Objects/Tools/crowbar.rsi
   - type: ItemCooldown
@@ -162,8 +167,11 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: TilePrying
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
   - type: DynamicPrice
-    price: 40
+    price: 22
 
 - type: entity
   name: emergency crowbar
@@ -211,28 +219,83 @@
   - type: Tool
     qualities:
       - Pulsing
-  - type: SignalLinker
   - type: NetworkConfigurator
   - type: ActivatableUI
     key: enum.NetworkConfiguratorUiKey.List
     inHandsOnly: true
   - type: UserInterface
     interfaces:
-    - key: enum.SignalLinkerUiKey.Key
-      type: SignalPortSelectorBoundUserInterface
-    - key: enum.NetworkConfiguratorUiKey.List
-      type: NetworkConfiguratorBoundUserInterface
-    - key: enum.NetworkConfiguratorUiKey.Configure
-      type: NetworkConfiguratorBoundUserInterface
+      - key: enum.NetworkConfiguratorUiKey.List
+        type: NetworkConfiguratorBoundUserInterface
+      - key: enum.NetworkConfiguratorUiKey.Configure
+        type: NetworkConfiguratorBoundUserInterface
+      - key: enum.NetworkConfiguratorUiKey.Link
+        type: NetworkConfiguratorBoundUserInterface
   - type: Tag
     tags:
+      - Multitool
       - DroneUsable
-  - type: DynamicPrice
-    price: 60
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
   - type: MeleeWeapon
     damage:
       types:
         Shock: 2
+  - type: DynamicPrice
+    price: 56
+
+- type: entity
+  name: network configurator
+  parent: BaseItem
+  id: NetworkConfigurator
+  description: A tool for linking devices together. Has two modes, a list mode for mass linking devices and a linking mode for advanced device linking.
+  components:
+    - type: EmitSoundOnLand
+      sound:
+        path: /Audio/Items/multitool_drop.ogg
+    - type: Sprite
+      sprite: Objects/Tools/network_configurator.rsi
+      layers:
+        - state: icon
+        - state: mode-link
+          map: ["enum.NetworkConfiguratorLayers.ModeLight"]
+          shader: unshaded
+    - type: Item
+      size: 5
+    - type: Clothing
+      sprite: Objects/Tools/network_configurator.rsi
+      quickEquip: false
+      slots:
+        - Belt
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.NetworkConfiguratorVisuals.Mode:
+          enum.NetworkConfiguratorLayers.ModeLight:
+            True: { state: mode-link }
+            False: { state: mode-list }
+    - type: NetworkConfigurator
+    - type: ActivatableUI
+      key: enum.NetworkConfiguratorUiKey.List
+      inHandsOnly: true
+    - type: UserInterface
+      interfaces:
+        - key: enum.NetworkConfiguratorUiKey.List
+          type: NetworkConfiguratorBoundUserInterface
+        - key: enum.NetworkConfiguratorUiKey.Configure
+          type: NetworkConfiguratorBoundUserInterface
+        - key: enum.NetworkConfiguratorUiKey.Link
+          type: NetworkConfiguratorBoundUserInterface
+    - type: Tag
+      tags:
+        - DroneUsable
+    - type: DynamicPrice
+      price: 56
+    - type: GuideHelp
+      guides:
+        - NetworkConfigurator
 
 - type: entity
   name: power drill
@@ -248,7 +311,7 @@
     state: drill_screw
   - type: Item
     sprite: Objects/Tools/drill.rsi
-    size: 20
+    size: 10
   - type: Tool
     qualities:
       - Screwing
@@ -273,8 +336,12 @@
           path: /Audio/Items/drill_use.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 300
+      Plastic: 100
   - type: DynamicPrice
-    price: 60
+    price: 100
   - type: ReverseEngineering
     difficulty: 2
     recipes:
@@ -287,6 +354,9 @@
   description: An advanced construction device which can place/remove walls, floors, and airlocks quickly.
   components:
   - type: RCD
+  - type: LimitedCharges
+    maxCharges: 5
+    charges: 5
   - type: UseDelay
     delay: 1.0
   - type: Sprite
@@ -299,6 +369,10 @@
     quickEquip: false
     slots:
     - Belt
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 600
+      Plastic: 100
   - type: DynamicPrice
     price: 100
 
@@ -307,8 +381,19 @@
   parent: RCD
   suffix: Empty
   components:
-  - type: RCD
-    ammo: 0
+  - type: LimitedCharges
+    maxCharges: 5
+    charges: 0
+
+- type: entity
+  id: RCDExperimental
+  parent: RCD
+  suffix: Admeme
+  name: experimental rcd
+  description: A bluespace-enhanced RCD that regenerates charges passively.
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 5
 
 - type: entity
   name: RCD Ammo
@@ -323,6 +408,10 @@
   - type: Item
     sprite: Objects/Tools/rcd.rsi
     heldPrefix: ammo
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
   - type: DynamicPrice
     price: 60
   - type: ReverseEngineering
@@ -350,12 +439,6 @@
       types:
         Blunt: 5
     bluntStaminaDamageFactor: 2.0 # 9.1 stamina damage
-  - type: Wieldable
-  - type: IncreaseDamageOnWield #TODO dynamic attackrate and stamina damage
-    attackRate: 1
-    damage:
-      types:
-        Blunt: 12
   - type: MeleeStaminaCost
     swing: 10
     wieldCoefficient: 0.5 #if wielded you will only consume 5 stam
@@ -367,6 +450,12 @@
     useSound:
       path: /Audio/Items/shovel_dig.ogg
   - type: EarthDigging
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Wood: 50
+  - type: DynamicPrice
+    price: 25
 
 - type: entity
   name: omnitool
@@ -380,13 +469,10 @@
   - type: Item
     sprite: Objects/Tools/omnitool.rsi
     size: 20
+  - type: Tag
+    tags:
+    - Multitool
   - type: TilePrying
-  - type: SignalLinker
-    requiredQuality: Pulsing
-  - type: UserInterface
-    interfaces:
-      - key: enum.SignalLinkerUiKey.Key
-        type: SignalPortSelectorBoundUserInterface
   - type: Tool
     qualities:
       - Screwing

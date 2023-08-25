@@ -41,10 +41,6 @@
     sprite: Clothing/Uniforms/Jumpskirt/ce.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpskirt/ce.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Radiation: 0.8
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -78,6 +74,28 @@
     sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtVirology
+  name: virology jumpskirt
+  description: It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirt/virology.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirt/virology.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtGenetics
+  name: genetics jumpskirt
+  description: It's made of a special fiber that gives special protection against biohazards. It has a geneticist rank stripe on it.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirt/genetics.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirt/genetics.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -242,6 +260,10 @@
     controlsLocked: true
     randomMode: false
     mode: SensorCords
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - PrisonUniform
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -275,6 +297,17 @@
     sprite: Clothing/Uniforms/Jumpskirt/scientist.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpskirt/scientist.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtRoboticist
+  name: roboticist jumpskirt
+  description: It's a slimming black with reinforced seams; great for industrial work.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirt/roboticist.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirt/roboticist.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -554,6 +587,17 @@
     sprite: Clothing/Uniforms/Jumpskirt/janimaid.rsi
 
 - type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtJanimaidmini
+  name: janitorial maid uniform with miniskirt
+  description: Elite service, not some candy wrappers.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirt/janimaidmini.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirt/janimaidmini.rsi
+
+- type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpskirtLawyerRed
   name: red lawyer suitskirt
@@ -607,3 +651,25 @@
       sprite: Clothing/Uniforms/Jumpskirt/lawyergood.rsi
     - type: Clothing
       sprite: Clothing/Uniforms/Jumpskirt/lawyergood.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSyndieFormalDress
+  name: syndicate formal dress
+  description: "The syndicate's uniform is made in an elegant style, it's even a pity to do dirty tricks in this."
+  components:
+    - type: Sprite
+      sprite: Clothing/Uniforms/Jumpskirt/syndieformaldress.rsi
+    - type: Clothing
+      sprite: Clothing/Uniforms/Jumpskirt/syndieformaldress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtTacticalMaid
+  name: tactical maid suitskirt
+  description: It is assumed that the best maids should have designer suits.
+  components:
+    - type: Sprite
+      sprite: Clothing/Uniforms/Jumpskirt/tacticalmaid.rsi
+    - type: Clothing
+      sprite: Clothing/Uniforms/Jumpskirt/tacticalmaid.rsi

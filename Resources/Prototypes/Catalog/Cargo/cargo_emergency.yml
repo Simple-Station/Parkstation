@@ -14,7 +14,7 @@
     sprite: Objects/Misc/fire_extinguisher.rsi
     state: fire_extinguisher_closed
   product: CrateEmergencyFire
-  cost: 1200
+  cost: 1500
   category: Emergency
   group: market
 
@@ -45,5 +45,15 @@
     state: item_wall
   product: CrateEmergencyInflatablewall
   cost: 500
+  category: Emergency
+  group: market
+
+- type: cargoProduct
+  id: EmergencyBiosuit
+  icon:
+    sprite: Clothing/Head/Hoods/Bio/general.rsi
+    state: icon
+  product: CrateGenericBiosuit
+  cost: 800
   category: Emergency
   group: market

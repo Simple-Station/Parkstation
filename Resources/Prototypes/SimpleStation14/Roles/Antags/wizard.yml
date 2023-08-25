@@ -1,6 +1,0 @@
-- type: antag
-  id: Wizard
-  name: Wizard
-  antagonist: true
-  setPreference: true
-  objective: kill

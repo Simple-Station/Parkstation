@@ -12,16 +12,19 @@ namespace Content.Client.Borgs
     public sealed partial class LawsMenu : FancyWindow
     {
         [Dependency] private readonly IEntityManager _entityManager = default!;
-        public LawsBoundUserInterface Owner { get; }
+
+        private readonly LawsBoundUserInterface _owner;
 
         public LawsMenu(LawsBoundUserInterface owner)
         {
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
-            Owner = owner;
+
+            _owner = owner;
+
             UpdateLaws();
 
-            if (_entityManager.TryGetComponent<LawsComponent>(owner.Machine, out var laws))
+            if (_entityManager.TryGetComponent<LawsComponent>(owner.Owner, out var laws))
                 StateLawsButton.Visible = laws.CanState;
 
             StateLawsButton.OnPressed += _ =>
@@ -32,16 +35,21 @@ namespace Content.Client.Borgs
 
         public void UpdateLaws()
         {
-            if (!_entityManager.TryGetComponent<LawsComponent>(Owner.Machine, out var laws))
+            if (!_entityManager.TryGetComponent<LawsComponent>(_owner.Owner, out var laws))
                 return;
 
             Laws.DisposeAllChildren();
+
+            var nameDescLabel = new LawUIContainer();
+            nameDescLabel.SetHeading(Loc.GetString(Loc.GetString($"lawset-name-{laws.LawsID}")));
+            nameDescLabel.SetDescription(Loc.GetString(Loc.GetString($"lawset-description-{laws.LawsID}")));
+            Laws.AddChild(nameDescLabel);
 
             foreach (var law in laws.Laws)
             {
                 var newLabel = new LawUIContainer();
                 var heading = Loc.GetString("silicon-laws-law-heading",
-                        ("lawDisplayNumber", Laws.ChildCount + 1));
+                        ("lawDisplayNumber", Laws.ChildCount));
                 newLabel.SetHeading(heading);
                 newLabel.SetDescription(law);
                 Laws.AddChild(newLabel);
@@ -53,7 +61,7 @@ namespace Content.Client.Borgs
         /// </summary>
         private void StateLaws()
         {
-            Owner.StateLawsMessage();
+            _owner.StateLawsMessage();
         }
     }
 }

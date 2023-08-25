@@ -1,0 +1,202 @@
+- type: entity
+  id: SiliconChargerIndustrial
+  parent: BaseMachinePowered
+  name: industrial charger
+  description: A heavy duty machine for inductively charging robotic beings. Gets extremely hot!
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Structures/Machines/borgcharger.rsi
+      noRot: true
+      layers:
+        - state: base
+        - state: closed
+          map: ["enum.StorageVisualLayers.Door"]
+        - state: borgcharger_closed_unlit
+          shader: unshaded
+          map: ["enum.SiliconChargerVisuals.Lights"]
+    - type: EntityStorageVisuals
+      stateDoorOpen: open
+      stateDoorClosed: closed
+    - type: GenericVisualizer
+      visuals:
+        enum.PowerDeviceVisuals.VisualState:
+          enum.SiliconChargerVisuals.Lights:
+            Normal: { state: "borgcharger_closed_unlit" }
+            NormalOpen: { state: "borgcharger_open_unlit" }
+            Charging: { state: "borgcharger_active_unlit" }
+        enum.PowerDeviceVisuals.Powered:
+          enum.SiliconChargerVisuals.Lights:
+            True: { visible: true }
+            False: { visible: false }
+    - type: Icon
+      sprite: SimpleStation14/Structures/Machines/borgcharger.rsi
+      state: icon
+    - type: Physics
+      bodyType: Static
+      fixtures:
+        - shape:
+            - !type:PhysShapeAabb
+              bounds: "-0.45,-0.5,0.45,0.5"
+          density: 190
+          mask:
+            - MachineMask
+          layer:
+            - MachineLayer
+    - type: ApcPowerReceiver
+      powerLoad: 500
+    - type: DynamicPrice
+      price: 600
+    - type: EntityStorage
+      capacity: 1
+      isCollidableWhenOpen: true
+      openOnMove: false
+      enteringOffset: 0, -0.5
+      openSound: /Audio/Effects/gen_hit.ogg
+      closeSound: /Audio/Effects/gen_hit.ogg
+    - type: Appearance
+      visuals:
+        - type: StorageVisualizer
+          state_open: open
+          state_closed: closed
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+        machine_parts: !type:Container
+        entity_storage: !type:Container
+    - type: SiliconCharger
+      chargeMulti: 1000
+      targetTemp: 390
+    - type: Construction
+      graph: Machine
+      node: machine
+      containers:
+      - machine_board
+      - machine_parts
+    - type: Machine
+      board: IndustrialChargerCircuitboard
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 350
+        behaviors:
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+
+- type: entity
+  id: SiliconChargerChargePad
+  parent: BaseMachinePowered
+  name: charging pad
+  description: A charging pad for inductively charging smaller robotic beings.
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: SimpleStation14/Structures/Machines/charging_pad.rsi
+      drawdepth: FloorObjects
+      layers:
+        - state: offline
+        - state: idle
+          shader: unshaded
+          map: ["enum.SiliconChargerVisuals.Lights"]
+    - type: GenericVisualizer
+      visuals:
+        enum.PowerDeviceVisuals.VisualState:
+          enum.SiliconChargerVisuals.Lights:
+            Normal: { state: "idle" }
+            Charging: { state: "beam" }
+        enum.PowerDeviceVisuals.Powered:
+          enum.SiliconChargerVisuals.Lights:
+            True: { visible: true }
+            False: { visible: false }
+    - type: ApcPowerReceiver
+      powerLoad: 150
+    - type: DynamicPrice
+      price: 200
+    - type: Physics
+      canCollide: true
+    - type: Appearance
+    - type: Fixtures
+      fixtures:
+          fix1:
+            shape: !type:PhysShapeAabb
+              bounds: "-0.35,-0.35,0.35,0.35"
+            id: "slips"
+            hard: false
+            layer:
+              - SlipLayer
+          fix2:
+            shape: !type:PhysShapeAabb
+              bounds: "-0.35,-0.35,0.35,0.35"
+            density: 10
+            mask:
+              - MachineMask
+    - type: StepTrigger
+    - type: SiliconCharger
+      chargeMylti: 150
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+        machine_parts: !type:Container
+    - type: Construction
+      graph: Machine
+      node: machine
+      containers:
+      - machine_board
+      - machine_parts
+    - type: Machine
+      board: IndustrialChargerCircuitboard
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 350
+        behaviors:
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+
+  # Generated, maybe good?
+  #
+  # - type: Machine
+  #   board: SiliconChargerMachineCircuitboard
+  # - type: Construction
+  #   graph: Machine
+  #   node: machine
+  #   containers:
+  #   - machine_board
+  #   - machine_parts
+  # - type: ContainerContainer
+  #   containers:
+  #     machine_board: !type:Container
+  #     machine_parts: !type:Container
+  # - type: SignalReceiver
+  #   inputs:
+  #     SiliconChargerReceiver: []
+  # - type: EmptyOnMachineDeconstruct
+  #   containers:
+  #   - machine_board
+  #   - machine_parts
+  # - type: Destructible
+  #   thresholds:
+  #   - trigger:
+  #     - !type:DamageTrigger
+  #       damage: 150
+  #     behaviors:
+  #     - !type:ChangeConstructionNodeBehavior
+  #       node: machineFrame
+  #     - !type:DoActsBehavior
+  #       acts: ["Destruction"]
+  # - type: Wires
+  #   BoardName: "SiliconCharger"
+  #   LayoutId: SiliconCharger
+  # - type: Appearance
+  #   visuals:
+  #   - type: GenericEnumVisualizer
+  #     key: enum.SiliconChargerVisuals.Status
+  #     layer: 0
+  #     states:
+  #       enum.SiliconChargerStatus.Charging: machine
+  #       enum.SiliconChargerStatus.Idle: machine

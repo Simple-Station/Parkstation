@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -47,6 +48,15 @@ public sealed class HandcuffComponent : Component
     [DataField("brokenPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>)), ViewVariables(VVAccess.ReadWrite)]
     public string? BrokenPrototype;
 
+    [DataField("damageOnResist"), ViewVariables(VVAccess.ReadWrite)]
+    public DamageSpecifier DamageOnResist = new()
+    {
+        DamageDict = new()
+             {
+                 { "Blunt", 3.0 },
+             }
+    };
+
     /// <summary>
     ///     The path of the RSI file used for the player cuffed overlay.
     /// </summary>
@@ -79,24 +89,16 @@ public sealed class HandcuffComponent : Component
 
     [DataField("endUncuffSound"), ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier EndUncuffSound = new SoundPathSpecifier("/Audio/Items/Handcuffs/cuff_takeoff_end.ogg");
-
-    /// <summary>
-    ///     Used to prevent DoAfter getting spammed.
-    /// </summary>
-    [DataField("cuffing"), ViewVariables(VVAccess.ReadWrite)]
-    public bool Cuffing;
 }
 
 [Serializable, NetSerializable]
 public sealed class HandcuffComponentState : ComponentState
 {
     public readonly string? IconState;
-    public readonly bool Cuffing;
 
-    public HandcuffComponentState(string? iconState, bool cuffing)
+    public HandcuffComponentState(string? iconState)
     {
         IconState = iconState;
-        Cuffing = cuffing;
     }
 }
 

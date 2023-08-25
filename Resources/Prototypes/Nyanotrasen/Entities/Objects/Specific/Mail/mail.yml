@@ -254,7 +254,7 @@
   suffix: cosplay-arc
   components:
   - type: Mail
-    openSound: /Audio/Voice/Felinid/cat_wilhelm.ogg
+    openSound: /Audio/Nyanotrasen/Voice/Felinid/cat_wilhelm.ogg
     contents:
     - id: ClothingCostumeArcDress
 
@@ -353,7 +353,7 @@
       orGroup: Toy
     - id: ToyNuke
       orGroup: Toy
-    - id: ToyAssistant
+    - id: ToyFigurinePassenger
       orGroup: Toy
     - id: ToyGriffin
       orGroup: Toy
@@ -598,7 +598,6 @@
     - id: PlushieMoffRandom
       orGroup: Plushie
     - id: PlushieMoff
-      prob: 0.5
       orGroup: Plushie
     - id: PlushieMoffsician
       prob: 0.5
@@ -639,16 +638,6 @@
 #   - type: Mail
 #     contents:
 #     - id: DrinkCanPack
-
-- type: entity
-  noSpawn: true
-  parent: BaseMail
-  id: MailSkub
-  suffix: skub
-  components:
-  - type: Mail
-    contents:
-    - id: Skub
 
 - type: entity
   noSpawn: true

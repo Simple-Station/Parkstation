@@ -482,24 +482,6 @@
   - type: Sprite
     state: poster49_contraband
 
-- type: entity
-  parent: PosterBase
-  id: PosterContrabandWehWatches
-  name: "Weh Watches"
-  description: "A poster depicting a loveable green lizard."
-  components:
-  - type: Sprite
-    state: poster50_contraband
-
-- type: entity
-  parent: PosterBase
-  id: PosterContrabandVoteWeh
-  name: "Vote Weh"
-  description: "A stylish, sleek, and well illustrated poster for a \"Weh\"nderful new progressive candidate coming this election season."
-  components:
-  - type: Sprite
-    state: poster51_contraband
-
 # These 3 originally from VEEGEE
 - type: entity
   parent: PosterBase
@@ -532,7 +514,7 @@
   parent: PosterBase
   id: PosterContrabandRise
   name: "Rise Up"
-  description: "A poster depicting a grey shirted man holding a crowbar with the words Rise written above it."
+  description: "A poster depicting a grey shirted man holding a crowbar with the word Rise written below it."
   components:
   - type: Sprite
     state: poster55_contraband

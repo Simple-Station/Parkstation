@@ -7,22 +7,21 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Clothing/Eyes/Glasses/gar.rsi
-          state: icon-super
+        - sprite: Clothing/Mask/gas.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
         - CigarGold
         - ClothingNeckCloakHerald
         - ClothingHeadHelmetTemplar
         - ClothingNeckCloakTrans
-        - ClothingNeckCloakAdmin
+        - ClothingNeckCloakMoth
         - ClothingNeckCloakGoliathCloak
         - ToySkeleton
         - Basketball
         - Football
         - BalloonCorgi
         - PonderingOrb
-        - Skub
         - DrinkMugDog
         - ClothingNeckLGBTPin
         - ClothingNeckAromanticPin
@@ -33,15 +32,14 @@
         - ClothingNeckNonBinaryPin
         - ClothingNeckPansexualPin
         - ClothingNeckTransPin
+        - ClothingUniformRat
+        - ClothingMaskRat
+        - MysteryFigureBox
       rareChance: 0.01
       prototypes:
         - Lighter
         - CigCartonBlue
-        - ClothingEyesGlassesGarGiga
-        - ClothingEyesGlassesGarOrange
-        - ClothingEyesGlassesGar
         - ClothingHeadHatCake
-        - ClothingHeadHatSkub
         - ClothingHeadHatCone
         - ClothingNeckBling
         - ClothingHeadHelmetCosmonaut
@@ -50,6 +48,12 @@
         - ClothingUnderBee_knee
         - ClothingUnderStockings_lpink
         - ClothingHeadHatSquid
+        - ClothingMaskFox
+        - ClothingMaskBee
+        - ClothingMaskBear
+        - ClothingMaskRaven
+        - ClothingMaskJackal
+        - ClothingMaskBat
       chance: 0.6
       offset: 0.0
 
@@ -84,6 +88,7 @@
         - SheetSteel
         - SheetPlastic
         - ResearchDisk
+        - Plunger
       chance: 0.6
       offset: 0.0
 
@@ -103,7 +108,6 @@
         - Machete
         - BaseBallBat
         - CombatKnife
-        - LidOSaws
       rareChance: 0.05
       prototypes:
         - FlashlightLantern
@@ -116,7 +120,23 @@
         - Welder
         - WeaponFlareGun
         - Spear
-        - LidSalami
         - ClothingEyesBlindfold
+      chance: 0.6
+      offset: 0.0
+
+- type: entity
+  name: Maint Loot Spawner
+  suffix: Plants
+  id: MaintenancePlantSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Misc/spaceshroom.rsi
+          state: structure
+    - type: RandomSpawner
+      prototypes:
+        - FoodSpaceshroom
       chance: 0.6
       offset: 0.0

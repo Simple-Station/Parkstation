@@ -47,10 +47,10 @@ public sealed class AlertLevelDetail
     /// </summary>
     [DataField("disableSelection")] public bool DisableSelection { get; }
 
-    /// <summary>
-    /// The sound that this alert level will play in-game once selected.
-    /// </summary>
-    [DataField("sound")] public SoundSpecifier? Sound { get; }
+    // /// <summary>
+    // /// The sound that this alert level will play in-game once selected.
+    // /// </summary>
+    // [DataField("sound")] public SoundSpecifier? Sound { get; }
 
     /// <summary>
     /// The color that this alert level will show in-game in chat.

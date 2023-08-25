@@ -55,6 +55,12 @@
       - LedLightTube
       - LightTube
       - LightBulb
+      - BlueLightTube
+      - LightBulbMaintenance
+      - ColoredLightTubeRed
+      - ColoredLightTubeFrostyBlue
+      - ColoredLightTubeBlackLight
+      - LightBulbMaintenanceRed
       - PowerCellPotato
       - PowerCellSmallPrinted
       - ChemistryEmptyBottle03
@@ -84,7 +90,7 @@
       - trayScanner
       - ClothingMaskGas
       - ClothingMaskBreathMedical
-      - ClothingEyesGlassesBeer
+      - ClothingEyesHudBeer
       - ClothingEyesGlassesMeson
       - ClothingEyesGlasses
       - ClothingEyesGlassesSunglasses
@@ -182,7 +188,6 @@
       - ClothingHandsGlovesBoxingBlue
       - ClothingHandsGlovesBoxingGreen
       - ClothingHandsGlovesBoxingYellow
-      - ClothingHandsGlovesIhscombat
       - ClothingHandsGlovesNitrile
       - ClothingOuterStraightjacket
       - ClothingShoesGaloshes

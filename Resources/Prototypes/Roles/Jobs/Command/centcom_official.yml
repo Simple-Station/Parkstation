@@ -14,16 +14,15 @@
 - type: startingGear
   id: CentcomGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCentcomFormal
-    shoes: ClothingShoesSpaceNinja
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHatCentcom
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ClothingOuterWinterCentcom
+    outerClothing: ClothingOuterArmorBasic
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
-    pocket1: RubberStampCentcom
-    pocket2: Paper
+    pocket1: BoxFolderBlack
+    pocket2: PenCentcom
     socks: ClothingUnderCandyCaneg_knee
     underpants: ClothingUnderboxers_striped
-    # undershirt:

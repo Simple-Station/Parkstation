@@ -4,7 +4,7 @@
   name: mail carrier PDA
   description: Hope this doesn't have any... JUNK MAIL.
   components:
-  - type: PDA
+  - type: Pda
     id: MailCarrierIDCard
     state: pda-mailcarrier
   - type: Icon
@@ -14,7 +14,7 @@
   parent: SalvagePDA
   id: SalvageTechPDA
   components:
-  - type: PDA
+  - type: Pda
     id: SalvageTechIDCard
 
 - type: entity
@@ -23,11 +23,15 @@
   name: forensic mantis PDA
   description: Smells like tobacco, and justice.
   components:
-  - type: PDA
+  - type: Pda
     id: ForensicMantisIDCard
     state: pda-detective
   - type: Icon
     state: pda-detective
+  - type: CartridgeLoader
+    preinstalled:
+      - NotekeeperCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: SciencePDA
@@ -35,11 +39,15 @@
   name: epistemologist PDA
   description: Preinstalled with plenty of brain teasers and religious conversion booklets.
   components:
-  - type: PDA
+  - type: Pda
     id: EpistemicsIDCard
     state: pda-science
   - type: Icon
     state: pda-science
+  - type: CartridgeLoader
+    preinstalled:
+      - NotekeeperCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: RnDPDA
@@ -47,25 +55,15 @@
   name: mystagogue PDA
   description: Practically radiating psychic energies... They actually have the Pope on speed dial!
   components:
-  - type: PDA
+  - type: Pda
     id: MystaIDCard
     state: pda-rd
   - type: Icon
     state: pda-rd
-
-- type: entity
-  parent: BasePDA
-  id: ParamedicPDA
-  name: paramedic PDA
-  description: Sweaty. Whoever uses this must be noided. Has a built-in health analyzer.
-  components:
-  - type: PDA
-    id: ParamedicIDCard
-    state: pda-genetics
-  - type: Icon
-    state: pda-genetics
-  - type: HealthAnalyzer
-    scanDelay: 1.2
+  - type: CartridgeLoader
+    preinstalled:
+      - NotekeeperCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA
@@ -73,7 +71,7 @@
   name: prisoner PDA
   description: Clear, so you can make sure there's nothing being smuggled inside.
   components:
-  - type: PDA
+  - type: Pda
     id: PrisonerIDCard
     state: pda-clear
   - type: Icon
@@ -84,7 +82,7 @@
   id: GladiatorPDA
   name: gladiator PDA
   components:
-  - type: PDA
+  - type: Pda
     id: GladiatorIDCard
 
 - type: entity
@@ -93,7 +91,7 @@
   name: valet PDA
   description: Why isn't it gray?
   components:
-  - type: PDA
+  - type: Pda
     id: ValetIDCard
     state: pda-internservice
   - type: Icon
@@ -105,20 +103,23 @@
   name: cataloguer PDA
   description: Probably the person most likely to use an antiquated note taking device. Placeholder sprite.
   components:
-  - type: PDA
+  - type: Pda
     id: CataloguerIDCard
-  - type: Appearance
     state: pda-library
   - type: Icon
     state: pda-library
-    
+  - type: CartridgeLoader
+    preinstalled:
+      - NotekeeperCartridge
+      - GlimmerMonitorCartridge
+
 - type: entity
   parent: BasePDA
   id: GuardPDA
   name: guard PDA
   description: Red to hide the stains of prisoner blood.
   components:
-  - type: PDA
+  - type: Pda
     id: GuardIDCard
     state: pda-security
   - type: Icon
@@ -129,6 +130,6 @@
   id: MartialArtistPDA
   name: martial artist PDA
   components:
-  - type: PDA
+  - type: Pda
     id: MartialArtistIDCard
     state: pda-boxer

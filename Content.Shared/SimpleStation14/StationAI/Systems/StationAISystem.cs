@@ -1,6 +1,5 @@
 using Content.Shared.Throwing;
 using Content.Shared.Item;
-using Content.Shared.DragDrop;
 using Content.Shared.Strip.Components;
 using Content.Shared.Hands;
 

@@ -8,6 +8,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Item;
 using Content.Shared.Bed.Sleep;
+using System.Linq;
+using System.Numerics;
 using Content.Server.Maps;
 using Content.Server.Revenant.Components;
 using Content.Shared.DoAfter;
@@ -24,6 +26,7 @@ using Content.Server.Ghost;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Disease;
 using Content.Server.Disease.Components;
+using Content.Shared.Revenant.EntitySystems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics;
@@ -48,8 +51,8 @@ public sealed partial class RevenantSystem
     private void InitializeAbilities()
     {
         SubscribeLocalEvent<RevenantComponent, InteractNoHandEvent>(OnInteract);
-        SubscribeLocalEvent<RevenantComponent, DoAfterEvent<SoulEvent>>(OnSoulSearch);
-        SubscribeLocalEvent<RevenantComponent, DoAfterEvent<HarvestEvent>>(OnHarvest);
+        SubscribeLocalEvent<RevenantComponent, SoulEvent>(OnSoulSearch);
+        SubscribeLocalEvent<RevenantComponent, HarvestEvent>(OnHarvest);
 
         SubscribeLocalEvent<RevenantComponent, RevenantDefileActionEvent>(OnDefileAction);
         SubscribeLocalEvent<RevenantComponent, RevenantOverloadLightsActionEvent>(OnOverloadLightsAction);
@@ -86,17 +89,20 @@ public sealed partial class RevenantSystem
 
     private void BeginSoulSearchDoAfter(EntityUid uid, EntityUid target, RevenantComponent revenant)
     {
-        _popup.PopupEntity(Loc.GetString("revenant-soul-searching", ("target", target)), uid, uid, PopupType.Medium);
-        var soulSearchEvent = new SoulEvent();
-        var searchDoAfter = new DoAfterEventArgs(uid, revenant.SoulSearchDuration, target:target)
+        var searchDoAfter = new DoAfterArgs(uid, revenant.SoulSearchDuration, new SoulEvent(), uid, target: target)
         {
             BreakOnUserMove = true,
+            BreakOnDamage = true,
             DistanceThreshold = 2
         };
-        _doAfter.DoAfter(searchDoAfter, soulSearchEvent);
+
+        if (!_doAfter.TryStartDoAfter(searchDoAfter))
+            return;
+
+        _popup.PopupEntity(Loc.GetString("revenant-soul-searching", ("target", target)), uid, uid, PopupType.Medium);
     }
 
-    private void OnSoulSearch(EntityUid uid, RevenantComponent component, DoAfterEvent<SoulEvent> args)
+    private void OnSoulSearch(EntityUid uid, RevenantComponent component, SoulEvent args)
     {
         if (args.Handled || args.Cancelled)
             return;
@@ -137,14 +143,16 @@ public sealed partial class RevenantSystem
             return;
         }
 
-        var harvestEvent = new HarvestEvent();
-
-        var doAfter = new DoAfterEventArgs(uid, revenant.HarvestDebuffs.X, target:target)
+        var doAfter = new DoAfterArgs(uid, revenant.HarvestDebuffs.X, new HarvestEvent(), uid, target: target)
         {
             DistanceThreshold = 2,
             BreakOnUserMove = true,
-            NeedHand = false
+            BreakOnDamage = true,
+            RequireCanInteract = false, // stuns itself
         };
+
+        if (!_doAfter.TryStartDoAfter(doAfter))
+            return;
 
         _appearance.SetData(uid, RevenantVisuals.Harvesting, true);
 
@@ -152,10 +160,9 @@ public sealed partial class RevenantSystem
             target, PopupType.Large);
 
         TryUseAbility(uid, revenant, 0, revenant.HarvestDebuffs);
-        _doAfter.DoAfter(doAfter, harvestEvent);
     }
 
-    private void OnHarvest(EntityUid uid, RevenantComponent component, DoAfterEvent<HarvestEvent> args)
+    private void OnHarvest(EntityUid uid, RevenantComponent component, HarvestEvent args)
     {
         if (args.Cancelled)
         {
@@ -216,7 +223,7 @@ public sealed partial class RevenantSystem
         if (!_mapManager.TryGetGrid(xform.GridUid, out var map))
             return;
         var tiles = map.GetTilesIntersecting(Box2.CenteredAround(xform.WorldPosition,
-            (component.DefileRadius*2, component.DefileRadius))).ToArray();
+            new Vector2(component.DefileRadius * 2, component.DefileRadius))).ToArray();
 
         _random.Shuffle(tiles);
 
@@ -334,15 +341,5 @@ public sealed partial class RevenantSystem
             _emag.DoEmagEffect(ent, ent); //it emags itself. spooky.
         }
         _psionics.LogPowerUsed(uid, Loc.GetString("revenant-psionic-power"), 6, 10);
-    }
-
-    private sealed class SoulEvent : EntityEventArgs
-    {
-
-    }
-
-    private sealed class HarvestEvent : EntityEventArgs
-    {
-
     }
 }

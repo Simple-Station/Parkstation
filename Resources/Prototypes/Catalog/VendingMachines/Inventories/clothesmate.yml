@@ -6,11 +6,11 @@
     ClothingBackpackSatchel: 3
     ClothingBackpackSatchelLeather: 2
     ClothingEyesGlasses: 5
-    HatBandBlack: 2
-    HatBandBlue: 2
-    HatBandGreen: 2
-    HatBandRed: 2
-    HatBandSkull: 2
+    ClothingHeadBandBlack: 2
+    ClothingHeadBandBlue: 2
+    ClothingHeadBandGreen: 2
+    ClothingHeadBandRed: 2
+    ClothingHeadBandSkull: 2
     ClothingUniformJumpsuitColorGrey: 8
     ClothingUniformJumpskirtColorGrey: 8
     ClothingUniformJumpsuitColorWhite: 3
@@ -55,15 +55,13 @@
     ClothingHeadHatPurplesoft: 2
     ClothingHeadHatCorpsoft: 2
     ClothingHeadHatBowlerHat: 2
-    ClothingHeadHatBunny: 2
-    ClothingHeadHatCake: 2
     ClothingOuterWinterCoat: 2
     ClothingOuterWinterCoatLong: 2
     ClothingOuterWinterCoatPlaid: 2
-    ClothingHeadFishCap: 2
     ClothingOuterCoatHyenhSweater: 2
+    ClothingOuterCoatLettermanBlue: 2
+    ClothingOuterCoatLettermanRed: 2
+    ClothingHeadFishCap: 2
     ClothingHeadTinfoil: 2
     ClothingHeadRastaHat: 2
-    ClothingNeckScarfStripedRed: 3
-    ClothingNeckScarfStripedBlue: 3
-    ClothingNeckScarfStripedGreen: 3
+    ClothingBeltStorageWaistbag: 3

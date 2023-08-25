@@ -15,3 +15,7 @@ store-category-pointless = Pointless
 
 # Revenant
 store-category-abilities = Abilities
+
+# Wizard
+store-category-books = Books
+store-category-wands = Wands

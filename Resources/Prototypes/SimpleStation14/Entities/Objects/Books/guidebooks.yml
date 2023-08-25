@@ -9,7 +9,8 @@
     sprite: SimpleStation14/Objects/Misc/books.rsi
     layers:
     - state: book_anomalies
-  - type: GuidebookBook
+  - type: GuideHelp
+    openOnActivation: true
     guides:
     - AnomalousResearch
     - Xenoarchaeology

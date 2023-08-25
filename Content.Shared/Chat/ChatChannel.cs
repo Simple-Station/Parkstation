@@ -65,23 +65,35 @@ namespace Content.Shared.Chat
         Admin = 1 << 10,
 
         /// <summary>
+        ///     Admin alerts, messages likely of elevated importance to admins
+        /// </summary>
+        AdminAlert = 1 << 11,
+
+        /// <summary>
         ///     Admin chat
         /// </summary>
-        AdminChat = 1 << 11,
+        AdminChat = 1 << 12,
 
         /// <summary>
         ///     Unspecified.
         /// </summary>
-        Unspecified = 1 << 12,
+        Unspecified = 1 << 13,
 
         /// <summary>
         ///     Telepathic channel for all psionic entities.
         /// </summary>
-        Telepathic = 1 << 13,
+        Telepathic = 1 << 14,
+
+        /// <summary>
+        ///     Empathy channel for Shadowkin.
+        /// </summary>
+        Empathy = 1 << 15,
 
         /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
-        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Telepathic,
+        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Telepathic | Empathy,
+
+        AdminRelated = Admin | AdminAlert | AdminChat,
     }
 }

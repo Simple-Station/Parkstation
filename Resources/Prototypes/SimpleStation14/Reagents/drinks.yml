@@ -1,0 +1,68 @@
+- type: reagent
+  id: ShirosDelight
+  name: Shiro's Delight
+  parent: BaseDrink
+  desc: It swirls with the slime and dissociation of an extraordinary paramedic. Due to its thick nature it lingers in the body a bit longer than usual. Overdrinking is incredibly dangerous and will clog the user's system.
+  physicalDesc: dissociated
+  flavor: shirosDelight
+  color: "#BDC7CE"
+  metamorphicSprite:
+    sprite: SimpleStation14/Objects/Consumable/Drinks/shirosdelightglass.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      metabolismRate: 0.1
+      effects:
+      - !type:SatiateThirst
+        factor: 1.5
+      - !type:SatiateHunger
+        factor: 1.5 # Hunger factor from the slime divided by the slightly slower metab rate
+      - !type:AdjustReagent
+        conditions:
+          - !type:ReagentThreshold
+            min: 30
+        reagent: Ethanol
+        amount: 0.6 # Overuse and the alcohol will kick in hard
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            Poison: 6 # Overuse and it will poison you hard
+          groups:
+            Airloss: 6
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -1
+            Brute: -1
+            Airloss: -1 # No poison recovery for you
+      - !type:ResetNarcolepsy
+        conditions:
+        - !type:ReagentThreshold
+          min: 5 # Because shiro was a narcoleptic also its an illegal stimulant
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.31 # Barely faster than stims haha
+        sprintSpeedModifier: 1.31
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent # Stutter funny
+      - !type:Jitter
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 2.5 # Slightly worse than meth
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 2.5 # Slightly worse than meth
+        type: Remove

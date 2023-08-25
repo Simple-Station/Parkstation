@@ -9,8 +9,8 @@
 - 'Resources/Locale/**/*.ftl'
 
 "Changes: Map":
-  - "Resources/Maps/*.yml"
-  - "Resources/Prototypes/Maps/*.yml"
+  - "Resources/Maps/**/*.yml"
+  - "Resources/Prototypes/Maps/**/*.yml"
 
 "Changes: Sprite":
   - "**/*.rsi/*.png"
@@ -21,4 +21,4 @@
 
 "Changes: YML":
   - any: ["**/*.yml"]
-    all: ["!Resources/Maps/*.yml", "!Resources/Prototypes/Maps/*.yml"]
+    all: ["!Resources/Maps/**/*.yml", "!Resources/Prototypes/Maps/**/*.yml"]

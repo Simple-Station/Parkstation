@@ -1,7 +1,8 @@
-﻿using Robust.Shared.GameStates;
+﻿using Content.Shared.DeviceNetwork.Systems;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.DeviceNetwork;
+namespace Content.Shared.DeviceNetwork.Components;
 
 [RegisterComponent]
 [NetworkedComponent]
@@ -19,7 +20,7 @@ public sealed class DeviceListComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("deviceLimit")]
-    public int DeviceLimit = 32;
+    public int DeviceLimit = 64;
 
     /// <summary>
     /// Whether the device list is used as an allow or deny list

@@ -38,6 +38,17 @@
 
 - type: entity
   noSpawn: true
+  parent: ClothingBackpackDuffelMedical
+  id: ClothingBackpackDuffelParamedicFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: CheapRollerBedSpawnFolded
+      - id: BodyBag_Folded
+
+- type: entity
+  noSpawn: true
   parent: ClothingBackpackDuffelCaptain
   id: ClothingBackpackDuffelCaptainFilled
   components:
@@ -55,6 +66,16 @@
   - type: StorageFill
     contents:
       - id: BoxSurvivalEngineering
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackDuffelAtmospherics
+  id: ClothingBackpackDuffelAtmosphericsFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalEngineering
+
 
 - type: entity
   noSpawn: true
@@ -114,6 +135,16 @@
         - id: BoxSurvival
         - id: AcousticGuitarInstrument
         - id: SaxophoneInstrument
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelLibrarianFilled
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+        - id: BookRandom
 
 - type: entity
   noSpawn: true

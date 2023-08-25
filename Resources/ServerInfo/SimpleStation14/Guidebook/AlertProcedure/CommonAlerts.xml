@@ -1,0 +1,90 @@
+<Document>
+# Common Alert Levels
+
+## Code Green
+
+[color=#008000]Standard operating procedure.[/color]
+
+There is no known threat to the ship or crew.
+
+
+[color=#a4885c]Chain of Command[/color] -
+Centcom -> Group vote among Heads -> Ranking Department Head -> Supervisory roles -> Standard Crew
+
+[color=#a4885c]Weapons and Armor[/color] -
+Security Officers are authorized to be equipped with low-grade lethal weapons.
+
+[color=#a4885c]Discipline[/color] -
+Follow due process (Space Law).
+
+[color=#a4885c]Medical[/color] -
+Binary suit sensor setting at a minimum is recommended.
+
+[color=#a4885c]Engineering[/color] -
+EVA suit wear is only advised for proper EVA use.
+
+[color=#a4885c]Rules of Engagement[/color] -
+Engage with the minimum required force to subdue a target, dependent on their threat and level of compliance.
+De-escalation prioritized.
+
+
+## Code Blue
+
+[color=#1E90FF]Elevated alert level.[/color]
+
+Unknown, suspected, or low-grade security threat to vessel or crew.
+
+
+[color=#a4885c]Chain of Command[/color] -
+Centcom -> Group vote among Heads -> Head of Security -> Ranking Department Head -> Supervisory roles -> Standard Crew
+
+[color=#a4885c]Weapons and Armor[/color] -
+Lethal weapons may be openly carried by Security Officers.
+Helmets are recommended for security personnel.
+
+[color=#a4885c]Discipline[/color] -
+Security personnel are required to report to their supervisor for orders.
+Arrests and searches may be performed at the discretion of security personnel, but following Space Law procedure is required for Brigging.
+
+[color=#a4885c]Medical[/color] -
+Binary suit sensor setting at a minimum is highly recommended.
+EVA suit wear is recommended for emergency response technicians.
+
+[color=#a4885c]Engineering[/color] -
+EVA suit wear is suggested for engineers.
+Emergency internals should be easily accessible for all personnel.
+
+[color=#a4885c]Rules of Engagement[/color] -
+Engage with the minimum required force to subdue a target, dependent on their threat and level of compliance.
+
+
+
+## Code Red
+
+[color=#FF0000]Emergency alert level.[/color]
+
+There is a known or multiple known urgent threats on the station.
+
+[color=#a4885c]Chain of Command[/color] -
+Centcom -> Group vote among Heads -> Head of Security -> Department/available Head -> Supervisory roles -> Standard Crew
+
+[color=#a4885c]Weapons and Armor[/color] -
+Open carry of weapons is permitted for all authorized personnel.
+Body armor, helmets, and weapon are heavily advised for security.
+It is recommended to staff an Officer or Peacekeeper at potential danger sites.
+
+[color=#a4885c]Discipline[/color] -
+Arrests and searches may be performed at the discretion of security personnel.
+All personnel, including security staff, should obey relevant instructions from emergency services attending their emergency situations. Temporary Brig times are authorized until the threat is handled.
+
+[color=#a4885c]Medical[/color] -
+Coordinate suit sensors are heavily advised.
+EVA suit wear is heavily advised for emergency responders.
+
+[color=#a4885c]Engineering[/color] -
+EVA suit wear is advised for all engineers.
+Emergency internals are heavily advised for all personnel.
+
+[color=#a4885c]Rules of Engagement[/color] -
+Engage with the minimum required force to subdue a target, dependent on their threat and level of compliance, as security staff.
+</Document>

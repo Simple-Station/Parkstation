@@ -1,5 +1,5 @@
 using Content.Server.GameTicking.Events;
-using Content.Server.SimpleStation14.Announcements.Prototypes;
+using Content.Shared.SimpleStation14.Announcements.Prototypes;
 using Content.Shared.SimpleStation14.CCVar;
 using Robust.Shared.Configuration;
 
@@ -20,7 +20,7 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
 
             PickAnnouncer();
 
-            _configManager.OnValueChanged(SimpleStationCCVars.Announcer, PickAnnouncer);
+            _configManager.OnValueChanged(SimpleStationCCVars.Announcer, SetAnnouncer);
 
             SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         }
@@ -28,7 +28,7 @@ namespace Content.Server.SimpleStation14.Announcements.Systems
 
         private void OnRoundStarting(RoundStartingEvent ev)
         {
-            PickAnnouncer(_configManager.GetCVar<string>(SimpleStationCCVars.Announcer));
+            SetAnnouncer(_configManager.GetCVar<string>(SimpleStationCCVars.Announcer));
         }
     }
 }

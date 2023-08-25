@@ -55,17 +55,6 @@
     - BasicStationEventScheduler
 
 - type: gamePreset
-  id: Suspicion
-  alias:
-    - suspicion
-    - sus
-  name: suspicion-title
-  description: suspicion-description
-  showInVote: false
-  rules:
-    - Suspicion
-
-- type: gamePreset
   id: Deathmatch
   alias:
     - deathmatch
@@ -75,18 +64,6 @@
   showInVote: false
   rules:
     - DeathMatch
-
-- type: gamePreset
-  id: TraitorDeathMatch
-  alias:
-    - traitordm
-    - traitordeathmatch
-  name: traitor-death-match-title
-  description: traitor-death-match-description
-  showInVote: false
-  rules:
-    - TraitorDeathMatch
-    # - MaxTimeRestart
 
 - type: gamePreset
   id: Nukeops

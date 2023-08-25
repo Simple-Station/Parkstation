@@ -29,7 +29,7 @@
                 </PanelContainer.PanelOverride>
             </PanelContainer>
             <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" SeparationOverride="0">
-                <ScrollContainer MinSize="450 64" Margin="5 5 0 0">
+                <ScrollContainer MinSize="450 96" Margin="5 5 0 0">
                     <BoxContainer Name="Characters" Orientation="Horizontal" />
                 </ScrollContainer>
                 <PanelContainer MinSize="0 2">

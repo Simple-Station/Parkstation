@@ -29,7 +29,6 @@
     - Holy
   - type: ItemCooldown
   - type: Sprite
-    netsync: false
     sprite: Objects/Specific/Chapel/bible.rsi
     state: icon
   - type: Item
@@ -71,14 +70,14 @@
     delay: 1.3
   - type: Bible
     damage:
-      groups:
+      types:
         Caustic: 20 ## ~15 dps
     damageOnFail:
       groups:
         Brute: 15
         Airloss: 25
     damageOnUntrainedUse:
-      groups:
+      types:
         Caustic: 50
     failChance: 0
     locPrefix: "necro"
@@ -87,7 +86,6 @@
     specialItem: SpawnPointGhostCerberus
     respawnTime: 300
   - type: Sprite
-    netsync: false
     sprite: Objects/Specific/Chapel/necronomicon.rsi
     state: icon
   - type: Item

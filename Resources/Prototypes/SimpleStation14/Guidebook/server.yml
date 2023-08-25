@@ -1,7 +1,7 @@
 - type: guideEntry
   id: GettingStarted
   name: guide-entry-gettingstarted
-  text: "/Server Info/SimpleStation14/Guidebook/Server/GettingStarted.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Server/GettingStarted.xml"
   children:
     - Controls
     - Parkstation
@@ -9,12 +9,12 @@
 - type: guideEntry
   id: Parkstation
   name: guide-entry-serverdifferences
-  text: "/Server Info/SimpleStation14/Guidebook/Server/Parkstation.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Server/Parkstation.xml"
 
 - type: guideEntry
   id: InWorldInfo
   name: guide-entry-inworldinfo
-  text: "/Server Info/SimpleStation14/Guidebook/Server/InWorldInfo.xml"
+  text: "/ServerInfo/SimpleStation14/Guidebook/Server/InWorldInfo.xml"
   children:
     - AlertProcedure
     - StandardOperatingProcedure

@@ -66,3 +66,13 @@
     sound: /Audio/SimpleStation14/Items/Handling/disk_drop.ogg
   - type: EmitSoundOnLand
     sound: /Audio/SimpleStation14/Items/Handling/disk_drop.ogg
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: TechnologyDisk
+  id: TechnologyDiskRare
+  suffix: rare.
+  components:
+  - type: TechnologyDisk
+    tierWeightPrototype: RareTechDiskTierWeights

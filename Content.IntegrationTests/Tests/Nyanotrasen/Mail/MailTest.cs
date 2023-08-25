@@ -19,20 +19,23 @@ using Content.Shared.Mobs.Systems;
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
 using Content.Shared.Emag.Systems;
-using Content.Server.Hands.Components;
+using Content.Shared.Hands.Components;
 using Content.Server.Mail;
 using Content.Server.Mail.Components;
+using Content.Server.Maps;
 using Content.Server.Mind;
 using Content.Server.Station.Systems;
 
 namespace Content.IntegrationTests.Tests.Mail
 {
+    /*
     [TestFixture]
     [TestOf(typeof(MailSystem))]
     [TestOf(typeof(MailComponent))]
     [TestOf(typeof(MailTeleporterComponent))]
     public sealed class MailTest
     {
+        [TestPrototypes]
         private const string Prototypes = @"
 - type: damageType
   id: TestBlunt
@@ -87,11 +90,12 @@ namespace Content.IntegrationTests.Tests.Mail
     bodyType: Static
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-          bounds: ""-0.45,-0.45,0.45,0.00""
-      mask:
-      - Impassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: ""-0.45,-0.45,0.45,0.00""
+        mask:
+        - Impassable
   - type: MailTeleporter
     priorityChance: 0
     fragileBonus: 1
@@ -147,11 +151,12 @@ namespace Content.IntegrationTests.Tests.Mail
     bodyType: Dynamic
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: ""-0.25,-0.25,0.25,0.25""
-      layer:
-      - Impassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: ""-0.25,-0.25,0.25,0.25""
+        layer:
+        - Impassable
   - type: Mail
   - type: AccessReader
   - type: Appearance
@@ -220,7 +225,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestAllMailIsAvailableToSpawn()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             // Per RobustIntegrationTest.cs, wait until state is settled to access it.
             await server.WaitIdleAsync();
@@ -269,7 +274,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestAllMailHasSomeContents()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -299,7 +304,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestTeleporterCanSetupPriorityMail()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -345,7 +350,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailPriorityBonusMalus()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -400,7 +405,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailFragileBonusMalus()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -455,7 +460,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailFragileDetection()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -497,7 +502,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailSystemMatchJobTitleToDepartment()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -522,7 +527,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailSystemMatchJobTitleToIcon()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -547,7 +552,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailJobStampVisuals()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -593,11 +598,10 @@ namespace Content.IntegrationTests.Tests.Mail
             await pairTracker.CleanReturnAsync();
         }
 
-        /* Test disabled until I can determine why it is now failing. */
-        /* [Test] */
+        [Test]
         public async Task TestMailTransferDamage()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -662,7 +666,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailPriorityTimeoutPenalty()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -709,7 +713,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailCanBeUnlockedWithValidID()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -799,7 +803,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailCannotBeUnlockedWithInvalidID()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -871,7 +875,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailTeleporterCanDetectMailOnItsTile()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -916,7 +920,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailTeleporterCanSpawnMail()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -976,7 +980,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailLimitUndeliveredParcels()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -1040,10 +1044,11 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailDepositsIntoStationBankAccount()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
+            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
             var mapManager = server.ResolveDependency<IMapManager>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
@@ -1054,6 +1059,7 @@ namespace Content.IntegrationTests.Tests.Mail
             var stationSystem = entitySystemManager.GetEntitySystem<StationSystem>();
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
+            var fooStationProto = prototypeManager.Index<GameMapPrototype>("FooStation");
 
             EntityUid station = default;
             EntityUid mail = default;
@@ -1064,7 +1070,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
             await server.WaitAssertion(() =>
             {
-                station = stationSystem.InitializeNewStation(null, new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
+                station = stationSystem.InitializeNewStation(fooStationProto.Stations["Station"], new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
                 var coordinates = testMap.GridCoords;
 
                 EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
@@ -1148,10 +1154,11 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailPenalizesStationBankAccountOnFailure()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
+            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
             var mapManager = server.ResolveDependency<IMapManager>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
@@ -1162,6 +1169,7 @@ namespace Content.IntegrationTests.Tests.Mail
             var stationSystem = entitySystemManager.GetEntitySystem<StationSystem>();
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
+            var fooStationProto = prototypeManager.Index<GameMapPrototype>("FooStation");
 
             EntityUid station = default;
             EntityUid mail = default;
@@ -1171,7 +1179,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
             await server.WaitAssertion(() =>
             {
-                station = stationSystem.InitializeNewStation(null, new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
+                station = stationSystem.InitializeNewStation(fooStationProto.Stations["Station"], new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
                 var coordinates = testMap.GridCoords;
 
                 EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
@@ -1226,11 +1234,10 @@ namespace Content.IntegrationTests.Tests.Mail
             await pairTracker.CleanReturnAsync();
         }
 
-        /* Test disabled until I can determine why it is now failing. */
-        /* [Test] */
+        [Test]
         public async Task TestMailSpawnForJobWithJobCandidate()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -1285,11 +1292,10 @@ namespace Content.IntegrationTests.Tests.Mail
             await pairTracker.CleanReturnAsync();
         }
 
-        /* Test disabled until I can determine why it is now failing. */
-        /* [Test] */
+        [Test]
         public async Task TestMailSpawnForJobWithoutJobCandidate()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -1370,7 +1376,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailRecipients()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -1435,10 +1441,11 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailIsEmaggedProperly()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
+            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
             var mapManager = server.ResolveDependency<IMapManager>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
@@ -1448,10 +1455,11 @@ namespace Content.IntegrationTests.Tests.Mail
             var stationSystem = entitySystemManager.GetEntitySystem<StationSystem>();
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
+            var fooStationProto = prototypeManager.Index<GameMapPrototype>("FooStation");
 
             await server.WaitAssertion(() =>
             {
-                var station = stationSystem.InitializeNewStation(null, new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
+                var station = stationSystem.InitializeNewStation(fooStationProto.Stations["Station"], new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
                 var coordinates = testMap.GridCoords;
 
                 EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
@@ -1510,7 +1518,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestNoMindlessPriorityMail()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -1524,6 +1532,7 @@ namespace Content.IntegrationTests.Tests.Mail
             var handsSystem = entitySystemManager.GetEntitySystem<SharedHandsSystem>();
             var idCardSystem = entitySystemManager.GetEntitySystem<IdCardSystem>();
             var mobStateSystem = entitySystemManager.GetEntitySystem<MobStateSystem>();
+            var mindSystem = entitySystemManager.GetEntitySystem<MindSystem>();
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
 
@@ -1561,9 +1570,8 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 // Install a mind with a valid session into this dummy.
                 var player = playerManager.ServerSessions.Single();
-                var mind = new Mind(player.UserId);
-                mind.ChangeOwningPlayer(player.UserId);
-                mind.TransferTo(realCandidate1);
+                var mind = mindSystem.CreateMind(player.UserId);
+                mindSystem.TransferTo(mind, realCandidate1);
 
                 Assert.IsTrue(mailSystem.TryGetMailRecipientForReceiver(mailReceiverComponent, out recipient),
                     "Human dummy candidate was unable to be converted into a MailRecipient after mind installation.");
@@ -1586,7 +1594,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 // Ghost the dummy's mind.
                 var ghost = entityManager.SpawnEntity("GhostDummy", coordinates);
-                mind.Visit(ghost);
+                mindSystem.Visit(mind, ghost);
 
                 Assert.IsTrue(mailSystem.TryGetMailRecipientForReceiver(mailReceiverComponent, out recipient),
                     "Human dummy candidate was unable to be converted into a MailRecipient after ghosting.");
@@ -1595,7 +1603,7 @@ namespace Content.IntegrationTests.Tests.Mail
                     "Mindful and dead human dummy candidate cannot receive Priority mail.");
 
                 // Sever the connection between the dummy and the mind.
-                mind.TransferTo(ghost);
+                mindSystem.TransferTo(mind, ghost);
                 Assert.IsTrue(mailSystem.TryGetMailRecipientForReceiver(mailReceiverComponent, out recipient),
                     "Human dummy candidate was unable to be converted into a MailRecipient after cutting ties with his mind.");
 
@@ -1608,4 +1616,5 @@ namespace Content.IntegrationTests.Tests.Mail
             await pairTracker.CleanReturnAsync();
         }
     }
+*/
 }

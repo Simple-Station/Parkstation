@@ -69,6 +69,7 @@
   id: MindSwap
   name: action-name-mind-swap
   description: action-description-mind-swap
+  priority: 17
   icon: Nyanotrasen/Interface/VerbIcons/mind_swap.png
   useDelay: 240
   checkCanAccess: false
@@ -79,6 +80,7 @@
   id: MindSwapReturn
   name: action-name-mind-swap-return
   description: action-description-mind-swap-return
+  priority: 16
   icon: Nyanotrasen/Interface/VerbIcons/mind_swap_return.png
   checkCanInteract: false
   useDelay: 20
@@ -91,14 +93,6 @@
   icon: Nyanotrasen/Interface/VerbIcons/telegnosis.png
   useDelay: 150
   serverEvent: !type:TelegnosisPowerActionEvent
-
-- type: instantAction
-  id: AIeye
-  name: action-name-aieye
-  description: action-description-aieye
-  icon: Interface/VerbIcons/sentient.svg.192dpi.png
-  useDelay: 5
-  serverEvent: !type:AITelegnosisPowerActionEvent
 
 - type: instantAction
   id: PsionicRegeneration
@@ -126,6 +120,17 @@
   checkCanAccess: false
   range: 6
   serverEvent: !type:PyrokinesisPowerActionEvent
+
+- type: worldTargetAction
+  id: Psychokinesis
+  name: action-name-psychokinesis
+  description: action-description-psychokinesis
+  icon: { sprite: Objects/Misc/guardian_info.rsi, state: icon}
+  useDelay: 20
+  itemIconStyle: BigAction
+  checkCanAccess: false
+  range: 30
+  serverEvent: !type:PsychokinesisPowerActionEvent
 
 - type: worldTargetAction
   id: SpinWeb

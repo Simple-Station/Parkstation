@@ -1,9 +1,11 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared.SimpleStation14.Traits
 {
     /// <summary>
     ///     Owner entity cannot see well, without prescription glasses.
     /// </summary>
-    [RegisterComponent]
+    [RegisterComponent, NetworkedComponent]
     public sealed class NearsightedComponent : Component
     {
         [DataField("radius"), ViewVariables(VVAccess.ReadWrite)]

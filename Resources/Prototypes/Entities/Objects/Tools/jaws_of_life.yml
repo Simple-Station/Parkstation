@@ -10,7 +10,6 @@
   - type: Sprite
     sprite: Objects/Tools/jaws_of_life.rsi
     state: jaws_pry
-    netsync: false
   - type: Item
     size: 50
   - type: MeleeWeapon
@@ -67,6 +66,12 @@
       types:
         Blunt: 13.5
         Slash: 5
+  - type: Item
+    size: 35
+  - type: Tool
+    qualities:
+      - Prying
+    speed: 3.0
   - type: MultipleTool
     entries:
       - behavior: Prying

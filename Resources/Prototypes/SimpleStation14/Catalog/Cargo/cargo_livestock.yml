@@ -1,0 +1,11 @@
+- type: cargoProduct
+  id: LivestockFox
+  name: Fox crate
+  description: "A crate containing two fluffy fox friends."
+  icon:
+    sprite: Mobs/Animals/fox.rsi
+    state: fox
+  product: CrateNPCFox
+  cost: 1200
+  category: Livestock
+  group: market

@@ -3,6 +3,7 @@ using Content.Shared.Verbs;
 using Content.Shared.DoAfter;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Body.Components;
+using Content.Shared.Chapel;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -13,6 +14,7 @@ using Content.Shared.Humanoid;
 using Content.Server.Bible.Components;
 using Content.Server.Stunnable;
 using Content.Server.DoAfter;
+using Content.Server.Mind;
 using Content.Server.Players;
 using Content.Server.Popups;
 using Content.Server.Soul;
@@ -32,24 +34,25 @@ namespace Content.Server.Chapel
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
-        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly AudioSystem _audioSystem = default!;
         [Dependency] private readonly PopupSystem _popups = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly BodySystem _bodySystem = default!;
+        [Dependency] private readonly MindSystem _mindSystem = default!;
 
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<SacrificialAltarComponent, GetVerbsEvent<AlternativeVerb>>(AddSacrificeVerb);
             SubscribeLocalEvent<SacrificialAltarComponent, BuckleChangeEvent>(OnBuckleChanged);
-            SubscribeLocalEvent<SacrificialAltarComponent, DoAfterEvent<SacrificeData>>(OnDoAfter);
+            SubscribeLocalEvent<SacrificialAltarComponent, SacrificeDoAfterEvent>(OnDoAfter);
         }
 
         private void AddSacrificeVerb(EntityUid uid, SacrificialAltarComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
-            if (!args.CanAccess || !args.CanInteract || component.CancelToken != null)
+            if (!args.CanAccess || !args.CanInteract || component.DoAfter != null)
                 return;
 
             if (!TryComp<StrapComponent>(uid, out var strap))
@@ -77,23 +80,28 @@ namespace Content.Server.Chapel
             args.Verbs.Add(verb);
         }
 
-        private void OnBuckleChanged(EntityUid uid, SacrificialAltarComponent component, BuckleChangeEvent args)
+        private void OnBuckleChanged(EntityUid uid, SacrificialAltarComponent component, ref BuckleChangeEvent args)
         {
-            if (component.CancelToken != null)
-                component.CancelToken.Cancel();
+            if (component.DoAfter != null)
+            {
+                _doAfterSystem.Cancel(component.DoAfter);
+                component.DoAfter = null;
+            }
         }
 
-        private void OnDoAfter(EntityUid uid, SacrificialAltarComponent component, DoAfterEvent<SacrificeData> args)
+        private void OnDoAfter(EntityUid uid, SacrificialAltarComponent component, SacrificeDoAfterEvent args)
         {
             component.SacrificeStingStream?.Stop();
-            component.CancelToken?.Cancel();
-            component.CancelToken = null;
+            component.DoAfter = null;
 
             if (args.Cancelled || args.Handled || args.Args.Target == null)
                 return;
 
             // note: we checked this twice in case they could have gone SSD in the doafter time.
             if (!TryComp<ActorComponent>(args.Args.Target.Value, out var actor))
+                return;
+
+            if (!_mindSystem.TryGetMind(args.Args.Target.Value, out var mind))
                 return;
 
             _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(args.Args.User):player} sacrificed {ToPrettyString(args.Args.Target.Value):target} on {ToPrettyString(uid):altar}");
@@ -120,7 +128,7 @@ namespace Content.Server.Chapel
             if (actor.PlayerSession.ContentData()?.Mind != null)
             {
                 var trap = Spawn(component.TrapPrototype, Transform(uid).Coordinates);
-                actor.PlayerSession.ContentData()?.Mind?.TransferTo(trap);
+                _mindSystem.TransferTo(mind, trap);
 
                 if (TryComp<SoulCrystalComponent>(trap, out var crystalComponent))
                     crystalComponent.TrueName = MetaData(args.Args.Target.Value).EntityName;
@@ -143,7 +151,7 @@ namespace Content.Server.Chapel
             if (!Resolve(altar, ref component))
                 return;
 
-            if (component.CancelToken != null)
+            if (component.DoAfter != null)
                 return;
 
             // can't sacrifice yourself
@@ -197,21 +205,18 @@ namespace Content.Server.Chapel
             _popups.PopupEntity(Loc.GetString("altar-popup", ("user", agent), ("target", patient)), altar, Shared.Popups.PopupType.LargeCaution);
 
             component.SacrificeStingStream = _audioSystem.PlayPvs(component.SacrificeSoundPath, altar);
-            component.CancelToken = new CancellationTokenSource();
 
-            var data = new SacrificeData();
-            var args = new DoAfterEventArgs(agent, (float) component.SacrificeTime.TotalSeconds, component.CancelToken.Token, target: patient, used: altar)
+            var ev = new SacrificeDoAfterEvent();
+            var args = new DoAfterArgs(agent, (float) component.SacrificeTime.TotalSeconds, ev, altar, target: patient, used: altar)
             {
+                BreakOnDamage = true,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
-                BreakOnStun = true,
                 NeedHand = true
             };
 
-            _doAfterSystem.DoAfter(args, data);
+            _doAfterSystem.TryStartDoAfter(args, out var doAfterId);
+            component.DoAfter = doAfterId;
         }
-
-        private record struct SacrificeData()
-        {};
     }
 }

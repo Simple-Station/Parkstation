@@ -58,7 +58,7 @@
     walkModifier: 0.4
     sprintModifier: 0.6
   - type: Item
-    size: 120
+    size: 121
   - type: Armor
     modifiers:
       coefficients:
@@ -76,6 +76,7 @@
   - type: Tag
     tags:
       - FullBodyOuter
+      - Hardsuit
   - type: GroupExamine
   - type: ClothingGrantTag
     tag: HardsuitOn

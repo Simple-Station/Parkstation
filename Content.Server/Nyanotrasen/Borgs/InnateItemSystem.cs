@@ -15,38 +15,41 @@ namespace Content.Server.Borgs
         public override void Initialize()
         {
             base.Initialize();
+
             SubscribeLocalEvent<InnateItemComponent, MindAddedMessage>(OnMindAdded);
             SubscribeLocalEvent<InnateItemComponent, InnateAfterInteractActionEvent>(StartAfterInteract);
+            SubscribeLocalEvent<InnateItemComponent, InnateBeforeInteractActionEvent>(StartBeforeInteract);
         }
 
         private void OnMindAdded(EntityUid uid, InnateItemComponent component, MindAddedMessage args)
         {
             if (!component.AlreadyInitialized)
-                RefreshItems(uid);
+                RefreshItems(uid, component);
 
             component.AlreadyInitialized = true;
         }
 
-        private void RefreshItems(EntityUid uid)
+        private void RefreshItems(EntityUid uid, InnateItemComponent component)
         {
             if (!TryComp<ItemSlotsComponent>(uid, out var slotsComp))
                 return;
+
+            int priority = component.StartingPriority ?? 0;
             foreach (var slot in slotsComp.Slots.Values)
             {
-
-                if (slot.ContainerSlot == null)
+                if (slot.ContainerSlot?.ContainedEntity is not { Valid: true } sourceItem)
                     continue;
-                var sourceItem = slot.ContainerSlot.ContainedEntity;
-                if (sourceItem == null)
-                    continue;
-                if (_tagSystem.HasTag((EntityUid) sourceItem, "NoAction"))
+                if (_tagSystem.HasTag(sourceItem, "NoAction"))
                     continue;
 
-                _actionsSystem.AddAction(uid, CreateAction((EntityUid) sourceItem), uid);
+                if (component.AfterInteract) _actionsSystem.AddAction(uid, CreateAfterInteractAction(sourceItem, priority), uid);
+                else _actionsSystem.AddAction(uid, CreateBeforeInteractAction(sourceItem, priority), uid);
+
+                priority--;
             }
         }
 
-        private EntityTargetAction CreateAction(EntityUid uid)
+        private EntityTargetAction CreateAfterInteractAction(EntityUid uid, int priority)
         {
             EntityTargetAction action = new()
             {
@@ -54,13 +57,37 @@ namespace Content.Server.Borgs
                 Description = MetaData(uid).EntityDescription,
                 EntityIcon = uid,
                 Event = new InnateAfterInteractActionEvent(uid),
+                Priority = priority,
             };
 
             return action;
         }
+
+        private EntityTargetAction CreateBeforeInteractAction(EntityUid uid, int priority)
+        {
+            EntityTargetAction action = new()
+            {
+                DisplayName = MetaData(uid).EntityName,
+                Description = MetaData(uid).EntityDescription,
+                EntityIcon = uid,
+                Event = new InnateBeforeInteractActionEvent(uid),
+                Priority = priority,
+                CheckCanAccess = false,
+                Range = 25f,
+            };
+
+            return action;
+        }
+
         private void StartAfterInteract(EntityUid uid, InnateItemComponent component, InnateAfterInteractActionEvent args)
         {
             var ev = new AfterInteractEvent(args.Performer, args.Item, args.Target, Transform(args.Target).Coordinates, true);
+            RaiseLocalEvent(args.Item, ev, false);
+        }
+
+        private void StartBeforeInteract(EntityUid uid, InnateItemComponent component, InnateBeforeInteractActionEvent args)
+        {
+            var ev = new BeforeRangedInteractEvent(args.Performer, args.Item, args.Target, Transform(args.Target).Coordinates, true);
             RaiseLocalEvent(args.Item, ev, false);
         }
     }
@@ -70,6 +97,16 @@ namespace Content.Server.Borgs
         public EntityUid Item;
 
         public InnateAfterInteractActionEvent(EntityUid item)
+        {
+            Item = item;
+        }
+    }
+
+    public sealed class InnateBeforeInteractActionEvent : EntityTargetActionEvent
+    {
+        public EntityUid Item;
+
+        public InnateBeforeInteractActionEvent(EntityUid item)
         {
             Item = item;
         }

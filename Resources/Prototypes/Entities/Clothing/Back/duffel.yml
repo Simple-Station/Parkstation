@@ -26,6 +26,9 @@
     interfaces:
     - key: enum.StorageUiKey.Key
       type: StorageBoundUserInterface
+  # to prevent bag open/honk spam
+  - type: UseDelay
+    delay: 0.5
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -35,6 +38,15 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/engineering.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelAtmospherics
+  name: atmospherics duffel bag
+  description: A large duffel bag made of fire resistant fibers. Smells like plasma.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Duffels/atmospherics.rsi
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -92,6 +104,15 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/virology.rsi
+    
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelGenetics
+  name: genetics duffel bag
+  description: A large duffel bag for holding extra genetic mutations.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Duffels/genetics.rsi
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -118,7 +139,7 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelHydroponics
-  name: hydroponic's duffel bag
+  name: hydroponics duffel bag
   description: A large duffel bag for holding extra gardening tools.
   components:
     - type: Sprite
@@ -166,7 +187,7 @@
     equippedPrefix: ammo
 
 - type: entity
-  parent: ClothingBackpackDuffelSyndicate
+  parent: ClothingBackpackDuffelSyndicateAmmo
   id: ClothingBackpackDuffelSyndicateAmmoBundle
   abstract: true
   components:
@@ -187,7 +208,7 @@
     equippedPrefix: med
 
 - type: entity
-  parent: ClothingBackpackDuffelSyndicate
+  parent: ClothingBackpackDuffelSyndicateMedical
   id: ClothingBackpackDuffelSyndicateMedicalBundle
   abstract: true
   components:
