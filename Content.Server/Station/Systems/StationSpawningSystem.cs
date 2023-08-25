@@ -152,14 +152,6 @@ public sealed class StationSpawningSystem : EntitySystem
         {
             _humanoidSystem.LoadProfile(entity.Value, profile);
             _metaSystem.SetEntityName(entity.Value, profile.Name);
-            if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
-            {
-                // Parkstation-CharacterInformation-Start
-                var detail = AddComp<DetailExaminableComponent>(entity.Value);
-                detail.Content = profile.FlavorText;
-                Dirty(detail);
-                // Parkstation-CharacterInformation-End
-            }
         }
 
         DoJobSpecials(job, entity.Value);
