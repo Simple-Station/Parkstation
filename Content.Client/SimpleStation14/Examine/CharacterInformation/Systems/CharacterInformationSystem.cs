@@ -48,7 +48,7 @@ public sealed class CharacterInformationSystem : EntitySystem
             Message = Loc.GetString("character-information-verb-message"),
             Category = VerbCategory.Examine,
             Disabled = !_examine.IsInDetailsRange(args.User, uid),
-            Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Interface/VerbIcons/sentient.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Interface/VerbIcons/information.svg.192dpi.png")),
             ClientExclusive = true,
         };
 
