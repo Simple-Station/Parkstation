@@ -1,26 +1,17 @@
-<details><summary><h2>Description</h2></summary>
-<p>
+# Description
 
 Description.
 
-</p>
-</details> 
-
 ---
 
-<details><summary><h2>TODO</h2></summary>
-<p>
+# Tasks
 
 - [ ] Task
 - [x] Completed Task
-- [ ] Other Task
-
-</p>
-</details>
 
 ---
 
-<details><summary><h2>Media</h2></summary>
+<details><summary><h1>Media</h1></summary>
 <p>
 
 ![Example Media Embed](https://img.simplemodbot.tk/random)
@@ -30,14 +21,12 @@ Description.
 
 ---
 
-<details><summary><h2>Changelog</h2></summary>
-<p>
+# Changelog
+
+<!-- You can add an author after the `:cl:` to change the name that appears in the changelog, ex: `:cl: Death`, it will default to your GitHub display name -->
 
 :cl:
 - add: Added fun!
 - tweak: Tweaked fun!
 - fix: Fixed fun!
 - remove: Removed fun!
-
-</p>
-</details> 
