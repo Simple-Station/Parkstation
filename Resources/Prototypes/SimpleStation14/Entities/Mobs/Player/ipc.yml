@@ -72,6 +72,7 @@
   - type: Wires
     BoardName: "IPC"
     LayoutId: IPC
+  - type: CharacterInformation
 
 - type: entity
   save: false
