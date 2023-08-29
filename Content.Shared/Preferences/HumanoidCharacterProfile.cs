@@ -446,8 +446,8 @@ namespace Content.Shared.Preferences
                  * 00D8-00F6  Latin-1 Supplement: Letters II
                  * 00F8-00FF  Latin-1 Supplement: Letters III
                  * 0100-017F  Latin Extended A: European Latin
-                 * 0030-0039  Basic Latin: Numbers
-                 * 002E       Basic Latin: Full Stop
+                 * 0030-0039  Basic Latin: Numbers // Parkstation-IPC
+                 * 002E       Basic Latin: Full Stop // Parkstation-IPC
                  */
             }
 
