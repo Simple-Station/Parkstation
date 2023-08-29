@@ -1,5 +1,4 @@
-using Content.Server.Access.Systems;
-using Content.Server.DetailExaminable;
+﻿using Content.Server.Access.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Humanoid;
 using Content.Server.IdentityManagement;
@@ -10,6 +9,7 @@ using Content.Server.Station.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
+using Content.Shared.DetailExaminable; // Parkstation-CharacterInformation
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -152,10 +152,6 @@ public sealed class StationSpawningSystem : EntitySystem
         {
             _humanoidSystem.LoadProfile(entity.Value, profile);
             _metaSystem.SetEntityName(entity.Value, profile.Name);
-            if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
-            {
-                AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
-            }
         }
 
         DoJobSpecials(job, entity.Value);
