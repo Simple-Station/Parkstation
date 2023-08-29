@@ -1137,3 +1137,63 @@ Entries:
       message: Removed examine verbs with contents covered by new examine UI
   id: 105
   time: '2023-08-29T04:06:46.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: >-
+        Typing indicators are more reactive, with a new state for idling in the
+        chat bar
+    - type: tweak
+      message: Resprite typing indicators
+    - type: add
+      message: Slimepeople, Moths, Aliens, and Robots now have unique typing indicators
+    - type: add
+      message: >-
+        Added a queue system, if the server is full, players will be put in a
+        queue instead of being kicked
+    - type: add
+      message: >-
+        Added random station goals, sent to the command fax machine at the start
+        of the shift
+    - type: add
+      message: Added some new lobby art
+    - type: add
+      message: Added more Captain clothing
+    - type: add
+      message: Added a HoP coat
+    - type: add
+      message: Added 9 potted plant variations
+    - type: tweak
+      message: Different shotguns have different sounds
+    - type: tweak
+      message: Resprite ERT jumpsuits and helmets
+    - type: tweak
+      message: Resprite Syndicate EVA suit
+    - type: tweak
+      message: Resprite Singularity and related equipment
+    - type: tweak
+      message: Resprite intercom
+    - type: tweak
+      message: Resprite lamps
+    - type: tweak
+      message: Resprite reagent tanks
+    - type: fix
+      message: Resprite uranium windows
+    - type: tweak
+      message: Resprite chairs
+    - type: tweak
+      message: Resprite mailing units
+    - type: tweak
+      message: Resprite diagonal solid walls
+    - type: tweak
+      message: Resprite Atmospheric Technician backpacks
+    - type: tweak
+      message: Resprite cans
+    - type: tweak
+      message: Resprite gas canisters
+    - type: tweak
+      message: Resprite fax machines
+    - type: tweak
+      message: Resprite some melee weapons
+  id: 106
+  time: '2023-08-29T04:40:32.0000000+00:00'
