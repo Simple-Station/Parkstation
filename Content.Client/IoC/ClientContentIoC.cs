@@ -2,6 +2,8 @@ using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client.Clickable;
+using Content.Client.Corvax.DiscordAuth;
+using Content.Client.Corvax.JoinQueue;
 using Content.Client.Eui;
 using Content.Client.GhostKick;
 using Content.Client.Info;
@@ -43,6 +45,8 @@ namespace Content.Client.IoC
             IoCManager.Register<GhostKickManager>();
             IoCManager.Register<ExtendedDisconnectInformationManager>();
             IoCManager.Register<JobRequirementsManager>();
+            IoCManager.Register<JoinQueueManager>(); // Corvax-Queue
+            IoCManager.Register<DiscordAuthManager>(); // Corvax-DiscordAuth
             IoCManager.Register<DocumentParsingManager>();
             IoCManager.Register<RedialManager>();
             IoCManager.Register<ContentReplayPlaybackManager, ContentReplayPlaybackManager>();

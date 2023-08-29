@@ -89,7 +89,7 @@
     availableModes:
     - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_auto.ogg # Corvax-Guns
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: ItemSlots
@@ -155,6 +155,9 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: BallisticAmmoProvider
+  - type: Gun # Corvax-Guns
+    soundGunshot:
+      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_metal.ogg
 
 - type: entity
   name: Enforcer
@@ -174,6 +177,9 @@
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: BallisticAmmoProvider
     capacity: 4
+  - type: Gun # Corvax-Guns
+    soundGunshot:
+      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_alt.ogg
 
 - type: entity
   name: Kammerer
@@ -198,6 +204,8 @@
     size: 10
   - type: Gun
     fireRate: 4
+    soundGunshot: # Corvax-Guns
+      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_sawed.ogg
   - type: BallisticAmmoProvider
     autoCycle: true
     capacity: 2

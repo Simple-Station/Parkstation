@@ -99,8 +99,6 @@ namespace Content.Server.Preferences.Managers
 
             var curPrefs = prefsData.Prefs!;
 
-            profile.EnsureValid();
-
             var profiles = new Dictionary<int, ICharacterProfile>(curPrefs.Characters)
             {
                 [slot] = profile

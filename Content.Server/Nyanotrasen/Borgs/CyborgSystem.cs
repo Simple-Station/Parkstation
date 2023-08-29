@@ -24,7 +24,7 @@ namespace Content.Server.Borgs
 
                 // Plays death sound and prints death message/popup
                 _audioSystem.PlayPvs("/Audio/Nyanotrasen/Mobs/Borg/borg_deathsound.ogg", uid);
-                _chatSystem.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false, force:true);
+                _chatSystem.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false);
 
                 // Stop dead borg from being movable AA cards by removing their ability to bump doors.
                 _tagSystem.RemoveTag(uid, "DoorBumpOpener");

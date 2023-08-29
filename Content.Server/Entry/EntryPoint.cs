@@ -5,6 +5,8 @@ using Content.Server.Administration.Managers;
 using Content.Server.Afk;
 using Content.Server.Chat.Managers;
 using Content.Server.Connection;
+using Content.Server.Corvax.DiscordAuth;
+using Content.Server.Corvax.JoinQueue;
 using Content.Server.Database;
 using Content.Server.EUI;
 using Content.Server.GameTicking;
@@ -108,6 +110,8 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<INodeGroupFactory>().Initialize();
                 IoCManager.Resolve<ContentNetworkResourceManager>().Initialize();
                 IoCManager.Resolve<GhostKickManager>().Initialize();
+                IoCManager.Resolve<DiscordAuthManager>().Initialize(); // Corvax-DiscordAuth
+                IoCManager.Resolve<JoinQueueManager>().Initialize(); // Corvax-Queue
                 IoCManager.Resolve<ServerInfoManager>().Initialize();
 
                 _voteManager.Initialize();
