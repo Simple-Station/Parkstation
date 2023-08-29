@@ -14,7 +14,7 @@ Description.
 <details><summary><h1>Media</h1></summary>
 <p>
 
-![Example Media Embed](https://github.com/Simple-Station/Parkstation/assets/77995199/3b56201a-3e04-44ae-a6b7-0ea69b54943c)
+<!-- ![Example Media Embed](https://example.com) -->
 
 </p>
 </details>
