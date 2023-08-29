@@ -1123,3 +1123,17 @@ Entries:
       message: Most guide books use the Guidebook system.
   id: 104
   time: '2023-08-25T12:59:48.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: add
+      message: Added an examine UI for viewing information about crewmembers
+    - type: remove
+      message: >-
+        Removed SpriteView ("View Closely") UI in favor of the new character
+        information UI
+    - type: add
+      message: Added support for very large, multi line flavor texts
+    - type: remove
+      message: Removed examine verbs with contents covered by new examine UI
+  id: 105
+  time: '2023-08-29T04:06:46.0000000+00:00'
