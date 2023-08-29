@@ -23,6 +23,9 @@ id = "parkstation"
 enabled = true
 min_players = 24
 
+[queue]
+enabled = true
+
 [rules]
 time = 120
 
