@@ -34,6 +34,9 @@
   description: trait-ageusia-description
   cost: 1
   category: Negative
+  blacklist:
+    species:
+      - IPC
   components:
     - type: Ageusia
 
