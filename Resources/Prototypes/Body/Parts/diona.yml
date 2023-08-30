@@ -116,8 +116,8 @@
     partType: Leg
     symmetry: Left
   - type: MovementBodyPart
-    walkSpeed : 3.5
-    sprintSpeed : 1.5
+    walkSpeed : 1.5
+    sprintSpeed : 3.5
 
 - type: entity
   id: RightLegDiona
@@ -132,8 +132,8 @@
     partType: Leg
     symmetry: Right
   - type: MovementBodyPart
-    walkSpeed : 3.5
-    sprintSpeed : 1.5
+    walkSpeed : 1.5
+    sprintSpeed : 3.5
 
 - type: entity
   id: LeftFootDiona
