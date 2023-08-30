@@ -6,7 +6,10 @@ using Content.Shared.GameWindow;
 using Content.Shared.Preferences;
 using JetBrains.Annotations;
 using Robust.Server.Player;
+using Robust.Shared.Audio;
 using Robust.Shared.Enums;
+using Robust.Shared.Player;
+using Robust.Shared.Players;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using PlayerData = Content.Server.Players.PlayerData;
@@ -19,6 +22,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly PlayTimeTrackingManager _playTimeTrackingManager = default!;
         [Dependency] private readonly IServerDbManager _dbManager = default!;
+        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
         private void InitializePlayer()
         {
@@ -67,6 +71,11 @@ namespace Content.Server.GameTicking
                     _chatManager.SendAdminAnnouncement(firstConnection
                         ? Loc.GetString("player-first-join-message", ("name", args.Session.Name))
                         : Loc.GetString("player-join-message", ("name", args.Session.Name)));
+
+                    if (firstConnection)
+                        _audioSystem.PlayGlobal(new SoundPathSpecifier("/Audio/Effects/newplayerping.ogg"),
+                            Filter.Empty().AddPlayers(_adminManager.ActiveAdmins), false,
+                            audioParams: new AudioParams { Volume = -4f });
 
                     if (LobbyEnabled && _roundStartCountdownHasNotStartedYetDueToNoPlayers)
                     {
