@@ -7,7 +7,7 @@ namespace Content.Shared.SimpleStation14.SSDIndicator;
 public sealed partial class SSDIndicatorComponent : Component
 {
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public bool IsSSD = false;
+    public bool IsSSD = true;
 
     [AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
     public ResPath RsiPath = new ("/Textures/SimpleStation14/Overlays/ssd_indicator.rsi");

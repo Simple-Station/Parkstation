@@ -1,7 +1,5 @@
 using Content.Shared.SimpleStation14.SSDIndicator;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
-using Robust.Client.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Client.SimpleStation14.Overlays;

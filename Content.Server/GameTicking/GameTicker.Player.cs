@@ -4,7 +4,6 @@ using Content.Server.Players.PlayTimeTracking;
 using Content.Shared.GameTicking;
 using Content.Shared.GameWindow;
 using Content.Shared.Preferences;
-using Content.Shared.SimpleStation14.SSDIndicator;
 using JetBrains.Annotations;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
@@ -20,7 +19,6 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly PlayTimeTrackingManager _playTimeTrackingManager = default!;
         [Dependency] private readonly IServerDbManager _dbManager = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         private void InitializePlayer()
         {
@@ -107,12 +105,6 @@ namespace Content.Server.GameTicking
                         // Simply re-attach to existing entity.
                         session.AttachToEntity(mind.CurrentEntity);
                         PlayerJoinGame(session);
-
-                        if (_entityManager.TryGetComponent(mind.CurrentEntity, out SSDIndicatorComponent? indicator))
-                        {
-                            indicator.IsSSD = false;
-                            Dirty(indicator);
-                        }
                     }
 
                     break;
@@ -122,15 +114,7 @@ namespace Content.Server.GameTicking
                 {
                     _chatManager.SendAdminAnnouncement(Loc.GetString("player-leave-message", ("name", args.Session.Name)));
                     if (mind != null)
-                    {
                         mind.Session = null;
-
-                        if (_entityManager.TryGetComponent(mind.CurrentEntity, out SSDIndicatorComponent? indicator))
-                        {
-                            indicator.IsSSD = true;
-                            Dirty(indicator);
-                        }
-                    }
 
                     if (_playerGameStatuses.ContainsKey(args.Session.UserId)) // Corvax-Queue: Delete data only if player was in game
                         _userDb.ClientDisconnected(session);
