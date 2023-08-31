@@ -10,7 +10,7 @@
   item: ClothingNeckMantleHOP
 
 - type: loadout
-  id: LoadoutcommandHOPNeckCloak
+  id: LoadoutCommandHOPNeckCloak
   name: HOP Cloak
   description: To really show who has the authority around here.
   category: Jobs
@@ -21,7 +21,7 @@
   item: ClothingNeckCloakHop
 
 - type: loadout
-  id: LoadoutcommandHOPBackIan
+  id: LoadoutCommandHOPBackIan
   name: Ian Backpack
   description: A backpack that looks like Ian, how cute!
   category: Jobs
@@ -30,6 +30,16 @@
   jobWhitelist:
     - HeadOfPersonnel
   item: ClothingBackpackIan
+
+- type: loadout
+  id: LoadoutCommandHOPCoat
+  name: HOP Coat
+  description: The HOP's coat, pretty nice.
+  category: Jobs
+  cost: 1
+  jobWhitelist:
+    - HeadOfPersonnel
+  item: ClothingOuterCoatHOP
 
 - type: loadout
   id: LoadoutCommandHOPHatCap
