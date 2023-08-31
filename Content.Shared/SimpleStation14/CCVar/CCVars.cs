@@ -151,7 +151,6 @@ public sealed class SimpleStationCCVars
     #region SSDIndicator
     /// <summary>
     ///     Whether or not a sprite overlay shows above SSD players
-    ///     Will not update if changed mid-round, leaving the overlays in whatever state they were
     /// </summary>
     public static readonly CVarDef<bool> SSDIndicatorEnabled =
         CVarDef.Create("ic.ssdindicator_enabled", true, CVar.REPLICATED | CVar.SERVER);

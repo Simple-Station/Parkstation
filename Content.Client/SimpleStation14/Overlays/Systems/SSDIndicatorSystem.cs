@@ -11,12 +11,8 @@ public sealed class SSDIndicatorSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
 
-
     public override void Update(float time)
     {
-        if (!_config.GetCVar(SimpleStationCCVars.SSDIndicatorEnabled))
-            return;
-
         var query = _entity.EntityQueryEnumerator<SSDIndicatorComponent>();
 
         while (query.MoveNext(out var uid, out var indicator))
@@ -32,7 +28,7 @@ public sealed class SSDIndicatorSystem : EntitySystem
 
             var sprite = _entity.GetComponent<SpriteComponent>(uid);
 
-            if (indicator.IsSSD)
+            if (indicator.IsSSD && _config.GetCVar(SimpleStationCCVars.SSDIndicatorEnabled))
             {
                 // If the layer already exists, just make it visible
                 if (sprite.LayerExists(SSDIndicatorLayer.SSDIndicator))
