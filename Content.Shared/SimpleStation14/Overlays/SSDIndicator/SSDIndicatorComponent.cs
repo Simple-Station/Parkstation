@@ -1,11 +1,13 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.SimpleStation14.SSDIndicator;
+namespace Content.Shared.SimpleStation14.Overlays.SSDIndicator;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SSDIndicatorComponent : Component
 {
+    public bool Updated = false;
+
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public bool IsSSD = true;
 
@@ -14,4 +16,14 @@ public sealed partial class SSDIndicatorComponent : Component
 
     [AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
     public string RsiState = "sleepy";
+}
+
+public class SSDIndicatorChangedEvent : EntityEventArgs
+{
+    public bool IsSSD;
+
+    public SSDIndicatorChangedEvent(bool isSSD = true)
+    {
+        IsSSD = isSSD;
+    }
 }

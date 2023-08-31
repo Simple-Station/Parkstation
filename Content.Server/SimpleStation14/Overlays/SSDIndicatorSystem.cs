@@ -1,5 +1,5 @@
 using Content.Server.Mind.Components;
-using Content.Shared.SimpleStation14.SSDIndicator;
+using Content.Shared.SimpleStation14.Overlays.SSDIndicator;
 
 namespace Content.Server.SimpleStation14.Overlays;
 

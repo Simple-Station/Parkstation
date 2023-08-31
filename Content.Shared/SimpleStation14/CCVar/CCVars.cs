@@ -5,6 +5,24 @@ namespace Content.Shared.SimpleStation14.CCVar;
 [CVarDefs]
 public sealed class SimpleStationCCVars
 {
+    /*
+     * SSD Indicator
+     */
+    #region SSDIndicator
+
+    /// <summary>
+    ///     Whether or not a sprite overlay shows above SSD players
+    ///     Will not update if changed mid-round, leaving the overlays in whatever state they were
+    /// </summary>
+    public static readonly CVarDef<bool> SSDIndicatorEnabled =
+        CVarDef.Create("ic.ssdindicator_enabled", true, CVar.REPLICATED | CVar.SERVER);
+
+    #endregion
+
+    /*
+     * Announcers
+     */
+    #region Announcers
     /// <summary>
     ///     Optionally force set an announcer
     /// </summary>
@@ -16,6 +34,7 @@ public sealed class SimpleStationCCVars
     /// </summary>
     public static readonly CVarDef<List<string>> AnnouncerBlacklist =
         CVarDef.Create("game.announcer.blacklist", new List<string>(), CVar.SERVERONLY);
+    #endregion
 
     /*
      * End of round stats
