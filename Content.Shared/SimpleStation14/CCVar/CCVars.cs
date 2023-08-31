@@ -10,9 +10,6 @@ public sealed class SimpleStationCCVars
         CVarDef.Create("admin.new_player_join_sound", false, CVar.SERVERONLY);
     #endregion
 
-    /*
-     * Announcers
-     */
     #region Announcers
     /// <summary>
     ///     Optionally force set an announcer
@@ -152,4 +149,12 @@ public sealed class SimpleStationCCVars
     public static readonly CVarDef<float> SiliconNpcUpdateTime =
         CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
     #endregion Silicons
+
+    #region SSDIndicator
+    /// <summary>
+    ///     Whether or not a sprite overlay shows above SSD players
+    /// </summary>
+    public static readonly CVarDef<bool> SSDIndicatorEnabled =
+        CVarDef.Create("ic.ssdindicator_enabled", true, CVar.REPLICATED | CVar.SERVER);
+    #endregion
 }

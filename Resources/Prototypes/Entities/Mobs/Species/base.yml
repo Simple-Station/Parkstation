@@ -318,6 +318,7 @@
   - type: ContentEye
   - type: SleepEmitSound
   - type: CharacterInformation
+  - type: SSDIndicator
 
 - type: entity
   save: false
