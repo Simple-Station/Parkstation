@@ -1211,3 +1211,17 @@ Entries:
         sprinting
   id: 108
   time: '2023-08-31T04:35:50.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: Fixed loadouts duplicating infinitely when the server restarted
+    - type: add
+      message: Loadouts can now be previewed in character selection
+    - type: add
+      message: >-
+        Clothing and Loadout previews can be disabled or enabled individually on
+        the first character editor tab
+    - type: add
+      message: Added various new loadout items
+  id: 109
+  time: '2023-08-31T06:26:42.0000000+00:00'
