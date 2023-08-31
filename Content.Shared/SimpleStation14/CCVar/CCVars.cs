@@ -5,6 +5,15 @@ namespace Content.Shared.SimpleStation14.CCVar;
 [CVarDefs]
 public sealed class SimpleStationCCVars
 {
+    #region Admin
+    public static readonly CVarDef<bool> AdminNewPlayerJoinSound =
+        CVarDef.Create("admin.new_player_join_sound", false, CVar.SERVERONLY);
+    #endregion
+
+    /*
+     * Announcers
+     */
+    #region Announcers
     /// <summary>
     ///     Optionally force set an announcer
     /// </summary>
@@ -16,6 +25,7 @@ public sealed class SimpleStationCCVars
     /// </summary>
     public static readonly CVarDef<List<string>> AnnouncerBlacklist =
         CVarDef.Create("game.announcer.blacklist", new List<string>(), CVar.SERVERONLY);
+    #endregion
 
     /*
      * End of round stats

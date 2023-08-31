@@ -308,7 +308,7 @@ namespace Content.Server.Administration.Managers
 
             _admins.Add(session, reg);
 
-            if (!session.ContentData()!.ExplicitlyDeadminned)
+            if (session.ContentData() != null && !session.ContentData()!.ExplicitlyDeadminned) // Parkstation-NewPlayerPing: Server crashes if player is not in the database
             {
                 reg.Data.Active = true;
 
