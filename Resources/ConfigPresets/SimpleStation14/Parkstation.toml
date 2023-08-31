@@ -117,6 +117,9 @@ patreon = "https://www.patreon.com/simple14"
 [netres]
 limit = 0.0
 
+[admin]
+new_player_join_sound = true
+
 
 [build]
 fork_id = "ParkStation14"

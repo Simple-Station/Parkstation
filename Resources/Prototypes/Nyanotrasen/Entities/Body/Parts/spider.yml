@@ -59,8 +59,8 @@
     partType: Leg
     symmetry: Right
   - type: MovementBodyPart #should actual spiders get a seperate part from arachne?
-    walkSpeed : 5
-    sprintSpeed : 2.7
+    walkSpeed : 2.7
+    sprintSpeed : 5
 
 - type: entity
   id: LeftLegSpider
@@ -77,5 +77,5 @@
     partType: Leg
     symmetry: Left
   - type: MovementBodyPart #should actual spiders get a seperate part from arachne?
-    walkSpeed : 5
-    sprintSpeed : 2.7
+    walkSpeed : 2.7
+    sprintSpeed : 5

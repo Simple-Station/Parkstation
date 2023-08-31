@@ -1197,3 +1197,17 @@ Entries:
       message: Resprite some melee weapons
   id: 106
   time: '2023-08-29T04:40:32.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: IPCs cannot get the Ageusia trait
+  id: 107
+  time: '2023-08-31T04:34:49.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: >-
+        Diona, Reptilian, and Arachne no longer sprint when walking or walk when
+        sprinting
+  id: 108
+  time: '2023-08-31T04:35:50.0000000+00:00'

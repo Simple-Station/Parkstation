@@ -5,9 +5,11 @@ namespace Content.Shared.SimpleStation14.CCVar;
 [CVarDefs]
 public sealed class SimpleStationCCVars
 {
-    /*
-     * Announcers
-     */
+    #region Admin
+    public static readonly CVarDef<bool> AdminNewPlayerJoinSound =
+        CVarDef.Create("admin.new_player_join_sound", false, CVar.SERVERONLY);
+    #endregion
+
     #region Announcers
     /// <summary>
     ///     Optionally force set an announcer
