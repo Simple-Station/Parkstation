@@ -238,7 +238,7 @@ namespace Content.Server.GameTicking
             // }
 
 
-            // Parkstation-loadouts start
+            // Parkstation-loadouts-Start
             if (_configurationManager.GetCVar(CCVars.GameLoadoutsEnabled))
             {
                 // Spawn the loadout, get a list of items that failed to equip
@@ -257,7 +257,7 @@ namespace Content.Server.GameTicking
                         inventory.Storage.Insert(loadout);
                 }
             }
-            // Parkstation-loadouts end
+            // Parkstation-loadouts-End
 
 
             _stationJobs.TryAssignJob(station, jobPrototype);
