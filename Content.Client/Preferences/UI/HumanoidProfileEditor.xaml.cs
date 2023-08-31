@@ -144,8 +144,8 @@ namespace Content.Client.Preferences.UI
 
             _tabContainer.SetTabTitle(0, Loc.GetString("humanoid-profile-editor-appearance-tab"));
 
-            ShowClothes.OnPressed += ToggleClothes;
-            ShowLoadouts.OnPressed += ToggleClothes;
+            ShowClothes.OnPressed += ToggleClothes; // Parkstation-Loadouts
+            ShowLoadouts.OnPressed += ToggleClothes; // Parkstation-Loadouts
 
             #region Sex
 
@@ -550,6 +550,7 @@ namespace Content.Client.Preferences.UI
 
             #endregion
 
+            // Parkstation-Loadouts-Start
             #region Loadouts
 
             _tabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-loadouts-tab"));
@@ -664,6 +665,7 @@ namespace Content.Client.Preferences.UI
                 _loadoutsTab.AddChild(new Label { Text = Loc.GetString("humanoid-profile-editor-loadouts-no-loadouts") });
 
             #endregion
+            // Parkstation-Loadouts-End
 
             #region Save
 
@@ -744,10 +746,12 @@ namespace Content.Client.Preferences.UI
             IsDirty = false;
         }
 
+        // Parkstation-Loadouts-Start
         private void ToggleClothes(BaseButton.ButtonEventArgs obj)
         {
             RebuildSpriteView();
         }
+        // Parkstation-Loadouts-End
 
         private void UpdateRoleRequirements()
         {
@@ -1361,6 +1365,7 @@ namespace Content.Client.Preferences.UI
             if (Profile is null)
                 return;
 
+            // Parkstation-Loadouts-Start
             var humanoid = _entMan.System<HumanoidAppearanceSystem>();
             humanoid.LoadProfile(_previewDummy!.Value, Profile);
 
@@ -1368,6 +1373,7 @@ namespace Content.Client.Preferences.UI
                 LobbyCharacterPreviewPanel.GiveDummyJobClothes(_previewDummy!.Value, Profile);
             if (ShowLoadouts.Pressed)
                 LobbyCharacterPreviewPanel.GiveDummyLoadoutItems(_previewDummy!.Value, Profile);
+            // Parkstation-Loadouts-End
         }
 
         public void UpdateControls()
@@ -1387,7 +1393,7 @@ namespace Content.Client.Preferences.UI
             UpdateJobPriorities();
             UpdateAntagPreferences();
             UpdateTraitPreferences();
-            UpdateLoadoutPreferences();
+            UpdateLoadoutPreferences(); // Parkstation-Loadouts
             UpdateMarkings();
             RebuildSpriteView();
             UpdateHairPickers();
@@ -1580,6 +1586,7 @@ namespace Content.Client.Preferences.UI
             }
         }
 
+        // Parkstation-Loadouts-Start
         private void UpdateLoadoutPreferences()
         {
             var points = _configurationManager.GetCVar(CCVars.GameLoadoutsPoints);
@@ -1602,6 +1609,7 @@ namespace Content.Client.Preferences.UI
                 }
             }
         }
+        // Parkstation-Loadouts-End
 
         private sealed class AntagPreferenceSelector : Control
         {
@@ -1665,6 +1673,7 @@ namespace Content.Client.Preferences.UI
             {
                 Trait = trait;
 
+                // Parkstation-TraitPoints-Start
                 _checkBox = new Button {
                     Text = $"[{trait.Cost}] {Loc.GetString(trait.Name)}",
                     ToggleMode = true
@@ -1709,6 +1718,7 @@ namespace Content.Client.Preferences.UI
 
                 _checkBox.ToolTip = tooltip;
                 _checkBox.TooltipDelay = 0.2f;
+                // Parkstation-TraitPoints-End
 
                 AddChild(new BoxContainer
                 {
@@ -1723,6 +1733,7 @@ namespace Content.Client.Preferences.UI
             }
         }
 
+        // Parkstation-Loadouts-Start
         private sealed class LoadoutPreferenceSelector : Control
         {
             public LoadoutPrototype Loadout { get; }
@@ -1824,5 +1835,6 @@ namespace Content.Client.Preferences.UI
                 PreferenceChanged?.Invoke(Preference);
             }
         }
+        // Parkstation-Loadouts-End
     }
 }

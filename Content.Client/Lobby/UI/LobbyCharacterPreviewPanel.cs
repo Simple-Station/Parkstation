@@ -140,7 +140,7 @@ namespace Content.Client.Lobby.UI
                     _summaryLabel.Text = selectedCharacter.Summary;
                     _entityManager.System<HumanoidAppearanceSystem>().LoadProfile(_previewDummy.Value, selectedCharacter);
                     GiveDummyJobClothes(_previewDummy.Value, selectedCharacter);
-                    GiveDummyLoadoutItems(_previewDummy.Value, selectedCharacter);
+                    GiveDummyLoadoutItems(_previewDummy.Value, selectedCharacter); // Parkstation-Loadouts
                 }
             }
         }
@@ -196,6 +196,7 @@ namespace Content.Client.Lobby.UI
             }
         }
 
+        // Parkstation-Loadouts-Start
         public static void GiveDummyLoadoutItems(EntityUid dummy, HumanoidCharacterProfile profile)
         {
             var highPriorityJobId = profile.JobPriorities.FirstOrDefault(j => j.Value == JobPriority.High).Key;
@@ -203,5 +204,6 @@ namespace Content.Client.Lobby.UI
 
             EntitySystem.Get<LoadoutSystem>().ApplyCharacterLoadout(dummy, highPriorityJob, profile);
         }
+        // Parkstation-Loadouts-End
     }
 }

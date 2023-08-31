@@ -31,8 +31,8 @@ namespace Content.Server.GameTicking
     public sealed partial class GameTicker
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly LoadoutSystem _loadout = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!;
+        [Dependency] private readonly LoadoutSystem _loadout = default!; // Parkstation-Loadouts
+        [Dependency] private readonly InventorySystem _inventory = default!; // Parkstation-Loadouts
 
         private const string ObserverPrototypeName = "MobObserver";
 

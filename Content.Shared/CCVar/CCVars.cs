@@ -292,6 +292,7 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> DebugCoordinatesAdminOnly =
             CVarDef.Create("game.debug_coordinates_admin_only", true, CVar.SERVER | CVar.REPLICATED);
 
+        // Parkstation-Loadouts-Start
         /// <summary>
         /// Whether or not to allow characters to select loadout items.
         /// </summary>
@@ -303,6 +304,7 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<int> GameLoadoutsPoints =
             CVarDef.Create("game.loadouts_points", 14, CVar.REPLICATED);
+        // Parkstation-Loadouts-End
 
 #if EXCEPTION_TOLERANCE
         /// <summary>
