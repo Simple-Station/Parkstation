@@ -7,11 +7,12 @@ using Content.Server.Players;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
-using Content.Shared.CCVar;
 using Content.Server.Storage.Components;
+using Content.Shared.CCVar;
+using Content.Shared.Clothing;
 using Content.Shared.Database;
-using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
+using Content.Shared.GameTicking;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.SimpleStation14.Loadouts;
@@ -30,6 +31,8 @@ namespace Content.Server.GameTicking
     public sealed partial class GameTicker
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
+        [Dependency] private readonly LoadoutSystem _loadout = default!; // Parkstation-Loadouts
+        [Dependency] private readonly InventorySystem _inventory = default!; // Parkstation-Loadouts
 
         private const string ObserverPrototypeName = "MobObserver";
 
@@ -234,49 +237,28 @@ namespace Content.Server.GameTicking
             //     EntityManager.AddComponent<OwOAccentComponent>(mob);
             // }
 
-            // Parkstation-loadouts start
-            var invSystem = EntitySystem.Get<InventorySystem>();
-            if (invSystem.TryGetSlotEntity(mob, "back", out var item))
+
+            // Parkstation-loadouts-Start
+            if (_configurationManager.GetCVar(CCVars.GameLoadoutsEnabled))
             {
-                EntityManager.TryGetComponent<ServerStorageComponent>(item, out var inventory);
+                // Spawn the loadout, get a list of items that failed to equip
+                var failedLoadouts = _loadout.ApplyCharacterLoadout(mob, job.Prototype, character);
 
-                foreach (var loadout in character.LoadoutPreferences)
+                foreach (var loadout in failedLoadouts)
                 {
-                    var slot = "";
-                    if (!_prototypeManager.TryIndex<LoadoutPrototype>(loadout, out var loadoutProto)) continue;
+                    // Try to find back-mounted storage apparatus
+                    if (!_inventory.TryGetSlotEntity(mob, "back", out var item) ||
+                        !EntityManager.TryGetComponent<ServerStorageComponent>(item, out var inventory))
+                        continue;
 
-                    if (loadoutProto.JobWhitelist != null) if (!loadoutProto.JobWhitelist.Contains(jobPrototype.ID)) continue;
-                    if (loadoutProto.JobBlacklist != null) if (loadoutProto.JobBlacklist.Contains(jobPrototype.ID)) continue;
-
-                    var spawned = EntityManager.SpawnEntity(loadoutProto.Item, EntityManager.GetComponent<TransformComponent>(mob).Coordinates);
-
-                    if (EntityManager.TryGetComponent<ClothingComponent>(spawned, out var clothingComp))
-                    {
-                        if (invSystem.TryGetSlots(mob, out var slotDefinitions) && slotDefinitions != null)
-                        {
-                            var deleted = false;
-                            foreach (var slotCur in slotDefinitions)
-                            {
-                                if (!clothingComp.Slots.HasFlag(slotCur.SlotFlags) || deleted) continue;
-
-                                if (invSystem.TryGetSlotEntity(mob, slotCur.Name, out var slotItem)) {
-                                    var slotItemMeta = EntityManager.GetComponent<MetaDataComponent>(slotItem.Value);
-                                    if (loadoutProto.Exclusive || slotItemMeta.EntityName == "grey jumpsuit")
-                                    EntityManager.DeleteEntity((EntityUid)slotItem);
-                                }
-
-                                slot = slotCur.Name;
-                                deleted = true;
-                            }
-                        }
-                    }
-
-                    if (invSystem.TryEquip(mob, spawned, slot)) continue;
-                    if (inventory?.Storage == null) continue;
-                    if (inventory.Storage.CanInsert(spawned)) inventory.Storage.Insert(spawned);
+                    // If we can't insert the loadout item into the storage, skip it, leaving the loadout item on the ground
+                    if (inventory.Storage != null &&
+                        inventory.Storage.CanInsert(loadout))
+                        inventory.Storage.Insert(loadout);
                 }
             }
-            // Parkstation-loadouts end
+            // Parkstation-loadouts-End
+
 
             _stationJobs.TryAssignJob(station, jobPrototype);
 
