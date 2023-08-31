@@ -75,7 +75,7 @@ namespace Content.Server.GameTicking
                     if (firstConnection)
                         _audioSystem.PlayGlobal(new SoundPathSpecifier("/Audio/Effects/newplayerping.ogg"),
                             Filter.Empty().AddPlayers(_adminManager.ActiveAdmins), false,
-                            audioParams: new AudioParams { Volume = -4f });
+                            audioParams: new AudioParams { Volume = -5f });
 
                     if (LobbyEnabled && _roundStartCountdownHasNotStartedYetDueToNoPlayers)
                     {
