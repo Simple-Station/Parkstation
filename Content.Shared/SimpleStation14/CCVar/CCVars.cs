@@ -6,20 +6,6 @@ namespace Content.Shared.SimpleStation14.CCVar;
 public sealed class SimpleStationCCVars
 {
     /*
-     * SSD Indicator
-     */
-    #region SSDIndicator
-
-    /// <summary>
-    ///     Whether or not a sprite overlay shows above SSD players
-    ///     Will not update if changed mid-round, leaving the overlays in whatever state they were
-    /// </summary>
-    public static readonly CVarDef<bool> SSDIndicatorEnabled =
-        CVarDef.Create("ic.ssdindicator_enabled", true, CVar.REPLICATED | CVar.SERVER);
-
-    #endregion
-
-    /*
      * Announcers
      */
     #region Announcers
@@ -161,4 +147,13 @@ public sealed class SimpleStationCCVars
     public static readonly CVarDef<float> SiliconNpcUpdateTime =
         CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
     #endregion Silicons
+
+    #region SSDIndicator
+    /// <summary>
+    ///     Whether or not a sprite overlay shows above SSD players
+    ///     Will not update if changed mid-round, leaving the overlays in whatever state they were
+    /// </summary>
+    public static readonly CVarDef<bool> SSDIndicatorEnabled =
+        CVarDef.Create("ic.ssdindicator_enabled", true, CVar.REPLICATED | CVar.SERVER);
+    #endregion
 }
