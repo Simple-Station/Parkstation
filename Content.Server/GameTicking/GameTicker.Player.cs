@@ -4,6 +4,7 @@ using Content.Server.Players.PlayTimeTracking;
 using Content.Shared.GameTicking;
 using Content.Shared.GameWindow;
 using Content.Shared.Preferences;
+using Content.Shared.SimpleStation14.CCVar;
 using JetBrains.Annotations;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -72,7 +73,7 @@ namespace Content.Server.GameTicking
                         ? Loc.GetString("player-first-join-message", ("name", args.Session.Name))
                         : Loc.GetString("player-join-message", ("name", args.Session.Name)));
 
-                    if (firstConnection)
+                    if (firstConnection && _configurationManager.GetCVar(SimpleStationCCVars.AdminNewPlayerJoinSound))
                         _audioSystem.PlayGlobal(new SoundPathSpecifier("/Audio/Effects/newplayerping.ogg"),
                             Filter.Empty().AddPlayers(_adminManager.ActiveAdmins), false,
                             audioParams: new AudioParams { Volume = -5f });
