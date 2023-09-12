@@ -176,7 +176,7 @@
           visible: false
     - type: Repairable
       fuelcost: 60
-      doAfterDelay: 32
+      doAfterDelay: 18
     - type: Bloodstream
       damageBleedModifiers: BloodlossIPC
       bloodReagent: Water
