@@ -11,6 +11,24 @@ public sealed class SSDIndicatorSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
 
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<SSDIndicatorComponent, ComponentShutdown>(OnShutdown);
+    }
+
+
+    private void OnShutdown(EntityUid uid, SSDIndicatorComponent component, ComponentShutdown args)
+    {
+        if (component.IsSSD)
+        {
+            var sprite = _entity.GetComponent<SpriteComponent>(uid);
+            sprite.LayerSetVisible(SSDIndicatorLayer.SSDIndicator, false);
+        }
+    }
+
     public override void Update(float time)
     {
         var query = _entity.EntityQueryEnumerator<SSDIndicatorComponent>();
