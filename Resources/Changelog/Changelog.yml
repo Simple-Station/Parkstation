@@ -1237,3 +1237,11 @@ Entries:
       message: Character information UI no longer shows the examined player as SSD
   id: 111
   time: '2023-09-13T00:27:44.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Welders use much less fuel idly
+    - type: tweak
+      message: IPCs take less time to repair
+  id: 112
+  time: '2023-09-13T00:27:55.0000000+00:00'
