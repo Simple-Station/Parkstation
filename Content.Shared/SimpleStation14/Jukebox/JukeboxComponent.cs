@@ -27,7 +27,7 @@ public sealed partial class JukeboxComponent : Component
     ///     The maximum number of songs that can be queued at one time.
     /// </summary>
     [DataField("maxQueued")]
-    public int MaxQueued { get; set; } = 3;
+    public int MaxQueued { get; set; } = 7;
 
     /// <summary>
     ///     The song art to be used when no song is playing.
