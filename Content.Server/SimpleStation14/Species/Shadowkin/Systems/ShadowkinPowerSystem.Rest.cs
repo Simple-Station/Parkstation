@@ -3,6 +3,7 @@ using Content.Server.SimpleStation14.Species.Shadowkin.Events;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Cuffs.Components;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Robust.Shared.Prototypes;
 
@@ -15,13 +16,9 @@ public sealed class ShadowkinRestSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ShadowkinPowerSystem _power = default!;
 
-    private InstantAction _action = default!;
-
     public override void Initialize()
     {
         base.Initialize();
-
-        _action = new InstantAction(_prototype.Index<InstantActionPrototype>("ShadowkinRest"));
 
         SubscribeLocalEvent<ShadowkinRestPowerComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ShadowkinRestPowerComponent, ComponentShutdown>(OnShutdown);
@@ -32,18 +29,25 @@ public sealed class ShadowkinRestSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, ShadowkinRestPowerComponent component, ComponentStartup args)
     {
-        _actions.AddAction(uid, _action, uid);
+        _actions.AddAction(uid, new InstantAction(_prototype.Index<InstantActionPrototype>("ShadowkinRest")), null);
     }
 
     private void OnShutdown(EntityUid uid, ShadowkinRestPowerComponent component, ComponentShutdown args)
     {
-        _actions.RemoveAction(uid, _action);
+        _actions.RemoveAction(uid, new InstantAction(_prototype.Index<InstantActionPrototype>("ShadowkinRest")));
     }
 
     private void Rest(EntityUid uid, ShadowkinRestPowerComponent component, ShadowkinRestEvent args)
     {
+        // Need power to modify power
         if (!_entity.HasComponent<ShadowkinComponent>(args.Performer))
             return;
+
+        // Rest is a funny ability, keep it :)
+        // // Don't activate abilities if handcuffed
+        // if (_entity.HasComponent<HandcuffComponent>(args.Performer))
+        //     return;
+
 
         // Now doing what you weren't before
         component.IsResting = !component.IsResting;
@@ -55,7 +59,7 @@ public sealed class ShadowkinRestSystem : EntitySystem
             _entity.EnsureComponent<ForcedSleepingComponent>(args.Performer);
             // No waking up normally (it would do nothing)
             _actions.RemoveAction(args.Performer, new InstantAction(_prototype.Index<InstantActionPrototype>("Wake")));
-            _power.TryAddMultiplier(args.Performer, 1f);
+            _power.TryAddMultiplier(args.Performer, 1.5f);
             // No action cooldown
             args.Handled = false;
         }
@@ -65,7 +69,7 @@ public sealed class ShadowkinRestSystem : EntitySystem
             // Wake up
             _entity.RemoveComponent<ForcedSleepingComponent>(args.Performer);
             _entity.RemoveComponent<SleepingComponent>(args.Performer);
-            _power.TryAddMultiplier(args.Performer, -1f);
+            _power.TryAddMultiplier(args.Performer, -1.5f);
             // Action cooldown
             args.Handled = true;
         }

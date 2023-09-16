@@ -30,12 +30,10 @@
 
 - type: markingPoints
   id: MobDionaMarkingLimits
+  onlyWhitelisted: true
   points:
-    Hair:
-      points: 1
-      required: false
-    FacialHair:
-      points: 1
+    Head:
+      points: 2
       required: false
     HeadTop:
       points: 1

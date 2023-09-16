@@ -10,7 +10,6 @@ using Content.Server.Humanoid;
 using Content.Server.Station.Systems;
 using Content.Server.Mind;
 using Content.Server.Mind.Components;
-using Content.Server.DetailExaminable;
 using Content.Server.Players;
 using Content.Server.Roles;
 using Content.Server.Spawners.Components;
@@ -22,6 +21,7 @@ using Content.Server.GameTicking;
 using Content.Server.Fugitive;
 using Content.Server.Cloning;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Shared.DetailExaminable; // Parkstation-CharacterInformation
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
@@ -256,6 +256,7 @@ namespace Content.Server.EvilTwin
             {
                 var detailCopy = EnsureComp<DetailExaminableComponent>(spawned);
                 detailCopy.Content = detail.Content;
+                Dirty(detailCopy); // Parkstation-CharacterInformation
             }
 
             if (candidateJob.StartingGear != null &&

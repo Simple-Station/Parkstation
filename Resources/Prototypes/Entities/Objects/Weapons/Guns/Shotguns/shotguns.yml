@@ -82,13 +82,14 @@
     slots:
     - Back
     - suitStorage
+  - type: AmmoCounter
   - type: Gun
     fireRate: 2
     selectedMode: FullAuto
     availableModes:
     - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_auto.ogg # Corvax-Guns
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: ItemSlots
@@ -154,6 +155,9 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: BallisticAmmoProvider
+  - type: Gun # Corvax-Guns
+    soundGunshot:
+      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_metal.ogg
 
 - type: entity
   name: Enforcer
@@ -173,6 +177,9 @@
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: BallisticAmmoProvider
     capacity: 4
+  - type: Gun # Corvax-Guns
+    soundGunshot:
+      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_alt.ogg
 
 - type: entity
   name: Kammerer
@@ -197,6 +204,8 @@
     size: 10
   - type: Gun
     fireRate: 4
+    soundGunshot: # Corvax-Guns
+      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_sawed.ogg
   - type: BallisticAmmoProvider
     autoCycle: true
     capacity: 2
@@ -253,3 +262,35 @@
     fireRate: 2
   - type: BallisticAmmoProvider
     capacity: 1
+
+- type: entity
+  name: improvised shotgun
+  parent: BaseWeaponShotgun
+  id: WeaponShotgunImprovised
+  description: A shitty, hand-made shotgun that uses .50 shotgun shells. It can only hold one round in the chamber.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
+  - type: Item
+    size: 75
+  - type: Gun
+    fireRate: 4 #No reason to stifle the firerate since you have to manually reload every time anyways.
+  - type: BallisticAmmoProvider
+    capacity: 1
+    proto: null
+  - type: Construction
+    graph: ImprovisedShotgunGraph
+    node: shotgun
+  - type: StaticPrice
+    price: 400
+
+- type: entity
+  name: improvised shotgun
+  parent: WeaponShotgunImprovised
+  suffix: Loaded
+  id: WeaponShotgunImprovisedLoaded
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunImprovised

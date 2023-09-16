@@ -4,6 +4,7 @@ using Content.Server.SimpleStation14.Species.Shadowkin.Components;
 using Content.Server.SimpleStation14.Species.Shadowkin.Events;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
+using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Pulling.Components;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
@@ -24,13 +25,9 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly MagicSystem _magic = default!;
 
-    private WorldTargetAction _action = default!;
-
     public override void Initialize()
     {
         base.Initialize();
-
-        _action = new WorldTargetAction(_prototype.Index<WorldTargetActionPrototype>("ShadowkinTeleport"));
 
         SubscribeLocalEvent<ShadowkinTeleportPowerComponent, ComponentStartup>(Startup);
         SubscribeLocalEvent<ShadowkinTeleportPowerComponent, ComponentShutdown>(Shutdown);
@@ -41,19 +38,24 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
 
     private void Startup(EntityUid uid, ShadowkinTeleportPowerComponent component, ComponentStartup args)
     {
-        _actions.AddAction(uid, _action, uid);
+        _actions.AddAction(uid, new WorldTargetAction(_prototype.Index<WorldTargetActionPrototype>("ShadowkinTeleport")), null);
     }
 
     private void Shutdown(EntityUid uid, ShadowkinTeleportPowerComponent component, ComponentShutdown args)
     {
-        _actions.RemoveAction(uid, _action);
+        _actions.RemoveAction(uid, new WorldTargetAction(_prototype.Index<WorldTargetActionPrototype>("ShadowkinTeleport")));
     }
 
 
     private void Teleport(EntityUid uid, ShadowkinTeleportPowerComponent component, ShadowkinTeleportEvent args)
     {
-        if (args.Handled ||
-            !_entity.TryGetComponent<ShadowkinComponent>(args.Performer, out var comp))
+        // Need power to drain power
+        if (!_entity.TryGetComponent<ShadowkinComponent>(args.Performer, out var comp))
+            return;
+
+        // Don't activate abilities if handcuffed
+        // TODO: Something like the Psionic Headcage to disable powers for Shadowkin
+        if (_entity.HasComponent<HandcuffComponent>(args.Performer))
             return;
 
 
@@ -86,7 +88,7 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
             pulledTransform.AttachToGridOrMap();
 
             // Resume pulling
-            // TODO: This does nothing?
+            // TODO: This does nothing? // This does things sometimes, but the client never knows
             _pulling.TryStartPull(puller, pullable);
         }
 
@@ -99,7 +101,7 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
         _stamina.TakeStaminaDamage(args.Performer, args.StaminaCost);
 
         // Speak
-        _magic.Speak(args);
+        _magic.Speak(args, false);
 
         args.Handled = true;
     }

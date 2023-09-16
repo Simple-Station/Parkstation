@@ -19,6 +19,9 @@
       0: Alive
       140: Critical
       180: Dead
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
   - type: TypingIndicator
     proto: robot
   - type: Destructible
@@ -69,6 +72,8 @@
   - type: Wires
     BoardName: "IPC"
     LayoutId: IPC
+  - type: CharacterInformation
+  - type: SSDIndicator
 
 - type: entity
   save: false

@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Server.Database.Migrations.Postgres;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -14,6 +15,8 @@ using Content.Shared.Preferences;
 using Microsoft.EntityFrameworkCore;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
+using BackpackPreference = Content.Shared.Preferences.BackpackPreference;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Database
 {
@@ -29,7 +32,7 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
-                .Include(p => p.Profiles).ThenInclude(h => h.Loadouts)
+                .Include(p => p.Profiles).ThenInclude(h => h.Loadouts) // Parkstation-Loadouts
                 .AsSingleQuery()
                 .SingleOrDefaultAsync(p => p.UserId == userId.UserId);
 
@@ -78,6 +81,7 @@ namespace Content.Server.Database
                 .Include(p => p.Jobs)
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
+                .Include(p => p.Loadouts) // Parkstation-Loadouts
                 .AsSplitQuery()
                 .SingleOrDefault(h => h.Slot == slot);
 
@@ -164,7 +168,7 @@ namespace Content.Server.Database
             var jobs = profile.Jobs.ToDictionary(j => j.JobName, j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => a.AntagName);
             var traits = profile.Traits.Select(t => t.TraitName);
-            var loadouts = profile.Loadouts.Select(t => t.LoadoutName);
+            var loadouts = profile.Loadouts.Select(l => l.LoadoutName); // Parkstation-Loadouts
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
@@ -221,7 +225,7 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToList(),
                 traits.ToList(),
-                loadouts.ToList()
+                loadouts.ToList() // Parkstation-Loadouts
             );
         }
 
@@ -272,10 +276,14 @@ namespace Content.Server.Database
                 humanoid.TraitPreferences
                         .Select(t => new Trait {TraitName = t})
             );
+
+            // Parkstation-Loadouts-Start
+            profile.Loadouts.Clear();
             profile.Loadouts.AddRange(
                 humanoid.LoadoutPreferences
-                        .Select(t => new Loadout {LoadoutName = t})
+                    .Select(l => new Loadout {LoadoutName = l})
             );
+            // Parkstation-Loadouts-End
 
             return profile;
         }
@@ -765,6 +773,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         public async Task AddAdminLogs(List<AdminLog> logs)
         {
+            DebugTools.Assert(logs.All(x => x.RoundId > 0), "Adding logs with invalid round ids.");
             await using var db = await GetDb();
             db.DbContext.AdminLog.AddRange(logs);
             await db.DbContext.SaveChangesAsync();
@@ -1354,7 +1363,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
             // Client side query, as EF can't do groups yet
             var bansEnumerable = bansQuery
-                    .GroupBy(ban => (ban.BanTime, ban.CreatedBy, ban.Reason, Unbanned: ban.Unban == null))
+                    .GroupBy(ban => new { ban.BanTime, CreatedBy = (Player?)ban.CreatedBy, ban.Reason, Unbanned = ban.Unban == null })
                     .Select(banGroup => banGroup)
                     .ToArray();
 

@@ -6,6 +6,7 @@ using Content.Server.Visible;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Events;
@@ -30,13 +31,9 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly MagicSystem _magic = default!;
 
-    private InstantAction _action = default!;
-
     public override void Initialize()
     {
         base.Initialize();
-
-        _action = new InstantAction(_prototype.Index<InstantActionPrototype>("ShadowkinDarkSwap"));
 
         SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ComponentStartup>(Startup);
         SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ComponentShutdown>(Shutdown);
@@ -50,17 +47,27 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
     private void Startup(EntityUid uid, ShadowkinDarkSwapPowerComponent component, ComponentStartup args)
     {
-        _actions.AddAction(uid, _action, uid);
+        _actions.AddAction(uid, new InstantAction(_prototype.Index<InstantActionPrototype>("ShadowkinDarkSwap")), null);
     }
 
     private void Shutdown(EntityUid uid, ShadowkinDarkSwapPowerComponent component, ComponentShutdown args)
     {
-        _actions.RemoveAction(uid, _action);
+        _actions.RemoveAction(uid, new InstantAction(_prototype.Index<InstantActionPrototype>("ShadowkinDarkSwap")));
     }
 
 
     private void DarkSwap(EntityUid uid, ShadowkinDarkSwapPowerComponent component, ShadowkinDarkSwapEvent args)
     {
+        // Need power to drain power
+        if (!_entity.HasComponent<ShadowkinComponent>(args.Performer))
+            return;
+
+        // Don't activate abilities if handcuffed
+        // TODO: Something like the Psionic Headcage to disable powers for Shadowkin
+        if (_entity.HasComponent<HandcuffComponent>(args.Performer))
+            return;
+
+
         var hasComp = _entity.HasComponent<ShadowkinDarkSwappedComponent>(args.Performer);
 
         SetDarkened(
@@ -75,12 +82,11 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             args.StaminaCostOff,
             args.PowerCostOff,
             args.SoundOff,
-            args.VolumeOff
+            args.VolumeOff,
+            args
         );
 
-        _magic.Speak(args);
-
-        args.Handled = true;
+        _magic.Speak(args, false);
     }
 
 
@@ -96,10 +102,11 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         float staminaCostOff,
         float powerCostOff,
         SoundSpecifier soundOff,
-        float volumeOff
+        float volumeOff,
+        ShadowkinDarkSwapEvent? args
     )
     {
-        var ev = new ShadowkinDarkSwapAttemptEvent();
+        var ev = new ShadowkinDarkSwapAttemptEvent(performer);
         RaiseLocalEvent(ev);
         if (ev.Cancelled)
             return;
@@ -127,6 +134,9 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             _power.TryAddPowerLevel(performer, -powerCostOff);
             _stamina.TakeStaminaDamage(performer, staminaCostOff);
         }
+
+        if (args != null)
+            args.Handled = true;
     }
 
 

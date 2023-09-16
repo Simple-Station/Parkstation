@@ -105,3 +105,4 @@
     - type: FaxMachine
       name: "Command"
       receiveNukeCodes: true
+      receiveStationGoal: true # Corvax-StationGoal

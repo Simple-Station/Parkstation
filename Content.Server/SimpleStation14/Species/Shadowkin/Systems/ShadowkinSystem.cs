@@ -2,6 +2,8 @@ using System.Numerics;
 using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Server.SimpleStation14.Species.Shadowkin.Events;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Cuffs.Components;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -89,14 +91,21 @@ public sealed class ShadowkinSystem : EntitySystem
         // Update power level for all shadowkin
         while (query.MoveNext(out var uid, out var shadowkin))
         {
-            // Skip if the shadowkin is dead or catatonic
+            // Ensure dead or critical shadowkin aren't swapped, skip them
             if (_mobState.IsDead(uid) ||
-                !_entity.System<MindSystem>().TryGetMind(uid, out var mind) ||
+                _mobState.IsCritical(uid))
+            {
+                _entity.RemoveComponent<ShadowkinDarkSwappedComponent>(uid);
+                continue;
+            }
+
+            // Don't update things for ssd shadowkin
+            if (!_entity.System<MindSystem>().TryGetMind(uid, out var mind) ||
                 mind.Session == null)
                 continue;
 
-            var oldPowerLevel = _power.GetLevelName(shadowkin.PowerLevel);
 
+            var oldPowerLevel = _power.GetLevelName(shadowkin.PowerLevel);
             _power.TryUpdatePowerLevel(uid, frameTime);
 
             if (oldPowerLevel != _power.GetLevelName(shadowkin.PowerLevel))
@@ -106,6 +115,12 @@ public sealed class ShadowkinSystem : EntitySystem
             }
             // I can't figure out how to get this to go to the 100% filled state in the above if statement 😢
             _power.UpdateAlert(uid, true, shadowkin.PowerLevel);
+
+
+            // Don't randomly activate abilities if handcuffed
+            // TODO: Something like the Psionic Headcage to disable powers for Shadowkin
+            if (_entity.HasComponent<HandcuffComponent>(uid))
+                continue;
 
             #region MaxPower
             // Check if they're at max power
@@ -149,7 +164,9 @@ public sealed class ShadowkinSystem : EntitySystem
                 (
                     ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Tired] +
                     ShadowkinComponent.PowerThresholds[ShadowkinPowerThreshold.Okay]
-                ) / 2f
+                ) / 2f &&
+                // Don't sleep if asleep
+                !_entity.HasComponent<SleepingComponent>(uid)
             )
             {
                 // If so, start the timer
@@ -179,32 +196,24 @@ public sealed class ShadowkinSystem : EntitySystem
 
     private void ForceDarkSwap(EntityUid uid, ShadowkinComponent component)
     {
-        // Add/Remove DarkSwapped component, which will handle the rest
+        // Add/Remove the component, which should handle the rest
         if (_entity.HasComponent<ShadowkinDarkSwappedComponent>(uid))
-        {
-            RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(uid, false));
             _entity.RemoveComponent<ShadowkinDarkSwappedComponent>(uid);
-        }
         else
-        {
-            RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(uid, true));
-            _entity.EnsureComponent<ShadowkinDarkSwappedComponent>(uid);
-        }
+            _entity.AddComponent<ShadowkinDarkSwappedComponent>(uid);
     }
 
     private void ForceTeleport(EntityUid uid, ShadowkinComponent component)
     {
         // Create the event we'll later raise, and set it to our Shadowkin.
-        var args = new ShadowkinTeleportEvent
-        {
-            Performer = uid
-        };
+        var args = new ShadowkinTeleportEvent { Performer = uid };
 
         // Pick a random location on the map until we find one that can be reached.
         var coords = Transform(uid).Coordinates;
         EntityCoordinates? target = null;
 
-        for (var i = 8; i != 0; i--) // It'll iterate up to 8 times, shrinking in distance each time, and if it doesn't find a valid location, it'll return.
+        // It'll iterate up to 8 times, shrinking in distance each time, and if it doesn't find a valid location, it'll return.
+        for (var i = 8; i != 0; i--)
         {
             var angle = Angle.FromDegrees(_random.Next(360));
             var offset = new Vector2((float) (i * Math.Cos(angle)), (float) (i * Math.Sin(angle)));

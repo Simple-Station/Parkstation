@@ -78,7 +78,7 @@ public sealed class ShadowkinDarkenSystem : EntitySystem
                 if (!_entity.TryGetComponent(light, out ShadowkinLightComponent? shadowkinLight))
                     continue;
                 // Not powered, undo changes
-                if (!_entity.TryGetComponent(light, out PoweredLightComponent? powered) || !powered.On)
+                if (_entity.TryGetComponent(light, out PoweredLightComponent? powered) && !powered.On)
                 {
                     ResetLight(pointLight, shadowkinLight);
                     continue;
@@ -98,10 +98,10 @@ public sealed class ShadowkinDarkenSystem : EntitySystem
                     shadowkin.DarkenedLights.Remove(light);
                     continue;
                 }
-                // 10% chance to remove the attached entity so it can become another Shadowkin's light
+                // 3% chance to remove the attached entity so it can become another Shadowkin's light
                 if (shadowkinLight.AttachedEntity == uid)
                 {
-                    if (_random.Prob(0.1f))
+                    if (_random.Prob(0.03f))
                         shadowkinLight.AttachedEntity = EntityUid.Invalid;
                 }
 

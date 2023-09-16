@@ -113,7 +113,6 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen
-  - type: MailReceiver
   - type: InteractionPopup
     successChance: 0.75
     interactFailureString: petting-failure-generic
@@ -122,8 +121,8 @@
     messagePerceivedByOthers: petting-success-soft-floofy-others
   # - type: PotentialPsionic # They've their own abilities.
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 2.7
+    baseWalkSpeed : 2.7
+    baseSprintSpeed : 4.5
 
 
 - type: entity

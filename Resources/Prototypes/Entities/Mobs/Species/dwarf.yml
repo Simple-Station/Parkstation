@@ -8,10 +8,10 @@
   - type: HumanoidAppearance
     species: Dwarf
   - type: Hunger
-    starvationDamage:
-      types:
-        Cold: 0.5
-        Bloodloss: 0.5
+    # starvationDamage:
+    #   types:
+    #     Cold: 0.5
+    #     Bloodloss: 0.5
   - type: Thirst
   - type: Icon
     sprite: Mobs/Species/Slime/parts.rsi
@@ -30,6 +30,11 @@
   - type: Body
     prototype: Dwarf
     requiredLegs: 2
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:

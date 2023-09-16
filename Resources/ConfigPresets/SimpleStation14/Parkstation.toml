@@ -1,5 +1,5 @@
 [game]
-hostname = "🌳 | Parkstation - IPC & Shadowkin Custom Species Update"
+hostname = "[EN] 🌳 | Parkstation - IPC & Shadowkin Custom Species Update"
 desc = "An English MRP server focused on higher RP expectations and calmer rounds."
 maxplayers = 48
 soft_max_players = 32
@@ -10,18 +10,23 @@ fallbackpreset = "extended"
 map_pool = "ParkMapPool"
 panic_bunker.enabled = false
 admin_panic.enabled = false
+loadouts_enabled = true
+loadouts_points = 14
 
 [npc]
 enabled = true
 pathfinding = true
 
 [server]
-rules_file = "Park_Rules.txt"
+rules_file = "SimpleStation14/ParkstationRules.txt"
 id = "parkstation"
 
 [whitelist]
 enabled = true
 min_players = 24
+
+[queue]
+enabled = true
 
 [rules]
 time = 120
@@ -113,6 +118,9 @@ patreon = "https://www.patreon.com/simple14"
 
 [netres]
 limit = 0.0
+
+[admin]
+new_player_join_sound = true
 
 
 [build]

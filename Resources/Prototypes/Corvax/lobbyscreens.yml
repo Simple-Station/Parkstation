@@ -1,0 +1,23 @@
+﻿- type: lobbyBackground
+  id: BarLife
+  background: /Textures/Corvax/LobbyScreens/bar-life.png
+
+- type: lobbyBackground
+  id: EngineersChill
+  background: /Textures/Corvax/LobbyScreens/engineers-chill.png
+
+- type: lobbyBackground
+  id: Kosmologistika
+  background: /Textures/Corvax/LobbyScreens/kosmologistika.png
+
+- type: lobbyBackground
+  id: Lofi
+  background: /Textures/Corvax/LobbyScreens/lofi.png
+
+- type: lobbyBackground
+  id: RegularShift
+  background: /Textures/Corvax/LobbyScreens/regular-shift.png
+
+- type: lobbyBackground
+  id: SpaceMudaki
+  background: /Textures/Corvax/LobbyScreens/space-mudaki.png

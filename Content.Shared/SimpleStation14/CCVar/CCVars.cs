@@ -5,6 +5,12 @@ namespace Content.Shared.SimpleStation14.CCVar;
 [CVarDefs]
 public sealed class SimpleStationCCVars
 {
+    #region Admin
+    public static readonly CVarDef<bool> AdminNewPlayerJoinSound =
+        CVarDef.Create("admin.new_player_join_sound", false, CVar.SERVERONLY);
+    #endregion
+
+    #region Announcers
     /// <summary>
     ///     Optionally force set an announcer
     /// </summary>
@@ -16,6 +22,7 @@ public sealed class SimpleStationCCVars
     /// </summary>
     public static readonly CVarDef<List<string>> AnnouncerBlacklist =
         CVarDef.Create("game.announcer.blacklist", new List<string>(), CVar.SERVERONLY);
+    #endregion
 
     /*
      * End of round stats
@@ -142,4 +149,12 @@ public sealed class SimpleStationCCVars
     public static readonly CVarDef<float> SiliconNpcUpdateTime =
         CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
     #endregion Silicons
+
+    #region SSDIndicator
+    /// <summary>
+    ///     Whether or not a sprite overlay shows above SSD players
+    /// </summary>
+    public static readonly CVarDef<bool> SSDIndicatorEnabled =
+        CVarDef.Create("ic.ssdindicator_enabled", true, CVar.REPLICATED | CVar.SERVER);
+    #endregion
 }

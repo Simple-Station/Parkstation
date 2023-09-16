@@ -32,7 +32,6 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen
-  - type: MailReceiver
   - type: PotentialPsionic
 
 #Syndie
@@ -49,6 +48,13 @@
     - type: NpcFactionMember
       factions:
       - Syndicate
+
+- type: entity
+  parent: MobHumanSyndicateAgent
+  id: MobHumanSyndicateAgentNukeops # Reinforcement exclusive to nukeops uplink
+  suffix: NukeOps
+  components:
+    - type: NukeOperative
 
 # Nuclear Operative
 - type: entity
@@ -85,3 +91,11 @@
     - type: PsionicBonusChance
       multiplier: 7
       warn: false
+
+# DNA Scrambler
+- type: entity
+  parent: MobHuman
+  id: MobHumanScrambled
+  name: Scrambled Human
+  components:
+    - type: RandomHumanoidAppearance

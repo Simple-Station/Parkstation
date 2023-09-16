@@ -6,13 +6,18 @@
   abstract: true
   components:
   - type: Hunger
-    starvationDamage:
-      types:
-        Cold: 0.5
-        Bloodloss: 0.5
+    # starvationDamage:
+    #   types:
+    #     Cold: 0.5
+    #     Bloodloss: 0.5
   - type: Thirst
   - type: Carriable
   - type: Perishable
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
 
 - type: entity
   name: Urist McHands

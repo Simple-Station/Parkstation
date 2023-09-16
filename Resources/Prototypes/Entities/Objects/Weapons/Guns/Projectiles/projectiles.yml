@@ -277,7 +277,6 @@
   noSpawn: true
   components:
   - type: Sprite
-    color: "#ffff33"
     sprite: Structures/Power/Generation/Singularity/emitter.rsi
     layers:
       - state: projectile
@@ -324,7 +323,7 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 10
+        Blunt: 20
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.4

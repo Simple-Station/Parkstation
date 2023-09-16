@@ -29,6 +29,7 @@
     - state: on
       map: ["enum.PoweredLightLayers.Base"]
     state: on
+  - type: ShadowkinLight
   - type: PointLight
     radius: 10
     energy: 0.8
@@ -107,7 +108,6 @@
   components:
   - type: Sprite
     state: off
-  - type: ShadowkinLight
   - type: PointLight
     enabled: true
   - type: PoweredLight

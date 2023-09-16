@@ -4,8 +4,8 @@ law-window-title = Laws
 silicon-laws-label = Your Laws:
 silicon-laws-law-heading = Law {$lawDisplayNumber}
 
-command-lslaws-description = List laws on an entity.
-command-lslaws-help = Takes an entity uid or username.
+command-lawls-description = List laws on an entity.
+command-laws-help = Takes an entity uid or username.
 
 command-lawclear-description = Clear all laws from an entity.
 command-lawclear-help = lawclear (username or entity UID)
