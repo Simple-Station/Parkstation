@@ -52,9 +52,9 @@ public sealed partial class JukeboxWindow : FancyWindow
         BG_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxBG) };
         Panel_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxPanel) };
         Panel_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxPanel) };
-        Accent_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
+        // Accent_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
         Accent_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
-        Accent_3.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
+        // Accent_3.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
 
         UpdateState(true);
     }
@@ -91,8 +91,6 @@ public sealed partial class JukeboxWindow : FancyWindow
 
     private void PopulateSongs()
     {
-        Logger.Error("Populating songs!");
-
         SongPickerBox.RemoveAllChildren();
 
         var songsToAdd = _jukeboxComp.Songs;
@@ -104,8 +102,6 @@ public sealed partial class JukeboxWindow : FancyWindow
 
         foreach (var trackId in songsToAdd)
         {
-            Logger.Error($"Adding {trackId}!");
-
             if (!_prototype.TryIndex<JukeboxTrackPrototype>(trackId, out var track))
             {
                 Logger.Error($"No JukeboxTrackPrototype found for {trackId}!");
@@ -118,9 +114,9 @@ public sealed partial class JukeboxWindow : FancyWindow
                 Text = track.Name
             };
 
-            SongPickerBox.AddChild(newButton);
-
             newButton.OnPressed += _ => OnSongSelected?.Invoke(trackId);
+
+            SongPickerBox.AddChild(newButton);
         }
     }
 
