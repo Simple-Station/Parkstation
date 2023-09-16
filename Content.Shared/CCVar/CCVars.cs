@@ -1605,8 +1605,8 @@ namespace Content.Shared.CCVar
         /// <summary>
         /// Time that players have to wait before rules can be accepted.
         /// </summary>
-        public static readonly CVarDef<float> RulesWaitTime =
-            CVarDef.Create("rules.time", 45f, CVar.SERVER | CVar.REPLICATED);
+        public static readonly CVarDef<int> RulesWaitTime = // Parkstation-FixRules // Causes game to not switch state, making gameplay not playable?
+            CVarDef.Create("rules.time", 45, CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
         /// Don't show rules to localhost/loopback interface.
