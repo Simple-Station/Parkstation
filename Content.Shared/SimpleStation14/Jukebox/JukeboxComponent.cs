@@ -26,7 +26,7 @@ public sealed partial class JukeboxComponent : Component
     /// <summary>
     ///     The maximum number of songs that can be queued at one time.
     /// </summary>
-    [DataField("maxQueued")]
+    [DataField("maxQueued")] [ViewVariables(VVAccess.ReadWrite)]
     public int MaxQueued { get; set; } = 7;
 
     /// <summary>

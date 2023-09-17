@@ -10,7 +10,11 @@ using Robust.Shared.Timing;
 using FancyWindow = Content.Client.UserInterface.Controls.FancyWindow;
 using Content.Shared.SimpleStation14.Prototypes;
 using System.Linq;
+using System.Numerics;
+using Content.Client.Resources;
+using Content.Client.Stylesheets;
 using Robust.Client.Graphics;
+using Robust.Client.ResourceManagement;
 
 namespace Content.Client.SimpleStation14.Jukebox.Ui;
 
@@ -19,6 +23,7 @@ public sealed partial class JukeboxWindow : FancyWindow
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IResourceCache _resourceCache = default!;
 
     private readonly JukeboxBoundUserInterface _bui;
 
@@ -46,15 +51,37 @@ public sealed partial class JukeboxWindow : FancyWindow
         _jukeboxComp = jukeboxComp;
 
         PlayButton.OnPressed += _ => OnPlayButtonPressed?.Invoke();
-
         SkipButton.OnPressed += _ => OnSkipButtonPressed?.Invoke();
+
+        SerialTitle.SetMessage(Loc.GetString("jukebox-ui-serial-title"));
+        SerialNumber.Text = jukeboxComp.SerialNumber;
 
         BG_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxBG) };
         Panel_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxPanel) };
         Panel_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxPanel) };
         // Accent_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
-        Accent_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
-        // Accent_3.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
+        // Accent_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
+        Accent_3.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
+
+        SongName.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 18);
+        SongsLabel.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 22);
+        // SerialTitle.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 16);
+        SerialHeader.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 28);
+        SerialNumber.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 16);
+
+
+        foreach (var control in CoinLabels.Children)
+        {
+            if (control is Label label)
+            {
+                label.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 16);
+                label.FontColorOverride = Color.FromHex("#A5762F");
+                label.HorizontalAlignment = HAlignment.Center;
+                label.HorizontalExpand = false;
+                label.VerticalAlignment = VAlignment.Center;
+                label.HorizontalExpand = false;
+            }
+        }
 
         UpdateState(true);
     }
@@ -111,9 +138,15 @@ public sealed partial class JukeboxWindow : FancyWindow
 
             var newButton = new Button
             {
-                Text = track.Name
+                Text = track.Name,
+                TextAlign = Label.AlignMode.Left,
+                ClipText = true,
+                RectClipContent = true,
+                MaxWidth = 180f,
+                Margin = new Thickness(0, 0, 0, 4),
             };
 
+            newButton.StyleClasses.Add(StyleBase.ButtonOpenLeft);
             newButton.OnPressed += _ => OnSongSelected?.Invoke(trackId);
 
             SongPickerBox.AddChild(newButton);
@@ -128,7 +161,7 @@ public sealed partial class JukeboxWindow : FancyWindow
         {
             NextSongsBox.AddChild(new Label
             {
-                Text = Loc.GetString("jukebox-ui-queue-empty")
+                Text = Loc.GetString("jukebox-ui-queue-empty"),
             });
 
             return;
@@ -145,7 +178,10 @@ public sealed partial class JukeboxWindow : FancyWindow
 
             var newLabel = new Label
             {
-                Text = track.Name
+                Text = track.Name,
+                HorizontalAlignment = HAlignment.Center,
+                HorizontalExpand = false,
+                Margin = new Thickness(0, 2, 0, 2),
             };
 
             NextSongsBox.AddChild(newLabel);
