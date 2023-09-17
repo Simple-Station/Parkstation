@@ -58,6 +58,7 @@ public sealed class ShadowkinBlackeyeSystem : EntitySystem
         _entity.RemoveComponent<ShadowkinDarkSwappedComponent>(ev.Uid);
         _entity.RemoveComponent<ShadowkinRestPowerComponent>(ev.Uid);
         _entity.RemoveComponent<ShadowkinTeleportPowerComponent>(ev.Uid);
+        _entity.RemoveComponent<EmpathyChatComponent>(ev.Uid);
 
         if (!ev.Damage)
             return;

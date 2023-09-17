@@ -90,6 +90,22 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     }
 
 
+    /// <summary>
+    ///     Handles the effects of darkswapping
+    /// </summary>
+    /// <param name="performer">The entity being modified</param>
+    /// <param name="addComp">Is the entity swapping in to or out of The Dark?</param>
+    /// <param name="invisible">Should the entity become invisible?</param>
+    /// <param name="darken">Should darkswapping darken nearby lights?</param>
+    /// <param name="staminaCostOn">Stamina cost for darkswapping</param>
+    /// <param name="powerCostOn">Power cost for darkswapping</param>
+    /// <param name="soundOn">Sound for the darkswapping</param>
+    /// <param name="volumeOn">Volume for the on sound</param>
+    /// <param name="staminaCostOff">Stamina cost for un swapping</param>
+    /// <param name="powerCostOff">Power cost for un swapping</param>
+    /// <param name="soundOff">Sound for the un swapping</param>
+    /// <param name="volumeOff">Volume for the off sound</param>
+    /// <param name="args">If from an event, handle it</param>
     public void SetDarkened(
         EntityUid performer,
         bool addComp,
@@ -145,7 +161,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         EnsureComp<PacifiedComponent>(uid);
 
         if (component.Invisible)
-            SetCanSeeInvisibility(uid, true);
+            SetCanSeeInvisibility(uid, true, true, true);
     }
 
     private void OnInvisShutdown(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentShutdown args)
@@ -153,7 +169,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         RemComp<PacifiedComponent>(uid);
 
         if (component.Invisible)
-            SetCanSeeInvisibility(uid, false);
+            SetCanSeeInvisibility(uid, false, true, true);
 
         component.Darken = false;
 
@@ -170,22 +186,32 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     }
 
 
-    public void SetCanSeeInvisibility(EntityUid uid, bool set)
+    /// <summary>
+    ///     Makes the specified entity able to see Shadowkin invisibility.
+    /// </summary>
+    /// <param name="uid">Entity to modify</param>
+    /// <param name="enabled">Whether the entity can see invisibility</param>
+    /// <param name="invisibility">Should the entity be moved to another visibility layer?</param>
+    /// <param name="stealth">(Only gets considered if set is true) Adds stealth to the entity</param>
+    public void SetCanSeeInvisibility(EntityUid uid, bool enabled, bool invisibility, bool stealth)
     {
         var visibility = _entity.EnsureComponent<VisibilityComponent>(uid);
 
-        if (set)
+        if (enabled)
         {
             if (_entity.TryGetComponent(uid, out EyeComponent? eye))
             {
                 eye.VisibilityMask |= (uint) VisibilityFlags.DarkSwapInvisibility;
             }
 
-            _visibility.AddLayer(uid, visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
-            _visibility.RemoveLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
+            if (invisibility)
+            {
+                _visibility.AddLayer(uid, visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
+                _visibility.RemoveLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
+            }
             _visibility.RefreshVisibility(uid);
 
-            if (!_entity.TryGetComponent<GhostComponent>(uid, out var _))
+            if (stealth)
                 _stealth.SetVisibility(uid, 0.8f, _entity.EnsureComponent<StealthComponent>(uid));
         }
         else
@@ -195,12 +221,14 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
                 eye.VisibilityMask &= ~(uint) VisibilityFlags.DarkSwapInvisibility;
             }
 
-            _visibility.RemoveLayer(uid, visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
-            _visibility.AddLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
+            if (invisibility)
+            {
+                _visibility.RemoveLayer(uid, visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
+                _visibility.AddLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
+            }
             _visibility.RefreshVisibility(uid);
 
-            if (!_entity.TryGetComponent<GhostComponent>(uid, out var _))
-                _entity.RemoveComponent<StealthComponent>(uid);
+            _entity.RemoveComponent<StealthComponent>(uid);
         }
     }
 }
