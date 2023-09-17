@@ -62,9 +62,9 @@
   name: darkened softsuit helmet
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/rd.rsi
+    sprite: SimpleStation14/Clothing/Head/Hardsuits/darkened.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/rd.rsi
+    sprite: SimpleStation14/Clothing/Head/Hardsuits/darkened.rsi
   - type: PointLight
     color: "#d6adff"
   - type: Armor

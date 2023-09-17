@@ -63,9 +63,9 @@
   description: Originally created while several research facilities were experimenting on Shadowkin, this hardsuit allows the wearer to jump the gap between the "normal" dimension and The Dark.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/darkened.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/darkened.rsi
   - type: Armor
     modifiers:
       coefficients:
