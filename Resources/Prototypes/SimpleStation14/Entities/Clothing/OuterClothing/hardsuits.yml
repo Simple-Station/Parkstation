@@ -55,3 +55,33 @@
     damageCoefficient: 0.8
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitHoP
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitShadowkinDarkswap
+  name: darkened softsuit
+  description: Originally created while several research facilities were experimenting on Shadowkin, this hardsuit allows the wearer to jump the gap between the "normal" dimension and The Dark.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.8
+        Piercing: 0.9
+        Radiation: 0.3
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: Item
+    size: 65
+  - type: Tag
+    tags:
+    - FullBodyOuter
+    - Hardsuit
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitShadowkinDarkswap
+    actionId: ShadowkinDarkSwapHardsuitToggle
