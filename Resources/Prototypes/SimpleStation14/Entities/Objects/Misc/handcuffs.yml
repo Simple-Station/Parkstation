@@ -1,0 +1,21 @@
+- type: entity
+  parent: Handcuffs
+  id: ClothingOuterStraightJacketShadowkin
+  name: shadowkin straight jacket
+  description: One of the first creations after finding Shadowkin, these were used to contain the Shadowkin during research so they didn't teleport away.
+  components:
+  - type: Item
+    size: 20
+  - type: Handcuff
+    cuffedRSI: Clothing/OuterClothing/Misc/straight_jacket.rsi
+    breakoutTime: 40
+    damageOnResist:
+      types:
+        Blunt: 2
+    cuffTime: 5
+    uncuffTime: 5
+    stunBonus: 4
+    antiShadowkin: true
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Misc/straight_jacket.rsi
+    state: icon

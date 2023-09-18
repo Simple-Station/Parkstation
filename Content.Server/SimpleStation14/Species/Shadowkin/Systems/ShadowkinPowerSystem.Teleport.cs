@@ -53,9 +53,8 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
         if (!_entity.TryGetComponent<ShadowkinComponent>(args.Performer, out var comp))
             return;
 
-        // Don't activate abilities if handcuffed
-        // TODO: Something like the Psionic Headcage to disable powers for Shadowkin
-        if (_entity.HasComponent<HandcuffComponent>(args.Performer))
+        // Don't activate abilities if specially handcuffed
+        if (_entity.TryGetComponent<HandcuffComponent>(args.Performer, out var cuffs) && cuffs.AntiShadowkin)
             return;
 
 
