@@ -25,7 +25,7 @@
   name: action-darkswap-hardsuit-name
   useDelay: 15
   icon:
-    sprite: Clothing/Head/Hardsuits/rd.rsi
+    sprite: SimpleStation14/Clothing/Head/Hardsuits/darkened.rsi
     state: icon
   itemIconStyle: NoItem
   event: !type:ToggleClothingEvent
