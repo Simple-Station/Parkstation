@@ -1,6 +1,5 @@
+using Content.Shared.DeviceLinking;
 using Content.Shared.Doors.Systems;
-using Content.Shared.MachineLinking;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -65,26 +64,26 @@ public sealed class AirlockComponent : Component
     /// <summary>
     /// The receiver port for turning off automatic closing.
     /// </summary>
-    [DataField("autoClosePort", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
+    [DataField("autoClosePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
     public string AutoClosePort = "AutoClose";
 
     // Parkstation-BoltSignal-Start
     /// <summary>
     /// The receiver port for bolting the airlock.
     /// </summary>
-    [DataField("boltPort", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
+    [DataField("boltPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
     public string BoltPort = "Bolt";
 
     /// <summary>
     /// The receiver port for unbolt the airlock.
     /// </summary>
-    [DataField("unBoltPort", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
+    [DataField("unBoltPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
     public string UnBoltPort = "UnBolt";
 
     /// <summary>
     /// The receiver port for toggling the bolt state of the airlock.
     /// </summary>
-    [DataField("toggleBoltPort", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
+    [DataField("toggleBoltPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
     public string ToggleBoltPort = "ToggleBolt";
     // Parkstation-BoltSignal-End
 

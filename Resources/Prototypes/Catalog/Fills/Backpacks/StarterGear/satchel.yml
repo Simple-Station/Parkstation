@@ -69,6 +69,15 @@
 
 - type: entity
   noSpawn: true
+  parent: ClothingBackpackSatchelAtmospherics
+  id: ClothingBackpackSatchelAtmosphericsFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalEngineering
+
+- type: entity
+  noSpawn: true
   parent: ClothingBackpackSatchelScience
   id: ClothingBackpackSatchelScienceFilled
   components:
@@ -115,6 +124,16 @@
         - id: BoxSurvival
         - id: AcousticGuitarInstrument
         - id: SaxophoneInstrument
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelLibrarianFilled
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+        - id: BookRandom
 
 - type: entity
   noSpawn: true

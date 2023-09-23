@@ -1,0 +1,13 @@
+- type: decal
+  id: SandyFloorTile
+  tags: ["station", "markings", "dirt"]
+  sprite:
+    sprite: SimpleStation14/Decals/misc.rsi
+    state: sandy_floor
+
+- type: decal
+  id: SandyFloorPlating
+  tags: ["station", "markings", "dirt"]
+  sprite:
+    sprite: SimpleStation14/Decals/misc.rsi
+    state: sandy_plating

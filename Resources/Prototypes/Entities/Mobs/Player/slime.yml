@@ -25,3 +25,5 @@
       factions:
         - NanoTrasen
     - type: PotentialPsionic
+    - type: TypingIndicator
+      proto: slime

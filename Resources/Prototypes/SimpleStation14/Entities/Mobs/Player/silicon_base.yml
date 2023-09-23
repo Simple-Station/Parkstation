@@ -42,8 +42,8 @@
           layer:
             - MobLayer
     - type: MovementSpeedModifier
-      baseWalkSpeed: 4
-      baseSprintSpeed: 3
+      baseWalkSpeed: 3
+      baseSprintSpeed: 4
     - type: Sprite
       sprite: SimpleStation14/Mobs/Species/IPC/parts.rsi
       state: full
@@ -178,7 +178,7 @@
           visible: false
     - type: Repairable
       fuelcost: 60
-      doAfterDelay: 32
+      doAfterDelay: 18
     - type: Bloodstream
       damageBleedModifiers: BloodlossIPC
       bloodReagent: Water

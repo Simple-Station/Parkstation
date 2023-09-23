@@ -2,7 +2,7 @@
 - type: weightedRandom
   id: TraitorObjectiveGroups
   weights:
-    TraitorObjectiveGroupSteal: 2.5
+    TraitorObjectiveGroupSteal: 0.8
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 1.3 #As in, something about your character. Alive, dead, arrested, gained an ability...
     TraitorObjectiveGroupSocial: 1.3 #Involves helping/harming others without killing them or stealing their stuff
@@ -24,6 +24,7 @@
   id: TraitorObjectiveGroupKill
   weights:
     KillRandomObjective: 1
+    KillRandomHeadObjective: 0.25
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState

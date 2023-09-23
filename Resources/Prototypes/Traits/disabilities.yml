@@ -1,4 +1,4 @@
-﻿- type: trait
+- type: trait
   id: Blindness
   name: trait-blindness-name
   description: trait-blindness-desc
@@ -25,7 +25,7 @@
   cost: 4
   category: Negative
   components:
-    - type: Pacifist
+    - type: Pacified
 
 - type: trait
   id: Colorblindness

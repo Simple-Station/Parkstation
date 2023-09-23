@@ -43,7 +43,8 @@ namespace Content.Server.SimpleStation14.Speech.RandomBark
                             return;
                         }
                     }
-                    _chat.TrySendInGameICMessage(barker.Owner, _random.Pick(barker.Barks), InGameICChatType.Speak, !barker.Chatlog);
+
+                    _chat.TrySendInGameICMessage(barker.Owner, _random.Pick(barker.Barks), InGameICChatType.Speak, barker.Chatlog ? ChatTransmitRange.Normal : ChatTransmitRange.HideChat);
                 }
             }
         }

@@ -1,15 +1,14 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.Borgs
 {
-    [RegisterComponent, NetworkedComponent]
-    public sealed class LawsComponent : Component
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+    public sealed partial class LawsComponent : Component
     {
-        [DataField("laws")]
-        public List<string> Laws = new List<string>();
+        [DataField("laws"), AutoNetworkedField]
+        public List<string> Laws = new();
 
-        [DataField("canState")]
+        [DataField("canState"), AutoNetworkedField]
         public bool CanState = true;
 
         /// <summary>
@@ -21,24 +20,11 @@ namespace Content.Shared.Borgs
         public TimeSpan StateCD = TimeSpan.FromSeconds(30);
 
         // Parkstation-Laws-Start
-
         /// <summary>
         ///     The ID of either a Laws prototype, or a WeightedRandom of Laws prototypes.
         /// </summary>
-        [DataField("lawsID")]
+        [DataField("lawsID"), AutoNetworkedField]
         public string? LawsID;
-
         // Parkstation-Laws-End
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class LawsComponentState : ComponentState
-    {
-        public readonly List<string> Laws;
-
-        public LawsComponentState(List<string> laws)
-        {
-            Laws = laws;
-        }
     }
 }

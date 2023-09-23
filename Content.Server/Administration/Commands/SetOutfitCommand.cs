@@ -2,6 +2,7 @@ using Content.Server.Administration.UI;
 using Content.Server.EUI;
 using Content.Server.Hands.Systems;
 using Content.Server.Preferences.Managers;
+using Content.Shared.Access.Components;
 using Content.Shared.Administration;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
@@ -19,7 +20,7 @@ using Robust.Shared.Containers; // Parkstation-IPC
 namespace Content.Server.Administration.Commands
 {
     [AdminCommand(AdminFlags.Admin)]
-    sealed class SetOutfitCommand : IConsoleCommand
+    public sealed class SetOutfitCommand : IConsoleCommand
     {
         [Dependency] private readonly IEntityManager _entities = default!;
         [Dependency] private readonly IPrototypeManager _prototypes = default!;
@@ -28,7 +29,7 @@ namespace Content.Server.Administration.Commands
 
         public string Description => Loc.GetString("set-outfit-command-description", ("requiredComponent", nameof(InventoryComponent)));
 
-        public string Help => Loc.GetString("set-outfit-command-help-text", ("command",Command));
+        public string Help => Loc.GetString("set-outfit-command-help-text", ("command", Command));
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
@@ -54,7 +55,7 @@ namespace Content.Server.Administration.Commands
 
             if (!_entities.HasComponent<InventoryComponent?>(target))
             {
-                shell.WriteLine(Loc.GetString("shell-target-entity-does-not-have-message",("missing", "inventory")));
+                shell.WriteLine(Loc.GetString("shell-target-entity-does-not-have-message", ("missing", "inventory")));
                 return;
             }
 
@@ -109,9 +110,9 @@ namespace Content.Server.Administration.Commands
                     var equipmentEntity = entityManager.SpawnEntity(gearStr, entityManager.GetComponent<TransformComponent>(target).Coordinates);
                     if (slot.Name == "id" &&
                         entityManager.TryGetComponent<PdaComponent?>(equipmentEntity, out var pdaComponent) &&
-                        pdaComponent.ContainedId != null)
+                        entityManager.TryGetComponent<IdCardComponent>(pdaComponent.ContainedId, out var id))
                     {
-                        pdaComponent.ContainedId.FullName = entityManager.GetComponent<MetaDataComponent>(target).EntityName;
+                        id.FullName = entityManager.GetComponent<MetaDataComponent>(target).EntityName;
                     }
 
                     invSystem.TryEquip(target, equipmentEntity, slot.Name, silent: true, force: true, inventory: inventoryComponent);

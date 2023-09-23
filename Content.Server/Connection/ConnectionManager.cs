@@ -10,12 +10,14 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Content.Server.Administration.Managers;
+using Content.Shared.Corvax.CCCVars;
 
 namespace Content.Server.Connection
 {
     public interface IConnectionManager
     {
         void Initialize();
+        Task<bool> HavePrivilegedJoin(NetUserId userId); // Corvax-Queue
     }
 
     /// <summary>
@@ -134,13 +136,13 @@ namespace Content.Server.Connection
                         return (ConnectionDenyReason.Panic, Loc.GetString("panic-bunker-no-admins"), null);
                     }
                 }
-
             }
 
-            var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
-                            ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&
-                            status == PlayerGameStatus.JoinedGame;
-            if ((_plyMgr.PlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && adminData is null) && !wasInGame)
+            // Corvax-Queue-Start
+            var isPrivileged = await HavePrivilegedJoin(e.UserId);
+            var isQueueEnabled = _cfg.GetCVar(CCCVars.QueueEnabled);
+            if (_plyMgr.PlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && !isPrivileged && !isQueueEnabled)
+            // Corvax-Queue-End
             {
                 var reason = Loc.GetString("soft-player-cap-full");
                 var redial = _redial.GetRandomRedial();
@@ -192,5 +194,17 @@ namespace Content.Server.Connection
             await _db.AssignUserIdAsync(name, assigned);
             return assigned;
         }
+
+        // Corvax-Queue-Start: Make these conditions in one place, for checks in the connection and in the queue
+        public async Task<bool> HavePrivilegedJoin(NetUserId userId)
+        {
+            var isAdmin = await _dbManager.GetAdminDataForAsync(userId) != null;
+            var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
+                            ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&
+                            status == PlayerGameStatus.JoinedGame;
+            return isAdmin ||
+                   wasInGame;
+        }
+        // Corvax-Queue-End
     }
 }

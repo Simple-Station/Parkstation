@@ -1,6 +1,8 @@
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
+using Content.Client.Corvax.DiscordAuth;
+using Content.Client.Corvax.JoinQueue;
 using Content.Client.Eui;
 using Content.Client.Flash;
 using Content.Client.GhostKick;
@@ -73,6 +75,8 @@ namespace Content.Client.Entry
         [Dependency] private readonly IResourceManager _resourceManager = default!;
         [Dependency] private readonly IReplayLoadManager _replayLoad = default!;
         [Dependency] private readonly ILogManager _logManager = default!;
+        [Dependency] private readonly JoinQueueManager _queueManager = default!; // Corvax-Queue
+        [Dependency] private readonly DiscordAuthManager _discordAuthManager = default!; // Corvax-DiscordAuth
 
         public override void Init()
         {
@@ -131,6 +135,8 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("wireLayout");
             _prototypeManager.RegisterIgnore("alertLevels");
             _prototypeManager.RegisterIgnore("nukeopsRole");
+            _prototypeManager.RegisterIgnore("stationGoal"); // Corvax-StationGoal
+            _prototypeManager.RegisterIgnore("loadout"); // Corvax-Loadout
             _prototypeManager.RegisterIgnore("flavor");
             _prototypeManager.RegisterIgnore("announcer"); // Announcer prototypes are server-only.
 
@@ -179,6 +185,8 @@ namespace Content.Client.Entry
             _euiManager.Initialize();
             _voteManager.Initialize();
             _userInterfaceManager.SetDefaultTheme("SS14DefaultTheme");
+            _queueManager.Initialize(); // Corvax-Queue
+            _discordAuthManager.Initialize(); // Corvax-DiscordAuth
             _documentParsingManager.Initialize();
 
             _baseClient.RunLevelChanged += (_, args) =>

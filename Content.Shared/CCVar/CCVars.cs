@@ -292,6 +292,20 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> DebugCoordinatesAdminOnly =
             CVarDef.Create("game.debug_coordinates_admin_only", true, CVar.SERVER | CVar.REPLICATED);
 
+        // Parkstation-Loadouts-Start
+        /// <summary>
+        /// Whether or not to allow characters to select loadout items.
+        /// </summary>
+        public static readonly CVarDef<bool> GameLoadoutsEnabled =
+            CVarDef.Create("game.loadouts_enabled", true, CVar.REPLICATED);
+
+        /// <summary>
+        /// How many points to give to each player for loadouts.
+        /// </summary>
+        public static readonly CVarDef<int> GameLoadoutsPoints =
+            CVarDef.Create("game.loadouts_points", 14, CVar.REPLICATED);
+        // Parkstation-Loadouts-End
+
 #if EXCEPTION_TOLERANCE
         /// <summary>
         ///     Amount of times round start must fail before the server is shut down.
@@ -785,6 +799,19 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<int> AdminAlertExplosionMinIntensity =
             CVarDef.Create("admin.alert.explosion_min_intensity", 60, CVar.SERVERONLY);
 
+
+        /// <summary>
+        ///     Should the ban details in admin channel include PII? (IP, HWID, etc)
+        public static readonly CVarDef<bool> AdminShowPIIOnBan =
+            CVarDef.Create("admin.show_pii_onban", false, CVar.SERVERONLY);
+
+        /// <summary>
+        /// If an admin joins a round by reading up or using the late join button, automatically
+        /// de-admin them.
+        /// </summary>
+        public static readonly CVarDef<bool> AdminDeadminOnJoin =
+            CVarDef.Create("admin.deadmin_on_join", false, CVar.SERVERONLY);
+
         /*
          * Explosions
          */
@@ -1093,6 +1120,12 @@ namespace Content.Shared.CCVar
         /// False: Dead player LOOC gets redirected to dead chat
         /// </summary>
         public static readonly CVarDef<bool> DeadLoocEnabled = CVarDef.Create("looc.enabled_dead", false, CVar.NOTIFY | CVar.REPLICATED);
+
+        /// <summary>
+        /// True: Crit players can use LOOC
+        /// False: Crit player LOOC gets redirected to dead chat
+        /// </summary>
+        public static readonly CVarDef<bool> CritLoocEnabled = CVarDef.Create("looc.enabled_crit", false, CVar.NOTIFY | CVar.REPLICATED);
 
         /*
          * Entity Menu Grouping Types
@@ -1572,8 +1605,8 @@ namespace Content.Shared.CCVar
         /// <summary>
         /// Time that players have to wait before rules can be accepted.
         /// </summary>
-        public static readonly CVarDef<float> RulesWaitTime =
-            CVarDef.Create("rules.time", 45f, CVar.SERVER | CVar.REPLICATED);
+        public static readonly CVarDef<int> RulesWaitTime = // Parkstation-FixRules // Causes game to not switch state, making gameplay not playable?
+            CVarDef.Create("rules.time", 45, CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
         /// Don't show rules to localhost/loopback interface.

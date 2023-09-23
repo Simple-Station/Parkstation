@@ -1,4 +1,4 @@
-﻿# Utility effects permanently modify the entity in some way when triggered, and they generally make it 'useful' for some purpose,
+# Utility effects permanently modify the entity in some way when triggered, and they generally make it 'useful' for some purpose,
 # like turning the artifact into a tool, or gun, or whatever.
 - type: artifactEffect
   id: EffectIntercom
@@ -26,7 +26,6 @@
     - Security
     - Service
     - Binary
-    - Syndicate
 
 - type: artifactEffect
   id: EffectRandomInstrument
@@ -190,8 +189,8 @@
       Forcibly activate your nodes for good or for evil.
   - type: GhostTakeoverAvailable
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.5
-    baseSprintSpeed: 0.25
+    baseWalkSpeed: 0.25
+    baseSprintSpeed: 0.5
 
 - type: artifactEffect
   id: EffectMultitool

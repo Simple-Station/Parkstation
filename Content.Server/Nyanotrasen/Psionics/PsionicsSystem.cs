@@ -108,7 +108,7 @@ namespace Content.Server.Psionics
                     break;
             }
 
-            _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false, force:true);
+            _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false);
         }
 
         private void OnInit(EntityUid uid, PsionicComponent component, ComponentInit args)

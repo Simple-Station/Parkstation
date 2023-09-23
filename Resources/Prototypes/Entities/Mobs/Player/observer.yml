@@ -58,8 +58,8 @@
       - state: animated
         shader: unshaded
   - type: MovementSpeedModifier
-    baseWalkSpeed: 10
-    baseSprintSpeed: 6
+    baseWalkSpeed: 6
+    baseSprintSpeed: 10
   - type: MovementIgnoreGravity
   - type: Pullable
   - type: Speech

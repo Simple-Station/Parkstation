@@ -1,14 +1,14 @@
-- type: receiverPort
+- type: sinkPort
   id: Bolt
   name: signal-port-name-bolt
   description: signal-port-description-bolt
 
-- type: receiverPort
+- type: sinkPort
   id: UnBolt
   name: signal-port-name-unbolt
   description: signal-port-description-unbolt
 
-- type: receiverPort
+- type: sinkPort
   id: ToggleBolt
   name: signal-port-name-togglebolt
   description: signal-port-description-togglebolt

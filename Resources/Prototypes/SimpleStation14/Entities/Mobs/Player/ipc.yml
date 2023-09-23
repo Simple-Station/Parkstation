@@ -72,6 +72,8 @@
   - type: Wires
     BoardName: "IPC"
     LayoutId: IPC
+  - type: CharacterInformation
+  - type: SSDIndicator
 
 - type: entity
   save: false

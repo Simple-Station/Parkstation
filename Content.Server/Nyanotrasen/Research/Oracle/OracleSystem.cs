@@ -56,7 +56,7 @@ namespace Content.Server.Research.Oracle
             "Incorrect sample provided.",
             "This is not the required data.",
             "ERROR",
-            "Uneeded object registered.",
+            "Unneeded object registered.",
             "Unexpected item in scanning area."
         };
 
@@ -121,7 +121,7 @@ namespace Content.Server.Research.Oracle
                 {
                     oracle.BarkAccumulator = 0;
                     string message = Loc.GetString(_random.Pick(DemandMessages), ("item", oracle.DesiredPrototype.Name)).ToUpper();
-                    _chat.TrySendInGameICMessage(oracle.Owner, message, InGameICChatType.Speak, false);
+                    _chat.TrySendInGameICMessage(oracle.Owner, message, InGameICChatType.Speak, ChatTransmitRange.Normal);
                 }
 
                 if (oracle.Accumulator >= oracle.ResetTime.TotalSeconds)
