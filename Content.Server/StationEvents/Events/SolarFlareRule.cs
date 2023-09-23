@@ -7,9 +7,10 @@ using Content.Server.StationEvents.Components;
 using Content.Shared.Radio.Components;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
-using Content.Shared.SimpleStation14.Silicon.Components;
-using Content.Shared.StatusEffect; // Parkstation-Ipc
-using Content.Shared.SimpleStation14.Silicon.Systems; // Parkstation-Ipc
+using Content.Shared.SimpleStation14.Silicon.Components; // Parkstation-Ipc
+using Content.Shared.Emp; // Parkstation-Ipc
+using Content.Server.Emp; // Parkstation-Ipc
+using Content.Shared.Coordinates; // Parkstation-Ipc
 
 namespace Content.Server.StationEvents.Events;
 
@@ -17,7 +18,7 @@ public sealed class SolarFlareRule : StationEventSystem<SolarFlareRuleComponent>
 {
     [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
     [Dependency] private readonly SharedDoorSystem _door = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!; // Parkstation-Ipc
+    [Dependency] private readonly EmpSystem _emp = default!; // Parkstation-Ipc
 
     private float _effectTimer = 0;
 
@@ -56,20 +57,7 @@ public sealed class SolarFlareRule : StationEventSystem<SolarFlareRuleComponent>
 
                 if (RobustRandom.Prob(component.DoorToggleChancePerSecond))
                 {
-                    _status.TryAddStatusEffect<SeeingStaticComponent>
-                    (
-                        siliconEnt,
-                        SeeingStaticSystem.StaticKey,
-                        TimeSpan.FromSeconds(RobustRandom.NextFloat(component.SiliconStaticDuration.X, component.SiliconStaticDuration.Y)),
-                        true,
-                        null
-                    );
-
-                    if (TryComp<SeeingStaticComponent>(siliconEnt, out var staticComp))
-                    {
-                        staticComp.Multiplier = 0.80f;
-                        Dirty(staticComp);
-                    }
+                    _emp.EmpPulse(Transform(siliconEnt).MapPosition, 0.5f, 40, RobustRandom.NextFloat(2, 20));
                 }
             }
             // Parkstation-Ipc-End
