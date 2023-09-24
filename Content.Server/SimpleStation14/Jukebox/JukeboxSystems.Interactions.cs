@@ -23,11 +23,11 @@ public sealed partial class JukeboxSystem : EntitySystem
     {
         if (jukeboxComp.Paused)
         {
-            UnPause(jukeBox, jukeboxComp);
+            TryUnPauseSong(jukeBox, jukeboxComp);
         }
         else
         {
-            Pause(jukeBox, jukeboxComp);
+            DoPauseSong(jukeBox, jukeboxComp);
         }
     }
 
@@ -36,7 +36,7 @@ public sealed partial class JukeboxSystem : EntitySystem
     /// </summary>
     private void OnSkipButtonPressed(EntityUid jukeBox, JukeboxComponent jukeboxComp, JukeboxSkipButtonPressedMessage msg)
     {
-        Skip(jukeBox, jukeboxComp);
+        TrySkipSong(jukeBox, jukeboxComp);
     }
 
     /// <summary>

@@ -6,6 +6,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
+using Content.Shared.Emag.Systems;
 
 namespace Content.Server.SimpleStation14.Jukebox;
 
@@ -24,6 +25,7 @@ public sealed partial class JukeboxSystem : EntitySystem
         SubscribeLocalEvent<JukeboxComponent, ComponentShutdown>(OnComponentShutdown);
 
         SubscribeLocalEvent<JukeboxComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<JukeboxComponent, GotEmaggedEvent>(OnEmagged);
 
         SubscribeLocalEvent<JukeboxComponent, JukeboxPlayButtonPressedMessage>(OnPlayButtonPressed);
         SubscribeLocalEvent<JukeboxComponent, JukeboxSkipButtonPressedMessage>(OnSkipButtonPressed);
@@ -52,6 +54,16 @@ public sealed partial class JukeboxSystem : EntitySystem
         Clean(uid, component);
     }
 
+    /// <summary>
+    ///     Handles setting the Jukebox's state to emagged.
+    /// </summary>
+    private void OnEmagged(EntityUid jukeBox, JukeboxComponent jukeboxComp, ref GotEmaggedEvent args)
+    {
+        jukeboxComp.Emagged = true;
+        args.Handled = true;
+        UpdateState(jukeBox, jukeboxComp);
+    }
+
     #endregion Event handlers
     #region Public functions
 
@@ -77,13 +89,13 @@ public sealed partial class JukeboxSystem : EntitySystem
             return;
         }
 
-        Play(jukeBox, jukeboxComp, song);
+        TryPlaySong(jukeBox, jukeboxComp, song);
     }
 
     /// <summary>
     ///     Ends the currently playing song in the Jukebox and plays the next song in the queue, if available.
     /// </summary>
-    public void Skip(EntityUid jukeBox, JukeboxComponent jukeboxComp)
+    public void TrySkipSong(EntityUid jukeBox, JukeboxComponent jukeboxComp)
     {
         if (!jukeboxComp.CanPlay)
             return;
@@ -95,7 +107,7 @@ public sealed partial class JukeboxSystem : EntitySystem
             var toPlay = jukeboxComp.NextUp[0]; // Get the first song in the queue.
             jukeboxComp.NextUp.RemoveAt(0); // And remove it now so we don't need to UpdateState() twice.
 
-            Play(jukeBox, jukeboxComp, toPlay);
+            TryPlaySong(jukeBox, jukeboxComp, toPlay);
 
             return;
         }
@@ -110,7 +122,7 @@ public sealed partial class JukeboxSystem : EntitySystem
     ///     See <see cref="Stop"/> to stop the Jukebox instead.
     ///     Pausing a Jukebox will allow it to remember its paused state, even if it gets stopped later.
     /// </remarks>
-    public void Pause(EntityUid jukeBox, JukeboxComponent jukeboxComp)
+    public void DoPauseSong(EntityUid jukeBox, JukeboxComponent jukeboxComp)
     {
         if (jukeboxComp.Paused || !jukeboxComp.Playing)
             return;
@@ -123,7 +135,7 @@ public sealed partial class JukeboxSystem : EntitySystem
     /// <summary>
     ///     Unpauses the Jukebox and resumes playing the current song from where it was paused.
     /// </summary>
-    public void UnPause(EntityUid jukeBox, JukeboxComponent jukeboxComp)
+    public void TryUnPauseSong(EntityUid jukeBox, JukeboxComponent jukeboxComp)
     {
         if (!jukeboxComp.CanPlay)
             return;
@@ -143,24 +155,24 @@ public sealed partial class JukeboxSystem : EntitySystem
     /// </summary>
     /// <param name="song">The JukeboxTrackPrototype representing the song to be played.</param>
     /// <param name="offset">The optional offset from the start of the song to begin playing from.</param>
-    public void Play(EntityUid jukeBox, JukeboxComponent jukeboxComp, string song, TimeSpan offset = new TimeSpan())
+    public void TryPlaySong(EntityUid jukeBox, JukeboxComponent jukeboxComp, string song, TimeSpan offset = new TimeSpan())
     {
         if (!_prototype.TryIndex<JukeboxTrackPrototype>(song, out var songPrototype))
         {
             Logger.Error($"Jukebox track prototype {song} not found!");
 
-            Skip(jukeBox, jukeboxComp);
+            TrySkipSong(jukeBox, jukeboxComp);
             return;
         }
 
-        Play(jukeBox, jukeboxComp, songPrototype, offset);
+        TryPlaySong(jukeBox, jukeboxComp, songPrototype, offset);
     }
 
-    /// <inheritdoc cref="Play(EntityUid, JukeboxComponent, string, TimeSpan)"/>
+    /// <inheritdoc cref="TryPlaySong(EntityUid, JukeboxComponent, string, TimeSpan)"/>
     /// <remarks>
     ///     Directly takes a <see cref="JukeboxTrackPrototype"/> instead.
     /// </remarks>
-    public void Play(EntityUid jukeBox, JukeboxComponent jukeboxComp, JukeboxTrackPrototype song, TimeSpan offset = new TimeSpan())
+    public void TryPlaySong(EntityUid jukeBox, JukeboxComponent jukeboxComp, JukeboxTrackPrototype song, TimeSpan offset = new TimeSpan())
     {
         if (!jukeboxComp.CanPlay)
             return;
@@ -175,7 +187,7 @@ public sealed partial class JukeboxSystem : EntitySystem
 
         jukeboxComp.FinishPlayingTime = _timing.CurTime + song.Duration - offset;
 
-        jukeboxComp.CurrentlyPlayingStream = _audio.Play(song.Path, Filter.Broadcast(), jukeBox, true, AudioParams.Default.WithPlayOffset((float)offset.TotalSeconds));
+        jukeboxComp.CurrentlyPlayingStream = _audio.Play(song.Path, Filter.Broadcast(), jukeBox, true, AudioParams.Default.WithPlayOffset((float) offset.TotalSeconds));
 
         Timer.Spawn((int) (song.Duration.TotalMilliseconds - offset.TotalMilliseconds), () => OnSongEnd(jukeBox, jukeboxComp), jukeboxComp.SongTimerCancel.Token);
 
@@ -207,7 +219,7 @@ public sealed partial class JukeboxSystem : EntitySystem
     ///     Stops the currently playing song and sets the Jukebox to a stopped state.
     /// </summary>
     /// <remarks>
-    ///     See <see cref="Pause"/> to pause the Jukebox instead.
+    ///     See <see cref="DoPauseSong"/> to pause the Jukebox instead.
     /// </remarks>
     private void Stop(EntityUid jukeBox, JukeboxComponent jukeboxComp)
     {
@@ -280,7 +292,7 @@ public sealed partial class JukeboxSystem : EntitySystem
 
         jukeboxComp.StoppedTime = null;
 
-        Play(jukeBox, jukeboxComp, jukeboxComp.CurrentlyPlayingTrack, timeLeftBeforeFinished);
+        TryPlaySong(jukeBox, jukeboxComp, jukeboxComp.CurrentlyPlayingTrack, timeLeftBeforeFinished);
 
         return;
     }
@@ -301,7 +313,7 @@ public sealed partial class JukeboxSystem : EntitySystem
     /// </summary>
     private void OnSongEnd(EntityUid jukeBox, JukeboxComponent jukeboxComp)
     {
-        Skip(jukeBox, jukeboxComp);
+        TrySkipSong(jukeBox, jukeboxComp);
     }
 
     #endregion Private functions

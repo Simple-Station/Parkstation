@@ -56,12 +56,12 @@ public sealed partial class JukeboxWindow : FancyWindow
         SerialTitle.SetMessage(Loc.GetString("jukebox-ui-serial-title"));
         SerialNumber.Text = jukeboxComp.SerialNumber;
 
-        BG_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxBG) };
-        Panel_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxPanel) };
-        Panel_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxPanel) };
-        // Accent_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
-        // Accent_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
-        Accent_3.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxAccent) };
+        BG_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorBG) };
+        Panel_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorPanel) };
+        Panel_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorPanel) };
+        // Accent_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorAccent) };
+        // Accent_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorAccent) };
+        Accent_3.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorAccent) };
 
         SongName.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 18);
         SongsLabel.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 22);
@@ -124,33 +124,38 @@ public sealed partial class JukeboxWindow : FancyWindow
 
         songsToAdd.Sort();
 
-        if (_jukeboxComp.Emagged)
-            songsToAdd.AddRange(_jukeboxComp.EmaggedSongs.OrderBy(song => song).ToList());
-
         foreach (var trackId in songsToAdd)
+            GenerateSongButton(trackId, false);
+
+        if (_jukeboxComp.Emagged)
+            foreach (var trackId in _jukeboxComp.EmaggedSongs.OrderBy(song => song).ToList())
+                GenerateSongButton(trackId, true);
+    }
+
+    private void GenerateSongButton(string trackId, bool illegal)
+    {
+        if (!_prototype.TryIndex<JukeboxTrackPrototype>(trackId, out var track))
         {
-            if (!_prototype.TryIndex<JukeboxTrackPrototype>(trackId, out var track))
-            {
-                Logger.Error($"No JukeboxTrackPrototype found for {trackId}!");
-
-                continue;
-            }
-
-            var newButton = new Button
-            {
-                Text = track.Name,
-                TextAlign = Label.AlignMode.Left,
-                ClipText = true,
-                RectClipContent = true,
-                MaxWidth = 180f,
-                Margin = new Thickness(0, 0, 0, 4),
-            };
-
-            newButton.StyleClasses.Add(StyleBase.ButtonOpenLeft);
-            newButton.OnPressed += _ => OnSongSelected?.Invoke(trackId);
-
-            SongPickerBox.AddChild(newButton);
+            Logger.Error($"No JukeboxTrackPrototype found for {trackId}!");
+            return;
         }
+
+        var newButton = new Button
+        {
+            Text = track.Name,
+            TextAlign = Label.AlignMode.Left,
+            ClipText = true,
+            RectClipContent = true,
+            MaxWidth = 180f,
+            Margin = new Thickness(0, 0, 0, 4),
+        };
+
+        newButton.StyleClasses.Add(StyleBase.ButtonOpenLeft);
+        if (illegal)
+            newButton.StyleClasses.Add(StyleBase.ButtonCaution);
+        newButton.OnPressed += _ => OnSongSelected?.Invoke(track.ID);
+
+        SongPickerBox.AddChild(newButton);
     }
 
     private void PopulateQueue()

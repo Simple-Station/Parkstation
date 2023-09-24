@@ -40,16 +40,16 @@ public sealed partial class JukeboxComponent : Component
     ///     A colour to be used in the Jukebox's UI.
     ///     Should be based on the sprite.
     /// </summary>
-    [DataField("jukeboxBG")]
-    public string JukeboxBG { get; set; } = "#602C00";
+    [DataField("jukeboxUiColorBG")]
+    public string JukeboxUiColorBG { get; set; } = "#602C00";
 
-    /// <inheritdoc cref="JukeboxBG"/>
-    [DataField("jukeboxPanel")]
-    public string JukeboxPanel { get; } = "#480F0F";
+    /// <inheritdoc cref="JukeboxUiColorBG"/>
+    [DataField("jukeboxUiColorPanel")]
+    public string JukeboxUiColorPanel { get; } = "#480F0F";
 
-    /// <inheritdoc cref="JukeboxBG"/>
-    [DataField("jukeboxAccent")]
-    public string JukeboxAccent { get; } = "#20181B";
+    /// <inheritdoc cref="JukeboxUiColorBG"/>
+    [DataField("jukeboxUiColorAccent")]
+    public string JukeboxUiColorAccent { get; } = "#20181B";
 
     /// <summary>
     ///     The currently playing audio stream.

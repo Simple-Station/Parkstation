@@ -8,12 +8,13 @@
     songs:
       - DanyaVodovozFunkOMatic
       - DanyaVodovozGoinOn
+      - DanyaVodovozOffTheGrid
+      - DanyaVodovozPlanetOfTheAmazons
+    emaggedSongs:
       - DanyaVodovozGuacamole
       - DanyaVodovozJazzFunkMySoul
       - DanyaVodovozMothToAFlame
       - DanyaVodovozNightInBrazil
-      - DanyaVodovozOffTheGrid
-      - DanyaVodovozPlanetOfTheAmazons
   - type: ActivatableUI
     key: enum.JukeboxUiKey.Key
   - type: ActivatableUIRequiresPower
