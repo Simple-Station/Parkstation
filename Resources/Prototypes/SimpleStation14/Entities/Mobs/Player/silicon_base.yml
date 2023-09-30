@@ -267,7 +267,6 @@
       canDisarm: true
     - type: Climbing
     - type: Cuffable
-      state: icon
     - type: AnimationPlayer
     - type: Buckle
     - type: CreamPied
