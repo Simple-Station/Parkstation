@@ -23,16 +23,11 @@
     - type: EntityStorage
       capacity: 1
       isCollidableWhenOpen: false
-      # closeSound:
-      #   path:
-      # openSound:
-      #   path:
     - type: Appearance
-      visuals:
-      - type: StorageVisualizer
-        state: base
-        state_open: open
-        state_closed: door
+    - type: EntityStorageVisuals
+      stateBaseClosed: base
+      stateDoorOpen: open
+      stateDoorClosed: door
     - type: Sprite
       sprite: SimpleStation14/Structures/Medical/sleepers/standardpod.rsi
       layers:
@@ -67,12 +62,7 @@
   components:
     - type: Clickable
     - type: InteractionOutline
-    - type: Appearance
-      visuals:
-      - type: StorageVisualizer
-        state: base
-        state_open: open
-        state_closed: door
+
     - type: Sprite
       sprite: SimpleStation14/Structures/Medical/sleepers/oldpod.rsi
       layers:
@@ -88,12 +78,7 @@
   components:
     - type: Clickable
     - type: InteractionOutline
-    - type: Appearance
-      visuals:
-      - type: StorageVisualizer
-        state: base
-        state_open: open
-        state_closed: door
+
     - type: Sprite
       sprite: SimpleStation14/Structures/Medical/sleepers/partypod.rsi
       layers:
@@ -109,12 +94,7 @@
   components:
     - type: Clickable
     - type: InteractionOutline
-    - type: Appearance
-      visuals:
-      - type: StorageVisualizer
-        state: base
-        state_open: open
-        state_closed: door
+
     - type: Sprite
       sprite: SimpleStation14/Structures/Medical/sleepers/standardpod.rsi
       layers:
@@ -130,12 +110,7 @@
   components:
     - type: Clickable
     - type: InteractionOutline
-    - type: Appearance
-      visuals:
-      - type: StorageVisualizer
-        state: base
-        state_open: open
-        state_closed: door
+
     - type: Sprite
       sprite: SimpleStation14/Structures/Medical/sleepers/clockworkpod.rsi
       layers:
@@ -151,12 +126,7 @@
   components:
     - type: Clickable
     - type: InteractionOutline
-    - type: Appearance
-      visuals:
-      - type: StorageVisualizer
-        state: base
-        state_open: open
-        state_closed: door
+
     - type: Sprite
       sprite: SimpleStation14/Structures/Medical/sleepers/syndiepod.rsi
       layers:
