@@ -4,7 +4,6 @@
   description: action-description-spell-healing
   useDelay: 30
   range: 64
-  speech: action-speech-spell-healing
   itemIconStyle: BigAction
   whitelist:
     components:
@@ -23,3 +22,4 @@
         Burn: -999
         Airloss: -999
         Toxin: -999
+    speech: action-speech-spell-healing
