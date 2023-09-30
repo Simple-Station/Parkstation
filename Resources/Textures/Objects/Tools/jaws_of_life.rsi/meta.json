@@ -32,11 +32,11 @@
       "directions": 4
     },
     {
-        "name": "syn-inhand-left",
+        "name": "syn_inhand-left",
         "directions": 4
     },
     {
-        "name": "syn-inhand-right",
+        "name": "syn_inhand-right",
         "directions": 4
     }
   ]

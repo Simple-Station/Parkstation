@@ -24,12 +24,10 @@
             "directions": 4
         },
         {
-            "name": "headlight",
-            "directions": 4
+            "name": "headlight"
         },
         {
-            "name": "icon",
-            "directions": 4
+            "name": "icon"
         },
         {
             "name": "inhand-left",
@@ -52,8 +50,7 @@
             "directions": 4
         },
         {
-            "name": "visorlit",
-            "directions": 4
+            "name": "visorlit"
         }
     ]
 }
