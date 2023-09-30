@@ -34,6 +34,9 @@
   description: trait-ageusia-description
   cost: 1
   category: Negative
+  blacklist:
+    species:
+      - IPC
   components:
     - type: Ageusia
 
@@ -60,3 +63,15 @@
       messagePerceivedByOthers: hugging-success-generic-others
       soundPerceivedByOthers: false
     - type: StutteringAccent
+
+- type: trait
+  id: ShadowkinBlackeye
+  name: Blackeye
+  description: You lose your special Shadowkin powers, in return for some points.
+  cost: 5
+  category: Negative
+  whitelist:
+    species:
+      - Shadowkin
+  components:
+    - type: ShadowkinBlackeyeTrait

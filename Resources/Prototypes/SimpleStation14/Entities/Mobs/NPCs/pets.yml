@@ -1,27 +1,4 @@
 - type: entity
-  parent: MobMonkey
-  id: MobMonkeyPunpun
-  name: Punpun
-  description: NOT FOR HUMAN CONSUMPTION.
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: monkey
-      sprite: SimpleStation14/Mobs/Pets/punpun.rsi
-  - type: Faction
-    factions:
-    - Pet
-  - type: Grammar
-    attributes:
-      proper: true
-      gender: male
-  - type: RandomBark
-    chatlog: True
-  - type: Punpun
-
-- type: entity
   parent: MobLizard
   id: MobLizardLois
   name: Lois
@@ -29,7 +6,7 @@
   components:
   - type: InteractionPopup
     successChance: 0.7
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: Grammar
@@ -45,7 +22,7 @@
   components:
   - type: InteractionPopup
     successChance: 0.35
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: Grammar
@@ -61,7 +38,7 @@
   components:
   - type: InteractionPopup
     successChance: 0.25
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: Grammar

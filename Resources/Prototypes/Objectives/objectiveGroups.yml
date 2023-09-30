@@ -2,7 +2,7 @@
 - type: weightedRandom
   id: TraitorObjectiveGroups
   weights:
-    TraitorObjectiveGroupSteal: 2.5
+    TraitorObjectiveGroupSteal: 0.8
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 1.3 #As in, something about your character. Alive, dead, arrested, gained an ability...
     TraitorObjectiveGroupSocial: 1.3 #Involves helping/harming others without killing them or stealing their stuff
@@ -11,7 +11,7 @@
   id: TraitorObjectiveGroupSteal
   weights:
     # CaptainIDStealObjective: 1
-    CMOHyposprayStealObjective: 1
+    CMOHypospraySteclothingeyesalObjective: 1
     RDHardsuitStealObjective: 1
     NukeDiskStealObjective: 1
     IDComputerBoardStealObjective: 1
@@ -24,13 +24,14 @@
   id: TraitorObjectiveGroupKill
   weights:
     KillRandomObjective: 1
+    KillRandomHeadObjective: 0.25
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState
   weights:
     EscapeShuttleObjective: 1
-    # BecomePsionicObjective: 0.5
-    # BecomeGolemObjective: 0.25
+    # BecomePsionicObjective: 1
+    # BecomeGolemObjective: 0.5
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial

@@ -4,6 +4,7 @@ using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Mind;
 using Content.Server.Objectives.Interfaces;
 using Content.Server.Players;
 using Content.Server.Shuttles.Components;
@@ -35,6 +36,7 @@ public sealed class MinorRuleSystem : GameRuleSystem<MinorRuleComponent>
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -192,7 +194,7 @@ public sealed class MinorRuleSystem : GameRuleSystem<MinorRuleComponent>
 
         var antagPrototype = _prototypeManager.Index<AntagPrototype>(minorRule.MinorPrototypeId);
         var minorRole = new MinorRole(mind, antagPrototype);
-        mind.AddRole(minorRole);
+        _mind.AddRole(mind, minorRole);
         minorRule.Minors.Add(minorRole);
         minorRole.GreetMinor();
 
@@ -204,7 +206,7 @@ public sealed class MinorRuleSystem : GameRuleSystem<MinorRuleComponent>
         {
             var objective = _objectivesManager.GetRandomObjective(minorRole.Mind, "TraitorObjectiveGroups");
             if (objective == null) continue;
-            if (minorRole.Mind.TryAddObjective(objective))
+            if (_mind.TryAddObjective(mind, objective))
                 difficulty += objective.Difficulty;
         }
 
@@ -272,7 +274,7 @@ public sealed class MinorRuleSystem : GameRuleSystem<MinorRuleComponent>
             foreach (var m in minor.Minors)
             {
                 var name = m.Mind.CharacterName;
-                m.Mind.TryGetSession(out var session);
+                _mind.TryGetSession(m.Mind, out var session);
                 var username = session?.Name;
 
                 var objectives = m.Mind.AllObjectives.ToArray();

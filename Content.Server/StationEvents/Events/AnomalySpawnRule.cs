@@ -1,4 +1,3 @@
-﻿using System.Linq;
 using Content.Server.Anomaly;
 using Content.Server.SimpleStation14.Announcements.Systems;
 using Content.Server.GameTicking.Rules.Components;
@@ -6,7 +5,6 @@ using Content.Server.Station.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
 using Content.Server.StationEvents.Components;
-using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
@@ -29,19 +27,15 @@ public sealed class AnomalySpawnRule : StationEventSystem<AnomalySpawnRuleCompon
     {
         base.Started(uid, component, gameRule, args);
 
-        if (StationSystem.Stations.Count == 0)
-            return; // No stations
-        var chosenStation = RobustRandom.Pick(StationSystem.Stations.ToList());
+        if (!TryGetRandomStation(out var chosenStation))
+            return;
+
         if (!TryComp<StationDataComponent>(chosenStation, out var stationData))
             return;
 
-        EntityUid? grid = null;
-        foreach (var g in stationData.Grids.Where(HasComp<BecomesStationComponent>))
-        {
-            grid = g;
-        }
+        var grid = StationSystem.GetLargestGrid(stationData);
 
-        if (grid is not { })
+        if (grid is null)
             return;
 
         var amountToSpawn = Math.Max(1, (int) MathF.Round(GetSeverityModifier() / 2));

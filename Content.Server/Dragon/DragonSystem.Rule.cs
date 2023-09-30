@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Station.Components;
 using Content.Shared.Dragon;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
@@ -26,39 +27,25 @@ public sealed partial class DragonSystem
         return finished;
     }
 
-    protected override void Started(EntityUid uid, DragonRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
-    {
-        base.Started(uid, component, gameRule, args);
-
-        var spawnLocations = EntityQuery<MapGridComponent, TransformComponent>().ToList();
-
-        if (spawnLocations.Count == 0)
-            return;
-
-        var location = _random.Pick(spawnLocations);
-        Spawn("MobDragon", location.Item2.MapPosition);
-    }
-
     private void OnRiftRoundEnd(RoundEndTextAppendEvent args)
     {
-        var dragons = EntityQuery<DragonComponent>(true).ToList();
-
-        if (dragons.Count == 0)
+        if (EntityQuery<DragonComponent>().Count() == 0)
             return;
 
         args.AddLine(Loc.GetString("dragon-round-end-summary"));
 
-        foreach (var dragon in EntityQuery<DragonComponent>(true))
+        var query = EntityQueryEnumerator<DragonComponent>();
+        while (query.MoveNext(out var uid, out var dragon))
         {
             var met = RiftsMet(dragon);
 
-            if (TryComp<ActorComponent>(dragon.Owner, out var actor))
+            if (TryComp<ActorComponent>(uid, out var actor))
             {
-                args.AddLine(Loc.GetString("dragon-round-end-dragon-player", ("name", dragon.Owner), ("count", met), ("player", actor.PlayerSession)));
+                args.AddLine(Loc.GetString("dragon-round-end-dragon-player", ("name", uid), ("count", met), ("player", actor.PlayerSession)));
             }
             else
             {
-                args.AddLine(Loc.GetString("dragon-round-end-dragon", ("name", dragon.Owner), ("count", met)));
+                args.AddLine(Loc.GetString("dragon-round-end-dragon", ("name", uid), ("count", met)));
             }
         }
     }

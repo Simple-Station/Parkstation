@@ -5,6 +5,7 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.HealthExaminable;
 using Content.Server.Popups;
+using Content.Shared.Alert;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Damage;
@@ -38,6 +39,7 @@ public sealed class BloodstreamSystem : EntitySystem
     [Dependency] private readonly SharedDrunkSystem _drunkSystem = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
+    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
 
     public override void Initialize()
     {
@@ -96,8 +98,10 @@ public sealed class BloodstreamSystem : EntitySystem
             bloodstream.AccumulatedFrametime -= bloodstream.UpdateInterval;
 
             // Adds blood to their blood level if it is below the maximum; Blood regeneration. Must be alive.
-            if (bloodstream.BloodSolution.Volume < bloodstream.BloodSolution.MaxVolume && _mobStateSystem.IsAlive(uid))
+            if (bloodstream.BloodSolution.Volume < bloodstream.BloodSolution.MaxVolume && !_mobStateSystem.IsDead(uid))
+            {
                 TryModifyBloodLevel(uid, bloodstream.BloodRefreshAmount, bloodstream);
+            }
 
             // Removes blood from the bloodstream based on bleed amount (bleed rate)
             // as well as stop their bleeding to a certain extent.
@@ -113,7 +117,7 @@ public sealed class BloodstreamSystem : EntitySystem
 
             // deal bloodloss damage if their blood level is below a threshold.
             var bloodPercentage = GetBloodLevelPercentage(uid, bloodstream);
-            if (bloodPercentage < bloodstream.BloodlossThreshold && _mobStateSystem.IsAlive(uid))
+            if (bloodPercentage < bloodstream.BloodlossThreshold && !_mobStateSystem.IsDead(uid))
             {
                 // bloodloss damage is based on the base value, and modified by how low your blood level is.
                 var amt = bloodstream.BloodlossDamage / (0.1f + bloodPercentage);
@@ -129,7 +133,7 @@ public sealed class BloodstreamSystem : EntitySystem
                 // storing the drunk and stutter time so we can remove it independently from other effects additions
                 bloodstream.StatusTime += bloodstream.UpdateInterval * 2;
             }
-            else if (_mobStateSystem.IsAlive(uid))
+            else if (!_mobStateSystem.IsDead(uid))
             {
                 // If they're healthy, we'll try and heal some bloodloss instead.
                 _damageableSystem.TryChangeDamage(uid, bloodstream.BloodlossHealDamage * bloodPercentage, true, false);
@@ -256,6 +260,7 @@ public sealed class BloodstreamSystem : EntitySystem
     {
         TryModifyBleedAmount(uid, -component.BleedAmount, component);
         TryModifyBloodLevel(uid, component.BloodSolution.AvailableVolume, component);
+        _solutionContainerSystem.RemoveAllSolution(uid, component.ChemicalSolution);
     }
 
     /// <summary>
@@ -348,6 +353,14 @@ public sealed class BloodstreamSystem : EntitySystem
 
         component.BleedAmount += amount;
         component.BleedAmount = Math.Clamp(component.BleedAmount, 0, component.MaxBleedAmount);
+
+        if (component.BleedAmount == 0)
+            _alertsSystem.ClearAlert(uid, AlertType.Bleed);
+        else
+        {
+            var severity = (short) Math.Clamp(Math.Round(component.BleedAmount, MidpointRounding.ToZero), 0, 10);
+            _alertsSystem.ShowAlert(uid, AlertType.Bleed, severity);
+        }
 
         return true;
     }

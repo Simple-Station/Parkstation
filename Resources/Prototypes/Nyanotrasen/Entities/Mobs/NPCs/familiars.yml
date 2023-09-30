@@ -7,7 +7,6 @@
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Guardians/guardians.rsi
-    netsync: false
     layers:
       - state: magic_base
         map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -21,14 +20,15 @@
           magic_flare: Sixteen
   - type: Fixtures
     fixtures:
-      - shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 225
-        mask:
-          - FlyingMobMask
-        layer:
-          - FlyingMobLayer
+      fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 225
+          mask:
+            - FlyingMobMask
+          layer:
+            - FlyingMobLayer
   - type: Bloodstream
     bloodReagent: Phlogiston
   - type: MeleeWeapon
@@ -52,7 +52,7 @@
     tags:
     - Chapel
     - Research
-  - type: Mind
+  - type: MindContainer
     showExamineInfo: true
   - type: Familiar
   - type: Dispellable
@@ -85,7 +85,7 @@
       proper: true
   - type: MovementIgnoreGravity
   - type: EyeProtection
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - PsionicInterloper
     - NanoTrasen

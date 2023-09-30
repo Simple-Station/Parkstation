@@ -7,5 +7,5 @@ marking-EarsEasternD=Eastern Dragon
 marking-EarsJackal=Jackal
 marking-EarsMagus=Pointy
 marking-EarsMouse=Mouse
-marking-EarsShadekin=Dragonite
+marking-EarsShadowkin=Shadowkin
 marking-EarsSylveon=Ribbons

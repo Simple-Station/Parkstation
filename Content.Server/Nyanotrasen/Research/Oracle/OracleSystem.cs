@@ -26,7 +26,7 @@ namespace Content.Server.Research.Oracle
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
-        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly PuddleSystem _puddleSystem = default!;
 
         public readonly IReadOnlyList<string> RewardReagents = new[]
@@ -56,7 +56,7 @@ namespace Content.Server.Research.Oracle
             "Incorrect sample provided.",
             "This is not the required data.",
             "ERROR",
-            "Uneeded object registered.",
+            "Unneeded object registered.",
             "Unexpected item in scanning area."
         };
 
@@ -121,7 +121,7 @@ namespace Content.Server.Research.Oracle
                 {
                     oracle.BarkAccumulator = 0;
                     string message = Loc.GetString(_random.Pick(DemandMessages), ("item", oracle.DesiredPrototype.Name)).ToUpper();
-                    _chat.TrySendInGameICMessage(oracle.Owner, message, InGameICChatType.Speak, false);
+                    _chat.TrySendInGameICMessage(oracle.Owner, message, InGameICChatType.Speak, ChatTransmitRange.Normal);
                 }
 
                 if (oracle.Accumulator >= oracle.ResetTime.TotalSeconds)
@@ -282,7 +282,7 @@ namespace Content.Server.Research.Oracle
 
             foreach (var tech in allTechs)
             {
-                foreach (var recipe in tech.UnlockedRecipes)
+                foreach (var recipe in tech.RecipeUnlocks)
                 {
                     var recipeProto = _prototypeManager.Index<LatheRecipePrototype>(recipe);
                     allRecipes.Add(recipeProto.Result);

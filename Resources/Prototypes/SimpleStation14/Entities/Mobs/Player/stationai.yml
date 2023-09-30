@@ -61,7 +61,7 @@
     - type: Hands
       showInHands: false
     # Allow examining things
-    - type: Mind
+    - type: MindContainer
       showExamineInfo: true
     - type: Input
       context: "human"
@@ -138,7 +138,8 @@
       bodyType: Dynamic
     - type: Fixtures
       fixtures:
-        - shape: !type:PhysShapeCircle
+        fix1:
+          shape: !type:PhysShapeCircle
             radius: 0.35
           density: 1000
           mask:
@@ -221,7 +222,7 @@
     - type: StaticPrice
       price: 50000
     - type: CargoSellBlacklist
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - NanoTrasen
     - type: Laws
@@ -330,15 +331,16 @@
     - type: MobMover
     - type: InputMover
     - type: MovementSpeedModifier
-      baseWalkSpeed: 12
-      baseSprintSpeed: 8
+      baseWalkSpeed: 8
+      baseSprintSpeed: 12
     - type: MovementIgnoreGravity
     - type: Physics
       bodyType: KinematicController
       fixedRotation: true
     - type: Fixtures
       fixtures:
-        - shape: !type:PhysShapeCircle
+        fix1:
+          shape: !type:PhysShapeCircle
             radius: 0.35
           density: 1000
           mask:

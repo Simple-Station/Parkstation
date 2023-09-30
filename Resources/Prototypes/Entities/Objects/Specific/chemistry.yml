@@ -8,7 +8,6 @@
     - GlassBeaker
   - type: Sprite
     sprite: Objects/Specific/Chemistry/beaker.rsi
-    netsync: false
     layers:
       - state: beaker
       - state: beaker1
@@ -89,9 +88,65 @@
         Blunt: 5
   - type: DynamicPrice
     price: 30
-  - type: GuideHelp
-    guides:
-    - Chemistry
+
+- type: entity
+  parent: BaseItem
+  id: BaseBeakerMetallic
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - GlassBeaker
+  - type: Sprite
+    sprite: Objects/Specific/Chemistry/beaker.rsi
+    layers:
+      - state: beaker
+      - state: beaker1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: Item
+    sprite: Objects/Specific/Chemistry/beaker.rsi
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 50
+        canMix: true
+  - type: FitsInDispenser
+    solution: beaker
+  - type: RefillableSolution
+    solution: beaker
+  - type: DrainableSolution
+    solution: beaker
+  - type: ExaminableSolution
+    solution: beaker
+  - type: DrawableSolution
+    solution: beaker
+  - type: InjectableSolution
+    solution: beaker
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: UserInterface
+    interfaces:
+    - key: enum.TransferAmountUiKey.Key
+      type: TransferAmountBoundUserInterface
+  - type: Drink
+    isOpen: true
+    solution: beaker
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: beaker
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Glass
+  - type: DynamicPrice
+    price: 30
 
 - type: entity
   name: beaker
@@ -101,6 +156,8 @@
   components:
   - type: Spillable
     solution: beaker
+  - type: DynamicPrice
+    price: 10
 
 - type: entity
   name: large beaker
@@ -134,10 +191,12 @@
 
 - type: entity
   name: cryostasis beaker
-  parent: BaseBeaker
+  parent: BaseBeakerMetallic
   description: Used to contain chemicals or solutions without reactions.
   id: CryostasisBeaker
   components:
+  - type: Spillable
+    solution: beaker
   - type: Sprite
     sprite: Objects/Specific/Chemistry/beaker_cryostasis.rsi
     layers:
@@ -145,29 +204,12 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 40
+        maxVol: 60
         canReact: false
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: FlimsyMetallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:SpillBehavior
-        solution: beaker
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Tag
-    tags:
-    - GlassBeaker
-    - Cryobeaker
 
 - type: entity
   name: bluespace beaker
-  parent: BaseBeaker
+  parent: BaseBeakerMetallic
   description: Powered by experimental bluespace technology.
   id: BluespaceBeaker
   components:
@@ -191,7 +233,6 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/dropper.rsi
-    netsync: false
     layers:
       - state: dropper
       - state: dropper1
@@ -234,7 +275,6 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/syringe.rsi
-    netsync: false
     layers:
       - state: syringe1
         map: ["enum.SolutionContainerLayers.Fill"]
@@ -245,6 +285,7 @@
     sprite: Objects/Specific/Chemistry/syringe.rsi
     state: "syringe_base0"
   - type: Item
+    size: 3
     sprite: Objects/Specific/Chemistry/syringe.rsi
     heldPrefix: 0
   - type: SolutionContainerManager
@@ -259,7 +300,7 @@
     solution: injector
   - type: Appearance
   - type: SolutionContainerVisuals
-    maxFillLevels: 4
+    maxFillLevels: 2
     fillBaseName: syringe
 
 - type: entity
@@ -268,6 +309,7 @@
   components:
   - type: Tag
     tags:
+    - Syringe
     - Trash
 
 - type: entity
@@ -288,6 +330,7 @@
     transferAmount: null
     eatMessage: food-swallow
     useSound: /Audio/Items/pill.ogg
+  - type: BadFood
   - type: FlavorProfile
     ignoreReagents: []
   - type: SolutionContainerManager
@@ -301,9 +344,6 @@
     grindableSolutionName: food
   - type: DynamicPrice
     price: 0
-  - type: GuideHelp
-    guides:
-    - Chemistry
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -343,6 +383,3 @@
       components:
       - Pill
   - type: Dumpable
-  - type: GuideHelp
-    guides:
-    - Chemistry

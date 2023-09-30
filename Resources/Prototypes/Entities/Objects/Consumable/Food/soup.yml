@@ -15,7 +15,6 @@
           Quantity: 20
   - type: Sprite
     sprite: Objects/Consumable/Food/bowl.rsi
-    netsync: false
   - type: DamageOnLand
     damage:
       types:
@@ -35,6 +34,9 @@
         Blunt: 0
   - type: Damageable
     damageContainer: Inorganic
+  - type: Tag
+    tags:
+    - Soup
   - type: Destructible
     thresholds:
     - trigger:
@@ -961,7 +963,7 @@
             Quantity: 7
           - ReagentId: Water
             Quantity: 10
-# Tastes like borsch, bortsch, borstch, borsh, borshch, borscht.
+# Tastes like borsch, bortsch, borstch, borsh, borshch, borscht, borshed.
 
 - type: entity
   name: red beet soup

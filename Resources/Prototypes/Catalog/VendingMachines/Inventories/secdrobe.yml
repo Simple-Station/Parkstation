@@ -8,7 +8,7 @@
     ClothingShoesBootsJack: 3
     ClothingHeadHatBeretSec: 3
     ClothingHeadHatSecsoft: 3
-    HatBandLightBlue: 3
+    ClothingHeadBandRed: 3
     ClothingHandsGlovesColorBlack: 3
     ClothingUniformJumpskirtSec: 3
     ClothingUniformJumpsuitSecGrey: 3
@@ -16,5 +16,7 @@
     ClothingUniformJumpsuitSecSummer: 3
     ClothingHeadsetSecurity: 3
     ClothingOuterWinterSec: 2
+    ClothingOuterArmorBasic: 2
+    ClothingOuterArmorBasicSlim: 2 
     ClothingEyesBlindfold: 1
     ClothingShoesBootsCombat: 1

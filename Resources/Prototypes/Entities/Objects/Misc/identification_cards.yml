@@ -98,8 +98,9 @@
     job: Captain
   - type: Tag
     tags:
-      - WhitelistChameleon
-      - HighRiskItem
+    - DoorBumpOpener
+    - WhitelistChameleon
+    - HighRiskItem
 
 - type: entity
   parent: IDCardStandard
@@ -148,6 +149,18 @@
     - state: idmedicaldoctor
   - type: PresetIdCard
     job: MedicalDoctor
+ 
+- type: entity
+  parent: IDCardStandard
+  id: ParamedicIDCard
+  name: paramedic ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idparamedic
+  - type: PresetIdCard
+    job: Paramedic
 
 - type: entity
   parent: IDCardStandard
@@ -394,10 +407,10 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
+    - state: centcom
     - state: idcentcom
   - type: Item
-    heldPrefix: gold
+    heldPrefix: blue
   - type: IdCard
     jobTitle: Central Commander
   - type: Access
@@ -419,11 +432,13 @@
 - type: entity
   parent: IDCardStandard
   id: CentcomIDCardSyndie
-  name: Centcom ID card
+  name: command officer ID card
+  suffix: Fake
   components:
   - type: Sprite
     layers:
     - state: centcom
+    - state: idcentcom
   - type: Item
     heldPrefix: blue
   - type: IdCard
@@ -447,7 +462,7 @@
 - type: entity
   parent: CentcomIDCard
   id: CentcomIDCardDeathsquad
-  name: Deathsquad ID card
+  name: deathsquad ID card
   components:
   - type: Sprite
     layers:
@@ -465,6 +480,7 @@
   - type: AgentIDCard
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
+    inHandsOnly: true
   - type: UserInterface
     interfaces:
       - key: enum.AgentIDCardUiKey.Key
@@ -485,7 +501,7 @@
 - type: entity
   parent: IDCardStandard
   id: SyndicateIDCard
-  name: Syndicate ID card
+  name: syndicate ID card
   components:
   - type: Sprite
     layers:

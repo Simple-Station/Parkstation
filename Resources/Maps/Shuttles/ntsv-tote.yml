@@ -1,15 +1,14 @@
 meta:
-  format: 4
-  name: DemoStation
-  author: Space-Wizards
+  format: 5
   postmapinit: false
 tilemap:
   0: Space
-  54: FloorMono
-  58: FloorRGlass
-  79: FloorTechMaint
-  94: Lattice
-  95: Plating
+  55: FloorMono
+  60: FloorRGlass
+  61: FloorReinforced
+  81: FloorTechMaint
+  96: Lattice
+  97: Plating
 entities:
 - proto: ""
   entities:
@@ -22,30 +21,32 @@ entities:
     - chunks:
         -1,-1:
           ind: -1,-1
-          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAXgAAAF4AAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF4AAABfAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAABPAAAATwAAAE8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABfAAAATwAAAE8AAABPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAE8AAABPAAAATwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABPAAAATwAAAE8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABfAAAATwAAAE8AAABPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF8AAABfAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAXwAAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAXwAAAE8AAABPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAF8AAAA6AAAATwAAAA==
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYQAAAGAAAABhAAAAYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABRAAAAUQAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABhAAAAUQAAAFEAAABRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPQAAAFEAAABRAAAAUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD0AAABRAAAAUQAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABhAAAAUQAAAFEAAABRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYQAAAGEAAABhAAAAYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGEAAABhAAAAYQAAADcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYQAAAFEAAABRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGEAAAA8AAAAUQAAAA==
         0,-1:
           ind: 0,-1
-          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAXgAAAF4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF4AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE8AAABPAAAAXgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABfAAAATwAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF8AAAA2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABPAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABfAAAAXwAAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAE8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABPAAAAXwAAAF4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOgAAAF8AAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYQAAAGAAAABhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEAAABRAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABhAAAAUQAAAGEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYQAAAGEAAAA3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGEAAABRAAAAYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABhAAAAYQAAADcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYQAAAFEAAABhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGEAAABhAAAAYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRAAAAYQAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAGEAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
         -1,0:
           ind: -1,0
-          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAF8AAAA6AAAAOgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAXwAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGEAAAA8AAAAPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYQAAAGEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
         0,0:
           ind: 0,0
-          tiles: OgAAAF8AAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+          tiles: PAAAAGEAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGEAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       type: MapGrid
     - type: Broadphase
-    - angularDamping: 0.05
+    - bodyStatus: InAir
+      angularDamping: 0.05
       linearDamping: 0.05
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
-    - fixtures: []
+    - fixtures: {}
       type: Fixtures
     - type: OccluderTree
     - type: Shuttle
     - type: GridPathfinding
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+      enabled: True
       type: Gravity
     - chunkCollection:
         version: 2
@@ -172,84 +173,12 @@ entities:
       pos: 2.5,-6.5
       parent: 62
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 38
     components:
     - rot: 1.5707963267948966 rad
       pos: 2.5,-4.5
       parent: 62
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
 - proto: APCBasic
   entities:
   - uid: 11
@@ -264,9 +193,19 @@ entities:
     - pos: 2.5,-4.5
       parent: 62
       type: Transform
+  - uid: 12
+    components:
+    - pos: -3.5,-6.5
+      parent: 62
+      type: Transform
   - uid: 40
     components:
     - pos: 2.5,-6.5
+      parent: 62
+      type: Transform
+  - uid: 65
+    components:
+    - pos: -3.5,-5.5
       parent: 62
       type: Transform
 - proto: BlastDoor
@@ -276,29 +215,33 @@ entities:
     - pos: 2.5,-3.5
       parent: 62
       type: Transform
-    - inputs:
-        Open:
-        - port: On
-          uid: 159
-        Close:
-        - port: Off
-          uid: 159
-        Toggle: []
-      type: SignalReceiver
+    - links:
+      - 159
+      type: DeviceLinkSink
   - uid: 81
     components:
     - pos: 2.5,-7.5
       parent: 62
       type: Transform
-    - inputs:
-        Open:
-        - port: On
-          uid: 159
-        Close:
-        - port: Off
-          uid: 159
-        Toggle: []
-      type: SignalReceiver
+    - links:
+      - 159
+      type: DeviceLinkSink
+  - uid: 90
+    components:
+    - pos: -3.5,-6.5
+      parent: 62
+      type: Transform
+    - links:
+      - 161
+      type: DeviceLinkSink
+  - uid: 152
+    components:
+    - pos: -3.5,-5.5
+      parent: 62
+      type: Transform
+    - links:
+      - 161
+      type: DeviceLinkSink
 - proto: CableApcExtension
   entities:
   - uid: 1
@@ -577,16 +520,12 @@ entities:
       pos: -1.5,-0.5
       parent: 62
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 112
     components:
     - rot: 3.141592653589793 rad
       pos: 0.5,-0.5
       parent: 62
       type: Transform
-    - bodyType: Static
-      type: Physics
 - proto: ClosetEmergencyFilledRandom
   entities:
   - uid: 131
@@ -594,7 +533,7 @@ entities:
     - pos: -2.5,-3.5
       parent: 62
       type: Transform
-- proto: ComputerAlert
+- proto: ComputerRadar
   entities:
   - uid: 7
     components:
@@ -616,68 +555,36 @@ entities:
       pos: 2.5,-3.5
       parent: 62
       type: Transform
-    - inputs:
-        Reverse:
-        - port: Right
-          uid: 67
-        Forward:
-        - port: Left
-          uid: 67
-        Off:
-        - port: Middle
-          uid: 67
-      type: SignalReceiver
+    - links:
+      - 67
+      type: DeviceLinkSink
   - uid: 68
     components:
     - rot: -1.5707963267948966 rad
       pos: 1.5,-3.5
       parent: 62
       type: Transform
-    - inputs:
-        Reverse:
-        - port: Right
-          uid: 67
-        Forward:
-        - port: Left
-          uid: 67
-        Off:
-        - port: Middle
-          uid: 67
-      type: SignalReceiver
+    - links:
+      - 67
+      type: DeviceLinkSink
   - uid: 72
     components:
     - rot: 1.5707963267948966 rad
       pos: 1.5,-7.5
       parent: 62
       type: Transform
-    - inputs:
-        Reverse:
-        - port: Right
-          uid: 67
-        Forward:
-        - port: Left
-          uid: 67
-        Off:
-        - port: Middle
-          uid: 67
-      type: SignalReceiver
+    - links:
+      - 67
+      type: DeviceLinkSink
   - uid: 75
     components:
     - rot: 1.5707963267948966 rad
       pos: 2.5,-7.5
       parent: 62
       type: Transform
-    - inputs:
-        Reverse:
-        - port: Right
-          uid: 67
-        Forward:
-        - port: Left
-          uid: 67
-        Off:
-        - port: Middle
-          uid: 67
-      type: SignalReceiver
+    - links:
+      - 67
+      type: DeviceLinkSink
 - proto: DrinkColaBottleFull
   entities:
   - uid: 50
@@ -702,8 +609,6 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
-    - enabled: True
-      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 160
     components:
@@ -713,8 +618,6 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
-    - enabled: True
-      type: AmbientSound
     - type: ActiveEmergencyLight
 - proto: FoodSnackEnergy
   entities:
@@ -737,8 +640,6 @@ entities:
       type: Transform
     - color: '#0000FFFF'
       type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
     - enabled: True
       type: AmbientSound
   - uid: 139
@@ -749,8 +650,6 @@ entities:
       type: Transform
     - color: '#0000FFFF'
       type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
     - enabled: True
       type: AmbientSound
 - proto: GasPipeStraight
@@ -762,8 +661,6 @@ entities:
       type: Transform
     - color: '#0000FFFF'
       type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
     - enabled: True
       type: AmbientSound
   - uid: 135
@@ -773,8 +670,6 @@ entities:
       type: Transform
     - color: '#0000FFFF'
       type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
     - enabled: True
       type: AmbientSound
   - uid: 137
@@ -784,8 +679,6 @@ entities:
       type: Transform
     - color: '#0000FFFF'
       type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
   - uid: 143
     components:
     - pos: 0.5,-7.5
@@ -793,8 +686,6 @@ entities:
       type: Transform
     - color: '#0000FFFF'
       type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
     - enabled: True
       type: AmbientSound
   - uid: 144
@@ -805,8 +696,6 @@ entities:
       type: Transform
     - color: '#0000FFFF'
       type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
 - proto: GasPipeTJunction
   entities:
   - uid: 134
@@ -817,8 +706,6 @@ entities:
       type: Transform
     - color: '#0000FFFF'
       type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
     - enabled: True
       type: AmbientSound
 - proto: GasPort
@@ -831,8 +718,6 @@ entities:
       type: Transform
     - color: '#0000FFFF'
       type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
 - proto: GasVentPump
   entities:
   - uid: 74
@@ -841,19 +726,19 @@ entities:
       pos: -1.5,-5.5
       parent: 62
       type: Transform
+    - enabled: False
+      type: AmbientSound
     - color: '#0000FFFF'
       type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
   - uid: 124
     components:
     - pos: -0.5,-1.5
       parent: 62
       type: Transform
+    - enabled: False
+      type: AmbientSound
     - color: '#0000FFFF'
       type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
 - proto: GeneratorUranium
   entities:
   - uid: 76
@@ -873,18 +758,10 @@ entities:
     - pos: -0.5,-8.5
       parent: 62
       type: Transform
+    - gravityActive: True
+      type: GravityGenerator
 - proto: Grille
   entities:
-  - uid: 10
-    components:
-    - pos: -3.5,-6.5
-      parent: 62
-      type: Transform
-  - uid: 12
-    components:
-    - pos: -3.5,-5.5
-      parent: 62
-      type: Transform
   - uid: 20
     components:
     - pos: 2.5,-5.5
@@ -925,6 +802,11 @@ entities:
     - pos: -2.5,0.5
       parent: 62
       type: Transform
+  - uid: 63
+    components:
+    - pos: -3.5,-7.5
+      parent: 62
+      type: Transform
   - uid: 95
     components:
     - pos: -3.5,-4.5
@@ -937,8 +819,6 @@ entities:
     - pos: 1.5,-8.5
       parent: 62
       type: Transform
-    - bodyType: Static
-      type: Physics
 - proto: MedkitFilled
   entities:
   - uid: 108
@@ -965,15 +845,11 @@ entities:
     - pos: 2.5,-7.5
       parent: 62
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 45
     components:
     - pos: 2.5,-3.5
       parent: 62
       type: Transform
-    - bodyType: Static
-      type: Physics
 - proto: PlushieRouny
   entities:
   - uid: 157
@@ -989,8 +865,6 @@ entities:
       pos: 0.5,-1.5
       parent: 62
       type: Transform
-    - enabled: False
-      type: AmbientSound
     - powerLoad: 0
       type: ApcPowerReceiver
   - uid: 130
@@ -999,8 +873,6 @@ entities:
       pos: -1.5,-1.5
       parent: 62
       type: Transform
-    - enabled: False
-      type: AmbientSound
     - powerLoad: 0
       type: ApcPowerReceiver
   - uid: 140
@@ -1008,11 +880,9 @@ entities:
     - pos: -1.5,-3.5
       parent: 62
       type: Transform
-    - enabled: False
-      type: AmbientSound
     - powerLoad: 0
       type: ApcPowerReceiver
-- proto: PoweredlightBlueInterior
+- proto: PoweredLightBlueInterior
   entities:
   - uid: 136
     components:
@@ -1020,8 +890,6 @@ entities:
       pos: -0.5,-8.5
       parent: 62
       type: Transform
-    - enabled: False
-      type: AmbientSound
     - powerLoad: 0
       type: ApcPowerReceiver
 - proto: Rack
@@ -1043,6 +911,11 @@ entities:
   - uid: 9
     components:
     - pos: -3.5,-4.5
+      parent: 62
+      type: Transform
+  - uid: 10
+    components:
+    - pos: -3.5,-7.5
       parent: 62
       type: Transform
   - uid: 24
@@ -1085,16 +958,6 @@ entities:
     - pos: 2.5,-5.5
       parent: 62
       type: Transform
-  - uid: 63
-    components:
-    - pos: -3.5,-6.5
-      parent: 62
-      type: Transform
-  - uid: 65
-    components:
-    - pos: -3.5,-5.5
-      parent: 62
-      type: Transform
 - proto: SignalSwitch
   entities:
   - uid: 159
@@ -1102,20 +965,30 @@ entities:
     - pos: 1.5,-2.5
       parent: 62
       type: Transform
-    - outputs:
-        On:
-        - port: Open
-          uid: 61
-        - port: Open
-          uid: 81
-        Off:
-        - port: Close
-          uid: 61
-        - port: Close
-          uid: 81
-      type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
+    - linkedPorts:
+        61:
+        - On: Open
+        - Off: Close
+        81:
+        - On: Open
+        - Off: Close
+      type: DeviceLinkSource
+- proto: SignalSwitchDirectional
+  entities:
+  - uid: 161
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: -3.5,-4.5
+      parent: 62
+      type: Transform
+    - linkedPorts:
+        152:
+        - On: Open
+        - Off: Close
+        90:
+        - On: Open
+        - Off: Close
+      type: DeviceLinkSource
 - proto: SubstationWallBasic
   entities:
   - uid: 88
@@ -1145,60 +1018,46 @@ entities:
     - pos: 2.5,0.5
       parent: 62
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 14
     components:
     - pos: -3.5,0.5
       parent: 62
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 15
     components:
     - rot: 1.5707963267948966 rad
       pos: -3.5,-0.5
       parent: 62
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 16
     components:
     - rot: -1.5707963267948966 rad
       pos: 2.5,-0.5
       parent: 62
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 145
     components:
     - rot: 3.141592653589793 rad
       pos: -2.5,-10.5
       parent: 62
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 146
     components:
     - rot: 3.141592653589793 rad
       pos: 1.5,-10.5
       parent: 62
       type: Transform
-    - bodyType: Static
-      type: Physics
   - uid: 151
     components:
     - rot: 3.141592653589793 rad
       pos: -0.5,-10.5
       parent: 62
       type: Transform
-    - bodyType: Static
-      type: Physics
 - proto: ToolboxMechanicalFilled
   entities:
-  - uid: 152
+  - uid: 162
     components:
-    - pos: -1.6669384,-3.233865
+    - pos: -1.680508,-3.6486564
       parent: 62
       type: Transform
 - proto: TwoWayLever
@@ -1208,35 +1067,24 @@ entities:
     - pos: 1.5,-5.5
       parent: 62
       type: Transform
-    - outputs:
-        Left:
-        - port: Forward
-          uid: 72
-        - port: Forward
-          uid: 75
-        - port: Forward
-          uid: 19
-        - port: Forward
-          uid: 68
-        Right:
-        - port: Reverse
-          uid: 72
-        - port: Reverse
-          uid: 75
-        - port: Reverse
-          uid: 19
-        - port: Reverse
-          uid: 68
-        Middle:
-        - port: Off
-          uid: 72
-        - port: Off
-          uid: 75
-        - port: Off
-          uid: 19
-        - port: Off
-          uid: 68
-      type: SignalTransmitter
+    - linkedPorts:
+        72:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
+        75:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
+        19:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
+        68:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
+      type: DeviceLinkSource
 - proto: WallShuttle
   entities:
   - uid: 4
@@ -1297,11 +1145,6 @@ entities:
   - uid: 89
     components:
     - pos: 0.5,-2.5
-      parent: 62
-      type: Transform
-  - uid: 90
-    components:
-    - pos: -3.5,-7.5
       parent: 62
       type: Transform
   - uid: 101

@@ -1,12 +1,11 @@
 - type: entity
-  name: golem
+  name: Urist McGolem
   id: MobGolemBase
   save: false
   abstract: true
   description: An artificial construct imitating life. This one has no soul installed yet.
   components:
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     layers:
@@ -85,7 +84,8 @@
     - CanPilot
     - DoorBumpOpener
     - ShoesRequiredStepTriggerImmune
-    - GunsDisabled
+    # TODO: https://github.com/Nyanotrasen/Nyanotrasen/issues/1628
+    # - GunsDisabled
   - type: Reactive
     groups:
       Acidic: [Touch]
@@ -99,8 +99,8 @@
   - type: Identity
   - type: Hands
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 1.8
+    baseWalkSpeed: 1.8
+    baseSprintSpeed: 3
   - type: MovedByPressure
   - type: DamageOnHighSpeedImpact
     damage:
@@ -137,7 +137,8 @@
     bodyType: KinematicController
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
-      - shape:
+      fix1:
+        shape:
           !type:PhysShapeCircle
           radius: 0.35
         density: 400
@@ -213,7 +214,7 @@
   - type: MobPrice
     price: 6000
     deathPenalty: 0.1
-  - type: Mind
+  - type: MindContainer
   - type: Input
     context: "human"
   - type: MobMover
@@ -224,7 +225,7 @@
   - type: CameraRecoil
   - type: Examiner
   - type: CanHostGuardian
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - NanoTrasen
     - PsionicInterloper
@@ -282,7 +283,6 @@
   description: An artificial construct imitating life. This one has no soul installed yet.
   components:
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     layers:
@@ -391,12 +391,6 @@
     - type: MovementSpeedModifier
       baseWalkSpeed: 4
       baseSprintSpeed: 5.5
-    - type: DamageOnHighSpeedImpact
-      damage:
-        types:
-          Blunt: 5
-      soundHit:
-        path: /Audio/Effects/hit_kick.ogg
     - type: RandomSprite
       available:
         - enum.DamageStateVisualLayers.Base:
@@ -406,10 +400,14 @@
     - type: Sprite
       drawdepth: Mobs
       sprite: Nyanotrasen/Mobs/Species/Golem/silver.rsi
-      netsync: false
       layers:
         - map: [ "enum.DamageStateVisualLayers.Base" ]
           state: silver_base
+        - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+          color: "#ffffff"
+          sprite: Objects/Misc/handcuffs.rsi
+          state: body-overlay-2
+          visible: false
         - map: [ "enum.ToggleVisuals.Layer" ]
           sprite: Nyanotrasen/Mobs/Species/Golem/silver.rsi
           state: lights
@@ -421,7 +419,8 @@
       state: full
     - type: Fixtures
       fixtures:
-        - shape:
+        fix1:
+          shape:
             !type:PhysShapeCircle
             radius: 0.35
           density: 200
@@ -431,11 +430,8 @@
             - FlyingMobLayer
     - type: HeatResistance
     - type: Internals
-    - type: Examiner
-    - type: Speech
     - type: TypingIndicator
       proto: robot
-    - type: Pullable
     - type: MeleeWeapon
       hidden: true
       angle: 30
@@ -447,7 +443,6 @@
         types:
           Blunt: 10
           Holy: 8
-    - type: Actions
     - type: Inventory
       templateId: golem_silver
     - type: PsychokinesisPower

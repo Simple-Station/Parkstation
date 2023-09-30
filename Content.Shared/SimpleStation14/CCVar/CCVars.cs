@@ -5,6 +5,12 @@ namespace Content.Shared.SimpleStation14.CCVar;
 [CVarDefs]
 public sealed class SimpleStationCCVars
 {
+    #region Admin
+    public static readonly CVarDef<bool> AdminNewPlayerJoinSound =
+        CVarDef.Create("admin.new_player_join_sound", false, CVar.SERVERONLY);
+    #endregion
+
+    #region Announcers
     /// <summary>
     ///     Optionally force set an announcer
     /// </summary>
@@ -16,6 +22,7 @@ public sealed class SimpleStationCCVars
     /// </summary>
     public static readonly CVarDef<List<string>> AnnouncerBlacklist =
         CVarDef.Create("game.announcer.blacklist", new List<string>(), CVar.SERVERONLY);
+    #endregion
 
     /*
      * End of round stats
@@ -30,7 +37,7 @@ public sealed class SimpleStationCCVars
     /// </remarks>
     public static readonly CVarDef<float> BloodLostThreshold =
         CVarDef.Create("eorstats.bloodlost_threshold", 300f, CVar.SERVERONLY);
-    #endregion
+    #endregion BloodLost
 
     #region CuffedTime
     /// <summary>
@@ -41,7 +48,7 @@ public sealed class SimpleStationCCVars
     /// </remarks>
     public static readonly CVarDef<int> CuffedTimeThreshold =
         CVarDef.Create("eorstats.cuffedtime_threshold", 8, CVar.SERVERONLY);
-    #endregion
+    #endregion CuffedTime
 
     #region EmitSound
     /// <summary>
@@ -52,7 +59,7 @@ public sealed class SimpleStationCCVars
     /// </remarks>
     public static readonly CVarDef<int> EmitSoundThreshold =
         CVarDef.Create("eorstats.emitsound_threshold", 80, CVar.SERVERONLY);
-    #endregion
+    #endregion EmitSound
 
     #region InstrumentPlayed
     /// <summary>
@@ -63,7 +70,7 @@ public sealed class SimpleStationCCVars
     /// </remarks>
     public static readonly CVarDef<int> InstrumentPlayedThreshold =
         CVarDef.Create("eorstats.instrumentplayed_threshold", 8, CVar.SERVERONLY);
-    #endregion
+    #endregion InstrumentPlayed
 
     #region MopUsed
     /// <summary>
@@ -89,7 +96,7 @@ public sealed class SimpleStationCCVars
     /// </remarks>
     public static readonly CVarDef<int> MopUsedTopMopperCount =
         CVarDef.Create("eorstats.mopused_topmoppercount", 3, CVar.SERVERONLY);
-    #endregion
+    #endregion MopUsed
 
     #region ShotsFired
     /// <summary>
@@ -106,7 +113,7 @@ public sealed class SimpleStationCCVars
     /// </summary>
     public static readonly CVarDef<bool> ShotsFiredDisplayNone =
         CVarDef.Create("eorstats.shotsfired_displaynone", true, CVar.SERVERONLY);
-    #endregion
+    #endregion ShotsFired
 
     #region SlippedCount
     /// <summary>
@@ -129,6 +136,25 @@ public sealed class SimpleStationCCVars
     /// </summary>
     public static readonly CVarDef<bool> SlippedCountTopSlipper =
         CVarDef.Create("eorstats.slippedcount_topslipper", true, CVar.SERVERONLY);
-    #endregion
+    #endregion SlippedCount
+    #endregion EndOfRoundStats
+
+    /*
+     * Silicons
+     */
+    #region Silicons
+    /// <summary>
+    ///     The amount of time between NPC Silicons draining their battery in seconds.
+    /// </summary>
+    public static readonly CVarDef<float> SiliconNpcUpdateTime =
+        CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
+    #endregion Silicons
+
+    #region SSDIndicator
+    /// <summary>
+    ///     Whether or not a sprite overlay shows above SSD players
+    /// </summary>
+    public static readonly CVarDef<bool> SSDIndicatorEnabled =
+        CVarDef.Create("ic.ssdindicator_enabled", true, CVar.REPLICATED | CVar.SERVER);
     #endregion
 }

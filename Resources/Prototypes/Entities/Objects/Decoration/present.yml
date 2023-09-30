@@ -6,7 +6,6 @@
   components:
   - type: Sprite
     sprite: Objects/Decoration/present.rsi
-    netsync: false
     layers:
       - state: present
 
@@ -95,8 +94,6 @@
         orGroup: GiftPool
       - id: PlushieMoffbar
         orGroup: GiftPool
-      - id: ToyAmongPequeno
-        orGroup: GiftPool
       - id: ClothingNeckCloakMoth
         orGroup: GiftPool
       - id: ToyMouse
@@ -105,7 +102,7 @@
         orGroup: GiftPool
       - id: ToyNuke
         orGroup: GiftPool
-      - id: ToyAssistant
+      - id: ToyFigurinePassenger
         orGroup: GiftPool
       - id: ToyGriffin
         orGroup: GiftPool
@@ -195,8 +192,6 @@
         orGroup: GiftPool
       - id: ClothingNeckCloakTrans
         orGroup: GiftPool
-      - id: ClothingNeckCloakAdmin
-        orGroup: GiftPool
       - id: ToySkeleton
         orGroup: GiftPool
       - id: Basketball
@@ -206,14 +201,6 @@
       - id: BalloonCorgi
         orGroup: GiftPool
       - id: PonderingOrb
-        orGroup: GiftPool
-      - id: Skub
-        orGroup: GiftPool
-      - id: ClothingEyesGlassesGarGiga
-        orGroup: GiftPool
-      - id: ClothingEyesGlassesGarOrange
-        orGroup: GiftPool
-      - id: ClothingEyesGlassesGar
         orGroup: GiftPool
       - id: ClothingNeckBling
         orGroup: GiftPool
@@ -240,8 +227,6 @@
       - id: FlashlightLantern
         orGroup: GiftPool
       - id: Spear
-        orGroup: GiftPool
-      - id: LidSalami
         orGroup: GiftPool
       - id: Soap
         orGroup: GiftPool
@@ -378,7 +363,6 @@
   components:
   - type: Sprite
     sprite: Objects/Decoration/present.rsi
-    netsync: false
     layers:
       - state: unwrapped
   - type: Tag

@@ -1,4 +1,4 @@
-﻿- type: trait
+- type: trait
   id: Blindness
   name: trait-blindness-name
   description: trait-blindness-desc
@@ -25,7 +25,7 @@
   cost: 4
   category: Negative
   components:
-    - type: Pacifist
+    - type: Pacified
 
 - type: trait
   id: Colorblindness
@@ -56,3 +56,12 @@
 #   description: trait-muted-desc
 #   components:
 #     - type: Muted
+
+- type: trait
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  cost: 4
+  category: Negative
+  components:
+    - type: Uncloneable

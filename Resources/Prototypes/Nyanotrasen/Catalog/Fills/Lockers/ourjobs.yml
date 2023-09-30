@@ -7,7 +7,7 @@
   - type: StorageFill
     contents:
       - id: ClothingHeadsetAltMystagogue
-      - id: ClothingOuterHardsuitRd
+      - id: ClothingOuterHardsuitMystagogue
       - id: PlushieSlime
         prob: 0.1
       - id: DoorRemoteResearch
@@ -46,7 +46,7 @@
       - id: ClothingUniformSkirtMantis
       - id: ClothingBeltMantis
       - id: ClothingShoesBootsMantis
-      - id: ClothingHandsGlovesColorWhite
+      - id: ClothingHandsGlovesForensic
       - id: ClothingHeadsetMantis
       - id: ClothingHeadHatFezMantis
       - id: ClothingOuterCoatMantis
