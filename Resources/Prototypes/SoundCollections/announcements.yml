@@ -1,11 +1,6 @@
 - type: soundCollection
   id: RoundEnd
   files:
-#  - /Audio/Announcements/RoundEnd/apc_destroyed.ogg
-#  - /Audio/Announcements/RoundEnd/bangin_donk.ogg
-#  - /Audio/Announcements/RoundEnd/withoutfurtherinterruption.ogg
-#  - /Audio/Announcements/RoundEnd/dotsy.ogg
-  - /Audio/Announcements/RoundEnd/wasthisstorybasedno.ogg
-  - /Audio/Announcements/RoundEnd/wasthisstorybasedyes.ogg
-#  - /Audio/Announcements/RoundEnd/onlineplay.ogg
-#  - /Audio/Announcements/RoundEnd/worCant.ogg
+  - /Audio/Announcements/RoundEnd/easy_route.ogg
+  - /Audio/Announcements/RoundEnd/good_business.ogg
+  - /Audio/Announcements/RoundEnd/skelton.ogg
