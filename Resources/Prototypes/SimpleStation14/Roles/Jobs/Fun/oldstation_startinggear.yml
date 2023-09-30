@@ -33,7 +33,7 @@
     shoes: ClothingShoesBootsJack
     eyes: ClothingEyesGlassesSecurity
     head: ClothingHeadHelmetHelmetOld
-    outerClothing: ClothingOuterVestKevlar
+    outerClothing: ClothingOuterArmorBasic
     id: SecurityPDA
     belt: ClothingBeltSecurityFilled
   innerclothingskirt: ClothingUniformJumpskirtSec
