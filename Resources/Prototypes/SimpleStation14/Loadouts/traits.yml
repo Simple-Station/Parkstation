@@ -6,7 +6,7 @@
   description: "For 'yer peepers"
   category: Traits
   cost: 0
-  whitelist:
+  entityWhitelist:
     components:
       - Nearsighted
   item: ClothingEyesGlasses
@@ -20,7 +20,7 @@
   jobWhitelist:
     - MedicalDoctor
     - ChiefMedicalOfficer
-  whitelist:
+  entityWhitelist:
     components:
       - Nearsighted
   item: ClothingEyesHudMedicalPrescription
@@ -36,7 +36,7 @@
     - SecurityCadet
     - SecurityOfficer
     - Warden
-  whitelist:
+  entityWhitelist:
     components:
       - Nearsighted
   item: ClothingEyesGlassesSecurityPrescription
