@@ -33,10 +33,11 @@
       state: icon
     - type: Physics
       bodyType: Static
+    - type: Fixtures
       fixtures:
-        - shape:
-            - !type:PhysShapeAabb
-              bounds: "-0.45,-0.5,0.45,0.5"
+        fix1:
+          shape: !type:PhysShapeAabb
+            bounds: "-0.45,-0.5,0.45,0.5"
           density: 190
           mask:
             - MachineMask
@@ -54,10 +55,6 @@
       openSound: /Audio/Effects/gen_hit.ogg
       closeSound: /Audio/Effects/gen_hit.ogg
     - type: Appearance
-      visuals:
-        - type: StorageVisualizer
-          state_open: open
-          state_closed: closed
     - type: ContainerContainer
       containers:
         machine_board: !type:Container
@@ -119,22 +116,21 @@
     - type: Appearance
     - type: Fixtures
       fixtures:
-          fix1:
-            shape: !type:PhysShapeAabb
-              bounds: "-0.35,-0.35,0.35,0.35"
-            id: "slips"
-            hard: false
-            layer:
-              - SlipLayer
-          fix2:
-            shape: !type:PhysShapeAabb
-              bounds: "-0.35,-0.35,0.35,0.35"
-            density: 10
-            mask:
-              - MachineMask
+        fix1:
+          shape: !type:PhysShapeAabb
+            bounds: "-0.35,-0.35,0.35,0.35"
+          hard: false
+          layer:
+            - SlipLayer
+        fix2:
+          shape: !type:PhysShapeAabb
+            bounds: "-0.35,-0.35,0.35,0.35"
+          density: 10
+          mask:
+            - MachineMask
     - type: StepTrigger
     - type: SiliconCharger
-      chargeMylti: 150
+      chargeMulti: 150
     - type: ContainerContainer
       containers:
         machine_board: !type:Container
