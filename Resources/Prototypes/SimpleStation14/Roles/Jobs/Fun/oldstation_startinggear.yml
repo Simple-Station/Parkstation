@@ -32,7 +32,7 @@
     back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsJack
     eyes: ClothingEyesGlassesSecurity
-    head: ClothingHeadHelmetHelmetOld
+    head: ClothingHeadHelmetOld
     outerClothing: ClothingOuterArmorBasic
     id: SecurityPDA
     belt: ClothingBeltSecurityFilled
