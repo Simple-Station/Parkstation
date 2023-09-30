@@ -74,6 +74,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             args.Performer,
             !hasComp,
             !hasComp,
+            !hasComp,
             true,
             args.StaminaCostOn,
             args.PowerCostOn,
@@ -94,6 +95,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         EntityUid performer,
         bool addComp,
         bool invisible,
+        bool pacify,
         bool darken,
         float staminaCostOn,
         float powerCostOn,
@@ -115,6 +117,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         {
             var comp = _entity.EnsureComponent<ShadowkinDarkSwappedComponent>(performer);
             comp.Invisible = invisible;
+            comp.Pacify = pacify;
             comp.Darken = darken;
 
             RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(performer, true));
@@ -142,7 +145,8 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
     private void OnInvisStartup(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentStartup args)
     {
-        EnsureComp<PacifiedComponent>(uid);
+        if (component.Pacify)
+            EnsureComp<PacifiedComponent>(uid);
 
         if (component.Invisible)
             SetCanSeeInvisibility(uid, true);
