@@ -32,6 +32,7 @@
       sprite: SimpleStation14/Structures/Medical/sleepers/standardpod.rsi
       layers:
       - state: base
+        map: ["enum.StorageVisualLayers.Base"]
       - state: open
         map: ["enum.StorageVisualLayers.Door"]
     - type: Damageable
@@ -60,15 +61,8 @@
   name: Sleeper Pod
   description: An old design of sleeper pod, probably not the safest to use.
   components:
-    - type: Clickable
-    - type: InteractionOutline
-
     - type: Sprite
       sprite: SimpleStation14/Structures/Medical/sleepers/oldpod.rsi
-      layers:
-      - state: base
-      - state: open
-        map: ["enum.StorageVisualLayers.Door"]
 
 - type: entity
   id: SleeperParty
@@ -76,15 +70,8 @@
   name: Party Sleeper
   description: A party sleeper! Seems pretty fun.
   components:
-    - type: Clickable
-    - type: InteractionOutline
-
     - type: Sprite
       sprite: SimpleStation14/Structures/Medical/sleepers/partypod.rsi
-      layers:
-      - state: base
-      - state: open
-        map: ["enum.StorageVisualLayers.Door"]
 
 - type: entity
   id: Sleeper
@@ -92,15 +79,8 @@
   name: Sleeper
   description: A basic model of medical sleeper, used to inject chemicals safely and quickly into a person without the need of hyposprays.
   components:
-    - type: Clickable
-    - type: InteractionOutline
-
     - type: Sprite
       sprite: SimpleStation14/Structures/Medical/sleepers/standardpod.rsi
-      layers:
-      - state: base
-      - state: open
-        map: ["enum.StorageVisualLayers.Door"]
 
 - type: entity
   id: SleeperClockwork
@@ -108,15 +88,8 @@
   name: Clockwork Sleeper
   description: A sleeper, seemingly made out of.. gears? How does this work even?
   components:
-    - type: Clickable
-    - type: InteractionOutline
-
     - type: Sprite
       sprite: SimpleStation14/Structures/Medical/sleepers/clockworkpod.rsi
-      layers:
-      - state: base
-      - state: open
-        map: ["enum.StorageVisualLayers.Door"]
 
 - type: entity
   id: SleeperSyndicate
@@ -124,12 +97,5 @@
   name: Syndicate Sleeper
   description: A sleeper made for the Syndicate, seems to be just as functional as the medical one.
   components:
-    - type: Clickable
-    - type: InteractionOutline
-
     - type: Sprite
       sprite: SimpleStation14/Structures/Medical/sleepers/syndiepod.rsi
-      layers:
-      - state: base
-      - state: open
-        map: ["enum.StorageVisualLayers.Door"]
