@@ -54,7 +54,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-   [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Parkstation-RandomAnnouncers
 
     private ISawmill _sawmill = default!;
 
@@ -188,15 +188,17 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         if (targetGrid == null)
         {
             _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle {ToPrettyString(stationUid)} unable to dock with station {ToPrettyString(stationUid)}");
+            // Parkstation-RandomAnnouncers Start
             // _chatSystem.DispatchStationAnnouncement(stationUid, Loc.GetString("emergency-shuttle-good-luck"), playDefaultSound: false);
-           // // TODO: Need filter extensions or something don't blame me.
-           // _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
+            // // TODO: Need filter extensions or something don't blame me.
+            // _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
 
-           _announcer.SendAnnouncement("shuttledock", Filter.Broadcast(),
-               Loc.GetString("emergency-shuttle-good-luck"),
-               Loc.GetString("comms-console-announcement-title-centcom"));
-           return;
-       }
+            _announcer.SendAnnouncement("shuttledock", Filter.Broadcast(),
+                Loc.GetString("emergency-shuttle-good-luck"),
+                Loc.GetString("comms-console-announcement-title-centcom"));
+            // Parkstation-RandomAnnouncers End
+            return;
+        }
 
         var xformQuery = GetEntityQuery<TransformComponent>();
 
@@ -205,24 +207,28 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             if (TryComp<TransformComponent>(targetGrid.Value, out var targetXform))
             {
                 var angle = _dock.GetAngle(stationShuttle.EmergencyShuttle.Value, xform, targetGrid.Value, targetXform, xformQuery);
+                // Parkstation-RandomAnnouncers Start
                 // _chatSystem.DispatchStationAnnouncement(stationUid, Loc.GetString("emergency-shuttle-docked", ("time", $"{_consoleAccumulator:0}"), ("direction", angle.GetDir())), playDefaultSound: false);
-               _announcer.SendAnnouncementMessage("shuttledock",
-                   Loc.GetString("emergency-shuttle-docked",("time", $"{_consoleAccumulator:0}"), ("direction", angle.GetDir())),
-                   Loc.GetString("comms-console-announcement-title-centcom"));
-           }
+                _announcer.SendAnnouncementMessage("shuttledock",
+                    Loc.GetString("emergency-shuttle-docked",("time", $"{_consoleAccumulator:0}"), ("direction", angle.GetDir())),
+                    Loc.GetString("comms-console-announcement-title-centcom"));
+                // Parkstation-RandomAnnouncers End
+            }
 
             _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle {ToPrettyString(stationUid)} docked with stations");
             // TODO: Need filter extensions or something don't blame me.
+            // Parkstation-RandomAnnouncers Start
             // _audio.PlayGlobal("/Audio/Announcements/shuttle_dock.ogg", Filter.Broadcast(), true);
-           _announcer.SendAnnouncementAudio("shuttledock", Filter.Broadcast());
-       }
-       else
-       {
-           if (TryComp<TransformComponent>(targetGrid.Value, out var targetXform))
-           {
-               var angle = _dock.GetAngle(stationShuttle.EmergencyShuttle.Value, xform, targetGrid.Value, targetXform, xformQuery);
-               _chatSystem.DispatchStationAnnouncement(stationUid, Loc.GetString("emergency-shuttle-nearby", ("direction", angle.GetDir())), playDefaultSound: false);
-           }
+            _announcer.SendAnnouncementAudio("shuttledock", Filter.Broadcast());
+            // Parkstation-RandomAnnouncers End
+        }
+        else
+        {
+            if (TryComp<TransformComponent>(targetGrid.Value, out var targetXform))
+            {
+                var angle = _dock.GetAngle(stationShuttle.EmergencyShuttle.Value, xform, targetGrid.Value, targetXform, xformQuery);
+                _chatSystem.DispatchStationAnnouncement(stationUid, Loc.GetString("emergency-shuttle-nearby", ("direction", angle.GetDir())), playDefaultSound: false);
+            }
 
             _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle {ToPrettyString(stationUid)} unable to find a valid docking port for {ToPrettyString(stationUid)}");
             // TODO: Need filter extensions or something don't blame me.

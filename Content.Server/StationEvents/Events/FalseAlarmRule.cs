@@ -12,7 +12,7 @@ namespace Content.Server.StationEvents.Events;
 public sealed class FalseAlarmRule : StationEventSystem<FalseAlarmRuleComponent>
 {
     [Dependency] private readonly EventManagerSystem _event = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Parkstation-RandomAnnouncers
 
     protected override void Started(EntityUid uid, FalseAlarmRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -23,7 +23,7 @@ public sealed class FalseAlarmRule : StationEventSystem<FalseAlarmRuleComponent>
 
         if (picked.StartAnnouncement != null)
         {
-            _announcer.SendAnnouncement(args.RuleId, Filter.Broadcast(), Loc.GetString(picked.StartAnnouncement), colorOverride: Color.Gold);
+            _announcer.SendAnnouncement(args.RuleId, Filter.Broadcast(), Loc.GetString(picked.StartAnnouncement), colorOverride: Color.Gold);  // Parkstation-RandomAnnouncers
         }
     }
 }

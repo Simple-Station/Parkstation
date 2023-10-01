@@ -35,7 +35,7 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : Compon
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] protected readonly StationSystem StationSystem = default!;
-        [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
+    [Dependency] private readonly AnnouncerSystem _announcerSystem = default!; // Parkstation-RandomAnnouncers
 
     protected ISawmill Sawmill = default!;
 
@@ -97,8 +97,10 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : Compon
 
         if (stationEvent.EndAnnouncement != null)
         {
+            // Parkstation-RandomAnnouncers Start
             // ChatSystem.DispatchGlobalAnnouncement(Loc.GetString(stationEvent.EndAnnouncement), playSound: false, colorOverride: Color.Gold);
             _announcerSystem.SendAnnouncement($"{args.RuleId}complete", Filter.Broadcast(), Loc.GetString(stationEvent.EndAnnouncement), colorOverride: Color.Gold);
+            // Parkstation-RandomAnnouncers End
         }
 
         // Audio.PlayGlobal(stationEvent.EndAudio, Filter.Broadcast(), true);

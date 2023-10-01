@@ -15,7 +15,7 @@ namespace Content.Server.StationEvents.Events;
 public sealed class BreakerFlipRule : StationEventSystem<BreakerFlipRuleComponent>
 {
     [Dependency] private readonly ApcSystem _apcSystem = default!;
-    [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
+    [Dependency] private readonly AnnouncerSystem _announcerSystem = default!; // Parkstation-RandomAnnouncers
 
     protected override void Added(EntityUid uid, BreakerFlipRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
@@ -23,7 +23,7 @@ public sealed class BreakerFlipRule : StationEventSystem<BreakerFlipRuleComponen
 
         var str = Loc.GetString("station-event-breaker-flip-announcement", ("data", Loc.GetString(Loc.GetString($"random-sentience-event-data-{RobustRandom.Next(1, 6)}"))));
 
-        _announcerSystem.SendAnnouncement(args.RuleId, Filter.Broadcast(), str, colorOverride: Color.Gold);
+        _announcerSystem.SendAnnouncement(args.RuleId, Filter.Broadcast(), str, colorOverride: Color.Gold); // Parkstation-RandomAnnouncers
     }
 
     protected override void Started(EntityUid uid, BreakerFlipRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)

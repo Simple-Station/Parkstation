@@ -9,7 +9,7 @@ namespace Content.Server.StationEvents.Events;
 
 public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRuleComponent>
 {
-    [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
+    [Dependency] private readonly AnnouncerSystem _announcerSystem = default!; // Parkstation-RandomAnnouncers
 
     protected override void Started(EntityUid uid, RandomSentienceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -49,6 +49,7 @@ public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRule
             if(station == null) continue;
             stationsToNotify.Add((EntityUid) station);
         }
+        // Parkstation-RandomAnnouncers Start
         // foreach (var station in stationsToNotify)
         // {
         //     ChatSystem.DispatchStationAnnouncement(
@@ -66,5 +67,6 @@ public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRule
             ("data", Loc.GetString($"random-sentience-event-data-{RobustRandom.Next(1, 6)}")),
             ("strength", Loc.GetString($"random-sentience-event-strength-{RobustRandom.Next(1, 8)}"))),
             colorOverride: Color.Gold);
+        // Parkstation-RandomAnnouncers End
     }
 }
