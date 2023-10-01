@@ -82,17 +82,17 @@ namespace Content.Shared.Roles
 
                 // Handles custom underwear per role.
 
-                if (slot == "underpants" && profile.Clothing != ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_underpants) && _underpants != "Error")
+                if (slot == "underpants" && profile.Clothing != ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_underpants) && _underpants != "Nothing")
                     return _underpants;
-                if (slot == "underpants" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_underpantsskirt) && _underpantsskirt != "Error")
+                if (slot == "underpants" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_underpantsskirt) && _underpantsskirt != "Nothing")
                     return _underpantsskirt;
 
-                if (slot == "undershirt" && profile.Clothing != ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_undershirt) && _undershirt != "Error")
+                if (slot == "undershirt" && profile.Clothing != ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_undershirt) && _undershirt != "Nothing")
                     return _undershirt;
-                if (slot == "undershirt" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_undershirtskirt) && _undershirtskirt != "Error")
+                if (slot == "undershirt" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_undershirtskirt) && _undershirtskirt != "Nothing")
                     return _undershirtskirt;
 
-                if (slot == "socks" && !string.IsNullOrEmpty(_undersocks) && _undersocks != "Error")
+                if (slot == "socks" && !string.IsNullOrEmpty(_undersocks) && _undersocks != "Nothing")
                     return _undersocks;
             }
 
