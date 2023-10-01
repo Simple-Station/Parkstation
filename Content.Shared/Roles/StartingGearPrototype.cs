@@ -25,19 +25,19 @@ namespace Content.Shared.Roles
         // Underwear
 
         [DataField("underpants", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        private string _underpants = String.Empty;
+        private string? _underpants;
 
         [DataField("underpantsskirt", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        private string _underpantsskirt = String.Empty;
+        private string? _underpantsskirt;
 
         [DataField("undershirt", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        private string _undershirt = String.Empty;
+        private string? _undershirt;
 
         [DataField("undershirtskirt", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        private string _undershirtskirt = String.Empty;
+        private string? _undershirtskirt;
 
         [DataField("undersocks", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        private string _undersocks = String.Empty;
+        private string? _undersocks;
 
         public IReadOnlyDictionary<string, string> Inhand => _inHand;
         /// <summary>
