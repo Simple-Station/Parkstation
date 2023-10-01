@@ -25,19 +25,19 @@ namespace Content.Shared.Roles
         // Underwear
 
         [DataField("underpants", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        private string _underpants = "ClothingUnderboxer_briefs";
+        private string _underpants = String.Empty;
 
         [DataField("underpantsskirt", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        private string _underpantsskirt = "ClothingUnderpanties";
+        private string _underpantsskirt = String.Empty;
 
         [DataField("undershirt", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        private string _undershirt = "ClothingUnderundershirt";
+        private string _undershirt = String.Empty;
 
         [DataField("undershirtskirt", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        private string _undershirtskirt = "ClothingUnderbra";
+        private string _undershirtskirt = String.Empty;
 
         [DataField("undersocks", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        private string _undersocks = "ClothingUnderSocks_norm";
+        private string _undersocks = String.Empty;
 
         public IReadOnlyDictionary<string, string> Inhand => _inHand;
         /// <summary>
@@ -82,17 +82,17 @@ namespace Content.Shared.Roles
 
                 // Handles custom underwear per role.
 
-                if (slot == "underpants" && profile.Clothing != ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_underpants))
+                if (slot == "underpants" && profile.Clothing != ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_underpants) && _underpants != "Error")
                     return _underpants;
-                if (slot == "underpants" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_underpantsskirt))
+                if (slot == "underpants" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_underpantsskirt) && _underpantsskirt != "Error")
                     return _underpantsskirt;
 
-                if (slot == "undershirt" && profile.Clothing != ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_undershirt))
+                if (slot == "undershirt" && profile.Clothing != ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_undershirt) && _undershirt != "Error")
                     return _undershirt;
-                if (slot == "undershirt" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_undershirtskirt))
+                if (slot == "undershirt" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(_undershirtskirt) && _undershirtskirt != "Error")
                     return _undershirtskirt;
 
-                if (slot == "socks" && !string.IsNullOrEmpty(_undersocks))
+                if (slot == "socks" && !string.IsNullOrEmpty(_undersocks) && _undersocks != "Error")
                     return _undersocks;
             }
 
