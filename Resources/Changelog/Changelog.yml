@@ -1251,3 +1251,9 @@ Entries:
       message: Fixed rejoining the server causing most gameplay elements to not work
   id: 113
   time: '2023-09-15T03:50:33.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: Fixed the sAI's Station Efficiency lawset
+  id: 114
+  time: '2023-10-01T03:23:33.0000000+00:00'
