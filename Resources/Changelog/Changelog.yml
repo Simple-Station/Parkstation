@@ -1257,3 +1257,27 @@ Entries:
       message: Fixed the sAI's Station Efficiency lawset
   id: 114
   time: '2023-10-01T03:23:33.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: Prescription glasses won't be given to people who aren't nearsighted
+    - type: fix
+      message: Cabbages and Science crates won't sell for more than they cost
+    - type: fix
+      message: Chargers won't give you the wrong circuit board when deconstructed
+    - type: fix
+      message: Power outage will send an announcement when complete
+    - type: fix
+      message: Shadowkin plushies are no longer pacified
+    - type: fix
+      message: Happy Honk boxes should have items in them now
+    - type: fix
+      message: Spells make you speak again
+    - type: fix
+      message: Chemistry guidebookbook works
+    - type: fix
+      message: Bluespace crystals use item space properly
+    - type: fix
+      message: Round end announcements work
+  id: 115
+  time: '2023-10-05T01:37:58.0000000+00:00'
