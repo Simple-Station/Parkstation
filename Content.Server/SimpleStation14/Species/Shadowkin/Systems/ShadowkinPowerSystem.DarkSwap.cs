@@ -74,6 +74,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             args.Performer,
             !hasComp,
             !hasComp,
+            !hasComp,
             true,
             args.StaminaCostOn,
             args.PowerCostOn,
@@ -94,6 +95,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         EntityUid performer,
         bool addComp,
         bool invisible,
+        bool pacify,
         bool darken,
         float staminaCostOn,
         float powerCostOn,
@@ -115,6 +117,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         {
             var comp = _entity.EnsureComponent<ShadowkinDarkSwappedComponent>(performer);
             comp.Invisible = invisible;
+            comp.Pacify = pacify;
             comp.Darken = darken;
 
             RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(performer, true));
@@ -142,7 +145,8 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
     private void OnInvisStartup(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentStartup args)
     {
-        EnsureComp<PacifiedComponent>(uid);
+        if (component.Pacify)
+            EnsureComp<PacifiedComponent>(uid);
 
         if (component.Invisible)
             SetCanSeeInvisibility(uid, true);
@@ -172,7 +176,8 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
     public void SetCanSeeInvisibility(EntityUid uid, bool set)
     {
-        var visibility = _entity.EnsureComponent<VisibilityComponent>(uid);
+        if (!TryComp<VisibilityComponent>(uid, out var visibility))
+            return;
 
         if (set)
         {
@@ -185,7 +190,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             _visibility.RemoveLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
             _visibility.RefreshVisibility(uid);
 
-            if (!_entity.TryGetComponent<GhostComponent>(uid, out var _))
+            if (!_entity.TryGetComponent<GhostComponent>(uid, out _))
                 _stealth.SetVisibility(uid, 0.8f, _entity.EnsureComponent<StealthComponent>(uid));
         }
         else
@@ -199,7 +204,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             _visibility.AddLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
             _visibility.RefreshVisibility(uid);
 
-            if (!_entity.TryGetComponent<GhostComponent>(uid, out var _))
+            if (!_entity.TryGetComponent<GhostComponent>(uid, out _))
                 _entity.RemoveComponent<StealthComponent>(uid);
         }
     }

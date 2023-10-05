@@ -466,8 +466,9 @@
   - type: Item
     sprite: Objects/Storage/happyhonk/clown.rsi
     heldPrefix: box
+    size: 40
   - type: Storage
-    capacity: 30
+    capacity: 40
   - type: Tag
     tags:
     - Trash

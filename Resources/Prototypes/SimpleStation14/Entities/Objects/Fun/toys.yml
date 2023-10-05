@@ -37,6 +37,7 @@
   components:
     - type: ShadowkinDarkSwapped
       invisible: false
+      pacify: false
       darken: true
       range: 4
     - type: Sprite

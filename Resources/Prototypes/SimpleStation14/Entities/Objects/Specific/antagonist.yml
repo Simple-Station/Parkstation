@@ -6,6 +6,8 @@
   components:
   - type: Stack
     count: 1
+  - type: Item
+    size: 1
 
 - type: entity
   parent: MaterialBluespace
@@ -22,6 +24,8 @@
   components:
   - type: Stack
     count: 10
+  - type: Item
+    size: 10
 
 - type: entity
   parent: MaterialBluespace
@@ -30,6 +34,8 @@
   components:
   - type: Stack
     count: 25
+  - type: Item
+    size: 25
 
 - type: entity
   parent: MaterialBluespace
@@ -38,6 +44,8 @@
   components:
   - type: Stack
     count: 50
+  - type: Item
+    size: 50
 
 # Uplinks
 - type: entity
