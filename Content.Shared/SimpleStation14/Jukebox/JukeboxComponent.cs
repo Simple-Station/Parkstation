@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Content.Shared.SimpleStation14.Prototypes;
 using Robust.Shared.Audio;
 using System.Threading;
@@ -32,7 +31,6 @@ public sealed partial class JukeboxComponent : Component
     /// <summary>
     ///     The song art to be used when no song is playing.
     /// </summary>
-    [AutoNetworkedField]
     [DataField("defaultSongArtPath")]
     public string DefaultSongArtPath { get; set; } = "/Textures/SimpleStation14/JukeboxTracks/default.png";
 
@@ -92,9 +90,6 @@ public sealed partial class JukeboxComponent : Component
     /// <summary>
     ///     Whether or not the Jukebox should currently be playing.
     /// </summary>
-    /// <remarks>
-    ///     This can still be true if no song is playing. It's essentially <see cref="Paused"/> but not controlled by the user.
-    /// </remarks>
     [AutoNetworkedField] [ViewVariables(VVAccess.ReadOnly)]
     public bool Playing { get; set; } = true;
 
