@@ -1,0 +1,35 @@
+- type: entity
+  id: JukeboxMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: jukebox machine circuitboard
+  description: A jukebox machine circuitboard.
+  components:
+    - type: Sprite
+      state: supply
+    - type: MachineBoard
+      prototype: JukeboxClassic
+      requirements:
+        Capacitor: 2
+      materialRequirements:
+        Steel: 5
+      tagRequirements:
+       KeyedInstrument:
+          Amount: 1
+          DefaultPrototype: SynthesizerInstrument
+          ExamineName: Keyed Instrument
+       StringInstrument:
+          Amount: 1
+          DefaultPrototype: AcousticGuitarInstrument
+          ExamineName: String Instrument
+       PercussionInstrument:
+          Amount: 1
+          DefaultPrototype: GlockenspielInstrument
+          ExamineName: Percussion Instrument
+       BrassInstrument:
+          Amount: 1
+          DefaultPrototype: TrumpetInstrument
+          ExamineName: Brass Instrument
+       WoodwindInstrument:
+          Amount: 1
+          DefaultPrototype: SaxophoneInstrument
+          ExamineName: Woodwind Instrument

@@ -2,6 +2,8 @@ using Content.Shared.SimpleStation14.Prototypes;
 using Robust.Shared.Audio;
 using System.Threading;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.Construction.Prototypes;
 
 namespace Content.Shared.SimpleStation14.Jukebox;
 
@@ -23,10 +25,16 @@ public sealed partial class JukeboxComponent : Component
     public List<string> EmaggedSongs { get; set; } = new();
 
     /// <summary>
-    ///     The maximum number of songs that can be queued at one time.
+    ///     The maximum number of songs that can be queued at one time by default, with the lowest tier parts.
     /// </summary>
-    [DataField("maxQueued")] [ViewVariables(VVAccess.ReadWrite)]
-    public int MaxQueued { get; set; } = 7;
+    [DataField("maxQueuedDefault")] [ViewVariables(VVAccess.ReadWrite)]
+    public int MaxQueuedDefault { get; set; } = 3;
+
+    /// <summary>
+    ///    The maximum number of songs that can be queued at one time, with upgrades.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int MaxQueued { get; set; }
 
     /// <summary>
     ///     The song art to be used when no song is playing.
@@ -48,6 +56,22 @@ public sealed partial class JukeboxComponent : Component
     /// <inheritdoc cref="JukeboxUiColorBG"/>
     [DataField("jukeboxUiColorAccent")]
     public string JukeboxUiColorAccent { get; } = "#20181B";
+
+    /// <summary>
+    ///    Whether or not to include the decorative portion of the UI
+    ///    which contains the serial number and the 'coin' slot.
+    /// </summary>
+    [DataField("decorativeUi")]
+    public bool DecorativeUi { get; set; } = false;
+
+    /// <summary>
+    ///     The part to be used for upgrading the queue size.
+    /// </summary>
+    /// <remarks>
+    ///     Leave empty to disable queue size upgrades.
+    /// </remarks>
+    [DataField("queueSizeUpgradePart", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))] [ViewVariables(VVAccess.ReadWrite)]
+    public string? QueueSizeUpgradePart { get; set; }
 
     /// <summary>
     ///     The currently playing audio stream.

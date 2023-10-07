@@ -1,20 +1,9 @@
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: JukeboxBase
-  name: Jukebox
+  name: jukebox
   description: A jukebox, capable of playing music.
   components:
-  - type: Jukebox
-    songs:
-      - DanyaVodovozFunkOMatic
-      - DanyaVodovozGoinOn
-      - DanyaVodovozOffTheGrid
-      - DanyaVodovozPlanetOfTheAmazons
-    emaggedSongs:
-      - DanyaVodovozGuacamole
-      - DanyaVodovozJazzFunkMySoul
-      - DanyaVodovozMothToAFlame
-      - DanyaVodovozNightInBrazil
   - type: ActivatableUI
     key: enum.JukeboxUiKey.Key
   - type: ActivatableUIRequiresPower
@@ -29,3 +18,97 @@
     - state: powered
     - state: powered_unlit
       shader: unshaded
+  - type: ApcPowerReceiver
+    powerLoad: 350
+  - type: Jukebox
+
+- type: entity
+  parent: JukeboxBase
+  id: JukeboxClassic
+  name: jukebox
+  description: An old fashioned jukebox.
+  components:
+  - type: Jukebox
+    songs:
+      - DanyaVodovozFunkOMatic
+      - DanyaVodovozGoinOn
+      - DanyaVodovozOffTheGrid
+      - DanyaVodovozPlanetOfTheAmazons
+    emaggedSongs:
+      - DanyaVodovozGuacamole
+      - DanyaVodovozJazzFunkMySoul
+      - DanyaVodovozMothToAFlame
+      - DanyaVodovozNightInBrazil
+    queueSizeUpgradePart: Capacitor
+    jukeboxUiColorBG: "#602C00"
+    jukeboxUiColorPanel: "#480F0F"
+    jukeboxUiColorAccent: "#20181B"
+    decorativeUi: true
+  - type: Machine
+    board: JukeboxMachineCircuitboard
+
+# This and the Zune are just goofy testing items, but proper versions of them should probably be made.
+- type: entity
+  parent: JukeboxBase
+  id: JukeboxRadio
+  name: jukebox
+  description: A small radio for playing music.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.17,0,0.20,0.4"
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: old-radio
+    drawdepth: SmallObjects
+    snapCardinals: true
+    offset: "0.0,0.4"
+  - type: ApcPowerReceiver
+    powerLoad: 120
+  - type: Jukebox
+    songs:
+      - DanyaVodovozFunkOMatic
+      - DanyaVodovozGoinOn
+    emaggedSongs:
+      - DanyaVodovozMothToAFlame
+    maxQueuedDefault: 0
+    jukeboxUiColorBG: "#272b34"
+    jukeboxUiColorPanel: "#4d5f6c"
+    jukeboxUiColorAccent: "#36673d"
+    decorativeUi: false
+
+- type: entity
+  parent: BaseItem
+  id: JukeboxHandheld
+  name: zune
+  description: A small radio for playing music.
+  components:
+  - type: ActivatableUI
+    key: enum.JukeboxUiKey.Key
+  - type: UserInterface
+    interfaces:
+      - key: enum.JukeboxUiKey.Key
+        type: JukeboxBoundUserInterface
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: old-radio
+  - type: Jukebox
+    songs:
+      - DanyaVodovozFunkOMatic
+      - DanyaVodovozGoinOn
+    emaggedSongs:
+      - DanyaVodovozMothToAFlame
+    maxQueuedDefault: 0
+    jukeboxUiColorBG: "#272b34"
+    jukeboxUiColorPanel: "#4d5f6c"
+    jukeboxUiColorAccent: "#36673d"
+    decorativeUi: false

@@ -1,3 +1,4 @@
+using Content.Server.Construction;
 using Content.Server.Power.Components;
 using Content.Shared.SimpleStation14.Jukebox;
 using Robust.Shared.Random;
@@ -68,5 +69,28 @@ public sealed partial class JukeboxSystem : EntitySystem
         var letter = digits[7] == 0 ? 90 : digits[7] % 2 == 0 ? (digits[7] + 65) : (90 - digits[7]);
 
         return $"{serial}{(char) letter}";
+    }
+
+    private void OnRefreshParts(EntityUid uid, JukeboxComponent component, RefreshPartsEvent args)
+    {
+        if (component.QueueSizeUpgradePart == null)
+        {
+            component.MaxQueued = component.MaxQueuedDefault;
+            return;
+        }
+
+        var queueSizeMod = (int) Math.Floor(args.PartRatings[component.QueueSizeUpgradePart]);
+
+        component.MaxQueued = component.MaxQueuedDefault * queueSizeMod;
+    }
+
+    private void OnExamineParts(EntityUid uid, JukeboxComponent component, UpgradeExamineEvent args)
+    {
+        if (component.QueueSizeUpgradePart == null)
+        {
+            return;
+        }
+
+        args.AddNumberUpgrade("jukebox-maxqueued-upgrade-string", component.MaxQueued - component.MaxQueuedDefault);
     }
 }

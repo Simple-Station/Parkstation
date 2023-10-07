@@ -7,6 +7,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
 using Content.Shared.Emag.Systems;
+using Content.Server.Construction;
 
 namespace Content.Server.SimpleStation14.Jukebox;
 
@@ -28,6 +29,8 @@ public sealed partial class JukeboxSystem : EntitySystem
         SubscribeLocalEvent<JukeboxComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<JukeboxComponent, EntityPausedEvent>(OnPaused);
         SubscribeLocalEvent<JukeboxComponent, EntityUnpausedEvent>(OnUnpaused);
+        SubscribeLocalEvent<JukeboxComponent, RefreshPartsEvent>(OnRefreshParts);
+        SubscribeLocalEvent<JukeboxComponent, UpgradeExamineEvent>(OnExamineParts);
 
         SubscribeLocalEvent<JukeboxComponent, JukeboxPlayButtonPressedMessage>(OnPlayButtonPressed);
         SubscribeLocalEvent<JukeboxComponent, JukeboxSkipButtonPressedMessage>(OnSkipButtonPressed);

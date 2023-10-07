@@ -190,6 +190,7 @@
 
             <!-- Lower portion of UI -->
             <BoxContainer
+                Name="DecorativeBox"
                 MinSize="482 172"
                 Margin="10 10 10 10"
                 Orientation="Horizontal"
@@ -274,7 +275,7 @@
 
                     <!-- Coin Slot -->
                     <Control MinSize="78 172">
-                        <PanelContainer>
+                        <PanelContainer Name="Panel_3">
                             <PanelContainer.PanelOverride>
                                 <gfx:StyleBoxFlat BackgroundColor="#480F0F" />
                             </PanelContainer.PanelOverride>
