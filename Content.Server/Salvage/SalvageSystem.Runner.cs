@@ -10,8 +10,10 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Salvage.Expeditions;
+using Robust.Shared.Audio;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Salvage;
@@ -164,7 +166,16 @@ public sealed partial class SalvageSystem
             else if (comp.Stage < ExpeditionStage.MusicCountdown && remaining < TimeSpan.FromMinutes(2))
             {
                 // TODO: Some way to play audio attached to a map for players.
-                comp.Stream = _audio.PlayGlobal(comp.Sound, Filter.BroadcastMap(Comp<MapComponent>(uid).MapId), true);
+                // Parkstation-ExpeditionMusic Start
+                // comp.Stream = _audio.PlayGlobal(comp.Sound, Filter.BroadcastMap(Comp<MapComponent>(uid).MapId), true);
+                var sound = comp.Sound;
+                if (sound == null && _prototypeManager.TryIndex<SoundCollectionPrototype>("ExpeditionCountdownDefault", out var collection))
+                {
+                    sound = collection;
+                    comp.Stream = _audio.PlayGlobal(new SoundPathSpecifier(_random.Pick(sound!.PickFiles), AudioParams.Default.WithVolume(-6)),
+                        Filter.BroadcastMap(Comp<MapComponent>(uid).MapId), true);
+                }
+                // Parkstation-ExpeditionMusic End
                 comp.Stage = ExpeditionStage.MusicCountdown;
                 Dirty(comp);
                 Announce(uid, Loc.GetString("salvage-expedition-announcement-countdown-minutes", ("duration", TimeSpan.FromMinutes(2).Minutes)));

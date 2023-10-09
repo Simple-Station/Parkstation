@@ -45,10 +45,13 @@ public sealed class SalvageExpeditionComponent : SharedSalvageExpeditionComponen
     /// Sound that plays when the mission end is imminent.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("sound")]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Misc/tension_session.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-5),
-    };
+    // Parkstation-ExpeditionMusic Start
+    // public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Misc/tension_session.ogg")
+    // {
+    //     Params = AudioParams.Default.WithVolume(-5),
+    // };
+    public SoundCollectionPrototype? Sound;
+    // Parkstation-ExpeditionMusic End
 
     /// <summary>
     /// The difficulty this mission had or, in the future, was selected.
