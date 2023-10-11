@@ -45,7 +45,7 @@ public sealed class SalvageExpeditionComponent : SharedSalvageExpeditionComponen
     /// <summary>
     /// Sound that plays when the mission end is imminent.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("sound", customTypeSerializer: typeof(PrototypeIdSerializer<SoundCollectionPrototype>))]
+    [ViewVariables(VVAccess.ReadWrite), DataField("sound", customTypeSerializer: typeof(PrototypeIdSerializer<SoundCollectionPrototype>))] // Parkstation-ExpeditionMusic
     public string Sound = "ExpeditionCountdownDefault"; // Parkstation-ExpeditionMusic
 
     /// <summary>
