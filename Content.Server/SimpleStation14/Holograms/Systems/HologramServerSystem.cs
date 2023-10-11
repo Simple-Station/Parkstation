@@ -1,13 +1,9 @@
 using System.Linq;
-using Content.Server.Mind.Components;
 using Content.Server.Cloning;
 using Content.Server.Cloning.Components;
 using Content.Server.Psionics;
-using Content.Server.Speech.Components;
-using Content.Server.StationEvents.Components;
 using Content.Server.EUI;
 using Content.Server.Humanoid;
-using Content.Server.Ghost.Roles.Components;
 using Content.Server.Jobs;
 using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
@@ -29,13 +25,13 @@ using Content.Shared.Inventory;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Clothing.Components;
-using Content.Shared.Roles;
 using Robust.Server.Player;
 using Robust.Shared.Player;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects.Components.Localization;
 using Content.Shared.Movement.Systems;
 using System.Threading.Tasks;
+using Content.Server.Mind.Components;
 
 namespace Content.Server.SimpleStation14.Holograms;
 
@@ -59,6 +55,7 @@ public sealed class HologramServerSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
+    [Dependency] private readonly HologramSystem _hologram = default!;
 
     private const string DiskSlot = "holo_disk";
     public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
@@ -78,18 +75,18 @@ public sealed class HologramServerSystem : EntitySystem
     private void OnEntInserted(EntityUid uid, HologramServerComponent component, EntInsertedIntoContainerMessage args)
     {
         if (args.Container.ID != DiskSlot || !_tagSystem.HasTag(args.Entity, "HoloDisk") ||
-            (_entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var diskComp) && diskComp.HoloMind == null)) return;
+            _entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var diskComp) && diskComp.HoloMind == null) return;
 
         if (component.LinkedHologram != EntityUid.Invalid && _entityManager.EntityExists(component.LinkedHologram))
         {
-            RaiseLocalEvent(new HologramKillEvent(component.LinkedHologram.Value));
+            _hologram.DoKillHologram(component.LinkedHologram.Value);
         }
 
-        if (TryHoloGenerate(component.Owner, _entityManager.GetComponent<HologramDiskComponent>(args.Entity).HoloMind!, component, out var holo))
+        if (TryHoloGenerate(uid, _entityManager.GetComponent<HologramDiskComponent>(args.Entity).HoloMind!, component, out var holo))
         {
             var holoComp = _entityManager.GetComponent<HologramComponent>(holo);
             component.LinkedHologram = holo;
-            holoComp.LinkedServer = component.Owner;
+            holoComp.LinkedServer = uid;
         }
     }
 
@@ -103,7 +100,7 @@ public sealed class HologramServerSystem : EntitySystem
 
         if (_entityManager.EntityExists(component.LinkedHologram))
         {
-            RaiseLocalEvent(new HologramKillEvent(component.LinkedHologram.Value));
+            _hologram.DoKillHologram(component.LinkedHologram.Value);
         }
     }
 
@@ -122,7 +119,7 @@ public sealed class HologramServerSystem : EntitySystem
             if (_entityManager.EntityExists(component.LinkedHologram))
             {
                 // Kill the Hologram
-                RaiseLocalEvent(new HologramKillEvent(component.LinkedHologram.Value));
+                _hologram.DoKillHologram(component.LinkedHologram.Value);
             }
         }
         // If the server is powered
@@ -156,7 +153,7 @@ public sealed class HologramServerSystem : EntitySystem
         {
             if (EntityManager.EntityExists(clone) &&
                 !_mobStateSystem.IsDead(clone) &&
-                TryComp<MindComponent>(clone, out var cloneMindComp) &&
+                TryComp<MindContainerComponent>(clone, out var cloneMindComp) &&
                 (cloneMindComp.Mind == null || cloneMindComp.Mind == mind))
                 return false; // Mind already has clone
 
@@ -226,12 +223,13 @@ public sealed class HologramServerSystem : EntitySystem
     {
         if (!ClonesWaitingForMind.TryGetValue(mind, out var entity) ||
             !EntityManager.EntityExists(entity) ||
-            !TryComp<MindComponent>(entity, out var mindComp) ||
+            !TryComp<MindContainerComponent>(entity, out var mindComp) ||
             mindComp.Mind != null)
             return;
 
-        mind.TransferTo(entity, ghostCheckOverride: true);
-        mind.UnVisit();
+        _mind.TransferTo(mind, entity, true);
+        _mind.UnVisit(mind);
+
         ClonesWaitingForMind.Remove(mind);
     }
 
@@ -252,7 +250,7 @@ public sealed class HologramServerSystem : EntitySystem
         _humanoidSystem.LoadProfile(mob, pref);
 
         MetaData(mob).EntityName = name;
-        var mind = EnsureComp<MindComponent>(mob);
+        var mind = EnsureComp<MindContainerComponent>(mob);
         _mind.SetExamineInfo(mob, true, mind);
 
         var grammar = EnsureComp<GrammarComponent>(mob);
@@ -263,7 +261,7 @@ public sealed class HologramServerSystem : EntitySystem
         var popupAppearOther = Loc.GetString("system-hologram-phasing-appear-others", ("name", MetaData(mob).EntityName));
         var popupAppearSelf = Loc.GetString("system-hologram-phasing-appear-self");
 
-        _popup.PopupEntity(popupAppearOther, mob, Filter.PvsExcept((EntityUid) mob), false, PopupType.Medium);
+        _popup.PopupEntity(popupAppearOther, mob, Filter.PvsExcept(mob), false, PopupType.Medium);
         _popup.PopupEntity(popupAppearSelf, mob, mob, PopupType.Large);
         _audio.PlayPvs("/Audio/SimpleStation14/Effects/Hologram/holo_on.ogg", mob);
 
@@ -320,16 +318,21 @@ public sealed class HologramServerSystem : EntitySystem
 
     private void OnAfterInteract(EntityUid uid, HologramDiskComponent component, AfterInteractEvent args)
     {
-        if (args.Target == null || !TryComp<MindComponent>(args.Target, out var targetMind))
+        if (args.Target == null || !TryComp<MindContainerComponent>(args.Target, out var targetMind))
             return;
+
         if (targetMind.Mind == null)
         {
             _popup.PopupEntity(Loc.GetString("system-hologram-disk-mind-none"), args.Target.Value, args.User);
+            args.Handled = true;
+
             return;
         }
 
         component.HoloMind = targetMind.Mind;
         _popup.PopupEntity(Loc.GetString("system-hologram-disk-mind-saved"), args.Target.Value, args.User);
+
+        args.Handled = true;
     }
 
 

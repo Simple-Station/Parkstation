@@ -48,7 +48,7 @@
 
 - type: entity
   name: holo corgi
-  description: "A hologramatic projection of a corgi, computed by the AI and rendered by the station's cameras."
+  description: "A hologramatic projection of a corgi, computed by the SAI and rendered by the station's cameras."
   id: MobCorgiHolo
   suffix: AI
   components:
@@ -62,9 +62,9 @@
     rootTask: SimpleHostileCompound
   - type: Input
     context: "human"
-  - type: Faction
-    factions:
-    - Pet
+  # - type: Faction
+  #   factions:
+  #   - Pet
   - type: MovementSpeedModifier
     baseWalkSpeed : 4.5
     baseSprintSpeed : 3
@@ -82,15 +82,16 @@
     bodyType: KinematicController # Same for all inheritors
   - type: Fixtures
     fixtures:
-    - shape:
-        # Circles, cuz rotation of rectangles looks very bad
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 50
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          # Circles, cuz rotation of rectangles looks very bad
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: MobState
   - type: Body
     prototype: Animal

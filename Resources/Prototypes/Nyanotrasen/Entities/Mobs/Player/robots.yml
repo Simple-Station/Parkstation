@@ -206,7 +206,6 @@
   id: PlayerRobotStandard
   name: standard robot
   components:
-  - type: SiliconCharge
   - type: InnateTool
     tools:
       - id: WelderIndustrial

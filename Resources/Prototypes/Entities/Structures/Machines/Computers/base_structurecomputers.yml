@@ -57,8 +57,6 @@
     containers:
       board: !type:Container
         ents: []
-  - type: DynamicPrice
-    price: 400
   - type: Tag
     tags:
     - Hardlight

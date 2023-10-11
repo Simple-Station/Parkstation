@@ -1,39 +1,41 @@
 using Content.Shared.Interaction.Events;
 using Content.Shared.Interaction.Components;
-using Content.Shared.Damage;
-using Content.Shared.Item;
 using Content.Shared.Tag;
-using Content.Shared.Interaction.Helpers;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
-using Robust.Shared.Serialization;
-using Robust.Shared.Containers;
-using Content.Shared.Computer;
+using Content.Shared.Interaction.Helpers;
+using Robust.Shared.Map;
+using System.Numerics;
+using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Storage.Components;
 using Content.Shared.Pulling.Components;
-using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Pulling;
-using System.Linq;
 
 namespace Content.Shared.SimpleStation14.Holograms;
 
-public sealed class SharedHologramSystem : EntitySystem
+public abstract class SharedHologramSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedPullingSystem _pulling = default!;
+
+    protected const string PopupAppearOther = "system-hologram-phasing-appear-others";
+    protected const string PopupAppearSelf = "system-hologram-phasing-appear-self";
+    protected const string PopupDisappearOther = "system-hologram-phasing-disappear-others";
+    protected const string PopupDeathSelf = "system-hologram-phasing-death-self";
+    protected const string PopupInteractionFail = "system-hologram-light-interaction-fail";
 
     public override void Initialize()
     {
         SubscribeLocalEvent<HologramComponent, InteractionAttemptEvent>(OnHoloInteractionAttempt);
         SubscribeLocalEvent<InteractionAttemptEvent>(OnInteractionAttempt);
-        SubscribeAllEvent<HologramReturnEvent>(HoloReturn);
+        SubscribeLocalEvent<HologramComponent, StoreMobInItemContainerAttemptEvent>(OnStoreInContainerAttempt);
     }
 
     // Stops the Hologram from interacting with anything they shouldn't.
@@ -59,35 +61,42 @@ public sealed class SharedHologramSystem : EntitySystem
 
             // Send a popup to the player about the interaction, and play a sound.
             var meta = _entityManager.GetComponent<MetaDataComponent>(args.Target.Value);
-            var popup = Loc.GetString("system-hologram-light-interaction-fail", ("item", meta.EntityName));
+            var popup = Loc.GetString(PopupInteractionFail, ("item", meta.EntityName));
             var sound = "/Audio/SimpleStation14/Effects/Hologram/holo_on.ogg";
             _popup.PopupEntity(popup, args.Target.Value, Filter.Entities(args.Uid), false);
             _audio.Play(sound, Filter.Entities(args.Uid), args.Uid, false);
         }
     }
 
-    // Anything that needs to be regularly run, like handling exiting a projector's range
+    // Forbid holograms from going inside anything. Osmosised from Nyano :)
+    private void OnStoreInContainerAttempt(EntityUid uid, HologramComponent component, ref StoreMobInItemContainerAttemptEvent args)
+    {
+        args.Cancelled = true;
+        args.Handled = true;
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        foreach (var component in _entityManager.EntityQuery<HologramComponent>().ToList())
+        var query = _entityManager.EntityQueryEnumerator<HologramComponent>();
+        while (query.MoveNext(out var hologram, out var hologramComp))
         {
-            var getProj = new HologramGetProjectorEvent(component.Owner);
-            RaiseLocalEvent(getProj);
-            var nearProj = getProj.Projector;
-            if (!nearProj.IsValid())
+            TryGetHoloProjector(hologram, out var nearProj);
+
+            if (nearProj == null)
             {
-                if (component.Accumulator > 0)
+                if (hologramComp.GracePeriod == 0)
                 {
-                    component.Accumulator -= frameTime;
+                    hologramComp.GracePeriod -= frameTime;
                     continue;
                 }
-                RaiseLocalEvent(new HologramReturnEvent(component.Owner));
+                DoReturnHologram(hologram, out _);
                 continue;
             }
-            component.Accumulator = 0.24f;
-            component.CurProjector = nearProj;
+
+            hologramComp.GracePeriod = 0.24f;
+            hologramComp.CurProjector = nearProj;
         }
     }
 
@@ -95,45 +104,28 @@ public sealed class SharedHologramSystem : EntitySystem
     ///     Handles returning a Hologram to their last visited projector,
     ///     then to the nearest, finally killing them if none are found.
     /// </summary>
-    /// <param name="component">Hologram's HologramComponent.</param>
-    public void HoloReturn(HologramReturnEvent args)
+    public virtual void DoReturnHologram(EntityUid uid, out bool holoKilled)
     {
-        var uid = args.Uid;
         var component = _entityManager.GetComponent<HologramComponent>(uid);
         var meta = MetaData(uid);
         var holoPos = Transform(uid).Coordinates;
 
-        var popupAppearOther = Loc.GetString("system-hologram-phasing-appear-others", ("name", meta.EntityName));
-        var popupAppearSelf = Loc.GetString("system-hologram-phasing-appear-self");
-        var popupDisappearOther = Loc.GetString("system-hologram-phasing-disappear-others", ("name", meta.EntityName));
-        var popupDeathSelf = Loc.GetString("system-hologram-phasing-death-self");
+        holoKilled = false;
 
-        // If the Hologram's last projector isn't valid, try to find a new one.
-        if (component.CurProjector == null)
+        if (component.CurProjector == null) // TODO:HOLO Check if the projector works.
         {
+            TryGetHoloProjector(uid, out component.CurProjector);
+        }
+
+        if (component.CurProjector == null) // If the Hologram still doesn't have a working projector, kill it. // TODO:HOLO Check if the projector works.
+        {
+            holoKilled = true;
             return;
         }
 
-        var curProjCheck = new HologramProjectorTestEvent(uid, component.CurProjector.Value);
-        RaiseLocalEvent(curProjCheck);
-        if (!curProjCheck.CanProject)
-        {
-            var getProj = new HologramGetProjectorEvent(uid, false);
-            RaiseLocalEvent(getProj);
-            component.CurProjector = getProj.Projector;
-        }
-
-        // If the Hologram's last projector is still invalid, kill them.
-        if (component.CurProjector == EntityUid.Invalid)
-        {
-            // if (_timing.InPrediction) return;
-
-            RaiseLocalEvent(new HologramKillEvent(uid));
-            return;
-        }
-
+        // TODO:HOLO Make this all part of a SetHoloProjector function.
         _entityManager.TryGetComponent<TransformComponent>(component.CurProjector, out var transfComp);
-        _popup.PopupCoordinates(popupDisappearOther, holoPos, Filter.PvsExcept(uid), false, PopupType.MediumCaution);
+        _popup.PopupCoordinates(Loc.GetString(PopupDisappearOther, ("name", meta.EntityName)), holoPos, Filter.PvsExcept(uid), false, PopupType.MediumCaution);
         _audio.Play(filename: "/Audio/SimpleStation14/Effects/Hologram/holo_off.ogg", playerFilter: Filter.Pvs(uid), coordinates: holoPos, false);
 
         // Prepare to move holo
@@ -142,21 +134,78 @@ public sealed class SharedHologramSystem : EntitySystem
             TryComp<SharedPullableComponent>(pulling.Pulling.Value, out var subjectPulling)) _pulling.TryStopPull(subjectPulling);
 
         // Move holo
-        Transform(uid).Coordinates = Transform((EntityUid) component.CurProjector).Coordinates;
+        _transform.SetCoordinates(uid, Transform(component.CurProjector.Value).Coordinates);
 
-        _popup.PopupEntity(popupAppearOther, uid, Filter.PvsExcept((EntityUid) uid), false, PopupType.Medium);
-        _popup.PopupEntity(popupAppearSelf, uid, uid, PopupType.Large);
+        _popup.PopupEntity(Loc.GetString(PopupAppearOther, ("name", meta.EntityName)), uid, Filter.PvsExcept(uid), false, PopupType.Medium);
+        _popup.PopupEntity(Loc.GetString(PopupAppearSelf, ("name", meta.EntityName)), uid, uid, PopupType.Large);
         _audio.PlayPvs("/Audio/SimpleStation14/Effects/Hologram/holo_on.ogg", uid);
 
         _adminLogger.Add(LogType.Unknown, LogImpact.Low,
             $"{ToPrettyString(uid):mob} was returned to projector {ToPrettyString((EntityUid) component.CurProjector):entity}");
     }
+
+    /// <summary>
+    /// Tests for the nearest projector to a set of coords.
+    /// </summary>
+    /// <param name="coords">Coords to test from.</param>
+    /// <param name="mapId">Map being tested on.</param>
+    /// <param name="result">The UID of the projector, or null if no projectors are found.</param>
+    /// <param name="occlude">Should it check only for unoccluded and in range projectors?</param>
+    /// <param name="range">The range it should check for projectors in, if occlude is true</param>
+    /// <returns>Returns true if a projector is found, false if not.</returns>
+    public bool TryGetHoloProjector(Vector2 coords, MapId mapId, [NotNullWhen(true)] out EntityUid? result, bool occlude = true, float range = 18f)
+    {
+        result = null;
+
+        var xformQuery = GetEntityQuery<TransformComponent>();
+
+        // sort all entities in distance increasing order
+        var nearProjList = new SortedList<float, EntityUid>();
+
+        var query = _entityManager.EntityQueryEnumerator<HologramProjectorComponent>();
+        while (query.MoveNext(out var projector, out var projComp))
+        {
+            if (!xformQuery.TryGetComponent(projector, out var compXform) || compXform.MapID != mapId)
+                continue;
+
+            var dist = (_transform.GetWorldPosition(compXform!, xformQuery) - coords).LengthSquared();
+            nearProjList.TryAdd(dist, projector);
+        }
+
+        foreach (var nearProj in nearProjList)
+        {
+            if (occlude && !nearProj.Value.InRangeUnOccluded(new MapCoordinates(coords, mapId), range)) continue;
+            result = nearProj.Value;
+            return true;
+        }
+        return false;
+    }
+
+    /// <inheritdoc/>
+    public bool TryGetHoloProjector(EntityUid uid, [NotNullWhen(true)] out EntityUid? result, bool occlude = true, float range = 18f)
+    {
+        var xformQuery = GetEntityQuery<TransformComponent>();
+        var transform = _entityManager.GetComponent<TransformComponent>(uid);
+        var playerPos = _transform.GetWorldPosition(transform, xformQuery);
+
+        return TryGetHoloProjector(playerPos, transform.MapID, out result, occlude, range);
+    }
 }
 
 public enum HoloTypeEnum
 {
+    /// <summary>
+    ///    A hologram projected from a projector.
+    /// </summary>
     Projected,
-    Lightbee
+    /// <summary>
+    ///     A hologram tied to the internal storage of a lightbee.
+    /// </summary>
+    Lightbee,
+    /// <summary>
+    ///     A hologram that
+    /// </summary>
+    Standalone,
 }
 
 // public struct HoloData

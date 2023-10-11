@@ -5,9 +5,10 @@
   id: Hardlight
 
 - type: Tag
-  id: Softlight
-- type: Tag
   id: HoloDisk
+
+- type: Tag
+  id: Softlight
 
 - type: Tag
   id: Plushie
