@@ -1289,3 +1289,11 @@ Entries:
         a salvage expedition.
   id: 116
   time: '2023-10-11T00:49:10.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: tweak
+      message: >-
+        Reinforced tiles (and other tough tiles) will no longer rip up when
+        explosive decompression occurs.
+  id: 117
+  time: '2023-10-11T03:56:54.0000000+00:00'
