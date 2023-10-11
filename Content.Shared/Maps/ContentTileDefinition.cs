@@ -59,6 +59,14 @@ namespace Content.Shared.Maps
 
         [DataField("friction")] public float Friction { get; set; } = 0.2f;
 
+        // Parkstation-ReinforcedReinforcedTiles-Start
+        /// <summary>
+        /// Whether this tile is reinforced or not.
+        /// This will affect, for instance, if it will be ripped up in atmospheric decompression.
+        /// </summary>
+        [DataField("reinforced")] public bool Reinforced { get; private set; } = false;
+        // Parkstation-ReinforcedReinforcedTiles-End
+
         [DataField("variants")] public byte Variants { get; set; } = 1;
 
         /// <summary>

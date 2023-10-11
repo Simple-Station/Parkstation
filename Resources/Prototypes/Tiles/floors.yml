@@ -453,6 +453,7 @@
   baseTurf: Plating
   isSubfloor: false
   canCrowbar: true
+  reinforced: true
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemReinforced
@@ -770,6 +771,7 @@
   baseTurf: Plating
   isSubfloor: false
   canCrowbar: true
+  reinforced: true
   footstepSounds:
     collection: FootstepFloor
   itemDrop: FloorTileItemShuttleWhite
@@ -782,6 +784,7 @@
   baseTurf: Plating
   isSubfloor: false
   canCrowbar: true
+  reinforced: true
   footstepSounds:
     collection: FootstepFloor
   itemDrop: FloorTileItemShuttleBlue
@@ -806,6 +809,7 @@
   baseTurf: Plating
   isSubfloor: false
   canCrowbar: true
+  reinforced: true
   footstepSounds:
     collection: FootstepFloor
   itemDrop: FloorTileItemShuttlePurple
@@ -818,6 +822,7 @@
   baseTurf: Plating
   isSubfloor: false
   canCrowbar: true
+  reinforced: true
   footstepSounds:
     collection: FootstepFloor
   itemDrop: FloorTileItemShuttleRed
@@ -832,6 +837,7 @@
   baseTurf: Plating
   isSubfloor: false
   canCrowbar: true
+  reinforced: true
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemGold
@@ -844,6 +850,7 @@
   baseTurf: Plating
   isSubfloor: false
   canCrowbar: true
+  reinforced: true
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemSilver
@@ -858,6 +865,7 @@
   baseTurf: Plating
   isSubfloor: false
   canCrowbar: true
+  reinforced: true
   footstepSounds:
     collection: FootstepTile
   itemDrop: SheetGlass1
@@ -872,6 +880,7 @@
   baseTurf: Plating
   isSubfloor: false
   canCrowbar: true
+  reinforced: true
   footstepSounds:
     collection: FootstepTile
   itemDrop: SheetRGlass1
