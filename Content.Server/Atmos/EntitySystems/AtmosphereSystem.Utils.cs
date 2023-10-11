@@ -3,6 +3,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Cargo.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Maps;
 using Robust.Shared.Map.Components;
 using Dependency = Robust.Shared.IoC.DependencyAttribute;
 
@@ -111,7 +112,7 @@ public partial class AtmosphereSystem
     /// <param name="tile">The indices of the tile.</param>
     private void PryTile(MapGridComponent mapGrid, Vector2i tile)
     {
-        if (!mapGrid.TryGetTileRef(tile, out var tileRef))
+        if (!mapGrid.TryGetTileRef(tile, out var tileRef) || tileRef.Tile.GetContentTileDefinition().Reinforced) // Parkstation-ReinforcedReinforcedTiles
             return;
 
         _tile.PryTile(tileRef);
