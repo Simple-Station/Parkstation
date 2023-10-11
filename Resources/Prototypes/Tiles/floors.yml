@@ -837,7 +837,6 @@
   baseTurf: Plating
   isSubfloor: false
   canCrowbar: true
-  reinforced: true
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemGold
@@ -850,7 +849,6 @@
   baseTurf: Plating
   isSubfloor: false
   canCrowbar: true
-  reinforced: true
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemSilver
@@ -865,7 +863,6 @@
   baseTurf: Plating
   isSubfloor: false
   canCrowbar: true
-  reinforced: true
   footstepSounds:
     collection: FootstepTile
   itemDrop: SheetGlass1
