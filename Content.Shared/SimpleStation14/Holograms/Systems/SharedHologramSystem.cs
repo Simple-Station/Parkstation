@@ -12,6 +12,7 @@ using Content.Shared.Pulling.Components;
 using Content.Shared.Database;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Pulling;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.SimpleStation14.Holograms;
 
@@ -24,6 +25,7 @@ public abstract class SharedHologramSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedPullingSystem _pulling = default!;
+    [Dependency] private readonly GameTiming _timing = default!;
 
     protected const string PopupAppearOther = "system-hologram-phasing-appear-others";
     protected const string PopupAppearSelf = "system-hologram-phasing-appear-self";
@@ -125,8 +127,11 @@ public abstract class SharedHologramSystem : EntitySystem
 
         // TODO:HOLO Make this all part of a SetHoloProjector function.
         _entityManager.TryGetComponent<TransformComponent>(component.CurProjector, out var transfComp);
-        _popup.PopupCoordinates(Loc.GetString(PopupDisappearOther, ("name", meta.EntityName)), holoPos, Filter.PvsExcept(uid), false, PopupType.MediumCaution);
-        _audio.Play(filename: "/Audio/SimpleStation14/Effects/Hologram/holo_off.ogg", playerFilter: Filter.Pvs(uid), coordinates: holoPos, false);
+        if (_timing.IsFirstTimePredicted)
+        {
+            _popup.PopupCoordinates(Loc.GetString(PopupDisappearOther, ("name", meta.EntityName)), holoPos, Filter.PvsExcept(uid), false, PopupType.MediumCaution);
+            _audio.Play(filename: "/Audio/SimpleStation14/Effects/Hologram/holo_off.ogg", playerFilter: Filter.Pvs(uid), coordinates: holoPos, false);
+        }
 
         // Prepare to move holo
         if (TryComp<SharedPullableComponent>(uid, out var pullable) && pullable.BeingPulled) _pulling.TryStopPull(pullable);
@@ -136,9 +141,12 @@ public abstract class SharedHologramSystem : EntitySystem
         // Move holo
         _transform.SetCoordinates(uid, Transform(component.CurProjector.Value).Coordinates);
 
-        _popup.PopupEntity(Loc.GetString(PopupAppearOther, ("name", meta.EntityName)), uid, Filter.PvsExcept(uid), false, PopupType.Medium);
-        _popup.PopupEntity(Loc.GetString(PopupAppearSelf, ("name", meta.EntityName)), uid, uid, PopupType.Large);
-        _audio.PlayPvs("/Audio/SimpleStation14/Effects/Hologram/holo_on.ogg", uid);
+        if (_timing.IsFirstTimePredicted)
+        {
+            _popup.PopupEntity(Loc.GetString(PopupAppearOther, ("name", meta.EntityName)), uid, Filter.PvsExcept(uid), false, PopupType.Medium);
+            _popup.PopupEntity(Loc.GetString(PopupAppearSelf, ("name", meta.EntityName)), uid, uid, PopupType.Large);
+            _audio.PlayPvs("/Audio/SimpleStation14/Effects/Hologram/holo_on.ogg", uid);
+        }
 
         _adminLogger.Add(LogType.Unknown, LogImpact.Low,
             $"{ToPrettyString(uid):mob} was returned to projector {ToPrettyString((EntityUid) component.CurProjector):entity}");
