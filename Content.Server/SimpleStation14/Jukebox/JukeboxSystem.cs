@@ -211,9 +211,25 @@ public sealed partial class JukeboxSystem : EntitySystem
 
         jukeboxComp.CurrentlyPlayingStream = _audio.Play(song.Path, Filter.Broadcast(), jukeBox, true, AudioParams.Default.WithPlayOffset((float) offset.TotalSeconds)); // Play the song, with any offset, and to every player in the game.
 
-        Timer.Spawn((int) (song.Duration.TotalMilliseconds - offset.TotalMilliseconds), () => OnSongEnd(jukeBox, jukeboxComp), jukeboxComp.SongTimerCancel.Token); // Set a timer to end the song when it finishes.
-
         UpdateState(jukeBox, jukeboxComp);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<JukeboxComponent>();
+
+        // Iterate over all Jukeboxes.
+        while (query.MoveNext(out var jukebox, out var jukeboxComp))
+        {
+            // If the Jukebox is playing, and the song has finished, end the song.
+            // This was orignially done by starting a timer, but that stopped working out of nowhere, so...
+            if (jukeboxComp.Playing && _timing.CurTime >= jukeboxComp.FinishPlayingTime)
+            {
+                OnSongEnd(jukebox, jukeboxComp);
+            }
+        }
     }
 
     #endregion Public functions
@@ -252,15 +268,7 @@ public sealed partial class JukeboxSystem : EntitySystem
 
         jukeboxComp.StoppedTime = _timing.CurTime;
 
-        if (jukeboxComp.CurrentlyPlayingStream != null)
-        {
-            jukeboxComp.CurrentlyPlayingStream.Stop();
-            jukeboxComp.CurrentlyPlayingStream = null;
-        }
-
-        jukeboxComp.SongTimerCancel.Cancel();
-
-        UpdateState(jukeBox, jukeboxComp);
+        Clean(jukeBox, jukeboxComp);
     }
 
     /// <summary>
@@ -287,8 +295,6 @@ public sealed partial class JukeboxSystem : EntitySystem
             jukeboxComp.CurrentlyPlayingStream.Stop();
             jukeboxComp.CurrentlyPlayingStream = null;
         }
-
-        jukeboxComp.SongTimerCancel.Cancel();
 
         UpdateState(jukeBox, jukeboxComp);
     }
