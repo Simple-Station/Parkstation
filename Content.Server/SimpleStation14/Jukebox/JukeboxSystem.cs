@@ -12,6 +12,8 @@ using Content.Shared.Damage;
 using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Robust.Shared.Random;
+using Content.Shared.Power;
+using System.Linq;
 
 namespace Content.Server.SimpleStation14.Jukebox;
 
@@ -22,6 +24,7 @@ public sealed partial class JukeboxSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly DeviceLinkSystem _link = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public const string PortSongPlayed = "Start";
     public const string PortSongStopped = "Timer";
@@ -94,7 +97,7 @@ public sealed partial class JukeboxSystem : EntitySystem
         if (!jukeboxComp.CanPlay)
             return;
 
-        End(jukebox, jukeboxComp);
+        EndTrack(jukebox, jukeboxComp);
 
         if (jukeboxComp.NextUp.Count > 0)
         {
@@ -113,7 +116,7 @@ public sealed partial class JukeboxSystem : EntitySystem
     ///     Pauses the currently playing song and sets the Jukebox to a paused state.
     /// </summary>
     /// <remarks>
-    ///     See <see cref="Stop"/> to stop the Jukebox instead.
+    ///     See <see cref="StopSong"/> to stop the Jukebox instead.
     ///     Pausing a Jukebox will allow it to remember its paused state, even if it gets stopped later.
     /// </remarks>
     public void DoPauseSong(EntityUid jukebox, JukeboxComponent? jukeboxComp = null)
@@ -126,7 +129,7 @@ public sealed partial class JukeboxSystem : EntitySystem
 
         jukeboxComp.Paused = true;
 
-        Stop(jukebox, jukeboxComp);
+        StopSong(jukebox, jukeboxComp);
     }
 
     /// <summary>
@@ -167,7 +170,7 @@ public sealed partial class JukeboxSystem : EntitySystem
         if (!Resolve(jukebox, ref jukeboxComp))
             return;
 
-        var potentialSongs = jukeboxComp.Songs;
+        var potentialSongs = jukeboxComp.Songs.ToList();
 
         if (jukeboxComp.Emagged)
             potentialSongs.AddRange(jukeboxComp.EmaggedSongs);
@@ -264,21 +267,22 @@ public sealed partial class JukeboxSystem : EntitySystem
         if (canPlay)
             TryRestart(uid, component);
         else
-            Stop(uid, component);
+            StopSong(uid, component);
     }
 
     /// <summary>
     ///     Stops the currently playing song and sets the Jukebox to a stopped state.
     /// </summary>
     /// <remarks>
+    ///     This stops the song, but does not indicate that the user wants the song paused.
+    ///     For instance, a power outage may stop the song from playing, but the user would want it to continue automatically when power comes back.
+    ///     If the user pauses the song manually, they do not want a power outage to restart it.
     ///     See <see cref="DoPauseSong"/> to pause the Jukebox instead.
     /// </remarks>
-    private void Stop(EntityUid jukeBox, JukeboxComponent jukeboxComp)
+    private void StopSong(EntityUid jukeBox, JukeboxComponent jukeboxComp)
     {
         if (!jukeboxComp.Playing)
             return;
-
-        jukeboxComp.Playing = false;
 
         jukeboxComp.StoppedTime = _timing.CurTime;
 
@@ -286,9 +290,9 @@ public sealed partial class JukeboxSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Ends the currently playing song in the Jukebox.
+    ///     Removes the track data from the Jukebox, and stops the song from playing.
     /// </summary>
-    private void End(EntityUid jukeBox, JukeboxComponent jukeboxComp)
+    private void EndTrack(EntityUid jukeBox, JukeboxComponent jukeboxComp)
     {
         jukeboxComp.CurrentlyPlayingTrack = null;
 
@@ -304,7 +308,11 @@ public sealed partial class JukeboxSystem : EntitySystem
     /// <summary>
     ///     Cleans up the active elements of a playing song.
     /// </summary>
-    private void Clean(EntityUid jukeBox, JukeboxComponent jukeboxComp)
+    /// <remarks>
+    ///     Called either when a song is stopped, or when a song ends.
+    ///     This does not modify the Jukebox's state, and should be called after the state has been updated.
+    /// </remarks>
+    private void Clean(EntityUid jukebox, JukeboxComponent jukeboxComp)
     {
         if (jukeboxComp.CurrentlyPlayingStream != null)
         {
@@ -312,7 +320,9 @@ public sealed partial class JukeboxSystem : EntitySystem
             jukeboxComp.CurrentlyPlayingStream = null;
         }
 
-        UpdateState(jukeBox, jukeboxComp);
+        jukeboxComp.Playing = false;
+
+        UpdateState(jukebox, jukeboxComp);
     }
 
     /// <summary>
@@ -327,13 +337,8 @@ public sealed partial class JukeboxSystem : EntitySystem
         if (jukeboxComp.Paused || !jukeboxComp.CanPlay)
             return;
 
-        jukeboxComp.Playing = true;
-
         if (jukeboxComp.CurrentlyPlayingTrack == null || jukeboxComp.FinishPlayingTime == null || jukeboxComp.StoppedTime == null)
-        {
-            UpdateState(jukeBox, jukeboxComp);
             return;
-        }
 
         var timeLeftBeforeFinished = (TimeSpan) (jukeboxComp.CurrentlyPlayingTrack.Duration - (jukeboxComp.FinishPlayingTime - jukeboxComp.StoppedTime));
 
@@ -348,19 +353,21 @@ public sealed partial class JukeboxSystem : EntitySystem
     ///     Updates the Jukebox's state and ui.
     /// </summary>
     /// <param name="populateSongs">Whether or not to populate the song list in the ui.</param>
-    private void UpdateState(EntityUid jukeBox, JukeboxComponent jukeboxComp, bool populateSongs = false)
+    private void UpdateState(EntityUid jukebox, JukeboxComponent jukeboxComp, bool populateSongs = false)
     {
         Dirty(jukeboxComp);
 
-        _ui.TrySendUiMessage(jukeBox, JukeboxUiKey.Key, new JukeboxUpdateStateMessage(populateSongs));
+        _appearance.SetData(jukebox, PowerDeviceVisuals.VisualState, jukeboxComp.Playing); // Set the Jukebox's playing animation if valid.
+
+        _ui.TrySendUiMessage(jukebox, JukeboxUiKey.Key, new JukeboxUpdateStateMessage(populateSongs));
     }
 
     /// <summary>
     ///     Event handler for the song in the Jukebox reaching its end.
     /// </summary>
-    private void OnSongEnd(EntityUid jukeBox, JukeboxComponent jukeboxComp)
+    private void OnSongEnd(EntityUid jukebox, JukeboxComponent jukeboxComp)
     {
-        TrySkipSong(jukeBox, jukeboxComp);
+        TrySkipSong(jukebox, jukeboxComp);
     }
 
     #endregion Private functions

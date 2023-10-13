@@ -56,7 +56,7 @@ public sealed partial class JukeboxSystem : EntitySystem
     /// </summary>
     private void OnPaused(EntityUid jukeBox, JukeboxComponent jukeboxComp, ref EntityPausedEvent args)
     {
-        Stop(jukeBox, jukeboxComp);
+        StopSong(jukeBox, jukeboxComp);
     }
 
     /// <summary>

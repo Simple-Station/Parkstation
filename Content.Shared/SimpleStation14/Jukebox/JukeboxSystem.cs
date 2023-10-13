@@ -54,3 +54,11 @@ public sealed class JukeboxSongSelectedMessage : BoundUserInterfaceMessage
         Song = song;
     }
 }
+
+[Serializable, NetSerializable]
+public enum JukeboxVisualLayers
+{
+    Lit,
+    UnLit,
+    Player,
+}

@@ -118,7 +118,7 @@ public sealed partial class JukeboxComponent : Component
     /// </summary>
     [AutoNetworkedField]
     [ViewVariables(VVAccess.ReadOnly)]
-    public bool Playing { get; set; } = true;
+    public bool Playing { get; set; } = false;
 
     /// <summary>
     ///     Whether or not the Jukebox is currently paused.

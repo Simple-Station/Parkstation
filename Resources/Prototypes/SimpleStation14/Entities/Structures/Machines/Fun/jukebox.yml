@@ -1,5 +1,6 @@
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
+  abstract: true
   id: JukeboxBase
   name: jukebox
   description: A jukebox, capable of playing music.
@@ -15,9 +16,6 @@
     sprite: SimpleStation14/Structures/Machines/jukebox.rsi
     layers:
     - state: base
-    - state: powered
-    - state: powered_unlit
-      shader: unshaded
   - type: ApcPowerReceiver
     powerLoad: 350
   - type: Jukebox
@@ -46,6 +44,31 @@
     decorativeUi: true
   - type: Machine
     board: JukeboxMachineCircuitboard
+  - type: Appearance
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Machines/jukebox.rsi
+    layers:
+    - state: base
+    - state: powered
+      map: ["enum.JukeboxVisualLayers.UnLit"]
+    - state: powered_unlit
+      shader: unshaded
+      map: ["enum.JukeboxVisualLayers.Lit"]
+    - state: active
+      map: ["enum.JukeboxVisualLayers.Player"]
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.VisualState:
+        enum.JukeboxVisualLayers.Player:
+          True: { visible: true}
+          False: { visible: false }
+      enum.PowerDeviceVisuals.Powered:
+        enum.JukeboxVisualLayers.Lit:
+          True: { visible: true }
+          False: { visible: false }
+        enum.JukeboxVisualLayers.UnLit:
+          True: { visible: true }
+          False: { visible: false }
 
 # This and the Zune are just goofy testing items, but proper versions of them should probably be made.
 - type: entity
