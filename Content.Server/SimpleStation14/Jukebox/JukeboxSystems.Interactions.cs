@@ -1,5 +1,8 @@
 using Content.Server.Construction;
+using Content.Server.DeviceLinking.Events;
 using Content.Server.Power.Components;
+using Content.Shared.Damage;
+using Content.Shared.Emag.Systems;
 using Content.Shared.SimpleStation14.Jukebox;
 using Robust.Shared.Random;
 
@@ -8,6 +11,61 @@ namespace Content.Server.SimpleStation14.Jukebox;
 public sealed partial class JukeboxSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+
+    /// <summary>
+    ///     Simply checks if the Jukebox can play songs on init.
+    /// </summary>
+    private void OnComponentInit(EntityUid uid, JukeboxComponent component, ComponentInit args)
+    {
+        CheckCanPlay(uid, component);
+
+        component.SerialNumber = GenerateSerialNumber();
+
+        _link.EnsureSourcePorts(uid, PortSongPlayed);
+        _link.EnsureSourcePorts(uid, PortSongStopped);
+
+        _link.EnsureSinkPorts(uid, PortPlayRandom);
+        _link.EnsureSinkPorts(uid, PortSkip);
+        _link.EnsureSinkPorts(uid, PortPause);
+        _link.EnsureSinkPorts(uid, PortUnPause);
+        _link.EnsureSinkPorts(uid, PortTogglePuase);
+
+        UpdateState(uid, component);
+    }
+
+    /// <summary>
+    ///     Handles cleanup when the Jukebox is shut down.
+    /// </summary>
+    private void OnComponentShutdown(EntityUid uid, JukeboxComponent component, ComponentShutdown args)
+    {
+        Clean(uid, component);
+    }
+
+    /// <summary>
+    ///     Handles setting the Jukebox's state to emagged.
+    /// </summary>
+    private void OnEmagged(EntityUid jukeBox, JukeboxComponent jukeboxComp, ref GotEmaggedEvent args)
+    {
+        jukeboxComp.Emagged = true;
+        args.Handled = true;
+        UpdateState(jukeBox, jukeboxComp);
+    }
+
+    /// <summary>
+    ///    Handles when a Jukebox entity is paused in game terms.
+    /// </summary>
+    private void OnPaused(EntityUid jukeBox, JukeboxComponent jukeboxComp, ref EntityPausedEvent args)
+    {
+        Stop(jukeBox, jukeboxComp);
+    }
+
+    /// <summary>
+    ///   Handles when a Jukebox entity is unpaused in game terms.
+    /// </summary>
+    private void OnUnpaused(EntityUid jukeBox, JukeboxComponent jukeboxComp, ref EntityUnpausedEvent args)
+    {
+        CheckCanPlay(jukeBox, jukeboxComp);
+    }
 
     /// <summary>
     ///     Checks if the Jukebox can play songs when its power state changes.
@@ -45,7 +103,7 @@ public sealed partial class JukeboxSystem : EntitySystem
     /// </summary>
     private void OnSongSelected(EntityUid jukeBox, JukeboxComponent jukeboxComp, JukeboxSongSelectedMessage msg)
     {
-        TryQueueSong(jukeBox, jukeboxComp, msg.Song);
+        TryQueueSong(jukeBox, msg.Song, jukeboxComp);
     }
 
     /// <summary>
@@ -92,5 +150,35 @@ public sealed partial class JukeboxSystem : EntitySystem
         }
 
         args.AddNumberUpgrade("jukebox-maxqueued-upgrade-string", component.MaxQueued - component.MaxQueuedDefault);
+    }
+
+    private void OnDamageChanged(EntityUid uid, JukeboxComponent component, DamageChangedEvent args)
+    {
+        if (args.DamageIncreased && args.DamageDelta != null && args.DamageDelta.Total < 7 && _random.Prob(0.65f))
+            TryPlayRandomSong(uid, component);
+    }
+
+    private void OnSignalReceived(EntityUid uid, JukeboxComponent component, ref SignalReceivedEvent args)
+    {
+        switch (args.Port)
+        {
+            case PortPlayRandom:
+                TryPlayRandomSong(uid, component);
+                break;
+            case PortSkip:
+                TrySkipSong(uid, component);
+                break;
+            case PortPause:
+                DoPauseSong(uid, component);
+                break;
+            case PortUnPause:
+                TryUnPauseSong(uid, component);
+                break;
+            case PortTogglePuase:
+                TryTogglePause(uid, component);
+                break;
+            default:
+                return;
+        }
     }
 }
