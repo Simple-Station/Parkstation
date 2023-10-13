@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.GameTicking;
+using Content.Server.Mind;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.SimpleStation14.CCVar;
@@ -10,6 +11,7 @@ namespace Content.Server.SimpleStation14.EndOfRoundStats.MopUsed;
 public sealed class MopUsedStatSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
 
 
     Dictionary<MopperData, FixedPoint2> userMopStats = new();
@@ -37,10 +39,13 @@ public sealed class MopUsedStatSystem : EntitySystem
     {
         timesMopped++;
 
+        var name = MetaData(args.Mopper).EntityName;
+        var username = _mind.TryGetMind(args.Mopper, out var mind) && mind.Session != null ? mind.Session.Name : null;
+
         var mopperData = new MopperData
         {
-            Name = args.Mopper,
-            Username = args.Username
+            Name = name,
+            Username = username
         };
 
         if (userMopStats.ContainsKey(mopperData))
