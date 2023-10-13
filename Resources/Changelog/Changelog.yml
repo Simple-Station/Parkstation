@@ -1297,3 +1297,9 @@ Entries:
         explosive decompression occurs.
   id: 117
   time: '2023-10-11T03:56:54.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: fix
+      message: Fixed mopping end of round stat.
+  id: 118
+  time: '2023-10-13T02:50:13.0000000+00:00'
