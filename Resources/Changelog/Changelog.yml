@@ -1303,3 +1303,11 @@ Entries:
       message: Fixed mopping end of round stat.
   id: 118
   time: '2023-10-13T02:50:13.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: fix
+      message: >-
+        The entire station is no longer informed when you're burning to death in
+        a charging station
+  id: 119
+  time: '2023-10-13T02:49:59.0000000+00:00'
