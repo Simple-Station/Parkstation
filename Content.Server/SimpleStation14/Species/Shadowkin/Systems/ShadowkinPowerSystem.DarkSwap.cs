@@ -1,5 +1,8 @@
+using System.Linq;
 using Content.Server.Ghost.Components;
 using Content.Server.Magic;
+using Content.Server.NPC.Components;
+using Content.Server.NPC.Systems;
 using Content.Server.SimpleStation14.Species.Shadowkin.Components;
 using Content.Server.SimpleStation14.Species.Shadowkin.Events;
 using Content.Server.Visible;
@@ -30,6 +33,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly MagicSystem _magic = default!;
+    [Dependency] private readonly NpcFactionSystem _factions = default!;
 
     public override void Initialize()
     {
@@ -149,7 +153,10 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             EnsureComp<PacifiedComponent>(uid);
 
         if (component.Invisible)
-            SetCanSeeInvisibility(uid, true);
+        {
+            SetVisibility(uid, true);
+            SuppressFactions(uid, true);
+        }
     }
 
     private void OnInvisShutdown(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentShutdown args)
@@ -157,7 +164,10 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         RemComp<PacifiedComponent>(uid);
 
         if (component.Invisible)
-            SetCanSeeInvisibility(uid, false);
+        {
+            SetVisibility(uid, false);
+            SuppressFactions(uid, false);
+        }
 
         component.Darken = false;
 
@@ -174,17 +184,14 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     }
 
 
-    public void SetCanSeeInvisibility(EntityUid uid, bool set)
+    public void SetVisibility(EntityUid uid, bool set)
     {
-        if (!TryComp<VisibilityComponent>(uid, out var visibility))
-            return;
+        var visibility = EnsureComp<VisibilityComponent>(uid);
 
         if (set)
         {
             if (_entity.TryGetComponent(uid, out EyeComponent? eye))
-            {
                 eye.VisibilityMask |= (uint) VisibilityFlags.DarkSwapInvisibility;
-            }
 
             _visibility.AddLayer(uid, visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
             _visibility.RemoveLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
@@ -196,16 +203,52 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         else
         {
             if (_entity.TryGetComponent(uid, out EyeComponent? eye))
-            {
                 eye.VisibilityMask &= ~(uint) VisibilityFlags.DarkSwapInvisibility;
-            }
 
             _visibility.RemoveLayer(uid, visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
             _visibility.AddLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
             _visibility.RefreshVisibility(uid);
 
             if (!_entity.TryGetComponent<GhostComponent>(uid, out _))
-                _entity.RemoveComponent<StealthComponent>(uid);
+                _stealth.SetVisibility(uid, 1f, _entity.EnsureComponent<StealthComponent>(uid));
+        }
+    }
+
+    /// <summary>
+    ///     Remove existing factions on the entity and move them to the power component to add back when removed from The Dark
+    /// </summary>
+    /// <param name="uid">Entity to modify factions for</param>
+    /// <param name="set">Add or remove the factions</param>
+    public void SuppressFactions(EntityUid uid, bool set)
+    {
+        if (!_entity.TryGetComponent<ShadowkinDarkSwapPowerComponent>(uid, out var component))
+            return;
+
+        if (set)
+        {
+            if (_entity.TryGetComponent<NpcFactionMemberComponent>(uid, out var factions))
+            {
+                component.SuppressedFactions = factions.Factions.ToList();
+
+                foreach (var faction in factions.Factions)
+                    _factions.RemoveFaction(uid, faction);
+
+                foreach (var faction in component.AddedFactions)
+                    _factions.AddFaction(uid, faction);
+            }
+        }
+        else
+        {
+            if (!component.SuppressedFactions.Any())
+                return;
+
+            foreach (var faction in component.SuppressedFactions)
+                _factions.AddFaction(uid, faction);
+
+            foreach (var faction in component.AddedFactions)
+                _factions.RemoveFaction(uid, faction);
+
+            component.SuppressedFactions.Clear();
         }
     }
 }
