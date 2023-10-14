@@ -19,11 +19,11 @@ public sealed class ShadowkinSightSystem : EntitySystem
 
     private void OnEquipped(EntityUid uid, ShadowkinSightComponent component, GotEquippedEvent args)
     {
-        _darkSwap.SetCanSeeInvisibility(args.Equipee, true, false, false);
+        _darkSwap.SetVisibility(args.Equipee, true, false, false);
     }
 
     private void OnUnEquipped(EntityUid uid, ShadowkinSightComponent component, GotUnequippedEvent args)
     {
-        _darkSwap.SetCanSeeInvisibility(args.Equipee, false, false, false);
+        _darkSwap.SetVisibility(args.Equipee, false, false, false);
     }
 }

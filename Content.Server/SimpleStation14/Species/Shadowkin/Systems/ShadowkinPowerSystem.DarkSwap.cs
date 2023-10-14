@@ -178,7 +178,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
         if (component.Invisible)
         {
-            SetVisibility(uid, true);
+            SetVisibility(uid, true, true, true);
             SuppressFactions(uid, true);
         }
     }
@@ -189,7 +189,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
         if (component.Invisible)
         {
-            SetVisibility(uid, false);
+            SetVisibility(uid, false, true, true);
             SuppressFactions(uid, false);
         }
 
