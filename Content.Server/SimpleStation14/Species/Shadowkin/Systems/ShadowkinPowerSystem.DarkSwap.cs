@@ -144,7 +144,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             comp.Invisible = invisible;
             comp.Darken = darken;
             comp.DarkenRange = power.DarkenRange;
-            comp.DarkenRange = power.DarkenRate;
+            comp.DarkenRate = power.DarkenRate;
 
             RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(performer, true));
 
