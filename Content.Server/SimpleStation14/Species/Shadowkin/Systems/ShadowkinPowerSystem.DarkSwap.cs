@@ -39,7 +39,6 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ComponentShutdown>(Shutdown);
 
         SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ShadowkinDarkSwapEvent>(DarkSwap);
-        SubscribeLocalEvent<ShadowkinDarkSwapAttemptEvent>(DarkSwapAttempt);
 
         SubscribeLocalEvent<ShadowkinDarkSwappedComponent, ComponentStartup>(OnInvisStartup);
         SubscribeLocalEvent<ShadowkinDarkSwappedComponent, ComponentShutdown>(OnInvisShutdown);
@@ -68,11 +67,9 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             return;
 
 
-        var hasComp = _entity.HasComponent<ShadowkinDarkSwappedComponent>(args.Performer);
-
         SetDarkened(
             args.Performer,
-            !hasComp,
+            !_entity.HasComponent<ShadowkinDarkSwappedComponent>(args.Performer),
             args.SoundOn,
             args.VolumeOn,
             args.SoundOff,
@@ -85,15 +82,6 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         );
 
         _magic.Speak(args, false);
-    }
-
-    /// <summary>
-    ///     Ensure the entity has the power component
-    /// </summary>
-    private void DarkSwapAttempt(ShadowkinDarkSwapAttemptEvent args)
-    {
-        if (!_entity.HasComponent<ShadowkinDarkSwapPowerComponent>(args.Performer))
-            args.Cancel();
     }
 
 
@@ -125,15 +113,19 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         float powerCostOff = 0
     )
     {
+        // Ask other systems if we can DarkSwap
         var ev = new ShadowkinDarkSwapAttemptEvent(performer);
         RaiseLocalEvent(ev);
         if (ev.Cancelled)
             return;
 
-        var power = _entity.GetComponent<ShadowkinDarkSwapPowerComponent>(performer);
+        // We require the power component to DarkSwap
+        if (!_entity.TryGetComponent<ShadowkinDarkSwapPowerComponent>(performer, out var power))
+            return;
 
-        if (addComp)
+        if (addComp) // Into The Dark
         {
+            // Add the DarkSwapped component and set variables to match the power component
             var comp = _entity.EnsureComponent<ShadowkinDarkSwappedComponent>(performer);
             comp.Invisible = power.Invisible;
             comp.Pacify = power.Pacify;
@@ -141,26 +133,35 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             comp.DarkenRange = power.DarkenRange;
             comp.DarkenRate = power.DarkenRate;
 
+            // Tell other systems we've DarkSwapped
             RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(performer, true));
 
+            // Play a sound if we have one
             if (soundOn != null)
                 _audio.PlayPvs(soundOn, performer, AudioParams.Default.WithVolume(volumeOn ?? 5f));
 
+            // Drain power and stamina if we have a cost
             _power.TryAddPowerLevel(performer, -powerCostOn);
             _stamina.TakeStaminaDamage(performer, staminaCostOn);
         }
-        else
+        else // Out of The Dark
         {
+            // Remove the DarkSwapped component, the rest is handled in the shutdown event
             _entity.RemoveComponent<ShadowkinDarkSwappedComponent>(performer);
+
+            // Tell other systems we've un DarkSwapped
             RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(performer, false));
 
+            // Play a sound if we have one
             if (soundOff != null)
                 _audio.PlayPvs(soundOff, performer, AudioParams.Default.WithVolume(volumeOff ?? 5f));
 
+            // Drain power and stamina if we have a cost
             _power.TryAddPowerLevel(performer, -powerCostOff);
             _stamina.TakeStaminaDamage(performer, staminaCostOff);
         }
 
+        // If we have an event, mark it as handled
         if (args != null)
             args.Handled = true;
     }
@@ -195,6 +196,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             _darken.ResetLight(pointLight, shadowkinLight);
         }
 
+        // Clear the original array
         component.DarkenedLights.Clear();
     }
 

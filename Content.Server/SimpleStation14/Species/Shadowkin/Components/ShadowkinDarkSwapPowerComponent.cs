@@ -10,6 +10,12 @@ public sealed class ShadowkinDarkSwapPowerComponent : Component
     public bool Invisible = true;
 
     /// <summary>
+    ///     If it should be pacified
+    /// </summary>
+    [DataField("pacify")]
+    public bool Pacify = true;
+
+    /// <summary>
     ///     If the entity should dim nearby lights when swapped
     /// </summary>
     [DataField("darken"), ViewVariables(VVAccess.ReadWrite)]
