@@ -8,6 +8,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Pulling.Components;
 using Content.Shared.SimpleStation14.Species.Shadowkin.Components;
+using Content.Shared.Storage.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -49,16 +50,15 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
 
     private void Teleport(EntityUid uid, ShadowkinTeleportPowerComponent component, ShadowkinTeleportEvent args)
     {
-        // Need power to drain power
-        if (!_entity.TryGetComponent<ShadowkinComponent>(args.Performer, out var comp))
-            return;
-
-        // Don't activate abilities if specially handcuffed
-        if (_entity.TryGetComponent<HandcuffComponent>(args.Performer, out var cuffs) && cuffs.AntiShadowkin)
+        // Don't activate abilities if...
+        if (!_entity.TryGetComponent<ShadowkinComponent>(args.Performer, out var comp) || // Not a Shadowkin
+            _entity.TryGetComponent<HandcuffComponent>(args.Performer, out var cuffs) && cuffs.AntiShadowkin || // Specially handcuffed
+            _entity.HasComponent<InsideEntityStorageComponent>(args.Performer)) // Inside an entity storage
             return;
 
 
         var transform = Transform(args.Performer);
+        // Must be on the same map
         if (transform.MapID != args.Target.GetMapId(EntityManager))
             return;
 
@@ -67,14 +67,12 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
             puller.Pulling != null &&
             _entity.TryGetComponent<SharedPullableComponent>(puller.Pulling, out pullable) &&
             pullable.BeingPulled)
-        {
-            // Temporarily stop pulling to avoid not teleporting to the target
+            // Temporarily stop pulling to avoid not teleporting fully to the target
             _pulling.TryStopPull(pullable);
-        }
 
         // Teleport the performer to the target
         _transform.SetCoordinates(args.Performer, args.Target);
-        transform.AttachToGridOrMap();
+        _transform.AttachToGridOrMap(args.Performer, transform);
 
         if (pullable != null && puller != null)
         {
@@ -84,7 +82,7 @@ public sealed class ShadowkinTeleportSystem : EntitySystem
             // Teleport the pulled entity to the target
             // TODO: Relative position to the performer
             _transform.SetCoordinates(pullable.Owner, args.Target);
-            pulledTransform.AttachToGridOrMap();
+            _transform.AttachToGridOrMap(args.Performer, transform);
 
             // Resume pulling
             // TODO: This does nothing? // This does things sometimes, but the client never knows
