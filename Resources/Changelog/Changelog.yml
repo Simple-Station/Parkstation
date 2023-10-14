@@ -1311,3 +1311,11 @@ Entries:
         a charging station
   id: 119
   time: '2023-10-13T02:49:59.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: add
+      message: Normal NPCs can no longer see DarkSwapped Shadowkin
+    - type: fix
+      message: Fixed everyone being able to see DarkSwapped Shadowkin
+  id: 120
+  time: '2023-10-14T03:24:51.0000000+00:00'
