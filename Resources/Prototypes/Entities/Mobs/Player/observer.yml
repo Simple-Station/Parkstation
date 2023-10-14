@@ -5,7 +5,9 @@
   save: false
   description: Boo!
   components:
-  - type: Mind
+  - type: ContentEye
+    maxZoom: 1.44,1.44
+  - type: MindContainer
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -13,12 +15,13 @@
     fixedRotation: true
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 15
-      mask:
-      - GhostImpassable
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 15
+        mask:
+        - GhostImpassable
   - type: InputMover
   - type: Appearance
   - type: Eye
@@ -46,18 +49,28 @@
     globalReceive: true
   - type: Sprite
     overrideContainerOcclusion: true # Ghosts always show up regardless of where they're contained.
-    netsync: false
     noRot: true
     drawdepth: Ghosts
     sprite: Mobs/Ghosts/ghost_human.rsi
     state: animated
-    color: "#fff8"
+    color: "#ffff"
     layers:
       - state: animated
         shader: unshaded
   - type: MovementSpeedModifier
-    baseWalkSpeed: 8
-    baseSprintSpeed: 5
+    baseWalkSpeed: 6
+    baseSprintSpeed: 10
   - type: MovementIgnoreGravity
   - type: Pullable
   - type: Speech
+  - type: UserInterface
+    interfaces:
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
+  - type: Strippable
+  - type: Inventory
+    templateId: observer
+  - type: InventorySlots
+  - type: Tag
+    tags:
+      - BypassInteractionRangeChecks

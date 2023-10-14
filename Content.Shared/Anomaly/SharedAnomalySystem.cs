@@ -5,7 +5,6 @@ using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
@@ -24,7 +23,8 @@ public abstract class SharedAnomalySystem : EntitySystem
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private readonly SharedGlimmerSystem _glimmer = default!;
+
+    private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
@@ -40,6 +40,8 @@ public abstract class SharedAnomalySystem : EntitySystem
         SubscribeLocalEvent<AnomalyComponent, EntityUnpausedEvent>(OnAnomalyUnpause);
         SubscribeLocalEvent<AnomalyPulsingComponent, EntityUnpausedEvent>(OnPulsingUnpause);
         SubscribeLocalEvent<AnomalySupercriticalComponent, EntityUnpausedEvent>(OnSupercriticalUnpause);
+
+        _sawmill = Logger.GetSawmill("anomaly");
     }
 
     private void OnAnomalyGetState(EntityUid uid, AnomalyComponent component, ref ComponentGetState args)
@@ -128,13 +130,18 @@ public abstract class SharedAnomalySystem : EntitySystem
         var variation = Random.NextFloat(-component.PulseVariation, component.PulseVariation) + 1;
         component.NextPulseTime = Timing.CurTime + GetPulseLength(component) * variation;
 
+        if (_net.IsServer)
+            _sawmill.Info($"Performing anomaly pulse. Entity: {ToPrettyString(uid)}");
+
         // if we are above the growth threshold, then grow before the pulse
         if (component.Stability > component.GrowthThreshold)
         {
             ChangeAnomalySeverity(uid, GetSeverityIncreaseFromGrowth(component), component);
         }
 
-        var stability = Random.NextFloat(-component.PulseStabilityVariation, component.PulseStabilityVariation);
+        var minStability = component.PulseStabilityVariation.X * component.Severity;
+        var maxStability = component.PulseStabilityVariation.Y * component.Severity;
+        var stability = Random.NextFloat(minStability, maxStability);
         ChangeAnomalyStability(uid, stability, component);
 
         Log.Add(LogType.Anomaly, LogImpact.Medium, $"Anomaly {ToPrettyString(uid)} pulsed with severity {component.Severity}.");
@@ -146,7 +153,6 @@ public abstract class SharedAnomalySystem : EntitySystem
         Appearance.SetData(uid, AnomalyVisuals.IsPulsing, true);
 
         var ev = new AnomalyPulseEvent(component.Stability, component.Severity);
-        _glimmer.Glimmer += (int) (5f * component.Severity);
         RaiseLocalEvent(uid, ref ev);
     }
 
@@ -161,6 +167,8 @@ public abstract class SharedAnomalySystem : EntitySystem
             return;
 
         Log.Add(LogType.Anomaly, LogImpact.High, $"Anomaly {ToPrettyString(uid)} began to go supercritical.");
+        if (_net.IsServer)
+            _sawmill.Info($"Anomaly is going supercritical. Entity: {ToPrettyString(uid)}");
 
         var super = EnsureComp<AnomalySupercriticalComponent>(uid);
         super.EndTime = Timing.CurTime + super.SupercriticalDuration;
@@ -185,8 +193,10 @@ public abstract class SharedAnomalySystem : EntitySystem
 
         Audio.PlayPvs(component.SupercriticalSound, uid);
 
+        if (_net.IsServer)
+            _sawmill.Info($"Raising supercritical event. Entity: {ToPrettyString(uid)}");
+
         var ev = new AnomalySupercriticalEvent();
-        _glimmer.Glimmer += 100;
         RaiseLocalEvent(uid, ref ev);
 
         EndAnomaly(uid, component, true);
@@ -200,17 +210,20 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// <param name="supercritical">Whether or not the anomaly ended via supercritical event</param>
     public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false)
     {
+        // Logging before resolve, in case the anomaly has deleted itself.
+        if (_net.IsServer)
+            _sawmill.Info($"Ending anomaly. Entity: {ToPrettyString(uid)}");
+        Log.Add(LogType.Anomaly, LogImpact.Extreme, $"Anomaly {ToPrettyString(uid)} went supercritical.");
+
         if (!Resolve(uid, ref component))
             return;
 
         var ev = new AnomalyShutdownEvent(uid, supercritical);
         RaiseLocalEvent(uid, ref ev, true);
 
-        Log.Add(LogType.Anomaly, LogImpact.Extreme, $"Anomaly {ToPrettyString(uid)} went supercritical.");
-
         if (Terminating(uid) || _net.IsClient)
             return;
-        Del(uid);
+        QueueDel(uid);
     }
 
     /// <summary>

@@ -1,4 +1,5 @@
 using Content.Server.Chat.Managers;
+using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Shared.Roles;
 
@@ -20,11 +21,11 @@ namespace Content.Server.SimpleStation14.Minor
 
         public void GreetMinor()
         {
-            if (Mind.TryGetSession(out var session))
-            {
-                var chatMgr = IoCManager.Resolve<IChatManager>();
-                chatMgr.DispatchServerMessage(session, Loc.GetString("minor-role-greeting"));
-            }
+            if (!IoCManager.Resolve<MindSystem>().TryGetSession(Mind, out var session))
+                return;
+
+            var chatMgr = IoCManager.Resolve<IChatManager>();
+            chatMgr.DispatchServerMessage(session, Loc.GetString("minor-role-greeting"));
         }
     }
 }

@@ -1,6 +1,5 @@
 #nullable enable
-using NUnit.Framework;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 using Content.Shared.ReverseEngineering;
 using Content.Shared.Research.Prototypes;
 using Content.Server.ReverseEngineering;
@@ -12,10 +11,16 @@ namespace Content.IntegrationTests.Tests.ReverseEngineering
     [TestOf(typeof(ReverseEngineeringSystem))]
     public sealed class ReverseEngineeringTest
     {
+        private readonly HashSet<string> _ignoredPrototypes = new()
+        {
+            // This can be reverse-engineered, but the recipe will produce a version of itself without batteries.
+            "HandheldCrewMonitor", "HandheldCrewMonitorBorg",
+        };
+
         [Test]
         public async Task ReverseEngineeringResultsValid()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             // Per RobustIntegrationTest.cs, wait until state is settled to access it.
             await server.WaitIdleAsync();
@@ -29,6 +34,9 @@ namespace Content.IntegrationTests.Tests.ReverseEngineering
                 foreach (var proto in allProtos)
                 {
                     if (proto.Abstract || !proto.TryGetComponent<ReverseEngineeringComponent>(out var rev))
+                        continue;
+
+                    if (_ignoredPrototypes.Contains(proto.ID))
                         continue;
 
                     if (rev.Recipes != null)
@@ -56,6 +64,8 @@ namespace Content.IntegrationTests.Tests.ReverseEngineering
                     }
                 }
             });
+
+            await pairTracker.CleanReturnAsync();
         }
     }
 }

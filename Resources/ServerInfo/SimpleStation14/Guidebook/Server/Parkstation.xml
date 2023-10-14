@@ -1,0 +1,53 @@
+<Document>
+# Parkstation
+## What's New?
+
+Parkstation may seem rather different when compared to your traditional SS14 server.
+This section of the documentation serves to bridge the gap for any players coming over.
+
+Most of the things mentioned here will be mechanical- or otherwise game based in nature. For rules and ideological differences, see the previous section.
+As a final note here, the sprite overhaul you'll notice (primarily in things like the walls and windows) is courtesy of Corvax, who use a TGStation heavy sprite set.
+
+
+## The Upstream
+
+The Parkstation codebase is a Fork of Nyanotrasen, a fork of Wizard's Den managed by Rane. Nyanotrasen used to be found on the hub as one of the most popular SS14 servers, being one of the most fun places to play.
+
+Nyanotrasen's primary divergence from Wizden is built around the Science department- which becomes Epistemics and the Greek/Japanese/Whatever-Rane-feels-like theming that goes with it.
+Nyanotrasen has a large set of custom mechanics, most of which have made it into this server. We will be delving further away from their heavy theming as the server develops, however.
+
+For now, until stated otherwise, assume something is as it is in Nyano rather than Wizden.
+
+
+## The Mechanics
+
+The list of firm mechanical changes worth bringing up in Parkstation is rather brief at the moment, but will certainly increase with time. For now, here's a run down...
+- The [color=#334E6D]AI[/color] is offered as a role, the best electric door opener around. Rather WIP at the moment, but very functional.
+- The Oracle has been replaced with the Dielectric Disolver, the first step of many towards a more Sciency future!
+- Vital to mention of course is that animals speak! You'll notice plenty of less-than-Player companions being far more vocal.
+- You'll find spacemen are no longer sprinting everywhere they need to go. The default movement method has been changed to a very light jog, to encourage slowing down and smelling the roses.
+- Minor Antagonists, to fill the slot between Joe Genero, and a terrorist. Got sticky fingers? A thing for Space Drugs? Maybe you just see the world as your canvas...
+- Space wind is enabled, so mind doors opening into vacuums.
+- Space friction is disabled, so if you start going, don't expect to stop.
+- A huge number of balancing choices and minor tweaks that are not worth mentioning.
+- Random alert announcer voices every round
+- Probably some things we're forgetting :P
+
+
+## Oh Captain My Captain?
+
+Onto Command, then. Some large choices have been made here, all of which Death will be happy to hear your thoughts on in the main Discord- that's @[color=#71368a]DEATHB4DEFEAT[/color][color=#50336a]#4404[/color]
+
+To start, [color=#334E6D]Captain[/color] has been fully axed. The justification for this is that one player with dictator-like control over the station does not make for an active roleplay environment. Without a defacto leader,
+this means Parkstation is run instead by the Board of Heads, a council of equal-ranking members.
+
+[color=#ff5555]ALL EQUAL RANKING.[/color]
+Heads are expected to all aid in managing the station and to come to decisions among each other, through voting.
+The [color=#334E6D]AI[/color] is not technically a head but rather serves to aid all of the crew. Being a supercomputer, they are of course a good source to look to in times of uncertainty, but they outrank no one.
+
+The [color=#334E6D]Head of Personnel[/color] is unrelated to Service and instead occupies Command itself. They act as an HR of a type, dealing with overall crew management, IDs, complaints, and communication among the Heads. Note that they still outrank no Heads, and should instead serve as a binding agent more so than a boss.
+
+New to the board is the [color=#9FED58]Chief Service Supervisor[/color], the official Head of Service! Armed with their snazzy green jacket and winning smiles, serving you is their game. Or, rather, telling the people who serve you to do their job.
+
+If Command requires anything that truly can't be provided by the [color=#334E6D]AI[/color], contacting Central Command should be done liberally, either through an announcement, a red phone, or the long-ranged fax machine.
+</Document>

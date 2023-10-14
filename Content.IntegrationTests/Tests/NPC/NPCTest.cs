@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Content.Server.NPC.HTN;
-using NUnit.Framework;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -15,7 +12,7 @@ public sealed class NPCTest
     [Test]
     public async Task CompoundRecursion()
     {
-        var pool = await PoolManager.GetServerClient(new PoolSettings() { NoClient = true });
+        var pool = await PoolManager.GetServerClient();
         var server = pool.Pair.Server;
 
         await server.WaitIdleAsync();

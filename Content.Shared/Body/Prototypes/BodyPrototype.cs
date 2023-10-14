@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Body.Prototypes;
@@ -24,6 +24,13 @@ public sealed class BodyPrototype : IPrototype
         Root = root;
         Slots = slots;
     }
+
+    /// <summary>
+    /// How many surplus units of this body need to be on the market before
+    /// the price reaches half of its default price?
+    /// </summary>
+    [DataField("halfPriceSurplus")]
+    public int HalfPriceSurplus = 5;
 }
 
 [DataRecord]
@@ -33,6 +40,10 @@ public sealed record BodyPrototypeSlot
     public readonly string? Part;
     public readonly HashSet<string> Connections = new();
     public readonly Dictionary<string, string> Organs = new();
+
+    public BodyPrototypeSlot() : this(null, null, null)
+    {
+    }
 
     public BodyPrototypeSlot(string? part, HashSet<string>? connections, Dictionary<string, string>? organs)
     {

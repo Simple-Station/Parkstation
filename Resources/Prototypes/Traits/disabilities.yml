@@ -1,11 +1,12 @@
-﻿- type: trait
+- type: trait
   id: Blindness
   name: trait-blindness-name
   description: trait-blindness-desc
+  # traitGear: WhiteCane
   cost: 7
   category: Negative
   components:
-    - type: PermanentBlindness
+    - type: Blindable
 
 - type: trait
   id: Narcolepsy
@@ -24,7 +25,7 @@
   cost: 4
   category: Negative
   components:
-    - type: Pacifist
+    - type: Pacified
 
 - type: trait
   id: Colorblindness
@@ -55,3 +56,12 @@
 #   description: trait-muted-desc
 #   components:
 #     - type: Muted
+
+- type: trait
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  cost: 4
+  category: Negative
+  components:
+    - type: Uncloneable

@@ -9,6 +9,7 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.StatusEffect;
 using Content.Shared.Slippery;
 using Content.Shared.Stunnable;
 using Content.Shared.Verbs;
@@ -17,6 +18,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Interaction.Components;
 
 namespace Content.Server.Bed.Sleep
 {
@@ -28,6 +30,7 @@ namespace Content.Server.Bed.Sleep
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
         [Dependency] private readonly ActionsSystem _actionsSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
 
         public override void Initialize()
         {
@@ -51,16 +54,21 @@ namespace Content.Server.Bed.Sleep
             _prototypeManager.TryIndex<InstantActionPrototype>("Wake", out var wakeAction);
             if (args.FellAsleep)
             {
+                // Expiring status effects would remove the components needed for sleeping
+                _statusEffectsSystem.TryRemoveStatusEffect(uid, "Stun");
+                _statusEffectsSystem.TryRemoveStatusEffect(uid, "KnockedDown");
+
                 EnsureComp<StunnedComponent>(uid);
                 EnsureComp<KnockedDownComponent>(uid);
 
-                var emitSound = EnsureComp<SpamEmitSoundComponent>(uid);
-
-                // TODO WTF is this, these should a data fields and not hard-coded.
-                emitSound.Sound = new SoundCollectionSpecifier("Snores", AudioParams.Default.WithVariation(0.2f));
-                emitSound.PlayChance = 0.33f;
-                emitSound.RollInterval = 5f;
-                emitSound.PopUp = "sleep-onomatopoeia";
+                if (TryComp<SleepEmitSoundComponent>(uid, out var sleepSound))
+                {
+                    var emitSound = EnsureComp<SpamEmitSoundComponent>(uid);
+                    emitSound.Sound = sleepSound.Snore;
+                    emitSound.PlayChance = sleepSound.Chance;
+                    emitSound.RollInterval = sleepSound.Interval;
+                    emitSound.PopUp = sleepSound.PopUp;
+                }
 
                 if (wakeAction != null)
                 {

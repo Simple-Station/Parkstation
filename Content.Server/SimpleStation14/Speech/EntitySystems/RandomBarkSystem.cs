@@ -36,14 +36,15 @@ namespace Content.Server.SimpleStation14.Speech.RandomBark
                 if (barker.BarkAccumulator <= 0)
                 {
                     barker.BarkAccumulator = _random.NextFloat(barker.MinTime, barker.MaxTime)*barker.BarkMultiplier;
-                    if (_entities.TryGetComponent<MindComponent>(barker.Owner, out var actComp))
+                    if (_entities.TryGetComponent<MindContainerComponent>(barker.Owner, out var actComp))
                     {
                         if (actComp.HasMind)
                         {
                             return;
                         }
                     }
-                    _chat.TrySendInGameICMessage(barker.Owner, _random.Pick(barker.Barks), InGameICChatType.Speak, !barker.Chatlog);
+
+                    _chat.TrySendInGameICMessage(barker.Owner, _random.Pick(barker.Barks), InGameICChatType.Speak, barker.Chatlog ? ChatTransmitRange.Normal : ChatTransmitRange.HideChat);
                 }
             }
         }

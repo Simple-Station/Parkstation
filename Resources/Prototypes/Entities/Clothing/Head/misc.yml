@@ -31,6 +31,7 @@
   - type: Clothing
     sprite: Clothing/Head/Misc/chickenhead.rsi
   - type: IngestionBlocker
+  - type: IdentityBlocker
   - type: TemperatureProtection
     coefficient: 0.8
 
@@ -54,12 +55,15 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatHairflower
   name: hairflower
-  description: A red rose for beautiful ladies.
+  description: A red flower for beautiful ladies.
   components:
   - type: Sprite
     sprite: Clothing/Head/Misc/hairflower.rsi
   - type: Clothing
     sprite: Clothing/Head/Misc/hairflower.rsi
+  - type: Construction
+    graph: hairflower
+    node: hairflower
   - type: DropOnSlip
     chance: 60
 
@@ -69,11 +73,12 @@
   name: pumpkin hat
   description: A jack o' lantern! Believed to ward off evil spirits.
   components:
-    - type: Sprite
-      sprite: Clothing/Head/Misc/pumpkin.rsi
-    - type: Clothing
-      sprite: Clothing/Head/Misc/pumpkin.rsi
-    - type: IngestionBlocker
+  - type: Sprite
+    sprite: Clothing/Head/Misc/pumpkin.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/pumpkin.rsi
+  - type: IngestionBlocker
+  - type: IdentityBlocker
 
 - type: entity
   parent: ClothingHeadBase
@@ -99,18 +104,7 @@
   - type: Clothing
     sprite: Clothing/Head/Misc/richard.rsi
   - type: IngestionBlocker
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatSkub
-  name: skub hat
-  description: 'Best paired with the Skub Suit.'
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Misc/skubhead.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Misc/skubhead.rsi
-  - type: IngestionBlocker
+  - type: IdentityBlocker
 
 - type: entity
   parent: ClothingHeadBase
@@ -135,6 +129,9 @@
     sprite: Clothing/Head/Misc/cone.rsi
   - type: Clothing
     sprite: Clothing/Head/Misc/cone.rsi
+  - type: PhysicalComposition #you can't just pass up some free plastic!
+    materialComposition:
+      Plastic: 100
   - type: DropOnSlip
     chance: 70
 
@@ -180,3 +177,4 @@
   - type: Clothing
     sprite: Clothing/Head/Misc/squiddy.rsi
   - type: IngestionBlocker
+  - type: IdentityBlocker

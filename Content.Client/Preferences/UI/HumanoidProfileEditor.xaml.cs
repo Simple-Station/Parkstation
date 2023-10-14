@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
@@ -54,10 +55,11 @@ namespace Content.Client.Preferences.UI
         private readonly IEntityManager _entMan;
         private readonly IConfigurationManager _configurationManager;
         private readonly MarkingManager _markingManager;
+        private readonly JobRequirementsManager _requirements;
 
         private LineEdit _ageEdit => CAgeEdit;
         private LineEdit _nameEdit => CNameEdit;
-        private LineEdit _flavorTextEdit = null!;
+        private TextEdit _flavorTextEdit = null!; // Parkstation-CharacterInformation
         private Button _nameRandomButton => CNameRandomize;
         private Button _randomizeEverythingButton => CRandomizeEverything;
         private RichTextLabel _warningLabel => CWarningLabel;
@@ -141,6 +143,9 @@ namespace Content.Client.Preferences.UI
             #region Appearance
 
             _tabContainer.SetTabTitle(0, Loc.GetString("humanoid-profile-editor-appearance-tab"));
+
+            ShowClothes.OnPressed += ToggleClothes; // Parkstation-Loadouts
+            ShowLoadouts.OnPressed += ToggleClothes; // Parkstation-Loadouts
 
             #region Sex
 
@@ -384,96 +389,9 @@ namespace Content.Client.Preferences.UI
 
             _jobPriorities = new List<JobPrioritySelector>();
             _jobCategories = new Dictionary<string, BoxContainer>();
-
-            var firstCategory = true;
-            var playTime = IoCManager.Resolve<PlayTimeTrackingManager>();
-
-            foreach (var department in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
-            {
-                var departmentName = Loc.GetString($"department-{department.ID}");
-
-                if (!_jobCategories.TryGetValue(department.ID, out var category))
-                {
-                    category = new BoxContainer
-                    {
-                        Orientation = LayoutOrientation.Vertical,
-                        Name = department.ID,
-                        ToolTip = Loc.GetString("humanoid-profile-editor-jobs-amount-in-department-tooltip",
-                            ("departmentName", departmentName))
-                    };
-
-                    if (firstCategory)
-                    {
-                        firstCategory = false;
-                    }
-                    else
-                    {
-                        category.AddChild(new Control
-                        {
-                            MinSize = new Vector2(0, 23),
-                        });
-                    }
-
-                    category.AddChild(new PanelContainer
-                    {
-                        PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#464946")},
-                        Children =
-                        {
-                            new Label
-                            {
-                                Text = Loc.GetString("humanoid-profile-editor-department-jobs-label",
-                                    ("departmentName", departmentName)),
-                                Margin = new Thickness(5f, 0, 0, 0)
-                            }
-                        }
-                    });
-
-                    _jobCategories[department.ID] = category;
-                    _jobList.AddChild(category);
-                }
-
-                var jobs = department.Roles.Select(o => _prototypeManager.Index<JobPrototype>(o)).Where(o => o.SetPreference).ToList();
-                jobs.Sort((x, y) => -string.Compare(x.LocalizedName, y.LocalizedName, StringComparison.CurrentCultureIgnoreCase));
-
-                foreach (var job in jobs)
-                {
-                    var selector = new JobPrioritySelector(job);
-
-                    if (!playTime.IsAllowed(job, out var reason))
-                    {
-                        selector.LockRequirements(reason);
-                    }
-
-                    category.AddChild(selector);
-                    _jobPriorities.Add(selector);
-
-                    selector.PriorityChanged += priority =>
-                    {
-                        Profile = Profile?.WithJobPriority(job.ID, priority);
-                        IsDirty = true;
-
-                        foreach (var jobSelector in _jobPriorities)
-                        {
-                            // Sync other selectors with the same job in case of multiple department jobs
-                            if (jobSelector.Job == selector.Job)
-                            {
-                                jobSelector.Priority = priority;
-                            }
-
-                            // Lower any other high priorities to medium.
-                            if (priority == JobPriority.High)
-                            {
-                                if (jobSelector.Job != selector.Job && jobSelector.Priority == JobPriority.High)
-                                {
-                                    jobSelector.Priority = JobPriority.Medium;
-                                    Profile = Profile?.WithJobPriority(jobSelector.Job.ID, JobPriority.Medium);
-                                }
-                            }
-                        }
-                    };
-
-                }
-            }
+            _requirements = IoCManager.Resolve<JobRequirementsManager>();
+            _requirements.Updated += UpdateRoleRequirements;
+            UpdateRoleRequirements();
 
             #endregion Jobs
 
@@ -483,7 +401,7 @@ namespace Content.Client.Preferences.UI
 
             _antagPreferences = new List<AntagPreferenceSelector>();
 
-            if (playTime.IsWhitelisted() || !_configurationManager.GetCVar(CCVars.WhitelistEnabled))
+            if (_requirements.IsWhitelisted() || !_configurationManager.GetCVar(CCVars.WhitelistEnabled))
             {
                 foreach (var antag in prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => Loc.GetString(a.Name)))
                 {
@@ -632,56 +550,68 @@ namespace Content.Client.Preferences.UI
 
             #endregion
 
+            // Parkstation-Loadouts-Start
             #region Loadouts
 
             _tabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-loadouts-tab"));
             _loadoutPreferences = new List<LoadoutPreferenceSelector>();
             var loadouts = prototypeManager.EnumeratePrototypes<LoadoutPrototype>().OrderBy(l => l.ID).ToList();
 
+            var loadoutsEnabled = _configurationManager.GetCVar(CCVars.GameLoadoutsEnabled);
+            _tabContainer.SetTabVisible(4, loadoutsEnabled);
+            ShowLoadouts.Visible = loadoutsEnabled;
+            _configurationManager.OnValueChanged(CCVars.GameLoadoutsEnabled, enabled =>
+            {
+                _tabContainer.SetTabVisible(4, enabled);
+                ShowLoadouts.Visible = enabled;
+            });
+
+            var points = _configurationManager.GetCVar(CCVars.GameLoadoutsPoints);
+            _loadoutPoints.MaxValue = points;
+            _loadoutPoints.Value = points;
+
             if (loadouts.Count >= 0)
             {
-                // Where points?
-                if (_loadoutPoints.Value == null) return;
-
                 // Make Uncategorized category
-                var bocks = new BoxContainer()
+                var uncategorized = new BoxContainer
                 {
-                    Orientation = BoxContainer.LayoutOrientation.Vertical,
+                    Orientation = LayoutOrientation.Vertical,
                     VerticalExpand = true,
                     Name = "Uncategorized_0"
                 };
 
-                _loadoutsTabs.AddChild(bocks);
-                _loadoutsTabs.SetTabTitle(0, "Uncategorized");
+                _loadoutsTabs.AddChild(uncategorized);
+                _loadoutsTabs.SetTabTitle(0, Loc.GetString("humanoid-profile-editor-loadouts-uncategorized-tab"));
 
                 // Make categories
-                int currentCategory = 1;
+                var currentCategory = 1;
                 foreach (var loadout in loadouts)
                 {
-                    // Check for an existing category
+                    // Check for existing category
                     BoxContainer? match = null;
                     foreach (var child in _loadoutsTabs.Children)
                     {
-                        if (match != null || child.Name == null) continue;
-                        if (child.Name.Split("_")[0] == loadout.Category) match = (BoxContainer) child;
+                        if (match != null || child.Name == null)
+                            continue;
+                        if (child.Name.Split("_")[0] == loadout.Category)
+                            match = (BoxContainer) child;
                     }
 
                     // If there is a category do nothing
-                    if (match != null) continue;
-                    // If not, make it
-                    else
-                    {
-                        var box = new BoxContainer()
-                        {
-                            Orientation = BoxContainer.LayoutOrientation.Vertical,
-                            VerticalExpand = true,
-                            Name = $"{loadout.Category}_{currentCategory}"
-                        };
+                    if (match != null)
+                        continue;
 
-                        _loadoutsTabs.AddChild(box);
-                        _loadoutsTabs.SetTabTitle(currentCategory, Loc.GetString(loadout.Category));
-                        currentCategory++;
-                    }
+                    // If not, make it
+                    var box = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Vertical,
+                        VerticalExpand = true,
+                        Name = $"{loadout.Category}_{currentCategory}"
+                    };
+
+                    _loadoutsTabs.AddChild(box);
+                    _loadoutsTabs.SetTabTitle(currentCategory, Loc.GetString(loadout.Category));
+                    currentCategory++;
                 }
 
                 // Fill categories
@@ -693,33 +623,31 @@ namespace Content.Client.Preferences.UI
                     BoxContainer? match = null;
                     foreach (var child in _loadoutsTabs.Children)
                     {
-                        if (match != null || child.Name == null) continue;
-                        if (child.Name.Split("_")[0] == loadout.Category) match = (BoxContainer) child;
+                        if (match != null || child.Name == null)
+                            continue;
+                        if (child.Name.Split("_")[0] == loadout.Category)
+                            match = (BoxContainer) child;
                     }
+
                     if (match?.Name == null)
-                    {
-                        _loadoutsTabs.SetTabTitle(0, "Uncategorized");
-                        bocks.AddChild(selector);
-                    }
+                        uncategorized.AddChild(selector);
                     else
-                    {
-                        _loadoutsTabs.SetTabTitle(int.Parse(match.Name.Split("_")[1]), loadout.Category);
                         match.AddChild(selector);
-                    }
 
                     _loadoutPreferences.Add(selector);
                     selector.PreferenceChanged += preference =>
                     {
                         // Make sure they have enough loadout points
-                        if (preference == true)
+                        if (preference)
                         {
                             var temp = _loadoutPoints.Value - loadout.Cost;
-
-                            if (temp < 0) preference = false;
-                            else _loadoutPoints.Value = temp;
+                            if (temp < 0)
+                                preference = false;
+                            else
+                                _loadoutPoints.Value = temp;
                         }
-                        else _loadoutPoints.Value = _loadoutPoints.Value + loadout.Cost;
-
+                        else
+                            _loadoutPoints.Value += loadout.Cost;
 
                         // Update Preference
                         Profile = Profile?.WithLoadoutPreference(loadout.ID, preference);
@@ -730,17 +658,14 @@ namespace Content.Client.Preferences.UI
                     };
                 }
 
-                if (bocks.Children.Count() <= 0)
-                {
+                if (!uncategorized.Children.Any())
                     _loadoutsTabs.SetTabVisible(0, false);
-                }
             }
             else
-            {
-                _loadoutsTab.AddChild(new Label { Text="No loadouts found D:" });
-            }
+                _loadoutsTab.AddChild(new Label { Text = Loc.GetString("humanoid-profile-editor-loadouts-no-loadouts") });
 
             #endregion
+            // Parkstation-Loadouts-End
 
             #region Save
 
@@ -786,7 +711,9 @@ namespace Content.Client.Preferences.UI
             _previewSprite = new SpriteView
             {
                 Sprite = sprite,
-                Scale = (6, 6),
+                Scale = new Vector2(6, 6),
+                Stretch = SpriteView.StretchMode.None,
+                MaxSize = new Vector2(192, 192),
                 OverrideDirection = Direction.South,
                 VerticalAlignment = VAlignment.Center,
                 SizeFlagsStretchRatio = 1
@@ -796,7 +723,9 @@ namespace Content.Client.Preferences.UI
             _previewSpriteSide = new SpriteView
             {
                 Sprite = sprite,
-                Scale = (6, 6),
+                Scale = new Vector2(6, 6),
+                Stretch = SpriteView.StretchMode.None,
+                MaxSize = new Vector2(192, 192),
                 OverrideDirection = Direction.East,
                 VerticalAlignment = VAlignment.Center,
                 SizeFlagsStretchRatio = 1
@@ -815,6 +744,108 @@ namespace Content.Client.Preferences.UI
 
 
             IsDirty = false;
+        }
+
+        // Parkstation-Loadouts-Start
+        private void ToggleClothes(BaseButton.ButtonEventArgs obj)
+        {
+            RebuildSpriteView();
+        }
+        // Parkstation-Loadouts-End
+
+        private void UpdateRoleRequirements()
+        {
+            _jobList.DisposeAllChildren();
+            _jobPriorities.Clear();
+            _jobCategories.Clear();
+            var firstCategory = true;
+
+            foreach (var department in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
+            {
+                var departmentName = Loc.GetString($"department-{department.ID}");
+
+                if (!_jobCategories.TryGetValue(department.ID, out var category))
+                {
+                    category = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Vertical,
+                        Name = department.ID,
+                        ToolTip = Loc.GetString("humanoid-profile-editor-jobs-amount-in-department-tooltip",
+                            ("departmentName", departmentName))
+                    };
+
+                    if (firstCategory)
+                    {
+                        firstCategory = false;
+                    }
+                    else
+                    {
+                        category.AddChild(new Control
+                        {
+                            MinSize = new Vector2(0, 23),
+                        });
+                    }
+
+                    category.AddChild(new PanelContainer
+                    {
+                        PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#464966")},
+                        Children =
+                        {
+                            new Label
+                            {
+                                Text = Loc.GetString("humanoid-profile-editor-department-jobs-label",
+                                    ("departmentName", departmentName)),
+                                Margin = new Thickness(5f, 0, 0, 0)
+                            }
+                        }
+                    });
+
+                    _jobCategories[department.ID] = category;
+                    _jobList.AddChild(category);
+                }
+
+                var jobs = department.Roles.Select(o => _prototypeManager.Index<JobPrototype>(o)).Where(o => o.SetPreference).ToList();
+                jobs.Sort((x, y) => -string.Compare(x.LocalizedName, y.LocalizedName, StringComparison.CurrentCultureIgnoreCase));
+
+                foreach (var job in jobs)
+                {
+                    var selector = new JobPrioritySelector(job);
+
+                    if (!_requirements.IsAllowed(job, out var reason))
+                    {
+                        selector.LockRequirements(reason);
+                    }
+
+                    category.AddChild(selector);
+                    _jobPriorities.Add(selector);
+
+                    selector.PriorityChanged += priority =>
+                    {
+                        Profile = Profile?.WithJobPriority(job.ID, priority);
+                        IsDirty = true;
+
+                        foreach (var jobSelector in _jobPriorities)
+                        {
+                            // Sync other selectors with the same job in case of multiple department jobs
+                            if (jobSelector.Job == selector.Job)
+                            {
+                                jobSelector.Priority = priority;
+                            }
+
+                            // Lower any other high priorities to medium.
+                            if (priority == JobPriority.High)
+                            {
+                                if (jobSelector.Job != selector.Job && jobSelector.Priority == JobPriority.High)
+                                {
+                                    jobSelector.Priority = JobPriority.Medium;
+                                    Profile = Profile?.WithJobPriority(jobSelector.Job.ID, JobPriority.Medium);
+                                }
+                            }
+                        }
+                    };
+
+                }
+            }
         }
 
         private void OnFlavorTextChange(string content)
@@ -913,6 +944,7 @@ namespace Content.Client.Preferences.UI
             if (_previewDummy != null)
                 _entMan.DeleteEntity(_previewDummy.Value);
 
+            _requirements.Updated -= UpdateRoleRequirements;
             _preferencesManager.OnServerDataLoaded -= LoadServerData;
         }
 
@@ -934,7 +966,9 @@ namespace Content.Client.Preferences.UI
                 _previewSprite = new SpriteView
                 {
                     Sprite = sprite,
-                    Scale = (6, 6),
+                    Scale = new Vector2(6, 6),
+                    Stretch = SpriteView.StretchMode.None,
+                    MaxSize = new Vector2(192, 192),
                     OverrideDirection = Direction.South,
                     VerticalAlignment = VAlignment.Center,
                     SizeFlagsStretchRatio = 1
@@ -951,7 +985,9 @@ namespace Content.Client.Preferences.UI
                 _previewSpriteSide = new SpriteView
                 {
                     Sprite = sprite,
-                    Scale = (6, 6),
+                    Scale = new Vector2(6, 6),
+                    Stretch = SpriteView.StretchMode.None,
+                    MaxSize = new Vector2(192, 192),
                     OverrideDirection = Direction.East,
                     VerticalAlignment = VAlignment.Center,
                     SizeFlagsStretchRatio = 1
@@ -1067,7 +1103,7 @@ namespace Content.Client.Preferences.UI
         {
             if (_flavorTextEdit != null)
             {
-                _flavorTextEdit.Text = Profile?.FlavorText ?? "";
+                _flavorTextEdit.TextRope = new Rope.Leaf(Profile?.FlavorText ?? ""); // Parkstation-CharacterInformation
             }
         }
 
@@ -1329,9 +1365,15 @@ namespace Content.Client.Preferences.UI
             if (Profile is null)
                 return;
 
-            EntitySystem.Get<HumanoidAppearanceSystem>().LoadProfile(_previewDummy!.Value, Profile);
-            if (_tabContainer.CurrentTab == 5) LobbyCharacterPreviewPanel.GiveDummyJobClothes(_previewDummy!.Value, Profile, false);
-            else LobbyCharacterPreviewPanel.GiveDummyJobClothes(_previewDummy!.Value, Profile);
+            // Parkstation-Loadouts-Start
+            var humanoid = _entMan.System<HumanoidAppearanceSystem>();
+            humanoid.LoadProfile(_previewDummy!.Value, Profile);
+
+            if (ShowClothes.Pressed)
+                LobbyCharacterPreviewPanel.GiveDummyJobClothes(_previewDummy!.Value, Profile);
+            if (ShowLoadouts.Pressed)
+                LobbyCharacterPreviewPanel.GiveDummyLoadoutItems(_previewDummy!.Value, Profile);
+            // Parkstation-Loadouts-End
         }
 
         public void UpdateControls()
@@ -1351,7 +1393,7 @@ namespace Content.Client.Preferences.UI
             UpdateJobPriorities();
             UpdateAntagPreferences();
             UpdateTraitPreferences();
-            UpdateLoadoutPreferences();
+            UpdateLoadoutPreferences(); // Parkstation-Loadouts
             UpdateMarkings();
             RebuildSpriteView();
             UpdateHairPickers();
@@ -1428,13 +1470,13 @@ namespace Content.Client.Preferences.UI
 
                 var icon = new TextureRect
                 {
-                    TextureScale = (2, 2),
+                    TextureScale = new Vector2(2, 2),
                     Stretch = TextureRect.StretchMode.KeepCentered
                 };
 
                 if (job.Icon != null)
                 {
-                    var specifier = new SpriteSpecifier.Rsi(new ResourcePath("/Textures/Interface/Misc/job_icons.rsi"),
+                    var specifier = new SpriteSpecifier.Rsi(new ("/Textures/Interface/Misc/job_icons.rsi"),
                         job.Icon);
                     icon.Texture = specifier.Frame0();
                 }
@@ -1463,7 +1505,7 @@ namespace Content.Client.Preferences.UI
                 {
                     Margin = new Thickness(5f,0,5f,0),
                     Text = job.LocalizedName,
-                    MinSize = (180, 0),
+                    MinSize = new Vector2(200, 0),
                     MouseFilter = MouseFilterMode.Stop
                 };
 
@@ -1544,13 +1586,14 @@ namespace Content.Client.Preferences.UI
             }
         }
 
+        // Parkstation-Loadouts-Start
         private void UpdateLoadoutPreferences()
         {
-            if (_loadoutPoints.Value == null) return;
-            int points = 14; // Default value from the xaml, keep these consistent or issues will arise
+            var points = _configurationManager.GetCVar(CCVars.GameLoadoutsPoints);
             _loadoutPoints.Value = points;
 
-            if (_loadoutPreferences == null) return;
+            if (_loadoutPreferences == null)
+                return;
 
             foreach (var preferenceSelector in _loadoutPreferences)
             {
@@ -1559,13 +1602,14 @@ namespace Content.Client.Preferences.UI
 
                 preferenceSelector.Preference = preference;
 
-                if (preference == true)
+                if (preference)
                 {
                     points -= preferenceSelector.Loadout.Cost;
                     _loadoutPoints.Value = points;
                 }
             }
         }
+        // Parkstation-Loadouts-End
 
         private sealed class AntagPreferenceSelector : Control
         {
@@ -1629,6 +1673,7 @@ namespace Content.Client.Preferences.UI
             {
                 Trait = trait;
 
+                // Parkstation-TraitPoints-Start
                 _checkBox = new Button {
                     Text = $"[{trait.Cost}] {Loc.GetString(trait.Name)}",
                     ToggleMode = true
@@ -1673,6 +1718,7 @@ namespace Content.Client.Preferences.UI
 
                 _checkBox.ToolTip = tooltip;
                 _checkBox.TooltipDelay = 0.2f;
+                // Parkstation-TraitPoints-End
 
                 AddChild(new BoxContainer
                 {
@@ -1687,6 +1733,7 @@ namespace Content.Client.Preferences.UI
             }
         }
 
+        // Parkstation-Loadouts-Start
         private sealed class LoadoutPreferenceSelector : Control
         {
             public LoadoutPrototype Loadout { get; }
@@ -1704,14 +1751,15 @@ namespace Content.Client.Preferences.UI
             {
                 Loadout = loadout;
 
-                var entman = IoCManager.Resolve<IEntityManager>();
-                var dummyLoadout = entman.SpawnEntity(loadout.Item, MapCoordinates.Nullspace);
-                var sprite = entman.GetComponent<SpriteComponent>(dummyLoadout);
+                var entMan = IoCManager.Resolve<IEntityManager>();
+                var exists = IoCManager.Resolve<IPrototypeManager>().TryIndex<EntityPrototype>(loadout.Item!, out _);
+                var dummyLoadout = entMan.SpawnEntity(exists ? loadout.Item : "Error", MapCoordinates.Nullspace);
+                var sprite = entMan.GetComponent<SpriteComponent>(dummyLoadout);
 
                 var previewLoadout = new SpriteView
                 {
                     Sprite = sprite,
-                    Scale = (1, 1),
+                    Scale = new Vector2(1, 1),
                     OverrideDirection = Direction.South,
                     VerticalAlignment = VAlignment.Center,
                     SizeFlagsStretchRatio = 1
@@ -1729,42 +1777,44 @@ namespace Content.Client.Preferences.UI
                 if (loadout.Description is { } desc)
                 {
                     tooltip += $"{Loc.GetString(desc)}";
-                    if (loadout.Whitelist != null || loadout.JobWhitelist != null || loadout.Blacklist != null || loadout.JobBlacklist != null) tooltip += "\n";
+                    if (loadout.EntityWhitelist != null || loadout.JobWhitelist != null || loadout.EntityBlacklist != null || loadout.JobBlacklist != null) tooltip += "\n";
                 }
 
-                if (loadout.Whitelist != null || loadout.JobWhitelist != null)
+                if (loadout.EntityWhitelist != null || loadout.JobWhitelist != null)
                 {
                     tooltip += "Whitelist:";
-                    if (loadout.Whitelist?.Components != null)
-                        foreach (var require in loadout.Whitelist.Components)
+                    if (loadout.EntityWhitelist?.Components != null)
+                        foreach (var require in loadout.EntityWhitelist.Components)
                             tooltip += $"\n - {require} (Component)";
-                    if (loadout.Whitelist?.Tags != null)
-                        foreach (var require in loadout.Whitelist.Tags)
+                    if (loadout.EntityWhitelist?.Tags != null)
+                        foreach (var require in loadout.EntityWhitelist.Tags)
                             tooltip += $"\n - {require} (Tag)";
-                    if (loadout.Whitelist?.Species != null)
-                        foreach (var require in loadout.Whitelist.Species)
-                            tooltip += $"\n - {require} (Species)";
-                    if (loadout.Whitelist?.RequireAll == true) tooltip += $"\n Require All: {loadout.Whitelist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
+                    if (loadout.EntityWhitelist?.RequireAll == true)
+                        tooltip += $"\n Require All: {loadout.EntityWhitelist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
                     if (loadout.JobWhitelist != null)
                         foreach (var require in loadout.JobWhitelist)
                             tooltip += $"\n - {require} (Job)";
+                    if (loadout.SpeciesWhitelist != null)
+                        foreach (var require in loadout.SpeciesWhitelist)
+                            tooltip += $"\n - {require} (Species)";
                 }
-                if (loadout.Blacklist != null || loadout.JobBlacklist != null)
+                if (loadout.EntityBlacklist != null || loadout.JobBlacklist != null)
                 {
                     tooltip += "Blacklist:";
-                    if (loadout.Blacklist?.Components != null)
-                        foreach (var require in loadout.Blacklist.Components)
+                    if (loadout.EntityBlacklist?.Components != null)
+                        foreach (var require in loadout.EntityBlacklist.Components)
                             tooltip += $"\n - {require} (Component)";
-                    if (loadout.Blacklist?.Tags != null)
-                        foreach (var require in loadout.Blacklist.Tags)
+                    if (loadout.EntityBlacklist?.Tags != null)
+                        foreach (var require in loadout.EntityBlacklist.Tags)
                             tooltip += $"\n - {require} (Tag)";
-                    if (loadout.Blacklist?.Species != null)
-                        foreach (var require in loadout.Blacklist.Species)
-                            tooltip += $"\n - {require} (Species)";
-                    if (loadout.Blacklist?.RequireAll == true) tooltip += $"\n Require All: {loadout.Blacklist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
+                    if (loadout.EntityBlacklist?.RequireAll == true)
+                        tooltip += $"\n Require All: {loadout.EntityBlacklist.RequireAll}"; // This comes first because job whitelist has no effect on requireall
                     if (loadout.JobBlacklist != null)
                         foreach (var require in loadout.JobBlacklist)
                             tooltip += $"\n - {require} (Job)";
+                    if (loadout.SpeciesBlacklist != null)
+                        foreach (var require in loadout.SpeciesBlacklist)
+                            tooltip += $"\n - {require} (Species)";
                 }
 
                 if (tooltip != "")
@@ -1785,5 +1835,6 @@ namespace Content.Client.Preferences.UI
                 PreferenceChanged?.Invoke(Preference);
             }
         }
+        // Parkstation-Loadouts-End
     }
 }

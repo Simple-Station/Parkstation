@@ -5,6 +5,7 @@ using Content.Shared.Tag;
 
 namespace Content.Server.Borgs
 {
+    [Obsolete("'Cyborg' should be unused on Parkstation, see SiliconSystem")] // Parkstation-IPCs
     public sealed class Cyborg : EntitySystem
     {
         [Dependency] private readonly ChatSystem _chatSystem = default!;
@@ -15,7 +16,7 @@ namespace Content.Server.Borgs
             base.Initialize();
             SubscribeLocalEvent<CyborgComponent, MobStateChangedEvent>(OnChangeState);
         }
-        
+
         private void OnChangeState(EntityUid uid, CyborgComponent component, MobStateChangedEvent args)
         {
             if (args.NewMobState == MobState.Dead){
@@ -23,11 +24,11 @@ namespace Content.Server.Borgs
 
                 // Plays death sound and prints death message/popup
                 _audioSystem.PlayPvs("/Audio/Nyanotrasen/Mobs/Borg/borg_deathsound.ogg", uid);
-                _chatSystem.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false, force:true);
+                _chatSystem.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false);
 
                 // Stop dead borg from being movable AA cards by removing their ability to bump doors.
                 _tagSystem.RemoveTag(uid, "DoorBumpOpener");
-            
+
             }
             else if(args.NewMobState == MobState.Alive && args.OldMobState == MobState.Dead)
             {

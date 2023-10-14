@@ -1,0 +1,52 @@
+- type: loadout
+  id: LoadoutCommandHOPNeckMantle
+  name: HOP Mantle
+  description: To show who has the authority around here.
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - HeadOfPersonnel
+  item: ClothingNeckMantleHOP
+
+- type: loadout
+  id: LoadoutCommandHOPNeckCloak
+  name: HOP Cloak
+  description: To really show who has the authority around here.
+  category: Jobs
+  cost: 2
+  exclusive: true
+  jobWhitelist:
+    - HeadOfPersonnel
+  item: ClothingNeckCloakHop
+
+- type: loadout
+  id: LoadoutCommandHOPBackIan
+  name: Ian Backpack
+  description: A backpack that looks like Ian, how cute!
+  category: Jobs
+  cost: 4
+  exclusive: true
+  jobWhitelist:
+    - HeadOfPersonnel
+  item: ClothingBackpackIan
+
+- type: loadout
+  id: LoadoutCommandHOPCoat
+  name: HOP Coat
+  description: The HOP's coat, pretty nice.
+  category: Jobs
+  cost: 1
+  jobWhitelist:
+    - HeadOfPersonnel
+  item: ClothingOuterCoatHOP
+
+- type: loadout
+  id: LoadoutCommandHOPHatCap
+  name: HOP Cap
+  description: The HOP's cap, pretty nice.
+  category: Jobs
+  cost: 1
+  jobWhitelist:
+    - HeadOfPersonnel
+  item: ClothingHeadHatHopcap

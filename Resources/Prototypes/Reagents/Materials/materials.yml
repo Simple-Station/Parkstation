@@ -12,7 +12,7 @@
   name: materials-cardboard
   icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: cardboard }
   color: "#70736c"
-  price: 0.05
+  price: 0.005
 
 - type: material
   id: Cloth
@@ -61,3 +61,10 @@
   icon: { sprite: Objects/Materials/Sheets/other.rsi, state: uranium }
   color: "#32a852"
   price: 0.2
+
+- type: material
+  id: Meaterial # you can't take this pun from me
+  name: materials-meat
+  icon: { sprite: Objects/Materials/Sheets/meaterial.rsi, state: meat }
+  color: "#c53648"
+  price: 0.05

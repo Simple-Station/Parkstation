@@ -1,9 +1,11 @@
 using System.Linq;
 using Content.Server.GameTicking;
+using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.SimpleStation14.CCVar;
 using Content.Shared.Slippery;
+using Content.Shared.StepTrigger.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
@@ -12,6 +14,7 @@ namespace Content.Server.SimpleStation14.EndOfRoundStats.SlippedCount;
 public sealed class SlippedCountStatSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
 
     Dictionary<PlayerData, int> userSlipStats = new();
 
@@ -26,22 +29,22 @@ public sealed class SlippedCountStatSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SlipperyComponent, SlipEvent>(OnSlip);
+        SubscribeLocalEvent<StepTriggerComponent, SlipEvent>(OnSlip);
 
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
 
 
-    private void OnSlip(EntityUid uid, SlipperyComponent slipComp, ref SlipEvent args)
+    private void OnSlip(EntityUid uid, StepTriggerComponent component, ref SlipEvent args)
     {
         string? username = null;
 
         var entity = args.Slipped;
 
-        if (EntityManager.TryGetComponent<MindComponent>(entity, out var mindComp) &&
+        if (EntityManager.TryGetComponent<MindContainerComponent>(entity, out var mindComp) &&
             mindComp.Mind != null &&
-            mindComp.Mind.TryGetSession(out var session))
+            _mind.TryGetSession(mindComp.Mind, out var session))
         {
             username = session.Name;
         }

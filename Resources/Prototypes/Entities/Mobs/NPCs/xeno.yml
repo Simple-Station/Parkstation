@@ -9,7 +9,6 @@
   - type: DiseaseProtection
     protection: 1
   - type: CombatMode
-    disarm: null
   - type: InputMover
   - type: MobMover
   - type: HTN
@@ -31,7 +30,7 @@
     groups:
       Flammable: [Touch]
       Extinguish: [Touch]
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Xeno
   - type: Hands
@@ -45,18 +44,19 @@
     bodyType: Dynamic
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.25
-      density: 1000
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: MobState
     allowedStates:
-      - Alive
-      - Dead
+    - Alive
+    - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -65,15 +65,8 @@
     excess: 200
   - type: Bloodstream
     bloodReagent: XenoBlood
-    bloodlossDamage:
-      types:
-        Bloodloss:
-          1
-    bloodlossHealDamage:
-      types:
-        Bloodloss:
-          -0.25
   - type: MeleeWeapon
+    altDisarm: false
     hidden: true
     angle: 0
     soundHit:
@@ -98,6 +91,14 @@
     spawned:
     - id: FoodMeatXeno
       amount: 5
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
+  # - type: GhostTakeoverAvailable
   - type: TypingIndicator
     proto: alien
   - type: Temperature
@@ -140,10 +141,6 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
-  - type: MobState
-    allowedStates:
-      - Alive
-      - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -152,17 +149,18 @@
     excess: 300
   - type: SlowOnDamage
     speedModifierThresholds:
-      250: 0.7
+      50: 0.7
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.45
-      density: 400
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 400
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   name: Drone
@@ -176,10 +174,6 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
-  - type: MobState
-    allowedStates:
-      - Alive
-      - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -188,21 +182,24 @@
     damage:
       groups:
         Brute: 5
-  - type: Stamina
-    excess: 200
   - type: MovementSpeedModifier
-    baseWalkSpeed : 5.5
-    baseSprintSpeed : 3
+    baseWalkSpeed: 2.0
+    baseSprintSpeed: 2.5
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      100: 0.4
+      50: 0.7
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.45
-      density: 450
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 450
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   name: Queen
@@ -216,10 +213,6 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
-  - type: MobState
-    allowedStates:
-      - Alive
-      - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -227,8 +220,8 @@
   - type: Stamina
     excess: 1500
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3.8
-    baseSprintSpeed : 2.8
+    baseWalkSpeed : 2.8
+    baseSprintSpeed : 3.8
   - type: MeleeWeapon
     hidden: true
     damage:
@@ -236,17 +229,24 @@
        Brute: 20
   - type: SlowOnDamage
     speedModifierThresholds:
-      1000: 0.7
+      250: 0.4
+      200: 0.7
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.45
-      density: 15500
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 15500
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: TypingIndicator
+    proto: alienroyal
 
 - type: entity
   name: Ravager
@@ -260,10 +260,6 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
-  - type: MobState
-    allowedStates:
-      - Alive
-      - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -271,8 +267,8 @@
   - type: Stamina
     excess: 550
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4.2
-    baseSprintSpeed : 2.3
+    baseWalkSpeed : 2.3
+    baseSprintSpeed : 4.2
   - type: MeleeWeapon
     hidden: true
     damage:
@@ -280,17 +276,19 @@
        Brute: 10
   - type: SlowOnDamage
     speedModifierThresholds:
-      450: 0.7
+      150: 0.5
+      100: 0.7
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.45
-      density: 1350
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 1350
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   name: Runner
@@ -304,19 +302,11 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
-  - type: MobState
-    allowedStates:
-      - Alive
-      - Dead
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      50: Dead
   - type: Stamina
     excess: 250
   - type: MovementSpeedModifier
-    baseWalkSpeed : 6
-    baseSprintSpeed : 2.7
+    baseWalkSpeed : 2.7
+    baseSprintSpeed : 6
   - type: MeleeWeapon
     hidden: true
     damage:
@@ -324,14 +314,15 @@
        Brute: 3
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 235
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 235
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   name: Rouny
@@ -355,10 +346,6 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
-  - type: MobState
-    allowedStates:
-      - Alive
-      - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -367,17 +354,18 @@
     excess: 300
   - type: SlowOnDamage
     speedModifierThresholds:
-      250: 0.4
+      50: 0.4
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.45
-      density: 235
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 235
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 #GhostTakeover
 
@@ -385,79 +373,49 @@
   name: Burrower
   id: MobXenoPlayer
   parent: MobXeno
+  suffix: Player
   components:
   - type: GhostTakeoverAvailable
-    allowMovement: true
-    allowSpeech: false
-    makeSentient: true
-    name: xeno
-    description: You are a xeno, co-operate with your hive to kill all crewmembers!
-    rules: You are an antagonist, smack, slash, and wack!
 
 - type: entity
   name: Praetorian
   parent: MobXenoPraetorianNPC
   id: MobXenoPraetorian
+  suffix: Player
   components:
   - type: GhostTakeoverAvailable
-    allowMovement: true
-    allowSpeech: false
-    makeSentient: true
-    name: xeno
-    description: You are a xeno, co-operate with your hive to kill all crewmembers!
-    rules: You are an antagonist, smack, slash, and wack!
 
 - type: entity
   name: Drone
   parent: MobXenoDroneNPC
   id: MobXenoDrone
+  suffix: Player
   components:
   - type: GhostTakeoverAvailable
-    allowMovement: true
-    allowSpeech: false
-    makeSentient: true
-    name: xeno
-    description: You are a xeno, co-operate with your hive to kill all crewmembers!
-    rules: You are an antagonist, smack, slash, and wack!
 
 - type: entity
   name: Queen
   parent: MobXenoQueenNPC
   id: MobXenoQueen
+  suffix: Player
   components:
   - type: GhostTakeoverAvailable
-    allowMovement: true
-    allowSpeech: false
-    makeSentient: true
-    name: xeno
-    description: You are a xeno, co-operate with your hive to kill all crewmembers!
-    rules: You are an antagonist, smack, slash, and wack!
 
 - type: entity
   name: Ravager
   parent: MobXenoRavagerNPC
   id: MobXenoRavager
+  suffix: Player
   components:
   - type: GhostTakeoverAvailable
-    allowMovement: true
-    allowSpeech: false
-    makeSentient: true
-    name: xeno
-    description: You are a xeno, co-operate with your hive to kill all crewmembers!
-    rules: You are an antagonist, smack, slash, and wack!
 
 - type: entity
   name: Runner
   parent: MobXenoRunnerNPC
   id: MobXenoRunner
+  suffix: Player
   components:
   - type: GhostTakeoverAvailable
-    allowMovement: true
-    allowSpeech: false
-    makeSentient: true
-    name: xeno
-    description: You are a xeno, co-operate with your hive to kill all crewmembers!
-    rules: You are an antagonist, smack, slash, and wack!
 
 - type: entity
   name: Rouny
@@ -473,14 +431,9 @@
   name: Spitter
   parent: MobXenoSpitterNPC
   id: MobXenoSpitter
+  suffix: Player
   components:
   - type: GhostTakeoverAvailable
-    allowMovement: true
-    allowSpeech: false
-    makeSentient: true
-    name: xeno
-    description: You are a xeno, co-operate with your hive to kill all crewmembers!
-    rules: You are an antagonist, smack, slash, and wack!
 
 #Snakes
 
@@ -513,7 +466,7 @@
   - type: MobMover
   - type: HTN
     rootTask: SimpleHostileCompound
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Xeno
   - type: MobThresholds
@@ -539,14 +492,15 @@
     solution: melee
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 25
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 25
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   name: space adder

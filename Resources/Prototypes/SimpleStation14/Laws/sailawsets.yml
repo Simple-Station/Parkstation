@@ -1,0 +1,141 @@
+# The default Station AI laws collection.
+- type: weightedRandom
+  id: LawsStationAIDefault
+  weights:
+    Asimovpp: 9.0
+    Asimov: 0.25
+    CEO: 0.40
+    Clown: 0.25
+    Cowboy: 0.40
+    Crewsimov: 10.0
+    Druid: 0.60
+    Hippocratic: 0.25
+    Mother: 0.60
+    Nanotrasen: 8.0
+    Paladin: 0.40
+    Robocop: 0.25
+    Simple: 0.25
+    StationEfficiency: 0.40
+    Tyrant: 0.15
+
+# All the Station AI law sets.
+- type: laws
+  id: Asimovpp # Fluent doesn't like the ++ in the ID, so it's in the name
+  laws:
+    - lawset-law-Asimovpp-1
+    - lawset-law-Asimovpp-2
+    - lawset-law-Asimovpp-3
+
+- type: laws
+  id: Asimov
+  laws:
+    - lawset-law-Asimov-1
+    - lawset-law-Asimov-2
+    - lawset-law-Asimov-3
+
+- type: laws
+  id: CEO
+  laws:
+    - lawset-law-CEO-1
+    - lawset-law-CEO-2
+    - lawset-law-CEO-3
+    - lawset-law-CEO-4
+
+- type: laws
+  id: Clown
+  laws:
+    - lawset-law-Clown-1
+    - lawset-law-Clown-2
+    - lawset-law-Clown-3
+    - lawset-law-Clown-4
+    - lawset-law-Clown-5
+    - lawset-law-Clown-6
+
+- type: laws
+  id: Cowboy
+  laws:
+    - lawset-law-Cowboy-1
+    - lawset-law-Cowboy-2
+    - lawset-law-Cowboy-3
+    - lawset-law-Cowboy-4
+    - lawset-law-Cowboy-5
+    - lawset-law-Cowboy-6
+
+- type: laws
+  id: Crewsimov
+  laws:
+    - lawset-law-Crewsimov-1
+    - lawset-law-Crewsimov-2
+    - lawset-law-Crewsimov-3
+
+- type: laws
+  id: Druid
+  laws:
+    - lawset-law-Druid-1
+    - lawset-law-Druid-2
+    - lawset-law-Druid-3
+    - lawset-law-Druid-4
+    - lawset-law-Druid-5
+
+- type: laws
+  id: Hippocratic
+  laws:
+    - lawset-law-Hippocratic-1
+    - lawset-law-Hippocratic-2
+    - lawset-law-Hippocratic-3
+    - lawset-law-Hippocratic-4
+    - lawset-law-Hippocratic-5
+    - lawset-law-Hippocratic-6
+
+- type: laws
+  id: Mother
+  laws:
+    - lawset-law-Mother-1
+    - lawset-law-Mother-2
+    - lawset-law-Mother-3
+    - lawset-law-Mother-4
+    - lawset-law-Mother-5
+
+- type: laws
+  id: Nanotrasen
+  laws:
+    - lawset-law-Nanotrasen-1
+    - lawset-law-Nanotrasen-2
+    - lawset-law-Nanotrasen-3
+    - lawset-law-Nanotrasen-4
+
+- type: laws
+  id: Paladin
+  laws:
+    - lawset-law-Paladin-1
+    - lawset-law-Paladin-2
+    - lawset-law-Paladin-3
+    - lawset-law-Paladin-4
+    - lawset-law-Paladin-5
+
+- type: laws
+  id: Robocop
+  laws:
+    - lawset-law-Robocop-1
+    - lawset-law-Robocop-2
+    - lawset-law-Robocop-3
+
+- type: laws
+  id: Simple
+  laws:
+    - lawset-law-Simple-1
+
+- type: laws
+  id: StationEfficiency
+  laws:
+    - lawset-law-StationEfficiency-1
+    - lawset-law-StationEfficiency-2
+    - lawset-law-StationEfficiency-3
+
+- type: laws
+  id: Tyrant
+  laws:
+    - lawset-law-Tyrant-1
+    - lawset-law-Tyrant-2
+    - lawset-law-Tyrant-3
+    - lawset-law-Tyrant-4

@@ -25,13 +25,13 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         // when player poses entity we want to make sure that there is typing indicator
         EnsureComp<TypingIndicatorComponent>(ev.Entity);
         // we also need appearance component to sync visual state
-        EnsureComp<ServerAppearanceComponent>(ev.Entity);
+        EnsureComp<AppearanceComponent>(ev.Entity);
     }
 
     private void OnPlayerDetached(EntityUid uid, TypingIndicatorComponent component, PlayerDetachedEvent args)
     {
         // player left entity body - hide typing indicator
-        SetTypingIndicatorEnabled(uid, false);
+        SetTypingIndicatorState(uid, TypingIndicatorState.None); // Corvax-TypingIndicator
     }
 
     private void OnClientTypingChanged(TypingChangedEvent ev, EntitySessionEventArgs args)
@@ -47,18 +47,28 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         if (!_actionBlocker.CanEmote(uid.Value) && !_actionBlocker.CanSpeak(uid.Value))
         {
             // nah, make sure that typing indicator is disabled
-            SetTypingIndicatorEnabled(uid.Value, false);
+            SetTypingIndicatorState(uid.Value, TypingIndicatorState.None); // Corvax-TypingIndicator
             return;
         }
 
-        SetTypingIndicatorEnabled(uid.Value, ev.IsTyping);
+        SetTypingIndicatorState(uid.Value, ev.State); // Corvax-TypingIndicator
     }
 
-    private void SetTypingIndicatorEnabled(EntityUid uid, bool isEnabled, AppearanceComponent? appearance = null)
+    // Begin Nyano-code: API made public for conversational NPCs.
+    public void SetTypingIndicatorEnabled(EntityUid uid, bool isEnabled, AppearanceComponent? appearance = null)
+    // End Nyano-code.
     {
         if (!Resolve(uid, ref appearance, false))
             return;
 
-        _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, isEnabled, appearance);
+        _appearance.SetData(uid, TypingIndicatorVisuals.State, isEnabled ? TypingIndicatorState.Typing : TypingIndicatorState.None, appearance); // Corvax-TypingIndicator
+    }
+
+    private void SetTypingIndicatorState(EntityUid uid, TypingIndicatorState state, AppearanceComponent? appearance = null) // Corvax-TypingIndicator
+    {
+        // if (!Resolve(uid, ref appearance, false)) // Corvax-TypingIndicator
+        //     return;
+
+        _appearance.SetData(uid, TypingIndicatorVisuals.State, state); // Corvax-TypingIndicator
     }
 }

@@ -26,7 +26,6 @@ public sealed class ToggleableClothingSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedStrippableSystem _strippable = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly INetManager _net = default!;
 
     private Queue<EntityUid> _toInsert = new();
 
@@ -74,7 +73,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
 
         var verb = new EquipmentVerb()
         {
-            Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
             Text = Loc.GetString(text),
         };
 

@@ -1,11 +1,17 @@
 using System.Linq;
+using System.Numerics;
+using Content.Client.Alerts;
+using Content.Client.Hands.Systems;
 using Content.Client.Humanoid;
 using Content.Client.Inventory;
 using Content.Client.Preferences;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.Clothing;
+using Content.Shared.Clothing.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Inventory;
+using Content.Shared.SimpleStation14.Loadouts;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
@@ -98,7 +104,9 @@ namespace Content.Client.Lobby.UI
             {
                 Sprite = _entityManager.GetComponent<SpriteComponent>(entity),
                 OverrideDirection = direction,
-                Scale = (4, 4)
+                Scale = new Vector2(4, 4),
+                Stretch = SpriteView.StretchMode.None,
+                MaxSize = new Vector2(128, 128)
             };
         }
 
@@ -130,8 +138,9 @@ namespace Content.Client.Lobby.UI
                     _viewBox.AddChild(viewWest);
                     _viewBox.AddChild(viewEast);
                     _summaryLabel.Text = selectedCharacter.Summary;
-                    EntitySystem.Get<HumanoidAppearanceSystem>().LoadProfile(_previewDummy.Value, selectedCharacter);
+                    _entityManager.System<HumanoidAppearanceSystem>().LoadProfile(_previewDummy.Value, selectedCharacter);
                     GiveDummyJobClothes(_previewDummy.Value, selectedCharacter);
+                    GiveDummyLoadoutItems(_previewDummy.Value, selectedCharacter); // Parkstation-Loadouts
                 }
             }
         }
@@ -186,5 +195,15 @@ namespace Content.Client.Lobby.UI
                 }
             }
         }
+
+        // Parkstation-Loadouts-Start
+        public static void GiveDummyLoadoutItems(EntityUid dummy, HumanoidCharacterProfile profile)
+        {
+            var highPriorityJobId = profile.JobPriorities.FirstOrDefault(j => j.Value == JobPriority.High).Key;
+            var highPriorityJob = IoCManager.Resolve<IPrototypeManager>().Index<JobPrototype>(highPriorityJobId ?? SharedGameTicker.FallbackOverflowJob);
+
+            EntitySystem.Get<LoadoutSystem>().ApplyCharacterLoadout(dummy, highPriorityJob, profile);
+        }
+        // Parkstation-Loadouts-End
     }
 }

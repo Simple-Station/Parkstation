@@ -41,6 +41,18 @@
 
 - type: entity
   parent: ClothingBackpack
+  id: ClothingBackpackIan
+  name: Ian's backpack
+  description: Sometimes he wears it.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ian.rsi
+  - type: Storage
+    storageOpenSound:
+      collection: IanBark
+
+- type: entity
+  parent: ClothingBackpack
   id: ClothingBackpackSecurity
   name: security backpack
   description: It's a very robust backpack.
@@ -56,6 +68,15 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/engineering.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackAtmospherics
+  name: atmospherics backpack
+  description: It's a backpack made of fire resistant fibers. Smells like plasma.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/atmospherics.rsi
 
 - type: entity
   parent: ClothingBackpack
@@ -138,6 +159,15 @@
     - type: Sprite
       sprite: Clothing/Back/Backpacks/salvage.rsi
 
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackMerc
+  name: merc bag
+  description: A backpack that has been in many dangerous places, a reliable combat backpack.
+  components:
+    - type: Sprite
+      sprite: Clothing/Back/Backpacks/merc.rsi
+
 #ERT
 - type: entity
   parent: ClothingBackpack
@@ -215,3 +245,4 @@
     capacity: 5000
     popup: false
   - type: OfHolding
+

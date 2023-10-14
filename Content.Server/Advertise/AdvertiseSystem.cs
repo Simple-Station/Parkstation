@@ -58,7 +58,7 @@ namespace Content.Server.Advertise
                 return;
 
             if (_prototypeManager.TryIndex(advertise.PackPrototypeId, out AdvertisementsPackPrototype? advertisements))
-                _chat.TrySendInGameICMessage(advertise.Owner, Loc.GetString(_random.Pick(advertisements.Advertisements)), InGameICChatType.Speak, true);
+                _chat.TrySendInGameICMessage(advertise.Owner, Loc.GetString(_random.Pick(advertisements.Advertisements)), InGameICChatType.Speak, ChatTransmitRange.HideChat);
 
             if(refresh)
                 RefreshTimer(uid, true, advertise);

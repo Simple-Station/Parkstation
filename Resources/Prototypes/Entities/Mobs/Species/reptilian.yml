@@ -8,6 +8,9 @@
   - type: HumanoidAppearance
     species: Reptilian
   - type: Hunger
+    # starvationDamage:
+    #   types:
+    #     Cold: 1
   - type: Thirst
   - type: Icon
     sprite: Mobs/Species/Reptilian/parts.rsi
@@ -15,6 +18,11 @@
   - type: Body
     prototype: Reptilian
     requiredLegs: 2
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatLizard
+      amount: 5
   - type: LizardAccent
   - type: Speech
     speechSounds: Lizard
@@ -49,8 +57,8 @@
       types:
         Heat : 0.1 #per second, scales with temperature & other constants
   - type: MovementSpeedModifier
-    baseWalkSpeed : 5
-    baseSprintSpeed : 3.2
+    baseWalkSpeed : 3.2
+    baseSprintSpeed : 5
   - type: Perishable
 
 - type: entity
@@ -63,8 +71,3 @@
   components:
   - type: HumanoidAppearance
     species: Reptilian
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 5
-    baseSprintSpeed : 3.2
-
-#Weh
