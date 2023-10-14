@@ -44,19 +44,9 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] GameMaps =
         {
-            "Angle",
-            "Arena",
             "CentComm",
             "Dev",
-            "Glacier",
-            "Hammurabi",
-            "Lighthouse",
-            "Northway",
-            "Ovni",
-            "Pebble",
-            "Shoukou",
-            "TheHive",
-            "Tortuga",
+            "ParkStation",
         };
 
         /// <summary>

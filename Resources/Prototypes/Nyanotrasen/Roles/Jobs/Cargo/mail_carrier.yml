@@ -5,11 +5,12 @@
   startingGear: MailCarrierGear
   playTimeTracker: JobMailCarrier
   icon: "MailCarrier"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-css
   access:
   - Cargo
   - Maintenance
   - Mail
+  - Service
 
 - type: startingGear
   id: MailCarrierGear

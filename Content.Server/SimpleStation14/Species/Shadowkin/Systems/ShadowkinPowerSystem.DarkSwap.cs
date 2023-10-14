@@ -73,8 +73,6 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         SetDarkened(
             args.Performer,
             !hasComp,
-            component.Invisible,
-            component.Darken,
             args.SoundOn,
             args.VolumeOn,
             args.SoundOff,
@@ -104,8 +102,6 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     /// </summary>
     /// <param name="performer">The entity being modified</param>
     /// <param name="addComp">Is the entity swapping in to or out of The Dark?</param>
-    /// <param name="invisible">Should the entity become invisible?</param>
-    /// <param name="darken">Should darkswapping darken nearby lights?</param>
     /// <param name="soundOn">Sound for the darkswapping</param>
     /// <param name="volumeOn">Volume for the on sound</param>
     /// <param name="soundOff">Sound for the un swapping</param>
@@ -118,8 +114,6 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     public void SetDarkened(
         EntityUid performer,
         bool addComp,
-        bool invisible,
-        bool darken,
         SoundSpecifier? soundOn,
         float? volumeOn,
         SoundSpecifier? soundOff,
@@ -141,8 +135,9 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         if (addComp)
         {
             var comp = _entity.EnsureComponent<ShadowkinDarkSwappedComponent>(performer);
-            comp.Invisible = invisible;
-            comp.Darken = darken;
+            comp.Invisible = power.Invisible;
+            comp.Pacify = power.Pacify;
+            comp.Darken = power.Darken;
             comp.DarkenRange = power.DarkenRange;
             comp.DarkenRate = power.DarkenRate;
 
@@ -173,7 +168,8 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
     private void OnInvisStartup(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentStartup args)
     {
-        EnsureComp<PacifiedComponent>(uid);
+        if (component.Pacify)
+            EnsureComp<PacifiedComponent>(uid);
 
         if (component.Invisible)
             SetCanSeeInvisibility(uid, true, true, true);
@@ -212,7 +208,8 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     /// <param name="stealth">(Only gets considered if set is true) Adds stealth to the entity</param>
     public void SetCanSeeInvisibility(EntityUid uid, bool enabled, bool invisibility, bool stealth)
     {
-        var visibility = _entity.EnsureComponent<VisibilityComponent>(uid);
+        if (!TryComp<VisibilityComponent>(uid, out var visibility))
+            return;
 
         if (enabled)
         {
@@ -228,7 +225,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             }
             _visibility.RefreshVisibility(uid);
 
-            if (stealth)
+            if (!_entity.TryGetComponent<GhostComponent>(uid, out _) && stealth)
                 _stealth.SetVisibility(uid, 0.8f, _entity.EnsureComponent<StealthComponent>(uid));
         }
         else

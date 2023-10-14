@@ -15,6 +15,13 @@ public sealed class ShadowkinDarkSwappedComponent : Component
     public bool Invisible = true;
 
     /// <summary>
+    ///     If it should be pacified
+    /// </summary>
+    /// <inheritdoc cref="Invisible"/>
+    [DataField("pacify")]
+    public bool Pacify = true;
+
+    /// <summary>
     ///     If the entity should dim nearby lights when swapped
     /// </summary>
     /// <inheritdoc cref="Invisible"/>

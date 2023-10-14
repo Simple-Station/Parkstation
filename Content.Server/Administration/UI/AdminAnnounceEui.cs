@@ -17,14 +17,14 @@ namespace Content.Server.Administration.UI
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
-        private readonly AnnouncerSystem _announcerSystem;
+        private readonly AnnouncerSystem _announcerSystem; // Parkstation-RandomAnnouncers
         private readonly ChatSystem _chatSystem;
 
         public AdminAnnounceEui()
         {
             IoCManager.InjectDependencies(this);
             _chatSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<ChatSystem>();
-            _announcerSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<AnnouncerSystem>();
+            _announcerSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<AnnouncerSystem>(); // Parkstation-RandomAnnouncers
         }
 
         public override void Opened()

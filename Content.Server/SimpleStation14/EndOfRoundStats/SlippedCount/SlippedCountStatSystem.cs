@@ -5,6 +5,7 @@ using Content.Server.Mind.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.SimpleStation14.CCVar;
 using Content.Shared.Slippery;
+using Content.Shared.StepTrigger.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
@@ -28,14 +29,14 @@ public sealed class SlippedCountStatSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SlipperyComponent, SlipEvent>(OnSlip);
+        SubscribeLocalEvent<StepTriggerComponent, SlipEvent>(OnSlip);
 
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
 
 
-    private void OnSlip(EntityUid uid, SlipperyComponent slipComp, ref SlipEvent args)
+    private void OnSlip(EntityUid uid, StepTriggerComponent component, ref SlipEvent args)
     {
         string? username = null;
 
