@@ -186,29 +186,36 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
     public void SetVisibility(EntityUid uid, bool set)
     {
+        // We require the visibility component for this to work
         var visibility = EnsureComp<VisibilityComponent>(uid);
 
-        if (set)
+        if (set) // Invisible
         {
+            // Allow the entity to see DarkSwapped entities
             if (_entity.TryGetComponent(uid, out EyeComponent? eye))
                 eye.VisibilityMask |= (uint) VisibilityFlags.DarkSwapInvisibility;
 
+            // Make other entities unable to see the entity unless also DarkSwapped
             _visibility.AddLayer(uid, visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
             _visibility.RemoveLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
             _visibility.RefreshVisibility(uid);
 
+            // If not a ghost, add a stealth shader to the entity
             if (!_entity.TryGetComponent<GhostComponent>(uid, out _))
                 _stealth.SetVisibility(uid, 0.8f, _entity.EnsureComponent<StealthComponent>(uid));
         }
-        else
+        else // Visible
         {
+            // Remove the ability to see DarkSwapped entities
             if (_entity.TryGetComponent(uid, out EyeComponent? eye))
                 eye.VisibilityMask &= ~(uint) VisibilityFlags.DarkSwapInvisibility;
 
+            // Make other entities able to see the entity again
             _visibility.RemoveLayer(uid, visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
             _visibility.AddLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
             _visibility.RefreshVisibility(uid);
 
+            // Remove the stealth shader from the entity
             if (!_entity.TryGetComponent<GhostComponent>(uid, out _))
                 _stealth.SetVisibility(uid, 1f, _entity.EnsureComponent<StealthComponent>(uid));
         }
@@ -221,32 +228,35 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     /// <param name="set">Add or remove the factions</param>
     public void SuppressFactions(EntityUid uid, bool set)
     {
+        // We require the power component to keep track of the factions
         if (!_entity.TryGetComponent<ShadowkinDarkSwapPowerComponent>(uid, out var component))
             return;
 
         if (set)
         {
-            if (_entity.TryGetComponent<NpcFactionMemberComponent>(uid, out var factions))
-            {
-                component.SuppressedFactions = factions.Factions.ToList();
+            if (!_entity.TryGetComponent<NpcFactionMemberComponent>(uid, out var factions))
+                return;
 
-                foreach (var faction in factions.Factions)
-                    _factions.RemoveFaction(uid, faction);
+            // Copy the suppressed factions to the power component
+            component.SuppressedFactions = factions.Factions.ToList();
 
-                foreach (var faction in component.AddedFactions)
-                    _factions.AddFaction(uid, faction);
-            }
+            // Remove the factions from the entity
+            foreach (var faction in factions.Factions)
+                _factions.RemoveFaction(uid, faction);
+
+            // Add status factions for The Dark to the entity
+            foreach (var faction in component.AddedFactions)
+                _factions.AddFaction(uid, faction);
         }
         else
         {
-            if (!component.SuppressedFactions.Any())
-                return;
-
-            foreach (var faction in component.SuppressedFactions)
-                _factions.AddFaction(uid, faction);
-
+            // Remove the status factions from the entity
             foreach (var faction in component.AddedFactions)
                 _factions.RemoveFaction(uid, faction);
+
+            // Add the factions back to the entity
+            foreach (var faction in component.SuppressedFactions)
+                _factions.AddFaction(uid, faction);
 
             component.SuppressedFactions.Clear();
         }
