@@ -39,6 +39,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ComponentShutdown>(Shutdown);
 
         SubscribeLocalEvent<ShadowkinDarkSwapPowerComponent, ShadowkinDarkSwapEvent>(DarkSwap);
+        SubscribeLocalEvent<ShadowkinDarkSwapAttemptEvent>(DarkSwapAttempt);
 
         SubscribeLocalEvent<ShadowkinDarkSwappedComponent, ComponentStartup>(OnInvisStartup);
         SubscribeLocalEvent<ShadowkinDarkSwappedComponent, ComponentShutdown>(OnInvisShutdown);
@@ -72,20 +73,29 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         SetDarkened(
             args.Performer,
             !hasComp,
-            !hasComp,
-            true,
-            args.StaminaCostOn,
-            args.PowerCostOn,
+            component.Invisible,
+            component.Darken,
             args.SoundOn,
             args.VolumeOn,
-            args.StaminaCostOff,
-            args.PowerCostOff,
             args.SoundOff,
             args.VolumeOff,
-            args
+            args,
+            args.StaminaCostOn,
+            args.PowerCostOn,
+            args.StaminaCostOff,
+            args.PowerCostOff
         );
 
         _magic.Speak(args, false);
+    }
+
+    /// <summary>
+    ///     Ensure the entity has the power component
+    /// </summary>
+    private void DarkSwapAttempt(ShadowkinDarkSwapAttemptEvent args)
+    {
+        if (!_entity.HasComponent<ShadowkinDarkSwapPowerComponent>(args.Performer))
+            args.Cancel();
     }
 
 
@@ -96,29 +106,29 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     /// <param name="addComp">Is the entity swapping in to or out of The Dark?</param>
     /// <param name="invisible">Should the entity become invisible?</param>
     /// <param name="darken">Should darkswapping darken nearby lights?</param>
-    /// <param name="staminaCostOn">Stamina cost for darkswapping</param>
-    /// <param name="powerCostOn">Power cost for darkswapping</param>
     /// <param name="soundOn">Sound for the darkswapping</param>
     /// <param name="volumeOn">Volume for the on sound</param>
-    /// <param name="staminaCostOff">Stamina cost for un swapping</param>
-    /// <param name="powerCostOff">Power cost for un swapping</param>
     /// <param name="soundOff">Sound for the un swapping</param>
     /// <param name="volumeOff">Volume for the off sound</param>
+    /// <param name="staminaCostOn">Stamina cost for darkswapping</param>
+    /// <param name="powerCostOn">Power cost for darkswapping</param>
+    /// <param name="staminaCostOff">Stamina cost for un swapping</param>
+    /// <param name="powerCostOff">Power cost for un swapping</param>
     /// <param name="args">If from an event, handle it</param>
     public void SetDarkened(
         EntityUid performer,
         bool addComp,
         bool invisible,
         bool darken,
-        float staminaCostOn,
-        float powerCostOn,
-        SoundSpecifier soundOn,
-        float volumeOn,
-        float staminaCostOff,
-        float powerCostOff,
-        SoundSpecifier soundOff,
-        float volumeOff,
-        ShadowkinDarkSwapEvent? args
+        SoundSpecifier? soundOn,
+        float? volumeOn,
+        SoundSpecifier? soundOff,
+        float? volumeOff,
+        ShadowkinDarkSwapEvent? args,
+        float staminaCostOn = 0,
+        float powerCostOn = 0,
+        float staminaCostOff = 0,
+        float powerCostOff = 0
     )
     {
         var ev = new ShadowkinDarkSwapAttemptEvent(performer);
@@ -126,15 +136,20 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
+        var power = _entity.GetComponent<ShadowkinDarkSwapPowerComponent>(performer);
+
         if (addComp)
         {
             var comp = _entity.EnsureComponent<ShadowkinDarkSwappedComponent>(performer);
             comp.Invisible = invisible;
             comp.Darken = darken;
+            comp.DarkenRange = power.DarkenRange;
+            comp.DarkenRange = power.DarkenRate;
 
             RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(performer, true));
 
-            _audio.PlayPvs(soundOn, performer, AudioParams.Default.WithVolume(volumeOn));
+            if (soundOn != null)
+                _audio.PlayPvs(soundOn, performer, AudioParams.Default.WithVolume(volumeOn ?? 5f));
 
             _power.TryAddPowerLevel(performer, -powerCostOn);
             _stamina.TakeStaminaDamage(performer, staminaCostOn);
@@ -144,7 +159,8 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             _entity.RemoveComponent<ShadowkinDarkSwappedComponent>(performer);
             RaiseNetworkEvent(new ShadowkinDarkSwappedEvent(performer, false));
 
-            _audio.PlayPvs(soundOff, performer, AudioParams.Default.WithVolume(volumeOff));
+            if (soundOff != null)
+                _audio.PlayPvs(soundOff, performer, AudioParams.Default.WithVolume(volumeOff ?? 5f));
 
             _power.TryAddPowerLevel(performer, -powerCostOff);
             _stamina.TakeStaminaDamage(performer, staminaCostOff);
@@ -170,8 +186,10 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         if (component.Invisible)
             SetCanSeeInvisibility(uid, false, true, true);
 
+        // Prevent more updates while we're cleaning up
         component.Darken = false;
 
+        // In case more updates occur for some reason, create a copy of the list to prevent error
         foreach (var light in component.DarkenedLights.ToArray())
         {
             if (!_entity.TryGetComponent<PointLightComponent>(light, out var pointLight) ||
