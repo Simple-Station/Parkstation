@@ -1281,3 +1281,41 @@ Entries:
       message: Round end announcements work
   id: 115
   time: '2023-10-05T01:37:58.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: add
+      message: >-
+        Added a second music called Deadline that plays when 2 minutes remain on
+        a salvage expedition.
+  id: 116
+  time: '2023-10-11T00:49:10.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: tweak
+      message: >-
+        Reinforced tiles (and other tough tiles) will no longer rip up when
+        explosive decompression occurs.
+  id: 117
+  time: '2023-10-11T03:56:54.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: fix
+      message: Fixed mopping end of round stat.
+  id: 118
+  time: '2023-10-13T02:50:13.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: fix
+      message: >-
+        The entire station is no longer informed when you're burning to death in
+        a charging station
+  id: 119
+  time: '2023-10-13T02:49:59.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: add
+      message: Normal NPCs can no longer see DarkSwapped Shadowkin
+    - type: fix
+      message: Fixed everyone being able to see DarkSwapped Shadowkin
+  id: 120
+  time: '2023-10-14T03:24:51.0000000+00:00'

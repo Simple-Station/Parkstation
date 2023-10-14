@@ -1,5 +1,8 @@
+using System.Linq;
 using Content.Server.Ghost.Components;
 using Content.Server.Magic;
+using Content.Server.NPC.Components;
+using Content.Server.NPC.Systems;
 using Content.Server.SimpleStation14.Species.Shadowkin.Components;
 using Content.Server.SimpleStation14.Species.Shadowkin.Events;
 using Content.Server.Visible;
@@ -30,6 +33,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly MagicSystem _magic = default!;
+    [Dependency] private readonly NpcFactionSystem _factions = default!;
 
     public override void Initialize()
     {
@@ -173,7 +177,10 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             EnsureComp<PacifiedComponent>(uid);
 
         if (component.Invisible)
-            SetCanSeeInvisibility(uid, true, true, true);
+        {
+            SetVisibility(uid, true);
+            SuppressFactions(uid, true);
+        }
     }
 
     private void OnInvisShutdown(EntityUid uid, ShadowkinDarkSwappedComponent component, ComponentShutdown args)
@@ -181,7 +188,10 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
         RemComp<PacifiedComponent>(uid);
 
         if (component.Invisible)
-            SetCanSeeInvisibility(uid, false, true, true);
+        {
+            SetVisibility(uid, false);
+            SuppressFactions(uid, false);
+        }
 
         // Prevent more updates while we're cleaning up
         component.Darken = false;
@@ -208,18 +218,18 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     /// <param name="enabled">Whether the entity can see invisibility</param>
     /// <param name="invisibility">Should the entity be moved to another visibility layer?</param>
     /// <param name="stealth">(Only gets considered if set is true) Adds stealth to the entity</param>
-    public void SetCanSeeInvisibility(EntityUid uid, bool enabled, bool invisibility, bool stealth)
+    public void SetVisibility(EntityUid uid, bool set, bool invisibility, bool stealth)
     {
-        if (!TryComp<VisibilityComponent>(uid, out var visibility))
-            return;
+        // We require the visibility component for this to work
+        var visibility = EnsureComp<VisibilityComponent>(uid);
 
-        if (enabled)
+        if (set) // Invisible
         {
+            // Allow the entity to see DarkSwapped entities
             if (_entity.TryGetComponent(uid, out EyeComponent? eye))
-            {
                 eye.VisibilityMask |= (uint) VisibilityFlags.DarkSwapInvisibility;
-            }
 
+            // Make other entities unable to see the entity unless also DarkSwapped
             if (invisibility)
             {
                 _visibility.AddLayer(uid, visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
@@ -227,16 +237,17 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             }
             _visibility.RefreshVisibility(uid);
 
+            // If not a ghost, add a stealth shader to the entity
             if (!_entity.TryGetComponent<GhostComponent>(uid, out _) && stealth)
                 _stealth.SetVisibility(uid, 0.8f, _entity.EnsureComponent<StealthComponent>(uid));
         }
-        else
+        else // Visible
         {
+            // Remove the ability to see DarkSwapped entities
             if (_entity.TryGetComponent(uid, out EyeComponent? eye))
-            {
                 eye.VisibilityMask &= ~(uint) VisibilityFlags.DarkSwapInvisibility;
-            }
 
+            // Make other entities able to see the entity again
             if (invisibility)
             {
                 _visibility.RemoveLayer(uid, visibility, (int) VisibilityFlags.DarkSwapInvisibility, false);
@@ -244,7 +255,50 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
             }
             _visibility.RefreshVisibility(uid);
 
-            _entity.RemoveComponent<StealthComponent>(uid);
+            // Remove the stealth shader from the entity
+            if (!_entity.TryGetComponent<GhostComponent>(uid, out _))
+                _stealth.SetVisibility(uid, 1f, _entity.EnsureComponent<StealthComponent>(uid));
+        }
+    }
+
+    /// <summary>
+    ///     Remove existing factions on the entity and move them to the power component to add back when removed from The Dark
+    /// </summary>
+    /// <param name="uid">Entity to modify factions for</param>
+    /// <param name="set">Add or remove the factions</param>
+    public void SuppressFactions(EntityUid uid, bool set)
+    {
+        // We require the power component to keep track of the factions
+        if (!_entity.TryGetComponent<ShadowkinDarkSwapPowerComponent>(uid, out var component))
+            return;
+
+        if (set)
+        {
+            if (!_entity.TryGetComponent<NpcFactionMemberComponent>(uid, out var factions))
+                return;
+
+            // Copy the suppressed factions to the power component
+            component.SuppressedFactions = factions.Factions.ToList();
+
+            // Remove the factions from the entity
+            foreach (var faction in factions.Factions)
+                _factions.RemoveFaction(uid, faction);
+
+            // Add status factions for The Dark to the entity
+            foreach (var faction in component.AddedFactions)
+                _factions.AddFaction(uid, faction);
+        }
+        else
+        {
+            // Remove the status factions from the entity
+            foreach (var faction in component.AddedFactions)
+                _factions.RemoveFaction(uid, faction);
+
+            // Add the factions back to the entity
+            foreach (var faction in component.SuppressedFactions)
+                _factions.AddFaction(uid, faction);
+
+            component.SuppressedFactions.Clear();
         }
     }
 }

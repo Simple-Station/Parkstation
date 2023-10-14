@@ -28,6 +28,7 @@ public sealed class ShadowkinDarkSwappedComponent : Component
     [DataField("darken"), ViewVariables(VVAccess.ReadWrite)]
     public bool Darken = true;
 
+
     /// <summary>
     ///     How far to dim nearby lights
     /// </summary>
