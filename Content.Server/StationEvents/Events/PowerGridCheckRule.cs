@@ -7,6 +7,7 @@ using System.Threading;
 using Content.Server.Power.EntitySystems;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.SimpleStation14.Announcements.Systems;
 using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
 
@@ -16,6 +17,7 @@ namespace Content.Server.StationEvents.Events
     public sealed class PowerGridCheckRule : StationEventSystem<PowerGridCheckRuleComponent>
     {
         [Dependency] private readonly ApcSystem _apcSystem = default!;
+        [Dependency] private readonly AnnouncerSystem _announcer = default!; // Parkstation-RandomAnnouncers
 
         public override void Initialize()
         {
@@ -65,7 +67,10 @@ namespace Content.Server.StationEvents.Events
             component.AnnounceCancelToken = new CancellationTokenSource();
             Timer.Spawn(3000, () =>
             {
-                Audio.PlayGlobal("/Audio/Announcements/power_on.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-4f));
+                // Parkstation-RandomAnnouncers Start
+                // Audio.PlayGlobal("/Audio/Announcements/power_on.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-4f));
+                _announcer.SendAnnouncementAudio("powrgridcheckcomplete", Filter.Broadcast());
+                // Parkstation-RandomAnnouncers End
             }, component.AnnounceCancelToken.Token);
             component.Unpowered.Clear();
         }

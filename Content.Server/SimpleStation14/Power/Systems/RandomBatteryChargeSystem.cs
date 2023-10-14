@@ -20,10 +20,7 @@ public sealed class RandomBatteryFillSystem : EntitySystem
 
     private void OnBatteryInit(EntityUid uid, RandomBatteryChargeComponent component, ComponentInit args)
     {
-        var batteryComp = Comp<BatteryComponent>(uid);
-        DebugTools.AssertNotNull(batteryComp);
-
-        if (batteryComp == null)
+        if (!TryComp<BatteryComponent>(uid, out var batteryComp))
             return;
 
         var (minMaxMod, maxMaxMod) = component.BatteryMaxMinMax;

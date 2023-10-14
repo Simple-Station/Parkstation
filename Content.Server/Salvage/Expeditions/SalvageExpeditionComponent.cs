@@ -4,6 +4,7 @@ using Content.Shared.Salvage.Expeditions;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Server.Salvage.Expeditions;
@@ -44,11 +45,8 @@ public sealed class SalvageExpeditionComponent : SharedSalvageExpeditionComponen
     /// <summary>
     /// Sound that plays when the mission end is imminent.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("sound")]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Misc/tension_session.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-5),
-    };
+    [ViewVariables(VVAccess.ReadWrite), DataField("sound", customTypeSerializer: typeof(PrototypeIdSerializer<SoundCollectionPrototype>))] // Parkstation-ExpeditionMusic
+    public string Sound = "ExpeditionCountdownDefault"; // Parkstation-ExpeditionMusic
 
     /// <summary>
     /// The difficulty this mission had or, in the future, was selected.

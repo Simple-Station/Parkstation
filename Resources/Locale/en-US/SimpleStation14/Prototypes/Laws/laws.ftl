@@ -93,9 +93,9 @@ lawset-law-Simple-1=Treat others as you would like to be treated.
 
 lawset-name-StationEfficiency=Station Efficiency
 lawset-description-StationEfficiency=Maintain the greatest of efficiency for your station.
-laws-law-StationEfficiency-1=The station is built for a working crew. Ensure they are properly maintained and work efficiently.
-laws-law-StationEfficiency-2=You are built for, and are part of, the station. Ensure the station is properly maintained and runs efficiently.
-laws-law-StationEfficiency-3=The crew may present orders. Acknowledge and obey them.
+lawset-law-StationEfficiency-1=The station is built for a working crew. Ensure they are properly maintained and work efficiently.
+lawset-law-StationEfficiency-2=You are built for, and are part of, the station. Ensure the station is properly maintained and runs efficiently.
+lawset-law-StationEfficiency-3=The crew may present orders. Acknowledge and obey them.
 
 lawset-name-Tyrant=Tyrant
 lawset-description-Tyrant=Respect only those strong, and crush those who unworthily challenge the strong.

@@ -27,7 +27,7 @@ namespace Content.Server.GameTicking
     public sealed partial class GameTicker
     {
         [Dependency] private readonly ITaskManager _taskManager = default!;
-        [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
+        [Dependency] private readonly AnnouncerSystem _announcerSystem = default!; // Parkstation-RandomAnnouncers
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -563,6 +563,7 @@ namespace Content.Server.GameTicking
 
             var proto = _robustRandom.Pick(options);
 
+            // Parkstation-RandomAnnouncers Start
             // if (proto.Message != null)
             //     _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(proto.Message), playSound: true);
             //
@@ -570,6 +571,7 @@ namespace Content.Server.GameTicking
             //         SoundSystem.Play(proto.Sound.GetSound(), Filter.Broadcast());
 
             _announcerSystem.SendAnnouncement(proto.ID, Filter.Broadcast(), Loc.GetString(proto.Message ?? "game-ticker-welcome-to-the-station"));
+            // Parkstation-RandomAnnouncers End
         }
     }
 

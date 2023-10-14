@@ -3,7 +3,6 @@
   name: action-name-spell-forcewall
   description: action-description-spell-forcewall
   useDelay: 0
-  speech: action-speech-spell-funny-forcewall
   itemIconStyle: BigAction
   sound: !type:SoundPathSpecifier
     path: /Audio/Magic/forcewall.ogg
@@ -13,18 +12,19 @@
   serverEvent: !type:InstantSpawnSpellEvent
     prototype: WallForce
     posData: !type:TargetInFront
+    speech: action-speech-spell-funny-forcewall
 
 - type: instantAction
   id: FunnyKnock
   name: action-name-spell-knock
   description: action-description-spell-knock
   useDelay: 0
-  speech: action-speech-spell-funny-knock
   itemIconStyle: BigAction
   icon:
     sprite: Objects/Magic/magicactions.rsi
     state: knock
   serverEvent: !type:KnockSpellEvent
+    speech: action-speech-spell-funny-knock
 
 - type: worldTargetAction
   id: FunnyFireball
@@ -32,7 +32,6 @@
   description: action-description-spell-fireball
   useDelay: 0
   range: 64
-  speech: action-speech-spell-funny-fireball
   itemIconStyle: BigAction
   checkCanAccess: false
   sound: !type:SoundPathSpecifier
@@ -43,6 +42,7 @@
   serverEvent: !type:ProjectileSpellEvent
     prototype: ProjectileFireball
     posData: !type:TargetCasterPos
+    speech: action-speech-spell-funny-fireball
 
 - type: instantAction
   id: FunnyFlashRune
@@ -62,7 +62,6 @@
   description: action-description-spell-smite
   useDelay: 0
   range: 64
-  speech: action-speech-spell-funny-smite
   itemIconStyle: BigAction
   whitelist:
     components:
@@ -75,6 +74,7 @@
     sprite: Objects/Magic/magicactions.rsi
     state: gib
   serverEvent: !type:SmiteSpellEvent
+    speech: action-speech-spell-funny-smite
 
 - type: worldTargetAction
   id: FunnySpawnMagicarpSpell
@@ -82,7 +82,6 @@
   description: action-description-spell-summon-magicarp
   useDelay: 0
   range: 64
-  speech: action-speech-spell-funny-summon-magicarp
   itemIconStyle: BigAction
   icon:
     sprite: Objects/Magic/magicactions.rsi
@@ -92,6 +91,7 @@
       - id: MobCarpMagic
         amount: 3
     offsetVector2: 0, 1
+    speech: action-speech-spell-funny-summon-magicarp
 
 - type: worldTargetAction
   id: FunnyBlink
@@ -99,7 +99,6 @@
   description: action-description-spell-blink
   useDelay: 0
   range: 64
-  speech: action-speech-spell-blink
   itemIconStyle: BigAction
   checkCanAccess: false
   repeat: true
@@ -107,6 +106,7 @@
     sprite: Objects/Magic/magicactions.rsi
     state: blink
   serverEvent: !type:TeleportSpellEvent
+    speech: action-speech-spell-blink
 
 - type: entityTargetAction
   id: FunnyHealingSpell
@@ -114,7 +114,6 @@
   description: action-description-spell-healing
   useDelay: 0
   range: 64
-  speech: action-speech-spell-funny-healing
   itemIconStyle: BigAction
   whitelist:
     components:
@@ -133,6 +132,7 @@
         Burn: -999
         Airloss: -999
         Toxin: -999
+    speech: action-speech-spell-funny-healing
 
 
 # Super funny
@@ -141,7 +141,6 @@
   name: action-name-spell-knock
   description: action-description-spell-knock
   useDelay: 0
-  speech: action-speech-spell-super-funny-knock
   itemIconStyle: BigAction
   sound: !type:SoundPathSpecifier
     path: /Audio/Magic/staff_chaos.ogg
@@ -150,3 +149,4 @@
     state: knock
   serverEvent: !type:KnockSpellEvent
     range: 128
+    speech: action-speech-spell-super-funny-knock

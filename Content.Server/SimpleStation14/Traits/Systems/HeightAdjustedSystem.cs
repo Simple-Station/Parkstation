@@ -29,6 +29,9 @@ public sealed class HeightAdjustedSystem : EntitySystem
         // Set density of the entity using SetDensity
         if (_entityManager.TryGetComponent<FixturesComponent>(uid, out var fixtures))
         {
+            if (fixtures.FixtureCount == 0)
+                return;
+
             var density = fixtures.Fixtures.Values.First().Density;
             component.OriginalDensity = density;
             var newDensity = density * (component.Width + component.Height) / 2;
