@@ -18,7 +18,6 @@
         damage:
           types:
             Poison: 2
-        ignoreResistances: false # Parkstation-compliantpoison
 
 - type: reagent
   id: CarpoToxin
@@ -40,7 +39,6 @@
         damage:
           types:
             Poison: 4
-        ignoreResistances: false # Parkstation-compliantpoison
       - !type:PopupMessage
         type: Local
         visualType: MediumCaution
@@ -79,7 +77,6 @@
         damage:
           types:
             Poison: 1.5
-        ignoreResistances: false # Parkstation-compliantpoison
 
 - type: reagent
   id: Mold
@@ -96,7 +93,6 @@
         damage:
           types:
             Poison: 1
-        ignoreResistances: false # Parkstation-compliantpoison
       - !type:ChemCauseRandomDisease
         conditions:
         - !type:ReagentThreshold
@@ -386,7 +382,6 @@
         damage:
           types:
             Poison: 0.4
-        ignoreResistances: false # Parkstation-compliantpoison
       - !type:ChemVomit
         probability: 0.04 #Scaled for time, not metabolismrate.
         conditions:
@@ -409,7 +404,6 @@
         damage:
           types:
             Poison: 6
-        ignoreResistances: false # Parkstation-compliantpoison
 
 - type: reagent
   id: VentCrud
@@ -425,7 +419,6 @@
           damage:
             types:
               Poison: 2
-          ignoreResistances: false # Parkstation-compliantpoison
         - !type:ChemCauseDisease ##Since this mostly just comes from the event you won't ingest that much
           causeChance: 0.6
           disease: VentCough
@@ -465,7 +458,6 @@
         damage:
           types:
             Poison: 2
-        ignoreResistances: false # Parkstation-compliantpoison
       - !type:AdjustReagent
         conditions:
         - !type:OrganType
@@ -493,7 +485,6 @@
         damage:
           types:
             Poison: 0.06
-        ignoreResistances: false # Parkstation-compliantpoison
 
 - type: reagent
   id: Pax

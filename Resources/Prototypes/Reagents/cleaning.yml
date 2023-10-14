@@ -14,7 +14,6 @@
         damage:
           types:
             Poison: 3
-        ignoreResistances: false # Parkstation-compliantpoison
       - !type:PopupMessage
         type: Local
         visualType: MediumCaution

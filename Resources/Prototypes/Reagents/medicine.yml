@@ -38,7 +38,6 @@
         damage:
           types:
             Poison: -1
-        ignoreResistances: false # Parkstation-compliantpoison
     # TODO overdose: vomit, dizzy effect (drunkenness?)
   plantMetabolism:
     - !type:PlantAdjustToxins
@@ -121,14 +120,7 @@
         damage:
           types:
             Asphyxiation: 1
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 30
-        damage:
-          types:
             Poison: 0.5
-        ignoreResistances: false # Parkstation-compliantpoison
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
@@ -262,21 +254,10 @@
         damage:
           types:
             Asphyxiation: -3
+            Poison: -0.5
           groups:
             Brute: -0.5
             Burn: -0.5
-      - !type:HealthChange
-        conditions:
-          # they gotta be in crit first
-        - !type:MobStateCondition
-          mobstate: Critical
-        - !type:ReagentThreshold
-          min: 0
-          max: 20
-        damage:
-          types:
-            Poison: -0.5
-        ignoreResistances: false # Parkstation-compliantpoison
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -284,14 +265,7 @@
         damage:
           types:
             Asphyxiation: 1
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 20
-        damage:
-          types:
             Poison: 1
-        ignoreResistances: false # Parkstation-compliantpoison
       - !type:AdjustReagent
         reagent: Lexorin
         amount: -2
@@ -455,7 +429,6 @@
         damage:
           types:
             Poison: 3
-        ignoreResistances: false # Parkstation-compliantpoison
       - !type:ChemVomit
         probability: 0.15
         conditions:
@@ -511,7 +484,6 @@
         damage:
           types:
             Poison: 0.5
-        ignoreResistances: false # Parkstation-compliantpoison
 
 - type: reagent
   id: PulpedBananaPeel
@@ -571,7 +543,6 @@
         damage:
           types:
             Poison: -4
-        ignoreResistances: false # Parkstation-compliantpoison
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -595,7 +566,6 @@
         damage:
           types:
             Poison: 3
-        ignoreResistances: false # Parkstation-compliantpoison
       - !type:GenericStatusEffect
         key: Stun
         time: 3.0
@@ -647,17 +617,10 @@
           groups:
             Brute: -1
           types:
+            Poison: -0.5 ##Should be about what it was when it healed the toxin group
             Heat: -0.33
             Shock: -0.33
             Cold: -0.33
-      - !type:HealthChange
-        conditions:
-        - !type:TotalDamage
-          max: 50
-        damage:
-          types:
-            Poison: -0.5 ##Should be about what it was when it healed the toxin group
-        ignoreResistances: false # Parkstation-compliantpoison
 
 - type: reagent
   id: Lipozine

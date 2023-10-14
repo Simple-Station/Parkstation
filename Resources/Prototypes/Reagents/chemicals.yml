@@ -33,7 +33,6 @@
         damage:
           types:
             Poison: -1
-        ignoreResistances: false # Parkstation-compliantpoison
       - !type:ChemCleanBloodstream
         cleanseRate: 3
 
