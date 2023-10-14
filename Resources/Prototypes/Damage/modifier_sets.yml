@@ -109,12 +109,12 @@
 - type: damageModifierSet
   id: Slime
   coefficients:
-    Blunt: 2 # Lots of blunt, if they do more than 5 damage (flatReduction)
+    Blunt: 2 # Lots of blunt, if they do more than 5 damage
     Slash: 1.5
     Piercing: 0.5
     Cold: 1.6
     Heat: 0.4
-    Poison: -1 # Poison modifier doesn't do anything?
+    Poison: -1
     Cellular: 0.2
     Asphyxiation: 0.9
     Bloodloss: 1.1
