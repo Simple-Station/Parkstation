@@ -288,7 +288,7 @@ namespace Content.Server.Cloning
             AddComp<ActiveCloningPodComponent>(uid);
 
             // For other systems adding components to the mob
-            var ev = new BeenClonedEvent(pref, mind, mob, clonePod.Owner);
+            var ev = new BeenClonedEvent(pref, mind, mob, bodyToClone, clonePod.Owner);
             RaiseLocalEvent(ev);
 
             return true;
