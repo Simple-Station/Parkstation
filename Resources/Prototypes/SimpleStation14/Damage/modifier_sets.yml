@@ -31,3 +31,8 @@
     Shock: 1.25
     Radiation: 1.3
 
+- type: damageModifierSet
+  id: SlimeReagents
+  coefficients:
+    Poison: -1
+  minimumDamageToDamage: -999

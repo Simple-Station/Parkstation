@@ -77,6 +77,8 @@
     naturalImmunities:
     - Ultragigacancer
     - BleedersBite
+  - type: ReagentDamageModifier
+    modifierSet: SlimeReagents
 
 - type: entity
   save: false
