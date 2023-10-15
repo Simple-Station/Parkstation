@@ -8,6 +8,9 @@ using Content.Shared.Database;
 using Robust.Shared.Player;
 using Content.Shared.Pulling.Components;
 using Linguini.Syntax.Ast;
+using Robust.Shared.Timing;
+using JetBrains.Annotations;
+using Content.Shared.SimpleStation14.Holograms.Components;
 
 namespace Content.Server.SimpleStation14.Holograms;
 
@@ -46,9 +49,9 @@ public sealed class HologramSystem : SharedHologramSystem
     /// <summary>
     ///     Mind stuff is all server side, so this exists to actually kill the Hologram in reaction to <see cref="SharedHologramSystem.DoReturnHologram(EntityUid, out bool)"/>.
     /// </summary>
-    public override void DoReturnHologram(EntityUid uid, out bool holoKilled)
+    public override void DoReturnHologram(EntityUid uid, out bool holoKilled, HologramProjectedComponent? component = null)
     {
-        base.DoReturnHologram(uid, out holoKilled);
+        base.DoReturnHologram(uid, out holoKilled, component);
         if (holoKilled)
             DoKillHologram(uid);
     }
@@ -56,10 +59,11 @@ public sealed class HologramSystem : SharedHologramSystem
     /// <summary>
     ///     Kills a Hologram after playing the visual and auditory effects.
     /// </summary>
-    /// <param name="component">Hologram's HologramComponent.</param>
-    public void DoKillHologram(EntityUid uid)
+    public void DoKillHologram(EntityUid uid, HologramComponent? holoComp = null)
     {
-        var component = Comp<HologramComponent>(uid);
+        if (!Resolve(uid, ref holoComp))
+            return;
+
         var meta = MetaData(uid);
         var holoPos = Transform(uid).Coordinates;
 
@@ -69,11 +73,11 @@ public sealed class HologramSystem : SharedHologramSystem
         _audio.Play(filename: "/Audio/SimpleStation14/Effects/Hologram/holo_off.ogg", playerFilter: Filter.Pvs(uid), coordinates: holoPos, false);
         _popup.PopupCoordinates(Loc.GetString(PopupDisappearOther, ("name", meta.EntityName)), holoPos, Filter.PvsExcept(uid), false, PopupType.MediumCaution);
         _popup.PopupCoordinates(Loc.GetString(PopupDeathSelf), holoPos, uid, PopupType.LargeCaution);
-        if (component.LinkedServer != EntityUid.Invalid)
+        if (TryComp<HologramServerLinkedComponent>(uid, out var holoLinkComp) && holoLinkComp.LinkedServer != null)
         {
-            if (TryComp<HologramServerComponent>(component.LinkedServer!.Value, out var serverComp))
-                serverComp.LinkedHologram = EntityUid.Invalid;
-            component.LinkedServer = EntityUid.Invalid;
+            if (TryComp<HologramServerComponent>(holoLinkComp.LinkedServer.Value, out var serverComp))
+                serverComp.LinkedHologram = null;
+            holoLinkComp.LinkedServer = null;
         }
 
         _entityManager.QueueDeleteEntity(uid);

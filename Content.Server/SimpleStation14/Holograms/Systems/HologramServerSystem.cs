@@ -32,6 +32,7 @@ using Robust.Shared.GameObjects.Components.Localization;
 using Content.Shared.Movement.Systems;
 using System.Threading.Tasks;
 using Content.Server.Mind.Components;
+using Content.Shared.SimpleStation14.Holograms.Components;
 
 namespace Content.Server.SimpleStation14.Holograms;
 
@@ -75,18 +76,19 @@ public sealed class HologramServerSystem : EntitySystem
     private void OnEntInserted(EntityUid uid, HologramServerComponent component, EntInsertedIntoContainerMessage args)
     {
         if (args.Container.ID != DiskSlot || !_tagSystem.HasTag(args.Entity, "HoloDisk") ||
-            _entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var diskComp) && diskComp.HoloMind == null) return;
+            !_entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var diskComp) || diskComp.HoloMind == null)
+            return;
 
-        if (component.LinkedHologram != EntityUid.Invalid && _entityManager.EntityExists(component.LinkedHologram))
+        if (component.LinkedHologram != null && _entityManager.EntityExists(component.LinkedHologram))
         {
             _hologram.DoKillHologram(component.LinkedHologram.Value);
         }
 
-        if (TryHoloGenerate(uid, _entityManager.GetComponent<HologramDiskComponent>(args.Entity).HoloMind!, component, out var holo))
+        if (TryHoloGenerate(uid, diskComp.HoloMind!, component, out var holo))
         {
-            var holoComp = _entityManager.GetComponent<HologramComponent>(holo);
+            var holoLinkComp = _entityManager.EnsureComponent<HologramServerLinkedComponent>(holo);
             component.LinkedHologram = holo;
-            holoComp.LinkedServer = uid;
+            holoLinkComp.LinkedServer = uid;
         }
     }
 
@@ -96,7 +98,7 @@ public sealed class HologramServerSystem : EntitySystem
     private void OnEntRemoved(EntityUid uid, HologramServerComponent component, EntRemovedFromContainerMessage args)
     {
         if (args.Container.ID != DiskSlot || !_tagSystem.HasTag(args.Entity, "HoloDisk") ||
-            (_entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var diskComp) && diskComp.HoloMind == null)) return;
+            !_entityManager.TryGetComponent<HologramDiskComponent>(args.Entity, out var diskComp) || diskComp.HoloMind == null) return;
 
         if (_entityManager.EntityExists(component.LinkedHologram))
         {
@@ -112,34 +114,32 @@ public sealed class HologramServerSystem : EntitySystem
     /// <param name="args">The PowerChangedEvent</param>
     private void OnPowerChanged(EntityUid uid, HologramServerComponent component, ref PowerChangedEvent args)
     {
-        // If the server is no longer powered
-        if (!args.Powered && component.LinkedHologram != null && component.LinkedHologram != EntityUid.Invalid)
+        // If the server is no longer powered and the hologram exists
+        if (!args.Powered && _entityManager.EntityExists(component.LinkedHologram))
         {
-            // If the hologram exists
-            if (_entityManager.EntityExists(component.LinkedHologram))
-            {
-                // Kill the Hologram
-                _hologram.DoKillHologram(component.LinkedHologram.Value);
-            }
+            // Kill the Hologram
+            _hologram.DoKillHologram(component.LinkedHologram.Value);
+            component.LinkedHologram = null;
         }
+
         // If the server is powered
-        else if (args.Powered && component.LinkedHologram == EntityUid.Invalid)
+        else if (args.Powered)
         {
-            var serverContainer = _entityManager.GetComponent<ContainerManagerComponent>(component.Owner);
+            var serverContainer = _entityManager.GetComponent<ContainerManagerComponent>(uid);
             if (serverContainer.GetContainer(DiskSlot).ContainedEntities.Count <= 0)
             {
                 return; // No disk in the server
             }
-            var disk = serverContainer.GetContainer(DiskSlot).ContainedEntities.First();
+            var disk = serverContainer.GetContainer(DiskSlot).ContainedEntities[0];
             var diskData = _entityManager.GetComponent<HologramDiskComponent>(disk).HoloMind;
 
             // If the hologram is generated successfully
-            if (diskData != null && TryHoloGenerate(component.Owner, diskData, component, out var holo))
+            if (diskData != null && TryHoloGenerate(uid, diskData, component, out var holo))
             {
                 // Set the linked hologram to the generated hologram
-                var holoComp = _entityManager.GetComponent<HologramComponent>(holo);
+                var holoLinkComp = _entityManager.EnsureComponent<HologramServerLinkedComponent>(holo);
                 component.LinkedHologram = holo;
-                holoComp.LinkedServer = component.Owner;
+                holoLinkComp.LinkedServer = uid;
             }
         }
     }
