@@ -121,7 +121,7 @@
     Shock: 0.4
     Radiation: 0.5
   flatReductions:
-    Blunt: 5
+    Blunt: 4.5
 
 - type: damageModifierSet
   id: Infernal
