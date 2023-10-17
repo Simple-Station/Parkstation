@@ -1,0 +1,38 @@
+## Physical.
+- type: skillSubCategory
+  id: SkillSubCategoryStrength
+  category: SkillCategoryPhysical
+  color: "#b11e0d"
+
+- type: skillSubCategory
+  id: SkillSubCategoryDexterity
+  category: SkillCategoryPhysical
+  color: "#7d38dd"
+
+- type: skillSubCategory
+  id: SkillSubCategoryEndurance
+  category: SkillCategoryPhysical
+  color: "#448d0c"
+
+- type: skillSubCategory
+  id: SkillSubCategoryAgility
+  category: SkillCategoryPhysical
+  color: "#2ba5e7"
+
+- type: skillSubCategory
+  id: SkillSubCategorySenses
+  category: SkillCategoryPhysical
+  color: "#e7b02b"
+
+## Technical.
+- type: skillSubCategory
+  id: SkillSubCategoryEngineering
+  category: SkillCategoryTechnical
+
+- type: skillSubCategory
+  id: SkillSubCategoryResearch
+  category: SkillCategoryTechnical
+
+- type: skillSubCategory
+  id: SkillSubCategoryMedicine
+  category: SkillCategoryTechnical

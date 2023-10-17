@@ -289,6 +289,8 @@
         type: HumanoidMarkingModifierBoundUserInterface
       - key: enum.StrippingUiKey.Key
         type: StrippableBoundUserInterface
+      - key: enum.SkillsUiKey.Key
+        type: SkillsBoundUserInterface
   - type: Puller
   - type: Butcherable
     butcheringType: Spike # TODO human.
@@ -319,6 +321,19 @@
   - type: SleepEmitSound
   - type: CharacterInformation
   - type: SSDIndicator
+
+  - type: Skills
+  - type: IntrinsicUI
+    uis:
+      - key: enum.SkillsUiKey.Key
+        toggleAction:
+          name: action-name-show-skills
+          description: action-description-show-skills
+          icon: Structures/Wallmounts/posters.rsi/poster11_legit.png #someone wanna make new icons?
+          iconOn: Structures/Wallmounts/posters.rsi/poster11_legit.png
+          keywords: [ "skills", "stats", "attributes" ]
+          priority: -3
+          event: !type:ToggleIntrinsicUIEvent
 
 - type: entity
   save: false

@@ -1,0 +1,8 @@
+- type: skillCategory
+  id: SkillCategoryPhysical
+
+- type: skillCategory
+  id: SkillCategoryTechnical
+
+- type: skillCategory
+  id: SkillCategoryMystical

@@ -1,5 +1,7 @@
+using Content.Shared.SimpleStation14.Skills.Prototypes; // Parkstation-Skills
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary; // Parkstation-Skills
 
 namespace Content.Shared.Humanoid.Prototypes;
 
@@ -120,6 +122,16 @@ public sealed class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField("maxAge")]
     public int MaxAge = 120;
+
+    // Parkstation-Skills-Start
+
+    /// <summary>
+    ///     Any skills this species starts with bonus points in.
+    /// </summary>
+    [DataField("skillBonuses", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<int, SkillPrototype>))]
+    public Dictionary<string, int> SkillBonuses { get; } = new();
+
+    // Parkstation-Skills-End
 }
 
 public enum SpeciesNaming : byte

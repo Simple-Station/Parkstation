@@ -1,0 +1,83 @@
+## Strength
+- type: skill
+  id: SkillLifting
+  subCategory: SkillSubCategoryStrength
+
+- type: skill
+  id: SkillBoxing
+  subCategory: SkillSubCategoryStrength
+
+- type: skill
+  id: Endurance
+  subCategory: SkillSubCategoryStrength
+
+## Dexterity
+- type: skill
+  id: SkillDueling
+  subCategory: SkillSubCategoryDexterity
+
+- type: skill
+  id: SkillFineMotorSkills
+  subCategory: SkillSubCategoryDexterity
+
+- type: skill
+  id: SkillObservation
+  subCategory: SkillSubCategorySenses
+
+## Agility
+- type: skill
+  id: SkillSpriting
+  subCategory: SkillSubCategoryAgility
+
+- type: skill
+  id: SkillAcrobatics
+  subCategory: SkillSubCategoryAgility
+
+- type: skill
+  id: SkillDodging
+  subCategory: SkillSubCategoryAgility
+
+## Technical --------------
+## Engineering
+- type: skill
+  id: SkillConstruction
+  subCategory: SkillSubCategoryEngineering
+
+- type: skill
+  id: SkillElectrical
+  subCategory: SkillSubCategoryEngineering
+
+- type: skill
+  id: SkillMechanical
+  subCategory: SkillSubCategoryEngineering
+
+## Medicine
+- type: skill
+  id: SkillFirstAid
+  subCategory: SkillSubCategoryMedicine
+
+- type: skill
+  id: SkillSurgery
+  subCategory: SkillSubCategoryMedicine
+
+- type: skill
+  id: SkillChemistry
+  subCategory: SkillSubCategoryMedicine
+
+# - type: skill
+#   id: SkillVirology # Ha ha
+#   subCategory: SkillSubCategoryMedicine
+
+## Research
+- type: skill
+  id: SkillQuantumPhysics
+  subCategory: SkillSubCategoryResearch
+
+- type: skill
+  id: AnomalousMaterials
+  subCategory: SkillSubCategoryResearch
+
+- type: skill
+  id: SkillXenobiology
+  subCategory: SkillSubCategoryResearch
+
