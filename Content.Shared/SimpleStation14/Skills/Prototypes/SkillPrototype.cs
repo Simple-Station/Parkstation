@@ -1,3 +1,4 @@
+using Content.Shared.SimpleStation14.Skills.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
@@ -21,6 +22,9 @@ public sealed class SkillPrototype : IPrototype
     [DataField("subCategory", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<SkillSubCategoryPrototype>))]
     public string SubCategory = default!;
 
+    [DataField("maxValue")]
+    public int MaxValue = 5;
+
     /// <summary>
     ///     If true, this skill's icon won't be colored by the sub category's color.
     /// </summary>
@@ -39,16 +43,16 @@ public sealed class SkillPrototype : IPrototype
     ///     Skills lower will make less of an impact.
     /// </summary>
     [DataField("weight")]
-    public int Weight = 1;
+    public float Weight = 1;
 
-    /// <summary>
-    ///    Optional override for the Sprite Specifier for the icon for this skill.
-    /// </summary>
-    /// <remarks>
-    ///    If null, the state will be generated from the skill's name, and the RSI will be inherited from the sub category.
-    /// </remarks>
-    [DataField("icon", customTypeSerializer: typeof(SpriteSpecifierSerializer))]
-    public SpriteSpecifier? Icon = null;
+    // /// <summary>
+    // ///    Optional override for the Sprite Specifier for the icon for this skill.
+    // /// </summary>
+    // /// <remarks>
+    // ///    If null, the state will be generated from the skill's name, and the RSI will be inherited from the sub category.
+    // /// </remarks>
+    // [DataField("icon", customTypeSerializer: typeof(SpriteSpecifierSerializer))]
+    // public SpriteSpecifier? Icon = null;
 
     /// <summary>
     ///    A whitelist to determine what Entities are allowed to use this skill, in addition to the sub categories list.

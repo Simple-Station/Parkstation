@@ -16,6 +16,11 @@
   - External
   extendedAccess:
   - Atmospherics
+  special:
+  - !type:RoleSkillsSpecial
+    skills:
+      SkillMechanical: 4
+      SkillElectrical: 3
 
 - type: startingGear
   id: StationEngineerGear

@@ -7,11 +7,14 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.SimpleStation14.Skills.Components
 {
+    /// <summary>
+    ///    This holds all the data on an entity's skills.
+    ///    It should generally never be accessed directly, and instead accessed through <see cref="SharedSkillsSystem"/>.
+    ///    No, not event just to get a single value. I worked hard on those functions ;~;.
+    /// </summary>
     [RegisterComponent]
     [NetworkedComponent]
     [AutoGenerateComponentState]
-    [Serializable]
-    [NetSerializable]
     public sealed partial class SkillsComponent : Component
     {
         /// <summary>
@@ -19,6 +22,7 @@ namespace Content.Shared.SimpleStation14.Skills.Components
         ///     If you're using this- don't. Use <see cref="SharedSkillsSystem"/> to access it.
         /// </summary>
         [AutoNetworkedField]
+        [ViewVariables(VVAccess.ReadOnly)]
         public Dictionary<string, int> Skills = new();
 
         /// <summary>

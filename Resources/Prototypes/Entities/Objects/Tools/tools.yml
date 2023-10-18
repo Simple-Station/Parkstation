@@ -33,6 +33,8 @@
       - Cutting
     useSound:
       path: /Audio/Items/wirecutter.ogg
+    skillUsed: SkillElectrical
+    skillExpected: 3
   - type: RandomSprite
     available:
       - enum.DamageStateVisualLayers.Base:
@@ -82,6 +84,8 @@
       - Screwing
     useSound:
       collection: Screwdriver
+    skillUsed: SkillElectrical
+    skillExpected: 2
   - type: RandomSprite
     available:
       - enum.DamageStateVisualLayers.Base:
@@ -128,6 +132,8 @@
       - Anchoring
     useSound:
       path: /Audio/Items/ratchet.ogg
+    skillUsed: SkillMechanical
+    skillExpected: 2
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
@@ -166,6 +172,8 @@
       - Prying
     useSound:
       path: /Audio/Items/crowbar.ogg
+    skillUsed: SkillMechanical
+    skillExpected: 3
   - type: TilePrying
   - type: PhysicalComposition
     materialComposition:
@@ -219,6 +227,8 @@
   - type: Tool
     qualities:
       - Pulsing
+    skillUsed: SkillElectrical
+    skillExpected: 7
   - type: NetworkConfigurator
   - type: ActivatableUI
     key: enum.NetworkConfiguratorUiKey.List

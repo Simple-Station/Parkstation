@@ -16,20 +16,20 @@ public sealed class SkillCategoryPrototype : IPrototype
     // [DataField("icon")]
     // public SpriteSpecifier Icon = default!;
 
-    /// <summary>
-    ///    A whitelist to determine what Entities are allowed to use this category of skills.
-    /// </summary>
-    [DataField("whitelist")]
-    public EntityWhitelist? Whitelist = null;
+    // /// <summary>
+    // ///    A whitelist to determine what Entities are allowed to use this category of skills.
+    // /// </summary>
+    // [DataField("whitelist")]
+    // public EntityWhitelist? Whitelist = null;
 
-    /// <summary>
-    ///    A whitelist to determine what Entities are NOT allowed to use this category of skills.
-    /// </summary>
-    /// <remarks>
-    ///    A blacklist is just a whitelist you deny.
-    /// </remarks>
-    [DataField("blacklist")]
-    public EntityWhitelist? Blacklist = null;
+    // /// <summary>
+    // ///    A whitelist to determine what Entities are NOT allowed to use this category of skills.
+    // /// </summary>
+    // /// <remarks>
+    // ///    A blacklist is just a whitelist you deny.
+    // /// </remarks>
+    // [DataField("blacklist")]
+    // public EntityWhitelist? Blacklist = null;
 
     /// <summary>
     ///     Whether or not this category is viewable in the character menu.

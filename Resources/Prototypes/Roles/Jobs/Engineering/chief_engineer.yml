@@ -36,6 +36,11 @@
     components:
     - type: PsionicBonusChance
       flatBonus: 0.025
+  - !type:RoleSkillsSpecial
+    skills:
+      SkillMechanical: 7
+      SkillElectrical: 8
+      SkillQuantumPhysics: 3
 
 - type: startingGear
   id: ChiefEngineerGear

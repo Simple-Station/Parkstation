@@ -4,6 +4,8 @@ using Content.Shared.SimpleStation14.Skills.Components;
 using Content.Shared.SimpleStation14.Skills.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.SimpleStation14.Skills.Systems;
 
@@ -23,111 +25,162 @@ public sealed class SharedSkillsSystem : EntitySystem
         _prototype.PrototypesReloaded += OnPrototypesReloaded;
     }
 
-    public bool TryModifySkillLevel(string skill, int level)
+    # region Public Functions
+    /// <summary> Forces the level of a skill for a given entity. </summary>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
+    /// <param name="level"> The value to set the skill level to. </param>
+    /// <remarks> WARNING: This bypasses several checks, such as species restrictions, max skill level, etc.. Use sparingly. </remarks>
+    public void ForceSkillLevel(EntityUid uid, string skillId, int level, SkillsComponent? skillsComp = null)
     {
-        if (!_prototype.HasIndex<SkillPrototype>(skill))
-            return false;
-
-
+        SetSkillInternal(uid, skillId, level, skillsComp, true);
     }
 
-    public bool TrySetSkillLevel(string skill, int level)
+    /// <summary> Tries to modify the level of a skill for a given entity. </summary>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
+    /// <param name="level"> The amount to modify the skill level by. </param>
+    /// <returns> True if the skill level was successfully modified, false otherwise. </returns>
+    public bool TryModifySkillLevel(EntityUid uid, string skillId, int level, SkillsComponent? skillsComp = null)
     {
-
+        return SetSkillInternal(uid, skillId, GetSkillLevel(uid, skillId, skillsComp) + level, skillsComp);
     }
 
-    /// <summary>
-    ///    Returns the level of an entity's skill.
-    /// </summary>
-    /// <param name="uid">Entity to check for skills on.</param>
-    /// <param name="skillId">The Prototype ID of the skill to check for.</param>
-    /// <param name="skillsComp">The SkillsComponent of the entity.</param>
-    /// <returns>The level of the entitie's skill.</returns>
-    public int GetSkillLevel(EntityUid uid, string skillId, SkillsComponent? skillsComp = null)
+    /// <summary> Tries to set the level of a skill for a given entity. </summary>
+    /// <param name="level"> The value to set the skill level to. </param>
+    /// <inheritdoc cref="TryModifySkillLevel(EntityUid,string,int,Content.Shared.SimpleStation14.Skills.Components.SkillsComponent?)"/>
+    public bool TrySetSkillLevel(EntityUid uid, string skillId, int level, SkillsComponent? skillsComp = null)
     {
-        if (!Resolve(uid, ref skillsComp))
-            return 0;
-
-        if (skillsComp.Skills.TryGetValue(skillId, out var level))
-            return level;
-
-        return 0;
+        return SetSkillInternal(uid, skillId, level, skillsComp);
     }
 
-    /// <summary>
-    ///     Returns the overall level of a sub category.
-    ///     This is an average of all the skills in the sub category, considering their individual weights.
-    /// </summary>
-    public int GetSubCategoryLevel(EntityUid uid, string subCategoryId, SkillsComponent? skillsComp = null)
+    /// <summary> Tries to get the level of a specific skill for an entity. </summary>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
+    /// <param name="level"> The level of the skill, or 0 if none is found. </param>
+    /// <returns> True if the entity is capable of having skills, otherwise false. </returns>
+    public bool TryGetSkillLevel(EntityUid uid, string skillId, out int level, SkillsComponent? skillsComp = null, bool raw = false)
     {
-        if (!Resolve(uid, ref skillsComp))
+        return GetSkillInternal(uid, skillId, out level, skillsComp, raw);
+    }
+
+    /// <summary> Returns the level of an entity's skill, defaulting to 0. </summary>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
+    /// <returns> The level of the entity's skill. </returns>
+    public int GetSkillLevel(EntityUid uid, string skillId, SkillsComponent? skillsComp = null, bool raw = false)
+    {
+        if (!TryGetSkillLevel(uid, skillId, out var level, skillsComp, raw))
             return 0;
+        return level;
+    }
 
-        if (!TryGetSkillSubCategory(subCategoryId, out var subCategory))
-            return 0;
+    /// <summary> Returns the overall level of a set of skills, altered by their weights. </summary>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
+    /// <param name="skillIds"> A list of skill IDs to get the average skill level of. </param>
+    /// <returns> The average of all the skills as a float, or zero if none could be found. </returns>
+    public float GetSkillAverages(EntityUid uid, List<string> skillIds, SkillsComponent? skillsComp = null, bool raw = false)
+    {
+        return GetSkillAverages(uid, skillIds.ConvertAll(_prototype.Index<SkillPrototype>), skillsComp, raw);
+    }
 
-        if (!TryGetSkillCategory(subCategory.Category, out var category))
-            return 0;
+    /// <inheritdoc cref="GetSkillAverages(EntityUid,List{string},Content.Shared.SimpleStation14.Skills.Components.SkillsComponent?)"/>
+    /// <param name="skills"> A list of skill prototypes to get the average skill level of. </param>
+    public float GetSkillAverages(EntityUid uid, List<SkillPrototype> skills, SkillsComponent? skillsComp = null, bool raw = false)
+    {
+        return GetSkillAverages(uid, skillWeights: skills.ToDictionary(skill => skill, skill => skill.Weight), skillsComp, raw);
+    }
 
-        var skills = _categorizedSkills[category][subCategory];
+    /// <inheritdoc cref="GetSkillAverages(EntityUid,List{string},Content.Shared.SimpleStation14.Skills.Components.SkillsComponent?)"/>
+    /// <param name="skillIdWeights"> A dictionary of skill IDs and their weights to get the average skill level of. </param>
+    /// <remarks> Uses custom weights for each skill, rather than their default. </remarks>
+    public float GetSkillAverages(EntityUid uid, Dictionary<string, float> skillIdWeights, SkillsComponent? skillsComp = null, bool raw = false)
+    {
+        return GetSkillAverages(uid, skillWeights: skillIdWeights.ToDictionary(pair => _prototype.Index<SkillPrototype>(pair.Key), pair => pair.Value), skillsComp, raw);
+    }
 
-        var totalWeight = skills.Sum(skill => skill.Weight);
-        var totalLevel = skills.Sum(skill => GetSkillLevel(uid, skill.ID, skillsComp) * skill.Weight);
+    /// <inheritdoc cref="GetSkillAverages(EntityUid,Dictionary{string,float},Content.Shared.SimpleStation14.Skills.Components.SkillsComponent?)"/>
+    /// <param name="skillWeights"> A dictionary of skill prototypes and their weights to get the average skill level of. </param>
+    public float GetSkillAverages(EntityUid uid, Dictionary<SkillPrototype, float> skillWeights, SkillsComponent? skillsComp = null, bool raw = false)
+    {
+        var totalWeight = 0f;
+        var totalLevel = 0f;
+
+        foreach (var (skill, weight) in skillWeights)
+        {
+            if (!GetSkillInternal(uid, skill.ID, out var level, skillsComp, raw))
+                continue;
+
+            totalLevel += level * weight;
+            totalWeight += weight;
+        }
 
         return totalLevel / totalWeight;
     }
 
-    /// <summary>
-    ///     Used to determine whether or not an Entity is 'trained' in a particular skill.
-    /// </summary>
-    /// <param name="uid">Entity to check for skills on.</param>
-    /// <param name="skillId">The Prototype ID of the skill to check for.</param>
-    /// <param name="skillsComp">The SkillsComponent of the entity.</param>
-    /// <returns>True if the entity has at least one level in the skill.</returns>
-    public bool IsTrained(EntityUid uid, string skillId, SkillsComponent? skillsComp = null)
+    /// <summary> Returns the overall level of a sub category.
+    /// This is an average of all the skills in the sub category, considering their individual weights. </summary>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
+    public float GetSubCategoryLevel(EntityUid uid, string subCategoryId, SkillsComponent? skillsComp = null)
     {
-        if (!Resolve(uid, ref skillsComp))
-            return false;
+        if (!TryGetSkillSubCategory(subCategoryId, out var subCategory))
+            return 0;
 
+        return GetSubCategoryLevel(uid, subCategory, skillsComp);
+    }
+
+    /// <inheritdoc cref="GetSubCategoryLevel(EntityUid,string,Content.Shared.SimpleStation14.Skills.Components.SkillsComponent?)"/>
+    public float GetSubCategoryLevel(EntityUid uid, SkillSubCategoryPrototype subCategory, SkillsComponent? skillsComp = null)
+    {
+        if (!TryGetSkillCategory(subCategory.Category, out var category))
+            return 0;
+
+        return GetSkillAverages(uid, _categorizedSkills[category][subCategory], skillsComp);
+    }
+
+    /// <summary> Used to determine whether or not an Entity is 'trained' in a particular skill. </summary>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
+    /// <returns> True if the entity has at least one level in the skill. </returns>
+    public bool IsSkillTrained(EntityUid uid, string skillId, SkillsComponent? skillsComp = null)
+    {
         return GetSkillLevel(uid, skillId, skillsComp) > 0;
     }
 
     /// <summary>
-    ///     Returns a Dictionary of all the skills an Entity has levels in.
-    /// </summary>
-    /// <remarks>
-    ///     Note that this will only be Components that happen to be logged on the Entity. They may or may not be trained, and it almost certainly won't be all of the skills in the game.
-    /// </remarks>
-    /// <param name="uid">Entity to check for skills on.</param>
-    /// <param name="skillsComp">The SkillsComponent of the entity.</param>
-    /// <returns>A Dictionary of skills and levels.</returns>
-    public Dictionary<string, int> GetAllSkillLevels(EntityUid uid, SkillsComponent? skillsComp = null)
+    ///     Returns a Dictionary of all the skills an Entity has levels in. </summary>
+    /// <remarks> Note that this will only return skills that the Entity has greater than 0 levels in i.e. are trained in. </remarks>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
+    /// <returns> A Dictionary of skills and levels. </returns>
+    /// <returns> True if the entity is capable of having skills, false otherwise. </returns>
+    public bool TryGetAllSkillLevels(EntityUid uid, out Dictionary<string, int> skillLevels, SkillsComponent? skillsComp = null)
     {
-        if (!Resolve(uid, ref skillsComp))
-            return new Dictionary<string, int>();
+        skillLevels = new Dictionary<string, int>();
 
-        return new(skillsComp.Skills);
+        if (!Resolve(uid, ref skillsComp))
+            return false;
+
+        foreach (var skillId in skillsComp.Skills.Keys)
+        {
+            if (!GetSkillInternal(uid, skillId, out var level, skillsComp))
+                continue;
+
+            skillLevels.Add(skillId, level);
+        }
+
+        return true;
     }
 
-    /// <summary>
-    ///     Gets all skills in the game organized by category, and then sub category.
-    /// </summary>
+    /// <summary> Gets all skills in the game organized by category, and then sub category. </summary>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
     public Dictionary<SkillCategoryPrototype, Dictionary<SkillSubCategoryPrototype, List<SkillPrototype>>> GetAllSkillsCategorized()
     {
         return _categorizedSkills;
     }
 
-    /// <summary>
-    ///     Tries to get all skills in a given category.
-    /// </summary>
-    /// <param name="categoryId">The ID of the category to get from.</param>
-    /// <param name="skillsBySubCategory">A dictionary of sub categories, each containing a list of their skills.</param>
-    /// <returns>True if the category exists, false otherwise.</returns>
+    /// <summary> Tries to get all skills in a given category. </summary>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
+    /// <returns> True if the category exists, false otherwise. </returns>
     public bool TryGetSkillsInCategory(string categoryId, [NotNullWhen(true)] out Dictionary<SkillSubCategoryPrototype, List<SkillPrototype>>? skillsBySubCategory)
     {
         skillsBySubCategory = null;
 
-        if (!_prototype.TryIndex(categoryId, out SkillCategoryPrototype? category))
+        if (!SkillIndex(categoryId, out SkillCategoryPrototype? category))
             return false;
 
         if (!_categorizedSkills.TryGetValue(category, out skillsBySubCategory))
@@ -136,17 +189,15 @@ public sealed class SharedSkillsSystem : EntitySystem
         return true;
     }
 
-    /// <summary>
-    ///    Tries to get all skills in a given sub category.
-    /// </summary>
-    /// <param name="subCategoryId">The ID of the sub category to get from.</param>
-    /// <param name="skills">A list of skills in the sub category.</param>
-    /// <returns>True if the sub category exists, false otherwise.</returns>
+    /// <summary> Tries to get all skills in a given sub category. </summary>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
+    /// <param name="skills"> A list of skills in the sub category. </param>
+    /// <returns> True if the sub category exists, false otherwise. </returns>
     public bool TryGetSkillsInSubCategory(string subCategoryId, [NotNullWhen(true)] out List<SkillPrototype>? skills)
     {
         skills = null;
 
-        if (!_prototype.TryIndex(subCategoryId, out SkillSubCategoryPrototype? subCategory))
+        if (!SkillIndex(subCategoryId, out SkillSubCategoryPrototype? subCategory))
             return false;
 
         if (!TryGetSkillsInCategory(subCategory.Category, out var skillsBySubCategory))
@@ -158,62 +209,109 @@ public sealed class SharedSkillsSystem : EntitySystem
         return true;
     }
 
-    /// <summary>
-    ///     Tries to get a skill prototype by its ID.
-    /// </summary>
-    /// <param name="skillId">The ID of the skill to get.</param>
-    /// <param name="skill">The skill prototype, if found.</param>
-    /// <returns>True if the skill was found, false otherwise.</returns>
+    /// <summary> Tries to get a skill by its ID. </summary>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
+    /// <returns> True if the skill was found, false otherwise. </returns>
     public bool TryGetSkill(string skillId, [NotNullWhen(true)] out SkillPrototype? skill)
     {
-        return _prototype.TryIndex(skillId, out skill);
+        return SkillIndex(skillId, out skill);
     }
 
-    /// <summary>
-    ///     Tries to get a skill subcategory by its ID.
-    /// </summary>
-    /// <param name="subCategoryId">The ID of the skill subcategory to get.</param>
-    /// <param name="subCategory">The skill subcategory, if found.</param>
-    /// <returns>True if the skill subcategory was found, false otherwise.</returns>
+    /// <summary> Tries to get a skill subcategory by its ID. </summary>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
+    /// <returns> True if the skill subcategory was found, false otherwise. </returns>
     public bool TryGetSkillSubCategory(string subCategoryId, [NotNullWhen(true)] out SkillSubCategoryPrototype? subCategory)
     {
-        return _prototype.TryIndex(subCategoryId, out subCategory);
+        return SkillIndex(subCategoryId, out subCategory);
     }
 
-    /// <summary>
-    ///     Tries to get a skill category by its ID.
-    /// </summary>
-    /// <param name="categoryId">The ID of the skill category to get.</param>
-    /// <param name="category">The skill category, if found.</param>
-    /// <returns>True if the skill category was found, false otherwise.</returns>
+    /// <summary> Tries to get a skill category by its ID. </summary>
+    /// <inheritdoc cref="DefaultXmlDocs"/>
+    /// <returns> True if the skill category was found, false otherwise. </returns>
     public bool TryGetSkillCategory(string categoryId, [NotNullWhen(true)] out SkillCategoryPrototype? category)
     {
-        return _prototype.TryIndex(categoryId, out category);
+        return SkillIndex(categoryId, out category);
     }
 
+    #endregion
+    #region Private Functions
     private void OnSkillsInit(EntityUid uid, SkillsComponent component, ComponentInit args)
     {
-        component.Skills.Add
+        foreach (var startSkill in component.StartingSkills)
+            TryModifySkillLevel(uid, startSkill.Key, startSkill.Value, component);
     }
 
-    private void SetSkill(EntityUid uid, string skillId, int level, SkillsComponent? skillsComp = null)
+    private bool GetSkillInternal(EntityUid uid, string skillId, out int level, SkillsComponent? skillsComp = null, bool raw = false)
     {
-        if (!Resolve(uid, ref skillsComp))
-            return;
+        level = 0;
 
-        if (level <= 0)
+        if (!Resolve(uid, ref skillsComp))
+            return false;
+
+        if (!SkillIndex<SkillPrototype>(skillId, out _))
+            return false;
+
+        skillsComp.Skills.TryGetValue(skillId, out level);
+
+        if (!raw)
         {
-            if (skillsComp.Skills.ContainsKey(skillId))
-                skillsComp.Skills.Remove(skillId);
-            return;
+            var ev = new GetSkillEvent(skillId, level);
+            RaiseLocalEvent(uid, ref ev);
+
+            level = ev.Level;
         }
 
-        if (skillsComp.Skills.ContainsKey(skillId))
-            skillsComp.Skills[skillId] = level;
+        return true;
+    }
+
+    private bool SetSkillInternal(EntityUid uid, string skillId, int level, SkillsComponent? skillsComp = null, bool force = false)
+    {
+        if (!SkillIndex<SkillPrototype>(skillId, out var skill))
+            return false; // Return if the skill isn't real.
+
+        return SetSkillInternal(uid, skill, level, skillsComp, force);
+    }
+
+    private bool SetSkillInternal(EntityUid uid, SkillPrototype skill, int level, SkillsComponent? skillsComp = null, bool force = false)
+    {
+        if (!Resolve(uid, ref skillsComp))
+            return false;
+
+        // If the skill is on the blacklist, or not on the whitelist, return.
+        if (!force &&
+            (skill.Whitelist != null && !skill.Whitelist.IsValid(uid) || skill.Blacklist != null && skill.Blacklist.IsValid(uid)))
+            return false;
+
+        // Cap the skill to its own max value.
+        if (!force)
+            level = level > skill.MaxValue ? skill.MaxValue : level;
+
+        if (!force)
+        {
+            var cancelEvent = new SkillModifyAttemptEvent(skill.ID, level, GetSkillLevel(uid, skill.ID, skillsComp, true));
+            RaiseLocalEvent(uid, ref cancelEvent);
+            if (cancelEvent.Cancelled)
+                return false;
+        }
+
+        var ev = new SkillModifiedEvent(skill.ID, level, GetSkillLevel(uid, skill.ID, skillsComp, true));
+        RaiseLocalEvent(uid, ref ev);
+
+        // If the level is 0 or less, simply remove the skill from their component.
+        if (level <= 0)
+        {
+            skillsComp.Skills.Remove(skill.ID);
+            return true;
+        }
+
+        // Finally, set or add the skill to the component.
+        if (skillsComp.Skills.ContainsKey(skill.ID))
+            skillsComp.Skills[skill.ID] = level;
         else
-            skillsComp.Skills.Add(skillId, level);
+            skillsComp.Skills.Add(skill.ID, level);
 
         Dirty(skillsComp);
+        return true;
     }
 
     private void GenerateCategorizedSkills()
@@ -241,14 +339,108 @@ public sealed class SharedSkillsSystem : EntitySystem
         _categorizedSkills = skillsCategorized;
     }
 
+    private bool SkillIndex<T>(string prototypeId, [NotNullWhen(true)] out T? prototype) where T : class, IPrototype
+    {
+        if (!_prototype.TryIndex(prototypeId, out prototype))
+        {
+            Log.Warning($"Unknown {typeof(T).Name} prototype: {prototypeId}");
+            return false;
+        }
+        return true;
+    }
+
     private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
     {
         GenerateCategorizedSkills();
     }
+
+    // This is pretty goofy, I know, but how many times am I repeating these parameters?
+    /// <param name="uid"> The entity UID. </param>
+    /// <param name="skillsComp"> The SkillsComponent to check on, if avaliable. </param>
+    /// <param name="skill"> The skill prototype. </param>
+    /// <param name="skillId"> The ID of the skill. </param>
+    /// <param name="category"> The skill category prototype. </param>
+    /// <param name="categoryId"> The ID of the skill category. </param>
+    /// <param name="subCategory"> The skill sub category prototype. </param>
+    /// <param name="subCategoryId"> The ID of the skill sub category. </param>
+    private static void DefaultXmlDocs()
+    {
+    }
+    #endregion
 }
+
+#region Events
+[ByRefEvent]
+/// <summary> Cancellable Event called before a skill level is modified. Can be used to modify the new value. </summary>
+/// <param name="SkillId"> The skill prototype ID. </param>
+/// <param name="NewLevel"> The new level of the skill. </param>
+/// <param name="OldLevel"> The old level of the skill. </param>
+public record struct SkillModifyAttemptEvent(string SkillId, int NewLevel, int OldLevel)
+{
+    public int NewLevel = NewLevel;
+    public bool Cancelled = false;
+
+    public readonly string SkillId = SkillId;
+    public readonly int OldLevel = OldLevel;
+    public readonly bool Increased => NewLevel > OldLevel;
+}
+
+[ByRefEvent]
+/// <summary> Event called when a skill level is modified. </summary>
+/// <inheritdoc cref="SkillModifyAttemptEvent"/>
+public readonly record struct SkillModifiedEvent(string SkillId, int NewLevel, int OldLevel)
+{
+    // /// <summary> The ID of the skill being modified. </summary>
+    // public readonly string SkillId = SkillId;
+
+    // /// <summary> The new level of the skill. </summary>
+    // public readonly int NewLevel = NewLevel;
+
+    // /// <summary> The old level of the skill. </summary>
+    // public readonly int OldLevel = OldLevel;
+
+    /// <summary> Whether the skill level was increased (true) or decreased (false). </summary>
+    public readonly bool Increased => NewLevel > OldLevel;
+}
+
+/// <summary> Event called when attempting to get a skill level.
+/// Can be used to modify the level returned. </summary>
+/// <param name="SkillId"> The skill prototype ID. </param>
+[ByRefEvent]
+public record struct GetSkillEvent(string SkillId, int Level)
+{
+    /// <summary> The ID of the skill being checked. </summary>
+    public readonly string SkillId = SkillId;
+
+    /// <summary> The level of the skill. </summary>
+    public int Level = Level;
+}
+#endregion
+#region Various Data
+
+// [DataDefinition, Serializable, NetSerializable]
+// public struct SkillUseData
+// {
+//     /// <summary> The skill prototype IDs to use. </summary>
+//     /// <remarks> Overrides <see cref="SkillSubCategory"/> if not null. </remarks>
+//     [DataField("skills", customTypeSerializer: typeof(PrototypeIdListSerializer<SkillPrototype>))]
+//     public List<SkillPrototype>? Skills;
+
+//     /// <summary> The skill sub category prototype IDs to use. </summary>
+//     /// <remarks> Ignored if <see cref="Skills"/> is not null. </remarks>
+//     [DataField("skillSubCategory", customTypeSerializer: typeof(PrototypeIdSerializer<SkillSubCategoryPrototype>))]
+//     public string? SkillSubCategory;
+
+//     /// <summary> Are you required to be trained in the skill to use it? </summary>
+//     /// <remarks> If used with a list of skills, the individual skill will be ignored if not trained. </remarks>
+//     [DataField("requireTrained")]
+//     public bool RequireTrained = false;
+// }
+
 
 [NetSerializable, Serializable]
 public enum SkillsUiKey : byte
 {
     Key,
 }
+#endregion

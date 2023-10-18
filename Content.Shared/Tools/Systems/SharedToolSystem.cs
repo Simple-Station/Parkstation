@@ -1,4 +1,5 @@
 using Content.Shared.DoAfter;
+using Content.Shared.SimpleStation14.Skills.Systems; // Parkstation-Skills
 using Content.Shared.Tools.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -13,6 +14,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly SharedSkillsSystem _skillsSystem = default!; // Parkstation-Skills
 
     public override void Initialize()
     {
@@ -107,6 +109,16 @@ public abstract partial class SharedToolSystem : EntitySystem
 
         if (!CanStartToolUse(tool, user, target, toolQualitiesNeeded, toolComponent))
             return false;
+
+        // Parkstation-Skills-Start
+        Log.Error(delay.ToString());
+        if (toolComponent.SkillUsed != null && _skillsSystem.TryGetSkillLevel(user, toolComponent.SkillUsed, out var skill))
+            delay *= toolComponent.SkillExpected / (skill > 0 ? skill : 0.5);
+        Log.Error(_skillsSystem.TryGetSkillLevel(user, toolComponent.SkillUsed!, out _).ToString());
+        Log.Error(toolComponent.SkillUsed!);
+        Log.Error(toolComponent.SkillExpected.ToString());
+        Log.Error(delay.ToString());
+        // Parkstation-Skills-End
 
         var toolEvent = new ToolDoAfterEvent(doAfterEv, target);
         var doAfterArgs = new DoAfterArgs(user, delay / toolComponent.SpeedModifier, toolEvent, tool, target: target, used: tool)
