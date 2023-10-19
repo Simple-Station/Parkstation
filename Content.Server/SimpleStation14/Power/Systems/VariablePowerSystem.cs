@@ -8,13 +8,6 @@ public sealed class VariablePowerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<VariablePowerComponent, ComponentInit>(OnVariablePowerInit);
-    }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -23,10 +16,7 @@ public sealed class VariablePowerSystem : EntitySystem
         while (query.MoveNext(out var uid, out var powerPulseComp))
         {
             if (powerPulseComp.PulseDoneTime <= _timing.CurTime)
-            {
-                SetActive(uid, false);
-                RemComp<VariablePowerPulsingComponent>(uid);
-            }
+                PowerPulseDone(uid, powerPulseComp);
         }
     }
 
@@ -35,34 +25,58 @@ public sealed class VariablePowerSystem : EntitySystem
         if (!Resolve(uid, ref apcPowerComp))
             return;
         if (!Resolve(uid, ref varPowerComp))
-            varPowerComp = EnsureComp<VariablePowerComponent>(uid);
+            varPowerComp = AddComp<VariablePowerComponent>(uid);
 
-        if (active == varPowerComp.Active)
+        if (TryComp<VariablePowerPulsingComponent>(uid, out var pulseComp))
+        {
+            pulseComp.NonPulseState = active;
             return;
+        }
 
-        varPowerComp.Active = active;
-        if (active)
-        {
-            var addition = apcPowerComp.Load * varPowerComp.PowerActiveMulti - apcPowerComp.Load;
-            apcPowerComp.Load += addition;
-            varPowerComp.AddedValue = addition;
-        }
-        else
-        {
-            apcPowerComp.Load -= varPowerComp.AddedValue;
-            varPowerComp.AddedValue = 0f;
-        }
+        SetActiveInternal(apcPowerComp, varPowerComp, active);
     }
 
     public void DoPowerPulse(EntityUid uid, ApcPowerReceiverComponent? apcPowerComp = null, VariablePowerComponent? varPowerComp = null)
     {
-        SetActive(uid, true, apcPowerComp, varPowerComp);
+        if (!Resolve(uid, ref apcPowerComp))
+            return;
+        if (!Resolve(uid, ref varPowerComp))
+            varPowerComp = AddComp<VariablePowerComponent>(uid);
 
-        EnsureComp<VariablePowerPulsingComponent>(uid);
+        if (TryComp<VariablePowerPulsingComponent>(uid, out var pulseComp))
+        {
+            pulseComp.PulseDoneTime = _timing.CurTime + varPowerComp.PulseTime;
+            return;
+        }
+
+        SetActiveInternal(apcPowerComp, varPowerComp, true, true);
+        AddComp<VariablePowerPulsingComponent>(uid).PulseDoneTime = _timing.CurTime + varPowerComp.PulseTime;
     }
 
-    private void OnVariablePowerInit(EntityUid uid, VariablePowerComponent component, ComponentInit args)
+    private void PowerPulseDone(EntityUid uid, VariablePowerPulsingComponent pulseComp)
     {
-        SetActive(uid, false); // This might not be perfect, but the given system can deal with that.
+        if (!TryComp<ApcPowerReceiverComponent>(uid, out var apcPowerComp) || !TryComp<VariablePowerComponent>(uid, out var varPowerComp))
+            return;
+
+        SetActiveInternal(apcPowerComp, varPowerComp, pulseComp.NonPulseState);
+
+        RemComp<VariablePowerPulsingComponent>(uid);
+    }
+
+    public void ChangeVariablePowerBaseLoad(EntityUid uid, float newBaseLoad, ApcPowerReceiverComponent? apcPowerComp = null, VariablePowerComponent? varPowerComp = null)
+    {
+        if (!Resolve(uid, ref apcPowerComp))
+            return;
+        if (!Resolve(uid, ref varPowerComp))
+            varPowerComp = AddComp<VariablePowerComponent>(uid);
+
+        varPowerComp.ActiveLoad = newBaseLoad;
+        SetActive(uid, varPowerComp.Active, null, varPowerComp);
+    }
+
+    private void SetActiveInternal(ApcPowerReceiverComponent apcPowerComp, VariablePowerComponent varPowerComp, bool active, bool pulse = false)
+    {
+        varPowerComp.Active = active;
+        apcPowerComp.Load = !active ? varPowerComp.ActiveLoad * varPowerComp.IdleMulti : pulse ? varPowerComp.PulseLoad : varPowerComp.ActiveLoad; // If not active > idle power, if pulse > pulse power, if active > active pwoer.
     }
 }

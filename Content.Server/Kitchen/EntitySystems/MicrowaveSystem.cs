@@ -182,6 +182,7 @@ namespace Content.Server.Kitchen.EntitySystems
         private void OnInit(EntityUid uid, MicrowaveComponent component, ComponentInit ags)
         {
             component.Storage = _container.EnsureContainer<Container>(uid, "microwave_entity_container");
+            _variablePower.SetActive(uid, false); // Parkstation-VariablePower // Parkstation-VariablePower
         }
 
         private void OnSuicide(EntityUid uid, MicrowaveComponent component, SuicideEvent args)
