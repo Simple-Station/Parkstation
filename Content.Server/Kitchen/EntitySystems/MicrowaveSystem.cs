@@ -26,6 +26,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Content.Server.SimpleStation14.Power.Systems; // Parkstation-VariablePower
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -43,6 +44,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly TemperatureSystem _temperature = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
         [Dependency] private readonly HandsSystem _handsSystem = default!;
+        [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
 
         public override void Initialize()
         {
@@ -72,6 +74,8 @@ namespace Content.Server.Kitchen.EntitySystems
                 return;
             SetAppearance(uid, MicrowaveVisualState.Cooking, microwaveComponent);
 
+            _variablePower.SetActive(uid, true); // Parkstation-VariablePower
+
             microwaveComponent.PlayingStream =
                 _audio.PlayPvs(microwaveComponent.LoopingSound, uid, AudioParams.Default.WithLoop(true).WithMaxDistance(5));
         }
@@ -81,6 +85,8 @@ namespace Content.Server.Kitchen.EntitySystems
             if (!TryComp<MicrowaveComponent>(uid, out var microwaveComponent))
                 return;
             SetAppearance(uid, MicrowaveVisualState.Idle, microwaveComponent);
+
+            _variablePower.SetActive(uid, false); // Parkstation-VariablePower
 
             microwaveComponent.PlayingStream?.Stop();
         }
