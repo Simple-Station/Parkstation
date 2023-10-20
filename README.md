@@ -18,7 +18,7 @@ We are happy to accept contributions from anybody. Get in Discord if you want to
 
 ## Building
 
-Refer to [the space wizards guide](https://docs.spacestation14.io/getting-started/dev-setup) for general information about setting up a dev environment but keep in mind that Parkstation is a distant fork of space wizards' SS14 and not everything applies. We provide some scripts for making the job easier.
+Refer to [the Space Wizards'](https://docs.spacestation14.com/en/general-development/setup/setting-up-a-development-environment.html) guide on setting up a def environment for general information, but keep in mind that Parkstation is a distant fork of space wizards' SS14 and not everything applies. We provide some scripts for making the job easier.
 
 ### Build dependencies
 
