@@ -57,7 +57,7 @@ public sealed class SolarFlareRule : StationEventSystem<SolarFlareRuleComponent>
 
                 if (RobustRandom.Prob(component.DoorToggleChancePerSecond))
                 {
-                    _emp.EmpPulse(Transform(siliconEnt).MapPosition, 0.5f, 40, RobustRandom.NextFloat(2, 20));
+                    _emp.EmpPulse(Transform(siliconEnt).MapPosition, 0.5f, 40, RobustRandom.NextFloat(2, 20)); //TODO: Make this targets individual Silicons once Wizden merge.
                 }
             }
             // Parkstation-Ipc-End
