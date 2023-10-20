@@ -1,4 +1,4 @@
-eorstats-slippedcount-totalslips = The crew slipped a {$timesSlipped} times this shift!
+eorstats-slippedcount-totalslips = The crew slipped a total of {$timesSlipped} times this shift!
 
 eorstats-slippedcount-none = The crew didn't slip at all this shift!
 
