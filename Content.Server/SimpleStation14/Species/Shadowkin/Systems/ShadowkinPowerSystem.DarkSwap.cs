@@ -215,7 +215,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
     ///     Makes the specified entity able to see Shadowkin invisibility.
     /// </summary>
     /// <param name="uid">Entity to modify</param>
-    /// <param name="enabled">Whether the entity can see invisibility</param>
+    /// <param name="set">Whether the entity can see invisibility</param>
     /// <param name="invisibility">Should the entity be moved to another visibility layer?</param>
     /// <param name="stealth">(Only gets considered if set is true) Adds stealth to the entity</param>
     public void SetVisibility(EntityUid uid, bool set, bool invisibility, bool stealth)
@@ -257,7 +257,7 @@ public sealed class ShadowkinDarkSwapSystem : EntitySystem
 
             // Remove the stealth shader from the entity
             if (!_entity.TryGetComponent<GhostComponent>(uid, out _))
-                _stealth.SetVisibility(uid, 1f, _entity.EnsureComponent<StealthComponent>(uid));
+                _stealth.SetEnabled(uid, false);
         }
     }
 
