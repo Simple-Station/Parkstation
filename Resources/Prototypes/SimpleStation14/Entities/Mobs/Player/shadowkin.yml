@@ -96,7 +96,7 @@
     sounds:
       Male: MaleSlime
       Female: FemaleSlime
-      Unsexed: UnisexSlime
+      Unsexed: MaleSlime
   - type: CombatMode
     canDisarm: true
   - type: MindContainer

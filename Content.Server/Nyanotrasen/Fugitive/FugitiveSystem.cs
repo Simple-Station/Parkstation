@@ -45,7 +45,7 @@ namespace Content.Server.Fugitive
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly StunSystem _stun = default!;
         [Dependency] private readonly AudioSystem _audioSystem = default!;
-        [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
+        [Dependency] private readonly AnnouncerSystem _announcerSystem = default!; // Parkstation-RandomAnnouncers
         [Dependency] private readonly MindSystem _mindSystem = default!;
 
         public override void Initialize()
@@ -63,8 +63,10 @@ namespace Content.Server.Fugitive
             {
                 if (cd.AnnounceTime != null && _timing.CurTime > cd.AnnounceTime)
                 {
+                    // Parkstation-RandomAnnouncers Start
                     // _chat.DispatchGlobalAnnouncement(Loc.GetString("station-event-fugitive-hunt-announcement"), sender: Loc.GetString("fugitive-announcement-GALPOL"), colorOverride: Color.Yellow);
                     _announcerSystem.SendAnnouncement("commandreport", Filter.Broadcast(), Loc.GetString("station-event-fugitive-hunt-announcement"), Loc.GetString("fugitive-announcement-GALPOL"), Color.Yellow);
+                    // Parkstation-RandomAnnouncers End
 
                     foreach (var console in EntityQuery<CommunicationsConsoleComponent>())
                     {

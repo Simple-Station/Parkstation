@@ -1,5 +1,6 @@
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Popups;
+using Content.Server.SimpleStation14.EndOfRoundStats.MopUsed; // Parkstation-EndOfRoundStats
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
@@ -212,6 +213,8 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
         absorberSoln.RemoveReagent(PuddleSystem.EvaporationReagent, split.Volume);
         puddleSolution.AddReagent(PuddleSystem.EvaporationReagent, split.Volume);
         absorberSoln.AddSolution(split, _prototype);
+
+        RaiseLocalEvent(new MopUsedStatEvent(user, split.Volume)); // Parkstation-EndOfRoundStats
 
         _solutionSystem.UpdateChemicals(used, absorberSoln);
         _solutionSystem.UpdateChemicals(target, puddleSolution);

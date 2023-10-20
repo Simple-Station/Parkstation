@@ -15,7 +15,7 @@ public sealed class AlertLevelSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly AnnouncerSystem _announcerSystem = default!;
+    [Dependency] private readonly AnnouncerSystem _announcerSystem = default!; // Parkstation-RandomAnnouncers
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     // Until stations are a prototype, this is how it's going to have to be.
@@ -173,6 +173,7 @@ public sealed class AlertLevelSystem : EntitySystem
         // var playDefault = false;
         if (playSound)
         {
+            // Parkstation-RandomAnnouncers Start
             // if (detail.Sound != null)
             // {
             //     var filter = _stationSystem.GetInOwningStation(station);
@@ -184,14 +185,17 @@ public sealed class AlertLevelSystem : EntitySystem
             // }
 
             _announcerSystem.SendAnnouncementAudio($"alert{level}", _stationSystem.GetInOwningStation(station));
+            // Parkstation-RandomAnnouncers End
         }
 
         if (announce)
         {
+            // Parkstation-RandomAnnouncers Start
             // _chatSystem.DispatchStationAnnouncement(station, announcementFull, playDefaultSound: playDefault,
             //     colorOverride: detail.Color, sender: stationName);
 
             _announcerSystem.SendAnnouncementMessage($"alert{level}", announcementFull, stationName, detail.Color, station);
+            // Parkstation-RandomAnnouncers End
         }
 
         RaiseLocalEvent(new AlertLevelChangedEvent(station, level));

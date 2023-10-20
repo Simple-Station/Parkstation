@@ -269,7 +269,6 @@
       canDisarm: true
     - type: Climbing
     - type: Cuffable
-      state: icon
     - type: AnimationPlayer
     - type: Buckle
     - type: CreamPied
@@ -343,8 +342,8 @@
         Brute:
           sprite: Mobs/Effects/brute_damage.rsi
           color: "#DD8822"
-        Burn:
-          sprite: Mobs/Effects/burn_damage.rsi
+        # Burn:
+        #   sprite: Mobs/Effects/burn_damage.rsi
     # Organs
     - type: IdExaminable
     - type: HealthExaminable

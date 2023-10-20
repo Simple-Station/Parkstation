@@ -5,7 +5,6 @@
   useDelay: 25
   range: 16 # default examine-range.
   # ^ should probably add better validation that the clicked location is on the users screen somewhere,
-  speech: action-speech-spell-blink
   itemIconStyle: BigAction
   checkCanAccess: false
   repeat: true
@@ -13,3 +12,4 @@
     sprite: Objects/Magic/magicactions.rsi
     state: blink
   serverEvent: !type:TeleportSpellEvent
+    speech: action-speech-spell-blink
