@@ -2,33 +2,37 @@
   id: default
   typingState: default0
   idleState: default3 # Corvax-TypingIndicator
+  offset: 0.125, 0.125
 
 - type: typingIndicator
   id: robot
   typingState: robot0
   idleState: robot3 # Corvax-TypingIndicator
+  offset: 0.1, 0.125
 
 - type: typingIndicator
   id: alien
   typingState: alien0
   idleState: alien3 # Corvax-TypingIndicator
+  offset: 0.2, 0.125
 
 - type: typingIndicator
   id: guardian
   typingState: guardian0
   idleState: guardian3 # Corvax-TypingIndicator
+  offset: 0.125, 0.125
 
 - type: typingIndicator
   id: holo
   typingState: holo0
   idleState: holo3 # Corvax-TypingIndicator
-  offset: 0, 0.0625
+  offset: 0.125, 0.125
 
 - type: typingIndicator
   id: lawyer
   typingState: lawyer0
   idleState: lawyer3 # Corvax-TypingIndicator
-  offset: 0, 0.125
+  offset: 0.125, 0.125
 
 
 # Parkstation-TypingIndicators-Start
@@ -36,30 +40,35 @@
   id: slime
   typingState: slime0
   idleState: slime3
+  offset: 0.2, 0.3
 
 - type: typingIndicator
   id: syndibot
   typingState: syndibot0
   idleState: syndibot3
+  offset: 0.125, 0.125
 
 - type: typingIndicator
   id: signlang
   typingState: signlang0
   idleState: signlang3
+  offset: 0.125, 0.125
 
 - type: typingIndicator
   id: blob
   typingState: blob0
   idleState: blob3
+  offset: 0.125, 0.125
 
 - type: typingIndicator
   id: alienroyal
   typingState: alienroyal0
   idleState: alienroyal3
+  offset: 0.5, 0.25
 # Parkstation-TypingIndicators-End
 
 - type: typingIndicator
   id: moth
   typingState: moth0
   idleState: moth3 # Corvax-TypingIndicator
-  offset: 0.5, 0.5 # Corvax-TypingIndicator
+  offset: 0.125, 0.125
