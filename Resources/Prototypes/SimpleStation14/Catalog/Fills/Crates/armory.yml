@@ -2,7 +2,7 @@
   id: CratePV3Pistol
   parent: CrateWeaponSecure
   name: PV-3 Mini Crate
-  description: "A crate containing three PV-3 Mini energy Personal Defence Weapons"
+  description: "A crate containing three PV-3 Mini energy Personal Defense Weapons"
   components:
   - type: StorageFill
     contents:
@@ -26,7 +26,7 @@
   id: CrateK12Pistol
   parent: CrateWeaponSecure
   name: K12 Mini Crate
-  description: "A crate containing two K12 Mini Ballistic Personal Defence Weapons"
+  description: "A crate containing two K12 Mini Ballistic Personal Defense Weapons"
   components:
   - type: StorageFill
     contents:
@@ -53,7 +53,7 @@
       - id: MagazinePistolSubMachineGun
 
 - type: entity
-  id:   CrateMilitia
+  id: CrateMilitia
   parent: CrateWeaponSecure
   name: Militia Crate
   description: "A crate containing four Mark 1 rifles, four armor vests, four berets, and eight stripper clips of .30 rifle"
