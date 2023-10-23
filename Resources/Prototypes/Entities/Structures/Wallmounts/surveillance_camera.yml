@@ -4,7 +4,6 @@
   name: camera
   description: A surveillance camera. It's watching you. Kinda.
   components:
-  - type: HologramProjector
   - type: Clickable
   - type: InteractionOutline
   - type: Construction
@@ -66,6 +65,10 @@
           - !type:PlaySoundBehavior
             sound:
               path: /Audio/Effects/metalbreak.ogg
+  - type: HologramProjector
+  - type: Tag
+    tags:
+      - HoloProjectorCamera
   placement:
     mode: SnapgridCenter
     snap:

@@ -1,4 +1,7 @@
 - type: Tag
+  id: Airlock
+
+- type: Tag
   id: GlassesNearsight
 
 - type: Tag
@@ -8,7 +11,13 @@
   id: HoloDisk
 
 - type: Tag
-  id: Softlight
+  id: HoloProjectorCamera
+
+- type: Tag
+  id: HoloProjectorServer
+
+- type: Tag # For entities that are 'mapped' in to a Hologram's processing, like walls on a station.
+  id: HoloMapped
 
 - type: Tag
   id: Plushie

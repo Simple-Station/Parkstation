@@ -19,16 +19,6 @@
   - type: Clickable
   # - type: Damageable
   #   damageContainer: Inorganic
-  # - type: Bloodstream
-  #   bloodReagent: MotorOil
-  #   bloodlossDamage:
-  #     types:
-  #       Bloodloss:
-  #         1
-  #   bloodlossHealDamage:
-  #     types:
-  #       Bloodloss:
-  #         -0.25
   - type: InteractionOutline
   - type: Sprite
     netsync: false
@@ -86,9 +76,6 @@
         - map: ["enum.HumanoidVisualLayers.Wings"]
   - type: HumanoidAppearance
     species: Human
-  # - type: Body
-  #   prototype: Human
-  #   requiredLegs: 2
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -99,9 +86,9 @@
           radius: 0.35
         density: 25
         mask:
-          - FlyingMobMask
+          - MobMask
         layer:
-          - FlyingMobLayer
+          - BulletImpassable # MobLayer just makes them opaque as well, so this is ideal.
   - type: MovementSpeedModifier
     baseWalkSpeed : 5
     baseSprintSpeed : 3.5
@@ -111,9 +98,9 @@
   - type: Body
     prototype: Hologram
   - type: DoAfter
-  # - type: Pullable
+  - type: Pullable
   - type: Examiner
-  # - type: Puller
+  - type: Puller
   # - type: Recyclable
   #   safe: false
   - type: StandingState
@@ -121,8 +108,8 @@
   - type: Tag
     tags:
       - DoorBumpOpener
-      - ShoesRequiredStepTriggerImmune
-  - type: NoSlip
+  #     - ShoesRequiredStepTriggerImmune
+  # - type: NoSlip
   - type: TypingIndicator
     proto: holo
   - type: RotationVisuals
@@ -145,6 +132,7 @@
   - type: MindContainer
     showExamineInfo: true
   - type: Inventory
+  - type: InventorySlots
   - type: Actions
   - type: Eye
   - type: Access
@@ -158,8 +146,14 @@
   components:
   - type: Hologram
     isHardLight: false
+    collideTags:
+      - Wall
+      - Airlock
   - type: HologramProjected
     gracePeriod: 0.08
+    validProjectorTags:
+      - HoloProjectorServer
+      - HoloProjectorCamera
   - type: Stealth
     lastVisibility: 0.80
   - type: InteractionPopup
@@ -193,9 +187,9 @@
           radius: 0.05
         density: 25
         mask:
-          - MobMask
+          - FlyingMobMask
         layer:
-          - MobLayer
+          - FlyingMobLayer
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: FlimsyMetallic
@@ -245,8 +239,6 @@
         Blunt: 6 # To get past the 5 damage threshold
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
-  - type: Pullable
-  - type: Puller
   - type: CombatMode
     disarm: null
   - type: Stealth

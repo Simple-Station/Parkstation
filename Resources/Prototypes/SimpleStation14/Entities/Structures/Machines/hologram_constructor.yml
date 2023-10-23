@@ -111,6 +111,10 @@
       range: 5
       sound:
         path: /Audio/Ambience/Objects/server_fans.ogg
+    - type: HologramProjector
+    - type: Tag
+      tags:
+        - HoloProjectorServer
     - type: HologramServer
     - type: ItemSlots
       slots:

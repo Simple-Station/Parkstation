@@ -9,6 +9,7 @@
     prototype: Scutter
   - type: Inventory
     templateId: scutter
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:

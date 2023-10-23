@@ -1,0 +1,23 @@
+- type: entity
+  id: EffectHologramProjectionBeam
+  noSpawn: true
+  components:
+  # - type: PointLight
+  #   radius: 10.5
+  #   energy: 15
+  #   color: "#18abf5"
+  # - type: TimedDespawn
+  #   lifetime: 1
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+      - shader: unshaded
+        map: ["enum.EffectLayers.Unshaded"]
+        sprite: SimpleStation14/Effects/hologram_projection_beam.rsi
+        state: beam
+    color: "#c0f9ff"
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: Stealth
+    lastVisibility: 0.2

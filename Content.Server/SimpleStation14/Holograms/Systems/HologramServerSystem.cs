@@ -192,7 +192,7 @@ public sealed class HologramServerSystem : EntitySystem
             }
 
             // Get the loadout from the job prototype and add it to the Hologram
-            // making each item unremovable and hardlight.
+            // making each item unremovable.
             if (mind.CurrentJob.Prototype.StartingGear != null)
             {
                 SetOutfitCommand.SetOutfit(mob, mind.CurrentJob.Prototype.StartingGear, _entityManager, (_, item) =>
@@ -205,7 +205,7 @@ public sealed class HologramServerSystem : EntitySystem
                             return;
                         }
                     }
-                    _tagSystem.AddTag(item, "Softlight");
+                    EnsureComp<HologramComponent>(item);
                     _entityManager.EnsureComponent<UnremoveableComponent>(item);
                 });
                 // HoloEquip(mob, mind.CurrentJob.Prototype);
