@@ -29,6 +29,7 @@ using Robust.Shared.Physics.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Medical;
+using Content.Server.SimpleStation14.Power.Systems; // Parkstation-VariablePower
 
 namespace Content.Server.Medical.BiomassReclaimer
 {
@@ -48,6 +49,7 @@ namespace Content.Server.Medical.BiomassReclaimer
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IEntityManager _entities = default!;
         [Dependency] private readonly MaterialStorageSystem _material = default!;
+        [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
 
         public override void Update(float frameTime)
         {
@@ -123,12 +125,16 @@ namespace Content.Server.Medical.BiomassReclaimer
             _jitteringSystem.AddJitter(uid, -10, 100);
             _sharedAudioSystem.PlayPvs("/Audio/Machines/reclaimer_startup.ogg", uid);
             _ambientSoundSystem.SetAmbience(uid, true);
+
+            _variablePower.SetActive(uid, true); // Parkstation-VariablePower
         }
 
         private void OnShutdown(EntityUid uid, ActiveBiomassReclaimerComponent component, ComponentShutdown args)
         {
             RemComp<JitteringComponent>(uid);
             _ambientSoundSystem.SetAmbience(uid, false);
+
+            _variablePower.SetActive(uid, false); // Parkstation-VariablePower
         }
 
         private void OnPowerChanged(EntityUid uid, BiomassReclaimerComponent component, ref PowerChangedEvent args)

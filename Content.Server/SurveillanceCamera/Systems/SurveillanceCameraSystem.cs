@@ -3,6 +3,7 @@ using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Emp;
 using Content.Server.Power.Components;
+using Content.Server.SimpleStation14.Power.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.SurveillanceCamera;
@@ -20,6 +21,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
     [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
 
     // Pings a surveillance camera subnet. All cameras will always respond
     // with a data message if they are on the same subnet.
@@ -58,7 +60,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetName>(OnSetName);
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetNetwork>(OnSetNetwork);
         SubscribeLocalEvent<SurveillanceCameraComponent, GetVerbsEvent<AlternativeVerb>>(AddVerbs);
-        
+
         SubscribeLocalEvent<SurveillanceCameraComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<SurveillanceCameraComponent, EmpDisabledRemoved>(OnEmpDisabledRemoved);
     }
@@ -251,6 +253,8 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         RemoveActiveViewers(camera, new(component.ActiveViewers), null, component);
         component.Active = false;
 
+        _variablePower.SetActive(camera, false); // Parkstation-VariablePower
+
         // Send a targetted event to all monitors.
         foreach (var monitor in component.ActiveMonitors)
         {
@@ -279,6 +283,8 @@ public sealed class SurveillanceCameraSystem : EntitySystem
             if (attemptEv.Cancelled)
                 return;
             component.Active = setting;
+
+            _variablePower.SetActive(camera, true); // Parkstation-VariablePower
         }
         else
         {

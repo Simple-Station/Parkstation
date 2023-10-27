@@ -7,6 +7,7 @@ using Content.Server.Disposal.Unit.Components;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Server.SimpleStation14.Power.Systems; // Parkstation-VariablePower
 using Content.Shared.ActionBlocker;
 using Content.Shared.Atmos;
 using Content.Shared.Database;
@@ -51,6 +52,7 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
 
     public override void Initialize()
     {
@@ -546,6 +548,8 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
         }
 
         HandleAir(uid, sDisposals, xform);
+
+        _variablePower.DoPowerPulse(uid); // Parkstation-VariablePower
 
         _disposalTubeSystem.TryInsert(entry, sDisposals, beforeFlushArgs.Tags);
 

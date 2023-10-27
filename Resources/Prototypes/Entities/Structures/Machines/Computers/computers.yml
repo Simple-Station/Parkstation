@@ -795,6 +795,9 @@
   - type: GuideHelp
     guides:
     - Cloning
+  - type: VariablePower
+    activeLoad: 12000
+    powerIdleMulti: 0.017 # About 200, standard computer draw.
 
 - type: entity
   id: ComputerSalvageExpedition

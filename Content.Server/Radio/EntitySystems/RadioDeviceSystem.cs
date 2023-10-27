@@ -4,6 +4,7 @@ using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Radio.Components;
+using Content.Server.SimpleStation14.Power.Systems; // Parkstation-VariablePower
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
 using Content.Server.UserInterface;
@@ -29,6 +30,7 @@ public sealed class RadioDeviceSystem : EntitySystem
     [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid)> _recentlySent = new();
@@ -182,7 +184,13 @@ public sealed class RadioDeviceSystem : EntitySystem
             return; // no feedback loops please.
 
         if (_recentlySent.Add((args.Message, args.Source)))
+        // Parkstation-VariablePower-Start
+        {
             _radio.SendRadioMessage(args.Source, args.Message, _protoMan.Index<RadioChannelPrototype>(component.BroadcastChannel), uid);
+
+            _variablePower.DoPowerPulse(uid);
+        }
+        // Parkstation-VariablePower-End
     }
 
     private void OnAttemptListen(EntityUid uid, RadioMicrophoneComponent component, ListenAttemptEvent args)
@@ -204,6 +212,8 @@ public sealed class RadioDeviceSystem : EntitySystem
 
         // log to chat so people can identity the speaker/source, but avoid clogging ghost chat if there are many radios
         _chat.TrySendInGameICMessage(uid, args.Message, InGameICChatType.Whisper, ChatTransmitRange.GhostRangeLimit, nameOverride: name, checkRadioPrefix: false);
+
+        _variablePower.DoPowerPulse(uid); // Parkstation-VariablePower
     }
 
     private void OnBeforeIntercomUiOpen(EntityUid uid, IntercomComponent component, BeforeActivatableUIOpenEvent args)

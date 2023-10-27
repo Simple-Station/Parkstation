@@ -4,6 +4,7 @@ using Content.Server.Paper;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Server.SimpleStation14.Power.Systems; // Parkstation-VariablePower
 using Content.Server.Station.Systems;
 using Content.Shared.Disease;
 using Content.Shared.DoAfter;
@@ -33,6 +34,7 @@ namespace Content.Server.Disease
         [Dependency] private readonly PaperSystem _paperSystem = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
 
         public override void Initialize()
         {
@@ -60,12 +62,16 @@ namespace Content.Server.Disease
             foreach (var uid in AddQueue)
             {
                 EnsureComp<DiseaseMachineRunningComponent>(uid);
+
+                _variablePower.SetActive(uid, true); // Parkstation-VariablePower
             }
 
             AddQueue.Clear();
             foreach (var uid in RemoveQueue)
             {
                 RemComp<DiseaseMachineRunningComponent>(uid);
+
+                _variablePower.SetActive(uid, false); // Parkstation-VariablePower
             }
 
             RemoveQueue.Clear();

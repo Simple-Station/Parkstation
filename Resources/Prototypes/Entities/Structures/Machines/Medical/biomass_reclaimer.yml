@@ -24,3 +24,6 @@
   - type: GuideHelp
     guides:
     - Cloning
+  - type: VariablePower
+    activeLoad: 2400
+    powerIdleMulti: 0.05

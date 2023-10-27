@@ -62,6 +62,9 @@
       # if ConveyorBeltAssembly becomes craftable, maybe spawn some of the ingredients?
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: VariablePower
+    activeLoad: 450
+    powerIdleMulti: 0
 
 - type: entity
   id: ConveyorBeltAssembly

@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Chemistry.Components;
+using Content.Server.SimpleStation14.Power.Systems; // Parkstation-VariablePower
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Dispenser;
 using Content.Shared.Containers.ItemSlots;
@@ -29,6 +30,7 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
         public override void Initialize()
         {
             base.Initialize();
@@ -120,6 +122,8 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 _adminLogger.Add(LogType.ChemicalReaction, LogImpact.Medium,
                     $"{ToPrettyString(message.Session.AttachedEntity.Value):player} dispensed {dispensedAmount}u of {message.ReagentId} into {ToPrettyString(outputContainer.Value):entity}");
+
+                _variablePower.DoPowerPulse(reagentDispenser.Owner); // Parkstation-VariablePower // I dunno man it was already using .Owner fix it at some point.
             }
 
             UpdateUiState(reagentDispenser);

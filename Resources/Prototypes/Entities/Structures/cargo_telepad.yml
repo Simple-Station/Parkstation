@@ -41,9 +41,14 @@
     ports:
       - OrderReceiver
   - type: ApcPowerReceiver
-    powerLoad: 1000 # TODO if we keep this make it spike power draw when teleporting
+    powerLoad: 1000 # TODO if we keep this make it spike power draw when teleporting # Done for ya, pal :)
   - type: CargoTelepad
   - type: Machine
     board: CargoTelepadMachineCircuitboard
   - type: Appearance
   - type: CollideOnAnchor
+  - type: VariablePower
+    pulseLoad: 12000 # Similar to the cloner or somethin.
+    pulseTime: 0.5
+    activeLoad: 500
+    powerIdleMulti: 0.1

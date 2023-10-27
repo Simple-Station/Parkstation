@@ -5,6 +5,7 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Examine;
 using Content.Server.Interaction;
 using Content.Server.Power.EntitySystems;
+using Content.Server.SimpleStation14.Power.Systems; // Parkstation-VariablePower
 using Content.Server.Stunnable;
 using Content.Server.Weapons.Ranged.Components;
 using Content.Shared.Damage;
@@ -41,6 +42,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
 
     public const float DamagePitchVariation = SharedMeleeWeaponSystem.DamagePitchVariation;
     public const float GunClumsyChance = 0.5f;
@@ -96,6 +98,8 @@ public sealed partial class GunSystem : SharedGunSystem
                 }
             }
         }
+
+        _variablePower.DoPowerPulse(gunUid); // Parkstation-VariablePower // Mostly for Emitters but hey, if it has a variable power component, who am I to question it?
 
         var fromMap = fromCoordinates.ToMap(EntityManager, TransformSystem);
         var toMap = toCoordinates.ToMapPos(EntityManager, TransformSystem);

@@ -2,6 +2,7 @@ using Content.Server.Cargo.Components;
 using Content.Server.Construction;
 using Content.Server.Paper;
 using Content.Server.Power.Components;
+using Content.Server.SimpleStation14.Power.Systems; // Parkstation-VariablePower
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.DeviceLinking;
@@ -12,6 +13,8 @@ namespace Content.Server.Cargo.Systems;
 
 public sealed partial class CargoSystem
 {
+    [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
+
     private void InitializeTelepad()
     {
         SubscribeLocalEvent<CargoTelepadComponent, ComponentInit>(OnInit);
@@ -72,6 +75,8 @@ public sealed partial class CargoSystem
 
                 comp.CurrentState = CargoTelepadState.Teleporting;
                 _appearance.SetData(uid, CargoTelepadVisuals.State, CargoTelepadState.Teleporting, appearance);
+
+                _variablePower.DoPowerPulse(uid); // Parkstation-VariablePower
             }
 
             comp.Accumulator += comp.Delay;

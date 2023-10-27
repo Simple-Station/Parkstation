@@ -47,6 +47,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.GameObjects.Components.Localization;
 using Content.Server.Traits.Assorted;
+using Content.Server.SimpleStation14.Power.Systems; // Parkstation-VariablePower
 
 namespace Content.Server.Cloning
 {
@@ -75,6 +76,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly TraitSystem _traits = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaSystem = default!;
+        [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
 
         public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -254,6 +256,13 @@ namespace Content.Server.Cloning
                         UpdateStatus(uid, CloningPodStatus.Gore, clonePod);
                         clonePod.FailedClone = true;
                         AddComp<ActiveCloningPodComponent>(uid);
+
+                        // Parkstation-VariablePower-Start
+                        _variablePower.SetActive(uid, true);
+                        if (clonePod.ConnectedConsole != null)
+                            _variablePower.SetActive(clonePod.ConnectedConsole.Value, true);
+                        // Parkstation-VariablePower-End
+
                         return true;
                     }
                 // Begin Nyano-code:
@@ -286,6 +295,13 @@ namespace Content.Server.Cloning
             _euiManager.OpenEui(new AcceptCloningEui(mind, this), client);
 
             AddComp<ActiveCloningPodComponent>(uid);
+
+
+            // Parkstation-VariablePower-Start
+            _variablePower.SetActive(uid, true);
+            if (clonePod.ConnectedConsole != null)
+                _variablePower.SetActive(clonePod.ConnectedConsole.Value, true);
+            // Parkstation-VariablePower-End
 
             // For other systems adding components to the mob
             var ev = new BeenClonedEvent(pref, mind, mob, clonePod.Owner);
@@ -336,6 +352,12 @@ namespace Content.Server.Cloning
             clonePod.UsedBiomass = 0;
             UpdateStatus(uid, CloningPodStatus.Idle, clonePod);
             RemCompDeferred<ActiveCloningPodComponent>(uid);
+
+            // Parkstation-VariablePower-Start
+            _variablePower.SetActive(uid, false);
+            if (clonePod.ConnectedConsole != null)
+                _variablePower.SetActive(clonePod.ConnectedConsole.Value, false);
+            // Parkstation-VariablePower-End
         }
 
         private void EndFailedCloning(EntityUid uid, CloningPodComponent clonePod)
@@ -364,6 +386,12 @@ namespace Content.Server.Cloning
 
             clonePod.UsedBiomass = 0;
             RemCompDeferred<ActiveCloningPodComponent>(uid);
+
+            // Parkstation-VariablePower-Start
+            _variablePower.SetActive(uid, false);
+            if (clonePod.ConnectedConsole != null)
+                _variablePower.SetActive(clonePod.ConnectedConsole.Value, false);
+            // Parkstation-VariablePower-End
         }
 
         /// <summary>

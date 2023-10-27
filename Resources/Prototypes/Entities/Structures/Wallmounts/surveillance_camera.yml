@@ -65,6 +65,9 @@
           - !type:PlaySoundBehavior
             sound:
               path: /Audio/Effects/metalbreak.ogg
+  - type: VariablePower
+    activeLoad: 180
+    idleLoad: 0 # Only 'idle' when deactivated.
   placement:
     mode: SnapgridCenter
     snap:

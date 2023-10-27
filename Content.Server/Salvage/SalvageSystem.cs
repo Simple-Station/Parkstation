@@ -28,6 +28,7 @@ using Content.Shared.Random.Helpers;
 using Robust.Server.Maps;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
+using Content.Server.SimpleStation14.Power.Systems; // Parkstation-VariablePower
 
 namespace Content.Server.Salvage
 {
@@ -53,6 +54,7 @@ namespace Content.Server.Salvage
         [Dependency] private readonly ShuttleConsoleSystem _shuttleConsoles = default!;
         [Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly UserInterfaceSystem _ui = default!;
+        [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
 
         private const int SalvageLocationPlaceAttempts = 25;
 
@@ -256,6 +258,7 @@ namespace Content.Server.Salvage
                     gridState.ActiveMagnets.Add(uid);
                     component.MagnetState = new MagnetState(MagnetStateType.Attaching, gridState.CurrentTime + component.AttachingTime);
                     RaiseLocalEvent(new SalvageMagnetActivatedEvent(uid));
+                    _variablePower.SetActive(uid, true); // Parkstation-VariablePower
                     Report(uid, component.SalvageChannel, "salvage-system-report-activate-success");
                     break;
                 case MagnetStateType.Attaching:
@@ -415,6 +418,8 @@ namespace Content.Server.Salvage
                     {
                         magnet.MagnetState = new MagnetState(MagnetStateType.CoolingDown, currentTime + magnet.CooldownTime);
                     }
+
+                    _variablePower.SetActive(uid, false); // Parkstation-VariablePower
                     break;
                 case MagnetStateType.Holding:
                     Report(uid, magnet.SalvageChannel, "salvage-system-announcement-losing", ("timeLeft", magnet.DetachingTime.TotalSeconds));

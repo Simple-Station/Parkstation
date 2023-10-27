@@ -207,6 +207,11 @@
       - SetParticleDelta
       - SetParticleEpsilon
       - SetParticleZeta
+  - type: VariablePower
+    activeLoad: 1000
+    powerIdleMulti: 0.1
+    pulseLoad: 1500
+    pulseTime: 0.25
 
 - type: entity
   id: MachineAnomalyGenerator
@@ -312,3 +317,6 @@
   - type: GuideHelp
     guides:
     - AnomalousResearch
+  - type: VariablePower
+    activeLoad: 15000
+    powerIdleMulti: 0.02

@@ -4,6 +4,7 @@ using Content.Server.Audio;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Materials;
 using Content.Server.Radio.EntitySystems;
+using Content.Server.SimpleStation14.Power.Systems; // Parkstation-VariablePower
 using Content.Server.Station.Systems;
 using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
@@ -32,6 +33,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
 
     public const float MinParticleVariation = 0.8f;
     public const float MaxParticleVariation = 1.2f;

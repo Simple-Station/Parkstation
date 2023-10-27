@@ -1,4 +1,5 @@
 using Content.Server.DeviceLinking.Components;
+using Content.Server.SimpleStation14.Power.Systems; // Parkstation-VariablePower
 using Content.Server.UserInterface;
 using Content.Shared.Access.Systems;
 using Content.Shared.MachineLinking;
@@ -16,6 +17,7 @@ public sealed class SignalTimerSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
 
     public override void Initialize()
     {
@@ -57,6 +59,8 @@ public sealed class SignalTimerSystem : EntitySystem
         _signalSystem.InvokePort(uid, signalTimer.TriggerPort);
 
         _appearanceSystem.SetData(uid, TextScreenVisuals.Mode, TextScreenMode.Text);
+
+        _variablePower.SetActive(uid, false); // Parkstation-VariablePower
 
         if (_ui.TryGetUi(uid, SignalTimerUiKey.Key, out var bui))
         {
@@ -137,6 +141,8 @@ public sealed class SignalTimerSystem : EntitySystem
             var activeTimer = EnsureComp<ActiveSignalTimerComponent>(uid);
             activeTimer.TriggerTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.Delay);
 
+            _variablePower.SetActive(uid, true); // Parkstation-VariablePower
+
             if (appearance != null)
             {
                 _appearanceSystem.SetData(uid, TextScreenVisuals.Mode, TextScreenMode.Timer, appearance);
@@ -149,6 +155,8 @@ public sealed class SignalTimerSystem : EntitySystem
         else
         {
             RemComp<ActiveSignalTimerComponent>(uid);
+
+            _variablePower.SetActive(uid, false); // Parkstation-VariablePower
 
             if (appearance != null)
             {

@@ -74,7 +74,12 @@ namespace Content.Server.Kitchen.EntitySystems
                 return;
             SetAppearance(uid, MicrowaveVisualState.Cooking, microwaveComponent);
 
-            _variablePower.SetActive(uid, true); // Parkstation-VariablePower
+            // Parkstation-VariablePower-Start
+            if (microwaveComponent.CurrentCookTimerTime <= 0) // If it's set to instant, do a pulse instead of setting to active.
+                _variablePower.DoPowerPulse(uid);
+            else
+                _variablePower.SetActive(uid, true);
+            // Parkstation-VariablePower-End
 
             microwaveComponent.PlayingStream =
                 _audio.PlayPvs(microwaveComponent.LoopingSound, uid, AudioParams.Default.WithLoop(true).WithMaxDistance(5));
@@ -182,7 +187,6 @@ namespace Content.Server.Kitchen.EntitySystems
         private void OnInit(EntityUid uid, MicrowaveComponent component, ComponentInit ags)
         {
             component.Storage = _container.EnsureContainer<Container>(uid, "microwave_entity_container");
-            _variablePower.SetActive(uid, false); // Parkstation-VariablePower // Parkstation-VariablePower
         }
 
         private void OnSuicide(EntityUid uid, MicrowaveComponent component, SuicideEvent args)

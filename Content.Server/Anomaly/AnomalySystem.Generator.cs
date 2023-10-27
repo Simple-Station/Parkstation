@@ -138,6 +138,8 @@ public sealed partial class AnomalySystem
     private void OnGeneratingStartup(EntityUid uid, GeneratingAnomalyGeneratorComponent component, ComponentStartup args)
     {
         Appearance.SetData(uid, AnomalyGeneratorVisuals.Generating, true);
+
+        _variablePower.SetActive(uid, true); // Parkstation-VariablePower
     }
 
     private void OnGeneratingUnpaused(EntityUid uid, GeneratingAnomalyGeneratorComponent component, ref EntityUnpausedEvent args)
@@ -162,6 +164,8 @@ public sealed partial class AnomalySystem
         RemComp<GeneratingAnomalyGeneratorComponent>(uid);
         Appearance.SetData(uid, AnomalyGeneratorVisuals.Generating, false);
         Audio.PlayPvs(component.GeneratingFinishedSound, uid);
+
+        _variablePower.SetActive(uid, false); // Parkstation-VariablePower
 
         var message = Loc.GetString("anomaly-generator-announcement");
         _radio.SendRadioMessage(uid, message, _prototype.Index<RadioChannelPrototype>(component.ScienceChannel), uid);

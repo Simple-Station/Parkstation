@@ -16,6 +16,12 @@ public sealed class VariablePowerComponent : Component
     public float ActiveLoad = 500;
 
     /// <summary>
+    ///     The multiplier for how much power to draw when idle.
+    /// </summary>
+    [DataField("powerIdleMulti"), ViewVariables(VVAccess.ReadWrite)]
+    public float IdleMulti = 0.1f;
+
+    /// <summary>
     ///     The amount of power to draw when told to 'pulse'.
     /// </summary>
     [DataField("pulseLoad"), Required, ViewVariables(VVAccess.ReadWrite)]
@@ -24,18 +30,12 @@ public sealed class VariablePowerComponent : Component
     /// <summary>
     ///     The amount of time this device pulses for.
     /// </summary>
-    [DataField("pulseTime", customTypeSerializer: typeof(TimespanSerializer)), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("pulseTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan PulseTime = TimeSpan.FromSeconds(1);
-
-    /// <summary>
-    ///     The multiplier for how much power to draw when idle.
-    /// </summary>
-    [DataField("powerIdleMulti"), ViewVariables(VVAccess.ReadWrite)]
-    public float IdleMulti = 0.1f;
 
     /// <summary>
     ///     Whether the device is currently active.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField("active"), ViewVariables(VVAccess.ReadOnly)]
     public bool Active = false;
 }

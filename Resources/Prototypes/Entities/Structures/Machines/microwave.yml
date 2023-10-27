@@ -70,3 +70,8 @@
   - type: GuideHelp
     guides:
     - Chef
+  - type: VariablePower
+    activeLoad: 1200
+    powerIdleMulti: 0.025
+    pulseTime: 0.15 # These are used for the instant setting. Can't be good for grid...
+    pulseLoad: 1800

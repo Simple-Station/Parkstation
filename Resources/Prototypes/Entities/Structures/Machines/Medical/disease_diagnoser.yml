@@ -23,6 +23,9 @@
     runningState: running
   - type: Machine
     board: DiagnoserMachineCircuitboard
+  - type: VariablePower
+    activeLoad: 1200
+    powerIdleMulti: 0.1
 
 - type: entity
   name: disease diagnoser report

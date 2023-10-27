@@ -85,3 +85,6 @@
   - type: GuideHelp
     guides:
     - Cloning
+  - type: VariablePower
+    activeLoad: 800
+    powerIdleMulti: 0 # Kinda just a toob.

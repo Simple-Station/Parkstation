@@ -72,6 +72,11 @@
   - type: DynamicPrice
     price: 62
   - type: PowerSwitch
+  - type: VariablePower
+    pulseLoad: 1500
+    pulseTime: 1
+    activeLoad: 500
+    powerIdleMulti: 0.2
 
 - type: entity
   id: DisposalUnit

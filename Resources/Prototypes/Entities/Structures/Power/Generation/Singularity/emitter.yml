@@ -99,3 +99,8 @@
       - On
       - Off
       - Toggle
+  - type: VariablePower
+    activeLoad: 1000
+    powerIdleMulti: 0.1
+    pulseLoad: 2000
+    pulseTime: 0.25

@@ -40,6 +40,9 @@
   - type: Construction
     graph: Timer
     node: signal
+  - type: VariablePower
+    activeLoad: 300
+    idleLoad: 0.1
 
 - type: entity
   id: ScreenTimer

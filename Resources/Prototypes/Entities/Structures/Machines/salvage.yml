@@ -63,6 +63,9 @@
     powerLoad: 2500 # TODO change this to a HV power draw that really hits the grid hard WHEN active
   - type: Machine
     board: SalvageMagnetMachineCircuitboard
+  - type: VariablePower
+    activeLoad: 15000
+    powerIdleMulti: 0.05
 
 # For Knightship
 - type: entity

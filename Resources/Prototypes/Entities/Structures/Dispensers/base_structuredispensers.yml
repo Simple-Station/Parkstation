@@ -71,3 +71,8 @@
     price: 1000
   - type: Wires
   - type: WiresPanel
+  - type: VariablePower
+    pulseLoad: 700
+    pulseTime: 0.15
+    activeLoad: 500
+    powerIdleMulti: 0.1

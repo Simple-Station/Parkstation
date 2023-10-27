@@ -89,6 +89,11 @@
         enum.RadioDeviceVisualLayers.Speaker:
           True: { visible: true }
           False: { visible: false }
+  - type: VariablePower
+    pulseTime: 0.8
+    pulseLoad: 250
+    activeLoad: 100
+    powerIdleMulti: 0.1
   placement:
     mode: SnapgridCenter
     snap:

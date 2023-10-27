@@ -2,6 +2,7 @@ using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Materials;
 using Content.Server.Power.Components;
+using Content.Server.SimpleStation14.Power.Systems; // Parkstation-VariablePower
 using Content.Shared.Conveyor;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
@@ -20,6 +21,7 @@ public sealed class ConveyorController : SharedConveyorController
     [Dependency] private readonly MaterialReclaimerSystem _materialReclaimer = default!;
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly VariablePowerSystem _variablePower = default!; // Parkstation-VariablePower
 
     public override void Initialize()
     {
@@ -99,6 +101,8 @@ public sealed class ConveyorController : SharedConveyorController
             return;
 
         component.State = state;
+
+        _variablePower.SetActive(uid, state switch { ConveyorState.Off => false, _ => true }); // Parkstation-VariablePower
 
         if (TryComp<PhysicsComponent>(uid, out var physics))
             _broadphase.RegenerateContacts(uid, physics);
