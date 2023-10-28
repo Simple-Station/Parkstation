@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.StationEvents.Events;
 using Content.Shared.Radio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
@@ -33,4 +34,18 @@ public sealed class SolarFlareRuleComponent : Component
     /// </summary>
     [DataField("doorToggleChancePerSecond")]
     public float DoorToggleChancePerSecond;
+
+    // Parkstation-Ipc-Start
+    /// <summary>
+    ///     Chance that Silicons will get static vision per second during event
+    /// </summary>
+    [DataField("siliconStaticChancePerSecond")]
+    public float SiliconStaticChancePerSecond;
+
+    /// <summary>
+    ///     How long Silicons will get static vision for
+    /// </summary>
+    [DataField("siliconStaticDuration")]
+    public Vector2 SiliconStaticDuration;
+    // Parkstation-Ipc-End
 }
