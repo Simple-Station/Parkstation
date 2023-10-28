@@ -1343,3 +1343,13 @@ Entries:
       message: Resprited the wallmount nanomed
   id: 124
   time: '2023-10-22T19:27:30.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: add
+      message: IPCs (and other Silicons) do not appreciate EMP grenades :)
+    - type: fix
+      message: >-
+        IPCs can now be healed of bleeding, the same way you heal anything else.
+        A way to put the coolant back in them soon...
+  id: 125
+  time: '2023-10-28T05:01:34.0000000+00:00'
