@@ -52,15 +52,15 @@ public sealed partial class JukeboxComponent : Component
     ///     Should be based on the sprite.
     /// </summary>
     [DataField("uiColorBG")]
-    public string UiColorBG { get; } = "#602C00";
+    public Color UiColorBG { get; } = Color.FromHex("#602C00");
 
     /// <inheritdoc cref="UiColorBG"/>
     [DataField("uiColorPanel")]
-    public string UiColorPanel { get; } = "#480F0F";
+    public Color UiColorPanel { get; } = Color.FromHex("#480F0F");
 
     /// <inheritdoc cref="UiColorBG"/>
     [DataField("uiColorAccent")]
-    public string UiColorAccent { get; } = "#20181B";
+    public Color UiColorAccent { get; } = Color.FromHex("#20181B");
 
     [DataField("uiButtonPlay")]
     public string UiButtonPlay { get; } = "/Textures/SimpleStation14/Interface/MediaControls/play.png";

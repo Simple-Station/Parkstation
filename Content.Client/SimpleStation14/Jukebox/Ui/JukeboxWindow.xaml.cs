@@ -54,14 +54,14 @@ public sealed partial class JukeboxWindow : FancyWindow
         SkipButton.TexturePath = jukeboxComp.UiButtonSkip;
 
         // Sets up the custom colours of the ui.
-        BG_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.UiColorBG) };
-        Panel_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.UiColorPanel) };
-        Panel_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.UiColorPanel) };
-        Panel_3.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.UiColorPanel) };
-        // Accent_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorAccent) };
-        // Accent_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorAccent) };
-        Accent_3.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.UiColorAccent) };
-        Accent_4.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.UiColorAccent) };
+        BG_1.PanelOverride = new StyleBoxFlat { BackgroundColor = jukeboxComp.UiColorBG };
+        Panel_1.PanelOverride = new StyleBoxFlat { BackgroundColor = jukeboxComp.UiColorPanel };
+        Panel_2.PanelOverride = new StyleBoxFlat { BackgroundColor = jukeboxComp.UiColorPanel };
+        Panel_3.PanelOverride = new StyleBoxFlat { BackgroundColor = jukeboxComp.UiColorPanel };
+        // Accent_1.PanelOverride = new StyleBoxFlat { BackgroundColor = jukeboxComp.JukeboxUiColorAccent };
+        // Accent_2.PanelOverride = new StyleBoxFlat { BackgroundColor = jukeboxComp.JukeboxUiColorAccent };
+        Accent_3.PanelOverride = new StyleBoxFlat { BackgroundColor = jukeboxComp.UiColorAccent };
+        Accent_4.PanelOverride = new StyleBoxFlat { BackgroundColor = jukeboxComp.UiColorAccent };
 
         // Sets up all the fonts.
         SongName.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 18);
