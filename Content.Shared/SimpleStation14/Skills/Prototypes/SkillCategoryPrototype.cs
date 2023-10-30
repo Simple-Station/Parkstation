@@ -10,8 +10,7 @@ public sealed class SkillCategoryPrototype : IPrototype
     public string ID { get; } = default!;
 
     // /// <summary>
-    // ///     The Sprite Specifier for the icon for this sub category.
-    // ///     This directory will also be used to find the icons for the skills in this sub category.
+    // ///     The Sprite Specifier for the icon for this category.
     // /// </summary>
     // [DataField("icon")]
     // public SpriteSpecifier Icon = default!;

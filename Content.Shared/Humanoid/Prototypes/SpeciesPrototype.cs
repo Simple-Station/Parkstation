@@ -122,16 +122,6 @@ public sealed class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField("maxAge")]
     public int MaxAge = 120;
-
-    // Parkstation-Skills-Start
-
-    /// <summary>
-    ///     Any skills this species starts with bonus points in.
-    /// </summary>
-    [DataField("skillBonuses", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<int, SkillPrototype>))]
-    public Dictionary<string, int> SkillBonuses { get; } = new();
-
-    // Parkstation-Skills-End
 }
 
 public enum SpeciesNaming : byte

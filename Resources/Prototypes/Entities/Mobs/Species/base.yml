@@ -323,6 +323,14 @@
   - type: SSDIndicator
 
   - type: Skills
+    startingSkills:
+      SkillLifting: 4
+      SkillEndurance: 4
+      SkillFineMotorSkills: 4
+      SkillObservation: 4
+      SkillSprinting: 4
+      SkillAcrobatics: 3
+      SkillDodging: 2
   - type: IntrinsicUI
     uis:
       - key: enum.SkillsUiKey.Key

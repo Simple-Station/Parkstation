@@ -19,7 +19,7 @@ public sealed class SharedSkillsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SkillsComponent, ComponentInit>(OnSkillsInit);
+        SubscribeLocalEvent<SkillsComponent, MapInitEvent>(OnSkillsInit);
 
         GenerateCategorizedSkills();
         _prototype.PrototypesReloaded += OnPrototypesReloaded;
@@ -235,7 +235,7 @@ public sealed class SharedSkillsSystem : EntitySystem
 
     #endregion
     #region Private Functions
-    private void OnSkillsInit(EntityUid uid, SkillsComponent component, ComponentInit args)
+    private void OnSkillsInit(EntityUid uid, SkillsComponent component, MapInitEvent args)
     {
         foreach (var startSkill in component.StartingSkills)
             TryModifySkillLevel(uid, startSkill.Key, startSkill.Value, component);

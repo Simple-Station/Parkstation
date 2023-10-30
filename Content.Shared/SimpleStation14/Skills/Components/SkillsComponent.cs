@@ -27,7 +27,10 @@ namespace Content.Shared.SimpleStation14.Skills.Components
 
         /// <summary>
         ///     Skills this entity starts with values in.
-        ///     Make sure not to double this up with <see cref="SpeciesPrototype.SkillBonuses"/>.
+        /// </summary>
+        /// <remarks>
+        ///     This is added to the list of skills on spawn, and is unused after that.
+        /// </remarks>
         [DataField("startingSkills", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<int, SkillPrototype>))]
         public Dictionary<string, int> StartingSkills = new();
     }

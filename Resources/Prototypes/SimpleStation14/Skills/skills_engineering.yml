@@ -1,83 +1,93 @@
 ## Strength
 - type: skill
+  subCategory: SkillSubCategoryStrength
   id: SkillLifting
-  subCategory: SkillSubCategoryStrength
+  weight: 1.5
 
 - type: skill
+  subCategory: SkillSubCategoryStrength
   id: SkillBoxing
-  subCategory: SkillSubCategoryStrength
+  weight: 0.7
 
 - type: skill
-  id: Endurance
   subCategory: SkillSubCategoryStrength
+  id: SkillEndurance
+  weight: 1
 
 ## Dexterity
 - type: skill
+  subCategory: SkillSubCategoryDexterity
   id: SkillDueling
-  subCategory: SkillSubCategoryDexterity
+  weight: 0.6
 
 - type: skill
+  subCategory: SkillSubCategoryDexterity
   id: SkillFineMotorSkills
-  subCategory: SkillSubCategoryDexterity
+  weight: 1.2
 
 - type: skill
-  id: SkillObservation
   subCategory: SkillSubCategorySenses
+  id: SkillObservation
+  weight: 1
 
 ## Agility
 - type: skill
-  id: SkillSpriting
   subCategory: SkillSubCategoryAgility
+  id: SkillSprinting
+  weight: 0.7
 
 - type: skill
+  subCategory: SkillSubCategoryAgility
   id: SkillAcrobatics
-  subCategory: SkillSubCategoryAgility
 
 - type: skill
-  id: SkillDodging
   subCategory: SkillSubCategoryAgility
+  id: SkillDodging
 
 ## Technical --------------
 ## Engineering
 - type: skill
+  subCategory: SkillSubCategoryEngineering
   id: SkillConstruction
-  subCategory: SkillSubCategoryEngineering
+  weight: 0.7
 
 - type: skill
+  subCategory: SkillSubCategoryEngineering
   id: SkillElectrical
-  subCategory: SkillSubCategoryEngineering
+  weight: 0.7
 
 - type: skill
-  id: SkillMechanical
   subCategory: SkillSubCategoryEngineering
+  id: SkillMechanical
+  weight: 1.5
 
 ## Medicine
 - type: skill
+  subCategory: SkillSubCategoryMedicine
   id: SkillFirstAid
-  subCategory: SkillSubCategoryMedicine
 
 - type: skill
+  subCategory: SkillSubCategoryMedicine
   id: SkillSurgery
-  subCategory: SkillSubCategoryMedicine
 
 - type: skill
-  id: SkillChemistry
   subCategory: SkillSubCategoryMedicine
+  id: SkillChemistry
 
 # - type: skill
-#   id: SkillVirology # Ha ha
 #   subCategory: SkillSubCategoryMedicine
+#   id: SkillVirology # Ha ha
 
 ## Research
 - type: skill
+  subCategory: SkillSubCategoryResearch
   id: SkillQuantumPhysics
-  subCategory: SkillSubCategoryResearch
 
 - type: skill
+  subCategory: SkillSubCategoryResearch
   id: AnomalousMaterials
-  subCategory: SkillSubCategoryResearch
 
 - type: skill
-  id: SkillXenobiology
   subCategory: SkillSubCategoryResearch
+  id: SkillXenobiology
 
