@@ -1,6 +1,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.SimpleStation14.Prototypes;
 
@@ -43,7 +44,7 @@ public sealed class JukeboxTrackPrototype : IPrototype, ISerializationHooks
     ///     Path of this track's art file.
     /// </summary>
     [DataField("artPath")]
-    public string? ArtPath { get; } = null;
+    public ResPath? ArtPath { get; } = null;
 
     void ISerializationHooks.AfterDeserialization()
     {

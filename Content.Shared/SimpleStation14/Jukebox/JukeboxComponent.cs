@@ -1,9 +1,8 @@
-using Content.Shared.SimpleStation14.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Construction.Prototypes;
-using Content.Shared.DeviceLinking;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.SimpleStation14.Jukebox;
 
@@ -45,7 +44,7 @@ public sealed partial class JukeboxComponent : Component
     ///     The song art to be used when no song is playing.
     /// </summary>
     [DataField("defaultSongArtPath")]
-    public string DefaultSongArtPath { get; } = "/Textures/SimpleStation14/JukeboxTracks/default.png";
+    public ResPath DefaultSongArtPath { get; } = new("/Textures/SimpleStation14/JukeboxTracks/default.png");
 
     /// <summary>
     ///     A colour to be used in the Jukebox's UI.
@@ -63,13 +62,13 @@ public sealed partial class JukeboxComponent : Component
     public Color UiColorAccent { get; } = Color.FromHex("#20181B");
 
     [DataField("uiButtonPlay")]
-    public string UiButtonPlay { get; } = "/Textures/SimpleStation14/Interface/MediaControls/play.png";
+    public ResPath UiButtonPlay { get; } = new("/Textures/SimpleStation14/Interface/MediaControls/play.png");
 
     [DataField("uiButtonPause")]
-    public string UiButtonPause { get; } = "/Textures/SimpleStation14/Interface/MediaControls/pause.png";
+    public ResPath UiButtonPause { get; } = new("/Textures/SimpleStation14/Interface/MediaControls/pause.png");
 
     [DataField("uiButtonSkip")]
-    public string UiButtonSkip { get; } = "/Textures/SimpleStation14/Interface/MediaControls/skip.png";
+    public ResPath UiButtonSkip { get; } = new("/Textures/SimpleStation14/Interface/MediaControls/skip.png");
 
     /// <summary>
     ///    Whether or not to include the decorative portion of the UI

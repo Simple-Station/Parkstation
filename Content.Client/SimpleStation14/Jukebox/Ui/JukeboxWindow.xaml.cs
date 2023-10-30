@@ -19,7 +19,7 @@ public sealed partial class JukeboxWindow : FancyWindow
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private readonly IResourceCache _resource = default!;
 
     private readonly ISawmill _log = default!;
 
@@ -51,7 +51,7 @@ public sealed partial class JukeboxWindow : FancyWindow
 
         SerialTitle.SetMessage(Loc.GetString("jukebox-ui-serial-title"));
         SerialNumber.Text = jukeboxComp.SerialNumber;
-        SkipButton.TexturePath = jukeboxComp.UiButtonSkip;
+        SkipButton.TextureNormal = _resource.GetTexture(_jukeboxComp.UiButtonSkip);
 
         // Sets up the custom colours of the ui.
         BG_1.PanelOverride = new StyleBoxFlat { BackgroundColor = jukeboxComp.UiColorBG };
@@ -64,11 +64,11 @@ public sealed partial class JukeboxWindow : FancyWindow
         Accent_4.PanelOverride = new StyleBoxFlat { BackgroundColor = jukeboxComp.UiColorAccent };
 
         // Sets up all the fonts.
-        SongName.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 18);
-        SongsLabel.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 22);
+        SongName.FontOverride = _resource.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 18);
+        SongsLabel.FontOverride = _resource.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 22);
         // SerialTitle.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 16);
-        SerialHeader.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 28);
-        SerialNumber.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 16);
+        SerialHeader.FontOverride = _resource.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 28);
+        SerialNumber.FontOverride = _resource.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 16);
 
         if (!jukeboxComp.DecorativeUi) // Hides the decorative portion of the UI if the Jukebox doesn't have it.
         {
@@ -81,7 +81,7 @@ public sealed partial class JukeboxWindow : FancyWindow
         {
             if (control is Label label)
             {
-                label.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 16);
+                label.FontOverride = _resource.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 16);
                 label.FontColorOverride = Color.FromHex("#A5762F");
                 label.HorizontalAlignment = HAlignment.Center;
                 label.HorizontalExpand = false;
@@ -207,7 +207,7 @@ public sealed partial class JukeboxWindow : FancyWindow
         if (_jukeboxComp.CurrentlyPlayingTrack == null || !_prototype.TryIndex<JukeboxTrackPrototype>(_jukeboxComp.CurrentlyPlayingTrack, out var track))
         {
             SongName.Text = Loc.GetString("jukebox-ui-current-empty");
-            SongIcon.TexturePath = _jukeboxComp.DefaultSongArtPath;
+            SongIcon.Texture = _resource.GetTexture(_jukeboxComp.DefaultSongArtPath);
 
             SkipButton.Disabled = true;
             PlayButton.Disabled = true;
@@ -215,7 +215,7 @@ public sealed partial class JukeboxWindow : FancyWindow
             _timeWillFinish = TimeSpan.Zero;
             _timeStopped = TimeSpan.Zero;
 
-            PlayButton.TexturePath = _jukeboxComp.UiButtonPlay;
+            PlayButton.TextureNormal = _resource.GetTexture(_jukeboxComp.UiButtonPlay);
 
             PlayButton.Disabled = true;
             SkipButton.Disabled = true;
@@ -230,12 +230,12 @@ public sealed partial class JukeboxWindow : FancyWindow
         _songDuration = track.Duration;
 
         SongName.Text = track.Name;
-        SongIcon.TexturePath = track.ArtPath ?? _jukeboxComp.DefaultSongArtPath;
+        SongIcon.Texture = _resource.GetTexture(track.ArtPath ?? _jukeboxComp.DefaultSongArtPath);
 
         SkipButton.Disabled = false;
         PlayButton.Disabled = false;
 
-        PlayButton.TexturePath = _jukeboxComp.Paused ? _jukeboxComp.UiButtonPlay : _jukeboxComp.UiButtonPause;
+        PlayButton.TextureNormal = _resource.GetTexture(_jukeboxComp.Playing ? _jukeboxComp.UiButtonPause : _jukeboxComp.UiButtonPlay);
 
         PlayButton.Disabled = false;
         SkipButton.Disabled = false;

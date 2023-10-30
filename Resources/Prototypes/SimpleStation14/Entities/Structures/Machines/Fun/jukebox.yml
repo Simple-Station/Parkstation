@@ -26,6 +26,17 @@
   name: jukebox
   description: An old fashioned jukebox.
   components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.45,0.25,0.45"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        density: 200
   - type: Jukebox
     songs:
       - DanyaVodovozFunkOMatic
@@ -43,7 +54,7 @@
       - JonShuemakerTheCurrent
       - JonShuemakerDrift
       - JonShuemakerWashedAway
-      - ApelsinsaftAllAccessVacation
+      # - ApelsinsaftAllAccessVacation # Brokey
       - ApelsinsaftAndTheClownSmiledOutsideTheAirlock
       - ApelsinsaftAtmospherics
       - ApelsinsaftATinyGreenBeetleBeat

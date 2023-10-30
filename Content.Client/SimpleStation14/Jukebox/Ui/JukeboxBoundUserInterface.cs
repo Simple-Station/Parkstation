@@ -1,9 +1,6 @@
 using Content.Shared.SimpleStation14.Jukebox;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
-using Content.Shared.SimpleStation14.Prototypes;
 
 namespace Content.Client.SimpleStation14.Jukebox.Ui;
 

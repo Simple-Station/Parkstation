@@ -80,14 +80,11 @@ public sealed partial class JukeboxSystem : EntitySystem
         digits[6] = digits[4] * digits[5];
         digits[7] = (digits[0] + digits[1] + digits[5] + digits[4]) % 5;
 
-        for (var i = 0; i < digits.Length; i++)
-            digits[i] = Math.Abs(digits[i]);
-
-        var serial = $"{digits[0]}{digits[1]}{digits[2]}{digits[3]}{digits[4]}{digits[5]}{digits[6]}";
-
         var letter = digits[7] == 0 ? 90 : digits[7] % 2 == 0 ? (digits[7] + 65) : (90 - digits[7]);
 
-        return $"{serial}{(char) letter}";
+        var serial = $"{digits[0]}{digits[1]}{digits[2]}{digits[3]}{digits[4]}{digits[Math.Abs(5)]}{digits[Math.Abs(6)]}{digits[7]}{(char) letter}";
+
+        return serial;
     }
 
     private void OnRefreshParts(EntityUid uid, JukeboxComponent component, RefreshPartsEvent args)
