@@ -5,7 +5,7 @@
   description: A jukebox machine circuitboard.
   components:
     - type: Sprite
-      state: supply
+      state: service
     - type: MachineBoard
       prototype: JukeboxClassic
       requirements:

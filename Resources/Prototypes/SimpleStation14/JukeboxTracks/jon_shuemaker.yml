@@ -1,0 +1,48 @@
+- type: jukeboxTrack
+  id: JonShuemakerAgartha
+  name: "Agartha"
+  path: "/Audio/SimpleStation14/JukeboxTracks/JonShuemaker/agartha.ogg"
+  duration: 3:16
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/JonShuemaker/sha.png"
+
+- type: jukeboxTrack
+  id: JonShuemakerDancersAndFloaters
+  name: "Dancers And Floaters"
+  path: "/Audio/SimpleStation14/JukeboxTracks/JonShuemaker/dancers_and_floaters.ogg"
+  duration: 3:23
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/JonShuemaker/sha.png"
+
+- type: jukeboxTrack
+  id: JonShuemakerSha
+  name: "Sha"
+  path: "/Audio/SimpleStation14/JukeboxTracks/JonShuemaker/sha.ogg"
+  duration: 2:26
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/JonShuemaker/sha.png"
+
+- type: jukeboxTrack
+  id: JonShuemakerLowTide
+  name: "Low Tide"
+  path: "/Audio/SimpleStation14/JukeboxTracks/JonShuemaker/low_tide.ogg"
+  duration: 3:42
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/JonShuemaker/drift.png"
+
+- type: jukeboxTrack
+  id: JonShuemakerTheCurrent
+  name: "The Current"
+  path: "/Audio/SimpleStation14/JukeboxTracks/JonShuemaker/the_current.ogg"
+  duration: 4:23
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/JonShuemaker/drift.png"
+
+- type: jukeboxTrack
+  id: JonShuemakerDrift
+  name: "Drift"
+  path: "/Audio/SimpleStation14/JukeboxTracks/JonShuemaker/drift.ogg"
+  duration: 4:05
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/JonShuemaker/drift.png"
+
+- type: jukeboxTrack
+  id: JonShuemakerWashedAway
+  name: "Washed Away"
+  path: "/Audio/SimpleStation14/JukeboxTracks/JonShuemaker/washed_away.ogg"
+  duration: 5:47
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/JonShuemaker/drift.png"

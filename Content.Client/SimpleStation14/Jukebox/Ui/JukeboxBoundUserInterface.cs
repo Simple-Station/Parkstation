@@ -11,11 +11,13 @@ namespace Content.Client.SimpleStation14.Jukebox.Ui;
 public sealed class JukeboxBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IEntityManager _entity = default!;
+    private readonly ISawmill _log = default!;
 
     private JukeboxWindow? _window;
 
-    public JukeboxBoundUserInterface(EntityUid owner, Enum uiKey) : base (owner, uiKey)
+    public JukeboxBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
+        _log = EntMan.System<SharedJukeBoxSystem>().Log;
     }
 
     protected override void Open()
@@ -24,11 +26,11 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
         if (!_entity.TryGetComponent<JukeboxComponent>(Owner, out var jukeboxComp))
         {
-            Logger.Error($"No Jukebox component found for {_entity.ToPrettyString(Owner)}!");
+            _log.Error("No Jukebox component found for {0}!", _entity.ToPrettyString(Owner));
             return;
         }
 
-        _window = new JukeboxWindow(this, jukeboxComp)
+        _window = new JukeboxWindow(jukeboxComp, _log)
         {
             Title = _entity.GetComponent<MetaDataComponent>(Owner).EntityName
         };

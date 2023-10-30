@@ -1,4 +1,3 @@
-using Content.Server.Power.Components;
 using Content.Shared.SimpleStation14.Jukebox;
 using Content.Shared.SimpleStation14.Prototypes;
 using Robust.Shared.Audio;
@@ -6,14 +5,11 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
-using Content.Shared.Emag.Systems;
-using Content.Server.Construction;
-using Content.Shared.Damage;
-using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Robust.Shared.Random;
 using Content.Shared.Power;
 using System.Linq;
+using Content.Server.Power.EntitySystems;
 
 namespace Content.Server.SimpleStation14.Jukebox;
 
@@ -34,27 +30,6 @@ public sealed partial class JukeboxSystem : EntitySystem
     public const string PortPause = "Pause";
     public const string PortUnPause = "Unpause";
     public const string PortTogglePuase = "TogglePause";
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<JukeboxComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<JukeboxComponent, ComponentShutdown>(OnComponentShutdown);
-
-        SubscribeLocalEvent<JukeboxComponent, PowerChangedEvent>(OnPowerChanged);
-        SubscribeLocalEvent<JukeboxComponent, GotEmaggedEvent>(OnEmagged);
-        SubscribeLocalEvent<JukeboxComponent, EntityPausedEvent>(OnPaused);
-        SubscribeLocalEvent<JukeboxComponent, EntityUnpausedEvent>(OnUnpaused);
-        SubscribeLocalEvent<JukeboxComponent, RefreshPartsEvent>(OnRefreshParts);
-        SubscribeLocalEvent<JukeboxComponent, UpgradeExamineEvent>(OnExamineParts);
-        SubscribeLocalEvent<JukeboxComponent, DamageChangedEvent>(OnDamageChanged);
-        SubscribeLocalEvent<JukeboxComponent, SignalReceivedEvent>(OnSignalReceived);
-
-        SubscribeLocalEvent<JukeboxComponent, JukeboxPlayButtonPressedMessage>(OnPlayButtonPressed);
-        SubscribeLocalEvent<JukeboxComponent, JukeboxSkipButtonPressedMessage>(OnSkipButtonPressed);
-        SubscribeLocalEvent<JukeboxComponent, JukeboxSongSelectedMessage>(OnSongSelected);
-    }
 
     #region Public functions
 
@@ -220,7 +195,7 @@ public sealed partial class JukeboxSystem : EntitySystem
 
         jukeboxComp.Playing = true; // Set the Jukebox to playing.
 
-        jukeboxComp.CurrentlyPlayingTrack = song; // Set the currently playing song.
+        jukeboxComp.CurrentlyPlayingTrack = song.ID; // Set the currently playing song.
 
         jukeboxComp.FinishPlayingTime = _timing.CurTime + song.Duration - offset; // Set the time when the song should finish.
 
@@ -259,7 +234,7 @@ public sealed partial class JukeboxSystem : EntitySystem
     {
         var canPlay = true;
 
-        if (EntityManager.TryGetComponent<ApcPowerReceiverComponent>(uid, out var powerComp) && !powerComp.Powered)
+        if (!this.IsPowered(uid, EntityManager))
             canPlay = false;
 
         component.CanPlay = canPlay;
@@ -337,14 +312,17 @@ public sealed partial class JukeboxSystem : EntitySystem
         if (jukeboxComp.Paused || !jukeboxComp.CanPlay)
             return;
 
-        if (jukeboxComp.CurrentlyPlayingTrack == null || jukeboxComp.FinishPlayingTime == null || jukeboxComp.StoppedTime == null)
+        if (jukeboxComp.CurrentlyPlayingTrack == null ||
+            jukeboxComp.FinishPlayingTime == null ||
+            jukeboxComp.StoppedTime == null ||
+            !_prototype.TryIndex<JukeboxTrackPrototype>(jukeboxComp.CurrentlyPlayingTrack, out var trackProto))
             return;
 
-        var timeLeftBeforeFinished = (TimeSpan) (jukeboxComp.CurrentlyPlayingTrack.Duration - (jukeboxComp.FinishPlayingTime - jukeboxComp.StoppedTime));
+        var timeLeftBeforeFinished = (TimeSpan) (trackProto.Duration - (jukeboxComp.FinishPlayingTime - jukeboxComp.StoppedTime));
 
         jukeboxComp.StoppedTime = null;
 
-        TryPlaySong(jukeBox, jukeboxComp.CurrentlyPlayingTrack, jukeboxComp, timeLeftBeforeFinished);
+        TryPlaySong(jukeBox, trackProto, jukeboxComp, timeLeftBeforeFinished);
 
         return;
     }

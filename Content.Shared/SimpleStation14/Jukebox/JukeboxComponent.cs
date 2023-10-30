@@ -3,6 +3,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Construction.Prototypes;
+using Content.Shared.DeviceLinking;
 
 namespace Content.Shared.SimpleStation14.Jukebox;
 
@@ -44,29 +45,38 @@ public sealed partial class JukeboxComponent : Component
     ///     The song art to be used when no song is playing.
     /// </summary>
     [DataField("defaultSongArtPath")]
-    public string DefaultSongArtPath { get; set; } = "/Textures/SimpleStation14/JukeboxTracks/default.png";
+    public string DefaultSongArtPath { get; } = "/Textures/SimpleStation14/JukeboxTracks/default.png";
 
     /// <summary>
     ///     A colour to be used in the Jukebox's UI.
     ///     Should be based on the sprite.
     /// </summary>
-    [DataField("jukeboxUiColorBG")]
-    public string JukeboxUiColorBG { get; set; } = "#602C00";
+    [DataField("uiColorBG")]
+    public string UiColorBG { get; } = "#602C00";
 
-    /// <inheritdoc cref="JukeboxUiColorBG"/>
-    [DataField("jukeboxUiColorPanel")]
-    public string JukeboxUiColorPanel { get; } = "#480F0F";
+    /// <inheritdoc cref="UiColorBG"/>
+    [DataField("uiColorPanel")]
+    public string UiColorPanel { get; } = "#480F0F";
 
-    /// <inheritdoc cref="JukeboxUiColorBG"/>
-    [DataField("jukeboxUiColorAccent")]
-    public string JukeboxUiColorAccent { get; } = "#20181B";
+    /// <inheritdoc cref="UiColorBG"/>
+    [DataField("uiColorAccent")]
+    public string UiColorAccent { get; } = "#20181B";
+
+    [DataField("uiButtonPlay")]
+    public string UiButtonPlay { get; } = "/Textures/SimpleStation14/Interface/MediaControls/play.png";
+
+    [DataField("uiButtonPause")]
+    public string UiButtonPause { get; } = "/Textures/SimpleStation14/Interface/MediaControls/pause.png";
+
+    [DataField("uiButtonSkip")]
+    public string UiButtonSkip { get; } = "/Textures/SimpleStation14/Interface/MediaControls/skip.png";
 
     /// <summary>
     ///    Whether or not to include the decorative portion of the UI
     ///    which contains the serial number and the 'coin' slot.
     /// </summary>
     [DataField("decorativeUi")]
-    public bool DecorativeUi { get; set; } = false;
+    public bool DecorativeUi { get; } = false;
 
     /// <summary>
     ///     The part to be used for upgrading the queue size.
@@ -84,10 +94,10 @@ public sealed partial class JukeboxComponent : Component
     public IPlayingAudioStream? CurrentlyPlayingStream { get; set; }
 
     /// <summary>
-    ///     The prototype of the currently playing song.
+    ///     The ID of the currently playing song.
     /// </summary>
     [AutoNetworkedField]
-    public JukeboxTrackPrototype? CurrentlyPlayingTrack { get; set; }
+    public string? CurrentlyPlayingTrack { get; set; }
 
     /// <summary>
     ///     The list of songs that are queued to be played.

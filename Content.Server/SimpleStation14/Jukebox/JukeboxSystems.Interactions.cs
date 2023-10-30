@@ -12,10 +12,31 @@ public sealed partial class JukeboxSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<JukeboxComponent, MapInitEvent>(OnComponentInit);
+        SubscribeLocalEvent<JukeboxComponent, ComponentShutdown>((ent, comp, _) => Clean(ent, comp));
+
+        SubscribeLocalEvent((EntityUid ent, JukeboxComponent comp, ref EntityPausedEvent _) => CheckCanPlay(ent, comp));
+        SubscribeLocalEvent((EntityUid ent, JukeboxComponent comp, ref EntityUnpausedEvent _) => CheckCanPlay(ent, comp));
+        SubscribeLocalEvent((EntityUid ent, JukeboxComponent comp, ref PowerChangedEvent _) => CheckCanPlay(ent, comp));
+        SubscribeLocalEvent<JukeboxComponent, GotEmaggedEvent>(OnEmagged);
+        SubscribeLocalEvent<JukeboxComponent, RefreshPartsEvent>(OnRefreshParts);
+        SubscribeLocalEvent<JukeboxComponent, UpgradeExamineEvent>(OnExamineParts);
+        SubscribeLocalEvent<JukeboxComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<JukeboxComponent, SignalReceivedEvent>(OnSignalReceived);
+
+        SubscribeLocalEvent<JukeboxComponent, JukeboxPlayButtonPressedMessage>((ent, comp, _) => TryTogglePause(ent, comp));
+        SubscribeLocalEvent<JukeboxComponent, JukeboxSkipButtonPressedMessage>((ent, comp, _) => TrySkipSong(ent, comp));
+        SubscribeLocalEvent<JukeboxComponent, JukeboxSongSelectedMessage>((ent, comp, msg) => TryQueueSong(ent, msg.Song, comp));
+    }
+
     /// <summary>
-    ///     Simply checks if the Jukebox can play songs on init.
+    ///     Handles setting up a Jukebox.
     /// </summary>
-    private void OnComponentInit(EntityUid uid, JukeboxComponent component, ComponentInit args)
+    private void OnComponentInit(EntityUid uid, JukeboxComponent component, MapInitEvent args)
     {
         CheckCanPlay(uid, component);
 
@@ -34,14 +55,6 @@ public sealed partial class JukeboxSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Handles cleanup when the Jukebox is shut down.
-    /// </summary>
-    private void OnComponentShutdown(EntityUid uid, JukeboxComponent component, ComponentShutdown args)
-    {
-        Clean(uid, component);
-    }
-
-    /// <summary>
     ///     Handles setting the Jukebox's state to emagged.
     /// </summary>
     private void OnEmagged(EntityUid jukeBox, JukeboxComponent jukeboxComp, ref GotEmaggedEvent args)
@@ -49,61 +62,6 @@ public sealed partial class JukeboxSystem : EntitySystem
         jukeboxComp.Emagged = true;
         args.Handled = true;
         UpdateState(jukeBox, jukeboxComp);
-    }
-
-    /// <summary>
-    ///    Handles when a Jukebox entity is paused in game terms.
-    /// </summary>
-    private void OnPaused(EntityUid jukeBox, JukeboxComponent jukeboxComp, ref EntityPausedEvent args)
-    {
-        StopSong(jukeBox, jukeboxComp);
-    }
-
-    /// <summary>
-    ///   Handles when a Jukebox entity is unpaused in game terms.
-    /// </summary>
-    private void OnUnpaused(EntityUid jukeBox, JukeboxComponent jukeboxComp, ref EntityUnpausedEvent args)
-    {
-        CheckCanPlay(jukeBox, jukeboxComp);
-    }
-
-    /// <summary>
-    ///     Checks if the Jukebox can play songs when its power state changes.
-    /// </summary>
-    private void OnPowerChanged(EntityUid uid, JukeboxComponent component, ref PowerChangedEvent args)
-    {
-        CheckCanPlay(uid, component);
-    }
-
-    /// <summary>
-    ///     Handles the Jukebox's play button being pressed to toggle between playing and paused.
-    /// </summary>
-    private void OnPlayButtonPressed(EntityUid jukeBox, JukeboxComponent jukeboxComp, JukeboxPlayButtonPressedMessage msg)
-    {
-        if (jukeboxComp.Paused)
-        {
-            TryUnPauseSong(jukeBox, jukeboxComp);
-        }
-        else
-        {
-            DoPauseSong(jukeBox, jukeboxComp);
-        }
-    }
-
-    /// <summary>
-    ///     Handles the Jukebox's skip button being pressed to skip the current song.
-    /// </summary>
-    private void OnSkipButtonPressed(EntityUid jukeBox, JukeboxComponent jukeboxComp, JukeboxSkipButtonPressedMessage msg)
-    {
-        TrySkipSong(jukeBox, jukeboxComp);
-    }
-
-    /// <summary>
-    ///     Handles a song being selected in the Jukebox's ui.
-    /// </summary>
-    private void OnSongSelected(EntityUid jukeBox, JukeboxComponent jukeboxComp, JukeboxSongSelectedMessage msg)
-    {
-        TryQueueSong(jukeBox, msg.Song, jukeboxComp);
     }
 
     /// <summary>
@@ -120,7 +78,10 @@ public sealed partial class JukeboxSystem : EntitySystem
         digits[4] = (digits[0] + digits[1]) % 10;
         digits[5] = digits[2] - digits[3];
         digits[6] = digits[4] * digits[5];
-        digits[7] = (digits[0] + digits[1] + digits[2] + digits[3]) % 5;
+        digits[7] = (digits[0] + digits[1] + digits[5] + digits[4]) % 5;
+
+        for (var i = 0; i < digits.Length; i++)
+            digits[i] = Math.Abs(digits[i]);
 
         var serial = $"{digits[0]}{digits[1]}{digits[2]}{digits[3]}{digits[4]}{digits[5]}{digits[6]}";
 

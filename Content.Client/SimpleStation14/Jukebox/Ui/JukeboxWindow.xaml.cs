@@ -21,7 +21,7 @@ public sealed partial class JukeboxWindow : FancyWindow
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
 
-    private readonly JukeboxBoundUserInterface _bui;
+    private readonly ISawmill _log = default!;
 
     private readonly JukeboxComponent _jukeboxComp;
 
@@ -38,12 +38,12 @@ public sealed partial class JukeboxWindow : FancyWindow
     public Action<string>? OnSongSelected;
 
 
-    public JukeboxWindow(JukeboxBoundUserInterface bui, JukeboxComponent jukeboxComp)
+    public JukeboxWindow(JukeboxComponent jukeboxComp, ISawmill log)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        _bui = bui;
+        _log = log;
         _jukeboxComp = jukeboxComp;
 
         PlayButton.OnPressed += _ => OnPlayButtonPressed?.Invoke();
@@ -51,16 +51,17 @@ public sealed partial class JukeboxWindow : FancyWindow
 
         SerialTitle.SetMessage(Loc.GetString("jukebox-ui-serial-title"));
         SerialNumber.Text = jukeboxComp.SerialNumber;
+        SkipButton.TexturePath = jukeboxComp.UiButtonSkip;
 
         // Sets up the custom colours of the ui.
-        BG_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorBG) };
-        Panel_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorPanel) };
-        Panel_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorPanel) };
-        Panel_3.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorPanel) };
+        BG_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.UiColorBG) };
+        Panel_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.UiColorPanel) };
+        Panel_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.UiColorPanel) };
+        Panel_3.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.UiColorPanel) };
         // Accent_1.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorAccent) };
         // Accent_2.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorAccent) };
-        Accent_3.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorAccent) };
-        Accent_4.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.JukeboxUiColorAccent) };
+        Accent_3.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.UiColorAccent) };
+        Accent_4.PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(jukeboxComp.UiColorAccent) };
 
         // Sets up all the fonts.
         SongName.FontOverride = _resourceCache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 18);
@@ -92,7 +93,7 @@ public sealed partial class JukeboxWindow : FancyWindow
         UpdateState(true);
     }
 
-    // Updates the progress bar of the song every frame, matching to the duration and if one is actually playing.
+    // Updates the progress bar of the song every frame, matching to the duration, if a song is actually playing.
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
@@ -114,7 +115,7 @@ public sealed partial class JukeboxWindow : FancyWindow
 
         if (_jukeboxComp.StoppedTime == null)
         {
-            Logger.ErrorS("jukebox", $"Jukebox {_jukeboxComp} is stopped but has no StoppedTime!");
+            _log.Error(Loc.GetString("jukebox-error-no-stopped-time"), _jukeboxComp);
 
             return;
         }
@@ -127,23 +128,19 @@ public sealed partial class JukeboxWindow : FancyWindow
     {
         SongPickerBox.RemoveAllChildren();
 
-        var songsToAdd = _jukeboxComp.Songs;
-
-        songsToAdd.Sort();
-
-        foreach (var trackId in songsToAdd)
-            GenerateSongButton(trackId, false);
-
-        if (_jukeboxComp.Emagged)
+        if (_jukeboxComp.Emagged) // We want the emagged songs on top.
             foreach (var trackId in _jukeboxComp.EmaggedSongs.OrderBy(song => song).ToList())
                 GenerateSongButton(trackId, true);
+
+        foreach (var trackId in _jukeboxComp.Songs.OrderBy(song => song).ToList())
+            GenerateSongButton(trackId, false);
     }
 
     private void GenerateSongButton(string trackId, bool illegal)
     {
         if (!_prototype.TryIndex<JukeboxTrackPrototype>(trackId, out var track))
         {
-            Logger.Error($"No JukeboxTrackPrototype found for {trackId}!");
+            _log.Error(Loc.GetString("jukebox-error-no-prototype"), trackId);
             return;
         }
 
@@ -183,7 +180,7 @@ public sealed partial class JukeboxWindow : FancyWindow
         {
             if (!_prototype.TryIndex<JukeboxTrackPrototype>(trackId, out var track))
             {
-                Logger.Error($"No JukeboxTrackPrototype found for {trackId}!");
+                _log.Error(Loc.GetString("jukebox-error-no-prototype"), trackId);
 
                 continue;
             }
@@ -207,7 +204,7 @@ public sealed partial class JukeboxWindow : FancyWindow
 
         PopulateQueue();
 
-        if (_jukeboxComp.CurrentlyPlayingTrack == null)
+        if (_jukeboxComp.CurrentlyPlayingTrack == null || !_prototype.TryIndex<JukeboxTrackPrototype>(_jukeboxComp.CurrentlyPlayingTrack, out var track))
         {
             SongName.Text = Loc.GetString("jukebox-ui-current-empty");
             SongIcon.TexturePath = _jukeboxComp.DefaultSongArtPath;
@@ -218,7 +215,10 @@ public sealed partial class JukeboxWindow : FancyWindow
             _timeWillFinish = TimeSpan.Zero;
             _timeStopped = TimeSpan.Zero;
 
-            PlayButton.TexturePath = "/Textures/SimpleStation14/Interface/MediaControls/play.png";
+            PlayButton.TexturePath = _jukeboxComp.UiButtonPlay;
+
+            PlayButton.Disabled = true;
+            SkipButton.Disabled = true;
 
             return;
         }
@@ -227,19 +227,17 @@ public sealed partial class JukeboxWindow : FancyWindow
 
         _timeStopped = _jukeboxComp.StoppedTime ?? TimeSpan.Zero;
 
-        _songDuration = _jukeboxComp.CurrentlyPlayingTrack.Duration;
-
-        var track = _jukeboxComp.CurrentlyPlayingTrack;
+        _songDuration = track.Duration;
 
         SongName.Text = track.Name;
-        SongIcon.TexturePath = track.ArtPath;
+        SongIcon.TexturePath = track.ArtPath ?? _jukeboxComp.DefaultSongArtPath;
 
         SkipButton.Disabled = false;
         PlayButton.Disabled = false;
 
-        if (_jukeboxComp.Paused)
-            PlayButton.TexturePath = "/Textures/SimpleStation14/Interface/MediaControls/play.png";
-        else
-            PlayButton.TexturePath = "/Textures/SimpleStation14/Interface/MediaControls/pause.png";
+        PlayButton.TexturePath = _jukeboxComp.Paused ? _jukeboxComp.UiButtonPlay : _jukeboxComp.UiButtonPause;
+
+        PlayButton.Disabled = false;
+        SkipButton.Disabled = false;
     }
 }

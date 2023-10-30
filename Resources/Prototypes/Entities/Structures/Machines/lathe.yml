@@ -223,6 +223,7 @@
       - WallmountGeneratorAPUElectronics
       - WallmountGeneratorElectronics
       - WallmountSubstationElectronics
+      - JukeboxMachineCircuitboard
   - type: MaterialStorage
     whitelist:
       tags:
