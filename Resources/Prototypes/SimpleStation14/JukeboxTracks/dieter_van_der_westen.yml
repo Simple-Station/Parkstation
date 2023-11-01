@@ -1,0 +1,55 @@
+- type: jukeboxTrack
+  id: DieterVanDerWestenAfricanDreamland
+  name: african dreamland
+  path: "/Audio/SimpleStation14/JukeboxTracks/DieterVanDerWesten/african_dreamland.ogg"
+  duration: 4:32
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DieterVanDerWesten/african_dreamland.png"
+
+- type: jukeboxTrack
+  id: DieterVanDerWestenBangkokTaxiDrive
+  name: bangkok taxi drive
+  path: "/Audio/SimpleStation14/JukeboxTracks/DieterVanDerWesten/bangkok_taxi_drive.ogg"
+  duration: 3:39
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DieterVanDerWesten/bangkok_taxi_drive.png"
+
+- type: jukeboxTrack
+  id: DieterVanDerWestenBerlinThroughTheNight
+  name: berlin through the night
+  path: "/Audio/SimpleStation14/JukeboxTracks/DieterVanDerWesten/berlin_through_the_night.ogg"
+  duration: 3:01
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DieterVanDerWesten/berlin_through_the_night.png"
+
+- type: jukeboxTrack
+  id: DieterVanDerWestenHeadingForBamako
+  name: heading for bamako
+  path: "/Audio/SimpleStation14/JukeboxTracks/DieterVanDerWesten/heading_for_bamako.ogg"
+  duration: 3:38
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DieterVanDerWesten/heading_for_bamako.png"
+
+- type: jukeboxTrack
+  id: DieterVanDerWestenMississippiFarewell
+  name: mississippi farewell
+  path: "/Audio/SimpleStation14/JukeboxTracks/DieterVanDerWesten/mississippi_farewell.ogg"
+  duration: 4:05
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DieterVanDerWesten/mississippi_farewell.png"
+
+- type: jukeboxTrack
+  id: DieterVanDerWestenParisGipsySwing
+  name: paris gipsy swing
+  path: "/Audio/SimpleStation14/JukeboxTracks/DieterVanDerWesten/paris_gipsy_swing.ogg"
+  duration: 3:27
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DieterVanDerWesten/paris_gipsy_swing.png"
+
+- type: jukeboxTrack
+  id: DieterVanDerWestenSicilianSundown
+  name: sicilian sundown
+  path: "/Audio/SimpleStation14/JukeboxTracks/DieterVanDerWesten/sicilian_sundown.ogg"
+  duration: 2:58
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DieterVanDerWesten/sicilian_sundown.png"
+
+- type: jukeboxTrack
+  id: DieterVanDerWestenTheBalkanNightTrain
+  name: the balkan night train
+  path: "/Audio/SimpleStation14/JukeboxTracks/DieterVanDerWesten/the_balkan_night_train.ogg"
+  duration: 2:52
+  artPath: "/Textures/SimpleStation14/JukeboxTracks/DieterVanDerWesten/the_balkan_night_train.png"

@@ -1,14 +1,11 @@
 - type: soundCollection
   id: LobbyMusic
   files:
-    - /Audio/SimpleStation14/Lobby/01 The Gamble.ogg
-    - /Audio/SimpleStation14/Lobby/02 Guilty Pleasures.ogg
-    - /Audio/SimpleStation14/Lobby/03 Jazzcuzzi.ogg
-    - /Audio/SimpleStation14/Lobby/04 The Walk.ogg
-    - /Audio/SimpleStation14/Lobby/05 Velvet Bossa.ogg
-    - /Audio/SimpleStation14/Lobby/06 Colors.ogg
-    - /Audio/SimpleStation14/Lobby/07 Midnight Jam.ogg
-    - /Audio/SimpleStation14/Lobby/08 Miles Ahead.ogg
-    - /Audio/SimpleStation14/Lobby/09 Moody.ogg
-    - /Audio/SimpleStation14/Lobby/10 Flying Away.ogg
-    - /Audio/SimpleStation14/Lobby/11 Take It Easy.ogg
+    - /Audio/SimpleStation14/Lobby/african_dreamland_stereo.ogg
+    - /Audio/SimpleStation14/Lobby/bangkok_taxi_drive_stereo.ogg
+    - /Audio/SimpleStation14/Lobby/berlin_through_the_night_stereo.ogg
+    - /Audio/SimpleStation14/Lobby/heading_for_bamako_stereo.ogg
+    - /Audio/SimpleStation14/Lobby/mississippi_farewell_stereo.ogg
+    - /Audio/SimpleStation14/Lobby/paris_gipsy_swing_stereo.ogg
+    - /Audio/SimpleStation14/Lobby/sicilian_sundown_stereo.ogg
+    - /Audio/SimpleStation14/Lobby/the_balkan_night_train_stereo.ogg

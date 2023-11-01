@@ -39,14 +39,6 @@
         density: 200
   - type: Jukebox
     songs:
-      - DanyaVodovozFunkOMatic
-      - DanyaVodovozGoinOn
-      - DanyaVodovozOffTheGrid
-      - DanyaVodovozPlanetOfTheAmazons
-      - DanyaVodovozGuacamole
-      - DanyaVodovozJazzFunkMySoul
-      - DanyaVodovozMothToAFlame
-      - DanyaVodovozNightInBrazil
       - JonShuemakerAgartha
       - JonShuemakerDancersAndFloaters
       - JonShuemakerSha
@@ -87,6 +79,14 @@
       - ApelsinsaftTheWanderersSailWithoutWind
       - ApelsinsaftWrenchTheGasCanisterDown
       - ApelsinsaftYourStayAboardTheStation
+      - DieterVanDerWestenAfricanDreamland
+      - DieterVanDerWestenBangkokTaxiDrive
+      - DieterVanDerWestenBerlinThroughTheNight
+      - DieterVanDerWestenHeadingForBamako
+      - DieterVanDerWestenMississippiFarewell
+      - DieterVanDerWestenParisGipsySwing
+      - DieterVanDerWestenSicilianSundown
+      - DieterVanDerWestenTheBalkanNightTrain
     queueSizeUpgradePart: Capacitor
     maxQueuedDefault: 3
     uiColorBG: "#602C00"
