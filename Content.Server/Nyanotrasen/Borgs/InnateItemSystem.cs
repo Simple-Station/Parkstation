@@ -34,46 +34,32 @@ namespace Content.Server.Borgs
             if (!TryComp<ItemSlotsComponent>(uid, out var slotsComp))
                 return;
 
-            int priority = component.StartingPriority ?? 0;
+            var priority = component.StartingPriority ?? 0;
             foreach (var slot in slotsComp.Slots.Values)
             {
-                if (slot.ContainerSlot?.ContainedEntity is not { Valid: true } sourceItem)
-                    continue;
-                if (_tagSystem.HasTag(sourceItem, "NoAction"))
+                if (slot.ContainerSlot?.ContainedEntity is not { Valid: true } sourceItem ||
+                    _tagSystem.HasTag(sourceItem, "NoAction"))
                     continue;
 
-                if (component.AfterInteract) _actionsSystem.AddAction(uid, CreateAfterInteractAction(sourceItem, priority), uid);
-                else _actionsSystem.AddAction(uid, CreateBeforeInteractAction(sourceItem, priority), uid);
+                _actionsSystem.AddAction(uid, CreateInteractAction(sourceItem, priority), null);
 
                 priority--;
             }
         }
 
-        private EntityTargetAction CreateAfterInteractAction(EntityUid uid, int priority)
+
+        private EntityTargetAction CreateInteractAction(EntityUid uid, int priority)
         {
             EntityTargetAction action = new()
             {
                 DisplayName = MetaData(uid).EntityName,
                 Description = MetaData(uid).EntityDescription,
                 EntityIcon = uid,
-                Event = new InnateAfterInteractActionEvent(uid),
-                Priority = priority,
-            };
-
-            return action;
-        }
-
-        private EntityTargetAction CreateBeforeInteractAction(EntityUid uid, int priority)
-        {
-            EntityTargetAction action = new()
-            {
-                DisplayName = MetaData(uid).EntityName,
-                Description = MetaData(uid).EntityDescription,
-                EntityIcon = uid,
-                Event = new InnateBeforeInteractActionEvent(uid),
+                Event = _tagSystem.HasTag(uid, "InnateItemBeforeInteract") ? new InnateBeforeInteractActionEvent(uid) : new InnateAfterInteractActionEvent(uid),
                 Priority = priority,
                 CheckCanAccess = false,
                 Range = 25f,
+                Repeat = _tagSystem.HasTag(uid, "InnateItemRepeat"),
             };
 
             return action;

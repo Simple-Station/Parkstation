@@ -1,5 +1,6 @@
 ﻿using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
+using Content.Server.Mind.Components;
 using Content.Server.Mind;
 using Content.Server.Players;
 using Content.Shared.Administration;
@@ -34,7 +35,7 @@ namespace Content.Server.Administration.Commands
                 shell.WriteLine("You can't ghost here!");
                 return;
             }
-            
+
             var mindSystem = _entities.System<MindSystem>();
 
             if (mind.VisitingEntity != default && _entities.TryGetComponent<GhostComponent>(mind.VisitingEntity, out var oldGhostComponent))
@@ -68,6 +69,9 @@ namespace Content.Server.Administration.Commands
                 _entities.GetComponent<MetaDataComponent>(ghost).EntityName = player.Name;
                 mindSystem.TransferTo(mind, ghost);
             }
+
+            // Mind doesn't seem to do this for us?
+            _entities.EventBus.RaiseLocalEvent(ghost, new MindAddedMessage());
 
             var comp = _entities.GetComponent<GhostComponent>(ghost);
             EntitySystem.Get<SharedGhostSystem>().SetCanReturnToBody(comp, canReturn);

@@ -5,9 +5,6 @@ namespace Content.Server.Borgs
     {
         public bool AlreadyInitialized = false;
 
-        [DataField("afterInteract")]
-        public bool AfterInteract = true;
-
         [DataField("startingPriority")]
         public int? StartingPriority = null;
     }
