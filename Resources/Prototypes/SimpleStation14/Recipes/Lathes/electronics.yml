@@ -1,0 +1,7 @@
+- type: latheRecipe
+  id: LoudSpeakerElectronics
+  result: LoudSpeakerElectronics
+  completetime: 2
+  materials:
+     Steel: 40
+     Plastic: 60

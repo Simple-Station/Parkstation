@@ -1,0 +1,16 @@
+- type: entity
+  id: LoudSpeakerElectronics
+  parent: BaseElectronics
+  name: loud speaker electronics
+  description: An electronics board used in loud speakers
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: id_mod
+  - type: Tag
+    tags:
+      - DroneUsable
+      - LoudSpeakerElectronics
+  - type: ReverseEngineering
+    recipes:
+      - LoudSpeakerElectronics

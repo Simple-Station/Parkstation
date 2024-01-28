@@ -1,0 +1,5 @@
+- type: soundCollection
+  id: Buzzer
+  files:
+  - /Audio/SimpleStation14/Effects/buzzer_1.ogg
+  - /Audio/SimpleStation14/Effects/buzzer_2.ogg

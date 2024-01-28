@@ -1,0 +1,17 @@
+- type: construction
+  name: loudspeaker
+  id: LoudSpeakerAssesmbly
+  graph: LoudSpeaker
+  startNode: start
+  targetNode: loudspeaker
+  category: construction-category-structures
+  description: A loudspeaker. When you want to make sure someone's attention is always ready to be grabbed.
+  icon:
+    sprite: Structures/Wallmounts/intercom.rsi
+    state: base
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canRotate: true
+  canBuildInImpassable: true
+  conditions:
+  - !type:WallmountCondition {}
