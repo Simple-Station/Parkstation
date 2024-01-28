@@ -12,3 +12,29 @@
   id: ToggleBolt
   name: signal-port-name-togglebolt
   description: signal-port-description-togglebolt
+
+# Jukebox signals.
+- type: sinkPort
+  id: PlayRandom
+  name: signal-port-name-playrandom
+  description: signal-port-description-playrandom
+
+- type: sinkPort
+  id: Skip
+  name: signal-port-name-skip
+  description: signal-port-description-skip
+
+- type: sinkPort
+  id: Pause
+  name: signal-port-name-pause
+  description: signal-port-description-pause
+
+- type: sinkPort
+  id: Unpause
+  name: signal-port-name-unpause
+  description: signal-port-description-unpause
+
+- type: sinkPort
+  id: TogglePause
+  name: signal-port-name-togglepause
+  description: signal-port-description-togglepause

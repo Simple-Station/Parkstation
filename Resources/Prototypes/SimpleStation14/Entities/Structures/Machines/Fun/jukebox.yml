@@ -1,0 +1,126 @@
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  abstract: true
+  id: JukeboxBase
+  name: jukebox
+  description: A jukebox, capable of playing music.
+  components:
+  - type: ActivatableUI
+    key: enum.JukeboxUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      - key: enum.JukeboxUiKey.Key
+        type: JukeboxBoundUserInterface
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Machines/jukebox.rsi
+    layers:
+    - state: base
+  - type: ApcPowerReceiver
+    powerLoad: 350
+  - type: Jukebox # All that's technically needed- everything else is optional.
+
+- type: entity
+  parent: JukeboxBase
+  id: JukeboxClassic
+  name: jukebox
+  description: An old fashioned jukebox.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.45,0.25,0.45"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        density: 200
+  - type: Jukebox
+    songs:
+      - JonShuemakerAgartha
+      - JonShuemakerDancersAndFloaters
+      - JonShuemakerSha
+      - JonShuemakerLowTide
+      - JonShuemakerTheCurrent
+      - JonShuemakerDrift
+      - JonShuemakerWashedAway
+      # - ApelsinsaftAllAccessVacation # Brokey
+      - ApelsinsaftAndTheClownSmiledOutsideTheAirlock
+      - ApelsinsaftAtmospherics
+      - ApelsinsaftATinyGreenBeetleBeat
+      - ApelsinsaftClearChoice
+      - ApelsinsaftConnect
+      - ApelsinsaftCorporateCentralCommand
+      - ApelsinsaftDisposal
+      - ApelsinsaftDocking
+      - ApelsinsaftDoILookLikeAClownToYou
+      - ApelsinsaftExpensiveRugsAndCheapCaskets
+      - ApelsinsaftFiguredAsMuch
+      - ApelsinsaftForgetTheStation
+      - ApelsinsaftGhostInTheJanitorsCloset
+      - ApelsinsaftHabaneroDonkPocket
+      - ApelsinsaftHivemindChannel
+      - ApelsinsaftItsAWallSee
+      - ApelsinsaftIFoundThesePillsInMaintenance
+      - ApelsinsaftNoLooseGooseHere
+      - ApelsinsaftOkayItsLoose
+      - ApelsinsaftOnToTheNextStation
+      - ApelsinsaftOutsideInAFiresuit
+      - ApelsinsaftPickATyrePattern
+      - ApelsinsaftRedShadowsFallOnCleanFloors
+      - ApelsinsaftSawYouJustThen
+      - ApelsinsaftShouldHaveFilledMyForm
+      - ApelsinsaftSmellsLikeSomethingJauntedHere
+      - ApelsinsaftSpessmenInAShuttle
+      - ApelsinsaftStrangelyDarkSky
+      - ApelsinsaftTheSoapBar
+      - ApelsinsaftTheWanderersSailWithoutWind
+      - ApelsinsaftWrenchTheGasCanisterDown
+      - ApelsinsaftYourStayAboardTheStation
+      - DieterVanDerWestenAfricanDreamland
+      - DieterVanDerWestenBangkokTaxiDrive
+      - DieterVanDerWestenBerlinThroughTheNight
+      - DieterVanDerWestenHeadingForBamako
+      - DieterVanDerWestenMississippiFarewell
+      - DieterVanDerWestenParisGipsySwing
+      - DieterVanDerWestenSicilianSundown
+      - DieterVanDerWestenTheBalkanNightTrain
+    queueSizeUpgradePart: Capacitor
+    maxQueuedDefault: 3
+    uiColorBG: "#602C00"
+    uiColorPanel: "#480F0F"
+    uiColorAccent: "#20181B"
+    uiButtonPlay: "/Textures/SimpleStation14/Interface/MediaControls/play.png"
+    uiButtonPause: "/Textures/SimpleStation14/Interface/MediaControls/pause.png"
+    uiButtonSkip: "/Textures/SimpleStation14/Interface/MediaControls/skip.png"
+    decorativeUi: true
+  - type: Machine
+    board: JukeboxMachineCircuitboard
+  - type: Appearance
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Machines/jukebox.rsi
+    layers:
+    - state: base
+    - state: powered
+      map: ["enum.JukeboxVisualLayers.UnLit"]
+    - state: powered_unlit
+      shader: unshaded
+      map: ["enum.JukeboxVisualLayers.Lit"]
+    - state: active
+      map: ["enum.JukeboxVisualLayers.Player"]
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.VisualState:
+        enum.JukeboxVisualLayers.Player:
+          True: { visible: true}
+          False: { visible: false }
+      enum.PowerDeviceVisuals.Powered:
+        enum.JukeboxVisualLayers.Lit:
+          True: { visible: true }
+          False: { visible: false }
+        enum.JukeboxVisualLayers.UnLit:
+          True: { visible: true }
+          False: { visible: false }
+

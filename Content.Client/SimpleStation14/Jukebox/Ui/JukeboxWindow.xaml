@@ -1,0 +1,296 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Title="null"
+    SetSize="550 775"
+    Resizable="False">
+    <Control>
+        <PanelContainer Name="BG_1">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#602C00"/>
+            </PanelContainer.PanelOverride>
+        </PanelContainer>
+
+        <BoxContainer
+            Margin="8 0 8 8"
+            Orientation="Vertical"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+
+            <!-- Upper portion of UI -->
+            <BoxContainer
+                MinSize="530 487"
+                Margin="10 10 10 10"
+                Orientation="Horizontal">
+                <Control>
+                    <PanelContainer
+                        Name="Panel_1">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#767676"/>
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
+                    <BoxContainer
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+
+                        <!-- Left side of upper portion -->
+                        <BoxContainer
+                            MinSize="300 487"
+                            Orientation="Vertical"
+                            Margin="10 10 10 10"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+
+                            <!-- Song art -->
+                            <BoxContainer
+                                Orientation="Vertical"
+                                MinSize="270 212"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center">
+                                <TextureRect
+                                    Name="SongIcon"
+                                    Stretch="KeepAspectCentered"
+                                    SetSize="170 170" />
+
+                                <Label
+                                    Name="SongName"
+                                    MinHeight="42"
+                                    Text="Song Name"
+                                    HorizontalAlignment="Center"
+                                    HorizontalExpand="False" />
+                            </BoxContainer>
+
+                            <!-- Controls/Next up -->
+                            <BoxContainer
+                                MinSize="295 236"
+                                Margin="12 5 12 5"
+                                Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left">
+                                <!-- Controls -->
+                                <BoxContainer
+                                    MinSize="69 158"
+                                    Orientation="Vertical"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left">
+
+                                    <Control MinSize="69 69" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <PanelContainer Name="Accent_1" StyleClasses="AngleRect" />
+                                        <TextureButton
+                                            Name="PlayButton"
+                                            Scale="2 2"
+                                            TexturePath="/Textures/SimpleStation14/Interface/MediaControls/playpause.png"
+                                            Margin="5 5 5 5"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"/>
+                                    </Control>
+
+                                    <Control MinSize="20 20"/>
+
+                                    <Control MinSize="69 69" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <PanelContainer Name="Accent_2" StyleClasses="AngleRect" />
+                                        <TextureButton
+                                            Name="SkipButton"
+                                            Scale="2 2"
+                                            TexturePath="/Textures/SimpleStation14/Interface/MediaControls/skip.png"
+                                            Margin="5 5 5 5"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"/>
+                                    </Control>
+                                </BoxContainer>
+
+                                <Control HorizontalAlignment="Stretch" HorizontalExpand="True" />
+
+                                <!-- Next up -->
+                                <ScrollContainer
+                                    Name="NextUpScroll"
+                                    MinSize="200 180"
+                                    Margin="8 5 5 5"
+                                    HScrollEnabled="False">
+                                    <BoxContainer
+                                        Name="NextSongsBox"
+                                        Orientation="Vertical"
+                                        VerticalAlignment="Center">
+                                        <!-- Songs are added here by code -->
+                                    </BoxContainer>
+                                </ScrollContainer>
+                            </BoxContainer>
+
+                            <!-- Track bar -->
+                            <ProgressBar
+                                Name="RunTimeBar"
+                                MinSize="275 20"
+                                HorizontalExpand="True"
+                                MaxValue="1"
+                                MinValue="0"
+                                SetHeight="25"
+                                VerticalAlignment="Center"/>
+                        </BoxContainer>
+                    </BoxContainer>
+                </Control>
+
+                <Control MinSize="20 20" />
+
+                <!-- Right side of upper portion -->
+                <BoxContainer
+                    MinSize="190 485"
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                    <!-- Song picker -->
+                    <Label
+                        Name="SongsLabel"
+                        Text="{Loc 'jukebox-ui-available-songs'}"
+                        MinHeight="42"
+                        HorizontalAlignment="Center"
+                        HorizontalExpand="False" />
+
+                    <Control MinSize="190 445">
+                        <PanelContainer Name="Panel_2">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#767676"/>
+                            </PanelContainer.PanelOverride>
+                        </PanelContainer>
+
+                        <BoxContainer
+                            Orientation="Vertical">
+                            <ScrollContainer
+                                Name="SongPickerScroll"
+                                Margin="8 8 8 8"
+                                MinWidth="182"
+                                MaxWidth="182"
+                                MinHeight="437"
+                                HScrollEnabled="False">
+                                <BoxContainer
+                                    Name="SongPickerBox"
+                                    Orientation="Vertical"
+                                    Margin="5, 4, 2, 4">
+                                    <!-- Songs are added here by code -->
+                                </BoxContainer>
+                            </ScrollContainer>
+                        </BoxContainer>
+                    </Control>
+                </BoxContainer>
+            </BoxContainer>
+
+            <!-- Divider -->
+            <Control MinSize="512 2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <PanelContainer
+                    Name="Accent_3"
+                    StyleClasses="LowDivider">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#20181B"/>
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+            </Control>
+
+            <!-- Lower portion of UI -->
+            <BoxContainer
+                Name="DecorativeBox"
+                MinSize="482 172"
+                Margin="10 10 10 10"
+                Orientation="Horizontal"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+                <!-- Serial number plate -->
+                <Control MinSize="264 172" Margin="4 4 4 4">
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#9D9EA8"/>
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
+                    <Control MinSize="258 164" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <PanelContainer>
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#2D2D2D"/>
+                            </PanelContainer.PanelOverride>
+                        </PanelContainer>
+
+                        <Control VerticalAlignment="Stretch" />
+
+                        <BoxContainer Orientation="Vertical">
+                            <!-- Title -->
+                            <RichTextLabel Name="SerialTitle" MaxWidth="255" VerticalAlignment="Top" HorizontalAlignment="Center" />
+
+                            <!-- Divider -->
+                            <Control SetSize="249 2" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+                                <PanelContainer
+                                    Name="Accent_4"
+                                    StyleClasses="LowDivider">
+                                    <PanelContainer.PanelOverride>
+                                        <gfx:StyleBoxFlat BackgroundColor="#525252"/>
+                                    </PanelContainer.PanelOverride>
+                                </PanelContainer>
+                            </Control>
+                            <Control VerticalAlignment="Stretch" VerticalExpand="True" />
+
+                            <BoxContainer Margin="8 8 8 8" Orientation="Horizontal" VerticalAlignment="Bottom">
+                                <Label Name="SerialHeader" MinSize="58 22" HorizontalAlignment="Left" Text="S#:" />
+
+                                <Control HorizontalExpand="True" HorizontalAlignment="Stretch" />
+
+                                <Control MinSize="135 30" HorizontalAlignment="Right">
+                                    <PanelContainer StyleClasses="AngleRect" />
+                                    <Label Name="SerialNumber" MinSize="95 20" Text="000000" HorizontalAlignment="Center" />
+                                </Control>
+                            </BoxContainer>
+                        </BoxContainer>
+                    </Control>
+                </Control>
+
+                <Control MinSize="30 30" />
+
+                <BoxContainer MinSize="180 172" Margin="4 4 4 4">
+                    <!-- Coins Marker -->
+                    <Control MinSize="80 172">
+                        <PanelContainer>
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#A88B5E" />
+                            </PanelContainer.PanelOverride>
+                        </PanelContainer>
+
+                        <Control MinSize="74 164" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <PanelContainer>
+                                <PanelContainer.PanelOverride>
+                                    <gfx:StyleBoxFlat BackgroundColor="#903131" />
+                                </PanelContainer.PanelOverride>
+                            </PanelContainer>
+
+                            <BoxContainer Name="CoinLabels" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Text="C"/>
+                                <Label Text="O"/>
+                                <Label Text="I"/>
+                                <Label Text="N"/>
+                                <Label Text="S"/>
+                            </BoxContainer>
+                        </Control>
+                    </Control>
+
+                    <Control MinSize="22 22" />
+
+                    <!-- Coin Slot -->
+                    <Control MinSize="78 172">
+                        <PanelContainer Name="Panel_3">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#480F0F" />
+                            </PanelContainer.PanelOverride>
+                        </PanelContainer>
+
+                        <Control MinSize="11 123" MaxSize="11 123 ">
+                            <PanelContainer>
+                                <PanelContainer.PanelOverride>
+                                    <gfx:StyleBoxFlat BackgroundColor="#1A1A1C" />
+                                </PanelContainer.PanelOverride>
+                            </PanelContainer>
+                        </Control>
+                    </Control>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </Control>
+</controls:FancyWindow>

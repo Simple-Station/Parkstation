@@ -1,0 +1,198 @@
+# - type: jukeboxTrack
+#   id: ApelsinsaftAllAccessVacation
+#   name: "All Access Vacation"
+#   duration: 1:04
+#   path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/all_access_vacation.ogg" # This audio is hanging the client when it gets played???
+
+- type: jukeboxTrack
+  id: ApelsinsaftAndTheClownSmiledOutsideTheAirlock
+  name: "And The Clown Smiled Outside The Airlock"
+  duration: 2:21
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/and_the_clown_smiled_outside_the_airlock.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftAtmospherics
+  name: "Atmospherics"
+  duration: 2:14
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/atmospherics.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftATinyGreenBeetleBeat
+  name: "A Tiny Green Beetle Beat"
+  duration: 4:48
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/a_tiny_green_beetle_beat.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftClearChoice
+  name: "Clear Choice"
+  duration: 2:46
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/clear_choice.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftConnect
+  name: "Connect"
+  duration: 3:56
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/connect.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftCorporateCentralCommand
+  name: "Corporate Central Command"
+  duration: 3:40
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/corporate_central_command.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftDisposal
+  name: "Disposal"
+  duration: 2:40
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/disposal.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftDocking
+  name: "Docking"
+  duration: 3:13
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/docking.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftDoILookLikeAClownToYou
+  name: "Do I Look Like A Clown To You"
+  duration: 2:24
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/do_i_look_like_a_clown_to_you.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftExpensiveRugsAndCheapCaskets
+  name: "Expensive Rugs And Cheap Caskets"
+  duration: 2:18
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/expensive_rugs_and_cheap_caskets.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftFiguredAsMuch
+  name: "Figured As Much"
+  duration: 1:36
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/figured_as_much.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftForgetTheStation
+  name: "Forget The Station"
+  duration: 2:52
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/forget_the_station.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftGhostInTheJanitorsCloset
+  name: "Ghost In The Janitors Closet"
+  duration: 3:14
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/ghost_in_the_janitors_closet.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftHabaneroDonkPocket
+  name: "Habanero Donk Pocket"
+  duration: 1:13
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/habanero_donk_pocket.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftHivemindChannel
+  name: "Hivemind Channel"
+  duration: 3:33
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/hivemind_channel.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftItsAWallSee
+  name: "Its A Wall See"
+  duration: 0:42
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/its_a_wall_see.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftIFoundThesePillsInMaintenance
+  name: "I Found These Pills In Maintenance"
+  duration: 2:08
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/i_found_these_pills_in_maintenance.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftNoLooseGooseHere
+  name: "No Loose Goose Here"
+  duration: 1:57
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/no_loose_goose_here.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftOkayItsLoose
+  name: "Okay Its Loose"
+  duration: 2:57
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/okay_its_loose.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftOnToTheNextStation
+  name: "On To The Next Station"
+  duration: 5:16
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/on_to_the_next_station.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftOutsideInAFiresuit
+  name: "Outside In A Firesuit"
+  duration: 2:22
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/outside_in_a_firesuit.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftPickATyrePattern
+  name: "Pick A Tyre Pattern"
+  duration: 4:16
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/pick_a_tyre_pattern.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftRedShadowsFallOnCleanFloors
+  name: "Red Shadows Fall On Clean Floors"
+  duration: 3:12
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/red_shadows_fall_on_clean_floors.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftSawYouJustThen
+  name: "Saw You Just Then"
+  duration: 1:41
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/saw_you_just_then.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftShouldHaveFilledMyForm
+  name: "Should Have Filled My Form"
+  duration: 3:20
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/should_have_filled_my_form.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftSmellsLikeSomethingJauntedHere
+  name: "Smells Like Something Jaunted Here"
+  duration: 3:43
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/smells_like_something_jaunted_here.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftSpessmenInAShuttle
+  name: "Spessmen In A Shuttle"
+  duration: 5:24
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/spessmen_in_a_shuttle.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftStrangelyDarkSky
+  name: "Strangely Dark Sky"
+  duration: 1:28
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/strangely_dark_sky.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftTheSoapBar
+  name: "The Soap Bar"
+  duration: 3:37
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/the_soap_bar.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftTheWanderersSailWithoutWind
+  name: "The Wanderers Sail Without Wind"
+  duration: 3:44
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/the_wanderers_sail_without_wind.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftWrenchTheGasCanisterDown
+  name: "Wrench The Gas Canister Down"
+  duration: 2:15
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/wrench_the_gas_canister_down.ogg"
+
+- type: jukeboxTrack
+  id: ApelsinsaftYourStayAboardTheStation
+  name: "Your Stay Aboard The Station"
+  duration: 5:29
+  path: "/Audio/SimpleStation14/JukeboxTracks/Apelsinsaft/your_stay_aboard_the_station.ogg"
+

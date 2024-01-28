@@ -88,3 +88,18 @@ signal-port-description-unbolt = Unbolts the door.
 
 signal-port-name-togglebolt = Toggle bolt
 signal-port-description-togglebolt = Toggles the bolt state of the door.
+
+signal-port-name-playrandom = Play random
+signal-port-description-playrandom = Plays a random song.
+
+signal-port-name-skip = Skip
+signal-port-description-skip = Skips the current song.
+
+signal-port-name-pause = Pause
+signal-port-description-pause = Pauses the current song.
+
+signal-port-name-unpause = Unpause
+signal-port-description-unpause = Unpauses the current song.
+
+signal-port-name-togglepause = Toggle pause
+signal-port-description-togglepause = Toggles the pause state of the current song.
