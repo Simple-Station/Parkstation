@@ -1,0 +1,40 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by DSC@Cabbage#9633 (561159087765848084)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "icon-unshaded"
+        },
+        {
+            "name": "light-overlay"
+        },
+        {
+            "name": "equipped-outerclothing",
+            "directions": 4
+        },
+        {
+            "name": "equipped-outerclothing-light",
+            "directions": 4
+        },
+        {
+            "name": "equipped-outerclothing-unshaded",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}
