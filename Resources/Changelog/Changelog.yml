@@ -1353,3 +1353,11 @@ Entries:
         A way to put the coolant back in them soon...
   id: 125
   time: '2023-10-28T05:01:34.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: >-
+        Newly whitelisted people no longer need to wait for the server to
+        restart to do whitelist things
+  id: 126
+  time: '2024-01-28T19:02:03.0000000+00:00'
