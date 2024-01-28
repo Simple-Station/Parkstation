@@ -9,4 +9,18 @@
     tag: GlassesNearsight
   - type: DropOnSlip
     chance: 5
-    
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesShadowkinDarkWindow
+  name: darkened goggles
+  description: An unusual pair of goggles developed during a time of inhumane experimentation involving Shadowkin. They are designed to allow the wearer to peer into The Dark.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/Eyes/Glasses/darkened.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/Eyes/Glasses/darkened.rsi
+  - type: EyeProtection
+  - type: DropOnSlip
+    chance: 20
+  - type: ShadowkinSight

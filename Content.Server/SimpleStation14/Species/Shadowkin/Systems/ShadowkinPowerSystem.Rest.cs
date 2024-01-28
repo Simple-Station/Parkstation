@@ -44,8 +44,8 @@ public sealed class ShadowkinRestSystem : EntitySystem
             return;
 
         // Rest is a funny ability, keep it :)
-        // // Don't activate abilities if handcuffed
-        // if (_entity.HasComponent<HandcuffComponent>(args.Performer))
+        // // Don't activate abilities if specially handcuffed
+        // if (_entity.TryGetComponent<HandcuffComponent>(args.Performer, out var cuffs) && cuffs.AntiShadowkin)
         //     return;
 
 
@@ -59,7 +59,7 @@ public sealed class ShadowkinRestSystem : EntitySystem
             _entity.EnsureComponent<ForcedSleepingComponent>(args.Performer);
             // No waking up normally (it would do nothing)
             _actions.RemoveAction(args.Performer, new InstantAction(_prototype.Index<InstantActionPrototype>("Wake")));
-            _power.TryAddMultiplier(args.Performer, 1.5f);
+            _power.TryAddMultiplier(args.Performer, 2f);
             // No action cooldown
             args.Handled = false;
         }
@@ -69,7 +69,7 @@ public sealed class ShadowkinRestSystem : EntitySystem
             // Wake up
             _entity.RemoveComponent<ForcedSleepingComponent>(args.Performer);
             _entity.RemoveComponent<SleepingComponent>(args.Performer);
-            _power.TryAddMultiplier(args.Performer, -1.5f);
+            _power.TryAddMultiplier(args.Performer, -2f);
             // Action cooldown
             args.Handled = true;
         }

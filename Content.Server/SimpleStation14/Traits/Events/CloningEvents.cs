@@ -21,13 +21,15 @@ namespace Content.Server.SimpleStation14.Traits.Events
         public HumanoidCharacterProfile Profile { get; set; }
         public Mind.Mind Mind { get; set; }
         public EntityUid Mob { get; set; }
+        public EntityUid OriginalMob { get; set; }
         public EntityUid Cloner { get; set; }
 
-        public BeenClonedEvent(HumanoidCharacterProfile profile, Mind.Mind mind, EntityUid mob, EntityUid cloner)
+        public BeenClonedEvent(HumanoidCharacterProfile profile, Mind.Mind mind, EntityUid mob, EntityUid originalMob, EntityUid cloner)
         {
             Profile = profile;
             Mind = mind;
             Mob = mob;
+            OriginalMob = originalMob;
             Cloner = cloner;
         }
     }

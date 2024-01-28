@@ -8,11 +8,15 @@
     "copyright": "https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/5bc3ea02ce03a551c85017f1ddd411315a19a5ca#diff-519788fa2ca74299d1686a44d3ab2098b49ed5ab65d293ec742bead7d49f0b8d",
     "states": [
         {
-            "name": "full",
+            "name": "eyes",
             "directions": 4
         },
         {
-            "name": "head_m",
+            "name": "full-nomarkings",
+            "directions": 4
+        },
+        {
+            "name": "full",
             "directions": 4
         },
         {
@@ -20,15 +24,7 @@
             "directions": 4
         },
         {
-            "name": "torso_m",
-            "directions": 4
-        },
-        {
-            "name": "torso_f",
-            "directions": 4
-        },
-        {
-            "name": "r_arm",
+            "name": "head_m",
             "directions": 4
         },
         {
@@ -36,7 +32,7 @@
             "directions": 4
         },
         {
-            "name": "r_hand",
+            "name": "l_foot",
             "directions": 4
         },
         {
@@ -44,7 +40,11 @@
             "directions": 4
         },
         {
-            "name": "r_leg",
+            "name": "l_leg",
+            "directions": 4
+        },
+        {
+            "name": "r_arm",
             "directions": 4
         },
         {
@@ -52,15 +52,19 @@
             "directions": 4
         },
         {
-            "name": "l_leg",
+            "name": "r_hand",
             "directions": 4
         },
         {
-            "name": "l_foot",
+            "name": "r_leg",
             "directions": 4
         },
         {
-            "name": "eyes",
+            "name": "torso_f",
+            "directions": 4
+        },
+        {
+            "name": "torso_m",
             "directions": 4
         }
     ]

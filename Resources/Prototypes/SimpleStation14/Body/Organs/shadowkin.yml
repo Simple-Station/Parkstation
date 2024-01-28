@@ -1,0 +1,138 @@
+- type: entity
+  id: BaseShadowkinOrgan
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Organ
+  - type: Sprite
+    sprite: SimpleStation14/Mobs/Species/Shadowkin/organs.rsi
+  - type: DynamicPrice
+    price: 70
+
+
+- type: entity
+  id: OrganShadowkinBrain
+  parent: BaseShadowkinOrgan
+  name: brain
+  description: The source of incredible, unending intelligence.
+  components:
+  - type: Sprite
+    state: brain
+  - type: Organ
+  - type: Input
+    context: ghost
+  - type: InputMover
+  - type: MovementSpeedModifier # How the hell does it walk?
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: Brain
+
+- type: entity
+  id: OrganShadowkinEyes
+  parent: BaseShadowkinOrgan
+  name: eyes
+  description: I see beyond anything you ever will!
+  components:
+  - type: Sprite
+    state: eyes
+  - type: Organ
+
+- type: entity
+  id: OrganShadowkinEars
+  parent: BaseShadowkinOrgan
+  name: ears
+  description: Hey, listen!
+  components:
+  - type: Sprite
+    state: ears
+  - type: Organ
+
+- type: entity
+  id: OrganShadowkinTongue
+  parent: BaseShadowkinOrgan
+  name: tongue
+  description: A fleshy muscle mostly used for lying.
+  components:
+  - type: Sprite
+    state: tongue
+  - type: Organ
+
+
+- type: entity
+  id: OrganShadowkinAppendix
+  parent: BaseShadowkinOrgan
+  name: appendix
+  description: What does this do?
+  components:
+  - type: Sprite
+    state: appendix
+  - type: Organ
+
+
+- type: entity
+  id: OrganShadowkinHeart
+  parent: BaseShadowkinOrgan
+  name: heart
+  description: I feel bad for the heartless bastard who lost this.
+  components:
+  - type: Sprite
+    state: heart
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [Shadowkin]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+
+- type: entity
+  id: OrganShadowkinStomach
+  parent: BaseShadowkinOrgan
+  name: stomach
+  description: '"Yummy!", says the stomach, although you are unable to hear it.'
+  components:
+  - type: Sprite
+    state: stomach
+  - type: Organ
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 40
+  - type: Stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [Shadowkin]
+    groups:
+    - id: Food
+    - id: Drink
+
+- type: entity
+  id: OrganShadowkinLiver
+  parent: BaseShadowkinOrgan
+  name: liver
+  description: "Live 'er? I hardly know 'er!"
+  components:
+  - type: Sprite
+    state: liver
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [Shadowkin]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+
+- type: entity
+  id: OrganShadowkinKidneys
+  parent: BaseShadowkinOrgan
+  name: kidneys
+  description: Give the kid their knees back, please, this is the third time this week.
+  components:
+  - type: Sprite
+    state: kidneys
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [Shadowkin]
+    removeEmpty: true

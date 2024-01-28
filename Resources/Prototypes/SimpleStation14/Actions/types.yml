@@ -19,3 +19,13 @@
     sprite: Interface/Alerts/human_alive.rsi
     state: health0
   event: !type:AIHealthOverlayEvent
+
+- type: instantAction
+  id: ShadowkinDarkSwapHardsuitToggle
+  name: action-darkswap-hardsuit-name
+  useDelay: 15
+  icon:
+    sprite: SimpleStation14/Clothing/Head/Hardsuits/darkened.rsi
+    state: icon
+  itemIconStyle: NoItem
+  event: !type:ToggleClothingEvent

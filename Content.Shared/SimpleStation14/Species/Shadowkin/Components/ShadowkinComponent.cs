@@ -14,10 +14,10 @@ public sealed partial class ShadowkinComponent : Component
     public float MaxedPowerRoof = 0f;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MaxedPowerRateMin = 45f;
+    public float MaxedPowerRateMin = 90f;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MaxedPowerRateMax = 150f;
+    public float MaxedPowerRateMax = 200f;
 
 
     [ViewVariables(VVAccess.ReadWrite)]
@@ -77,7 +77,7 @@ public sealed partial class ShadowkinComponent : Component
     ///     How much energy is gained per second.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public float PowerLevelGain = 0.75f;
+    public float PowerLevelGain = 0.5f;
 
     /// <summary>
     ///     Power gain multiplier

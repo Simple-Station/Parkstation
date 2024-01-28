@@ -3,3 +3,5 @@ action-aieye-description = Puts you in to the AI Eye form, allowing you to float
 
 action-aihealth-name = Health Overlay
 action-aihealth-description = Toggles the AI's health overlay.
+
+action-darkswap-hardsuit-name = Dark Swap

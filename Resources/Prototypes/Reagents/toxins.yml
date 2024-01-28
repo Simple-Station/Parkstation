@@ -470,6 +470,14 @@
           type: Animal
         reagent: Protein
         amount: 0.5
+      # Parkstation-Shadowkin Start
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Shadowkin
+        reagent: Protein
+        amount: 0.5
+      # Parkstation-Shadowkin End
 
 - type: reagent
   id: Allicin

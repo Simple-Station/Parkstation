@@ -1,0 +1,21 @@
+- type: entity
+  parent: Handcuffs
+  id: HandcuffsShadowkin
+  name: shadowkin restraints
+  description: One of the first creations after finding Shadowkin, these were used to contain the Shadowkin during research so they didn't teleport away.
+  components:
+  - type: Item
+    size: 20
+  - type: Handcuff
+    cuffedRSI: SimpleStation14/Clothing/OuterClothing/Misc/shadowkin_restraints.rsi
+    breakoutTime: 40
+    damageOnResist:
+      types:
+        Blunt: 2
+    cuffTime: 4
+    uncuffTime: 5
+    stunBonus: 4
+    antiShadowkin: true
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/OuterClothing/Misc/shadowkin_restraints.rsi
+    state: icon
