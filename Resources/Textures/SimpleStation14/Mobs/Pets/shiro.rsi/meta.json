@@ -1,0 +1,20 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by DSC@Cabbage#9633 (561159087765848084)",
+    "states": [
+        {
+            "name": "shiro",
+            "directions": 4
+        },
+
+        {
+            "name": "shiro_dead",
+            "directions": 1
+        }
+    ]
+}

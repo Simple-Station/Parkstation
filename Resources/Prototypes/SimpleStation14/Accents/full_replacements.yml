@@ -1,0 +1,28 @@
+- type: accent
+  id: slimecat
+  fullReplacements:
+  - accent-words-slimecat-1
+  - accent-words-slimecat-2
+  - accent-words-slimecat-3
+  - accent-words-slimecat-4
+  - accent-words-slimecat-5
+
+- type: accent
+  id: shiro
+  fullReplacements:
+  - accent-words-shiro-1
+  - accent-words-shiro-2
+  - accent-words-shiro-3
+  - accent-words-shiro-4
+  - accent-words-shiro-5
+
+- type: accent
+  id: problems
+  fullReplacements:
+  - accent-words-problems-1
+  - accent-words-problems-2
+  - accent-words-problems-3
+  - accent-words-problems-4
+  - accent-words-problems-5
+  - accent-words-problems-6
+  - accent-words-problems-7

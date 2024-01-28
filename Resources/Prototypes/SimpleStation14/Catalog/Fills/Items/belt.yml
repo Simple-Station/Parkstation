@@ -1,0 +1,8 @@
+- type: entity
+  id: ClothingBeltWebbingShiroFilled
+  parent: ClothingBeltWebbingShiro
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: DrinkRewriter

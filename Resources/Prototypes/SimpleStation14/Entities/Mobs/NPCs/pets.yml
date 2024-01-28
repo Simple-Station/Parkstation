@@ -45,3 +45,384 @@
     attributes:
       proper: true
       gender: male
+
+- type: entity
+  name: McG
+  parent: MobMcGriff
+  id: MobMcGriffnt
+  description: This dog can tell something smells
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: SimpleStation14/Mobs/Pets/mc.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mcgriff
+
+- type: entity
+  name: Shiro
+  parent: MobSlimeCat
+  id: MobSlimeCatShiro
+  description: Huh, so this is what Shiro really looks like.
+  components:
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          shiro: ""
+  - type: Sprite
+    drawdepth: Mobs
+    netsync: false
+    sprite: SimpleStation14/Mobs/pets/shiro.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: SimpleStation14/Mobs/pets/shiro.rsi
+      state: shiro
+      color: "#FFFFFF"
+  - type: Physics
+  - type: Inventory
+    speciesId: shiro
+    templateId: shiro
+  - type: Butcherable
+    spawned:
+    - id: FoodShiroSlime
+      amount: 3
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: female
+  - type: ReplacementAccent
+    accent: shiro
+  - type: DraconicBloodstream
+    reagent:
+      solutionName: chemicals
+      reagent: ShirosDelight
+      unitsPerUpdate: 0.5
+      accumulatorTime: 5.0
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Synaptizine
+          Quantity: 30
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 1.0
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+        - ReagentId: Synaptizine
+          Quantity: 0.5
+  - type: MeleeWeapon
+    animation: WeaponArcClaw
+    attackRate: 2
+    damage:
+      types:
+        Blunt: 1
+        Slash: 2
+        Piercing: 2
+  - type: RandomBark
+    barkMultiplier: 0.5
+    barks:
+      - Shiro!
+      - Shiro.
+      - Wah!
+      - Wah.
+      - Shiro?
+      - Squish.  
+    chatlog: True
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 8.0
+    baseSprintSpeed : 4.0
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: false
+    whitelistRequired: false
+    name: Shiro
+    description: Be Shiro! Be fast! Always be fast! Don't be mean!
+  - type: Loadout
+    prototypes: [ ShirosVest ]
+
+- type: entity
+  name: problems
+  id: MobSlimeCatProblems
+  parent: MobSlimeCat
+  description: Defender of the medbay... from mice anyway.
+  components:
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          cat: ""
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: SimpleStation14/Mobs/Pets/problems.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cat
+      alpha: 200
+  - type: Appearance
+  - type: Butcherable
+    spawned:
+    - id: FoodShiroSlime
+      amount: 3
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: cat
+      Critical:
+        Base: cat_dead
+      Dead:
+        Base: cat_dead
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: ReplacementAccent
+    accent: problems
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: neuter
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-cat
+    interactFailureString: petting-failure-generic
+    interactSuccessSound:
+      path: /Audio/Animals/cat_meow.ogg
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: false
+    whitelistRequired: false
+    name: problems
+    description: Be a problems. Eat live power cables. Or not. Who cares? You're a cat.
+
+- type: entity
+  name: Jack Parker
+  id: MobMonkeyJackParker
+  parent: SimpleMobBase
+  description: Hasn't lost a case in his entire career.
+  components:
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-primate
+  - type: Inventory
+    templateId: jackparker
+  - type: InventorySlots
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.35
+      density: 80
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+  - type: Strippable
+  - type: Stripping
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: monkey
+      sprite: SimpleStation14/Mobs/pets/jackparker.rsi
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: Hands
+  - type: Speech
+    speechSounds: Monkey
+  - type: Body
+    prototype: Primate
+    requiredLegs: 1
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: monkey
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Appearance
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Monkey_burning
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Puller
+  - type: CanHostGuardian
+  - type: DiseaseCarrier
+  - type: CombatMode
+    canDisarm: true
+  - type: Cuffable
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcFist
+    damage:
+      types:
+        Blunt: 6
+  - type: RandomBark
+    barkMultiplier: 0.65
+    barks:
+      - Oooook.
+      - Ahahah. 
+      - Ook ah.
+      - Ook.
+      - Ook ook!
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: TypingIndicator
+    proto: lawyer
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: Faction
+    factions:
+    - Pet
+  - type: Loadout
+    prototypes: [ JacksThings ]
+
+- type: entity
+  name: Hughes
+  parent: MobMonkeyJackParker
+  id: MobGorillaHughes
+  description: Don't sign up for human testin' bud.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: crawling
+      sprite: SimpleStation14/Mobs/Pets/hughes.rsi
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.48
+      density: 200
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: crawling
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 4
+  - type: Bloodstream
+    bloodMaxVolume: 300
+  - type: Puller
+  - type: UserInterface
+    interfaces:
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
+  - type: Oni
+    modifiers:
+      coefficients:
+        Blunt: 2
+        Slash: 1.7
+        Piercing: 1.7
+        Asphyxiation: 2
+    stamDamageBonus: 1.7
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      110: Critical
+      220: Dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Oni
+  - type: Stamina
+  - type: MeleeWeapon
+    hidden: true
+    angle: 0
+    animation: WeaponArcFist
+    damage:
+      types:
+        Blunt: 8
+  - type: RandomBark
+    barks:
+      - Grunt.
+  - type: Faction
+    factions:
+    - Pet
+  - type: Loadout
+    prototypes: [ HughesThings ]
+
+- type: entity
+  name: Wilson
+  parent: MobFoxBaby
+  id: MobFoxBabyWilson
+  description: "A two-tailed fox of two tales: music and salvage."
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: SimpleStation14/Mobs/Pets/fox.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: wilson
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: wilson
+      Critical:
+        Base: wilson_dead
+      Dead:
+        Base: wilson_dead
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Faction
+    factions:
+    - Pet
+
+- type: startingGear
+  id: ShirosVest
+  equipment:
+    belt: ClothingBeltWebbingShiroFilled
+
+- type: startingGear
+  id: JacksThings
+  inhand:
+    right hand: BriefcaseBrownFilled
+
+- type: startingGear
+  id: HughesThings
+  inhand:
+    left hand: FoodBanana

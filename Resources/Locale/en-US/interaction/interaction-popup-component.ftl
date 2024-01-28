@@ -25,6 +25,7 @@ petting-success-dragon = Dodging teeth, claws, and flames, you pet {THE($target)
 petting-success-hamster = You pet {THE($target)} on {POSS-ADJ($target)} fluffy little head.
 petting-success-bear = You reluctantly pet {THE($target)} on {POSS-ADJ($target)} mystical head.
 petting-success-slimes = You pet {THE($target)} on {POSS-ADJ($target)} mucous surface.
+petting-success-slime = You pet {THE($target)} on {POSS-ADJ($target)} slimy little head.
 
 petting-failure-generic = You reach out to pet {THE($target)}, but {SUBJECT($target)} {CONJUGATE-BE($target)} aloof towards you.
 

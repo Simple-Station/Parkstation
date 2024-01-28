@@ -1,0 +1,239 @@
+- type: entity
+  name: baby fox
+  parent: MobFox
+  id: MobFoxBaby
+  description: A little fox! Aww...
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: SimpleStation14/Mobs/Pets/fox.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: baby_fox
+  - type: Appearance
+  - type: Inventory
+    speciesId: fox
+    templateId: pet
+  - type: InventorySlots
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: baby_fox
+      Critical:
+        Base: baby_fox_dead
+      Dead:
+        Base: baby_fox_dead
+  - type: Grammar
+    attributes:
+      gender: epicene
+
+- type: entity
+  name: cat
+  parent: SimpleMobBase
+  id: MobCatNoAccent
+  description: Feline pet, very funny.
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Pets/cat.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cat
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.35
+      density: 15
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 3
+        Piercing: 5
+  - type: Appearance
+  - type: Inventory
+    speciesId: cat
+    templateId: pet
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: cat
+      Critical:
+        Base: cat_dead
+      Dead:
+        Base: cat_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: InteractionPopup
+    successChance: 0.7
+    interactSuccessString: petting-success-cat
+    interactFailureString: petting-failure-generic
+    interactSuccessSound:
+      path: /Audio/Animals/cat_meow.ogg
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: MobPrice
+    price: 200
+  - type: Faction
+    factions:
+    - PetCat
+  - type: RandomBark
+    barkMultiplier: 1.0
+    barks:
+      - Meow!
+      - Mow.
+      - Meow.
+      - Mew.
+    chatlog: False
+
+- type: entity
+  name: slime cat
+  parent: SimpleMobBase
+  id: MobSlimeCat
+  description: A cute squishy slime cat. Humorous pet.
+  components:
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          shiro: Sixteen
+  - type: Sprite
+    drawdepth: Mobs
+    netsync: false
+    sprite: SimpleStation14/Mobs/pets/shiro.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: SimpleStation14/Mobs/pets/shiro.rsi
+      state: shiro
+      color: "#FF00FF"
+      alpha: 200
+  - type: Body
+    prototype: AnimalSlime
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.35
+      density: 50
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+  - type: Appearance
+  - type: Inventory
+    speciesId: shiro
+    templateId: pet
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: shiro
+      Critical:
+        Base: shiro_dead
+      Dead:
+        Base: shiro_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlimeWithSlime
+      amount: 3
+  - type: InteractionPopup
+    successChance: 1.0
+    interactSuccessString: petting-success-slime
+    interactFailureString: petting-failure-generic
+    interactSuccessSound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: ReplacementAccent
+    accent: slimecat
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Slime
+  - type: Bloodstream
+    bloodReagent: Slime
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          1
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.45
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaled: true
+        damage:
+          types:
+            Heat: 2
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "slime-hurt-by-water-popup" ]
+        probability: 0.25
+  - type: MeleeWeapon
+    animation: WeaponArcClaw
+    attackRate: 1.4
+    damage:
+      types:
+        Blunt: 1
+        Slash: 3
+        Piercing: 3
+  - type: Faction
+    factions:
+    - PetCat
+  - type: RandomBark
+    barkMultiplier: 1.0
+    barks:
+      - Squish.
+      - Splort.
+      - Meow.
+      - Mew.
+    chatlog: False
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 8.0
+    baseSprintSpeed : 4.0

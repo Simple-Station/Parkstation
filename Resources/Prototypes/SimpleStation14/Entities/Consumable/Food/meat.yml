@@ -1,0 +1,36 @@
+- type: entity
+  name: dissociative slimeball
+  parent: FoodMeatBase
+  id: FoodShiroSlime
+  description: A perfectly round blob of Shiro's slime.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - slimy
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Consumable/Food/shiro.rsi
+    netsync: false
+    state: shiro
+  - type: Tag
+    tags:
+    - Raw
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: ShirosDelight
+          Quantity: 30
+- type: entity
+  name: slimeball
+  parent: FoodMeatSlime
+  id: FoodMeatSlimeWithSlime
+  description: A gelatinous shaping of slime jelly.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Slime
+          Quantity: 30

@@ -8,6 +8,7 @@
     - SimpleHostile
     - Xeno
     - Pet
+    - PetCat
 
 - type: npcFaction
   id: NanoTrasen
@@ -32,6 +33,7 @@
   - Dragon
   - Pet
   - Passive
+  - PetCat
 
 - type: npcFaction
   id: SimpleNeutral
@@ -73,6 +75,7 @@
   - NanoTrasen
   - Syndicate
   - Pet
+  - CatPet
 
 - type: npcFaction
   id: Pet
