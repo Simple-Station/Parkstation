@@ -1,0 +1,9 @@
+- type: listing
+  id: UplinkExplosiveBeenade
+  name: Beenade
+  description: "A grenade... Full of bees. Now THIS is truly evil."
+  productEntity: GrenadeBees
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkExplosives
