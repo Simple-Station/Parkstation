@@ -1,0 +1,82 @@
+- type: entity
+  id: CratePV3Pistol
+  parent: CrateWeaponSecure
+  name: PV-3 Mini Crate
+  description: "A crate containing three PV-3 Mini energy Personal Defense Weapons"
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponLaserPv3Mini
+      - id: WeaponLaserPv3Mini
+      - id: WeaponLaserPv3Mini
+
+- type: entity
+  id: CratePV3Smg
+  parent: CrateWeaponSecure
+  name: PV-3 Compact Crate
+  description: "A crate containing three PV-3 Compact Energy Assault Weapons"
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponLaserPv3Compact
+      - id: WeaponLaserPv3Compact
+      - id: WeaponLaserPv3Compact
+
+- type: entity
+  id: CrateK12Pistol
+  parent: CrateWeaponSecure
+  name: K12 Mini Crate
+  description: "A crate containing two K12 Mini Ballistic Personal Defense Weapons"
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponPistolK12Mini
+      - id: WeaponPistolK12Mini
+      - id: MagazinePistol
+      - id: MagazinePistol
+      - id: MagazinePistol
+      - id: MagazinePistol
+
+- type: entity
+  id: CrateK12Smg
+  parent: CrateWeaponSecure
+  name: K12 Compact Crate
+  description: "A crate containing two K12 Compact Ballistic Assault Weapons"
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSubMachineGunK12Compact
+      - id: WeaponSubMachineGunK12Compact
+      - id: MagazinePistolSubMachineGun
+      - id: MagazinePistolSubMachineGun
+      - id: MagazinePistolSubMachineGun
+      - id: MagazinePistolSubMachineGun
+
+- type: entity
+  id: CrateMilitia
+  parent: CrateWeaponSecure
+  name: Militia Crate
+  description: "A crate containing four Mark 1 rifles, four armor vests, four berets, and eight stripper clips of .30 rifle"
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSniperGrand
+      - id: WeaponSniperGrand
+      - id: WeaponSniperGrand
+      - id: WeaponSniperGrand
+      - id: SpeedLoaderLightRifle
+      - id: SpeedLoaderLightRifle
+      - id: SpeedLoaderLightRifle
+      - id: SpeedLoaderLightRifle
+      - id: SpeedLoaderLightRifle
+      - id: SpeedLoaderLightRifle
+      - id: SpeedLoaderLightRifle
+      - id: SpeedLoaderLightRifle
+      - id: ClothingHeadHatBeret
+      - id: ClothingHeadHatBeret
+      - id: ClothingHeadHatBeret
+      - id: ClothingHeadHatBeret
+      - id: ClothingOuterArmorBasic
+      - id: ClothingOuterArmorBasic
+      - id: ClothingOuterArmorBasic
+      - id: ClothingOuterArmorBasic

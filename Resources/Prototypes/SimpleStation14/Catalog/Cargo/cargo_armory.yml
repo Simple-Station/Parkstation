@@ -1,0 +1,49 @@
+- type: cargoProduct
+  id: ArmoryPv3Pistol
+  icon:
+    sprite: SimpleStation14/Objects/Weapons/Guns/Pistols/pv3mini.rsi
+    state: icon
+  product: CratePV3Pistol
+  cost: 6000
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: ArmoryPv3Smg
+  icon:
+    sprite: SimpleStation14/Objects/Weapons/Guns/SMGs/pv3compact.rsi
+    state: icon
+  product: CratePV3Smg
+  cost: 10000
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: ArmoryK12Pistol
+  icon:
+    sprite: SimpleStation14/Objects/Weapons/Guns/Pistols/k12mini.rsi
+    state: icon
+  product: CrateK12Pistol
+  cost: 4000
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: ArmoryK12Smg
+  icon:
+    sprite: SimpleStation14/Objects/Weapons/Guns/Smgs/k12compact.rsi
+    state: icon
+  product: CrateK12Smg
+  cost: 8000
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: ArmoryMilitia
+  icon:
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Snipers/grand_rifle.rsi
+    state: base
+  product: CrateMilitia
+  cost: 6000
+  category: Armory
+  group: market

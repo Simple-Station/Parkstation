@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: EngineeringPortableGenerator
+  icon:
+    sprite: Structures/Power/power.rsi
+    state: generator
+  product: CrateEngineeringPortableGenerator
+  cost: 1000
+  category: Engineering
+  group: market

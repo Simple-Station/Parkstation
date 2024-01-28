@@ -2,7 +2,7 @@
   name: pv3 compact
   parent: BaseWeaponBattery
   id: WeaponLaserPv3Compact
-  description: Standard issue Nyanotrasen laser SMG. Pew! Pew pew! Now we're talkin' scifi!
+  description: Standard issue Nanotrasen laser SMG. Pew! Pew pew! Now we're talkin' scifi!
   components:
   - type: Item
     size: 28
@@ -39,7 +39,7 @@
   name: pv3 mini
   parent: BaseWeaponBatterySmall
   id: WeaponLaserPv3Mini
-  description: Standard issue Nyanotrasen laser sidearm. This thing can bullseye a two metre target, it's not impossible!
+  description: Standard issue Nanotrasen laser sidearm. This thing can bullseye a two metre target, it's not impossible!
   components:
   - type: Sprite
     sprite: SimpleStation14/Objects/Weapons/Guns/Pistols/pv3mini.rsi
