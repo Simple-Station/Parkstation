@@ -77,6 +77,18 @@
     naturalImmunities:
     - Ultragigacancer
     - BleedersBite
+  - type: ReagentDamageModifier
+    modifierSet: SlimeReagents
+  - type: Temperature
+    heatDamageThreshold: 422
+    coldDamageThreshold: 285
+    currentTemperature: 320
+    coldDamage:
+      types:
+        Cold : 0.3
+    heatDamage:
+      types:
+        Heat : 0.1
 
 - type: entity
   save: false

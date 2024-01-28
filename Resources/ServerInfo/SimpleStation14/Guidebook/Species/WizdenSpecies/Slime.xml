@@ -9,19 +9,28 @@ Slimes are sentient beings made from jelly that commonly appear as humans to ble
 
 ## Ability Differences
 
-- Slimes have jelly instead of blood, which is toxic to other species when consumed.
-- Slimes are incapable of living in cold environments, dying very quickly.
-- To contrast, Slimes are able to survive longer in hot environments.
-- Take less brute damage.
-- Take more slash damage.
-- Breathe Nitrogen instead of Oxygen.
+- Have jelly instead of blood, which is toxic to other species when consumed
+- Incapable of living in cold environments, dying very quickly
+- Able to live in warmer environments
+- Breathe Nitrogen instead of Oxygen
+- Poison damage is inverted
+- Minor blunt damages are without effect, but strong damages are singificantly more effective
+- Take more slash damage
+- Take half piercing damage
+- Take more cold damage
+- Take much less heat damage
+- Take much less cellular damage
+- Take a little less asphyxiation damage
+- Take a little more bloodloss damage
+- Take much less shock damage
+- Take much less radiation damage
 
 ## Physical Differences
 
-- Slimes are slightly transparent.
-- Can have any color of skin.
-- Have several additional marking options.
-- Have different voices (screams/laughs).
-- Can "Squish" (emote).
-- Can be Genderless.
+- Slightly transparent
+- Can have any color of skin
+- Several additional marking options
+- Different voices (screams/laughs)
+- Can "Squish" (emote)
+- Can be genderless
 </Document>

@@ -5,6 +5,8 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Localizations;
+using Content.Shared.SimpleStation14.Damage.Events;
+using Content.Shared.SimpleStation14.Damage.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
@@ -112,10 +114,17 @@ namespace Content.Server.Chemistry.ReagentEffects
 
         public override void Effect(ReagentEffectArgs args)
         {
+            // Parkstation-ReagentDamageModifiers Start
+            var damage = Damage;
+
+            damage = args.EntityManager.System<ReagentDamageModifierSystem>().ModifyDamage(args.SolutionEntity, damage);
+
             var scale = ScaleByQuantity ? args.Quantity * 2 : FixedPoint2.New(1);  // Parkstation-fixReagentSuperPotency
             scale *= args.Scale;
+            damage *= scale;
 
-            args.EntityManager.System<DamageableSystem>().TryChangeDamage(args.SolutionEntity, Damage * scale, IgnoreResistances);
+            args.EntityManager.System<DamageableSystem>().TryChangeDamage(args.SolutionEntity, damage, IgnoreResistances);
+            // Parkstation-ReagentDamageModifiers End
         }
     }
 }

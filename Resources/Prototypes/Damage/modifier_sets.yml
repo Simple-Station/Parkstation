@@ -109,12 +109,19 @@
 - type: damageModifierSet
   id: Slime
   coefficients:
-    Blunt: 0.6
-    Slash: 1.2
-    Piercing: 1.2
-    Cold: 1.5
-    Poison: 0.8
+    Blunt: 2 # Lots of blunt, if they do more than 5 damage
+    Slash: 1.5
+    Piercing: 0.5
+    Cold: 1.6
+    Heat: 0.4
+    Poison: -1
     Cellular: 0.2
+    Asphyxiation: 0.9
+    Bloodloss: 1.1
+    Shock: 0.4
+    Radiation: 0.5
+  flatReductions:
+    Blunt: 4.5
 
 - type: damageModifierSet
   id: Infernal
