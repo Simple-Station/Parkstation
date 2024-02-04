@@ -4244,17 +4244,10 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 3490
-      - 640
-      - 3583
-      - 3582
-      - 3516
-      - 3517
-      - 7443
-      - 7370
-      - 12473
-      - 12413
-      - 12515
+      - 638
+      - 3483
+      - 12441
+      - 12505
       type: DeviceNetwork
     - devices:
       - 3490
@@ -4268,6 +4261,10 @@ entities:
       - 12473
       - 12413
       - 12515
+      - 638
+      - 3483
+      - 12441
+      - 12505
       type: DeviceList
   - uid: 3499
     components:
@@ -38694,6 +38691,18 @@ entities:
     - pos: -29.5,35.5
       parent: 2
       type: Transform
+  - uid: 5282
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 22.5,35.5
+      parent: 2
+      type: Transform
+  - uid: 5286
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 13.5,37.5
+      parent: 2
+      type: Transform
   - uid: 5308
     components:
     - rot: 1.5707963267948966 rad
@@ -38926,7 +38935,8 @@ entities:
       type: Transform
   - uid: 7701
     components:
-    - pos: 28.5,30.5
+    - rot: -1.5707963267948966 rad
+      pos: 33.5,34.5
       parent: 2
       type: Transform
   - uid: 7702
@@ -39035,25 +39045,13 @@ entities:
       type: Transform
   - uid: 7721
     components:
-    - rot: 1.5707963267948966 rad
-      pos: 13.5,36.5
+    - pos: 26.5,36.5
       parent: 2
       type: Transform
   - uid: 7722
     components:
     - rot: -1.5707963267948966 rad
-      pos: 22.5,35.5
-      parent: 2
-      type: Transform
-  - uid: 7723
-    components:
-    - pos: 26.5,36.5
-      parent: 2
-      type: Transform
-  - uid: 7724
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 33.5,34.5
+      pos: 11.5,35.5
       parent: 2
       type: Transform
   - uid: 7726
@@ -39631,12 +39629,6 @@ entities:
       pos: 16.5,11.5
       parent: 2
       type: Transform
-  - uid: 14003
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 11.5,35.5
-      parent: 2
-      type: Transform
 - proto: EmergencyRollerBed
   entities:
   - uid: 1906
@@ -40004,6 +39996,53 @@ entities:
       type: Transform
 - proto: FireAlarm
   entities:
+  - uid: 7723
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 22.5,20.5
+      parent: 2
+      type: Transform
+    - ShutdownSubscribers:
+      - 8261
+      - 8262
+      - 8263
+      - 8244
+      - 8245
+      - 1869
+      - 1870
+      - 10687
+      type: DeviceNetwork
+    - devices:
+      - 8261
+      - 8262
+      - 8263
+      - 8244
+      - 8245
+      - 1869
+      - 1870
+      - 10687
+      type: DeviceList
+  - uid: 7724
+    components:
+    - pos: 25.5,20.5
+      parent: 2
+      type: Transform
+    - ShutdownSubscribers:
+      - 1870
+      - 1869
+      - 8250
+      - 10688
+      - 8260
+      - 10687
+      type: DeviceNetwork
+    - devices:
+      - 1870
+      - 1869
+      - 8250
+      - 10688
+      - 8260
+      - 10687
+      type: DeviceList
   - uid: 12769
     components:
     - pos: -6.5,5.5
@@ -40447,53 +40486,6 @@ entities:
       - 8140
       - 8141
       type: DeviceList
-  - uid: 12781
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 25.5,20.5
-      parent: 2
-      type: Transform
-    - ShutdownSubscribers:
-      - 1869
-      - 1870
-      - 8245
-      - 8244
-      - 10687
-      - 8261
-      - 8262
-      - 8263
-      type: DeviceNetwork
-    - devices:
-      - 1869
-      - 1870
-      - 8245
-      - 8244
-      - 10687
-      - 8261
-      - 8262
-      - 8263
-      type: DeviceList
-  - uid: 12782
-    components:
-    - pos: 22.5,20.5
-      parent: 2
-      type: Transform
-    - ShutdownSubscribers:
-      - 1870
-      - 1869
-      - 8250
-      - 10688
-      - 8260
-      - 10687
-      type: DeviceNetwork
-    - devices:
-      - 1870
-      - 1869
-      - 8250
-      - 10688
-      - 8260
-      - 10687
-      type: DeviceList
   - uid: 12783
     components:
     - rot: 1.5707963267948966 rad
@@ -40539,14 +40531,8 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 3490
-      - 640
-      - 3583
-      - 3582
-      - 3516
-      - 3517
-      - 7443
-      - 7370
+      - 638
+      - 3483
       type: DeviceNetwork
     - devices:
       - 3490
@@ -40557,6 +40543,8 @@ entities:
       - 3517
       - 7443
       - 7370
+      - 3483
+      - 638
       type: DeviceList
   - uid: 12786
     components:
@@ -40709,6 +40697,28 @@ entities:
     - pos: 39.5,36.5
       parent: 2
       type: Transform
+    - ShutdownSubscribers:
+      - 1873
+      - 10673
+      - 10674
+      - 8282
+      - 8281
+      - 8313
+      - 8314
+      - 8293
+      - 8162
+      type: DeviceNetwork
+    - devices:
+      - 1873
+      - 10673
+      - 10674
+      - 8282
+      - 8281
+      - 8313
+      - 8314
+      - 8293
+      - 8162
+      type: DeviceList
   - uid: 12793
     components:
     - rot: -1.5707963267948966 rad
@@ -41136,8 +41146,8 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 12781
-      - 12782
+      - 7723
+      - 7724
       - 8149
       type: DeviceNetwork
   - uid: 1870
@@ -41146,8 +41156,8 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 12781
-      - 12782
+      - 7723
+      - 7724
       - 8149
       type: DeviceNetwork
   - uid: 3491
@@ -41290,6 +41300,7 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 7541
+      - 12792
       type: DeviceNetwork
   - uid: 8163
     components:
@@ -41899,7 +41910,7 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 12782
+      - 7724
       - 8149
       - 7738
       type: DeviceNetwork
@@ -41909,7 +41920,7 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 12781
+      - 7723
       type: DeviceNetwork
   - uid: 8262
     components:
@@ -41917,7 +41928,7 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 12781
+      - 7723
       - 7621
       type: DeviceNetwork
   - uid: 8263
@@ -41926,7 +41937,7 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 12781
+      - 7723
       - 7621
       type: DeviceNetwork
   - uid: 8264
@@ -42081,6 +42092,7 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 7541
+      - 12792
       type: DeviceNetwork
   - uid: 8282
     components:
@@ -42089,6 +42101,7 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 7541
+      - 12792
       type: DeviceNetwork
   - uid: 8283
     components:
@@ -42187,6 +42200,7 @@ entities:
     - ShutdownSubscribers:
       - 7534
       - 7541
+      - 12792
       type: DeviceNetwork
   - uid: 8294
     components:
@@ -42259,11 +42273,17 @@ entities:
     - pos: 45.5,40.5
       parent: 2
       type: Transform
+    - ShutdownSubscribers:
+      - 12792
+      type: DeviceNetwork
   - uid: 8314
     components:
     - pos: 43.5,40.5
       parent: 2
       type: Transform
+    - ShutdownSubscribers:
+      - 12792
+      type: DeviceNetwork
   - uid: 8319
     components:
     - pos: 48.5,-3.5
@@ -42493,9 +42513,9 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 12782
+      - 7724
       - 8149
-      - 12781
+      - 7723
       type: DeviceNetwork
   - uid: 10688
     components:
@@ -42503,7 +42523,7 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 12782
+      - 7724
       - 8149
       - 12783
       - 8376
@@ -42895,16 +42915,14 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 3589
+      - 12785
+      - 3498
       type: DeviceNetwork
   - uid: 640
     components:
     - pos: 44.5,3.5
       parent: 2
       type: Transform
-    - ShutdownSubscribers:
-      - 12785
-      - 3498
-      type: DeviceNetwork
   - uid: 1866
     components:
     - pos: -21.5,30.5
@@ -42935,6 +42953,7 @@ entities:
     - ShutdownSubscribers:
       - 12799
       - 7541
+      - 12792
       type: DeviceNetwork
   - uid: 3483
     components:
@@ -42943,51 +42962,35 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 3499
+      - 12785
+      - 3498
       type: DeviceNetwork
   - uid: 3490
     components:
     - pos: 42.5,3.5
       parent: 2
       type: Transform
-    - ShutdownSubscribers:
-      - 12785
-      - 3498
-      type: DeviceNetwork
   - uid: 3516
     components:
     - pos: 46.5,9.5
       parent: 2
       type: Transform
-    - ShutdownSubscribers:
-      - 12785
-      - 3498
-      type: DeviceNetwork
   - uid: 3517
     components:
     - pos: 46.5,12.5
       parent: 2
       type: Transform
-    - ShutdownSubscribers:
-      - 12785
-      - 3498
-      type: DeviceNetwork
   - uid: 3582
     components:
     - pos: 46.5,6.5
       parent: 2
       type: Transform
-    - ShutdownSubscribers:
-      - 12785
-      - 3498
-      type: DeviceNetwork
   - uid: 3583
     components:
     - pos: 45.5,4.5
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 12785
-      - 3498
       - 652
       type: DeviceNetwork
   - uid: 4244
@@ -43004,8 +43007,6 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 12785
-      - 3498
       - 12746
       type: DeviceNetwork
   - uid: 7443
@@ -43013,10 +43014,6 @@ entities:
     - pos: 46.5,15.5
       parent: 2
       type: Transform
-    - ShutdownSubscribers:
-      - 12785
-      - 3498
-      type: DeviceNetwork
   - uid: 8125
     components:
     - pos: 6.5,31.5
@@ -43419,7 +43416,7 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 12779
-      - 12781
+      - 7723
       type: DeviceNetwork
   - uid: 8245
     components:
@@ -43428,7 +43425,7 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 12779
-      - 12781
+      - 7723
       type: DeviceNetwork
   - uid: 8250
     components:
@@ -43436,7 +43433,7 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 12782
+      - 7724
       - 8149
       type: DeviceNetwork
   - uid: 8251
@@ -43634,6 +43631,7 @@ entities:
     - ShutdownSubscribers:
       - 12799
       - 7541
+      - 12792
       type: DeviceNetwork
   - uid: 10674
     components:
@@ -43643,6 +43641,7 @@ entities:
     - ShutdownSubscribers:
       - 12799
       - 7541
+      - 12792
       type: DeviceNetwork
   - uid: 10675
     components:
@@ -66121,9 +66120,6 @@ entities:
     - pos: 44.5,8.5
       parent: 2
       type: Transform
-    - ShutdownSubscribers:
-      - 3498
-      type: DeviceNetwork
     - enabled: False
       type: AmbientSound
     - color: '#0053D6FF'
@@ -66187,6 +66183,9 @@ entities:
       pos: 40.5,6.5
       parent: 2
       type: Transform
+    - ShutdownSubscribers:
+      - 3498
+      type: DeviceNetwork
     - enabled: False
       type: AmbientSound
     - color: '#0053D6FF'
@@ -66232,9 +66231,6 @@ entities:
       pos: 44.5,13.5
       parent: 2
       type: Transform
-    - ShutdownSubscribers:
-      - 3498
-      type: DeviceNetwork
     - enabled: False
       type: AmbientSound
     - color: '#0053D6FF'
@@ -68216,6 +68212,9 @@ entities:
       pos: 38.5,8.5
       parent: 2
       type: Transform
+    - ShutdownSubscribers:
+      - 3498
+      type: DeviceNetwork
     - enabled: False
       type: AmbientSound
     - color: '#FF8100FF'
@@ -68239,9 +68238,6 @@ entities:
       pos: 43.5,5.5
       parent: 2
       type: Transform
-    - ShutdownSubscribers:
-      - 3498
-      type: DeviceNetwork
     - enabled: False
       type: AmbientSound
     - color: '#FF8100FF'
@@ -75284,17 +75280,16 @@ entities:
       type: Transform
 - proto: PaperDoor
   entities:
-  - uid: 5282
+  - uid: 12781
     components:
-    - pos: 50.5,-9.5
+    - rot: -1.5707963267948966 rad
+      pos: 50.5,-9.5
       parent: 2
       type: Transform
-    - SecondsUntilStateChange: -108708.13
-      state: Opening
-      type: Door
-  - uid: 5286
+  - uid: 12782
     components:
-    - pos: 50.5,-5.5
+    - rot: -1.5707963267948966 rad
+      pos: 50.5,-5.5
       parent: 2
       type: Transform
 - proto: PaperOffice
@@ -77226,7 +77221,7 @@ entities:
   - uid: 13730
     components:
     - rot: 1.5707963267948966 rad
-      pos: 13.5,37.5
+      pos: 13.5,36.5
       parent: 2
       type: Transform
     - enabled: False
