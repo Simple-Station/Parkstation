@@ -12,6 +12,8 @@ using Content.Shared.Borgs;
 using Content.Server.Borgs;
 using Robust.Server.GameObjects;
 using Content.Server.Visible;
+using Content.Shared.SimpleStation14.Holograms.Components;
+using Content.Shared.SimpleStation14.Holograms;
 
 namespace Content.Server.SimpleStation14.StationAI
 {
@@ -69,6 +71,10 @@ namespace Content.Server.SimpleStation14.StationAI
 
             Transform(projection).AttachToGridOrMap();
             _mindSwap.Swap(uid, projection);
+
+            // Hologram stuff.
+            if (TryComp<HologramServerLinkedComponent>(projection, out var serverLinkedComp))
+                serverLinkedComp.LinkedServer = uid;
 
             // Consistent name
             _entityManager.GetComponent<MetaDataComponent>(projection).EntityName =

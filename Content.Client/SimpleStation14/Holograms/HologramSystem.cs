@@ -10,29 +10,43 @@ namespace Content.Client.SimpleStation14.Holograms;
 public sealed class HologramSystem : SharedHologramSystem
 {
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HologramProjectedComponent, ComponentShutdown>(OnHoloProjectedShutdown);
+        SubscribeLocalEvent<HologramProjectedComponent, ComponentShutdown>(OnProjectedShutdown);
     }
 
     public override void Update(float frameTime)
     {
-        var player = _player.LocalPlayer?.ControlledEntity; // This makes it so only the currently controlled entity is predicted, assuming they're a hologram.
+        var player = _player.LocalPlayer?.ControlledEntity;
         if (TryComp<HologramProjectedComponent>(player, out var holoProjComp))
-            ProjectedUpdate(player.Value, holoProjComp, frameTime);
+        {
+            ProjectedUpdate(player.Value, holoProjComp, frameTime); // This makes it so only the currently controlled entity is predicted, assuming they're a hologram.
+
+            // Check if we should be setting the eye target of the hologram.
+            if (holoProjComp.SetEyeTarget && TryComp<EyeComponent>(player.Value, out var eyeComp))
+                eyeComp.Target = holoProjComp.CurProjector;
+        }
 
         HandleProjectedEffects(EntityQueryEnumerator<HologramProjectedComponent>());
+    }
+
+    private void OnProjectedShutdown(EntityUid hologram, HologramProjectedComponent component, ComponentShutdown args)
+    {
+        DeleteEffect(component);
+
+        if (component.SetEyeTarget && TryComp<EyeComponent>(hologram, out var eyeComp))
+            eyeComp.Target = null; // This should be fine? I guess if you're a hologram riding a vehicle when this happens it'd be a bit weird.
     }
 
     private void HandleProjectedEffects(EntityQueryEnumerator<HologramProjectedComponent> query)
     {
         while (query.MoveNext(out var hologram, out var holoProjectedComp))
         {
-            if (!holoProjectedComp.DoProjectionEffect)
+            if (holoProjectedComp.EffectPrototype == null)
             {
                 DeleteEffect(holoProjectedComp);
                 continue;
@@ -58,12 +72,30 @@ public sealed class HologramSystem : SharedHologramSystem
                 continue;
             }
 
+            var originPos = projCoords.Position;
+
+            // Add the effect's offset, if applicable.
+            if (TryComp<HologramProjectorComponent>(projector, out var projComp))
+            {
+                var direction = projXformComp.LocalRotation.GetCardinalDir();
+
+                var offset = direction switch
+                {
+                    Direction.North => projComp.EffectOffsets[Direction.South],
+                    Direction.South => projComp.EffectOffsets[Direction.North],
+                    Direction.East => projComp.EffectOffsets[Direction.West],
+                    Direction.West => projComp.EffectOffsets[Direction.East],
+                    _ => Vector2.Zero
+                };
+
+                originPos += offset;
+            }
+
             // Determine a middle point between the hologram and the projector.
-            var effectPos = (holoCoords.Position + projCoords.Position) / 2;
-            // Offset the position a quarter tile towards the projector.
-            effectPos += (projCoords.Position - holoCoords.Position).Normalized() * 0.25f;
+            var effectPos = (holoCoords.Position + originPos) / 2;
+
             // Determine a rotation that points from the projector to the hologram.
-            var effectRot = (holoCoords.Position - projCoords.Position).ToAngle() + -MathHelper.PiOver2;
+            var effectRot = (holoCoords.Position - originPos).ToAngle() - MathHelper.PiOver2;
 
             var effectCoords = new EntityCoordinates(holoCoords.EntityId, effectPos);
             if (!effectCoords.IsValid(EntityManager))
@@ -81,14 +113,10 @@ public sealed class HologramSystem : SharedHologramSystem
             _transform.SetLocalRotation(holoProjectedComp.EffectEntity.Value, effectRot);
 
             // Determine the scaling factor to make it fit between the hologram and the projector.
-            var effectScale = new Vector2(1, (holoCoords.Position - projCoords.Position).Length());
-            Comp<SpriteComponent>(holoProjectedComp.EffectEntity.Value).Scale = effectScale.Y > 0.1f ? effectScale : Vector2.One;
+            var yScale = (holoCoords.Position - originPos).Length();
+            var effectScale = new Vector2(1, Math.Max(0.1f, yScale)); // No smaller than 0.1.
+            Comp<SpriteComponent>(holoProjectedComp.EffectEntity.Value).Scale = effectScale;
         }
-    }
-
-    private void OnHoloProjectedShutdown(EntityUid uid, HologramProjectedComponent component, ComponentShutdown args)
-    {
-        DeleteEffect(component);
     }
 
     private void DeleteEffect(HologramProjectedComponent component)

@@ -1,8 +1,6 @@
 using Content.Shared.Interaction.Events;
-using Content.Shared.Interaction.Components;
 using Content.Shared.Tag;
 using Content.Shared.Popups;
-using Robust.Shared.Player;
 using Content.Shared.Storage.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Pulling;
@@ -30,7 +28,7 @@ public abstract partial class SharedHologramSystem : EntitySystem
     protected const string PopupInteractionWithHoloFail = "system-hologram-interaction-with-holo-fail";
 
     public const string TagHardLight = "Hardlight";
-    public const string TagHoloMapped = "HoloMapped";
+    public const string TagHoloMapped = "HoloMapped"; // TODO: HOLO
 
     public override void Initialize()
     {
@@ -38,12 +36,14 @@ public abstract partial class SharedHologramSystem : EntitySystem
         SubscribeLocalEvent<HologramComponent, GettingInteractedWithAttemptEvent>(OnInteractionWithHoloAttempt);
         SubscribeLocalEvent<HologramComponent, StoreMobInItemContainerAttemptEvent>(OnStoreInContainerAttempt);
         SubscribeLocalEvent<HologramComponent, PreventCollideEvent>(OnHoloCollide);
+
+        InitalizeServerLinked();
     }
 
     // Stops the Hologram from interacting with anything they shouldn't.
     private void OnHoloInteractionAttempt(EntityUid uid, HologramComponent component, InteractionAttemptEvent args)
     {
-        if (HoloInteractionAllowed(args.Uid, args.Target) || args.Target == null)
+        if (HoloInteractionAllowed(args.Uid, args.Target))
             return;
 
         args.Cancel();
@@ -58,7 +58,7 @@ public abstract partial class SharedHologramSystem : EntitySystem
     private void OnInteractionWithHoloAttempt(EntityUid uid, HologramComponent component, GettingInteractedWithAttemptEvent args)
     {
         // Allow the interaction if either of them are hardlight, or if the interactor is a Hologram.
-        if (HoloInteractionAllowed(uid, args.Uid) || args.Target == null)
+        if (HoloInteractionAllowed(uid, args.Uid))
             return;
 
         args.Cancel();
@@ -71,7 +71,7 @@ public abstract partial class SharedHologramSystem : EntitySystem
 
     private void OnHoloCollide(EntityUid uid, HologramComponent component, ref PreventCollideEvent args)
     {
-        if (_tags.HasAnyTag(args.OtherEntity, component.CollideTags) || HoloInteractionAllowed(args.OurEntity, args.OtherEntity, component))
+        if (Transform(args.OtherEntity).Anchored || HoloInteractionAllowed(args.OurEntity, args.OtherEntity, component))
             return;
 
         args.Cancelled = true;
@@ -89,32 +89,32 @@ public abstract partial class SharedHologramSystem : EntitySystem
             return true;
         return _tags.HasTag(hologram, TagHardLight) || _tags.HasTag(potential.Value, TagHardLight) || Resolve(hologram, ref holoComp) == HasComp<HologramComponent>(potential);
     }
+
+    /// <summary>
+    ///     Kills a Hologram after playing the visual and auditory effects.
+    /// </summary>
+    /// <remarks>
+    ///     Note that the effects of killing a Hologram are not predicted.
+    /// </remarks>
+    public bool TryKillHologram(EntityUid hologram, HologramComponent? holoComp = null)
+    {
+        if (!Resolve(hologram, ref holoComp))
+            return false;
+
+        var killedEvent = new HologramKillAttemptEvent();
+        RaiseLocalEvent(hologram, ref killedEvent);
+        if (killedEvent.Cancelled)
+            return false;
+
+        DoKillHologram(hologram, holoComp);
+        return true;
+    }
+
+    /// <summary>
+    ///     Kills a Hologram, playing the effects and deleting the entity.
+    /// </summary>
+    /// <remarks>
+    ///     This function does nothing if called on the client.
+    /// </remarks>
+    public virtual void DoKillHologram(EntityUid hologram, HologramComponent? holoComp = null) { } // The killing is dealt with server-side, due to mind component.
 }
-// public struct HoloData
-// {
-//     [DataField("type")]
-//     public HoloType Type { get; set; }
-
-//     [DataField("isHardlight")]
-//     public bool IsHardlight { get; set; }
-
-//     public HoloData(HoloType type, bool isHardlight = false)
-//     {
-//         Type = type;
-//         IsHardlight = isHardlight;
-//     }
-// }
-
-
-// [Serializable, NetSerializable]
-// public sealed class HoloTeleportEvent : EntityEventArgs
-// {
-//     public readonly EntityUid Uid;
-//     public readonly List<EntityUid> Lights;
-
-//     public ShadekinDarkenEvent(EntityUid uid, List<EntityUid> lights)
-//     {
-//         Uid = uid;
-//         Lights = lights;
-//     }
-// }

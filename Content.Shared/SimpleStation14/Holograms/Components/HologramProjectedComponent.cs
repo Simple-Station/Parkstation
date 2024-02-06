@@ -1,4 +1,5 @@
 using Content.Shared.Tag;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -14,10 +15,10 @@ namespace Content.Shared.SimpleStation14.Holograms.Components;
 public sealed partial class HologramProjectedComponent : Component
 {
     /// <summary>
-    ///     A list of tags to check for on projectors, to determine if they're valid.
+    ///     A whitelist to check for on projectors, to determine if they're valid.
     /// </summary>
-    [DataField("validProjectorTags", customTypeSerializer: typeof(PrototypeIdListSerializer<TagPrototype>)), ViewVariables(VVAccess.ReadWrite)]
-    public List<string> ValidProjectorTags = new();
+    [DataField("validProjectorWhitelist"), ViewVariables(VVAccess.ReadWrite)]
+    public EntityWhitelist ValidProjectorWhitelist = new();
 
     /// <summary>
     ///     A timer for a grace period before the Holo is returned, to allow for moving through doors.
@@ -28,20 +29,27 @@ public sealed partial class HologramProjectedComponent : Component
     /// <summary>
     ///     The maximum range from a projector a Hologram can be before they're returned.
     /// </summary>
+    /// <remarks>
+    ///     Note that making this number larger than PVS is highly inadvisable, as the client will be stuck predicting the Hologram returning while the server confirms that they do not.
+    /// </remarks>
     [DataField("projectorRange"), ViewVariables(VVAccess.ReadWrite)]
-    public float ProjectorRange = 18f;
+    public float ProjectorRange = 14f;
 
     /// <summary>
-    ///     The prototype of the effect to spawn for the Hologram's projection, assuming <see cref="DoProjectionEffect"/> is true.
+    ///     The prototype of the effect to spawn for the Hologram's projection. Leave null to disable the visual projection effect.
     /// </summary>
     [DataField("effectPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string EffectPrototype = "EffectHologramProjectionBeam";
+    public string? EffectPrototype;
 
     /// <summary>
-    ///     Whether or not the Hologram should have a visual projection effect.
+    ///     Whether or not the Hologram's vision should snap to the projector they're projected from.
     /// </summary>
-    [DataField("doProjectionEffect"), ViewVariables(VVAccess.ReadWrite)]
-    public bool DoProjectionEffect = true;
+    /// <remarks>
+    ///     This provides a super cool effect of the Hologram only getting the visual information they technically should, but it's also a bit of a pain from a player perspective.
+    ///     Primarily used for the station AI.
+    /// </remarks>
+    [DataField("setEyeTarget"), ViewVariables(VVAccess.ReadWrite)]
+    public bool SetEyeTarget = false;
 
     /// <summary>
     ///     The current projector the hologram is connected to.

@@ -7,11 +7,21 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Pulling.Components;
 using Content.Shared.Database;
 using Content.Shared.SimpleStation14.Holograms.Components;
+using Robust.Shared.Configuration;
+using Robust.Shared;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared.SimpleStation14.Holograms;
 
-public abstract partial class SharedHologramSystem
+public partial class SharedHologramSystem
 {
+    [Dependency] private readonly IConfigurationManager _config = default!;
+
+    private void InitializeProjected()
+    {
+        SubscribeLocalEvent<HologramProjectedComponent, ComponentInit>(OnProjectedInit);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -27,38 +37,30 @@ public abstract partial class SharedHologramSystem
     /// <param name="hologram">The hologram to return.</param>
     /// <param name="holoKilled">True if the hologram was killed, false if it was returned.</param>
     /// <param name="holoProjectedComp">The hologram's projected component.</param>
-    public virtual void DoReturnHologram(EntityUid hologram, out bool holoKilled, HologramProjectedComponent? holoProjectedComp = null)
+    public virtual void DoReturnHologram(EntityUid hologram, HologramProjectedComponent? holoProjectedComp = null)
     {
-        holoKilled = false;
-
         if (!Resolve(hologram, ref holoProjectedComp))
             return;
 
         if (!IsHoloProjectorValid(hologram, holoProjectedComp.CurProjector, 0, false)) // If their last visited Projector is invalid ignoring occlusion...
         {
-            if (!TryGetHoloProjector(hologram, holoProjectedComp.ProjectorRange, out holoProjectedComp.CurProjector, holoProjectedComp))
+            if (!TryGetHoloProjector(hologram, holoProjectedComp.ProjectorRange, out holoProjectedComp.CurProjector, holoProjectedComp, false))
             {
-                var killedEvent = new HologramKillAttemptEvent();
-                RaiseLocalEvent(hologram, ref killedEvent);
-                if (killedEvent.Cancelled)
-                    return;
-
-                RaiseLocalEvent(hologram, new HologramKilledEvent());
-                holoKilled = true; // And if none is found and it doesn't get cancelled, kill the hologram.
-                return; // The killing is dealt with server-side, due to mind component.
+                TryKillHologram(hologram); // And if none is found, kill the hologram.
+                return;
             }
         }
 
-        // The two if statements above set the current projector, and return if it's null, so we know it's not null moving forward.
+        // The two if statements above set the current projector, and kill if it's null, so we know it's not null moving forward.
 
         var returnedEvent = new HologramReturnAttemptEvent();
         RaiseLocalEvent(hologram, ref returnedEvent);
         if (returnedEvent.Cancelled)
             return;
 
-        RaiseLocalEvent(hologram, new HologramReturnedEvent(holoProjectedComp.CurProjector!.Value));
+        RaiseLocalEvent(hologram, new HologramReturnedEvent(holoProjectedComp.CurProjector.Value));
 
-        MoveHologramToProjector(hologram, holoProjectedComp.CurProjector!.Value);
+        MoveHologramToProjector(hologram, holoProjectedComp.CurProjector.Value);
 
         _adminLogger.Add(LogType.Mind, LogImpact.Low,
             $"{ToPrettyString(hologram):mob} was returned to projector {ToPrettyString(holoProjectedComp.CurProjector.Value):entity}");
@@ -69,18 +71,18 @@ public abstract partial class SharedHologramSystem
     /// </summary>
     /// <param name="coords">The coords to perform the check from.</param>
     /// <param name="result">The UID of the projector, or null if no projectors are found.</param>
-    /// <param name="allowedTags">A list of tags to check for on projectors, to determine if they're valid.</param>
+    /// <param name="whiteList">A list of tags to check for on projectors, to determine if they're valid.</param>
     /// <param name="range">The range it should check for projectors in, if occlude is true</param>
     /// <param name="occlude">Should it check only for unoccluded and in range projectors?</param>
     /// <returns>Returns true if a projector is found, false if not.</returns>
-    public bool TryGetHoloProjector(MapCoordinates coords, float range, [NotNullWhen(true)] out EntityUid? result, List<string>? allowedTags = null, bool occlude = true)
+    public bool TryGetHoloProjector(MapCoordinates coords, float range, [NotNullWhen(true)] out EntityUid? result, EntityWhitelist? whiteList = null, bool occlude = true)
     {
         result = null;
 
         // Sort all projectors in distance increasing order.
         var nearProjList = new SortedList<float, EntityUid>();
 
-        var query = _entityManager.EntityQueryEnumerator<HologramProjectorComponent>();
+        var query = _entityManager.EntityQueryEnumerator<HologramProjectorActiveComponent>();
         while (query.MoveNext(out var projector, out _))
         {
             var dist = (_transform.GetWorldPosition(projector) - coords.Position).LengthSquared();
@@ -90,7 +92,7 @@ public abstract partial class SharedHologramSystem
         // Find the nearest, valid projector.
         foreach (var nearProj in nearProjList)
         {
-            if (!IsHoloProjectorValid(coords, nearProj.Value, range, occlude))
+            if (!IsHoloProjectorValid(coords, nearProj.Value, range, occlude, whiteList))
                 continue;
             result = nearProj.Value;
             return true;
@@ -101,7 +103,7 @@ public abstract partial class SharedHologramSystem
     /// <remarks>
     ///     This takes into consideration any ProjectorOverride the hologram may have.
     /// </remarks>
-    /// <inheritdoc cref="TryGetHoloProjector(MapCoordinates, float, out EntityUid?, List{string}?, bool)"/>
+    /// <inheritdoc cref="TryGetHoloProjector"/>
     public bool TryGetHoloProjector(EntityUid uid, float range, [NotNullWhen(true)] out EntityUid? result, HologramProjectedComponent? projectedComp = null, bool occlude = true)
     {
         result = null;
@@ -128,7 +130,7 @@ public abstract partial class SharedHologramSystem
         }
 
         // Otherwise, we simply check for the nearest projector, considering any tags it requires.
-        return TryGetHoloProjector(Transform(uid).MapPosition, range, out result, projectedComp.ValidProjectorTags, occlude);
+        return TryGetHoloProjector(Transform(uid).MapPosition, range, out result, projectedComp.ValidProjectorWhitelist, occlude);
     }
 
     /// <summary>
@@ -138,22 +140,26 @@ public abstract partial class SharedHologramSystem
     /// <param name="projector">The projector to compare on, or its position.</param>
     /// <param name="range">The max range to allow. Ignored if occlude is false.</param>
     /// <param name="occlude">Should it check only for unoccluded and in range projectors?</param>
+    /// <param name="projectedComp">The hologram's component. If provided, the hologram's list of allowed tags will be used.</param>
     /// <returns>True if the projector is within range, and unoccluded to the hologram. Otherwise, false.</returns>
-    public bool IsHoloProjectorValid(EntityUid hologram, EntityUid? projector, float range = 18f, bool occlude = true, HologramProjectedComponent? projectedComp = null)
+    public bool IsHoloProjectorValid(EntityUid hologram, [NotNullWhen(true)] EntityUid? projector, float range = 18f, bool occlude = true, HologramProjectedComponent? projectedComp = null)
     {
         if (!Resolve(hologram, ref projectedComp))
             return false;
-        return IsHoloProjectorValid(Transform(hologram).MapPosition, projector, range, occlude, projectedComp.ValidProjectorTags);
+        return IsHoloProjectorValid(Transform(hologram).MapPosition, projector, range, occlude, projectedComp.ValidProjectorWhitelist);
     }
 
-    /// <inheritdoc cref="IsHoloProjectorValid(EntityUid, EntityUid?, float, bool, HologramProjectedComponent?)"/>
-    /// <param name="allowedTags">A list of tags to check for on projectors, to determine if they're valid. Usually found on the Holo's <see cref="HologramProjectedComponent"/>.</param>
-    public bool IsHoloProjectorValid(MapCoordinates hologram, EntityUid? projector, float range = 18f, bool occlude = true, List<string>? allowedTags = null)
+    /// <inheritdoc cref="IsHoloProjectorValid"/>
+    /// <param name="whitelist">A whitelist to check for on projectors, to determine if they're valid. Usually found on the Holo's <see cref="HologramProjectedComponent"/>.</param>
+    public bool IsHoloProjectorValid(MapCoordinates hologram, EntityUid? projector, float range = 18f, bool occlude = true, EntityWhitelist? whitelist = null)
     {
         if (projector == null || !Exists(projector.Value))
             return false;
 
-        if (allowedTags != null && !_tags.HasAnyTag(projector.Value, allowedTags))
+        if (!HasComp<HologramProjectorActiveComponent>(projector.Value))
+            return false;
+
+        if (whitelist != null && !whitelist.IsValid(projector.Value, _entityManager))
             return false;
 
         if (occlude && !projector.Value.InRangeUnOccluded(hologram, range))
@@ -183,7 +189,7 @@ public abstract partial class SharedHologramSystem
         // Plays the vanishing effects.
         var meta = MetaData(hologram);
 
-        if (!_timing.InPrediction)
+        if (!_timing.InPrediction) // TODOPark: HOLO Change this to run on the first prediction once it predicts reliably.
         {
             var holoPos = Transform(hologram).Coordinates;
             _audio.Play(filename: "/Audio/SimpleStation14/Effects/Hologram/holo_off.ogg", playerFilter: Filter.Pvs(hologram), coordinates: holoPos, false);
@@ -203,7 +209,7 @@ public abstract partial class SharedHologramSystem
         }
     }
 
-    /// <inheritdoc cref="MoveHologram(EntityUid, EntityCoordinates)"/>
+    /// <inheritdoc cref="MoveHologram"/>
     public void MoveHologramToProjector(EntityUid hologram, EntityUid projector)
     {
         MoveHologram(hologram, Transform(projector).Coordinates);
@@ -233,7 +239,7 @@ public abstract partial class SharedHologramSystem
         }
 
         // Attempts to return the hologram if their time is up.
-        DoReturnHologram(hologram, out _);
+        DoReturnHologram(hologram);
         Dirty(hologramProjectedComp);
         return false;
     }
@@ -243,9 +249,15 @@ public abstract partial class SharedHologramSystem
     {
         if (HasComp<HologramProjectedComponent>(uid))
         {
-            DoReturnHologram(uid, out _);
+            DoReturnHologram(uid);
             args.Cancelled = true;
             args.Handled = true;
         }
+    }
+
+    private void OnProjectedInit(EntityUid uid, HologramProjectedComponent component, ComponentInit args)
+    {
+        if (_config.GetCVar(CVars.NetMaxUpdateRange) > component.ProjectorRange)
+            throw new InvalidOperationException($"Hologram {ToPrettyString(uid):player}'s projector range is higher than PVS range- This will cause mispredicting.");
     }
 }

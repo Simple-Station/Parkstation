@@ -66,6 +66,11 @@
             sound:
               path: /Audio/Effects/metalbreak.ogg
   - type: HologramProjector
+    effectOffsets:
+      North: "0.30, -0.40"
+      East: "-0.40, -0.30"
+      South: "0.30, 0.40"
+      West: "0.40, -0.30"
   - type: Tag
     tags:
       - HoloProjectorCamera

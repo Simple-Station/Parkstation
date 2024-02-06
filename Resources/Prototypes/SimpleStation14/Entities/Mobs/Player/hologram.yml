@@ -151,9 +151,11 @@
       - Airlock
   - type: HologramProjected
     gracePeriod: 0.08
-    validProjectorTags:
+    validProjectorWhitelist:
+      tags:
       - HoloProjectorServer
       - HoloProjectorCamera
+    effectPrototype: EffectHologramProjectionBeam
   - type: Stealth
     lastVisibility: 0.80
   - type: InteractionPopup

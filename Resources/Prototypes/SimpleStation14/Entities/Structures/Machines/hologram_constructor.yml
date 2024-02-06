@@ -116,6 +116,7 @@
       tags:
         - HoloProjectorServer
     - type: HologramServer
+      diskSlot: holo_disk
     - type: ItemSlots
       slots:
         holo_disk: #this slot name is important

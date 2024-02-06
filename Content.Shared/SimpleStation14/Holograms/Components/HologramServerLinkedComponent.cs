@@ -3,12 +3,15 @@ namespace Content.Shared.SimpleStation14.Holograms.Components;
 /// <summary>
 ///     Marks that this Hologram requires a server of some kind to generate it.
 /// </summary>
+/// <remarks>
+///     This could be anything from a literal server, to an AICore, to the person a HoloParasite lives in.
+/// </remarks>
 [RegisterComponent]
 public sealed class HologramServerLinkedComponent : Component
 {
     /// <summary>
     ///     Whether this Hologram is bound to the same grid as its server.
-    ///     If false, it will be returned if it leaves the grid.
+    ///     If true, it will be returned if it leaves the grid.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("gridBound")]
