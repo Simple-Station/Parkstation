@@ -206,6 +206,8 @@
     - Service
     lightBreakChancePerSecond: 0.00003
     doorToggleChancePerSecond: 0.0001
+    siliconStaticChancePerSecond: 0.00024
+    siliconStaticDuration: 3, 8
 
 # - type: entity
 #   id: VentClog

@@ -6,7 +6,7 @@ namespace Content.Shared.Repairable;
 public abstract class SharedRepairableSystem : EntitySystem
 {
     [Serializable, NetSerializable]
-    protected sealed class RepairFinishedEvent : SimpleDoAfterEvent
+    public sealed class RepairFinishedEvent : SimpleDoAfterEvent // Parkstation-IPC // Protected? PROTECTED?? The absolute gall!
     {
     }
 }

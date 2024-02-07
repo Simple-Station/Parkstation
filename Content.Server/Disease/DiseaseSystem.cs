@@ -367,7 +367,7 @@ namespace Content.Server.Disease
 
             foreach (var disease in target.AllDiseases)
             {
-                if (disease.ID == addedDisease?.ID) //ID because of the way protoypes work
+                if (disease.ID == addedDisease.ID) //ID because of the way protoypes work
                     return;
             }
 

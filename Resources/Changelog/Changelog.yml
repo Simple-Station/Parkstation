@@ -1297,3 +1297,67 @@ Entries:
         explosive decompression occurs.
   id: 117
   time: '2023-10-11T03:56:54.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: fix
+      message: Fixed mopping end of round stat.
+  id: 118
+  time: '2023-10-13T02:50:13.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: fix
+      message: >-
+        The entire station is no longer informed when you're burning to death in
+        a charging station
+  id: 119
+  time: '2023-10-13T02:49:59.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: add
+      message: Normal NPCs can no longer see DarkSwapped Shadowkin
+    - type: fix
+      message: Fixed everyone being able to see DarkSwapped Shadowkin
+  id: 120
+  time: '2023-10-14T03:24:51.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Resprited rusty wall
+  id: 121
+  time: '2023-10-22T19:28:03.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Resprited the smart fridge
+  id: 122
+  time: '2023-10-22T19:27:38.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: remove
+      message: Removed stray pixel from the Atmos backpack
+  id: 123
+  time: '2023-10-22T19:27:46.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: tweak
+      message: Resprited the wallmount nanomed
+  id: 124
+  time: '2023-10-22T19:27:30.0000000+00:00'
+- author: Pspritechologist
+  changes:
+    - type: add
+      message: IPCs (and other Silicons) do not appreciate EMP grenades :)
+    - type: fix
+      message: >-
+        IPCs can now be healed of bleeding, the same way you heal anything else.
+        A way to put the coolant back in them soon...
+  id: 125
+  time: '2023-10-28T05:01:34.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: fix
+      message: >-
+        Newly whitelisted people no longer need to wait for the server to
+        restart to do whitelist things
+  id: 126
+  time: '2024-01-28T19:02:03.0000000+00:00'

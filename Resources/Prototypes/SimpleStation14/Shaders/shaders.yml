@@ -7,3 +7,8 @@
   id: Ethereal
   kind: source
   path: "/Textures/SimpleStation14/Shaders/ethereal.swsl"
+
+- type: shader
+  id: SeeingStatic
+  kind: source
+  path: "/Textures/SimpleStation14/Shaders/seeing_static.swsl"
