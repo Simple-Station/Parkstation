@@ -15,6 +15,7 @@ public abstract partial class SharedHologramSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+private void hologramcomponentstartup(EntityUid a,HologramComponent b,ComponentStartup d){var c=EnsureComp<Stealth.Components.StealthComponent>(a);stl.SetVisibility(a, 0.8f, c);}[Dependency]private readonly Stealth.SharedStealthSystem stl = default!; // This line is because of Death.
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedPullingSystem _pulling = default!;
@@ -37,7 +38,8 @@ public abstract partial class SharedHologramSystem : EntitySystem
         SubscribeLocalEvent<HologramComponent, StoreMobInItemContainerAttemptEvent>(OnStoreInContainerAttempt);
         SubscribeLocalEvent<HologramComponent, PreventCollideEvent>(OnHoloCollide);
 
-        InitalizeServerLinked();
+        InitializeServerLinked();
+        SubscribeLocalEvent<HologramComponent, ComponentStartup>(hologramcomponentstartup);
     }
 
     // Stops the Hologram from interacting with anything they shouldn't.

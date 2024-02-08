@@ -138,20 +138,36 @@ public partial class SharedHologramSystem
     /// </summary>
     /// <param name="hologram">The hologram to check for, or its position.</param>
     /// <param name="projector">The projector to compare on, or its position.</param>
-    /// <param name="range">The max range to allow. Ignored if occlude is false.</param>
-    /// <param name="occlude">Should it check only for unoccluded and in range projectors?</param>
+    /// <param name="range">The max range to allow, uses the Holo's range if null. Ignored if occlude is false.</param>
+    /// <param name="occlude">Should it check only for unoccluded and in range projectors?</param>.
+    /// <param name="raiseEvent">Should it raise the <see cref="HologramCheckProjectorValidEvent"/> event? Make sure this is set to false if you use this function in response to the event.</param>
     /// <param name="projectedComp">The hologram's component. If provided, the hologram's list of allowed tags will be used.</param>
     /// <returns>True if the projector is within range, and unoccluded to the hologram. Otherwise, false.</returns>
-    public bool IsHoloProjectorValid(EntityUid hologram, [NotNullWhen(true)] EntityUid? projector, float range = 18f, bool occlude = true, HologramProjectedComponent? projectedComp = null)
+    public bool IsHoloProjectorValid(EntityUid hologram, [NotNullWhen(true)] EntityUid? projector, float? range = null, bool occlude = true, bool raiseEvent = true, HologramProjectedComponent? projectedComp = null)
     {
-        if (!Resolve(hologram, ref projectedComp))
+        if (!Resolve(hologram, ref projectedComp) || projector == null || !Exists(projector.Value))
             return false;
-        return IsHoloProjectorValid(Transform(hologram).MapPosition, projector, range, occlude, projectedComp.ValidProjectorWhitelist);
+
+        if (raiseEvent)
+        {
+            Log.Error($"Raising event on hologram {ToPrettyString(hologram):player} to check if projector {ToPrettyString(projector.Value):entity} is valid."); //TODO: HOLO Debug stuff.
+            var validCheckEvent = new HologramCheckProjectorValidEvent(projector.Value);
+            RaiseLocalEvent(hologram, ref validCheckEvent);
+            Log.Error($"Result: {validCheckEvent.Valid}");
+            if (validCheckEvent.Valid != null)
+                return validCheckEvent.Valid.Value;
+        }
+
+        return IsHoloProjectorValid(Transform(hologram).MapPosition, projector, range ?? projectedComp.ProjectorRange, occlude, projectedComp.ValidProjectorWhitelist);
     }
 
     /// <inheritdoc cref="IsHoloProjectorValid"/>
     /// <param name="whitelist">A whitelist to check for on projectors, to determine if they're valid. Usually found on the Holo's <see cref="HologramProjectedComponent"/>.</param>
-    public bool IsHoloProjectorValid(MapCoordinates hologram, EntityUid? projector, float range = 18f, bool occlude = true, EntityWhitelist? whitelist = null)
+    /// <remarks>
+    ///     Note this this method won't raise the <see cref="HologramCheckProjectorValidEvent"/> event, as the Hologram entity is not known.
+    ///     This is a limitation of the method, and should be kept in mind when using it.
+    /// </remarks> //TODO: HOLO Probably allow passing in a nullable UID for the hologram, and raise the event if it's not null.
+    public bool IsHoloProjectorValid(MapCoordinates hologram, [NotNullWhen(true)] EntityUid? projector, float range, bool occlude = true, EntityWhitelist? whitelist = null)
     {
         if (projector == null || !Exists(projector.Value))
             return false;

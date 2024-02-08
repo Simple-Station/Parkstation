@@ -227,13 +227,13 @@
         - NanoTrasen
     - type: Laws
       lawsID: LawsStationAIDefault
-    # - type: HologramServer
-    # - type: HologramProjector
-    #   effectOffsets:
-    #     North: "0, 0.40"
-    #     East: "-0.15, 0"
-    #     South: "0, -0.20"
-    #     West: "-0.15, 0"
+    - type: HologramServer
+    - type: HologramProjector
+      effectOffsets:
+        North: "0, 0.40"
+        East: "-0.15, 0"
+        South: "0, -0.20"
+        West: "-0.15, 0"
     - type: RandomSprite
       available:
         - enum.PowerDeviceVisualLayers.Powered:
@@ -332,7 +332,7 @@
       layer: 4
     # Can see through walls for now
     - type: Eye
-      # drawFov: true
+      drawFov: true
     - type: Input
       context: "human"
     - type: MobMover
@@ -380,15 +380,16 @@
             keywords: ["AI", "console", "interface"]
             priority: -1
             event: !type:ToggleIntrinsicUIEvent
-    # - type: Hologram
-    # - type: HologramServerLinked
-    # - type: HologramProjected
-    #   validProjectorWhitelist:
-    #     components:
-    #     - AICamera
-    #     - AIEyePower
-    #   effectPrototype: EffectHologramProjectionBeam
-    #   setEyeTarget: true
+    - type: Hologram
+    - type: HologramServerLinked
+    - type: HologramProjected
+      validProjectorWhitelist:
+        components:
+        - AICamera
+        - AIEyePower
+      effectPrototype: EffectHologramProjectionBeam
+      setEyeTarget: true
+      gracePeriod: 0.3
 
         # Mostly works, just not as I wish, so I'm disabling it for now.
         # Need to split this into two PRs,

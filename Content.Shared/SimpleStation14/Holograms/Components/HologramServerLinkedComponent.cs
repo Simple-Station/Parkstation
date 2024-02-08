@@ -1,3 +1,5 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared.SimpleStation14.Holograms.Components;
 
 /// <summary>
@@ -6,8 +8,8 @@ namespace Content.Shared.SimpleStation14.Holograms.Components;
 /// <remarks>
 ///     This could be anything from a literal server, to an AICore, to the person a HoloParasite lives in.
 /// </remarks>
-[RegisterComponent]
-public sealed class HologramServerLinkedComponent : Component
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class HologramServerLinkedComponent : Component
 {
     /// <summary>
     ///     Whether this Hologram is bound to the same grid as its server.
@@ -15,6 +17,7 @@ public sealed class HologramServerLinkedComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("gridBound")]
+    [AutoNetworkedField]
     public bool GridBound = true;
 
     /// <summary>
@@ -24,5 +27,6 @@ public sealed class HologramServerLinkedComponent : Component
     ///     This will be the lightbee if it's a lightbee hologram.
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
+    [AutoNetworkedField]
     public EntityUid? LinkedServer;
 }

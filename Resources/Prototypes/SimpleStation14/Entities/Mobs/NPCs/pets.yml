@@ -119,3 +119,9 @@
   - type: DogVision
   - type: RandomBark
   - type: Hologram
+  - type: HologramProjected
+    # gracePeriod: 0.08
+    validProjectorWhitelist:
+      tags:
+      - HoloProjectorCamera
+    effectPrototype: EffectHologramProjectionBeam

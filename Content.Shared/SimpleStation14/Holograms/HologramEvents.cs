@@ -36,8 +36,18 @@ public readonly record struct HologramKilledEvent();
 /// </summary>
 /// <remarks>
 ///     Setting override to 'True' will use whatever's in ProjectorOverride- including a null value, which allows cancelling the projector search.
-///     A Component-set override will override this ovaerride.
+///     A Component-set override will override this override.
 /// </remarks>
 [ByRefEvent]
 public record struct HologramGetProjectorEvent(EntityUid? ProjectorOverride = null, bool Override = false);
 
+/// <summary>
+///     Sent directed at a Hologram when they're checking if a specific projector is valid.
+///     Allows for manually determining if a projector is valid for a given Hologram.
+/// </summary>
+/// <remarks>
+///     Valid is nullable, setting it to either value will force that behavior.
+///     Leaving it null will allow the projector to determine its own validity based on normal rules.
+/// </remarks>
+[ByRefEvent]
+public record struct HologramCheckProjectorValidEvent(EntityUid Projector, bool? Valid = null);

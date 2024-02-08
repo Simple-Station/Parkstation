@@ -4,7 +4,7 @@ namespace Content.Shared.SimpleStation14.Holograms;
 
 public partial class SharedHologramSystem
 {
-    private void InitalizeServerLinked()
+    private void InitializeServerLinked()
     {
         SubscribeLocalEvent<HologramServerLinkedComponent, ChangedGridEvent>(OnGridChange);
     }
