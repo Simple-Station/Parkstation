@@ -61,7 +61,7 @@ public sealed class HologramServerSystem : EntitySystem
     /// </summary>
     private void OnEntRemoved(EntityUid uid, HologramServerComponent component, EntRemovedFromContainerMessage args)
     {
-        if (args.Container.ID != component.DiskSlot || !_tags.HasTag(args.Entity, "HoloDisk"))
+        if (args.Container.ID != component.DiskSlot || !_tags.HasTag(args.Entity, TagHoloDisk))
             return;
 
         if (Exists(component.LinkedHologram))

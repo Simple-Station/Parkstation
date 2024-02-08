@@ -17,7 +17,6 @@ public sealed partial class HologramServerLinkedComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("gridBound"), AutoNetworkedField]
-    [AutoNetworkedField]
     public bool GridBound = true;
 
     /// <summary>
@@ -27,7 +26,6 @@ public sealed partial class HologramServerLinkedComponent : Component
     ///     This will be the lightbee if it's a lightbee hologram.
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
-    [AutoNetworkedField]
     [AutoNetworkedField]
     public EntityUid? LinkedServer;
 }

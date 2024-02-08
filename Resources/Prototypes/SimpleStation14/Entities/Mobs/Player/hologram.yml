@@ -145,9 +145,11 @@
   components:
   - type: Hologram
     isHardLight: false
-    collideTags:
-      - Wall
+    collideWhitelist:
+      components:
       - Airlock
+      tags:
+      - Wall
   - type: HologramProjected
     gracePeriod: 0.08
     validProjectorWhitelist:

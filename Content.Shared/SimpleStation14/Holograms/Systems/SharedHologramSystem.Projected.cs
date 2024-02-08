@@ -44,9 +44,9 @@ public partial class SharedHologramSystem
 
         // If their last visited Projector is invalid ignoring occlusion and none is found
         if (!IsHoloProjectorValid(hologram, holoProjectedComp.CurProjector, 0, false) &&
-            !TryGetHoloProjector(hologram, holoProjectedComp.ProjectorRange, out holoProjectedComp.CurProjector, holoProjectedComp, false)) 
+            !TryGetHoloProjector(hologram, holoProjectedComp.ProjectorRange, out holoProjectedComp.CurProjector, holoProjectedComp, false))
         {
-             // Kill the hologram.
+            // Kill the hologram.
             TryKillHologram(hologram);
             return;
         }
@@ -190,8 +190,11 @@ public partial class SharedHologramSystem
     /// </remarks>
     /// <param name="hologram">The hologram to move.</param>
     /// <param name="projector">The projector to move it to, or the projector's position.</param>
-    public void MoveHologram(EntityUid hologram, EntityCoordinates projector)
+    public void MoveHologram(EntityUid hologram, EntityCoordinates projector, HologramComponent? holoComp = null)
     {
+        if (!Resolve(hologram, ref holoComp))
+            return;
+
         // Stops any pulling goin on.
         if (TryComp<SharedPullableComponent>(hologram, out var pullable) && pullable.BeingPulled)
             _pulling.TryStopPull(pullable);
@@ -206,8 +209,8 @@ public partial class SharedHologramSystem
         if (!_timing.InPrediction) // TODOPark: HOLO Change this to run on the first prediction once it predicts reliably.
         {
             var holoPos = Transform(hologram).Coordinates;
-            _audio.Play(filename: "/Audio/SimpleStation14/Effects/Hologram/holo_off.ogg", playerFilter: Filter.Pvs(hologram), coordinates: holoPos, false);
-            _popup.PopupCoordinates(Loc.GetString(PopupDisappearOther, ("name", meta.EntityName)), holoPos, Filter.PvsExcept(hologram), false, PopupType.MediumCaution);
+            _audio.Play(holoComp.OffSound, playerFilter: Filter.Pvs(hologram), coordinates: holoPos, false);
+            _popup.PopupCoordinates(Loc.GetString(holoComp.PopupDisappearOther, ("name", meta.EntityName)), holoPos, Filter.PvsExcept(hologram), false, PopupType.MediumCaution);
         }
 
         // Does the do.
@@ -217,16 +220,16 @@ public partial class SharedHologramSystem
         // Plays the appearing effects.
         if (!_timing.InPrediction)
         {
-            _audio.PlayPvs("/Audio/SimpleStation14/Effects/Hologram/holo_on.ogg", hologram);
-            _popup.PopupEntity(Loc.GetString(PopupAppearOther, ("name", meta.EntityName)), hologram, Filter.PvsExcept(hologram), false, PopupType.Medium);
-            _popup.PopupEntity(Loc.GetString(PopupAppearSelf, ("name", meta.EntityName)), hologram, hologram, PopupType.Large);
+            _audio.PlayPvs(holoComp.OnSound, hologram);
+            _popup.PopupEntity(Loc.GetString(holoComp.PopupAppearOther, ("name", meta.EntityName)), hologram, Filter.PvsExcept(hologram), false, PopupType.Medium);
+            _popup.PopupEntity(Loc.GetString(holoComp.PopupAppearSelf, ("name", meta.EntityName)), hologram, hologram, PopupType.Large);
         }
     }
 
     /// <inheritdoc cref="MoveHologram"/>
-    public void MoveHologramToProjector(EntityUid hologram, EntityUid projector)
+    public void MoveHologramToProjector(EntityUid hologram, EntityUid projector, HologramComponent? holoComp = null)
     {
-        MoveHologram(hologram, Transform(projector).Coordinates);
+        MoveHologram(hologram, Transform(projector).Coordinates, holoComp);
     }
 
     protected bool ProjectedUpdate(EntityUid hologram, HologramProjectedComponent hologramProjectedComp, float frameTime)

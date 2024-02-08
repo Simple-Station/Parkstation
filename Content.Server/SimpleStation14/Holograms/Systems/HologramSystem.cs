@@ -71,15 +71,18 @@ public sealed class HologramSystem : SharedHologramSystem
     /// </remarks>
     public override void DoKillHologram(EntityUid hologram, HologramComponent? holoComp = null) // TODOPark: HOLO Move this to Shared once Upstream merge.
     {
+        if (!Resolve(hologram, ref holoComp))
+            return;
+
         var meta = MetaData(hologram);
         var holoPos = Transform(hologram).Coordinates;
 
         if (TryComp<MindContainerComponent>(hologram, out var mindComp) && mindComp.Mind != null)
             _gameTicker.OnGhostAttempt(mindComp.Mind, false);
 
-        _audio.Play(filename: "/Audio/SimpleStation14/Effects/Hologram/holo_off.ogg", playerFilter: Filter.Pvs(hologram), coordinates: holoPos, false);
-        _popup.PopupCoordinates(Loc.GetString(PopupDisappearOther, ("name", meta.EntityName)), holoPos, Filter.PvsExcept(hologram), false, PopupType.MediumCaution);
-        _popup.PopupCoordinates(Loc.GetString(PopupDeathSelf), holoPos, hologram, PopupType.LargeCaution);
+        _audio.Play(holoComp.OffSound, playerFilter: Filter.Pvs(hologram), coordinates: holoPos, false);
+        _popup.PopupCoordinates(Loc.GetString(holoComp.PopupDisappearOther, ("name", meta.EntityName)), holoPos, Filter.PvsExcept(hologram), false, PopupType.MediumCaution);
+        _popup.PopupCoordinates(Loc.GetString(holoComp.PopupDeathSelf), holoPos, hologram, PopupType.LargeCaution);
 
         _entityManager.QueueDeleteEntity(hologram);
 

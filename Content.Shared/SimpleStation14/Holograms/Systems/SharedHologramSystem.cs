@@ -21,13 +21,6 @@ private void hologramcomponentstartup(EntityUid a,HologramComponent b,ComponentS
     [Dependency] private readonly SharedPullingSystem _pulling = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    protected const string PopupAppearOther = "system-hologram-phasing-appear-others";
-    protected const string PopupAppearSelf = "system-hologram-phasing-appear-self";
-    protected const string PopupDisappearOther = "system-hologram-phasing-disappear-others";
-    protected const string PopupDeathSelf = "system-hologram-phasing-death-self";
-    protected const string PopupHoloInteractionFail = "system-hologram-interaction-with-others-fail";
-    protected const string PopupInteractionWithHoloFail = "system-hologram-interaction-with-holo-fail";
-
     public const string TagHardLight = "Hardlight";
     public const string TagHoloMapped = "HoloMapped"; // TODO: HOLO
 
@@ -73,7 +66,7 @@ private void hologramcomponentstartup(EntityUid a,HologramComponent b,ComponentS
 
     private void OnHoloCollide(EntityUid uid, HologramComponent component, ref PreventCollideEvent args)
     {
-        if (Transform(args.OtherEntity).Anchored || HoloInteractionAllowed(args.OurEntity, args.OtherEntity, component))
+        if (HoloInteractionAllowed(args.OurEntity, args.OtherEntity, component))
             return;
 
         args.Cancelled = true;
@@ -89,7 +82,14 @@ private void hologramcomponentstartup(EntityUid a,HologramComponent b,ComponentS
     {
         if (potential == null)
             return true;
-        return _tags.HasTag(hologram, TagHardLight) || _tags.HasTag(potential.Value, TagHardLight) || Resolve(hologram, ref holoComp) == HasComp<HologramComponent>(potential);
+
+        if (!Resolve(hologram, ref holoComp))
+            return false;
+
+        return _tags.HasTag(hologram, TagHardLight) || // Is the hologram hardlight?
+            _tags.HasTag(potential.Value, TagHardLight) || // Is the collider hardlight?
+            HasComp<HologramComponent>(potential) || // Is the collider a hologram?
+            holoComp.CollideWhitelist.IsValid(potential.Value); // Is the collider whitelisted in the hologram's collision whitelist?
     }
 
     /// <summary>
