@@ -18,12 +18,14 @@ public sealed partial class HologramProjectedComponent : Component
     ///     A whitelist to check for on projectors, to determine if they're valid.
     /// </summary>
     [DataField("validProjectorWhitelist"), ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
     public EntityWhitelist ValidProjectorWhitelist = new();
 
     /// <summary>
     ///     A timer for a grace period before the Holo is returned, to allow for moving through doors.
     /// </summary>
     [DataField("gracePeriod"), ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
     public TimeSpan GracePeriod = TimeSpan.FromSeconds(0.1f);
 
     /// <summary>
@@ -33,12 +35,14 @@ public sealed partial class HologramProjectedComponent : Component
     ///     Note that making this number larger than PVS is highly inadvisable, as the client will be stuck predicting the Hologram returning while the server confirms that they do not.
     /// </remarks>
     [DataField("projectorRange"), ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
     public float ProjectorRange = 14f;
 
     /// <summary>
     ///     The prototype of the effect to spawn for the Hologram's projection. Leave null to disable the visual projection effect.
     /// </summary>
     [DataField("effectPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [AutoNetworkedField]
     public string? EffectPrototype;
 
     /// <summary>
@@ -49,6 +53,7 @@ public sealed partial class HologramProjectedComponent : Component
     ///     Primarily used for the station AI.
     /// </remarks>
     [DataField("setEyeTarget"), ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
     public bool SetEyeTarget = false;
 
     /// <summary>
@@ -65,6 +70,7 @@ public sealed partial class HologramProjectedComponent : Component
     ///     If set, the Hologram will only be able to be projected from this projector, simply ignoring all others.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
+    [AutoNetworkedField]
     public EntityUid? ProjectorOverride;
 
     /// <summary>

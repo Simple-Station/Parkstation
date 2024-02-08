@@ -63,7 +63,6 @@ public sealed class HologramSystem : SharedHologramSystem
     [Dependency] private readonly StationSystem _station = default!;
 
     public readonly Dictionary<Mind.Mind, EntityUid> HologramsWaitingForMind = new();
-
     /// <summary>
     ///     Handles killing a Hologram, with no checks in place.
     /// </summary>

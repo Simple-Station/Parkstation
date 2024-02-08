@@ -40,5 +40,4 @@ public sealed class AcceptHologramEui : BaseEui
     {
         _window.Close();
     }
-
 }

@@ -42,16 +42,14 @@ public partial class SharedHologramSystem
         if (!Resolve(hologram, ref holoProjectedComp))
             return;
 
-        if (!IsHoloProjectorValid(hologram, holoProjectedComp.CurProjector, 0, false)) // If their last visited Projector is invalid ignoring occlusion...
+        // If their last visited Projector is invalid ignoring occlusion and none is found
+        if (!IsHoloProjectorValid(hologram, holoProjectedComp.CurProjector, 0, false) &&
+            !TryGetHoloProjector(hologram, holoProjectedComp.ProjectorRange, out holoProjectedComp.CurProjector, holoProjectedComp, false)) 
         {
-            if (!TryGetHoloProjector(hologram, holoProjectedComp.ProjectorRange, out holoProjectedComp.CurProjector, holoProjectedComp, false))
-            {
-                TryKillHologram(hologram); // And if none is found, kill the hologram.
-                return;
-            }
+             // Kill the hologram.
+            TryKillHologram(hologram);
+            return;
         }
-
-        // The two if statements above set the current projector, and kill if it's null, so we know it's not null moving forward.
 
         var returnedEvent = new HologramReturnAttemptEvent();
         RaiseLocalEvent(hologram, ref returnedEvent);
@@ -71,7 +69,7 @@ public partial class SharedHologramSystem
     /// </summary>
     /// <param name="coords">The coords to perform the check from.</param>
     /// <param name="result">The UID of the projector, or null if no projectors are found.</param>
-    /// <param name="whiteList">A list of tags to check for on projectors, to determine if they're valid.</param>
+    /// <param name="whiteList">An EntityWhitelist to check for on projectors to determine if they're valid.</param>
     /// <param name="range">The range it should check for projectors in, if occlude is true</param>
     /// <param name="occlude">Should it check only for unoccluded and in range projectors?</param>
     /// <returns>Returns true if a projector is found, false if not.</returns>

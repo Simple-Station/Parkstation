@@ -47,7 +47,7 @@ public sealed class HologramServerSystem : EntitySystem
 
         if (Exists(component.LinkedHologram))
             if (!_hologram.TryKillHologram(component.LinkedHologram.Value))
-                return; // This is a werid situation to encounter, so we'll just stop doin stuff.
+                return; // This is a weird situation to encounter, so we'll just stop doin stuff.
 
         if (TryGenerateHologram(uid, args.Entity, out var holo, component))
         {

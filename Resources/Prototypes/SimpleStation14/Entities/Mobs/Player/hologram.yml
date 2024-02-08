@@ -21,7 +21,6 @@
   #   damageContainer: Inorganic
   - type: InteractionOutline
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     layers:

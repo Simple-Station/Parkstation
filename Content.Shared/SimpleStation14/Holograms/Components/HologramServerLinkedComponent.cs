@@ -16,7 +16,7 @@ public sealed partial class HologramServerLinkedComponent : Component
     ///     If true, it will be returned if it leaves the grid.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("gridBound")]
+    [DataField("gridBound"), AutoNetworkedField]
     [AutoNetworkedField]
     public bool GridBound = true;
 
@@ -27,6 +27,7 @@ public sealed partial class HologramServerLinkedComponent : Component
     ///     This will be the lightbee if it's a lightbee hologram.
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
+    [AutoNetworkedField]
     [AutoNetworkedField]
     public EntityUid? LinkedServer;
 }

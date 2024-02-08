@@ -1,6 +1,6 @@
 - type: body
   id: Scutter
-  name: "scutter"
+  name: scutter
   root: hand 1
   slots:
     hand 1:
