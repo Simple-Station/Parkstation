@@ -122,6 +122,11 @@
           map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
           color: "#40a7d7"
           shader: unshaded
+    - type: Hologram
+    - type: Tag
+      tags:
+        - CannotSuicide
+        - Hardlight
 
 # From Wizard deck of cards
 - type: entity

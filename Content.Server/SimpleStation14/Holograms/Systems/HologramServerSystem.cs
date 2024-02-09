@@ -1,25 +1,17 @@
-using Content.Server.Humanoid;
-using Content.Server.Mind;
-using Content.Server.Preferences.Managers;
 using Content.Server.Power.Components;
 using Content.Shared.Tag;
 using Content.Shared.Popups;
 using Content.Shared.SimpleStation14.Holograms;
-using Content.Shared.Administration.Logs;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Interaction;
-using Robust.Server.Player;
 using Robust.Shared.Containers;
-using Content.Shared.Movement.Systems;
 using Content.Server.Mind.Components;
 using Content.Shared.SimpleStation14.Holograms.Components;
 using System.Diagnostics.CodeAnalysis;
-using Content.Server.EUI;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.SimpleStation14.Holograms;
 
-public sealed class HologramServerSystem : EntitySystem
+public sealed partial class HologramServerSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tags = default!;
@@ -31,16 +23,19 @@ public sealed class HologramServerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<HologramServerComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
-        SubscribeLocalEvent<HologramServerComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
-        SubscribeLocalEvent<HologramDiskComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<HologramServerComponent, PowerChangedEvent>(OnPowerChanged);
+
+        SubscribeLocalEvent<HologramServerComponent, EntInsertedIntoContainerMessage>(ServerOnEntInserted);
+        SubscribeLocalEvent<HologramServerComponent, EntRemovedFromContainerMessage>(ServerOnEntRemoved);
+        SubscribeLocalEvent<HologramDiskComponent, AfterInteractEvent>(DiskOnAfterInteract);
+        SubscribeLocalEvent<HologramServerComponent, PowerChangedEvent>(ServerOnPowerChanged);
+
+        InitializeStation();
     }
 
     /// <summary>
     ///     Handles generating a hologram from an inserted disk
     /// </summary>
-    private void OnEntInserted(EntityUid uid, HologramServerComponent component, EntInsertedIntoContainerMessage args)
+    private void ServerOnEntInserted(EntityUid uid, HologramServerComponent component, EntInsertedIntoContainerMessage args)
     {
         if (args.Container.ID != component.DiskSlot || !_tags.HasTag(args.Entity, TagHoloDisk))
             return;
@@ -59,7 +54,7 @@ public sealed class HologramServerSystem : EntitySystem
     /// <summary>
     ///     Handles killing a hologram when a disk is removed
     /// </summary>
-    private void OnEntRemoved(EntityUid uid, HologramServerComponent component, EntRemovedFromContainerMessage args)
+    private void ServerOnEntRemoved(EntityUid uid, HologramServerComponent component, EntRemovedFromContainerMessage args)
     {
         if (args.Container.ID != component.DiskSlot || !_tags.HasTag(args.Entity, TagHoloDisk))
             return;
@@ -74,7 +69,7 @@ public sealed class HologramServerSystem : EntitySystem
     /// <param name="uid">The entity uid of the server</param>
     /// <param name="component">The HologramServerComponent</param>
     /// <param name="args">The PowerChangedEvent</param>
-    private void OnPowerChanged(EntityUid uid, HologramServerComponent component, ref PowerChangedEvent args)
+    private void ServerOnPowerChanged(EntityUid uid, HologramServerComponent component, ref PowerChangedEvent args)
     {
         // If the server is no longer powered and the hologram exists
         if (!args.Powered && Exists(component.LinkedHologram))
@@ -115,10 +110,10 @@ public sealed class HologramServerSystem : EntitySystem
         if (!TryComp<HologramDiskComponent>(disk, out var diskComp) || diskComp.HoloMind == null)
             return false;
 
-        return _hologram.TryGenerateHologram(diskComp.HoloMind, _transform.GetMoverCoordinates(server), out hologram);
+        return _hologram.TryGenerateHumanoidHologram(diskComp.HoloMind, _transform.GetMoverCoordinates(server), out hologram);
     }
 
-    private void OnAfterInteract(EntityUid uid, HologramDiskComponent component, AfterInteractEvent args)
+    private void DiskOnAfterInteract(EntityUid uid, HologramDiskComponent component, AfterInteractEvent args)
     {
         if (args.Target == null || !TryComp<MindContainerComponent>(args.Target, out var targetMind))
             return;

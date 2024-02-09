@@ -26,10 +26,6 @@ using Content.Shared.Clothing.Components;
 using Robust.Server.Player;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects.Components.Localization;
-using Content.Shared.Movement.Systems;
-using System.Threading.Tasks;
-using Content.Shared.SimpleStation14.Holograms.Components;
-using Content.Server.SimpleStation14.Holograms.Components;
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.EUI;
 using Robust.Server.GameObjects;
@@ -52,10 +48,7 @@ public sealed class HologramSystem : SharedHologramSystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
-    [Dependency] private readonly TagSystem _tags = default!;
-    [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly EuiManager _eui = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
@@ -89,7 +82,7 @@ public sealed class HologramSystem : SharedHologramSystem
         _adminLogger.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(hologram):mob} was killed!");
     }
 
-    public bool TryGenerateHologram(Mind.Mind mind, EntityCoordinates coords, [NotNullWhen(true)] out EntityUid? holo)
+    public bool TryGenerateHumanoidHologram(Mind.Mind mind, EntityCoordinates coords, [NotNullWhen(true)] out EntityUid? holo)
     {
         holo = null;
 

@@ -164,9 +164,9 @@
     interactSuccessString: hugging-success-hologram
     # interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-hologram-others
-  # - type: Faction
-  #   factions:
-  #   - NanoTrasen
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
   - type: PointLight
     radius: 1.0
     softness: 1.4

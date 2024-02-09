@@ -32,6 +32,7 @@ private void hologramcomponentstartup(EntityUid a,HologramComponent b,ComponentS
         SubscribeLocalEvent<HologramComponent, PreventCollideEvent>(OnHoloCollide);
 
         InitializeServerLinked();
+        InitializeProjected();
         SubscribeLocalEvent<HologramComponent, ComponentStartup>(hologramcomponentstartup);
     }
 

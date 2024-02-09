@@ -15,6 +15,7 @@
     state: icon
   - type: TimedDespawn
     lifetime: 90
+  - type: Hologram
 
 - type: entity
   id: HoloFan
@@ -74,3 +75,6 @@
       color: red
     - type: Climbable
     - type: Clickable
+    - type: Tag
+      tags:
+        - Hardlight
