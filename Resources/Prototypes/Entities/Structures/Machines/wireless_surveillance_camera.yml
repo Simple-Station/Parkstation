@@ -35,6 +35,10 @@
       interfaces:
         - key: enum.SurveillanceCameraSetupUiKey.Camera
           type: SurveillanceCameraSetupBoundUi
+    - type: HologramProjector
+    - type: Tag
+      tags:
+        - HoloProjectorCamera
   placement:
     mode: SnapgridCenter
 

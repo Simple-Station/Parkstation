@@ -1,0 +1,33 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'cctv-database-user-interface-title'}"
+    SetSize="250 550"
+    MinSize="200 350">
+    <BoxContainer
+        HorizontalExpand="True"
+        VerticalExpand="True"
+        Orientation="Vertical">
+        <BoxContainer
+            HorizontalExpand="True"
+            VerticalExpand="False"
+            Orientation="Horizontal">
+            <Label
+                Name="MessageLabel"
+                Text="{Loc 'cctv-database-user-interface-message-idle'}"/>
+        </BoxContainer>
+        <ScrollContainer
+            HorizontalExpand="False"
+            VerticalExpand="True"
+            Margin="8, 8, 8, 8">
+            <GridContainer
+                Name="TargetList"
+                HorizontalExpand="True"
+                VerticalExpand="True"
+                HSeparationOverride="8"
+                Columns="2">
+            </GridContainer>
+        </ScrollContainer>
+    </BoxContainer>
+</controls:FancyWindow>

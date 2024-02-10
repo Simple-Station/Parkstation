@@ -262,6 +262,8 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         // Send a local event that's broadcasted everywhere afterwards.
         RaiseLocalEvent(ev);
 
+        RaiseLocalEvent(camera, new SurveillanceCameraChangeStateEvent(false)); // Parkstation-Holograms
+
         UpdateVisuals(camera, component);
     }
 
@@ -279,6 +281,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
             if (attemptEv.Cancelled)
                 return;
             component.Active = setting;
+            RaiseLocalEvent(camera, new SurveillanceCameraChangeStateEvent(setting)); // Parkstation-Holograms
         }
         else
         {
@@ -439,3 +442,5 @@ public sealed class SurveillanceCameraDeactivateEvent : EntityEventArgs
 
 [ByRefEvent]
 public record struct SurveillanceCameraSetActiveAttemptEvent(bool Cancelled);
+
+public readonly record struct SurveillanceCameraChangeStateEvent(bool Active); // Parkstation-Holograms

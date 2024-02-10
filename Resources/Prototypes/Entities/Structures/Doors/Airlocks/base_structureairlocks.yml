@@ -131,5 +131,8 @@
   - type: DynamicPrice
     price: 150
   - type: AccessReader
+  - type: Tag
+    tags:
+    - Airlock
   placement:
     mode: SnapgridCenter

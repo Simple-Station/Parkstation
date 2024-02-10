@@ -130,6 +130,12 @@
             - Opaque
     - type: TypingIndicator
       proto: robot
+    - type: Hologram
+    - type: Tag
+      tags:
+        - Carp
+        - DoorBumpOpener
+        - Hardlight
 
 - type: entity
   id: MobCarpSalvage

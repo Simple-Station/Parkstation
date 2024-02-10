@@ -57,3 +57,6 @@
     containers:
       board: !type:Container
         ents: []
+  - type: Tag
+    tags:
+    - Hardlight
