@@ -26,3 +26,4 @@
       factions:
         - NanoTrasen
     - type: PotentialPsionic
+    - type: HologramTarget

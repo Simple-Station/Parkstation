@@ -27,3 +27,4 @@
     - type: PotentialPsionic
     - type: TypingIndicator
       proto: slime
+    - type: HologramTarget

@@ -46,7 +46,7 @@ public record struct HologramGetProjectorEvent(EntityUid? ProjectorOverride = nu
 ///     Allows for manually determining if a projector is valid for a given Hologram.
 /// </summary>
 /// <remarks>
-///     Valid is nullable, setting it to either value will force that behavior.
+///     Setting Valid to either True or False will force that behavior.
 ///     Leaving it null will allow the projector to determine its own validity based on normal rules.
 /// </remarks>
 [ByRefEvent]

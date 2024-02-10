@@ -25,6 +25,7 @@
   noSpawn: true
   components:
     - type: Transform
+    - type: StationCctvDatabase
 
 - type: entity
   id: NanotrasenCentralCommand

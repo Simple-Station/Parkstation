@@ -33,6 +33,7 @@
     factions:
     - NanoTrasen
   - type: PotentialPsionic
+  - type: HologramTarget
 
 #Syndie
 - type: entity
