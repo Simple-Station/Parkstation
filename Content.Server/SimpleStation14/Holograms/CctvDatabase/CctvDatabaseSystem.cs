@@ -35,8 +35,7 @@ public sealed class CctvDatabaseSystem : EntitySystem
     {
         while (EntityQueryEnumerator<CctvDatabaseConsoleActiveComponent>().MoveNext(out var console, out var activeComp))
         {
-            Log.Error($"{activeComp.PrintTime} >= {_timing.CurTime}");
-            if (activeComp.PrintTime >= _timing.CurTime)
+            if (activeComp.PrintTime <= _timing.CurTime)
                 FinishPrint(console, activeComp);
         }
     }
