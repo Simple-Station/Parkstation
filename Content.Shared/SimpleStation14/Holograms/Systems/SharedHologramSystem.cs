@@ -53,7 +53,6 @@ private void hologramcomponentstartup(EntityUid a,HologramComponent b,ComponentS
     // Stops everyone else from interacting with the Holograms.
     private void OnInteractionWithHoloAttempt(EntityUid uid, HologramComponent component, GettingInteractedWithAttemptEvent args)
     {
-        // Allow the interaction if either of them are hardlight, or if the interactor is a Hologram.
         if (HoloInteractionAllowed(uid, args.Uid))
             return;
 

@@ -34,6 +34,7 @@ using Robust.Shared.Map;
 using Content.Server.Access.Systems;
 using Content.Server.Station.Systems;
 using Content.Server.Station.Components;
+using Content.Shared.Inventory;
 
 namespace Content.Server.SimpleStation14.Holograms;
 
@@ -54,6 +55,7 @@ public sealed class HologramSystem : SharedHologramSystem
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly AccessSystem _access = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public readonly Dictionary<Mind.Mind, EntityUid> HologramsWaitingForMind = new();
     /// <summary>
@@ -77,7 +79,14 @@ public sealed class HologramSystem : SharedHologramSystem
         _popup.PopupCoordinates(Loc.GetString(holoComp.PopupDisappearOther, ("name", meta.EntityName)), holoPos, Filter.PvsExcept(hologram), false, PopupType.MediumCaution);
         _popup.PopupCoordinates(Loc.GetString(holoComp.PopupDeathSelf), holoPos, hologram, PopupType.LargeCaution);
 
+        // Drop anything the Hologram is holding. This will fail to drop anything unremovable thus not dropping fake Hologram items.
+        // In the future, if we have things Holograms can hold and interact with (but not drop), this will need to check for that.
+        if (TryComp<InventoryComponent>(hologram, out var invComp))
+            foreach (var slot in _inventory.GetSlots(hologram, invComp))
+                _inventory.TryUnequip(hologram, slot.Name, true, true, inventory: invComp);
+
         _entityManager.QueueDeleteEntity(hologram);
+        RaiseLocalEvent(hologram, new HologramKilledEvent());
 
         _adminLogger.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(hologram):mob} was killed!");
     }

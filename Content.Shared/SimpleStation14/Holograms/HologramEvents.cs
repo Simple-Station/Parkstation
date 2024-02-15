@@ -27,6 +27,11 @@ public record struct HologramKillAttemptEvent(bool Cancelled = false);
 /// <summary>
 ///     Sent directed at a Hologram being killed, often due to not having any valid projectors.
 /// </summary>
+/// <remarks>
+///     Note that this event is sent immediately after the QueueDelete function is called on the Hologram,
+///     and likely before the Hologram is actually deleted.
+///     This is probably a good thing.
+/// </remarks>
 public readonly record struct HologramKilledEvent();
 
 /// <summary>

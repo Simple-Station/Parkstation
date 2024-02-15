@@ -190,7 +190,7 @@ public partial class SharedHologramSystem
     /// </remarks>
     /// <param name="hologram">The hologram to move.</param>
     /// <param name="projector">The projector to move it to, or the projector's position.</param>
-    public void MoveHologram(EntityUid hologram, EntityCoordinates projector, HologramComponent? holoComp = null)
+    public void MoveHologram(EntityUid hologram, EntityCoordinates projector, HologramComponent? holoComp = null) //TODO: HOLO This isn't really related to projected Holograms, so probably move this to the main file.
     {
         if (!Resolve(hologram, ref holoComp))
             return;
@@ -275,6 +275,6 @@ public partial class SharedHologramSystem
     private void OnProjectedInit(EntityUid uid, HologramProjectedComponent component, ComponentInit args)
     {
         if (_config.GetCVar(CVars.NetMaxUpdateRange) > component.ProjectorRange)
-            throw new InvalidOperationException($"Hologram {ToPrettyString(uid):player}'s projector range is higher than PVS range- This will cause mispredicting.");
+            throw new InvalidOperationException($"Hologram {ToPrettyString(uid):entity}'s projector range is higher than PVS range- This will cause mispredicting.");
     }
 }
