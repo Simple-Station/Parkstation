@@ -1,14 +1,18 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:ui="clr-namespace:Content.Client.Pinpointer.UI"
     MinWidth="450" MinHeight="350" Title="{Loc ai-warp-menu-title}">
-    <BoxContainer Name="Box" Orientation="Vertical" Margin="5">
-        <BoxContainer Orientation="Horizontal" Margin="0 5 0 5">
-            <LineEdit Name="SearchBar" PlaceHolder="{Loc 'ai-warp-menu-search-placeholder'}" HorizontalExpand="True" Margin="0 0 2 0"/>
-            <Button Name="Refresh" Text="{Loc 'ai-warp-menu-refresh'}" Margin="2 0 0 0"/>
-        </BoxContainer>
+    <BoxContainer Orientation="Horizontal" Margin="5">
+        <BoxContainer Name="Box" Orientation="Vertical" Margin="5">
+            <BoxContainer Orientation="Horizontal" Margin="0 5 0 5">
+                <LineEdit Name="SearchBar" PlaceHolder="{Loc 'ai-warp-menu-search-placeholder'}" HorizontalExpand="True" Margin="0 0 2 0"/>
+                <Button Name="Refresh" Text="{Loc 'ai-warp-menu-refresh'}" Margin="2 0 0 0"/>
+            </BoxContainer>
 
-        <Label Name="Text" Text="{Loc 'ai-warp-menu-no-cameras'}" />
-        <TabContainer Name="SubnetList" VerticalExpand="True" Margin="0 5" />
+            <Label Name="Text" Text="{Loc 'ai-warp-menu-no-cameras'}" />
+            <ItemList Name="CameraList" VerticalExpand="True" Margin="0 5" />
+        </BoxContainer>
+        <ui:NavMapControl Name="StationMap"/>
     </BoxContainer>
 </controls:FancyWindow>

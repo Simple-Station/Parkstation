@@ -1,5 +1,6 @@
 using Content.Shared.SimpleStation14.StationAI;
 using Content.Shared.SimpleStation14.StationAI.Events;
+using Robust.Shared.Map;
 
 namespace Content.Server.SimpleStation14.StationAI.Systems
 {
@@ -21,14 +22,14 @@ namespace Content.Server.SimpleStation14.StationAI.Systems
             if (!_entityManager.TryGetComponent<AIEyeComponent>(args.Owner, out var _))
                 return;
 
-            var transform = Transform(args.Owner);
-            var cameraTransform = Transform(args.Camera);
+            var aiTransform = Transform(args.Owner);
+            if (aiTransform.GridUid == null)
+                return; // Not dealing with this right now.
 
-            if (transform.MapID != cameraTransform.MapID)
-                return;
+            var warpPosition = args.Coords;
 
-            _transformSystem.SetCoordinates(args.Owner, cameraTransform.Coordinates);
-            transform.AttachToGridOrMap();
+            _transformSystem.SetCoordinates(args.Owner, warpPosition);
+            _transformSystem.AttachToGridOrMap(args.Owner, aiTransform);
         }
     }
 }

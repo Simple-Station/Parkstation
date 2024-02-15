@@ -1,5 +1,6 @@
 using Robust.Client.GameObjects;
 using Content.Shared.SimpleStation14.StationAI.Events;
+using Robust.Shared.Physics;
 
 namespace Content.Client.SimpleStation14.StationAI.UI
 {
@@ -8,12 +9,14 @@ namespace Content.Client.SimpleStation14.StationAI.UI
     /// </summary>
     public sealed class AICameraListBoundUserInterface : BoundUserInterface
     {
+        // [Dependency] private readonly TransformSystem _transform = default!;
+
         private AICameraList _window = new AICameraList();
 
         public AICameraListBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
             _window.TryUpdateCameraList += () => SendMessage(new AICameraListMessage(Owner));
-            _window.WarpToCamera += (uid) => SendMessage(new AICameraWarpMessage(Owner, uid));
+            _window.PositionSelected += (pos) => SendMessage(new AICameraWarpMessage(Owner, pos));
         }
 
         protected override void Open()
@@ -21,6 +24,7 @@ namespace Content.Client.SimpleStation14.StationAI.UI
             base.Open();
 
             if (State != null) UpdateState(State);
+            _window.SetGrid(Owner);
 
             _window.OpenCentered();
         }

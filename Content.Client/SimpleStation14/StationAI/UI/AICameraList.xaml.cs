@@ -5,121 +5,96 @@ using Robust.Client.UserInterface.XAML;
 using Content.Shared.SimpleStation14.StationAI;
 using Robust.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.SimpleStation14.StationAI.Events;
+using System.Numerics;
+using Robust.Shared.Map;
+using Robust.Client.GameObjects;
+using Robust.Client.UserInterface;
+using Robust.Shared.Input;
 
-namespace Content.Client.SimpleStation14.StationAI.UI
+namespace Content.Client.SimpleStation14.StationAI.UI;
+
+[GenerateTypedNameReferences]
+public sealed partial class AICameraList : FancyWindow
 {
-    [GenerateTypedNameReferences]
-    public sealed partial class AICameraList : FancyWindow
+    // [Dependency] private readonly SharedTransformSystem _transform = default!;
+
+    private List<AIBoundUserInterfaceState.CameraData> _cameras = new();
+    public event Action? TryUpdateCameraList;
+    public event Action<EntityCoordinates>? PositionSelected;
+
+    public AICameraList()
     {
-        private List<EntityUid> _cameras = new();
-        public event Action? TryUpdateCameraList;
-        public event Action<EntityUid>? WarpToCamera;
+        RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this);
 
-        public AICameraList()
+        SearchBar.OnTextChanged += (_) => FillCameraList(SearchBar.Text);
+        Refresh.OnPressed += (_) => UpdateCameraList();
+        CameraList.OnItemSelected += ItemSelected;
+
+        StationMap.MapPosRightClicked += OnMapPosClicked;
+    }
+
+    public void SetGrid(EntityUid owner)
+    {
+        if (IoCManager.Resolve<IEntityManager>().System<SharedTransformSystem>().TryGetMapOrGridCoordinates(owner, out var coords))
+            StationMap.MapUid = coords.Value.EntityId;
+    }
+
+    private void ItemSelected(ItemList.ItemListSelectedEventArgs obj)
+    {
+        var meta = obj.ItemList[obj.ItemIndex].Metadata;
+        if (meta == null ||
+            meta is not EntityCoordinates pos)
+            return;
+
+        PositionSelected?.Invoke(pos);
+    }
+
+    private void FillCameraList(string? filter = null)
+    {
+        CameraList.Clear();
+
+        if (_cameras.Count == 0)
         {
-            RobustXamlLoader.Load(this);
-
-            SearchBar.OnTextChanged += (_) => FillCameraList(SearchBar.Text);
-            Refresh.OnPressed += (_) => UpdateCameraList();
+            Text.Text = Loc.GetString("ai-warp-menu-no-cameras");
+            return;
         }
 
-        private void ItemSelected(ItemList.ItemListSelectedEventArgs obj)
-        {
-            var meta = obj.ItemList[obj.ItemIndex].Metadata;
-            if (meta == null ||
-                meta is not AICameraComponent camera ||
-                camera.Enabled == false)
-                return;
+        Text.Text = Loc.GetString("ai-warp-menu-select-camera");
 
-            WarpToCamera?.Invoke(camera.Owner);
+        foreach (var cameraData in _cameras)
+        {
+            StationMap.TrackedCoordinates.TryAdd(cameraData.Coords, (true, cameraData.Active ? Color.Green : Color.Red));
+
+            var item = new ItemList.Item(CameraList)
+            {
+                Text = cameraData.Name,
+                Metadata = cameraData.Coords,
+                Icon = Theme.ResolveTexture("/Textures/Interface/whitedot.png"),
+                IconModulate = cameraData.Active ? Color.Green : Color.Red,
+                Selectable = cameraData.Active,
+
+            };
+
+            CameraList.Add(item);
+        }
+    }
+
+    private void OnMapPosClicked(EntityCoordinates coords)
+    {
+        PositionSelected?.Invoke(coords);
+    }
+
+    public void UpdateCameraList(List<AIBoundUserInterfaceState.CameraData>? cameras = null)
+    {
+        if (cameras == null)
+        {
+            TryUpdateCameraList?.Invoke();
+            return;
         }
 
-        private void FillCameraList(string? filter = null)
-        {
-            foreach (var child in SubnetList.Children.ToArray())
-            {
-                child.Dispose();
-            }
-
-            if (_cameras.Count == 0)
-            {
-                Text.Text = Loc.GetString("ai-warp-menu-no-cameras");
-                return;
-            }
-
-            Text.Text = Loc.GetString("ai-warp-menu-select-camera");
-
-            var namedCameraList = new List<(string, List<string>, EntityUid)>();
-            var categoryList = new List<string>();
-
-            foreach (var uid in _cameras.ToArray())
-            {
-                if (!IoCManager.Resolve<IEntityManager>().TryGetComponent<AICameraComponent>(uid, out var camera)) continue;
-
-                if (camera.Enabled == false) continue;
-
-                namedCameraList.Add((camera.CameraName, camera.CameraCategories, uid));
-            }
-
-            namedCameraList.Sort((a, b) => a.Item1.CompareTo(b.Item1));
-
-            foreach (var (name, categories, uid) in namedCameraList.ToArray())
-            {
-                if (categories.Count == 0) continue;
-
-                foreach (var category in categories.ToArray().Where(category => !categoryList.Contains(category.Replace("SurveillanceCamera", ""))))
-                {
-                    categoryList.Add(category.Replace("SurveillanceCamera", ""));
-                }
-            }
-
-            categoryList.Sort();
-
-            foreach (var tab in categoryList.ToArray().Select(category => new ItemList()
-                     {
-                         Name = category
-                     }))
-            {
-                tab.OnItemSelected += ItemSelected;
-                SubnetList.AddChild(tab);
-            }
-
-            foreach (var (name, categories, uid) in namedCameraList.ToArray())
-            {
-                if (!string.IsNullOrEmpty(filter) && !name.ToLowerInvariant().Contains(filter.Trim().ToLowerInvariant()))
-                    continue;
-
-                if (!IoCManager.Resolve<IEntityManager>().TryGetComponent<AICameraComponent>(uid, out var camera)) continue;
-
-                if (camera.Enabled == false) continue;
-
-                foreach (var category in categories.ToArray())
-                foreach (var child in SubnetList.Children.ToArray())
-                {
-                    if (child.Name != category.Replace("SurveillanceCamera", "")) continue;
-                    if (child is not ItemList list) continue;
-
-                    ItemList.Item cameraItem = new(list)
-                    {
-                        Metadata = camera,
-                        Text = camera.CameraName
-                    };
-
-                    list.Add(cameraItem);
-                }
-            }
-        }
-
-        public void UpdateCameraList(List<EntityUid>? cameras = null)
-        {
-            if (cameras == null)
-            {
-                TryUpdateCameraList?.Invoke();
-                return;
-            }
-
-            _cameras = cameras;
-            FillCameraList();
-        }
+        _cameras = cameras;
+        FillCameraList();
     }
 }

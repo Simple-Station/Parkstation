@@ -31,3 +31,5 @@
           - Captain
           availableJobs:
             Captain: [ -1, -1 ]
+            SAI: [ -1, -1 ]
+            Assistant: [ -1, -1 ]

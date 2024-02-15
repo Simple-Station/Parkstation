@@ -9,6 +9,7 @@ namespace Content.Server.SimpleStation14.StationAI.Systems
     public sealed class AICameraList : EntitySystem
     {
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
+        [Dependency] private readonly TransformSystem _transform = default!;
 
         public override void Initialize()
         {
@@ -23,8 +24,15 @@ namespace Content.Server.SimpleStation14.StationAI.Systems
             if (!EntityManager.TryGetComponent<AIEyeComponent>(args.Owner, out var _))
                 return;
 
-            var cameras = EntityManager.EntityQuery<SurveillanceCameraComponent>();
-            var cameraList = cameras.Select(camera => camera.Owner).ToList();
+            if (!_transform.TryGetMapOrGridCoordinates(args.Owner, out var aiCoords))
+                return;
+
+            var cameraList = new List<AIBoundUserInterfaceState.CameraData>();
+
+            var query = EntityQueryEnumerator<SurveillanceCameraComponent>();
+            while (query.MoveNext(out var camera, out var cameraComp)) // Get all cameras.
+                if (_transform.TryGetMapOrGridCoordinates(camera, out var coords) && coords.Value.EntityId == aiCoords.Value.EntityId) // Check if they're on the same grid as the AI.
+                    cameraList.Add(new(cameraComp.CameraId, coords.Value, cameraComp.Active)); // Add all the relevant data.
 
             var ui = _userInterfaceSystem.GetUi(args.Owner, args.UiKey);
             var state = new AIBoundUserInterfaceState(cameraList);

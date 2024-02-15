@@ -46,7 +46,7 @@ public sealed class SharedAiEyeSystem : EntitySystem
 
         if (serverLinkedComp.LinkedServer != args.Projector)
         {
-            Log.Error($"Projector {args.Projector} is not valid for eye {eyeUid}");
+            // Log.Error($"Projector {args.Projector} is not valid for eye {eyeUid}");
             args.Valid = false;
         }
 

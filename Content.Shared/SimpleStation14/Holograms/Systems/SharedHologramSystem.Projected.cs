@@ -148,10 +148,10 @@ public partial class SharedHologramSystem
 
         if (raiseEvent)
         {
-            Log.Error($"Raising event on hologram {ToPrettyString(hologram):player} to check if projector {ToPrettyString(projector.Value):entity} is valid."); //TODO: HOLO Debug stuff.
+            // Log.Error($"Raising event on hologram {ToPrettyString(hologram):player} to check if projector {ToPrettyString(projector.Value):entity} is valid."); //TODO: HOLO Debug stuff.
             var validCheckEvent = new HologramCheckProjectorValidEvent(projector.Value);
             RaiseLocalEvent(hologram, ref validCheckEvent);
-            Log.Error($"Result: {validCheckEvent.Valid}");
+            // Log.Error($"Result: {validCheckEvent.Valid}");
             if (validCheckEvent.Valid != null)
                 return validCheckEvent.Valid.Value;
         }

@@ -23,6 +23,8 @@ public sealed class NavMapControl : MapGridControl
 
     public EntityUid? MapUid;
 
+    public event Action<EntityCoordinates>? MapPosRightClicked;
+
 
     public Dictionary<EntityCoordinates, (bool Visible, Color Color)> TrackedCoordinates = new();
 
@@ -111,6 +113,21 @@ public sealed class NavMapControl : MapGridControl
         if (args.Function == EngineKeyFunctions.Use)
         {
             _draggin = true;
+        }
+
+        if (args.Function == EngineKeyFunctions.UIRightClick)
+        {
+            if (MapUid == null)
+                return;
+
+            var clickPos = args.RelativePosition;
+            var worldPos = new Vector2((clickPos.X - Width / 2f) / MidPoint * WorldRange + _offset.X,
+            (Height / 2f - clickPos.Y) / MidPoint * WorldRange + _offset.Y);
+
+            var mapPos = new EntityCoordinates(MapUid.Value, worldPos);
+
+            Logger.Debug($"Clicked on {mapPos}");
+            MapPosRightClicked?.Invoke(mapPos);
         }
     }
 
