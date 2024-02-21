@@ -1,0 +1,57 @@
+- type: gameMap
+  id: GusStation
+  mapName: 'GusStation'
+  mapPath: /Maps/gusstation.yml
+  minPlayers: 0
+  stations:
+    gusstation:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Aegis {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'AU'
+        - type: StationEmergencyShuttle
+          emergencyShuttle: /Maps/Shuttles/NTES_Kaeri.yml
+        - type: StationJobs
+          overflowJobs:
+            - Passenger
+          availableJobs:
+            Passenger: [ -1, -1 ]
+            SAI: [1, 1]
+            ChiefServiceSupervisor: [ 1, 1]
+            Bartender: [ 1, 2 ]
+            Botanist: [ 2, 3 ]
+            Boxer: [ 2, 3 ]
+            MartialArtist: [ 2, 2 ]
+            Chef: [ 1, 2 ]
+            Clown: [ 1, 1 ]
+            Robot: [ 2, 3 ]
+            Janitor: [ 2, 3 ]
+            Mime: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 4, 6 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MailCarrier: [ 2, 2 ]
+            MedicalDoctor: [ 4, 6 ]
+            MedicalRobot: [ 1, 2 ]
+            Mystagogue: [ 1, 1 ]
+            Epistemologist: [ 3, 5 ]
+            HeadOfSecurity: [ 1, 1 ]
+            SecurityOfficer: [ 4, 6 ]
+            ForensicMantis: [ 1, 1 ]
+            Paramedic: [ 2, 3 ]
+            Chaplain: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityCadet: [ 3, 3 ]
+            Lawyer: [ 2, 2 ]
+            Quartermaster: [ 3, 4 ]
+            SalvageTechnician: [ 3, 3 ]
+            Musician: [1, 2]
+            AtmosphericTechnician: [ 1, 3 ]
+            ServiceWorker: [ 2, 3 ]
+            Reporter: [ 1, 2 ]
+            Psychologist: [ 1, 1 ]
+            Prisoner: [ 2, 3 ]
